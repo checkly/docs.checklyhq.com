@@ -11,7 +11,8 @@
     "copy-api-docs": "gulp api-docs",
     "deploy": "vercel --prod",
     "lint": "eslint src",
-    "start": "gulp api-docs && gulp server"
+    "start": "gulp api-docs && gulp server",
+    "start:api": "serve -d src/api-docs"
   },
   "license": "MIT",
   "dependencies": {
@@ -61,6 +62,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "s3-deploy": "^1.4.0",
+    "serve": "^11.3.2",
     "shins": "^2.4.1-0",
     "widdershins": "^3.6.7"
   },
