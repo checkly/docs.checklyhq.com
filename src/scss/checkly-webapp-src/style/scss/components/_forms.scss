@@ -1,0 +1,145 @@
+.form-header {
+  font-size: $font-size-h5;
+  font-weight: $headings-font-weight;
+  margin-bottom: $spacer-y;
+  color: $gray-dark;
+}
+
+.form-text {
+  display: block;
+  margin-bottom: $spacer-y;
+}
+
+.form-link-button {
+  display: block;
+  font-weight: $headings-font-weight;
+  font-size: $font-size-sm;
+  color: $brand-primary;
+  margin-bottom: .5 * $spacer-y;
+  margin-left: .2 * $spacer-x;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:before {
+    content: '\F217';
+    font-family: Ionicons;
+    display: inline-block;
+    margin-right: .5 * $spacer-x;
+  }
+}
+
+.form-control-big {
+  padding: .75rem 1rem;
+}
+
+.form-toggle-link {
+  display: block;
+  font-weight: $headings-font-weight;
+  font-size: $font-size-sm;
+  color: $brand-primary;
+  margin-bottom: .5 * $spacer-y;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:before {
+    text-transform: none;
+    content: '\f123';
+    display: inline-block;
+    font-family: Ionicons;
+    margin-right: .5 * $spacer-x;
+  }
+
+  &.open:before {
+    text-transform: none;
+    content: '\f126';
+  }
+}
+
+.form-toggle-link-rl {
+  display: block;
+  font-weight: $headings-font-weight;
+  font-size: $font-size-sm;
+  color: $brand-primary;
+  margin-bottom: .5 * $spacer-y;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:before {
+    text-transform: none;
+    content: '\f125';
+    display: inline-block;
+    font-family: Ionicons;
+    margin-right: .5 * $spacer-x;
+  }
+
+  &.open:before {
+    text-transform: none;
+    content: '\f124';
+  }
+}
+
+.form-control-label {
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: 500;
+  color: $gray-dark;
+}
+
+.form-toggle-header {
+  cursor: pointer;
+}
+
+.form-control:disabled {
+  opacity: .6;
+}
+
+input {
+  &.form-control-static {
+    pointer-events: none;
+    width: 100%;
+  }
+}
+
+
+.form-container {
+  padding: 1.75 * $spacer 2 * $spacer;
+  border: 1px solid $gray-light;
+  margin-bottom: 2 * $spacer-y;
+  border-radius: $border-radius;
+
+  .form-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .form-section:not(:last-child) {
+    padding-bottom: .5 * $spacer-y;
+  }
+
+  &.form-container-dashed {
+    border: 1px dashed $gray-light;
+  }
+}
+
+.form-section {
+  margin-bottom: $spacer-y;
+}
+
+.form-sub-section {
+  margin-left: $spacer-x;
+}
+
+// Form validation states
+
+.has-danger {
+  @include form-control-validation($brand-danger);
+
+  .form-control {
+    border-color: lighten($brand-danger, 30%) !important;
+  }
+  .form-control-danger {
+    background-color: lighten($brand-danger, 30%);
+
+    &.custom-select {
+      background-size: 1.125rem;
+    }
+  }
+}
+

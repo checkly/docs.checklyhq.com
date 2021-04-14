@@ -1,0 +1,10 @@
+{{ $script := .Get 0 }}
+{{ $framework := .Get 1 }}
+<div
+  class="run-in-checkly"
+  data-script="{{ $script }}"
+  data-framework="{{ $framework }}"
+>
+  <img src="/learn/icons/zap.svg" class="mr-1" />
+  Run in Checkly
+</div>

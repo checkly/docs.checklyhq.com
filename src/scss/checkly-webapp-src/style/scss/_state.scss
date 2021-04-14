@@ -1,0 +1,16 @@
+$state-success-text:             #3f6910;
+$state-success-bg:               transparentize($brand-success, 0.92);
+$state-success-border:           #e5f8d1;
+
+$state-info-text:                darken($brand-primary, 35%);
+$state-info-bg:                  lighten($brand-primary, 35%);
+$state-info-border:              #d9edf7;
+
+$state-warning-text:             #786600;
+$state-warning-bg:               #fff7c9;
+$mark-bg:                        $state-warning-bg;
+$state-warning-border:           #fff7c9;
+
+$state-danger-text:              #801f00;
+$state-danger-bg:                transparentize($brand-danger, 0.92);
+$state-danger-border:            #ffe2e2;

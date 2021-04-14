@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head" . }}
+
+<body>
+  {{ partial "navbar" . }}
+  {{ block "main" . }}
+  {{ end }}
+  {{ partial "footer" . }}
+  {{ partial "scripts" . }}
+  <script src="/js/whyCheckly.js"></script>
+</body>
+</html>

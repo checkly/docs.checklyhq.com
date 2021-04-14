@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <div class="main container pt-5">
+
+        {{ partial "alternativeto/alternativeto-hero-section" . }}
+        {{ partial "testimonial-quote-full-width-1" . }}
+        <span class="product markdown">{{.Content}}</span>
+  </div>
+  {{ partial "start-for-free-row" . }}
+{{end}}

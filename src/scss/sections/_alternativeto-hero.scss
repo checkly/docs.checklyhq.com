@@ -1,0 +1,58 @@
+@import '../variables';
+
+.alternativeto-hero-section {
+  height: 450px;
+  overflow: hidden;
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  background-size: 100%;
+  margin-bottom: $section-bottom-margin + 2 * $spacer-y;
+  border-bottom: 1px solid $gray-light;
+
+  .alternativeto-hero-text {
+    font-weight: 500;
+    font-size: 3rem;
+  }
+
+  .alternativeto-hero-sub {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 2rem !important;
+    margin-bottom: 1rem;
+    color: $body-text;
+  }
+
+  .alternativeto-hero-image {
+    @include screen-shadow();
+    border-radius: 5px;
+    border: 1px solid $gray-light;
+
+    @include media-breakpoint-up(xs) {
+      width: 360px;
+    }
+
+    @include media-breakpoint-up(sm) {
+      width: 480px;
+    }
+
+    @include media-breakpoint-up(md) {
+      width: 960px;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .alternativeto-hero-section {
+    margin-bottom: 2rem;
+    height: 700px;
+
+    .alternativeto-hero-text {
+      font-size: 2.5rem;
+      padding: $spacer 0 0 0;
+    }
+
+    .alternativeto-hero-sub {
+      font-size: 1.1rem;
+    }
+  }
+}

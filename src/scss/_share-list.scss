@@ -1,0 +1,53 @@
+.share-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: #fff;
+  }
+
+  @media (min-width: 60em) {
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+
+  .share-reddit {
+    background-color: #ff4500;
+  }
+
+  .share-twitter {
+    background-color: #55acee;
+  }
+
+  .share-hackernews {
+    background-color: #f60;
+  }
+
+  .share-facebook {
+    background-color: #3b5998;
+  }
+
+  .share-list-icon {
+    width: 44px;
+    height: 44px;
+    fill: #ffffff;
+    line-height: 1;
+    position: relative;
+    top: -1px;
+    max-width: 100%;
+    &.share-list-icon-large {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

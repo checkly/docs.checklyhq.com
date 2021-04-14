@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Checkly Public API v1.beta</title>
+    <link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: optional;
+        src: url('./fonts/Inter.var.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Source Code Pro';
+        src: url('./fonts/SourceCodePro-Regular.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: optional;
+      }
+
+      button.flwRQF, li.tab-success {
+        color: #13CE66 !important;
+      }
+
+      button.gQMVon, li.tab-error {
+        color: #ff4949 !important;
+      }
+
+      .react-tabs__tab-panel {
+        background: #272822 !important;
+        color: white !important;
+      }
+
+      .react-tabs__tab-panel span:first-of-type {
+        left: 0px !important;
+        top: -16px !important;
+        color: white !important;
+      }
+
+      .react-tabs__tab {
+        background: #E0E6ED !important;
+      }
+
+      .eizqEX, .bvqruL {
+        color: #fff !important;
+      }
+
+      h1, h2 {
+        margin: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="redoc"></div>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+
+    <script>
+      /* globals Redoc */
+      const options = {
+        'x-logo': {
+          'url': '/images/racoon_logo.svg',
+          'altText': 'Checkly logo'
+        },
+        'nativeScrollbars': false,
+        'hideDownloadButton': true,
+        'requiredPropsFirst': true,
+        'sortPropsAlphabetically': true,
+        'theme': {
+          'spacing': {
+            'unit': 5,
+            'sectionVertical': 20
+          },
+          'colors': {
+            'code': '#DFC350',
+            'primary': {
+              'code': 'red',
+              'main': '#43c9f1',
+              'success': '#13CE66',
+              'error': '#ff4949',
+              'info': '#45C8F1'
+            },
+            'http': {
+              'get': '#13CE66',
+              'post': '#45C8F1',
+              'put': '#FF659D',
+              'patch': '#ffc82c',
+              'delete': '#ff4949'
+            }
+          },
+          'menu': {
+            'textColor': '#1f2d3d',
+            'backgroundColor': '#fff',
+            'activeTextColor': '#43c9f1'
+          },
+          'logo': {
+            'gutter': '25px'
+          },
+          'schemaView': {
+            'linesColor': 'red'
+          },
+          'typography': {
+            'fontFamily': '"Inter", system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            'fontWeightBold': 900,
+            'headings': {
+              'fontWeight': 600,
+              'lineHeight': 1.2,
+              'fontFamily': '"Inter", system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            },
+            'code': {
+              'fontFamily': '"Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+              'color': '#1f2d3d',
+              'backgroundColor': 'transparent',
+              'wrap': true
+            }
+          },
+          'rightPanel': {
+            'backgroundColor': '#F9FAFC',
+            'textColor': '#3c4858'
+          }
+        }
+      }
+
+      Redoc.init('https://api.checklyhq.com/swagger.json', options, document.getElementById('redoc'))
+    </script>
+  </body>
+</html>

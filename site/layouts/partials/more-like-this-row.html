@@ -1,0 +1,2 @@
+<section class="more-like-this-row"><div class="container"><div class="row"><div class="col-sm-12 col-lg-8 offset-lg-2 mb-4"> {{ $related := .Site.RegularPages.Related . | first 3 }} 
+ {{ with $related }} <div class="text-center"><h4>More posts like this</h4><ul> {{ range . }} <li><a href="{{.RelPermalink }}">{{ .Title }}</a></li> {{ end }} </ul> {{ end }} </div></div></div></div></section>

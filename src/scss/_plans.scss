@@ -1,0 +1,121 @@
+.plans {
+  .card {
+    border-radius: 0;
+  }
+
+  .card-developer {
+    border-top: 6px solid $brand-warning;
+    min-height: 565px;
+  }
+
+  .card-starter {
+    border-top: 6px solid $pink;
+    min-height: 565px;
+  }
+
+  .card-growth {
+    border-top: 6px solid $green;
+    min-height: 565px;
+  }
+
+  .card-business {
+    border-top: 6px solid $brand-primary;
+    min-height: 565px;
+  }
+
+  .billing-cycle-toggler {
+    display: flex;
+    margin: auto;
+    width: 160px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .toggle {
+      width: 50%;
+      padding: .3rem .6rem;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: $font-size-xs;
+      transition: .3s cubic-bezier(0,0,0,1);
+      font-weight: $font-weight-bold;
+      background-color: $gray-lighter;
+      color: $gray;
+
+      &.toggle-left {
+        border-radius: $border-radius 0 0 $border-radius;
+      }
+
+      &.toggle-right {
+        border-radius: 0 $border-radius $border-radius 0;
+      }
+
+      &:hover {
+        background-color: $blue-light;
+      }
+
+
+      &.toggle-selected {
+        background-color: $brand-primary;
+        color: $white;
+      }
+    }
+  }
+
+  table.plans-features-table {
+    margin-bottom: $spacer-y;
+    tbody {
+      tr:first-child td {
+        border-top: none;
+      }
+
+      td.no-feature {
+        border-top: none;
+      }
+      td {
+        padding-left: 0;
+        color: $gray-dark;
+        &.has-feature {
+          &::before {
+            content: '\F121';
+            font-family: Ionicons;
+            display: inline-block;
+            margin-right: .5 * $spacer-x;
+            color: $brand-success;
+          }
+        }
+      }
+    }
+  }
+
+  .price-block {
+    font-size: $font-size-sm;
+    color: $gray;
+    white-space: nowrap;
+    .price {
+      font-size: 3rem;
+      margin-right: .2rem;
+      color: $gray-dark;
+      margin-bottom: 0;
+      &:before {
+        position: absolute;
+        font-size: 1.25rem;
+        font-weight: $font-weight-normal;
+        color: $gray-dark;
+        content: '$';
+        margin-left: -11px;
+        margin-top: 13px;
+      }
+    }
+  }
+
+  .strike-out-price {
+    font-size: 14px;
+    display: none;
+    margin-bottom: $spacer-y;
+    color: $gray;
+    text-decoration: line-through;
+  }
+
+}

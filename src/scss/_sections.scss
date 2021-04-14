@@ -1,0 +1,51 @@
+@import './checkly-webapp-src/style/scss/variables';
+@import 'variables.scss';
+
+section {
+  .section-lead-text {
+    font-size: 16px;
+    color: $body-text;
+  }
+
+  .section-super-header{
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .section-header {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .lead-text {
+    font-size: 1.125rem;
+  }
+
+  h5 {
+    font-weight: 600;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .section-header {
+      font-size: 2rem;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .section-header {
+      font-size: 1.5rem;
+      line-height: 1.6;
+    }
+    .display-4 {
+      font-size: 1.5rem;
+      line-height: 1.6;
+    }
+    .lead {
+      font-size: 14px;
+      line-height: 25.2px;
+    }
+  }
+}

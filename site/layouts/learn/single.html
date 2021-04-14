@@ -1,0 +1,37 @@
+{{ define "main" }}
+  <div class="d-flex container-fluid learn">
+    {{ partial "learn-menu" .}}
+    <div class="learn-page">
+      <article class="markdown">
+        <div class="d-flex search">
+          <div class="mobile-toc-button" id="mobile-toc-button">
+            <img src="/images/icons/toc-icon.svg" alt="table of contents" width="14" height="12" /> Table of contents
+          </div>
+          <form class="form-inline" id="search-form">
+            <img src="/docs/images/icons/search@2x.png" alt="search" with="16" height="16" />
+            <input class="form-control py-2" id="search" type="search" placeholder="Press / to search" />
+          </form>
+        </div>
+        <h1>{{ .Title }}</h1>
+        <div class="learn-toc-mobile mb-5 pt-3">
+          <div class="learn-toc-header mb-3 pt-3">On this page</div>
+          {{ .Page.TableOfContents }}
+        </div>
+        {{- .Content -}}
+      </article>
+      <hr class="pt-2 mb-2" />
+      {{if .PrevInSection}}
+      <div class="text-right mb-4 next-nav">
+        <a href="{{.PrevInSection.Permalink}}">Next: {{.PrevInSection.Title }}
+        </a>
+      </div>
+      {{end}}
+    </div>
+    <aside class="learn-toc mb-3">
+      <div id="tocMenu">
+        <div class="learn-toc-header">On this page</div>
+        {{ .Page.TableOfContents }}
+      </div>
+    </aside>
+  </div>
+{{end}}

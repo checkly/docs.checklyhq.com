@@ -1,0 +1,8 @@
+// Links
+//
+// Style anchor elements.
+
+$link-color:            $brand-primary;
+$link-decoration:       none !default;
+$link-hover-color:      darken($link-color, 15%);
+$link-hover-decoration: underline !default;

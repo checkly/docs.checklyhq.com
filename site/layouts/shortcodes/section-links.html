@@ -1,0 +1,8 @@
+
+<ul>
+  {{ range .Page.Paginator.Pages }}
+  <li>
+    <a href="{{ .Permalink }}">{{.Title}}</a>
+  </li>
+  {{ end }}
+</ul>

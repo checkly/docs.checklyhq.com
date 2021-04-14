@@ -1,0 +1,82 @@
+@import 'variables';
+
+@import './checkly-webapp-src/style/fonts/fonts.scss';
+@import './checkly-webapp-src/style/scss/style.scss';
+
+@import 'common';
+@import 'main';
+@import 'navbar';
+@import 'sections';
+@import 'landing';
+@import 'free-trial';
+@import 'footer';
+@import 'plans';
+@import 'docs';
+@import 'guides';
+@import 'learn';
+@import 'toc-sidebar';
+@import 'article';
+@import 'markdown';
+@import 'status-circle';
+@import 'syntax';
+@import 'blog';
+@import 'product';
+@import 'integrations';
+@import 'opensource';
+@import 'promo-banner';
+@import 'share-list';
+@import 'mailchimp-signup-row';
+@import 'more-like-this';
+@import 'pricing-v2';
+@import 'why-checkly';
+@import 'sections/hero';
+@import 'sections/api-monitoring';
+@import 'sections/alerting';
+@import 'sections/workflow';
+@import 'sections/results';
+@import 'sections/features';
+@import 'sections/all-features';
+@import 'sections/site-monitoring';
+@import 'sections/testimonials';
+@import 'sections/public-stats';
+@import 'sections/faq';
+@import 'sections/trusted-by';
+@import 'sections/e2e-pr';
+@import 'sections/alternativeto-hero';
+@import 'sections/learn-headless';
+
+
+body {
+  &.fixed-top-padding {
+    padding-top: 90px; // navbar height
+  }
+  color: $gray-dark;
+}
+
+@import '../css/vendor/pricing-tables.css';
+@import 'pricing-tables-checkly';
+
+@import '../css/vendor/ionicons/css/ionicons.min.css';
+
+
+.container {
+	padding-right: 24px;
+	padding-left: 24px;
+}
+
+.gray-section {
+	background: $ash;
+}
+
+@include media-breakpoint-down(md) {
+	.container {
+		width: 100%;
+	}
+}
+@include media-breakpoint-down(sm) {
+	.container {
+		width: 100%;
+		padding-right: 18px;
+		padding-left: 18px;
+	}
+}

@@ -1,0 +1,25 @@
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-min-width:             10rem !default;
+$dropdown-padding-y:             .5rem !default;
+$dropdown-margin-top:            .125rem !default;
+$dropdown-bg:                    $white;
+$dropdown-border-color:          rgba($black,.15);
+$dropdown-border-width:          $border-width;
+$dropdown-divider-bg:            $gray-lighter;
+$dropdown-box-shadow:            0 .5rem 1rem rgba(0,0,0,0.00);
+
+$dropdown-link-color:            $gray-dark;
+$dropdown-link-hover-color:      darken($gray-dark, 5%);
+$dropdown-link-hover-bg:         $gray-lightest;
+
+$dropdown-link-active-color:     $body-color;
+$dropdown-link-active-bg:        $component-active-bg;
+
+$dropdown-link-disabled-color:   $gray-light;
+
+$dropdown-item-padding-x:        1.5rem !default;
+
+$dropdown-header-color:          $gray;

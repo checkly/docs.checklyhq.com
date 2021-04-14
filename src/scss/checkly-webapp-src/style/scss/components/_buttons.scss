@@ -1,0 +1,125 @@
+.btn {
+  cursor: pointer;
+  letter-spacing: 0px;
+  transition: all .15s ease;
+  font-size: 1.125rem;
+
+  &.btn-link {
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  &:disabled {
+    transform: none;
+    box-shadow: none;
+  }
+
+  &.btn-no-focus:focus {
+    box-shadow: none;
+  }
+}
+
+.btn-xs {
+  padding: 0 .5rem;
+  font-size: $font-size-sm;
+}
+
+.btn-accent {
+  background-color: $pink;
+  border-color: $pink;
+  color: $white;
+}
+
+.btn-outline-accent {
+  color: $pink;
+  background-image: none;
+  background-color: transparent;
+  border-color: $pink;
+  &:hover {
+    background-color: $pink;
+    color: $white;
+  }
+}
+
+.btn-lg {
+  font-size: 1.1 * $font-size-base;
+  padding: 1rem 2rem;
+}
+
+.btn-inline-form {
+  padding: .5rem .75rem;
+  border: 0;
+}
+
+.btn-icon {
+  background: transparent;
+  font-family: "Ionicons";
+  color: $gray;
+  box-shadow: none;
+  &:hover {
+    color: $brand-primary;
+    box-shadow: none;
+  }
+}
+
+.btn-input-sized {
+  padding: .5rem .75rem !important;
+}
+$btnSpinnerDiameter: 20px;
+$btnSpinnerStrokeWidth: 2px;
+$btnSpinnerStrokeColor: $white;
+$btnSpinnerOpacity: 1;
+$btnSpinnerStrokeStyle: solid; // solid, dashed, dotted
+$btnSpinnerSpeed: .6s;
+
+.btn-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  border: $btnSpinnerStrokeWidth $btnSpinnerStrokeStyle $btnSpinnerStrokeColor;
+  border-top-color: $white;
+  border-left-color: rgba(0, 0, 0, 0);
+  margin-left: $spacer-x;
+  width: $btnSpinnerDiameter - ($btnSpinnerStrokeWidth * 2);
+  height: $btnSpinnerDiameter - ($btnSpinnerStrokeWidth * 2);
+  opacity: $btnSpinnerOpacity;
+  border-radius: 50%;
+  animation: btnSpinner $btnSpinnerSpeed infinite linear;
+  -webkit-animation: btnSpinner $btnSpinnerSpeed infinite linear;
+  &.btn-spinner-primary {
+    border-top-color: $blue;
+
+  }
+  &.btn-spinner-gray {
+    border-top-color: $gray;
+  }
+}
+
+@keyframes btnSpinner {
+  from { transform: rotate(0deg)   }
+  to   { transform: rotate(360deg) }
+}
+
+@-webkit-keyframes btnSpinner {
+  from { -webkit-transform: rotate(0deg)   }
+  to   { -webkit-transform: rotate(360deg) }
+}
+
+.btn-pill {
+  border-radius: 30px;
+}
+
+.btn-select {
+  @include button-variant($gray-dark, $white, lighten($gray, 20));
+  &:hover {
+    background: $white;
+  }
+  &:active {
+    background: $white !important;
+  }
+  &.dropdown-toggle {
+    background: $white !important;
+  }
+}
+

@@ -1,0 +1,6 @@
+{{ $alt := .Get "alt" }} {{ $image := .Get "img" }} {{ $class := .Get "class" }} {{ $width := .Get "width" }} {{ $height := .Get "height" }}
+<picture>
+  <source type="image/webp" srcset="{{ substr $image 0 -4 | safeURL }}.webp">
+  <source type="image/png" srcset="{{$image}}">
+  <img  class="{{$class}}" src="{{$image}}" alt="{{$alt}}" loading="lazy" width="{{$width}}" height="{{$height}}" />
+</picture>

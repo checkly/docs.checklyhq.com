@@ -1,0 +1,67 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+small {
+  font-size: 90% !important;
+}
+
+strong {
+  font-weight: 500;
+}
+
+a{
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+pre {
+  background-color: $gray-lightest;
+  padding: 10px;
+  padding-left: 15px;
+  border-radius: .25rem;
+}
+
+dt {
+  font-weight: $font-weight-bold !important;
+}
+
+[contenteditable="true"]{
+  white-space: nowrap;
+  overflow: hidden;
+}
+[contenteditable="true"] br {
+  display:none;
+
+}
+[contenteditable="true"] * {
+  display:inline;
+  white-space:nowrap;
+}

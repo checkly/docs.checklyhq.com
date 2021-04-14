@@ -1,0 +1,13 @@
+{
+  "index_name": "checkly_docs_learning",
+  "start_urls": ["https://www.checklyhq.com/learn/headless"],
+  "stop_urls": [
+    ".*(?<!/)$"
+  ],
+  "selectors": {
+    "lvl0": ".learn-page article h1",
+    "lvl1": ".learn-page article h2",
+    "lvl2": ".learn-page article h3",
+    "text": ".learn-page article p,.learn-page article ul,.learn-page article ol"
+  }
+}

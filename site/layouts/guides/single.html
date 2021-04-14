@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <div class="main container guides">
+    <div class="row">
+      <div class="col-sm-12 col-lg-10 offset-lg-1">
+      	<div class="guides__label">
+      		Checkly Guides
+      	</div>
+      	<h1 class="guides__title">{{.Title}}</h1>
+      	{{ if .Description }}
+      	<p class="guides__description">{{.Description}}</p>
+      	{{ end }}
+        <span class="markdown">{{.Content}}</span>
+      </div>
+    </div>
+    {{ partial "start-for-free-row" . }}
+  </div>
+{{end}}

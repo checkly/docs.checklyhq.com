@@ -1,0 +1,17 @@
+{
+  "name": "checklyhq.com",
+  "scope": "checkly",
+  "build": {
+    "env": {}
+  },
+  "routes": [
+    {
+      "src": "/.*",
+      "headers": {
+        "x-frame-options": "deny",
+        "x-xss-protection": "0",
+        "x-content-type-options": "nosniff"
+      }
+    }
+  ]
+}

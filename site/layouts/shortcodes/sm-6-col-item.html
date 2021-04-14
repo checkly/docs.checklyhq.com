@@ -1,0 +1,6 @@
+{{ $header := .Get "header" }} {{ $image := .Get "image" }}
+<div class="col-sm-6 mb-lg-3 px-md-5 pt-md-3">
+  <h3 class="section-header">{{$header}}</h3>
+  <p>{{.Inner | markdownify}}</p>
+  <img src="{{$image}}" alt="" />
+</div>

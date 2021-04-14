@@ -1,0 +1,101 @@
+<nav class="navbar {{ if .IsHome }} navbar-home {{ end }} navbar-toggleable-md">
+  <div class="container">
+    <button
+      class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent"><span></span><span></span><span></span>
+    </button>
+    <a class="navbar-brand mr-2" href="/">
+      <img src="/images/text_racoon_logo.svg" width="120" height="43" alt="checkly logo"/>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown" id="dropdown-li">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#">Product</a>
+          <div class="dropdown-menu big-drop-shadow product-dropdown" id="dropdown-menu">
+            <div class="dropmenu-triangle"></div>
+            <a class="dropdown-item" href="/product/api-monitoring/">
+              <div class="d-flex">
+                <div class="menu-icon">
+                  <img src="/images/icons/api.svg" alt="Api monitoring" width="32" height="32" />
+                </div>
+                <div>
+                  <div class="menu-title">API Monitoring</div>
+                  <div class="menu-text">Powerful HTTP-based checks to monitor all your APIs endpoints easily.</div>
+                </div>
+              </div>
+            </a>
+            <a class="dropdown-item" href="/product/synthetic-monitoring/">
+              <div class="d-flex">
+                <div class="menu-icon">
+                  <img src="/images/icons/chrome.svg" alt="Synthetic Monitoring" width="32" height="32" />
+                </div>
+                <div>
+                  <div class="menu-title">Synthetic Monitoring</div>
+                  <div class="menu-text">Open Source based E2E automation to monitor your web app continuously.</div>
+                </div>
+              </div>
+            </a>
+            <a class="dropdown-item" href="/product/alerting/">
+              <div class="d-flex">
+                <div class="menu-icon">
+                  <img src="/images/icons/alert.svg" alt="Alerting" width="32" height="32" />
+                </div>
+                <div>
+                  <div class="menu-title">Alerting</div>
+                  <div class="menu-text">Deep and reliable alerting to wake you up if things go wrong.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="/integrations">Integrations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="/docs">Docs</a></li>
+        <li class="nav-item dropdown" id="dropdown-li">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#">Learn</a>
+          <div class="dropdown-menu big-drop-shadow product-dropdown" id="dropdown-menu">
+            <div class="dropmenu-triangle"></div>
+            <a class="dropdown-item" href="/learn/headless/">
+              <div class="d-flex">
+                <div class="menu-icon">
+                  <img src="/images/icons/learn-puppeteer-playwright.svg" alt="Api monitoring" width="32" height="32" />
+                </div>
+                <div>
+                  <div class="menu-title">Puppeteer & Playwright</div>
+                  <div class="menu-text">Tips, tricks, and in-depth guides for headless browser automation.</div>
+                </div>
+              </div>
+            </a>
+            <!-- <a class="dropdown-item" href="/product/synthetic-monitoring/">
+              <div class="d-flex">
+                <div class="menu-icon">
+                  <img src="/images/icons/guides.svg" alt="Synthetic Monitoring" width="32" height="32" />
+                </div>
+                <div>
+                  <div class="menu-title">Guides</div>
+                  <div class="menu-text">Learn about API & E2E monitoring and testing.</div>
+                </div>
+              </div>
+            </a> -->
+            <a class="dropdown-item" href="https://blog.checklyhq.com">
+              <div class="d-flex">
+                <div class="menu-icon">
+                  <img src="/images/icons/blog-icon.svg" alt="Alerting" width="32" height="32" />
+                </div>
+                <div>
+                  <div class="menu-title">Blog</div>
+                  <div class="menu-text">Product updates and long content on engineering, DevOps, and SaaS.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <form class="form-inline my-2 my-lg-0 ml-md-3">
+          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="login-button" href="https://app.checklyhq.com/" rel="noopener">Log in</a>
+          <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="dashboard-button" style="display: none;" href="https://app.checklyhq.com/" rel="noopener">Dashboard<div class="ion-arrow-right-c d-inline ml-2"></div></a>
+          <a class="signup-button btn btn-success my-2 my-sm-0" data-signup="data-signup" href="https://app.checklyhq.com/signup" rel="noopener">Start for free</a>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>

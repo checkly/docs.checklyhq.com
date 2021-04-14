@@ -1,0 +1,22 @@
+{{$header_tag := .Get "headerTag"}} {{ $title := .Get "title" }} {{ $class := .Get "class" }} {{ $image := .Get "img" }} {{ $description := .Get "description"}}  {{ $link := .Get "link" }}
+
+<div class="{{$class}}">
+	{{ if $image }}
+	<div class="image-wrap">
+		{{ if eq $header_tag "h2"}}
+		<img src="{{$image}}" alt="{{$title}}" width="42" height="42" />
+		{{ else }}
+		<img src="{{$image}}" alt="{{$title}}" width="32" height="32" />
+		{{ end }}
+	</div>
+	{{ end }}
+	<div class="text-wrap">
+		{{ if eq $header_tag "h2"}}
+			<h2>{{$title}}</h2>
+		{{ else }}
+			<h3>{{$title}}</h3>
+		{{ end }}
+		<p>{{$description}}</p>
+		<a class="cta-link" href="{{$link}}">Read more</a>
+	</div>
+</div>

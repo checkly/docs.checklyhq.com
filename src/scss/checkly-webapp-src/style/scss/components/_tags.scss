@@ -1,0 +1,46 @@
+$tag-background: #ebfaff;
+
+.tag-list {
+  display: inline-flex;
+  align-items: baseline;
+
+  &.tag-edit-list {
+    .tag {
+      border-radius: 3px 0 0 3px;
+      margin-right: 0;
+    }
+
+    button.tag {
+      border-radius: 0 3px 3px 0;
+      margin-right: 0.5rem;
+      padding: .2rem .6rem;
+      border-left: 1px solid darken($tag-background, 10);
+    }
+  }
+
+  &.tag-list-xs {
+    .tag {
+      padding: 0 .4rem;
+      font-size: $font-size-xs;
+    }
+    button.tag {
+      border-radius: 0 3px 3px 0;
+      border: none;
+      margin-right: 0.5rem;
+      padding: 0 .3rem;
+      border-left: none;
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: .1rem .6rem;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+  background-color: $tag-background;
+  border-radius: 3px;
+  color: darken($brand-primary, 20);
+  font-size: $font-size-sm;
+}

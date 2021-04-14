@@ -1,0 +1,17 @@
+.flash {
+  padding: $spacer;
+  margin-bottom: $spacer;
+  border-radius: 0.25 * $spacer;
+  &.flash-info {
+    background-color: $state-info-bg;
+    color: $state-info-text;
+  }
+  &.flash-success {
+    background-color: $state-success-bg;
+    color: $state-success-text;
+  }
+  &.flash-danger {
+    background-color: $state-danger-bg;
+    color: $state-danger-text;
+  }
+}

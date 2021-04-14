@@ -1,0 +1,214 @@
+.markdown {
+  *[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -90px;
+    height: 90px;
+    visibility: hidden;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: $font-weight-seimi-bold;
+    padding-bottom: .5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: $font-weight-seimi-bold;
+    padding-bottom: .3em;
+  }
+
+  p {
+    color: $gray-dark;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+  }
+
+  blockquote {
+    padding: 0 1em;
+    border-left: 0.25rem solid $brand-primary;
+    background-color: transparentize($brand-primary, 0.95);
+    p {
+      padding: .75rem
+    }
+  }
+
+  pre {
+    padding: 1rem;
+    overflow: auto;
+    font-size: $font-size-sm;
+    line-height: 1.45;
+    border-radius: $border-radius;
+    background-color: #272822;
+    margin: 1.5rem 0;
+    &.chroma {
+      background-color: #272822;
+    }
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  ul, ol {
+    padding-left: 2rem;
+    line-height: $line-height-pub-site;
+
+    li {
+      margin-bottom: .5 * $spacer-y;
+      line-height: 26px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    color: $gray-dark;
+    font-size: 85%;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+  }
+
+  pre {
+    code {
+      border: none;
+      color: white;
+      font-size: 100%;
+    }
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: $gray-dark;
+    vertical-align: middle;
+    background-color: $gray-lightest;
+    border: solid 1px $gray-lighter;
+    border-bottom-color: $gray-light;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 $gray;
+  }
+
+  nav#TableOfContents {
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      li {
+        ul {
+          list-style-type: disc;
+          padding-left: 1rem;
+          li {
+             ul {
+               display: none;
+             }
+          }
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: $spacer-y;
+    thead {
+      tr {
+        th {
+          padding: 0.5rem;
+          border-bottom: 1px solid $gray-light;
+          color: $gray-dark;
+          text-transform: uppercase;
+          font-size: $font-size-xs;
+          font-family: 'fakt-soft', sans-serif;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 0.5rem;
+          border-bottom: 1px solid $gray-light;
+          //code {
+          //  padding: 0;
+          //  background: none;
+          //  border: none;
+          //  color: $gray-dark !important;
+          //}
+        }
+      }
+    }
+  }
+
+  .badge {
+    font-family: 'fakt-soft', sans-serif;
+  }
+
+  .markdown-tabs {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    border: 1solid $gray-light;
+    border-radius: $border-radius;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    label {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      border-bottom: 1px transparent;
+      cursor: pointer;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-size: .75rem;
+      color: $gray;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: .04rem;
+    }
+
+    .markdown-tabs-content {
+      order: 999; //Move content blocks to the end
+      width: 100%;
+      border-top: 1px solid $gray-light;
+      padding: 1rem;
+      display: none;
+    }
+
+    input[type="radio"]:checked + label {
+      border-bottom: 3px solid $brand-primary;
+      color: $brand-primary;
+    }
+    input[type="radio"]:checked + label + .markdown-tabs-content {
+      display: block;
+    }
+    input[type="radio"]:focus + label {
+      //@include outline
+    }
+
+    input.toggle {
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      opacity: 0;
+      position: absolute;
+    }
+  }
+
+}

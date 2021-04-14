@@ -1,0 +1,235 @@
+{{ define "main" }}
+<div class="main pt-5">
+  <div class="why-checkly">
+  	<section class="why-checkly__hero">
+  		<div class="container">
+	  		<h2 class="sub-title">
+	  			{{ .Params.hero.label }}
+	  		</h2>
+	  		<h1 class="display-3">{{ .Params.hero.title }}</h1>
+	  		<p class="lead-text">
+          {{ .Params.hero.description}}
+        </p>
+        <div>
+          <a class="signup-button btn btn-success btn-lg" data-signup="data-signup" href="https://app.checklyhq.com/signup" rel="noopener">
+            Start for free
+          </a>
+        </div>
+        <div class="logos">
+        	{{ range .Params.hero.logos }}
+        	  <img src={{.logo}} alt={{.alt}} width={{.width}} height={{.height}} />
+        	{{ end }}
+        </div>
+	  	</div>
+	  	<div class="hero-bg">
+      	<img src={{ .Params.hero.heroBg }} alt="hero background" width="1920" height="352" />
+      </div>
+  	</section>
+    <section class="why-checkly__features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 pr-lg-5 text-wrap">
+            <h2 class="section-header">
+              {{ .Params.feature.title }}
+            </h2>
+            <p class="lead-text">
+              {{ .Params.feature.description }}
+            </p>
+          </div>
+          <div class="col-lg-6 card-wrap">
+            {{ range .Params.feature.features }}
+              <div class="feature-card">
+                <div>
+                  <img src={{.icon}} alt={{.title}} width="52" height="52" />
+                </div>
+                <div>
+                  <h6>{{.title}}</h6>
+                  <p>{{.description}}</p>
+                </div>
+              </div>
+            {{ end }}
+            <div class="card-link-dots">
+              <img src="/why-checkly/card-link-vector.svg" alt="card link lines" width="191" height="358" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__video">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-header">
+            {{ .Params.videosection.title  }}
+          </h2>
+          <p class="lead-text">
+          {{ .Params.videosection.description }}
+          </p>
+          <div class="video-wrapper">
+            <video id="why-checkly-video" autoplay loop controls > 
+              <source src="{{.Params.videosection.video}}" type=video/mp4>
+            </video>
+            <div class="action-button video-play">
+              <img src="/why-checkly/play-button.svg" alt="play" width="72" heigt="72" />
+            </div>
+            <div class="action-button video-pause">
+              <img src="/why-checkly/pause-button.svg" alt="play" width="72" heigt="72" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__code">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-xl-6">
+            <div class="why-checkly__code__block">
+              <div class="title">
+                <span><></span> Editor
+              </div>
+              {{ .Content }}
+              <select id="why-checkly-select" style="background-image: url(/why-checkly/dropdown.svg)">
+                <option value="puppeteer">Puppeteer</option>
+                <option value="playwright">Playwright</option>
+              </select>  
+            </div>
+          </div>
+          <div class="col-lg-5 col-xl-6 pl-lg-5 text-wrap">
+            <h2 class="section-header">
+              {{ .Params.codes.title }}
+            </h2>
+            <p class="lead-text">
+              {{ .Params.codes.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__integrates">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-wrap">
+            <h2 class="section-header">
+              {{ .Params.integrates.title }}
+            </h2>
+            <p class="lead-text">
+              {{ .Params.integrates.description }}
+            </p>
+          </div>
+          <div class="col-lg-5 image-wrap">
+            <picture>
+              <source type="image/webp" srcset="{{ substr .Params.integrates.image 0 -4 | safeURL }}.webp">
+              <source type="image/png" srcset="{{ .Params.integrates.image }}">
+              <img src="{ .Params.integrates.image }}" alt="{{ .Params.integrates.title }}" loading="lazy" width="429" height="410" />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__monitor">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-xl-6 image-wrap">
+            <picture>
+              <source type="image/webp" srcset="{{ substr .Params.monitor.image 0 -4 | safeURL }}.webp">
+              <source type="image/png" srcset="{{ .Params.monitor.image }}">
+              <img class="big-drop-shadow rounded" src="{ .Params.monitor.image }}" alt="{{ .Params.monitor.title }}" loading="lazy" width="540" height="356" />
+            </picture>
+          </div>
+          <div class="col-lg-5 col-xl-6 pl-lg-5 text-wrap">
+            <h2 class="section-header">
+              {{ .Params.monitor.title }}
+            </h2>
+            <p class="lead-text">
+              {{ .Params.monitor.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__functions">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="icon-text-wrap">
+              <div class="icon-wrap">
+                <img src={{.Params.alerting.icon}} alt={{.Params.alerting.title}} width="45" height="45" />
+              </div>
+              <div>
+                <h4>{{ .Params.alerting.title }}</h4>
+                <p>{{ .Params.alerting.description }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="icon-text-wrap">
+              <div class="icon-wrap">
+                <img src={{.Params.open.icon}} alt={{.Params.open.title}} width="45" height="45" />
+              </div>
+              <div>
+                <h4>{{ .Params.open.title }}</h4>
+                <p>{{ .Params.open.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__testimonial">
+      <div class="container">
+        <div class="text-center">
+          <img class="mx-auto" src={{ .Params.testimonial.avatar }} alt={{ .Params.testimonial.author }} width="80" height="80" />
+          <div class="review-text">
+            {{ .Params.testimonial.description | safeHTML }}
+          </div>
+          <p class="lead-text">
+          {{ .Params.testimonial.author }}
+          </p>
+          <p>
+            {{ .Params.testimonial.role }} at
+            <span> <img src={{.Params.testimonial.companyLogo}} alt="company" width="107" height="20" /></span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="why-checkly__scale">
+      <div class="container">
+        <div class="section-header text-center">
+          {{ .Params.scale.title | safeHTML }}
+        </div>
+        <div class="row">
+          <div class="card card-light">
+            <h4>{{ .Params.scale.first.title }}</h4>
+            {{ range .Params.scale.first.features }}
+              <div class="icon-text-wrap">
+                <div class="icon-wrap">
+                  <img src="/why-checkly/star.svg" alt="star" width="22" height="21" />
+                </div>
+                <div>
+                  <h5>{{ .header }}</h5>
+                  <p>{{ .description }}</p>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+          <div class="card card-dark">
+            <h4>{{ .Params.scale.second.title }}</h4>
+            {{ range .Params.scale.second.features }}
+              <div class="icon-text-wrap">
+                <div class="icon-wrap">
+                  <img src="/why-checkly/star.svg" alt="star" width="22" height="21" />
+                </div>
+                <div>
+                  <h5>{{ .header }}</h5>
+                  <p>{{ .description }}</p>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+    {{ partial "start-for-free-row" . }}
+  </div>
+  
+</div>
+{{end}}

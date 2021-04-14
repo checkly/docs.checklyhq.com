@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <div class="main container pt-5">
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="product markdown">{{.Content}}</span>
+      </div>
+    </div>
+  </div>
+  {{ partial "start-for-free-row" . }}
+{{end}}

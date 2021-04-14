@@ -1,0 +1,23 @@
+@import '../variables';
+
+.public-stats-section {
+  text-align: center;
+  padding-bottom: 3 * $section-bottom-padding;
+
+  .counter-text {
+    color: $gray;
+    font-weight: 200;
+    font-size: $font-size-h2;
+  }
+  .counter {
+    color: $gray-dark;
+    margin: .5rem;
+    font-weight: 500;
+  }
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+  @include media-breakpoint-down(sm) {
+    padding-bottom: $section-bottom-padding;
+  }
+}

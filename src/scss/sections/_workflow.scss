@@ -1,0 +1,70 @@
+@import '../variables';
+
+.workflow-section {
+  padding-top: 1.4 * $section-top-padding;
+  padding-bottom: 1.7 * $section-bottom-padding;
+  background: $ash;
+
+  .display-4 {
+  	margin-bottom: 1px;
+  }
+  .lead {
+  	margin-bottom: 104px;
+  }
+  img {
+    height: 70px;
+  }
+  h5 {
+  	margin: 20px 0 9px;
+  }
+  .workflow-item {
+  	position: relative;
+  	padding-bottom: 20px;
+
+  	.cta-link {
+  		position: absolute;
+  		bottom: 0;
+  	}
+  }
+
+}
+@include media-breakpoint-down(md) {
+  .workflow-section {
+    padding-top: $section-top-padding;
+    padding-bottom: 10px;
+    .lead {
+      margin-bottom: 40px;
+    }
+    .workflow-item {
+      text-align: center;
+
+      .d-flex {
+        width: fit-content;
+        margin: auto;
+      }
+      .cta-link {
+        position: relative;
+      }   
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .workflow-section {
+    padding-top: 0.8 * $section-top-padding;
+    padding-bottom: 0;
+    .workflow-item {
+      text-align: center;
+      max-width: 400px;
+      margin: auto;
+
+      .d-flex {
+        width: fit-content;
+        margin: auto;
+      }
+      .cta-link {
+        position: relative;
+      }   
+    }
+  }
+}
+

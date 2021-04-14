@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{ partial "head" . }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+</head>
+
+<body>
+  {{ partial "navbar" . }}
+  {{ block "main" . }}
+  {{ end }}
+  {{ partial "scripts" . }}
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script src="/js/learn.js"></script>
+  <script>
+    docsearch({
+      apiKey: 'b2b616fdea14b860ff00c72fa72bf267',
+      indexName: 'checkly_learn',
+      appId: 'LCMJSZN73Z',
+      inputSelector: '#search',
+      debug: false
+    })
+  </script>
+</body>
+</html>

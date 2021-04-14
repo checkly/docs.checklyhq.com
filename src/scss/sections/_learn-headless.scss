@@ -1,0 +1,12 @@
+@import '../variables';
+
+.learn-headless-section {
+  padding-top: 4 * $section-top-padding;
+  padding-bottom: $section-bottom-padding;
+  background: $white;
+  margin-bottom: 30px;
+
+  img.pr-image {
+    width: 750px;
+  }
+}

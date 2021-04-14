@@ -1,0 +1,13 @@
+{
+  "index_name": "checkly_docs",
+  "start_urls": ["https://www.checklyhq.com/docs"],
+  "stop_urls": [
+    ".*(?<!/)$"
+  ],
+  "selectors": {
+    "lvl0": ".docs-page article h1",
+    "lvl1": ".docs-page article h2",
+    "lvl2": ".docs-page article h3",
+    "text": ".docs-page article p,.docs-page article ul,.docs-page article ol"
+  }
+}

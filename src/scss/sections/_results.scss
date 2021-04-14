@@ -1,0 +1,41 @@
+@import '../variables';
+
+.results-section {
+  padding-top: 1.4 * $section-top-padding;
+
+  height: 1041px;
+  overflow: hidden;
+
+  .display-4 {
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    margin-bottom: 20px;
+  }
+
+  .results-image {
+    @include screen-shadow();
+    border-radius: 5px;
+    border: 1px solid $gray-light;
+    margin-top: 50px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .results-section {
+    padding-top: $section-top-padding;
+    height: auto;
+    .results-image {
+      margin-bottom: -100px;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .results-section {
+    .results-image {
+      margin-top: 40px;
+    }
+  }
+}

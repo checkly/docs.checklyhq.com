@@ -1,0 +1,57 @@
+$white:  #fff;
+$black:  #1f2d3d;
+$red:    #FF4949;
+$orange: #F19B45;
+$yellow: #FFC82C;
+$green:  #13CE66;
+
+$blue:   #45C8F1;
+$blue-light: #EBFAFF;
+$blue-lightest: #F0F8FF;
+$teal:   #205E71;
+$pink:   #FF659D;
+$purple: #613d7c !default;
+
+// grayscale types & borders
+$gray-dark: #3c4858;
+$gray-darkish:              #697280;
+$gray:                      #8492A6;
+$gray-light:                #E0E6ED;
+$gray-lighter:              #EFF2F7;
+$gray-lightest:             #F9FAFC;
+
+// TNL: grayscale backgrounds and surfaces
+
+$ash-darker:                #e5e9f2;
+$ash-dark:                  #eff2f7;
+$ash:                       #f9fafc;
+
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             $blue;
+$brand-success:             $green;
+$brand-info:                $teal;
+$brand-warning:             $orange;
+$brand-danger:              $red;
+$brand-inverse:             $gray-dark;
+$brand-accent:              $pink;
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-rounded:            true !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:       $white;
+$body-color:    $gray-dark;
+$inverse-bg:    $gray-dark;
+$inverse-color: $gray-lighter;

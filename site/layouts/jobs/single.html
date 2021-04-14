@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <div class="main container py-5">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 offset-md-2">
+        <h1>{{.Title}}</h1>
+        <span class="markdown">{{.Content}}</span>
+        <div class="mt-5 card card-block">
+          <h4>How to apply</h4>
+          <p>
+            Send your application by email to
+            <a
+              href="mailto:jobs@checklyhq.com?subject=Applying for {{.Title}}"
+              >jobs@checklyhq.com</a
+            >. Remember to include a written motivation on why you want to
+            join Checkly and what motivates you in a job.
+          </p>
+          <a
+            class="btn btn-success text-white"
+            href="mailto:jobs@checklyhq.com?subject=Applying for {{.Title}}"
+            >Apply now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+{{end}}

@@ -1,0 +1,29 @@
+// Modals
+
+// Padding applied to the modal body
+$modal-inner-padding:         1 * $spacer 2 * $spacer 2 * $spacer 2 * $spacer;
+
+$modal-dialog-margin:         10px !default;
+//$modal-dialog-sm-up-margin-y: 15vh;
+
+$modal-title-line-height:     $line-height-base;
+
+$modal-content-bg:               $white;
+$modal-content-border-color:     $gray-light;
+$modal-content-border-width:     1px;
+$modal-content-xs-box-shadow:    0 3px 9px rgba($black,.5) !default;
+$modal-content-sm-up-box-shadow: 0 5px 15px rgba($black,.5) !default;
+
+$modal-backdrop-bg:           $gray-dark;
+$modal-backdrop-opacity:      .95;
+$modal-header-border-color:   $gray-light;
+$modal-footer-border-color:   $modal-header-border-color !default;
+$modal-header-border-width:   0px;
+$modal-footer-border-width:   1px;
+$modal-header-padding:        $spacer 2 * $spacer;
+
+$modal-lg:                    1000px;
+$modal-md:                    500px !default;
+$modal-sm:                    300px !default;
+
+$modal-transition:            transform .3s ease-out !default;

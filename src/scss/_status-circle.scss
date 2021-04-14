@@ -1,0 +1,87 @@
+$circle-width-medium: 2.5em;
+$circle-width-small: 1.5em;
+$circle-width-large: 3.5em;
+$circle-width-huge: 5.5em;
+
+.status-circle {
+  border-radius: 50%;
+  color: $white;
+  text-align: center;
+  .status-circle-icon {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-top: 12px;
+    fill: white;
+    stroke-width: 0;
+  }
+
+  &.small {
+    width: $circle-width-small;
+    height: $circle-width-small;
+    line-height: $circle-width-small;
+    i {
+      width: $circle-width-small;
+    }
+
+    .status-circle-icon {
+      width: 45%;
+      margin-top: 5px;
+      stroke-width: 1;
+    }
+
+  }
+
+  &.medium {
+    width: $circle-width-medium;
+    height: $circle-width-medium;
+    line-height: $circle-width-medium;
+    i {
+      width: $circle-width-medium;
+      height: $circle-width-medium;
+      line-height: $circle-width-medium + .35em;
+    }
+  }
+
+  &.large {
+    width: $circle-width-large;
+    height: $circle-width-large;
+    line-height: $circle-width-large;
+    i {
+      width: $circle-width-large;
+    }
+
+    .status-circle-icon {
+      width: 45%;
+      margin-top: 16px;
+      stroke-width: 1;
+    }
+  }
+
+  &.huge {
+    width: $circle-width-huge;
+    height: $circle-width-huge;
+    line-height: $circle-width-huge;
+    i {
+      width: $circle-width-huge;
+    }
+  }
+
+  &.success {
+    @extend .status-circle;
+    background-color: $brand-success;
+  }
+
+  &.fail {
+    @extend .status-circle;
+    background-color: $brand-danger;
+  }
+  &.muted {
+    @extend .status-circle;
+    background-color: $gray;
+  }
+  &.deactivated {
+    @extend .status-circle;
+    background-color: $gray-light;
+  }
+}

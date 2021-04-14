@@ -1,0 +1,51 @@
+<aside class="docs-menu">
+  <nav id="sideMenu" class="left-transform right-transform">
+    <a
+      class="api-reference-link"
+      href="/docs/api"
+      target="_blank"
+    >
+      API reference
+    </a>
+    <ul class="docs-menu-content">
+      {{ $currentPage := . }}
+      {{ range $index, $element:=.Site.Menus.docs }} {{ if .HasChildren }}
+      <li class='docs-menu-item'>
+        <div class='docs-menu-title{{ if $currentPage.HasMenuCurrent "docs" . }} active{{ end }}' id="{{$index}}">
+          <img src="{{.Pre}}" width="26" height="26" alt="{{.Name}}" />
+          {{.Name}}
+        </div>
+        <ul class='docs-menu-sub {{ if $currentPage.HasMenuCurrent "docs" . }}menu-display{{ end }}' id="docs-menu-{{$index}}">
+          {{range .Children}} {{ $has := $currentPage.IsMenuCurrent "docs" . }}
+          <li class="docs-menu-sub-item {{if $has}}active{{end}}">
+            <a href="{{.URL}}">
+              {{ partial "docs-title" . }}
+            </a>
+          </li>
+          {{end}}
+        </ul>
+      </li>
+      {{else}}
+      <li class="docs-menu-item" id="docs-menu-{{$index}}">
+        <div class="docs-menu-title">{{.Name}}</div>
+      </li>
+      {{end}} {{end}}
+    </ul>
+  </nav>
+  <div class="docs-menu-mobile-right-space">
+  </div>
+
+  <!-- Restore menu position as soon as possible to avoid flickering -->
+  <script>
+    (function () {
+      var menu = document.querySelector('aside.docs-menu nav')
+      addEventListener('beforeunload', function () {
+        localStorage.setItem('menu.scrollTop', menu.scrollTop)
+      })
+      menu.scrollTop = localStorage.getItem('menu.scrollTop')
+    })()
+  </script>
+
+</aside>
+
+

@@ -1,0 +1,20 @@
+// Badges
+
+$badge-default-bg:            $gray;
+$badge-primary-bg:            $brand-primary;
+$badge-success-bg:            $brand-success;
+$badge-info-bg:               $brand-info;
+$badge-warning-bg:            $brand-warning;
+$badge-danger-bg:             $brand-danger;
+
+$badge-color:                 $white !default;
+$badge-link-hover-color:      $white !default;
+$badge-font-size:             75% !default;
+$badge-font-weight:           $font-weight-base;
+$badge-padding-x:             .4em !default;
+$badge-padding-y:             .25em !default;
+
+$badge-pill-padding-x:        .6em !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius:    10rem !default;

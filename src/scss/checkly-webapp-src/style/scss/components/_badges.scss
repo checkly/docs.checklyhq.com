@@ -1,0 +1,36 @@
+.badge {
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.badge-sm {
+  padding: 3px 4px 3px 4px;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+.badge-accent {
+  background-color: $brand-accent;
+}
+
+.badge-counter {
+  vertical-align: text-top;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 6px;
+  color: $gray-darkish;
+  background-color: $gray-light;
+}
+
+.question-badge {
+  display: inline-block;
+  vertical-align: sub;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url("/static/images/icons/svg/question-mark.svg");
+}
+
+

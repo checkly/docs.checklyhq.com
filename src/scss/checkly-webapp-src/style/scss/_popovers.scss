@@ -1,0 +1,20 @@
+
+$popover-inner-padding:               1px;
+$popover-bg:                          $white;
+$popover-max-width:                   276px !default;
+$popover-border-width:                $border-width !default;
+$popover-border-color:                $gray-light;
+$popover-box-shadow:                  0 0 4px 1px rgba(31,45,61,.15);
+
+$popover-title-bg:                    darken($popover-bg, 3%);
+$popover-title-padding-x:             $spacer-x;
+$popover-title-padding-y:             $spacer-y;
+
+$popover-content-padding-x:           $spacer-x;
+$popover-content-padding-y:           $spacer-y;
+
+$popover-arrow-width:                 10px;
+$popover-arrow-color:                 $popover-bg;
+
+$popover-arrow-outer-width:           ($popover-arrow-width + 1px);
+$popover-arrow-outer-color:           fade-in($popover-border-color, .05);

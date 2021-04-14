@@ -1,0 +1,5 @@
+{{ $header := .Get 0 }} {{ $body := .Get 1 }}
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 grid-item">
+  <h5 class="add-star-before">{{$header}}</h5>
+  <p>{{$body | markdownify}}</p>
+</div>

@@ -1,0 +1,21 @@
+// Navs
+
+$nav-item-margin:               .2rem !default;
+$nav-item-inline-spacer:        1rem !default;
+$nav-link-padding:              .75em 1.5em;
+$nav-link-hover-bg:             $gray-light;
+$nav-disabled-link-color:       $gray-light;
+
+$nav-tabs-border-color:                       $gray-light;
+$nav-tabs-border-width:                       0;
+$nav-tabs-border-radius:                      $border-radius;
+$nav-tabs-link-hover-border-color:            transparent;
+$nav-tabs-active-link-hover-color:            $gray !default;
+$nav-tabs-active-link-hover-bg:               $body-bg !default;
+$nav-tabs-active-link-hover-border-color:     $gray-light;
+$nav-tabs-justified-link-border-color:        #ddd !default;
+$nav-tabs-justified-active-link-border-color: $body-bg !default;
+
+$nav-pills-border-radius:     $border-radius !default;
+$nav-pills-active-link-color: $component-active-color !default;
+$nav-pills-active-link-bg:    $component-active-bg !default;
