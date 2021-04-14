@@ -128,6 +128,28 @@ $(document).ready(() => {
 })
 
 /**
+ * Hover Dropdown
+ */
+
+$(document).ready(function() {
+  $('#dropdown-li').mouseenter(function(){
+    $('#dropdown-li').addClass('show');
+  })
+  $('#dropdown-menu, #dropdown-li').mouseleave(function() {
+    $('#dropdown-li').removeClass('show');
+  })
+})
+
+$(document).ready(function() {
+  $('#dropdown-li-learn').mouseenter(function(){
+    $('#dropdown-li-learn').addClass('show');
+  })
+  $('#dropdown-menu, #dropdown-li-learn').mouseleave(function() {
+    $('#dropdown-li-learn').removeClass('show');
+  })
+})
+
+/**
  * Pricing Toggle Card
  */
 $(document).ready(() => {

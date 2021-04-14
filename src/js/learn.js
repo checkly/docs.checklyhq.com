@@ -134,3 +134,4 @@ $('.run-in-checkly').on('click', function () {
       window.location.href = `${isDev ? 'http://localhost:8081' : 'https://app.checklyhq.com'}/checks/new/browser?framework=${data.framework}&script=${script}`
     })
 })
+

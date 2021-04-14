@@ -8,9 +8,10 @@
     "hugo": "gulp hugo",
     "build": "gulp build && npm run copy-api-docs",
     "build-preview": "gulp build-preview",
-    "start": "gulp api-docs && gulp server",
+    "copy-api-docs": "gulp api-docs",
+    "deploy": "vercel --prod",
     "lint": "eslint src",
-    "copy-api-docs": "gulp api-docs"
+    "start": "gulp api-docs && gulp server"
   },
   "license": "MIT",
   "dependencies": {

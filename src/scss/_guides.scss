@@ -1,3 +1,86 @@
+.guides__list {
+	max-width: 910px;
+	width: 100%;
+	margin: auto;
+	margin-bottom: -60px;
+	.display-3 {
+	  text-align: center;
+	  margin-bottom: 10px;
+	  color: $black;
+	}
+	.lead-text {
+	  text-align: center;
+	  font-size: 18px;
+	  margin-bottom: 40px;
+	}
+	.guide-card {
+	  border: 1px solid $gray-light;
+	  border-radius: 6px;
+	  margin-bottom: 30px;
+
+	  .guide-info {
+	  	padding: 20px 20px 24px 20px;
+
+	  	h2 {
+	  	  font-size: 24px;
+	  	  line-height: 36px;
+	  	  letter-spacing: 0.3px;
+	  	  margin-bottom: 10px;
+	  	  color: $black;
+	  	}
+	  	p {
+	  	  margin-bottom: 0;
+	  	  -webkit-line-clamp: 2;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    display: -webkit-box;
+		    -webkit-box-orient: vertical;
+	  	}
+	  }
+	  .write-info {
+	    padding: 20px;
+	    background: $gray-lightest;
+	    font-size: 14px;
+	    line-heigt: 20px;
+	    color: $gray-darkish;
+	    border-bottom-left-radius: 6px;
+	    border-bottom-right-radius: 6px;
+
+	    .cta-link {
+	      font-size: 14px;
+	      line-height: 20px;
+	      float: right;
+	    }
+	  }
+	}
+	@include media-breakpoint-down(xs) {
+		.display-3 {
+		  font-size: 32px;
+		  line-height: 39px;
+		}
+		.lead-text {
+			font-size: 14px;
+		}
+		.guide-card {
+		  .guide-info {
+		  	h2 {
+		  		font-size: 18px;
+		  	}
+		  	p {
+		  		font-size: 14px;
+		  	}
+		  }
+		  .write-info {
+	  	  text-align: center;
+	  	  padding-bottom: 40px;
+
+	  	  .cta-link {
+	  	    width: 100%;
+	  	  }
+	  	}
+		}
+	}
+}
 .guides {
 	margin-top: 50px;
 	&__label {

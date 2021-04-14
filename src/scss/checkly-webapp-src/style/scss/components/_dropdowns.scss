@@ -5,7 +5,7 @@
   left: -100px;
   padding: 15px 0;
   z-index: 2;
-
+  
   .d-flex {
     display: flex;
     .menu-icon {
@@ -21,6 +21,41 @@
       font-size: 12px;
       line-height: 20px;
       color: $gray-darkish;
+    }
+  }
+}
+.product-dropdown {
+  padding-bottom: 0;
+  width: 617px;
+
+  .dropmenu-triangle {
+    left: 145px;
+  }
+
+  .d-flex {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .dropdown-item {
+    width: 50%;
+    .d-flex {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .why-checkly{
+    width: 100%;
+    border-top: 1px solid $gray-lighter;
+    .d-flex {
+      align-items: center;
+      justify-content: space-between;
+      .menu-title {
+        color: $pink;
+      }
+      .menu-icon {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -71,6 +106,19 @@
       }
       .menu-text {
         display: none;
+      }
+    }
+  }
+  .product-dropdown {
+    .dropdown-item {
+      width: 100%;
+    }
+    .dropdown-item:last-child{
+      border-top: 0px;
+      .d-flex {
+        .menu-title {
+          color: $gray-darkish;
+        }
       }
     }
   }

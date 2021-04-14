@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div class="main py-5">
+  	<div class="container">
+  		<div class="guides__list">
+  			<h1 class="display-3">{{ .Title }}</h1>
+  			<p class="lead-text">{{ .Params.description }}</p>
+  			{{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "guides" }}
+  				<div class="guide-card">
+  					<div class="guide-info">
+  					  <h2>{{ .Title }}</h2>
+  					  <p>{{ .Params.description }}</p>
+  					</div>
+  					<div class="write-info">
+  						<img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}"  width="24" height="24" />
+  						<span>{{ .Params.author }} last update </span>
+  						<time>{{ .Lastmod.Format "2 Jan 2006" }}</time>
+  						<a href="{{ .RelPermalink }}" class="cta-link">Read the guide</a>
+  					</div>
+  				</div>
+  			{{ end }}
+  		</div>
+  	</div>
+  	{{ partial "start-for-free-row" . }}
+  </div>
+{{end}}

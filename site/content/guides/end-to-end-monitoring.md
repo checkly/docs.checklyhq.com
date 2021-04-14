@@ -1,7 +1,9 @@
 ---
 title: End to end monitoring
 description: >-
-  End-to-end monitoring uses headless browser automation tools like Puppeteer and Playwright to continuously test your website's key user flows. This article summarises the most important points on this topic and gets you up and running in 10 minutes.
+  End-to-End monitoring uses headless browser automation tools like Puppeteer and Playwright to continuously test your website's key user flows. This article summarises the most important points on this topic and gets you up and running in 10 minutes.
+author: Giovanni Rago
+avatar: 'images/avatars/giovanni-rago.png'
 ---
 
 ## Headless browser testing

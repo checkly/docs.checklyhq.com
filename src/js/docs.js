@@ -79,20 +79,6 @@ $(document).on('keydown', function(e) {
 });
 
 /**
- * Hover Dropdown
- */
-
-$(document).ready(function() {
-  $('#dropdown-li').mouseenter(function(){
-    $('#dropdown-li').addClass('show');
-  })
-  $('#dropdown-menu, #dropdown-li').mouseleave(function() {
-    $('#dropdown-li').removeClass('show');
-  })
-})
-
-
-/**
  * Sidemenu fixed position after some scroll-up
  */
 

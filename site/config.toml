@@ -3,7 +3,7 @@ languageCode = "en-us"
 languageLang = "en"
 title = "Delightful Active Monitoring for Developers"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
-enableGitInfo = false
+enableGitInfo = true
 enableRobotsTXT = true
 
 pygmentsCodeFences = true
