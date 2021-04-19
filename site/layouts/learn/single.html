@@ -16,11 +16,11 @@
           {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
 
           {{ range $index, $element := split $url "/" }}
-            {{ if ne $element "" }}
-              {{ if eq $element "learn" }}
-                <a href="/learn/">Learn</a>
-              {{ else }}
+            {{ if ne $element "learn" }}
+              {{ if eq $index 3 }}
+                <a href="/learn/headless">Headless Guides</a>
                 <span>/</span>
+              {{ else }}
                 {{ if eq $index 3 }}
                 <a href="/learn/{{ . }}/">{{ humanize . }}</a>
                 {{ else }}
