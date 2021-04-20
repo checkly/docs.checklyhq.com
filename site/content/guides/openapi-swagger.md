@@ -1,23 +1,28 @@
 ---
-title: Automated OpenAPI/Swagger Testing
+title: OpenAPI/Swagger Monitoring
 description: >-
-  OpenAPI and Swagger help users design APIs and document them in a way that is both human and machine-readable. As a consequence, they can also be used to generate the code that will run the specified API. Can we leverage this same principle for API testing and monitoring?
+  OpenAPI and Swagger help users design APIs and document them in a way that is both human and machine-readable. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle for API monitoring?
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
-## Swagger vs OpenAPI
-TODO make explicit differntiation between 2.0 and 3.,0
+## The OpenAPI Specification
 
-What today is known as the [OpenAPI Specification (OAS)](https://spec.openapis.org/oas/v3.1.0) is based on the [Swagger Specification](https://swagger.io/specification/v2/), which was donated to the Linux Foundation in 2015. Nowadays, the OAS acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based web APIs.
-
-The OAS specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Following it brings the following advantages:
+The [OpenAPI Specification (OAS)](https://spec.openapis.org/oas/v3.1.0) specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Following it brings the following advantages:
 
 1. A description of the API that is readable from both humans and machines.
-2. The possibility of automatically generating documentation, implementation logic and even mock servers for testing - all from the basic API description.
+2. The possibility of automatically generating documentation, implementation logic and even mock servers for testing.
 3. Early validation of the data flows happening within the API.
 
-The OAS exists as part of the [OpenAPI Initiative](https://www.openapis.org/).
+For those new to the OAS and wanting to get a basic understanding of it without diving straight into the specification itself, the official [OpenAPI Specification Explained](https://oai.github.io/Documentation/specification.html) guide is a great place to get started.
+
+## Swagger vs OpenAPI
+
+The OpenAPI Specification is based on the [Swagger Specification](https://swagger.io/specification/v2/), which had previously been a project driven by [SmartBear Software](https://smartbear.com/). SmartBear donated the Swagger Specification to the Linux Foundation in 2015. 
+
+Nowadays, the OAS acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based web APIs, and exists as part of the [OpenAPI Initiative (OAI)](https://www.openapis.org/). In a sense, the OAS is the newer, fully open source-driven incarnation of the Swagger Specification.
+
+The name [Swagger](https://swagger.io/) today indicates a set of tools, both free and paid, that support users of the OpenAPI ecosystem.
 
 ## Exploring the specification
 
@@ -111,11 +116,13 @@ We can keep on building out our API spec as needed. The more precisely we descri
 
 Let's now take a look at a more complex, finished example: the [Swagger's PetStore demo](https://petstore.swagger.io/v2/swagger.json). Even if we had written it ourselves, this description of a complete API could be overwhelming if we just tried to parse the file line by line. To first-time users, that could feel even more daunting. A better option would be to use the open-source toolset Swagger offers to generate human-readable, interactive API documentation from the file we already have.
 
-Pasting the content of the spec file to [Swagger Editor](https://editor.swagger.io/) will produce a preview of our [Swagger UI documentation](https://swagger.io/tools/swagger-ui/). This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations.
+Pasting the content of the spec file to [Swagger Editor](https://editor.swagger.io/) will produce a preview of our [Swagger UI documentation](https://swagger.io/tools/swagger-ui/). This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations. 
 
 ## Generating boilerplate code from OpenAPI
 
 When writing a new API, we will oftentimes need to produce a certain amount of boilerplate code for both our provider (e.g. a server exposing our API for consumption) and consumer (e.g. an SDK for our API) applications. Once we have our OpenAPI file in place, we can use [Swagger Codegen](https://swagger.io/tools/swagger-codegen/) (also available within Swagger Editor) to automatically generate that code for us, saving us precious time and reducing the avenues for human error.
+
+The following snippet is an example of the code Swagger Codegen can generate starting from an OAS file.
 
 ```js
 /**
@@ -171,33 +178,53 @@ When writing a new API, we will oftentimes need to produce a certain amount of b
         queryParams['_'] = new Date().getTime();
     }
     request.query(this.normalizeParams(queryParams));
+
+  ...
+
 ```
 
-TODO mock servers from responses, tests from def
-TODO regen docs and API automatically from updated definition - lower maintenance effort
+Depending on how much is described in a given API spec, it is possible to move even further and generate tests, mock servers and more. See [openapi.tools](https://openapi.tools) for an up-to-date list of tools belonging to the OpenAPI ecosystem.
 
-examples:
-https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.json
-https://petstore.swagger.io/v2/swagger.json
+## Generated monitoring checks with Checkly
 
-## Generated monitors with Checkly
+[API monitoring](/guides/api-monitoring) is key to ensure that our endpoints are returning the correct results in an acceptable timeframe.  If we can generate APIs from a OAS description file, we can also generate monitoring checks for them. Checkly allows us to import an OpenAPI spec file and automatically creates one or more checks depending on the amount of information available. All it takes is a couple of clicks.
 
-- if you can generate APIs, you can also generate monitors for those APIs
-- import in one button
-- what is imported
--- name or URL
--- Import headers
--- Import query parameters
--- Import tags
-Add aservice: swagger petstoretag to each check
+When creating an API check, select the `import from Swagger / OpenAPI` button.
 
-body only if example is provided --> verify with another spec which has it
+{{< figure src="/guides/images/guides-checkly-openapi-check.png" alt="screenshot of checkly check api creation openapi import button" >}}
 
-TODO: link api monitoring article
-TODO: titles review
-TODO: link getting started official guide https://oai.github.io/Documentation/specification.html
-TODO explain what they do, link other tools at https://openapi.tools/
+That will bring up the import dialog. This is where we give Checkly the URL to the Swagger/OpenAPI specification file.
 
-interesting keywords:
-- openapi tutorial
-- openapi generator
+{{< figure src="/guides/images/guides-checkly-openapi-dialog.png" alt="screenshot of checkly check api creation openapi import dialog" >}}
+
+Before anything is created on our behalf, Checkly will show us a summary of all the checks that will be imported. We can choose to import them all defined checks or just a subset.
+
+Notice that we can also select whether to import headers, query params and other settings or just to ignore them for now.
+
+{{< figure src="/guides/images/guides-checkly-openapi-import.png" alt="screenshot of checkly bulk openapi import" >}}
+
+Once we confirm, the checks will be created for us and will start running according to the schedule we have selected.
+
+Based on how comprehensively the file we imported described the API we want to monitor, we might have to tweak certain checks manually before they are fully set up.
+
+{{< figure src="/guides/images/guides-checkly-openapi-fail.png" alt="screenshot of checkly checks - with failures" >}}
+
+This usually includes adding missing headers or body contents that might not have been explicitly defined in the imported file.
+
+We can open the newly created checks and change any of their settings.
+
+{{< figure src="/guides/images/guides-checkly-openapi-body.png" alt="screenshot of checkly filled in check body" >}}
+
+After a small amount of tinkering, or none at all, we should have all our checks up and running.
+
+{{< figure src="/guides/images/guides-checkly-openapi-pass.png" alt="screenshot of checkly checks - all passing" >}}
+
+For medium and large APIs, and for any API that is already described with an OAS file, this check-generating procedure can save us a large amount of time.
+
+## Building on our generated monitors
+
+As we look to increase our endpoint coverage across our APIs, we might want to explore the following resources:
+
+1. Learning more about [API monitoring](/guides/api-monitoring).
+2. Defining our [API checks as code](/guides/monitoring-as-code) to scale our setup.
+3. Integrating our API monitoring with [E2E monitoring](/guides/e2e-monitoring) for our websites.
