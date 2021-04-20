@@ -165,6 +165,15 @@
     .markdown {
       padding-right: 30px;
 
+      .breadcrumb {
+        background: $white;
+        padding: 0;
+
+        a {
+          color: $gray;
+        }
+      }
+
       .mobile-toc-button {
         display: none;
       }
