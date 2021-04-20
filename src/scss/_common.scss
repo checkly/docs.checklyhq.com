@@ -65,15 +65,16 @@ p {
   vertical-align: middle;
   position: relative;
   margin-top: -2px;
-  &--green {
-    background-color: $green;
-  }
-  &--yellow {
-    background-color: $yellow;
-  }
-  &--red {
-    background-color: $red;
-  }
+}
+
+.dot--green {
+  background-color: $green;
+}
+.dot--yellow {
+  background-color: $yellow;
+}
+.dot--red {
+  background-color: $red;
 }
 // Forms
 
