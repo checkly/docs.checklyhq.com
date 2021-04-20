@@ -1,26 +1,26 @@
 ---
 title: OpenAPI/Swagger Monitoring
 description: >-
-  OpenAPI and Swagger help users design APIs and document them in a way that is both human and machine-readable. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle for API monitoring?
+  OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring?
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
 ## The OpenAPI Specification
 
-The [OpenAPI Specification (OAS)](https://spec.openapis.org/oas/v3.1.0) specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Following it brings the following advantages:
+The [OpenAPI Specification (OAS)](https://spec.openapis.org/oas/v3.1.0) specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Nowadays, it acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based APIs, and exists as part of the [OpenAPI Initiative (OAI)](https://www.openapis.org/).
+
+Following the OAS brings the following advantages:
 
 1. A description of the API that is readable from both humans and machines.
 2. The possibility of automatically generating documentation, implementation logic and even mock servers for testing.
 3. Early validation of the data flows happening within the API.
 
-For those new to the OAS and wanting to get a basic understanding of it without diving straight into the specification itself, the official [OpenAPI Specification Explained](https://oai.github.io/Documentation/specification.html) guide is a great place to get started.
+For those new to the OAS and wanting to get a basic understanding without diving straight into the specification itself, the official [OpenAPI Specification Explained](https://oai.github.io/Documentation/specification.html) guide is a great place to start.
 
 ## Swagger vs OpenAPI
 
-The OpenAPI Specification is based on the [Swagger Specification](https://swagger.io/specification/v2/), which had previously been a project driven by [SmartBear Software](https://smartbear.com/). SmartBear donated the Swagger Specification to the Linux Foundation in 2015. 
-
-Nowadays, the OAS acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based web APIs, and exists as part of the [OpenAPI Initiative (OAI)](https://www.openapis.org/). In a sense, the OAS is the newer, fully open source-driven incarnation of the Swagger Specification.
+The OpenAPI Specification is based on the [Swagger Specification](https://swagger.io/specification/v2/), which had previously been a project driven by [SmartBear Software](https://smartbear.com/). SmartBear donated the Swagger Specification to the Linux Foundation in 2015. In a sense, the OAS is the newer, fully open source-driven incarnation of the Swagger Specification.
 
 The name [Swagger](https://swagger.io/) today indicates a set of tools, both free and paid, that support users of the OpenAPI ecosystem.
 
@@ -114,7 +114,7 @@ We can keep on building out our API spec as needed. The more precisely we descri
 
 ## Generating documentation from OpenAPI
 
-Let's now take a look at a more complex, finished example: the [Swagger's PetStore demo](https://petstore.swagger.io/v2/swagger.json). Even if we had written it ourselves, this description of a complete API could be overwhelming if we just tried to parse the file line by line. To first-time users, that could feel even more daunting. A better option would be to use the open-source toolset Swagger offers to generate human-readable, interactive API documentation from the file we already have.
+Let's now take a look at a more complex, finished example: the [Swagger PetStore demo](https://petstore.swagger.io/v2/swagger.json). Even if we had written it ourselves, this description of a complete API could be overwhelming if we just tried to parse the file line by line. To first-time users, that could feel even more daunting. A better option would be to use the open-source toolset Swagger offers to generate human-readable, interactive API documentation from the file we already have.
 
 Pasting the content of the spec file to [Swagger Editor](https://editor.swagger.io/) will produce a preview of our [Swagger UI documentation](https://swagger.io/tools/swagger-ui/). This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations. 
 
@@ -219,7 +219,7 @@ After a small amount of tinkering, or none at all, we should have all our checks
 
 {{< figure src="/guides/images/guides-checkly-openapi-pass.png" alt="screenshot of checkly checks - all passing" >}}
 
-For medium and large APIs, and for any API that is already described with an OAS file, this check-generating procedure can save us a large amount of time.
+For APIs medium and large, and for any that is already described with an OAS file, this check-generating procedure can save us a large amount of time.
 
 ## Building on our generated monitors
 
@@ -227,4 +227,4 @@ As we look to increase our endpoint coverage across our APIs, we might want to e
 
 1. Learning more about [API monitoring](/guides/api-monitoring).
 2. Defining our [API checks as code](/guides/monitoring-as-code) to scale our setup.
-3. Integrating our API monitoring with [E2E monitoring](/guides/e2e-monitoring) for our websites.
+3. Integrating our API monitoring with [E2E monitoring](/guides/end-to-end-monitoring) for our websites.
