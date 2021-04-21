@@ -287,13 +287,13 @@ $(document).ready(() => {
     })
     .then(function (res) {
       if (res.status.indicator === 'none') {
-        $('#footer-status-indicator').addClass('dot dot--green')
+        $('#footer-status-indicator').addClass('dot--green')
       }
       if (res.status.indicator === 'minor') {
-        $('#footer-status-indicator').addClass('dot dot--yellow')
+        $('#footer-status-indicator').addClass('dot--yellow')
       }
       if (res.status.indicator === 'major' || res.status.indicator === 'critical') {
-        $('#footer-status-indicator').addClass('dot dot--red')
+        $('#footer-status-indicator').addClass('dot--red')
       }
     })
 })
