@@ -65,6 +65,27 @@
   .desktop-show {
     display: block;
   }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: .4rem;
+    vertical-align: middle;
+    position: relative;
+    margin-top: -2px;
+
+    &--green {
+      background-color: $green;
+    }
+    &--yellow {
+      background-color: $yellow;
+    }
+    &--red {
+      background-color: $red;
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {

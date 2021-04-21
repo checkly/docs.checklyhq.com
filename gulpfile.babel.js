@@ -5,7 +5,7 @@ import postcss from 'gulp-postcss'
 import cssImport from 'postcss-import'
 import cssnext from 'postcss-cssnext'
 import purgecss from 'gulp-purgecss'
-import cleanCSS from 'gulp-clean-css';
+import cleanCSS from 'gulp-clean-css'
 import inlineCss from 'gulp-inline-css'
 import sass from 'gulp-sass'
 import revall from 'gulp-rev-all'
@@ -32,30 +32,35 @@ gulp.task('css', function buildCss () {
     .pipe(browserSync.stream())
 })
 
-//purgecss
+// purgecss
 gulp.task('purgecss', () => {
-    return gulp.src('./public/css/**/*.css')
-        .pipe(purgecss({
-            content: ['./public/**/*.html']
-        }))
-        .pipe(gulp.dest('./public/css'))
+  return gulp.src('./public/css/**/*.css')
+    .pipe(purgecss({
+      content: ['./public/**/*.html'],
+      safelist: [/dot--*/]
+    }))
+    .pipe(gulp.dest('./public/css'))
 })
 
-//minifycss
+// minifycss
 gulp.task('minify-css', () => {
   return gulp.src('./public/css/*.css')
     .pipe(cleanCSS({debug: true}, (details) => {
-      console.log(`${details.name}: ${details.stats.originalSize}`);
-      console.log(`${details.name}: ${details.stats.minifiedSize}`);
+      console.log(`${details.name}: ${details.stats.originalSize}`)
+      console.log(`${details.name}: ${details.stats.minifiedSize}`)
     }))
-  .pipe(gulp.dest('./public/css'));
-});
+    .pipe(gulp.dest('./public/css'))
+})
 
 // Compile Javascript
 gulp.task('js', (cb) => {
   const myConfig = Object.assign({}, webpackConfig)
 
-  webpack(myConfig, (err, stats) => {
+  webpack(myConfig, (err) => {
+    if (err) {
+      throw err
+    }
+
     browserSync.reload()
     cb()
   })
@@ -118,7 +123,7 @@ gulp.task('watch', () => {
 })
 
 // Development server with browsersync
-gulp.task('server', gulp.series(['hugo', 'css', 'js', 'fonts', 'purgecss', 'minify-css','serve', 'watch']))
+gulp.task('server', gulp.series(['hugo', 'css', 'js', 'fonts', 'purgecss', 'minify-css', 'serve', 'watch']))
 
 gulp.task('clean', () => {
   return del(['./public/**/*'])
@@ -142,7 +147,7 @@ function buildSite (cb, options, environment = 'development') {
       cb()
     } else {
       browserSync.notify('Hugo build failed :(')
-      cb('Hugo build failed')
+      cb(new Error('Hugo build failed'))
     }
   })
 }

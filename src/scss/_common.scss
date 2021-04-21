@@ -56,28 +56,7 @@ p {
   }
 }
 
-.dot {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-left: .4rem;
-  vertical-align: middle;
-  position: relative;
-  margin-top: -2px;
-}
-
-.dot--green {
-  background-color: $green;
-}
-.dot--yellow {
-  background-color: $yellow;
-}
-.dot--red {
-  background-color: $red;
-}
 // Forms
-
 .form-header {
   font-size: 1.25rem;
   font-weight: 400;
@@ -97,7 +76,6 @@ p {
 
 
 // Image & Video
-
 .screen-video {
   background-color: $white;
   border-radius: 4px;
@@ -144,7 +122,6 @@ img.avatar {
 
 
 // alignment
-
 .text-side {
   margin-top: 50px;
 
