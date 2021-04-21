@@ -1,5 +1,5 @@
 ---
 title: Checkly Guides
 description: >-
-  Dive into advanced stuff that you can do with Checkly
+  Dive into advanced guides on monitoring, testing, and Checkly use cases.
 ---
