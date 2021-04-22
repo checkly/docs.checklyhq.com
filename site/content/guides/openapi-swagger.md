@@ -1,14 +1,14 @@
 ---
 title: OpenAPI/Swagger Monitoring
 description: >-
-  OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring?
+  OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring? After a brief first look at OpenAPI and Swagger, this article will show how we can quickly use them to monitor a new or existing API.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
 ## The OpenAPI Specification
 
-The [OpenAPI Specification (OAS)](https://spec.openapis.org/oas/v3.1.0) specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Nowadays, it acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based APIs, and exists as part of the [OpenAPI Initiative (OAI)](https://www.openapis.org/).
+The <a href="https://spec.openapis.org/oas/v3.1.0" target=_blank>OpenAPI Specification (OAS)</a> specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Nowadays, it acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based APIs, and exists as part of the <a href="https://www.openapis.org/" target=_blank>OpenAPI Initiative (OAI)</a>.
 
 Following the OAS brings the following advantages:
 
@@ -16,13 +16,13 @@ Following the OAS brings the following advantages:
 2. The possibility of automatically generating documentation, implementation logic and even mock servers for testing.
 3. Early validation of the data flows happening within the API.
 
-For those new to the OAS and wanting to get a basic understanding without diving straight into the specification itself, the official [OpenAPI Specification Explained](https://oai.github.io/Documentation/specification.html) guide is a great place to start.
+For those new to the OAS and wanting to get a basic understanding without diving straight into the specification itself, the official <a href="https://oai.github.io/Documentation/specification.html" target=_blank>OpenAPI Specification Explained</a> guide is a great place to start.
 
 ## Swagger vs OpenAPI
 
-The OpenAPI Specification is based on the [Swagger Specification](https://swagger.io/specification/v2/), which had previously been a project driven by [SmartBear Software](https://smartbear.com/). SmartBear donated the Swagger Specification to the Linux Foundation in 2015. In a sense, the OAS is the newer, fully open source-driven incarnation of the Swagger Specification.
+The OpenAPI Specification is based on the <a href="https://swagger.io/specification/v2/" target=_blank>Swagger Specification</a>, which had previously been a project driven by <a href="https://smartbear.com/" target=_blank>SmartBear Software</a>. SmartBear donated the Swagger Specification to the Linux Foundation in 2015. In a sense, the OAS is the newer, fully open source-driven incarnation of the Swagger Specification.
 
-The name [Swagger](https://swagger.io/) today indicates a set of tools, both free and paid, that support users of the OpenAPI ecosystem.
+The name <a href="https://swagger.io/" target=_blank>Swagger</a> today indicates a set of tools, both free and paid, that support users of the OpenAPI ecosystem.
 
 ## Exploring the specification
 
@@ -84,7 +84,7 @@ paths:
                 $ref: "#/components/schemas/balance"
 ```
 
-Notice we are explicitly defining which schemas the parameter and response should conform to. In the case of our response, we are referring to an [externally defined schema](https://swagger.io/docs/specification/using-ref/). This is helpful when we need to reuse a schema definition multiple times across our spec file.
+Notice we are explicitly defining which schemas the parameter and response should conform to. In the case of our response, we are referring to an <a href="https://swagger.io/docs/specification/using-ref" target=_blank>externally defined schema</a>. This is helpful when we need to reuse a schema definition multiple times across our spec file.
 
 As we proceed, we might add multiple endpoints, each with one or more operations.
 
@@ -114,13 +114,13 @@ We can keep on building out our API spec as needed. The more precisely we descri
 
 ## Generating documentation from OpenAPI
 
-Let's now take a look at a more complex, finished example: the [Swagger PetStore demo](https://petstore.swagger.io/v2/swagger.json). Even if we had written it ourselves, this description of a complete API could be overwhelming if we just tried to parse the file line by line. To first-time users, that could feel even more daunting. A better option would be to use the open-source toolset Swagger offers to generate human-readable, interactive API documentation from the file we already have.
+Let's now take a look at a more complex, finished example: the <a href="https://petstore.swagger.io/v2/swagger.json" target=_blank>Swagger PetStore demo</a>. Even if we had written it ourselves, this description of a complete API could be overwhelming if we just tried to parse the file line by line. To first-time users, that could feel even more daunting. A better option would be to use the open-source toolset Swagger offers to generate human-readable, interactive API documentation from the file we already have.
 
-Pasting the content of the spec file to [Swagger Editor](https://editor.swagger.io/) will produce a preview of our [Swagger UI documentation](https://swagger.io/tools/swagger-ui/). This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations. 
+Pasting the content of the spec file to <a href="https://editor.swagger.io" target=_blank>Swagger Editor</a> will produce a preview of our <a href="https://swagger.io/tools/swagger-ui/" target=_blank>Swagger UI documentation</a>. This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations. 
 
 ## Generating boilerplate code from OpenAPI
 
-When writing a new API, we will oftentimes need to produce a certain amount of boilerplate code for both our provider (e.g. a server exposing our API for consumption) and consumer (e.g. an SDK for our API) applications. Once we have our OpenAPI file in place, we can use [Swagger Codegen](https://swagger.io/tools/swagger-codegen/) (also available within Swagger Editor) to automatically generate that code for us, saving us precious time and reducing the avenues for human error.
+When writing a new API, we will oftentimes need to produce a certain amount of boilerplate code for both our provider (e.g. a server exposing our API for consumption) and consumer (e.g. an SDK for our API) applications. Once we have our OpenAPI file in place, we can use <a href="https://swagger.io/tools/swagger-codegen" target=_blank>Swagger Codegen</a> (also available within Swagger Editor) to automatically generate that code for us, saving us precious time and reducing the avenues for human error.
 
 The following snippet is an example of the code Swagger Codegen can generate starting from an OAS file.
 
@@ -183,11 +183,11 @@ The following snippet is an example of the code Swagger Codegen can generate sta
 
 ```
 
-Depending on how much is described in a given API spec, it is possible to move even further and generate tests, mock servers and more. See [openapi.tools](https://openapi.tools) for an up-to-date list of tools belonging to the OpenAPI ecosystem.
+Depending on how much is described in a given API spec, it is possible to move even further and generate tests, mock servers and more. See <a href="https://openapi.tools" target=_blank>openapi.tools</a> for an up-to-date list of tools belonging to the OpenAPI ecosystem.
 
 ## Generated monitoring checks with Checkly
 
-[API monitoring](/guides/api-monitoring) is key to ensure that our endpoints are returning the correct results in an acceptable timeframe.  If we can generate APIs from a OAS description file, we can also generate monitoring checks for them. Checkly allows us to import an OpenAPI spec file and automatically creates one or more checks depending on the amount of information available. All it takes is a couple of clicks.
+API monitoring is key to ensure that our endpoints are returning the correct results in an acceptable timeframe.  If we can generate APIs from a OAS description file, we can also generate monitoring checks for them. Checkly is [part of the OpenAPI initiative](), and allows us to import an OpenAPI spec file and automatically creates one or more checks depending on the amount of information available. All it takes is a couple of clicks.
 
 When creating an API check, select the `import from Swagger / OpenAPI` button.
 
@@ -219,12 +219,17 @@ After a small amount of tinkering, or none at all, we should have all our checks
 
 {{< figure src="/guides/images/guides-checkly-openapi-pass.png" alt="screenshot of checkly checks - all passing" >}}
 
-For APIs medium and large, and for any that is already described with an OAS file, this check-generating procedure can save us a large amount of time.
+For APIs medium and large, and for any that is already described with an OAS file, this check-generating procedure can:
+1. Save us a large amount of time otherwise spent in manual check setup.
+2. Reduce the chance for human error in check configuration.
+3. Help us ensure the right checks are set up according to our single source of truth.
+
+[Higher check coverage](http://localhost:3000/guides/api-monitoring/#api-monitoring-best-practices) can ultimately give us higher confidence that our API is working as expected, and basing our monitoring on our OpenAPI specification enables us to get to higher coverage faster - without losing flexibility when building our checks.
 
 ## Building on our generated monitors
 
 As we look to increase our endpoint coverage across our APIs, we might want to explore the following resources:
 
-1. Learning more about [API monitoring](/guides/api-monitoring).
+1. Learning more about [API monitoring](/guides/api-monitoring) basics and best practices.
 2. Defining our [API checks as code](/guides/monitoring-as-code) to scale our setup.
 3. Integrating our API monitoring with [E2E monitoring](/guides/end-to-end-monitoring) for our websites.
