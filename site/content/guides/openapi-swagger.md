@@ -224,7 +224,7 @@ For APIs medium and large, and for any that is already described with an OAS fil
 2. Reduce the chance for human error in check configuration.
 3. Help us ensure the right checks are set up according to our single source of truth.
 
-[Higher check coverage](http://localhost:3000/guides/api-monitoring/#api-monitoring-best-practices) can ultimately give us higher confidence that our API is working as expected, and basing our monitoring on our OpenAPI specification enables us to get to higher coverage faster - without losing flexibility when building our checks.
+[Higher check coverage](/guides/api-monitoring/#api-monitoring-best-practices) can ultimately give us higher confidence that our API is working as expected, and basing our monitoring on our OpenAPI specification enables us to get to higher coverage faster - without losing flexibility when building our checks.
 
 ## Building on our generated monitors
 
