@@ -8,7 +8,7 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 ## Headless browser testing
 
-Over the course of the last decade, especially thanks to tools such as [Selenium](https://www.selenium.dev/) and (more recently) [Cypress](https://www.cypress.io/), **automated End-to-End testing (E2E testing) has become widespread across industries**. 
+Over the course of the last decade, especially thanks to tools such as {{< newtabref  href="https://www.selenium.dev/" title="Selenium" >}} and (more recently) {{< newtabref  href="https://www.cypress.io/" title="Cypress" >}}, **automated End-to-End testing (E2E testing) has become widespread across industries**. 
 
 Broadly speaking, **E2E testing entails running fully automated test suites with the goal of catching bugs before they hit production** and, therefore, negatively affect the user experience. These test suites need to be carefully scripted using dedicated tools, as well as to be made stable and fast enough to test the most important end-user flows on every build, PR or commit, depending on the application under test and the organisation's automation maturity.
 
@@ -20,7 +20,7 @@ The industry has learned to struggle with the challenges this approach presents:
 
 **All of the above lead to higher costs and slower delivery.**
 
-The appearance of mature **headless browser automation tools, such as [Puppeteer](https://pptr.dev) and [Playwright](https://playwright.dev), offers a response** to many of the above issues by allowing testing in the browser without its GUI, which yields higher speed and stability coupled with lower resource consumption.
+The appearance of mature **headless browser automation tools, such as {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}}, offers a response** to many of the above issues by allowing testing in the browser without its GUI, which yields higher speed and stability coupled with lower resource consumption.
 
 ## E2E monitoring (AKA synthetic monitoring)
 
@@ -37,7 +37,7 @@ A few key flows for an e-commerce websites could be:
 2. Finding a product through search
 3. Adding products to the basket and checking out
 
-Let's see how to set them up - for this example, we will do that on our [demo web shop](https://danube-webshop.herokuapp.com).
+Let's see how to set them up - for this example, we will do that on our {{< newtabref  href="https://danube-webshop.herokuapp.com" title="demo web shop" >}}.
 
 {{< figure src="/guides/images/guides-danube.png" alt="demo website screenshot" title="Our demo website" >}}
 
@@ -176,7 +176,7 @@ const { chromium } = require("playwright");
 {{< /tab >}}
 {{< /tabs >}}
 
-These can be run on our own machine without issues with [very little preparation](https://playwright.dev/docs/intro) with a simple `node script.js`.
+These can be run on our own machine without issues with {{< newtabref  href="https://playwright.dev/docs/intro" title="very little preparation" >}} with a simple `node script.js`.
 
 ## Monitoring application performance
 
@@ -242,7 +242,7 @@ const assert = require("chai").assert;
 {{< /tab >}}
 {{< /tabs >}}
 
-We can also use Web Performance APIs such as [Navigation Timing](https://www.w3.org/TR/navigation-timing/) and [Resource Timing](https://www.w3.org/TR/resource-timing-1/), as well as libraries such as Google Lighthouse. For more examples, see our [dedicated performance guide](https://www.checklyhq.com/learn/headless/basics-performance/).
+We can also use Web Performance APIs such as {{< newtabref  href="https://www.w3.org/TR/navigation-timing" title="Navigation Timing" >}} and {{< newtabref  href="https://www.w3.org/TR/resource-timing-1" title="Resource Timing" >}}, as well as libraries such as Google Lighthouse. For more examples, see our [dedicated performance guide](https://www.checklyhq.com/learn/headless/basics-performance/).
 
 ## End to end application monitoring
 
@@ -268,7 +268,7 @@ Tests can be kicked off of CI pipelines. You might want to use different hooks (
 
 ## Develop-preview-test
 
-If you are using provider like Vercel, you can automatically trigger your checks to run on deployed PRs, too, to reap the benefits of the [develop-preview-test approach](https://rauchg.com/2020/develop-preview-test).
+If you are using provider like Vercel, you can automatically trigger your checks to run on deployed PRs, too, to reap the benefits of the {{< newtabref  href="https://rauchg.com/2020/develop-preview-test" title="develop-preview-test approach" >}}.
 
 ## Pitfalls
 
