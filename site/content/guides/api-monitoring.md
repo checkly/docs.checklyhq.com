@@ -10,9 +10,9 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 ## APIs and the JAMStack
 
-With the rise of the [JAMStack](https://jamstack.org/), the already broadly used web APIs have been brought further into the spotlight and explicitly named as cornerstone of a new way of building web applications. In the JAMStack paradigm, applications rely on APIs (the _A_ in "JAM") returning structured data (JSON or XML) when queried via the HTML and Javascript-based frontend. 
+With the rise of the {{< newtabref  href="https://jamstack.org/" title="JAMStack" >}}, the already broadly used web APIs have been brought further into the spotlight and explicitly named as cornerstone of a new way of building web applications. In the JAMStack paradigm, applications rely on APIs (the _A_ in "JAM") returning structured data (JSON or XML) when queried via the HTML and Javascript-based frontend. 
 
-The API calls might be aimed at internal services or at third-parties handling complex flows such as content management, authentication, merchant services and more. An example of third-party API could be [Stripe](https://stripe.com/), which acts as payment infrastructure for a multitude of businesses.
+The API calls might be aimed at internal services or at third-parties handling complex flows such as content management, authentication, merchant services and more. An example of third-party API could be {{< newtabref  href="https://stripe.com/" title="Stripe" >}}, which acts as payment infrastructure for a multitude of businesses.
 
 Given their importance in this new kind of web application, APIs both internal and external need to be tightly monitored, as failures and performance degradations will immediately be felt by the end-user.
 
@@ -44,15 +44,15 @@ Let's dive in deeper into each point.
 
 There is a large variety of valid requests that a user might make to a given endpoint. Being able to customise all aspects of our test request is therefore fundamental. Key aspects are:
 
-1. [Method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), like `GET`, `PUT`, `POST`, `DELETE`, etc
-2. [Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
-3. [Query parameters](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query)
+1. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" title="Methods" >}}[Method](), like `GET`, `PUT`, `POST`, `DELETE`, etc
+2. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" title="Headers" >}}[Headers](), like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
+3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query" title="Query parameters" >}}
 
 {{< figure src="/guides/images/guides-checkly-swagger.png" alt="swagger api documentation" title="Swagger is a popular tool for generating API documentation" >}}
 
 Essentially, we are trying to craft a complete request for exact endpoint. Not only that, but we might want to have multiple requests set up to cover specific options or negative cases, too.
 
-One such case can be where user-specified parameters such as pagination and timeframes might largely change the response. This is exemplified by the `List Customers` method in [Stripe's Customer API](https://stripe.com/docs/api/customers/list?lang=curl), which we can use to query elements in very different ways, such as by just specifying a limit of results or asking for all results linked to a specific creation date. In this case, both of the following cases are worth monitoring:
+One such case can be where user-specified parameters such as pagination and timeframes might largely change the response. This is exemplified by the `List Customers` method in {{< newtabref  href="https://stripe.com/docs/api/customers/list?lang=curl" title="Stripe's Customer API" >}}, which we can use to query elements in very different ways, such as by just specifying a limit of results or asking for all results linked to a specific creation date. In this case, both of the following cases are worth monitoring:
 
 ```sh
 curl https://api.stripe.com/v1/customers \
@@ -68,7 +68,7 @@ curl https://api.stripe.com/v1/customers \
   -G
 ```
 
-If we chose to set up a call using Javascript, for example, we could achieve the same call as in the first case above using [axios](https://github.com/axios/axios):
+If we chose to set up a call using Javascript, for example, we could achieve the same call as in the first case above using {{< newtabref  href="https://github.com/axios/axios" title="axios" >}}:
 
 ```js
 const { default: axios } = require("axios");
@@ -95,7 +95,7 @@ To validate the API response, we should be able to check against
 2. Headers
 3. Body
 
-Let's look at an example: creating a customer via the [Stripe Customer API](https://stripe.com/docs/api/customers/create?lang=curl). Since we are not the API's developers, we are assuming the result we get running call right now is correct and can be used to model our assertions. Let's run the following curl command in verbose mode:
+Let's look at an example: creating a customer via the {{< newtabref  href="https://stripe.com/docs/api/customers/create?lang=curl" title="Stripe Customer API" >}}. Since we are not the API's developers, we are assuming the result we get running call right now is correct and can be used to model our assertions. Let's run the following curl command in verbose mode:
 
 ```sh
 curl -v https://api.stripe.com/v1/customers \
@@ -141,7 +141,7 @@ And finally the response body, which we might want to inspect to ensure the righ
   [clipped]
 ```
 
-We could expand on our previous code example by add adding an assertion library, such as [chai's](https://www.chaijs.com/api/assert/) or [Jest expect](https://jestjs.io/docs/expect):
+We could expand on our previous code example by add adding an assertion library, such as {{< newtabref  href="https://www.chaijs.com/api/assert/" title="chai's" >}} or {{< newtabref  href="https://jestjs.io/docs/expect" title="Jest expect" >}}:
 
 ```js
 const { default: axios } = require("axios");
