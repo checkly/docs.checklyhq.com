@@ -10,11 +10,11 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 Historically, IT infrastructure has been provisioned manually, both on premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files as code.
 
-A new generation of tools has emerged to serve this use case, the most notable example of which is [HashiCorp Terraform](https://www.terraform.io/). Terraform provides a CLI workflow allowing users to specify what the final infrastructure setup should look like, and then takes care of all the intermediate steps needed to get there.
+A new generation of tools has emerged to serve this use case, the most notable example of which is {{< newtabref  href="https://www.terraform.io/" title="HashiCorp Terraform" >}}. Terraform provides a CLI workflow allowing users to specify what the final infrastructure setup should look like, and then takes care of all the intermediate steps needed to get there.
 
 {{< figure src="/guides/images/guides-terraform-aws.png" alt="provisioning aws infrastructure - code snippet" title="Provisioning AWS infrastructure via Terraform" >}}
 
-Terraform can be used to provision infrastructure on many different cloud vendors thanks to its provider ecosystem: each provider maps to the vendor's API, exposing different resources in a domain-specific language known as [HCL](https://www.terraform.io/docs/language/syntax/configuration.html).
+Terraform can be used to provision infrastructure on many different cloud vendors thanks to its provider ecosystem: each provider maps to the vendor's API, exposing different resources in a domain-specific language known as {{< newtabref  href="https://www.terraform.io/docs/language/syntax/configuration.html" title="HCL" >}}.
 
 ## Monitoring the IaC way
 
@@ -34,17 +34,17 @@ What does one gain when moving from a manual to a Monitoring-as-Code approach? T
 
 Users who have just started out will be familiar with creating checks, groups, alert channels and other resources through the Checkly UI. The official Terraform provider enables them to instead declare exactly what their active monitoring setup should look like, and have it provisioned by Terraform in just a few seconds - regardless of whether that means creating tens, hundreds or thousands of resources.
 
-You can [find the Checkly Terraform provider](https://registry.terraform.io/providers/checkly/checkly/latest) on the official Terraform registry.
+You can {{< newtabref  href="https://registry.terraform.io/providers/checkly/checkly/latest" title="find the Checkly Terraform provider" >}} on the official Terraform registry.
 
 {{< figure src="/guides/images/guides-provider.png" alt="official Checkly Terraform provider on Terraform Registry" title="Official Checkly Terraform provider" >}}
 
 ## Monitoring an e-commerce website - as code
 
-How does this all look like in practice? Let's find out by creating a small monitoring setup for our [demo e-commerce website](https://danube-webshop.herokuapp.com).
+How does this all look like in practice? Let's find out by creating a small monitoring setup for our {{< newtabref  href="https://danube-webshop.herokuapp.com" title="demo e-commerce website" >}}.
 
 ### Setting up our Terraform project
 
-For our example we will be creating browser checks using [Playwright](https://playwright.dev) scripts we have previously written as part of our Playwright guides.
+For our example we will be creating browser checks using {{< newtabref  href="https://playwright.dev" title="Playwright" >}} scripts we have previously written as part of our Playwright guides.
 
 {{< tabs "Web shop example" >}}
 {{< tab "Login" >}}
@@ -464,7 +464,7 @@ Going through the usual `terraform plan` and `terraform apply` sequence will app
 
 We are now fully up and running with our monitoring-as-code setup. Our checks will run on a schedule, informing us promptly if anything were to go wrong. Rapidly getting to know about failures in our API and key website flows will allow us to react fast and mitigate impact on our users, ensuring a better experience with our product.
 
-You can find the complete setup described in this guide on our [dedicated repository](https://github.com/checkly/guides-monitoring-as-code).
+You can find the complete setup described in this guide on our {{< newtabref  href="https://github.com/checkly/guides-monitoring-as-code" title="dedicated repository" >}}.
 
 ### Expanding our setup
 
@@ -473,4 +473,4 @@ As our setup expands, we might want to deploy additional tools to make our lives
 1. Iterate over existing Playwright scripts and [create multiple checks while declaring only one resource](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform#iterating-through-scripts-for-shorter-config).
 2. [Group checks together](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform#grouping-checks-together) to better handle them in large numbers.
 3. [Use code snippets](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform#reducing-code-duplication-with-snippets) to avoid code duplication and reduce maintenance.
-4. Move your workflow to [Terraform Cloud](https://www.terraform.io/cloud) to easily collaborate with your team when managing your Monitoring-as-Code configuration.
+4. Move your workflow to {{< newtabref  href="https://www.terraform.io/cloud" title="Terraform Cloud" >}} to easily collaborate with your team when managing your Monitoring-as-Code configuration.
