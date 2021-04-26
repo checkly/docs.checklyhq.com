@@ -120,7 +120,7 @@ Pasting the content of the spec file to {{< newtabref  href="https://editor.swag
 
 ## Generating boilerplate code from OpenAPI
 
-When writing a new API, we will oftentimes need to produce a certain amount of boilerplate code for both our provider (e.g. a server exposing our API for consumption) and consumer (e.g. an SDK for our API) applications. Once we have our OpenAPI file in place, we can use {{< newtabref  href="https://swagger.io/tools/swagger-codegen title="Swagger Codegen" >}} (also available within Swagger Editor) to automatically generate that code for us, saving us precious time and reducing the avenues for human error.
+When writing a new API, we will oftentimes need to produce a certain amount of boilerplate code for both our provider (e.g. a server exposing our API for consumption) and consumer (e.g. an SDK for our API) applications. Once we have our OpenAPI file in place, we can use {{< newtabref  href="https://swagger.io/tools/swagger-codegen" title="Swagger Codegen" >}} (also available within Swagger Editor) to automatically generate that code for us, saving us precious time and reducing the avenues for human error.
 
 The following snippet is an example of the code Swagger Codegen can generate starting from an OAS file.
 
