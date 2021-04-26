@@ -276,3 +276,24 @@ $(document).ready(() => {
     }
   })
 })
+
+/**
+ * Fetch status from statuspage.com and update link in footer
+ */
+$(document).ready(() => {
+  fetch('https://nq8lf8mrmvw6.statuspage.io/api/v2/status.json')
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (res) {
+      if (res.status.indicator === 'none') {
+        $('#footer-status-indicator').addClass('dot--green')
+      }
+      if (res.status.indicator === 'minor') {
+        $('#footer-status-indicator').addClass('dot--yellow')
+      }
+      if (res.status.indicator === 'major' || res.status.indicator === 'critical') {
+        $('#footer-status-indicator').addClass('dot--red')
+      }
+    })
+})
