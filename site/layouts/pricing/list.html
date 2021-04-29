@@ -159,9 +159,9 @@
           5 API checks <span class="text-muted">running every</span> minute <span class="text-muted">makes </span> <span class="pricing__check-runs-indicator">223,200</span> <span class="text-muted"> check runs per month</span>
         </h4>
         <div class="d-flex flex-column text-left">
-          <div class="text-muted mb-2">Daily runs: 24 x 60 = 1440 runs</div>
-          <div class="text-muted mb-2">Monthly runs: 1440 x 31 = 44,640 runs</div>
-          <div class="text-muted">Five checks: 5 x 44,640 = <span class="text-gray-dark pricing__check-runs-indicator pricing__check-runs-indicator--secondary">223,200 runs</span></div>
+          <div class="text-muted mb-2">Daily runs: 5 x 24 x 60 = 7200 runs</div>
+          <div class="text-muted mb-2">Monthly runs: 7200 x 31 = <span class="text-gray-dark pricing__check-runs-indicator pricing__check-runs-indicator--secondary">223,200 runs</span> </div>
+          <div class="text-muted">Which costs me (223,200 / 10,000) * $1,20 = $26,80</div>
         </div>
         <div class="pricing__spreadsheet">
           <a class="d-flex" href="https://docs.google.com/spreadsheets/d/1ahnSqIDp6VXNSGWqSOtm2lSSo5ylIaeuZn57qNPM0H0/copy" target="_blank" rel="noopener">
@@ -266,7 +266,7 @@
                   10 sec / 60 sec
                 <div class="pricing__tooltip--body">
                   API checks can be scheduled every 10 seconds,
-                  browser checks every min.
+                  browser checks every 1 minute.
                 </div>
               </div>
             </td>
@@ -275,7 +275,7 @@
                 10 sec / 60 sec
                 <div class="pricing__tooltip--body">
                   API checks can be scheduled every 10 seconds,
-                  browser checks every min.
+                  browser checks every 1 minute.
                 </div>
               </div>
             </td>
@@ -380,31 +380,12 @@
           <tr>
             <th>
               <div class="pricing__tooltip">
-                GitHub triggers
+                CI/CD triggers
                 <div class="pricing__tooltip--body">
-                  Automatically trigger checks from GitHub PR or commits. Works out-of-the-box with Vercel, Heroku etc.
-                </div>
+                  Automatically trigger checks from GitHub PR's or commits. Works out-of-the-box with Vercel, Heroku etc. or use custom triggers from the command line.</div>
               </div>
             </th>
             <td><i class="ion-ios-checkmark text-success"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-          </tr>
-          <tr>
-            <th>
-              <div class="pricing__tooltip">
-                CI/CD custom triggers
-                <div class="pricing__tooltip--body">
-                  Trigger a check run from the terminal or your CI/CD pipeline for automated testing before or after building and deploying. Works with any CI/CD provider.                </div>
-              </div>
-            </th>
-            <td><i class="ion-close-circled text-muted"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-          </tr>
-          <tr>
-            <th>Pagerduty & Opsgenie</th>
-            <td><i class="ion-close-circled text-muted"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
           </tr>
@@ -417,6 +398,12 @@
                 </div>
               </div>
             </th>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+          </tr>
+          <tr>
+            <th>Pagerduty & Opsgenie</th>
             <td><i class="ion-close-circled text-muted"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
