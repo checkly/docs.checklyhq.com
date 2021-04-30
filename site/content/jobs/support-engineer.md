@@ -2,7 +2,7 @@
 title: Support Engineer
 subtitle: Full time / Remote
 position_state: Open
-draft: false
+draft: true
 ---
 
 - Remote (GMT +3/-3)
@@ -11,13 +11,13 @@ draft: false
 ## About the role
 
 We are looking for a colleague with an engineering background that loves to work directly with our customers. You will talk
-to developers who rely on Checkly to know if their webapps and APIs work for their end-users. This is crucial, and we 
-want to support them the best we can. 
+to developers who rely on Checkly to know if their webapps and APIs work for their end-users. This is crucial, and we
+want to support them the best we can.
 
-You will be responsible for addressing their complex problems and make sure they have a great user experience. As part 
-of that process, you will also contribute, edit and update our technical documentation. 
+You will be responsible for addressing their complex problems and make sure they have a great user experience. As part
+of that process, you will also contribute, edit and update our technical documentation.
 
-We are just building out our support organization, and you will have the chance to shape the processes and grow into 
+We are just building out our support organization, and you will have the chance to shape the processes and grow into
 a leading position over time.
 
 This is an excellent opportunity to join an early-stage company and directly contribute to our customers' success. This

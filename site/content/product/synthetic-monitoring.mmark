@@ -22,7 +22,7 @@ correctness and performance of all your crucial click paths.
 {{< sm-4-col-item "Real browsers" "Your checks are run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security." >}}
 {{< sm-4-col-item "Validate all the things" "In a Browser check you can check for specific content items, browser responses, visibility and error responses." >}}
 {{< sm-4-col-item "Screenshots" "Take a screenshot at any stage in your transaction for quick and easy reference. You can take full page shots, or just a specific page element for more focus." >}}
-{{< sm-4-col-item "Monitor globally" "We monitor your transactions from data center locations around the world." >}}
+{{< sm-4-col-item "Monitor globally every minute" "We monitor your transactions every 60 seconds from data center locations around the world." >}}
 {{< sm-4-col-item "CI/CD integration" "Integrate your Browser checks into your QA or continuous delivery process by triggering adhoc runs from GitHub or the command line." >}}
 {{< sm-4-col-item "Coding optional" "Use our browser plugin to record a script and import it into Checkly. Want more control? Dive into the code and tweak your script to perfection." >}}
 </div>
@@ -53,8 +53,8 @@ and navigation actions. Add the industry standard **Mocha and Chai libraries** f
 </div>
 {{% /feature-row %}}
 
-{{% feature-row header="Run it every ten minutes" img="/product/transaction-monitoring/synthetic-howitworks-3@2x.png" imgWidth="610" imgHeight="254" %}}
-Schedule your script to run as often as every ten minutes. A regular interval gives you an accurate insight into
+{{% feature-row header="Run it every 60 seconds" img="/product/transaction-monitoring/synthetic-howitworks-3@2x.png" imgWidth="610" imgHeight="254" %}}
+Schedule your script to run as often as every minute. A high-frequent interval gives you an accurate insight into
 how your vital transactions are performing over time. We also give you **full access to the log files** for each run in case
 an alert is triggered.
 <div class="cta">
@@ -140,6 +140,3 @@ an alert is triggered.
     </div>
   </div>
 </div>
-
-
-
