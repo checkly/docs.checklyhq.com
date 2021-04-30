@@ -85,6 +85,12 @@ disqusShortname = "checkly"
 	weight = 110
 
 [[menu.docs]]
+	name = "Single sign-on"
+	url = "/docs/single-sign-on/"
+	pre="/docs/images/icons/key.svg"
+	weight = 120
+
+[[menu.docs]]
 	name = "Headless Recorder"
 	url = "/docs/headless-recorder/"
 	pre="/docs/images/icons/headless-recorder.svg"
