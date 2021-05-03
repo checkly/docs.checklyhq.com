@@ -10,7 +10,7 @@ questions:
       every executed script as a check run. Browser check runs have a timeout threshold of 60 seconds.
   - q: How does the free trial work?
     a: By signing up for the free trial, you get full access to all of Checkly's functions. You do not need a credit card
-      to get started. You can execute up to 100,000 API and 10,000 browser check runs. The trial ends either when you have used all available check runs or after 14 days, whichever comes first. After the Free trial, we will automatically convert your account to
+      to get started. You can execute up to 50,000 API and 5,000 browser check runs. The trial ends either when you have used all available check runs or after 14 days, whichever comes first. After the Free trial, we will automatically convert your account to
       the Free plan if you haven't signed up for a Prepaid or Pay-as-you-go Plan.
   - q: What is Pay-as-you-go pricing?
     a: With a Pay-as-you-go plan, you have maximum flexibility! It is not a subscription model. You can just run your API
@@ -22,21 +22,10 @@ questions:
       comes at a lower unit price than the Pay-as-you-go plan. We continue running your checks when you have exceeded the prepaid
       volume. These so-called overages will be charged at the Pay-as-you-go unit price. Please note that unused Prepaid check runs
       won't roll over to the next billing cycle and will not be credited.
-  - q: When do I need a custom plan?
-    a: Custom plans are based on annual contracts that can be tailored to your or your organization's needs. That could
-      be either requirement related to the purchasing process (PO, ToS, invoice payment, etc.) or on feature levels like SSO,
-      premium support, and individual check intervals. When you execute a high amount of check runs, we are happy to provide
-      you a custom proposal with volume discounts. Please reach out to sales@checklyhq.com.
   - q: What does fair use mean?
     a: Fair use limits are soft boundaries that apply to certain features. The limits are set in a way that most customers
       should not encounter any limitations. On a Prepaid or Pay-as-you-go plan, you can invite up to 99 users, have
       25 public dashboards, and 200 SMS alerts per month. If you exceed the thresholds, we will reach out and discuss options with you.
-  - q: What do the data retention limits mean?
-    a: We store the results from your checks in two ways. First, we store all raw response data. This gives you full insight
-      into all response bodies, logs etc. Second, we store aggregated meta data like response times. The raw data is much larger,
-      so we limit the retention there more than with the aggregated data.
-  - q: Do you offer volume discounts?
-    a: Volume discounts are available for Custom plans. Please reach out to sales@checklyhq.com.
   - q: Can I upgrade or downgrade my plan?
     a: "For the **Free plan or Pay-as-you-go plan** upgrades and downgrades don't apply.<br><br>
       **Upgrade Prepaid plan:** You can increase the number of committed checks at any time. The changes will apply immediately.
@@ -49,9 +38,6 @@ questions:
   - q: How do you bill?
     a: Prepaid plans are paid upfront at the beginning of the subscription cycle. Overages will be added to the invoice
       of the next subscription cycle. Pay-as-you-go check runs will be charged at the end of the billing cycle.
-  - q: What are my scheduling options?
-    a: API checks can be run every minute or at longer intervals. Browser checks start at 5-minute intervals.
-      Longer intervals (30 minutes, once per day, etc.) are the same for all check types.
   - q: What payment types do you accept?
     a: We accept Visa, Mastercard, and American Express credit card payments. Stripe handles all payments. For custom plans, we also accept invoice payments.
   - q: Do you support early startups or nonprofits?
