@@ -1,9 +1,12 @@
 ---
 title: Overview
 weight: 1
+aliases:
+- "/docs/single-sign-on/"
 menu:
   docs:
     parent: "Single sign-on"
+    identifier: overview-single-signed-on
 ---
 
 Single Sign-On (SSO) enables businesses to secure employee access across a variety of third-party services. Currently, Checkly supports the following SSO protocols:
