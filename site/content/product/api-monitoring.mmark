@@ -20,7 +20,7 @@ monitoring solution to check your mobile, webapp or IoT API for performance, upt
 <div class="row">
 {{< sm-4-col-item "Monitor for performance" "Checkly records the response time for each request, down to TCP, DNS and first byte times. Add assertions for maximum response time." >}}
 {{< sm-4-col-item "Monitor for correctness" "Check payloads, return codes, headers, and authentication. Dive inside JSON payloads and validate specific items." >}}
-{{< sm-4-col-item "Monitor globally" "Checkly can monitor your APIs from 20 global data center locations." >}}
+{{< sm-4-col-item "High-frequent global monitoring" "Monitor your APIs every 10 seconds from 20 global data center locations." >}}
 {{< sm-4-col-item "Setup & Teardown scripts" "Run custom Javascript before and after your API check. Sign requests, get auth tokens and clean up test data." >}}
 {{< sm-4-col-item "Import from tools you know" "Checkly's cUrl and Swagger API importers create fully fledged API checks with just a couple of clicks." >}}
 {{< sm-4-col-item "CI/CD integration" "Integrate your API monitoring into your QA or continuous delivery process by triggering adhoc runs from GitHub or the command line." >}}
@@ -59,8 +59,8 @@ fetch OAuth tokens and update request attributes before any request is done. Use
 </div>
 {{% /feature-row %}}
 
-{{% feature-row header="Monitor your API every minute" img="/product/api-monitoring/api-howitworks-4@2x.png" imgWidth="610" imgHeight="308" %}}
-We monitor your API as often as once per minute. This gives you a consistent and accurate view of your API performance.
+{{% feature-row header="Monitor your API every 10 seconds" img="/product/api-monitoring/api-howitworks-4@2x.png" imgWidth="610" imgHeight="308" %}}
+We monitor your API as often as every 10 seconds. This gives you a consistent and accurate view of your API performance.
 Next to aggregating metrics, we give you **access to each result** from each of the configured data centers.
 
 <div class="cta">
@@ -106,4 +106,3 @@ Next to aggregating metrics, we give you **access to each result** from each of 
 	</div>
 </div>
 </div>
-
