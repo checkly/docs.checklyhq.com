@@ -53,7 +53,7 @@
     "url-loader": "^0.6.2",
     "uuid": "^3.3.3",
     "webpack": "4.41.5",
-    "whatwg-fetch": "^2.0.4"
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
