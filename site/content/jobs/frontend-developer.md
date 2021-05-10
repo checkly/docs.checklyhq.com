@@ -2,7 +2,8 @@
 title: Frontend Developer (Vue.js)
 subtitle: Full time / Remote
 position_state: Open
-draft: true
+draft: false
+workable_code: 3FF652296E
 ---
 
 - Remote (GMT +3/-3)
@@ -42,9 +43,9 @@ We deploy every day and keep things simple. Tools we use are Clubhouse, Sketch, 
 - Hands-on experience with UX design.
 - Experience with building SaaS tools for developers.
 - Experience working remotely in a distributed team.
+- Having no desire to rewrite the whole product in React 😉
 
 ## What we offer
-
 - Competitive salary.
 - Flexible work hours.
 - Work with the latest technologies.
