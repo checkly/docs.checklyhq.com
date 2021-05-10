@@ -1,33 +1,33 @@
 ---
-title: Frontend Lead (Vue.js)
+title: Frontend Developer (Vue.js)
 subtitle: Full time / Remote
 position_state: Open
 draft: true
 ---
 
 - Remote (GMT +3/-3)
-- Vue.js, Vue Router, Vuex, Javascript, SCSS
+- Vue.js, Vue Router, Vuex, Javascript, SCSS, Storybook
 - Full time
 
 ## About the role
 
-Checkly is looking for an experienced frontend lead. We use Vue.js extensively. Our core webapp is already quite a
+Checkly is looking for an experienced frontend developer. We use Vue.js extensively. Our core webapp is already quite a
 beast. It uses all of Vue.js (core, router and Vuex) and we are migrating everything to SFC. We do extensive XHR calls to our
 own API and many 3rd party APIs. We use web sockets for all kinds of updates. You get it: it's a mature webapp.
 
 This is a great opportunity to join an early stage company, influence the product road map and help us do what we love most:
-building the best active monitoring service for modern DevOps teams.
+building the best monitoring platform for developers.
 
 ### Build our frontend(s)
 You will be working on all frontend projects we have at Checkly.
 
 - Our main webapp https://app.checklyhq.com.
 - Our marketing site https://checklyhq.com.
-- Our [popular open source Chrome extension Headless Recorder](https://github.com/checkly/headless-recorder)!
-- All other free, open source tools we have like https://puppeteersandbox.com
+- Our [popular open source Chrome extension Headless Recorder](https://github.com/checkly/headless-recorder)
+- Our small, but growing component library.
 
 We care about design, we care about small but awesome frontend tweaks that delight our customers. We care about performance.
-We deploy (almost) every day and keep things simple. Tools we use are Clubhouse, Sketch, Figma, Vercel (formerly Zeit), AWS and Heroku.
+We deploy every day and keep things simple. Tools we use are Clubhouse, Sketch, Figma, Storybook, Vercel, AWS and Heroku.
 
 ## Your skills
 
