@@ -47,7 +47,7 @@ We deploy every day and keep things simple. Tools we use are Clubhouse, Sketch, 
 
 ## What we offer
 - Competitive salary.
-- Flexible work hours.
+- Working hours are flexible and we support families: you can pick up your kids without worrying about work.
 - Work with the latest technologies.
 - Contribute to open source.
 - Modern laptop and equipment provided.
