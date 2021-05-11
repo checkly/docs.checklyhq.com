@@ -106,7 +106,8 @@ JSONPath         | Description
 `[,]`	         | Union operator for alternate names or array indices as a set
 `[start:end:step]` | Array slice operator borrowed from ES4 / Python
 `?()`              | Applies a filter (script) expression via static evaluation
-`()`	         | Script expression via static evaluation 
+`()`	         | Script expression via static evaluation
+`.length`        | returns the length of an array
 
 Given this sample data set, see example expressions below:
 
@@ -154,6 +155,7 @@ JSONPath                      | Description
 `$..author`                     | All authors
 `$.store.*`                    | All things in store, which are some books and a red bicycle
 `$.store..price`                | The price of everything in the store
+`$.store.book.length`           | The length of the book array
 `$..book[2]`                    | The third book
 `$..book[(@.length-1)]`         | The last book via script subscript
 `$..book[-1:]`                  | The last book via slice
