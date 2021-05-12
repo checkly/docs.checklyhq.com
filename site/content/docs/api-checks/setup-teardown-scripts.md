@@ -394,6 +394,7 @@ See the [built-in module documentation on the official Node.js site](https://nod
 - **[request-promise](https://github.com/request/request-promise)** 4.2.2: A plugin for the request library to enable promises.
 - **[uuid](https://github.com/kelektiv/node-uuid)** 3.3.3: Simple, fast generation of UUIDS.
 - **[expect](https://www.npmjs.com/package/expect)** 26.6.2: The Jest expect assertion library.
+- **[form-data](https://github.com/form-data/form-data)** 3.x.x: Third-party library for creating form data.
 
 ## Technical limitations
 
