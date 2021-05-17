@@ -230,6 +230,33 @@ const token = await getToken();
 request.headers['Authorization'] = `Bearer ${token}`
 ```
 
+### Dismiss password-protection prompt on Vercel deployment
+
+[Password-protected Vercel Deployments](https://vercel.com/blog/protecting-deployments) can be [bypassed programmatically](https://vercel.com/docs/platform/frequently-asked-questions#bypassing-password-protection-programmatically). The following script allows a check to run against both production and preview deployments while skipping the password prompt. Note that if only one of your deployments (e.g. the preview) is password-protected, you will want to skip the request via an _if_ statement to handle the other cases.
+
+```javascript
+const req = require('request-promise')
+
+const productionUrl = process.env.PROD_URL
+const vercelDeploymentPassword = process.env.PASSWORD_VERCEL
+
+const url = process.env.ENVIRONMENT_URL || productionUrl
+
+const options = {
+    uri: url,
+    simple: false,
+    resolveWithFullResponse: true
+};
+try {
+    const response = await req.post(options).form({_vercel_password: vercelDeploymentPassword})
+    const token = response.headers['set-cookie']
+    const tokenString = token.toString().split(';')[0]
+    request.headers['Cookie'] = tokenString
+} catch(error) {
+    console.log(error)
+}
+```
+
 ## Teardown scripts
 
 Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. Next to the [request](#request) 

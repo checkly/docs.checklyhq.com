@@ -109,6 +109,8 @@ JSONPath         | Description
 `()`	         | Script expression via static evaluation
 `.length`        | returns the length of an array
 
+> JSON path expressions in Checkly assertions must start with a `$` (The root object/element) symbol.
+
 Given this sample data set, see example expressions below:
 
 ```javascript
@@ -209,6 +211,14 @@ In the last example we check if the returned array has more than 10 items.
 
 ![api monitoring array has more than 10 items](/docs/images/api-checks/assertions-9.png)
 
+{{<info >}}
+If the JSON path expression in an assertion returns an array of values, Checkly will perform the comparison for 
+**every element of the array**, chaining them with a logical `AND` (&&).
+
+For example, if the JSON path expression returns an array: `[1,5,2]`, and we use a `Less than` comparison, with `3` 
+as the target, the assertion **will fail**, because the comparison is **falsy** for the second element of the array 
+(`5` is greater than `3`). 
+{{</info >}}
 
 ## Deprecated: Custom, non-JSON path properties
 
