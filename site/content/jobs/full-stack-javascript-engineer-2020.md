@@ -1,5 +1,5 @@
 ---
-title: Full Stack JavaScript developer
+title: Full Stack JavaScript Developer
 subtitle: Full time / Remote
 position_state: Open
 draft: false
