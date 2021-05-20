@@ -67,7 +67,7 @@ alerting:
     iconHeight: 32
     ctaLink: ""
     description: >-
-     Kick of and resolve workflows in FireHydrant. Coming Soon!       
+     Kick off and resolve workflows in FireHydrant.     
   - service: Discord
     icon: "/integrations/alerting/discord@2x.png"
     iconWidth: 35
