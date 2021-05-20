@@ -65,7 +65,7 @@ alerting:
     icon: "/integrations/alerting/firehydrant@2x.png"
     iconWidth: 36
     iconHeight: 32
-    ctaLink: ""
+    ctaLink: "/docs/integrations/firehydrant/"
     description: >-
      Kick off and resolve incidents in FireHydrant.     
   - service: Discord
