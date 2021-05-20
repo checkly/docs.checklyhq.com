@@ -44,7 +44,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-watch": "^5.0.1",
     "html-loader": "^0.5.5",
-    "hugo-bin": "^0.67.0",
+    "hugo-bin": "^0.71.1",
     "imports-loader": "^0.7.1",
     "postcss-cssnext": "3.1.0",
     "postcss-import": "^11.1.0",
