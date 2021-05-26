@@ -47,7 +47,7 @@ Docs, Learn & Guides sections are open to contributions. If you find a mistake o
 
 ## 🗞 Blog
 
-Do you want to share your use case and experience using Checkly with your product? Became a guest author. Reach us at [gio@checklqhq.com](mailto:gio@checklyhq.com)
+Do you want to share your use case and experience using Checkly with your product? Became a guest author. Reach us at [giovanni@checklyhq.com](mailto:giovanni@checklyhq.com)
 
 
 ## 📄 License
