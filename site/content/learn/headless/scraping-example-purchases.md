@@ -23,14 +23,14 @@ For our example, we will be logging in to our Amazon account and scraping the pr
 A combination of UI automation and scraping will allow us to first log in to the platform, and then to retrieve the information about all our orders.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/scraping-example-purchases.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/scraping-example-purchases.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/scraping-example-purchases.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}

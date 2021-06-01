@@ -26,14 +26,14 @@ Social login using your personal Google or Google Gsuite account is a common use
 5. We are redirected back to the starting.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/google-login.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/google-login.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/google-login.js" >}}
 ```
 {{< /tab >}}
 {{< /tab >}}:

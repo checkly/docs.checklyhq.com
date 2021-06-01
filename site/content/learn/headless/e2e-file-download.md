@@ -30,19 +30,19 @@ We will check that the downloaded file is as expected by comparing it to a [fixt
 We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](basics-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js {29-34}
-{{< readfile filename="samples/puppeteer/file-download.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {22-27}
 {{< readfile filename="samples/playwright/file-download.js" >}}
 ```
 {{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {29-34}
+{{< readfile filename="samples/puppeteer/file-download.js" >}}
+```
+{{< /tab >}}
 {{< /tabs >}}
 
-We could also click the link directly and wait for the download event, then proceed with the comparison. Waiting for the download event is currently supported by Playwright, but not  by Puppeteer.
+We could also click the link directly and wait for the download event, then proceed with the comparison. Waiting for the download event is currently supported by Playwright, but not by Puppeteer.
 
 Note that in this case, we need to enable downloads in the browser context before proceeding.
 

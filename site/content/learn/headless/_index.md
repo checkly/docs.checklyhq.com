@@ -33,7 +33,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 	class="full-width-card"
 	headerTag="h3"
 	img="/learn/icons/local-setup.svg"
-	title="Setup Playwright and Puppeteer"
+	title="Set up Playwright and Puppeteer"
 	description="Prepare to write your first scripts and learn how the setup works."
 	link="/learn/headless/basics-local-setup"
 >}}

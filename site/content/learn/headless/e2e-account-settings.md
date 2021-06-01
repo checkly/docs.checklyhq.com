@@ -24,14 +24,14 @@ Account properties to verify can run the gamut from simple text to connected thi
 On our [test site](https://danube-webshop.herokuapp.com/), such a test could look as follows:
 
 {{< tabs "1">}}
-{{< tab "Puppeteer" >}}
-```js {24-27}
-{{< readfile filename="samples/puppeteer/file-upload.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {18-21}
 {{< readfile filename="samples/playwright/file-upload.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {24-27}
+{{< readfile filename="samples/puppeteer/file-upload.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}

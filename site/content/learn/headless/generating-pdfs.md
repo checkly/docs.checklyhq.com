@@ -23,17 +23,17 @@ This article introduces this functionality and shows how we can customise the PD
 After loading a page, we use the `page.pdf()` command to convert it to a PDF.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js {7}
-{{< readfile filename="samples/puppeteer/pdf-minimal.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/pdf-minimal.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {7}
 {{< readfile filename="samples/playwright/pdf-minimal.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/pdf-minimal.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {7}
+{{< readfile filename="samples/puppeteer/pdf-minimal.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/pdf-minimal.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -57,14 +57,14 @@ In certain cases, our webpage might look significantly different in our PDF comp
 We can also have custom headers and footers added to our pages, displaying values such as title, page number and more. Let's see how this looks on your [favourite website](https://checklyhq.com):
 
 {{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js {10-11,13,23-33}
-{{< readfile filename="samples/puppeteer/pdf-hd.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {10-11,21-31}
 {{< readfile filename="samples/playwright/pdf-hd.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {10-11,13,23-33}
+{{< readfile filename="samples/puppeteer/pdf-hd.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}

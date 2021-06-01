@@ -25,14 +25,14 @@ Reading or modifying cookies opens up useful possibilities. A practical example 
 The following examples show how we can save existing cookies after logging in to GitHub and reuse them later to skip login. First, let us perform login with our credentials, read the cookies and save them to a file.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js {18,19,21}
-{{< readfile filename="samples/puppeteer/cookies-reading.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {20,21,23}
 {{< readfile filename="samples/playwright/cookies-reading.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {18,19,21}
+{{< readfile filename="samples/puppeteer/cookies-reading.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -74,14 +74,14 @@ After a successful login, our saved cookies file will look something like this:
 We are now able to read the file later and load the cookies into our new browser session. Notice how we are logged in from the start, without having gone through the UI login procedure.
 
 {{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js {8,10,11}
-{{< readfile filename="samples/puppeteer/cookies-writing.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {8,10,11}
 {{< readfile filename="samples/playwright/cookies-writing.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {8,10,11}
+{{< readfile filename="samples/puppeteer/cookies-writing.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -105,14 +105,14 @@ Our test site, [Danube](https://danube-webshop.herokuapp.com/), actually uses lo
 We will first fill the cart by adding three items, then we will copy the contents of localStorage to a file.
 
 {{< tabs "3" >}}
-{{< tab "Puppeteer" >}}
-```js {21,22}
-{{< readfile filename="samples/puppeteer/localstorage-reading.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {16,17}
 {{< readfile filename="samples/playwright/localstorage-reading.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {21,22}
+{{< readfile filename="samples/puppeteer/localstorage-reading.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -128,14 +128,14 @@ In this case our file will look as follows:
 We can use the content of this file to set localStorage in a separate session. That way we will immediately start with the three items already in our shopping cart, potentially getting us closer to a specific scenario we want to test and thereby saving ourselves time.
 
 {{< tabs "4" >}}
-{{< tab "Puppeteer" >}}
-```js {10,12-17}
-{{< readfile filename="samples/puppeteer/localstorage-writing.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {10,12-17}
 {{< readfile filename="samples/playwright/localstorage-writing.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {10,12-17}
+{{< readfile filename="samples/puppeteer/localstorage-writing.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
