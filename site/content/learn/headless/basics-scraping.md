@@ -28,34 +28,34 @@ We call the action of extracting data from web pages _web scraping_. Scraping is
 Below is an example running against our [test site](https://danube-webshop.herokuapp.com), getting and printing out the `href` attribute of the first `a` element on the homepage. That just happens to be our logo, which links right back to our homepage, and therefore will have an `href` value equal to the URL we navigate to using `page.goto()`:
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js 7
-{{< readfile filename="samples/puppeteer/basic-get-href-value.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-href-value.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js 7
 {{< readfile filename="samples/playwright/basic-get-href-value.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-href-value.js" "playwright"  >}}
 {{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js 7
+{{< readfile filename="samples/puppeteer/basic-get-href-value.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-get-href-value.js" "puppeteer"  >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 As an alternative, it is also possible to retrieve an [ElementHandle](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
 
 {{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js 7,8
-{{< readfile filename="samples/puppeteer/basic-get-href-handle.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-href-handle.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js 7,8
 {{< readfile filename="samples/playwright/basic-get-href-handle.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-href-handle.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js 7,8
+{{< readfile filename="samples/puppeteer/basic-get-href-handle.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-get-href-handle.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -66,17 +66,17 @@ As an alternative, it is also possible to retrieve an [ElementHandle](https://pp
 Scraping element lists is just as easy. For example, let's grab the `innerText` of each product category shown on the homepage:
 
 {{< tabs "3" >}}
-{{< tab "Puppeteer" >}}
-```js 7-9
-{{< readfile filename="samples/puppeteer/basic-get-text-values.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-text-values.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js 7-9
 {{< readfile filename="samples/playwright/basic-get-text-values.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-text-values.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js 7-9
+{{< readfile filename="samples/puppeteer/basic-get-text-values.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-get-text-values.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -85,17 +85,17 @@ Scraping element lists is just as easy. For example, let's grab the `innerText` 
 Scraping images from a page is also possible. For example, we can easily get the logo of our test website and save it as a file:
 
 {{< tabs "4" >}}
-{{< tab "Puppeteer" >}}
-```js [9,11,12]
-{{< readfile filename="samples/puppeteer/basic-get-image.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-image.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js [9,11,12]
 {{< readfile filename="samples/playwright/basic-get-image.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-image.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js [9,11,12]
+{{< readfile filename="samples/puppeteer/basic-get-image.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-get-image.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -110,17 +110,17 @@ Once we start scraping more information, we might want to have it stored in a st
 The code for that could look like this:
 
 {{< tabs "5" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-get-data-json.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-data-json.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-get-data-json.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-data-json.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-get-data-json.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-get-data-json.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -158,7 +158,7 @@ $ node scraping.js
 ```
 
 ## Further reading
-1. [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pageevalselector-pagefunction-args)'s and [Playwright](https://playwright.dev/#version=v1.2.1&path=docs%2Fapi.md&q=pageevalselector-pagefunction-arg)'s official API reference on the topic
+1. [Playwright](https://playwright.dev/#version=v1.2.1&path=docs%2Fapi.md&q=pageevalselector-pagefunction-arg)'s adn [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pageevalselector-pagefunction-args)'s official API reference on the topic
 2. An [E2E example test](e2e-coupon/) asserting agains an element's `innerText`
 3. An excellent introduction to [scraping with Puppeteer](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial) by Nick Chikovani
 4. A practical tutorial on [web scraping with Puppeteer](https://blog.datahut.co/web-scraping-headless-browser-puppeteer/) by Kartik Singh

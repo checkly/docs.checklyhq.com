@@ -30,14 +30,14 @@ The flow will often match the following:
 We will likely want to also check that some change occurred in the UI to confirm that the registration worked.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/signup.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/signup.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/signup.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
