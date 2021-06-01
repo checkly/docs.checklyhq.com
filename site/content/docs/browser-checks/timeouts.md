@@ -15,14 +15,14 @@ you because your site or apps performance dropped by 500 milliseconds.
 
 You can deal with timeouts at two levels, and we recommend you study them in the order below:
 
-1. Use the timeout options in Puppeteer/Playwright.
+1. Use the timeout options in Playwright/Puppeteer.
 2. Set global timeouts on the Mocha suite and test level.
 
 > Tip: Good use of the `page.waitForSelector()` can save you a lot of headaches.
 
-## Timeouts in Puppeteer/Playwright
+## Timeouts in Playwright and Puppeteer
 
-In your Puppeteer/Playwright code, you have a range of options to set timeouts for different actions. 
+In your Playwright/Puppeteer code, you have a range of options to set timeouts for different actions. 
 The default for most actions is 30 seconds. There are two very important ones that you should use in almost every 
 browser check:
 
@@ -43,6 +43,22 @@ In the example below, we type 'fluffy kittens' into an input field on a search p
 You can also see we assign a 10-second timeout to the surrounding Mocha test.
 
 {{< tabs "waitForSelector example" >}}
+{{< tab "Playwright" >}}
+```js
+it('First search result is my link', async () => {
+  await page.type('input[name=q]', 'fluffy kittens')
+  await page.click('input[type="submit"]')
+  await page.waitForSelector('h3 a', { timeout: 5000 })
+
+  const links = await page.evaluate(() =>
+    Array.from(document.querySelectorAll('h3 a'))
+      .map(a => a.textContent)
+  )
+
+  assert.equal('my link', links[0])
+}).timeout(10000)
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 it('First search result is my link', async () => {
@@ -60,57 +76,47 @@ it('First search result is my link', async () => {
 ```
 
 {{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-it('First search result is my link', async () => {
-  await page.type('input[name=q]', 'fluffy kittens')
-  await page.click('input[type="submit"]')
-  await page.waitForSelector('h3 a', { timeout: 5000 })
-
-  const links = await page.evaluate(() =>
-    Array.from(document.querySelectorAll('h3 a'))
-      .map(a => a.textContent)
-  )
-
-  assert.equal('my link', links[0])
-}).timeout(10000)
-```
-{{< /tab >}}
 {{< /tabs >}} 
 
-Read more in the [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitforselectorselector-options)
-or [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitforselectorselector-options--options-timeout)
-API docs.
+Read more in the [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitforselectorselector-options--options-timeout)
+or [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitforselectorselector-options) API docs.
 
 > Playwright allows you to use XPath selectors in the `page.waitForSelector()` method. 
 > Puppeteer provides a separate method for that: `page.waitForXpath()`.
 
 ### page.waitForNavigation()
 
-In both Puppeteer and Playwright you can click on a link that triggers a navigation to a new page. 
+In both Playwright and Puppeteer you can click on a link that triggers a navigation to a new page. 
 Use the `page.waitForNavigation()`
 method, although it is slightly unintuitive to use as the associated promise has to be initialized before waiting for it.
 This means the following **will not work**
 
 {{< tabs "waitForNavigation broken" >}}
+{{< tab "Playwright" >}}
+```js
+await page.click('a.some-link')
+await page.waitForNavigation() // does not works as expected
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 await page.click('a.some-link')
 await page.waitForNavigation() // does not works as expected
 ```
 
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-await page.click('a.some-link')
-await page.waitForNavigation() // does not works as expected
-```
 {{< /tab >}}
 {{< /tabs >}} 
 
 but this will work:
 
 {{< tabs "waitForNavigation correct" >}}
+{{< tab "Playwright" >}}
+```js
+const navigationPromise =  page.waitForNavigation()
+await page.click('a.some-link')
+await navigationPromise
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 const navigationPromise =  page.waitForNavigation()
@@ -118,13 +124,6 @@ await page.click('a.some-link')
 await navigationPromise
 ```
 
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-const navigationPromise =  page.waitForNavigation()
-await page.click('a.some-link')
-await navigationPromise
-```
 {{< /tab >}}
 {{< /tabs >}} 
 
@@ -151,9 +150,9 @@ Note: the `load` option is the default. It is pretty strict, so if you have slow
 These options are based on the heuristic that if (almost) all network connections your browser has
 are no longer active, your page has *probably* finished loading.
 
+- **Playwright:** `networkidle` - is the equivalent of `networkidle0` in Puppeteer.
 - **Puppeteer:** `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least 500 ms.
 - **Puppeteer:** `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least 500 ms.
-- **Playwright:** `networkidle` - is the equivalent of `networkidle0` in Puppeteer.
 
 So, which one to choose? This really depends on your situation:
 
@@ -163,33 +162,30 @@ go for `networkidle2`/`networkidle`
 
 Options are set as follows: 
 {{< tabs "networkidle example" >}}
+{{< tab "Playwright" >}}
+```js
+page.waitForNavigation({ waitUntil: 'networkidle' })
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 page.waitForNavigation({ waitUntil: 'networkidle2' })
 ```
 
 {{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-page.waitForNavigation({ waitUntil: 'networkidle' })
-```
-{{< /tab >}}
 {{< /tabs >}} 
 
 You can also specify an array of `waitUntil` options. Read more in the 
-[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitfornavigationoptions)
-or [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitfornavigationoptions)
-API docs.
+[Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitfornavigationoptions) or 
+[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitfornavigationoptions) API docs.
 
 ### page.setDefaultNavigationTimeout(timeout)
 
 You can tweak the navigation timeout with `page.setDefaultNavigationTimeout()`. This impact the timeout limits of the
 initial load of your page or app and all subsequent navigation.
 
-Read more in the
-[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagesetdefaultnavigationtimeouttimeout)
-or [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagesetdefaultnavigationtimeouttimeout)
-API docs.
+Read more in the [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagesetdefaultnavigationtimeouttimeout) or 
+[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagesetdefaultnavigationtimeouttimeout) API docs.
 
 ### page.waitFor(timeout)  / page.waitForTimeout(timeout)
 
@@ -198,16 +194,16 @@ to "just wait" for a set amount of time. The example below passes in a number. T
 seconds.
 
 {{< tabs "waitForTimeout" >}}
+{{< tab "Playwright" >}}
+```js
+await page.waitForTimeout(5000)
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 await page.waitFor(5000)
 ```
 
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-await page.waitForTimeout(5000)
-```
 {{< /tab >}}
 {{< /tabs >}} 
 
@@ -224,6 +220,17 @@ values on each test. In the example below, we added a `.timeout(10000)` to the `
 2 seconds is almost always too short to run any meaningful check.
 
 {{< tabs "Mocha timeout example" >}}
+{{< tab "Playwright" >}}
+```js
+describe('Check Google Homepage', () => {
+  it('has title "Google"', async () => {
+    await page.goto('https://google.com', { waitUntil: 'networkidle' })
+    const title = await page.title()
+    assert.equal(title, 'Google')
+  }).timeout(10000)
+})
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 describe('Check Google Homepage', () => {
@@ -235,17 +242,6 @@ describe('Check Google Homepage', () => {
 })
 ```
 
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-describe('Check Google Homepage', () => {
-  it('has title "Google"', async () => {
-    await page.goto('https://google.com', { waitUntil: 'networkidle' })
-    const title = await page.title()
-    assert.equal(title, 'Google')
-  }).timeout(10000)
-})
-```
 {{< /tab >}}
 {{< /tabs >}} 
 
@@ -254,6 +250,18 @@ however, the syntax is a bit different if you want to use arrow functions: you h
 the timeout on that object.
 
 {{< tabs "Mocha suite timeout example" >}}
+{{< tab "Playwright" >}}
+```js
+describe('Check Google Homepage', (suite) => {
+  suite.timeout(10000)
+  it('has title "Google"', async () => {
+    await page.goto('https://google.com', { waitUntil: 'networkidle' })
+    const title = await page.title()
+    assert.equal(title, 'Google')
+  })
+})
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 describe('Check Google Homepage', (suite) => {
@@ -266,18 +274,6 @@ describe('Check Google Homepage', (suite) => {
 })
 ```
 
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-describe('Check Google Homepage', (suite) => {
-  suite.timeout(10000)
-  it('has title "Google"', async () => {
-    await page.goto('https://google.com', { waitUntil: 'networkidle' })
-    const title = await page.title()
-    assert.equal(title, 'Google')
-  })
-})
-```
 {{< /tab >}}
 {{< /tabs >}} 
 

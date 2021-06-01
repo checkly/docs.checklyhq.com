@@ -14,7 +14,7 @@ menu:
 
 The [HyperText Transfer Protocol (HTTP)](https://developer.mozilla.org/en-US/docs/Web/HTTP#:~:text=Hypertext%20Transfer%20Protocol%%20%28HTTP%29%20is,be%20used%20for%20other%20purposes.) is stateless, but cookies allow it to keep context consistent over the course of a session. In other words, by having our browser automatically exchange small amounts of data, we get to have websites recognise us and remember our preferences, the contents of our shopping baskets or the fact that we had just logged in to our account.
 
-This article shows how we can use cookies and the Web Storage APIs to set state in our Puppeteer and Playwright scripts, opening up new scenarios and saving on execution time.
+This article shows how we can use cookies and the Web Storage APIs to set state in our Playwright and Puppeteer scripts, opening up new scenarios and saving on execution time.
 
 <!-- more -->
 
@@ -89,7 +89,7 @@ We are now able to read the file later and load the cookies into our new browser
 
 > Cookies come with an expiration date, so make sure the ones you are trying to reuse are still valid.
 
-While brand new browser sessions with both Puppeteer and Playwright will not contain any cookies by default, there might be points when it is necessary to clear them.
+While brand new browser sessions with both Playwright and Puppeteer will not contain any cookies by default, there might be points when it is necessary to clear them.
 
 In case you need to clear cookies, you can use [`page.deleteCookie(...cookies)`](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagedeletecookiecookies) with Puppeteer and [`browserContext.clearCookies()`](https://playwright.dev/#version=v1.4.2&path=docs%2Fapi.md&q=browsercontextclearcookies) with Playwright.
 
@@ -98,7 +98,7 @@ In case you need to clear cookies, you can use [`page.deleteCookie(...cookies)`]
 
 ## localStorage and sessionStorage
 
-Cookies are sent with every request, potentially deteriorating [performance](basics-performance/) if used for storing large amounts of data. The [localStorage and sessionStorage](https://javascript.info/localstorage) APIs can help us offload some of this data to the browser. Just like with cookies, Puppeteer and Playwright make accessing localStorage and sessionStorage straightforward.
+Cookies are sent with every request, potentially deteriorating [performance](basics-performance/) if used for storing large amounts of data. The [localStorage and sessionStorage](https://javascript.info/localstorage) APIs can help us offload some of this data to the browser. Just like with cookies, Playwright and Puppeteer make accessing localStorage and sessionStorage straightforward.
 
 Our test site, [Danube](https://danube-webshop.herokuapp.com/), actually uses localStorage to keep track of a few things, such as the content of your cart. Let's see how we can access this state and then replicate it in a later session.
 
@@ -163,8 +163,8 @@ node managing-cookies.js
 
 ## Takeaways
 
-1. We can use cookies and Web Storage APIs through Puppeteer and Playwright to set test state and speed up test suites.
-2. The Puppeteer and Playwright APIs for handling cookies are slightly different but achieve the same goals.
+1. We can use cookies and Web Storage APIs through Playwright and Puppeteer to set test state and speed up test suites.
+2. The Playwright and Puppeteer APIs for handling cookies are slightly different but achieve the same goals.
 
 ## Further reading
 

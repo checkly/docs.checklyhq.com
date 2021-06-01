@@ -75,7 +75,7 @@ needs to be loaded after clicking, hovering, navigating etc. You can pass it an 
 to override the default 30 seconds.
 
 In the example below, we type an email address into an input field on a login modal. Notice the difference between
-the Puppeteer and Playwright example.
+the Playwright and Puppeteer example.
 
 {{< tabs "2" >}}
 {{< tab "Puppeteer" >}}

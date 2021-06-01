@@ -13,7 +13,7 @@ menu:
     parent: "E2E"
 ---
 
-Puppeteer and Playwright also allow us to automate logging in to a Microsoft Live account.
+Playwright and Puppeteer also allow us to automate logging in to a Microsoft Live account.
 
 <!-- more -->
 

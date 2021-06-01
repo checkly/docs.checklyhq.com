@@ -98,8 +98,8 @@ node request-interception.js
 
 ## Takeaways
 
-1. Puppeteer and Playwright give us control over outgoing HTTP requests.
-2. Puppeteer and Playwright can easily stub HTTP responses.
+1. Playwright and Puppeteer give us control over outgoing HTTP requests.
+2. Playwright and Puppeteer can easily stub HTTP responses.
 
 ## Further reading
 

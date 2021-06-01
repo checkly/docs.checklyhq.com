@@ -28,5 +28,5 @@ standard library or to arbitrary NPM modules. Currently every runner is equipped
 > By default, all our runners have their timezone set to UTC, regardless of their location.
 
 {{< warning >}} 
-Note: It is not possible to use both Puppeteer and Playwright in the same Browser Check script.  
+Note: It is not possible to use both Playwright and Puppeteer in the same Browser Check script.  
 {{< /warning >}}

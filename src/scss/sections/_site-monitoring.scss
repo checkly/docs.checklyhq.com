@@ -12,10 +12,10 @@
   }
 
   img.screenshots {
-    left: 200px;
-    top: 160px;
+    left: 120px;
+    top: -30px;
     z-index: auto;
-    width: 600px;
+    width: 760px;
     height: auto;
   }
   @include media-breakpoint-down(md) {
@@ -32,7 +32,8 @@
         height: auto;
       }
       img.screenshots {
-        left: 110px;
+        top: 30px;
+        left: 60px;
         width: calc(100% - 128px);
       }
     }
@@ -50,12 +51,12 @@
       height: 200px;
 
       img.screenshots {
-        top: 100px;
-        left: 50px;
+        top: 70px;
+        left: 35px;
         width: calc(100% - 68px);
       }
     }
   }
 }
 
-  
+
