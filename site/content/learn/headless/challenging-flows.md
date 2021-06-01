@@ -12,7 +12,7 @@ menu:
     parent: "Best Practices"
 ---
 
-While automation tools are fundamental to modern software development, they also have the innate potential to be used for malicious purposes. This applies to Puppeteer and Playwright, too.
+While automation tools are fundamental to modern software development, they also have the innate potential to be used for malicious purposes. This applies to Playwright and Puppeteer, too.
 
 <!-- more -->
 

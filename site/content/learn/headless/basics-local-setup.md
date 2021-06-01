@@ -33,7 +33,7 @@ $ npm i playwright
 
 {{< /tabs >}}
 
-Puppeteer and Playwright come bundled with their respective browsers, so we now have all we need to run our first script. Let's create a script to navigate to our [test website](https://danube-webshop.herokuapp.com):
+Playwright and Puppeteer come bundled with their respective browsers, so we now have all we need to run our first script. Let's create a script to navigate to our [test website](https://danube-webshop.herokuapp.com):
 
 {{< tabs "2" >}}
 
@@ -61,7 +61,7 @@ $ node hello-world.js
 ```
 
 
-Nothing much has happened, right? Remember: by default, Puppeteer and Playwright will run in headless mode! That means we won't see anything of what is happening in the browser when our script runs.
+Nothing much has happened, right? Remember: by default, Playwright and Puppeteer will run in headless mode! That means we won't see anything of what is happening in the browser when our script runs.
 
 > Puppeteer/Playwright creates its own browser user profile, which it cleans up on every run. In other words: all runs will be sandboxed and not interfere with one another, as state is always fully reset at the end of a session.
 

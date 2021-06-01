@@ -111,57 +111,51 @@ scale:
           We are industry experts who can actively support you with the right strategy to become more reliable.
 ---
 
-<div class="code-block show" id="puppeteer">
+<div class="code-block hidden" id="puppeteer">
 
 ```js
 const puppeteer = require("puppeteer");
 ​
-(async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
 ​
-  await page.goto("https://awesomeweb.app/");
+await page.goto("https://awesomeweb.app/");
+await page.waitForSelector("#login");
+await page.click("#login");
 ​
-  await page.waitForSelector("#login");
-  await page.click("#login");
+await page.waitForSelector("#email");
+await page.type("#email", process.env.USER_EMAIL);
+await page.type("#password", process.env.USER_PASSWORD);
 ​
-  await page.waitForSelector("#email");
-  await page.type("#email", process.env.USER_EMAIL);
-  await page.type("#password", process.env.USER_PASSWORD);
+await page.waitForSelector("#button-signup");
+await page.click("#button-signup");
 ​
-  await page.waitForSelector("#button-signup");
-  await page.click("#button-signup");
+await page.waitForSelector("#message-login", { visible: true });
 ​
-  await page.waitForSelector("#message-login", { visible: true });
-​
-  await browser.close();
-})();
+await browser.close();
 ```
 
 </div>
 
-<div class="code-block hidden" id="playwright">
+<div class="code-block show" id="playwright">
 
 ```js
 const { chromium } = require("playwright");
 ​
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
+const browser = await chromium.launch();
+const page = await browser.newPage();
 ​
-  await page.goto("https://awesomeweb.app/");
+await page.goto("https://awesomeweb.app/");
+await page.click("#login");
 ​
-  await page.click("#login");
+await page.type("#email", process.env.USER_EMAIL);
+await page.type("#password", process.env.USER_PASSWORD);
 ​
-  await page.type("#email", process.env.USER_EMAIL);
-  await page.type("#password", process.env.USER_PASSWORD);
+await page.click("#button-signup");
 ​
-  await page.click("#button-signup");
+await page.waitForSelector("#message-login", { visible: true });
 ​
-  await page.waitForSelector("#message-login", { visible: true });
-​
-  await browser.close();
-})();
+await browser.close();
 ```
 
 </div>

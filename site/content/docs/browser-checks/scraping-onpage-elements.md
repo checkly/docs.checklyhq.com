@@ -10,49 +10,49 @@ menu:
 Any standard Node.js script that successfully finishes an execution is a valid, passing browser check. However, in
 many cases you want to validate whether the session is actually showing the right stuff to the user.
 
-This is a two step process:
+This is a two-step process:
 
 1. Scrape the relevant item from the current page.
 2. Assert that it shows what you expect.
 
-Both Puppeteer & Playwright offer many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
+Both Playwright and Puppeteer offer many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
 used ones below, together with some tips on how to use them effectively.
 
 ## Scraping text values
 
 Both libraries provide the `page.$eval()` method which is a very powerful way to actually run a selector query inside a web page. See the example
-below. Note: we are using the `chai.js` library for assertions here.
+below. Note: we are using Jest's `expect` library for assertions here.
 
 {{< tabs "page.$eval" >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
-const expect = require('chai').expect
-
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-
-await page.goto('https://news.ycombinator.com/news')
-const name = await page.$eval('.hnname > a', el => el.textContent.trim())
-expect(name).to.equal('Hacker News')
-
-await browser.close()
- ```
-{{< /tab >}}
 {{< tab "Playwright" >}}
  ```js
 const playwright = require('playwright')
-const expect = require('chai').expect
+const expect = require('expect')
 
 const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
 
 await page.goto('https://news.ycombinator.com/news')
 const name = await page.$eval('.hnname > a', el => el.textContent.trim())
-expect(name).to.equal('Hacker News')
+expect(name).toEqual('Hacker News')
 
 await browser.close()
 ```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+ ```js
+const puppeteer = require('puppeteer')
+const expect = require('expect').expect
+
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+
+await page.goto('https://news.ycombinator.com/news')
+const name = await page.$eval('.hnname > a', el => el.textContent.trim())
+expect(name).toEqual('Hacker News')
+
+await browser.close()
+ ```
 {{< /tab >}}
 {{< /tabs >}}
 Ok, let's break this down:
@@ -70,28 +70,10 @@ Using the `page.$$()` (notice the two dollar signs) we can scrape an array of el
 when the query selector you are providing targets multiple similar elements on a page, say a list of links:
 
 {{< tabs "page.$$eval" >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer')
-const expect = require('chai').expect
-
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-
-await page.goto('https://news.ycombinator.com/news')
-const stories = await page.$$eval('a.storylink', links =>
-  links.map(link => link.textContent).slice(0, 10)
-)
-expect(stories).to.have.lengthOf(10)
-expect(stories[0]).to.be.a('string')
-
-await browser.close()
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 const playwright = require('playwright')
-const expect = require('chai').expect
+const expect = require('expect')
 
 const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
@@ -100,8 +82,26 @@ await page.goto('https://news.ycombinator.com/news')
 const stories = await page.$$eval('a.storylink', links =>
   links.map(link => link.textContent).slice(0, 10)
 )
-expect(stories).to.have.lengthOf(10)
-expect(stories[0]).to.be.a('string')
+expect(stories).toHaveLength(10)
+expect(typeof stories[0]).toBe('string')
+
+await browser.close()
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+const puppeteer = require('puppeteer')
+const expect = require('expect')
+
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+
+await page.goto('https://news.ycombinator.com/news')
+const stories = await page.$$eval('a.storylink', links =>
+  links.map(link => link.textContent).slice(0, 10)
+)
+expect(stories).toHaveLength(10)
+expect(typeof stories[0]).toBe('string')
 
 await browser.close()
 ```
@@ -116,29 +116,13 @@ await browser.close()
 
 ### Text input fields
 
-Use the `.value` property to get the text from an standard text input field.
+Use the `.value` property to get the text from a standard text input field.
 
 {{< tabs ".value" >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer')
-const expect = require('chai').expect
-
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-
-await page.goto('https://duckduckgo.com/', { waitUntil: 'networkidle2' })
-await page.type('#search_form_input_homepage', 'Puppeteer')
-const searchValue = await page.$eval('#search_form_input_homepage', el => el.value)
-expect(searchValue).to.equal('Puppeteer')
-
-await browser.close()
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 const playwright = require('playwright')
-const expect = require('chai').expect
+const expect = require('expect')
 
 const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
@@ -146,7 +130,23 @@ const page = await browser.newPage()
 await page.goto('https://duckduckgo.com/', { waitUntil: 'networkidle' })
 await page.type('#search_form_input_homepage', 'Playwright')
 const searchValue = await page.$eval('#search_form_input_homepage', el => el.value)
-expect(searchValue).to.equal('Playwright')
+expect(searchValue).toEqual('Playwright')
+
+await browser.close()
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+const puppeteer = require('puppeteer')
+const expect = require('expect')
+
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+
+await page.goto('https://duckduckgo.com/', { waitUntil: 'networkidle2' })
+await page.type('#search_form_input_homepage', 'Puppeteer')
+const searchValue = await page.$eval('#search_form_input_homepage', el => el.value)
+expect(searchValue).toEqual('Puppeteer')
 
 await browser.close()
 ```
@@ -159,13 +159,13 @@ Scraping the values of other common form elements is pretty similar to scraping 
 there.
 
 {{< tabs "Checkboxes, radio & dropdown" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
+const playwright = require('playwright')
+const browser = await playwright.chromium.launch()
 
 const page = await browser.newPage()
-await page.setViewport({ width: 1280, height: 1800 })
+await page.setViewportSize({ width: 1280, height: 1800 })
 
 await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
@@ -186,13 +186,13 @@ console.log('Select options are:', selectOptions)
 await browser.close()
 ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
+const puppeteer = require('puppeteer')
+const browser = await puppeteer.launch()
 
 const page = await browser.newPage()
-await page.setViewportSize({ width: 1280, height: 1800 })
+await page.setViewport({ width: 1280, height: 1800 })
 
 await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
@@ -225,25 +225,9 @@ the `page.$$eval()` method.
 ## Built-in shortcuts
 
 Both libraries offer some built-in shortcuts to access common elements of a typical webpage which you can use in Checkly. For the full details see
-[the Puppeteer docs](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-class-page) or [the Playwright docs](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=class-page).
+[the Playwright docs](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=class-page) or [the Puppeteer docs](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-class-page).
 
 {{< tabs "page.viewport" >}}
-{{< tab "Puppeteer" >}}
-```js
-...
-await page.goto('https://www.google.com/')
-
-// grabs the page title
-const title = await page.title()
-
-// grabs the page's URL
-const url = await page.url()
-
-// return an object with the page's viewport setting
-const viewport = await page.viewport()
-console.log('Page width is:', viewport.width)
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
  ```js
 ...
@@ -257,6 +241,22 @@ const url = await page.url()
 
 // return an object with the page's viewport setting
 const viewport = await page.viewportSize()
+console.log('Page width is:', viewport.width)
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+...
+await page.goto('https://www.google.com/')
+
+// grabs the page title
+const title = await page.title()
+
+// grabs the page's URL
+const url = await page.url()
+
+// return an object with the page's viewport setting
+const viewport = await page.viewport()
 console.log('Page width is:', viewport.width)
 ```
 {{< /tab >}}

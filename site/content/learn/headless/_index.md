@@ -1,22 +1,15 @@
 ---
-title: Learn Puppeteer & Playwright
+title: Learn Playwright & Puppeteer
 ---
 
-Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation frameworks, Puppeteer and Playwright. This guide provides detailed information and examples how you can write high-quality scripts for testing and synthetic monitoring.
+Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation frameworks, Playwright and Puppeteer. 
+This guide provides detailed information and examples how you can write high-quality scripts for testing and synthetic monitoring.
 
 ## Getting Started
 
-Have a look at how Puppeteer & Playwright work, what similarities they share, as well as the noticeable differences.
+Have a look at how Playwright & Puppeteer work, what similarities they share, as well as the noticeable differences.
 
 <div class="cards-list">
-{{< doc-card
-	  class="two-column-card"
-	  headerTag="h3"
-	  title="What is Puppeteer?"
-	  img="/learn/icons/puppeteer.png"
-	  description="Learn what's behind the popular Node.js library from Google and the use cases it serves."
-	  link="/learn/headless/basics-puppeteer-intro"
->}}
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
@@ -25,6 +18,14 @@ Have a look at how Puppeteer & Playwright work, what similarities they share, as
 	  description="Built on the experience of Puppeteer, Microsofts' Playwright offers unique features."
 	  link="/learn/headless/basics-playwright-intro"
 >}}
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="What is Puppeteer?"
+	  img="/learn/icons/puppeteer.png"
+	  description="Learn what's behind the popular Node.js library from Google and the use cases it serves."
+	  link="/learn/headless/basics-puppeteer-intro"
+>}}
 </div>
 
 <div class="cards-list">
@@ -32,7 +33,7 @@ Have a look at how Puppeteer & Playwright work, what similarities they share, as
 	class="full-width-card"
 	headerTag="h3"
 	img="/learn/icons/local-setup.svg"
-	title="Setup Puppeteer and Playwright"
+	title="Setup Playwright and Puppeteer"
 	description="Prepare to write your first scripts and learn how the setup works."
 	link="/learn/headless/basics-local-setup"
 >}}
@@ -40,7 +41,7 @@ Have a look at how Puppeteer & Playwright work, what similarities they share, as
 
 ## Diving Deeper
 
-Puppeteer and Playwright are extremely powerful and serve a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
+Playwright and Puppeteer are extremely powerful and serve a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
 
 <div class="cards-list">
 {{< doc-card
@@ -72,7 +73,7 @@ Puppeteer and Playwright are extremely powerful and serve a wide range of use ca
 	headerTag="h3"
 	title="Performance"
 	img="/learn/icons/performance.svg"
-	description="Learn how you can use Puppeteer & Playwright to measure page performances."
+	description="Learn how you can use Playwright & Puppeteer to measure page performances."
 	link="/learn/headless/basics-performance"
 >}}
 </div>

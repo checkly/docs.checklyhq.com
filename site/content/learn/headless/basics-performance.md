@@ -46,7 +46,7 @@ Given the importance of page performance, it is no coincidence that browsers exp
 
 ## Performance with headless tools
 
-As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Puppeteer and Playwright give us a great toolkit to power both synthetic monitoring and performance testing.
+As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Playwright and Puppeteer give us a great toolkit to power both synthetic monitoring and performance testing.
 
 1. Access to the Web Performance APIs, especially [PerformanceNavigationTiming](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigationTiming) and [PerformanceResourceTiming](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming).
 2. Whenever testing against Chromium, access to the Chrome DevTools Protocol for traffic inspection, network emulation and more.
@@ -94,7 +94,7 @@ The Resource Timing API allows us to zoom in to single resources and get accurat
 
 ### Chrome DevTools for performance
 
-The Chrome DevTools Protocol offers many great performance tools for us to leverage together with Puppeteer and Playwright.
+The Chrome DevTools Protocol offers many great performance tools for us to leverage together with Playwright and Puppeteer.
 
 One important example is network throttling, through which we can simulate the experience of users accessing our page with different network conditions.
 

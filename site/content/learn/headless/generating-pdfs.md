@@ -12,7 +12,7 @@ menu:
     parent: "Miscellaneous"
 ---
 
-Puppeteer and Playwright can be used to create PDFs from webpages. This opens up interesting automation scenarios for tasks such as archiving, generating invoices, writing manuals, books and more.
+Playwright and Puppeteer can be used to create PDFs from webpages. This opens up interesting automation scenarios for tasks such as archiving, generating invoices, writing manuals, books and more.
 
 This article introduces this functionality and shows how we can customise the PDF to fit our needs.
 
@@ -39,7 +39,7 @@ After loading a page, we use the `page.pdf()` command to convert it to a PDF.
 
 Note that we need to pass the `path` option to have the PDF file actually saved to disk.
 
-> ⚠️  This feature is currently only supported in Chromium headless in both Puppeteer and Playwright.
+> ⚠️  This feature is currently only supported in Chromium headless in both Playwright and Puppeteer.
 
 ## Tweaking the result
 
