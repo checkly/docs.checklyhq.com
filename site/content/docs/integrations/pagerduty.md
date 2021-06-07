@@ -20,12 +20,13 @@ you wish.
 1. Navigate to the **alert settings** tab on the account screen and click the 'Add channels' button.
 ![setup checkly pagerduty integration step 1](/docs/images/integrations/pagerduty_step1.png)
 
-2. Clicking the **Alert with Pagerduty** button will take you to a Pagerduty login screen. Provide your credentials and click
-**Authorize integration** to allow Checkly to integrate with Pagerduty.
+2. Clicking the **Alert with Pagerduty** button will take you to a Pagerduty Connect screen. Provide your credentials and click
+**Sign In** to allow Checkly to connect with Pagerduty.
 ![set up checkly pagerduty integration step 2](/docs/images/integrations/pagerduty_step2.png)
 
-3. On the next screen you can either hook up Checkly to an existing service, or create a brand new service.
-Click **Finish integration** to save your settings and redirect you back to Checkly.
+3. On the next screen you can hook up Checkly to one or more existing services. If you select multiple services, we will
+create multiple dedicated channels so you have more flexibility of muting, editing and managing the channels. 
+Click **Connect** to save your settings and redirect you back to Checkly.
 ![set up checkly pagerduty integration step 3](/docs/images/integrations/pagerduty_step3.png)
 
 4. Back in Checkly, you should see your Pagerduty **integration credentials** reflected in the alert settings. Don't forget
