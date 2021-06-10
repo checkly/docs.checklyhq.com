@@ -9,6 +9,28 @@ menu:
 All browser checks run in a sandboxed runtime environment on our cloud backend. You do not have full access to the Node.js
 standard library or to arbitrary NPM modules. Currently every runner is equipped with the following libraries:
 
+### Built-in modules
+
+- assert
+- buffer
+- crypto
+- dns
+- path
+- querystring
+- readline
+- stream
+- string_decoder
+- stream
+- timers
+- tls
+- url
+- util
+- zlib
+
+See the [built-in module documentation on the official Node.js site](https://nodejs.org/dist/latest-v12.x/docs/api/)
+
+### External modules
+
 - **[node](https://nodejs.org/docs/latest-v12.x/api/)** 12.x LTS: The general Node.js execution environment.
 - **[puppeteer](https://github.com/GoogleChrome/puppeteer)** 2.0.0: Framework for controlling browsers from Node.js.
   - **[chromium](https://github.com/chromium/chromium/releases/tag/77.0.3844.0)** 77.0.3844.0 (r674921): Chrome browser used with Puppeteer.
