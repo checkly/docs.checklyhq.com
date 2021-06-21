@@ -18,7 +18,7 @@ menu:
     parent: "Getting Started"
 ---
 
-Users normally access most website functionality through clicks, keystrokes etc. Puppeteer and Playwright allow us to replicate these events by referencing elements on the page using [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors).
+Users normally access most website functionality through clicks, keystrokes etc. Playwright and Puppeteer allow us to replicate these events by referencing elements on the page using [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors).
 
 <!-- more -->
 
@@ -27,6 +27,21 @@ Users normally access most website functionality through clicks, keystrokes etc.
 Clicking is the default way of selecting and activating elements on web pages, and will appear very often in most headless scripts.
 
 {{< tabs "1">}}
+{{< tab "Playwright" >}}
+ ```js
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto('https://danube-webshop.herokuapp.com/');
+
+  await page.click('#login');
+
+  await browser.close();
+})()
+ ```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
 const puppeteer = require('puppeteer');
@@ -37,21 +52,6 @@ const puppeteer = require('puppeteer');
   await page.goto('https://danube-webshop.herokuapp.com/');
 
   await page.waitForSelector('#login');
-  await page.click('#login');
-
-  await browser.close();
-})()
- ```
-{{< /tab >}}
-{{< tab "Playwright" >}}
- ```js
-const { chromium } = require('playwright');
-
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
-
   await page.click('#login');
 
   await browser.close();
@@ -70,6 +70,21 @@ For the times when even the humble click fails, you can try the following altern
 A popular pattern among web pages is exposing additional information or functionality when the user hovers the mouse cursor over a specific item. Examples include, menus, previews and dialogs containing extra information on the item.
 
 {{< tabs "3" >}}
+{{< tab "Playwright" >}}
+ ```js
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto('https://danube-webshop.herokuapp.com/');
+
+  await page.hover('a');
+
+  await browser.close();
+})()
+ ```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
 const puppeteer = require('puppeteer');
@@ -86,6 +101,13 @@ const puppeteer = require('puppeteer');
 })()
  ```
 {{< /tab >}}
+{{< /tabs >}}
+
+## Focussing
+
+Focussing on specific UI elements allows the user to interact with them without clicks. It can also result in a proactive reaction from the webapp, such as displaying suggestions.
+
+{{< tabs "4" >}}
 {{< tab "Playwright" >}}
  ```js
 const { chromium } = require('playwright');
@@ -95,19 +117,12 @@ const { chromium } = require('playwright');
   const page = await browser.newPage();
   await page.goto('https://danube-webshop.herokuapp.com/');
 
-  await page.hover('a');
+  await page.focus('input');
 
   await browser.close();
 })()
  ```
 {{< /tab >}}
-{{< /tabs >}}
-
-## Focussing
-
-Focussing on specific UI elements allows the user to interact with them without clicks. It can also result in a proactive reaction from the webapp, such as displaying suggestions.
-
-{{< tabs "4" >}}
 {{< tab "Puppeteer" >}}
  ```js
 const puppeteer = require('puppeteer');
@@ -124,6 +139,13 @@ const puppeteer = require('puppeteer');
 })()
  ```
 {{< /tab >}}
+{{< /tabs >}}
+
+## Typing
+
+We can simulate typing on a real keyboard using `page.type()`:
+
+{{< tabs "5" >}}
 {{< tab "Playwright" >}}
  ```js
 const { chromium } = require('playwright');
@@ -133,19 +155,12 @@ const { chromium } = require('playwright');
   const page = await browser.newPage();
   await page.goto('https://danube-webshop.herokuapp.com/');
 
-  await page.focus('input');
+  await page.fill('input', 'some search terms');
 
   await browser.close();
 })()
  ```
 {{< /tab >}}
-{{< /tabs >}}
-
-## Typing
-
-We can simulate typing on a real keyboard using `page.type()`:
-
-{{< tabs "5" >}}
 {{< tab "Puppeteer" >}}
  ```js
 const puppeteer = require('puppeteer');
@@ -157,21 +172,6 @@ const puppeteer = require('puppeteer');
 
   await page.waitForSelector('input')
   await page.type('input', 'some search terms');
-
-  await browser.close();
-})()
- ```
-{{< /tab >}}
-{{< tab "Playwright" >}}
- ```js
-const { chromium } = require('playwright');
-
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
-
-  await page.fill('input', 'some search terms');
 
   await browser.close();
 })()
@@ -201,5 +201,5 @@ $ node basic-click-type.js
 ```
 
 ## Further reading
-1. The related official documentation of [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pageclickselector-options) and [Playwright](https://playwright.dev/#version=v1.2.1&path=docs%2Finput.md&q=)
+1. The related official documentation of [Playwright](https://playwright.dev/#version=v1.2.1&path=docs%2Finput.md&q=) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pageclickselector-options)
 2. [Finding effective selectors](/learn/headless/basics-selectors/)

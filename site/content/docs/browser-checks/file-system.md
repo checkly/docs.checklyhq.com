@@ -15,24 +15,6 @@ Due to this sandbox, certain Node.js variables are adapted to our platform and h
 The values these variables correspond to might change in the future. Therefore, we recommend using `__dirname`, like `path.join(__dirname, 'example.png')` or relative paths, like `./example.png` or just `example.png`, while using the file system-related operation. You can find an example code snippet below:
 
 {{< tabs "Basic example" >}}
-
-{{< tab "Puppeteer" >}}
-```javascript
-const path = require('path')
-const fs = require('fs')
-const puppeteer = require('puppeteer')
-
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-const image = await page.goto('https://picsum.photos/200/300')
-const imagePath = path.join(__dirname, 'example.jpg')
-const buffer = await image.buffer()
-fs.writeFileSync(imagePath, buffer)
-const readFileFromDisk = fs.readFileSync(imagePath)
-await browser.close()
-```
-{{< /tab >}}
-
 {{< tab "Playwright" >}}
 ```javascript
 const path = require('path')
@@ -49,5 +31,20 @@ const readFileFromDisk = fs.readFileSync(imagePath)
 await browser.close()
 ```
 {{< /tab >}}
+{{< tab "Puppeteer" >}}
+```javascript
+const path = require('path')
+const fs = require('fs')
+const puppeteer = require('puppeteer')
 
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+const image = await page.goto('https://picsum.photos/200/300')
+const imagePath = path.join(__dirname, 'example.jpg')
+const buffer = await image.buffer()
+fs.writeFileSync(imagePath, buffer)
+const readFileFromDisk = fs.readFileSync(imagePath)
+await browser.close()
+```
+{{< /tab >}}
 {{< /tabs >}}

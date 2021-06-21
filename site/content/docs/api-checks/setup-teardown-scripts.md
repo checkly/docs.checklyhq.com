@@ -393,6 +393,7 @@ standard library or to arbitrary NPM modules. Currently every runner is equipped
 - assert
 - buffer
 - crypto
+- dns
 - path
 - querystring
 - readline

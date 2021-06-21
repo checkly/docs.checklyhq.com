@@ -18,19 +18,19 @@ knowledge working with Javascript and/or Node.js.
 The five lines of code below are already a valid browser check. Its usefulness might be not that great, but still...
 
 {{< tabs "Basic example" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
  ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
+const playwright = require('playwright')
+const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
 await page.goto('https://checklyhq.com/')
 await browser.close()
  ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
  ```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
+const puppeteer = require('puppeteer')
+const browser = await puppeteer.launch()
 const page = await browser.newPage()
 await page.goto('https://checklyhq.com/')
 await browser.close()
@@ -45,13 +45,12 @@ The script validates assumptions you have about that web page, for instance:
 - Can users add products to the shopping cart?
 - Can users log in to my app?
 
-Checkly uses the **[Puppeteer](https://github.com/GoogleChrome/puppeteer)** and
-**[Playwright](https://github.com/microsoft/playwright)** frameworks to drive these actions.
-Puppeteer and Playwright are Javascript frameworks that "talk" to a real Google Chrome browser.
-You use the both frameworks to control the interactions you want to happen on a web page.
+Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)** 
+frameworks to drive these actions. Playwright and Puppeteer are Javascript frameworks that "talk" to a real Google Chrome browser.
+You use these frameworks to control the interactions you want to happen on a web page.
 
 {{< info >}}
-Checkly currently supports using only **Google Chrome** with both Puppeteer and Playwright
+Checkly currently supports using only **Google Chrome** with both Playwright and Puppeteer.
 {{< /info >}}
 
 ## Breaking down a browser check step-by-step
@@ -60,23 +59,6 @@ Let's look at a more real life example and break down each step. The code below 
 to fully load and then snaps a screenshot.
 
 {{< tabs "Breakdown example" >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer') // 1
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-
-await page.goto('https://app.checklyhq.com/login') // 2
-
-await page.type('input[type="email"]', 'john@example.com') // 3
-await page.type('input[type="password"]','mypassword')
-await page.click('.btn.btn-success.btn-block')
-
-await page.waitForSelector('.status-table') // 4
-await page.screenshot({ path: 'checkly_dashboard.png' })
-await browser.close()
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 const playwright = require('playwright') // 1
@@ -94,10 +76,27 @@ await page.screenshot({ path: 'checkly_dashboard.png' })
 await browser.close()
  ```
 {{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+const puppeteer = require('puppeteer') // 1
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+
+await page.goto('https://app.checklyhq.com/login') // 2
+
+await page.type('input[type="email"]', 'john@example.com') // 3
+await page.type('input[type="password"]','mypassword')
+await page.click('.btn.btn-success.btn-block')
+
+await page.waitForSelector('.status-table') // 4
+await page.screenshot({ path: 'checkly_dashboard.png' })
+await browser.close()
+```
+{{< /tab >}}
 {{< /tabs >}}
 
 **1. Initial declarations:** We first import a framework (Puppeteer or Playwright) to control a browser.
-We also declare a “browser” and a “page” variable.
+We also declare a `browser` and a `page` variable.
 
 **2. Initial navigation:** We use the `page.goto()` method to load the first page.
 
@@ -116,7 +115,7 @@ or **[Playwright](https://github.com/microsoft/playwright)** script is a valid b
 scripts in two ways:
 
 1. By using [Headless Recorder](/headless-recorder/) (our Chrome browser extension) to record a set of actions and
-generate the Puppeteer or Playwright script automatically.
+generate the Playwright or Puppeteer script automatically.
 2. By writing the Node.js by hand.
 
 A combination of both is also very common, i.e. you record the basic interactions with Headless Recorder and then tweak
@@ -128,7 +127,7 @@ to Checkly.
 
 
 {{< info >}}
-Every valid Puppeteer or Playwright script is a valid browser check. If the script passes, your check passes.
+Every valid Playwright or Puppeteer script is a valid browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
@@ -144,41 +143,19 @@ However, many times you want to assert specific values on a page.
 
 To do this, you can:
 
-1. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
-2. Use the popular [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
+1. Use the popular [Jest except](https://jestjs.io/docs/expect) library (Recommended).
+2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
+3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
 You can use as many assertions in your code as you want. For example, in the code below we scrape the text from the
 large button on the Checkly homepage and assert it in two ways.
 
 
 {{< tabs "Assertions example" >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer')
-const assert = require('assert')
-const expect = require('chai').expect
-
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
-
-// get the text of the button
-const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
-
-// assert using built-in assert function
-assert.equal(buttonText, 'Start your free trial')
-// assert using Chai's expect function
-expect(buttonText).to.equal('Start your free trial')
-
-await browser.close()
- ```
-
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 const playwright = require('playwright')
-const assert = require('assert')
-const expect = require('chai').expect
+const expect = require('expect')
 
 const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
@@ -187,10 +164,26 @@ await page.goto('https://checklyhq.com/')
 // get the text of the button
 const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
 
-// assert using built-in assert function
-assert.equal(buttonText, 'Start your free trial')
-// assert using Chai's expect function
-expect(buttonText).to.equal('Start your free trial')
+// assert using Jest's expect function
+expect(buttonText).toEqual('Start for free')
+
+await browser.close()
+ ```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+const puppeteer = require('puppeteer')
+const expect = require('expect')
+
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+await page.goto('https://checklyhq.com/')
+
+// get the text of the button
+const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
+
+// assert using Jest's expect function
+expect(buttonText).toEqual('Start for free')
 
 await browser.close()
  ```
@@ -200,7 +193,7 @@ await browser.close()
 Note the following:
 
 - We use the `page.$eval()` method to grab the button element and get its innerText property.
-- We use a basic `assert` and a Chai.js `expect` statement to verify the text is correct.
+- We use a basic Jest `expect().toEqual()` statement to verify the text is correct.
 
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
@@ -215,11 +208,11 @@ alerting channels will be triggered, notifying your team that something is up.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [creating reusable code snippets](/docs/browser-checks/partials-code-snippets/).
 
-## More Puppeteer and Playwright resources
+## More Playwright and Puppeteer resources
 
-- [Headless Automation guides](/learn/headless), a free & open source knowledge base for Puppeteer and Playwright
+- [Headless Automation guides](/learn/headless), a free & open source knowledge base for Playwright and Puppeteer
 (maintained by Checkly).
-- [pptr.dev](https://pptr.dev/) is the official API documentation site for the Puppeteer framework.
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
+- [pptr.dev](https://pptr.dev/) is the official API documentation site for the Puppeteer framework.
 - [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) is a great GitHub repo full of Puppeteer
 related libraries, tips and resources.
