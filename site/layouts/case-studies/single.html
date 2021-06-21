@@ -1,0 +1,135 @@
+{{ define "main" }}
+  <div class="main case-studies">
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-8">
+            <div class="hero__logo">
+              <img src={{.Params.logo}} alt="finn auto logo" width="200" height="36" />
+            </div>
+            <h1 class="hero__title">{{.Title}}</h1>
+            {{ if .Description }}
+            <p class="hero__description">{{.Description}}</p>
+            {{ end }}
+          </div>
+          <div class="col-sm-12 col-lg-4 services__list">
+            <div class="services__list__title">
+              Services
+            </div>
+            <div>
+              {{ range .Params.services }}
+              <a class="services__list__item" href={{.link}}>
+                {{ .name }}
+              </a>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="full-width-image">
+      <picture>
+        <source type="image/webp" srcset="/case-studies/car_1@2x.webp">
+        <source type="image/png" srcset="/case-studies/car_1@2x.png">
+        <img src="/case-studies/car_1@2x.png" alt="checkly monitoring dashboard" />
+      </picture>
+    </section>
+    <section class="problem">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-7 problem__description">
+            <div class="problem__label">{{.Params.problem.label}}</div>
+            <h2 class="problem__title">{{.Params.problem.title}}</h2>
+            <p>{{.Params.problem.description1}}</p>
+          </div>
+          <div class="col-sm-12 col-lg-5">
+            <div class="problem__logos">
+              {{ range .Params.problem.logos }}
+              <img src={{.src}} alt={{.alt}} />
+              {{ end }}
+            </div>
+          </div>
+          <div class="col-sm-12 col-lg-5">
+          </div>
+          <div class="col-sm-12 col-lg-7 problem__description">
+            <p>{{.Params.problem.description2}}</p>
+          </div>
+        </div>
+      </div>
+      <picture class="problem__car_image">
+        <source type="image/webp" srcset="/case-studies/car_2@2x.webp">
+        <source type="image/png" srcset="/case-studies/car_2@2x.png">
+        <img src="/case-studies/car_2@2x.png" alt="problem section image" />
+      </picture>
+    </section>
+    <section class="quote">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-4">
+            <img src={{.Params.quote.avatar}} alt={{.Params.quote.author}} width="183" height="183" />
+            <p class="quote__author">
+              {{.Params.quote.author}}
+            </p>
+            <p class="quote__author_role">
+              {{.Params.quote.role}}
+            </p>
+          </div>
+          <div class="col-sm-12 col-lg-8">
+            <img class="quote__icon" src="/case-studies/quote_icon.svg" alt="quote icon" />
+            <p class="quote__description">
+              {{.Params.quote.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="solution">
+      <div class="container">
+        <div class="col-sm-12 col-lg-7">
+          <label class="solution__label">{{.Params.solution.label}}</label>
+          <h2 class="solution__title">{{.Params.solution.title}}</h2>
+          <div class="solution__description">{{.Params.solution.description | safeHTML}}</div>
+        </div>
+      </div>
+      <picture class="solution__image">
+        <source type="image/webp" srcset="/case-studies/macbook-finnauto@2x.webp">
+        <source type="image/png" srcset="/case-studies/macbook-finnauto@2x.png">
+        <img src="/case-studies/macbook-finnauto@2x.png" alt="solution section image" />
+      </picture>
+    </section>
+    <section class="property">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h2 class="property__number">3</h2>
+            <label class="property__label">TOOLS REPLACED</label>
+            <img src="/case-studies/slash.svg" alt="slash 1" />
+          </div>
+          <div class="col-sm-4">
+            <h2 class="property__number">80%</h2>
+            <label class="property__label">DECREASE IN FALSE FAILURE</label>
+            <img src="/case-studies/slash.svg" alt="slash 2" />
+          </div>
+          <div class="col-sm-4">
+            <h2 class="property__number">3x</h2>
+            <label class="property__label">INCREASE IN MONITORING COVERAGE</label>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="result">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-8 offset-lg-2">
+            <label class="result__label">
+              {{.Params.result.label}}
+            </label>
+            <h2 class="result__title">{{.Params.result.title}}</h2>
+            <p class="result__description">{{.Params.result.description}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{ partial "start-for-free-row" . }}
+  </div>
+{{end}}

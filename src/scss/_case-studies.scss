@@ -1,0 +1,193 @@
+.case-studies {
+	.hero {
+		display: flex;
+		margin-bottom: 37px;
+
+		&__logo {
+			margin: 2rem 0;
+		}
+		&__title {
+			font-size: 52px;
+			line-height: 63px;
+			margin-bottom: 2rem;
+		  color: $black;
+		}
+
+		.services__list {
+			padding-top: 6.5rem;
+			text-align: right;
+
+			&__title {
+			  text-transform: uppercase;
+			  font-size: 14px;
+			  line-height: 20px;
+			  font-weight: 600;
+			  margin-bottom: 5px;
+			}
+			&__item {
+			  display: block;
+			  line-height: 30px;
+			  font-weight: 500;
+			}
+		}
+	}
+	.full-width-image {
+	  margin-bottom: -240px;
+
+	  img {
+	   width: 100vw;
+	  }
+	}
+	.problem {
+	  position: relative;
+	  background: rgba(255, 101, 157, 0.1);
+	  padding-top: 130px;
+
+	  &__label {
+	  	font-size: 14px;
+	  	line-height: 20px;
+	  	text-transform: uppercase;
+	  	font-weight: 600;
+	  	color: $red;
+	  }
+	  &__title {
+	    line-height: 1.5;
+	    color: #000000;
+	    margin: 10px 0;
+	  }
+	  &__description {
+	    max-width: 594px;
+	    width: 100%;
+	    color: $black;
+	    margin-bottom: 45px;
+	  }
+	  &__logos {
+	    margin-top: 150px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	  }
+	  &__car_image {
+	    position: absolute;
+	    bottom: -180px;
+	    width: 35%;
+
+	    img {
+	      width: 100%;
+	    }
+	  }
+	}
+	.quote {
+	  margin: 225px 0 48px;
+	  padding: 75px 0;
+
+	  &__author {
+	    margin: 12px 0 0;
+	    font-size: 18px;
+	    font-weight: 600;
+	    line-height: 39px;
+	    color: $black;
+	  }
+	  &__author_role {
+	    margin: 0;
+	    font-size: 14px;
+	    line-height: 17px;
+	    color: $gray;
+	  }
+	  &__icon {
+	    position: absolute;
+	    left: -30px;
+	    top: -30px;
+	  }
+
+	  &__description {
+	    font-size: 24px;
+	    line-height: 39px;
+	    margin: 0;
+	  }
+	}
+	.solution {
+	  padding: 120px 0;
+	  position: relative;
+	  background: $gray-lighter;
+
+	  br {
+	    margin: 20px 0;
+	    content: "";
+	    display: block;
+	  }
+
+	  &__image {
+	    position: absolute;
+	    width: 40%;
+	    right: 0;
+	    top: 50%;
+	    transform: translateY(-50%);
+
+	    img {
+	      width: 100%;
+	    }
+	  }
+
+	  &__label {
+	    font-size: 14px;
+	    font-weight: 600;
+	    line-height: 20px;
+	    text-transform: uppercase;
+	    color: $green;
+	  }
+
+	  &__title {
+	  	margin: 10px 0 13px;
+	  	line-height: 1.5;
+	  	color: $black;
+	  }
+
+	  &__description {
+	    color: $black;
+	  }
+	}
+	.property {
+	  background: #1f1f1f;
+	  padding: 75px 0;
+	  text-align: center;
+
+	  .col-sm-4{
+	  	postion: relative;
+
+	  	img {
+	  	  position: absolute;
+	  	  right: -10px;
+	  	  top: 50%;
+	  	  transform: translateY(-50%);
+	  	}
+	  }
+
+	  &__number {
+	    font-weight: 600;
+	    font-size: 72px;
+	    line-height: 87px;
+	    color: $white;
+	    margin-bottom: 0;
+	  }
+	  &__label {
+	    text-transform: uppercase;
+	    margin: 0;
+	    color: $white;
+	  }
+	}
+	.result {
+	  padding: 100px 0 0;
+
+	  &__label {
+	    color: $blue;
+	    text-transform: uppercase;
+	    font-weight: 600;
+	    margin: 0;
+	  }
+	  &__title {
+	    color: $black;
+	    margin: 10px 0 16px; 
+	  }
+	}
+}
