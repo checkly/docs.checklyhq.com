@@ -20,3 +20,7 @@ You can add as many SMS channels as you like.
 
 Checkly uses Amazon Web Services' SMS functionality to deliver SMS messages. If you are having trouble receiving SMS
 messages, check if your country is in the list on [this AWS support page](https://docs.aws.amazon.com/sns/latest/dg/sms_supported-countries.html).
+
+{{< info >}}
+For limits and other SMS-related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing#features).
+{{< /info >}}
