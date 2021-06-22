@@ -61,6 +61,13 @@ alerting:
     ctaLink: "/docs/integrations/opsgenie/"
     description: >-
         Open and close incidents automatically in OpsGenie for as many teams as you need.
+  - service: FireHydrant
+    icon: "/integrations/alerting/firehydrant@2x.png"
+    iconWidth: 36
+    iconHeight: 32
+    ctaLink: "/docs/integrations/firehydrant/"
+    description: >-
+     Kick off and resolve incidents in FireHydrant.     
   - service: Discord
     icon: "/integrations/alerting/discord@2x.png"
     iconWidth: 35

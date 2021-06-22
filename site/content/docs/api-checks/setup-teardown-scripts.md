@@ -230,6 +230,33 @@ const token = await getToken();
 request.headers['Authorization'] = `Bearer ${token}`
 ```
 
+### Dismiss password-protection prompt on Vercel deployment
+
+[Password-protected Vercel Deployments](https://vercel.com/blog/protecting-deployments) can be [bypassed programmatically](https://vercel.com/docs/platform/frequently-asked-questions#bypassing-password-protection-programmatically). The following script allows a check to run against both production and preview deployments while skipping the password prompt. Note that if only one of your deployments (e.g. the preview) is password-protected, you will want to skip the request via an _if_ statement to handle the other cases.
+
+```javascript
+const req = require('request-promise')
+
+const productionUrl = process.env.PROD_URL
+const vercelDeploymentPassword = process.env.PASSWORD_VERCEL
+
+const url = process.env.ENVIRONMENT_URL || productionUrl
+
+const options = {
+    uri: url,
+    simple: false,
+    resolveWithFullResponse: true
+};
+try {
+    const response = await req.post(options).form({_vercel_password: vercelDeploymentPassword})
+    const token = response.headers['set-cookie']
+    const tokenString = token.toString().split(';')[0]
+    request.headers['Cookie'] = tokenString
+} catch(error) {
+    console.log(error)
+}
+```
+
 ## Teardown scripts
 
 Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. Next to the [request](#request) 
@@ -366,6 +393,7 @@ standard library or to arbitrary NPM modules. Currently every runner is equipped
 - assert
 - buffer
 - crypto
+- dns
 - path
 - querystring
 - readline
@@ -394,6 +422,7 @@ See the [built-in module documentation on the official Node.js site](https://nod
 - **[request-promise](https://github.com/request/request-promise)** 4.2.2: A plugin for the request library to enable promises.
 - **[uuid](https://github.com/kelektiv/node-uuid)** 3.3.3: Simple, fast generation of UUIDS.
 - **[expect](https://www.npmjs.com/package/expect)** 26.6.2: The Jest expect assertion library.
+- **[form-data](https://github.com/form-data/form-data)** 3.x.x: Third-party library for creating form data.
 
 ## Technical limitations
 

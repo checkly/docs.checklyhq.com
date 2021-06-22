@@ -28,17 +28,17 @@ The example below, which is running against our [test webshop](https://danube-we
 We will use [Chai](https://www.chaijs.com/api/assert/) as an assertion library for points 2 and 3.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/search.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/search.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/search.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/search.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/search.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/search.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 

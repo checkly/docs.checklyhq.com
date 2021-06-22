@@ -25,24 +25,24 @@ browser checks to have granular feedback whether each part functions.
 1. Create a snippet named **github_login** in the "code snippets" section with the code below.
 
     {{< tabs "github_login" >}}
+   {{< tab "Playwright" >}}
+```javascript
+const playwright = require('playwright')
+const browser = await playwright.chromium.launch()
+const page = await browser.newPage()
+
+await page.goto('https://github.com/login')
+await page.type('#login_field', process.env.GITHUB_USER)
+await page.type('#password', process.env.GITHUB_PWD)
+await page.click('[name="commit"]')
+```
+    {{< /tab >}}   
     {{< tab "Puppeteer" >}}
 ```javascript
 const puppeteer = require('puppeteer')     
 const browser = await puppeteer.launch()
 const page = await browser.newPage()
     
-await page.goto('https://github.com/login')
-await page.type('#login_field', process.env.GITHUB_USER)
-await page.type('#password', process.env.GITHUB_PWD)
-await page.click('[name="commit"]')
-```
-    {{< /tab >}}
-    {{< tab "Playwright" >}}
-```javascript
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-
 await page.goto('https://github.com/login')
 await page.type('#login_field', process.env.GITHUB_USER)
 await page.type('#password', process.env.GITHUB_PWD)
@@ -60,20 +60,20 @@ await page.click('[name="commit"]')
 During execution, the code snippet will be inlined before the script is run.
 
     {{< tabs "github_login_referenced" >}}
+   {{< tab "Playwright" >}}
+```javascript
+    {{> github_login}}
+    
+    // your normal check code
+    await page.click('.header-search-input')
+```
+    {{< /tab >}}   
     {{< tab "Puppeteer" >}}
 ```javascript
     {{> github_login}}
     
     // your normal check code
     await page.waitForSelector('.application-main')
-    await page.click('.header-search-input')
-```
-    {{< /tab >}}
-    {{< tab "Playwright" >}}
-```javascript
-    {{> github_login}}
-    
-    // your normal check code
     await page.click('.header-search-input')
 ```
     {{< /tab >}}

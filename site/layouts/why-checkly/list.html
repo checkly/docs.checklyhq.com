@@ -65,7 +65,7 @@
           {{ .Params.videosection.description }}
           </p>
           <div class="video-wrapper">
-            <video id="why-checkly-video" autoplay loop controls > 
+            <video id="why-checkly-video" autoplay loop controls >
               <source src="{{.Params.videosection.video}}" type=video/mp4>
             </video>
             <div class="action-button video-play">
@@ -88,9 +88,9 @@
               </div>
               {{ .Content }}
               <select id="why-checkly-select" style="background-image: url(/why-checkly/dropdown.svg)">
-                <option value="puppeteer">Puppeteer</option>
                 <option value="playwright">Playwright</option>
-              </select>  
+                <option value="puppeteer">Puppeteer</option>
+              </select>
             </div>
           </div>
           <div class="col-lg-5 col-xl-6 pl-lg-5 text-wrap">
@@ -230,6 +230,6 @@
     </section>
     {{ partial "start-for-free-row" . }}
   </div>
-  
+
 </div>
 {{end}}

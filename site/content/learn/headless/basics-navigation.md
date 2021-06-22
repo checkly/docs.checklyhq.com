@@ -40,17 +40,17 @@ In the example below we trigger two navigations:
 <!-- more -->
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-browser-navigation.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-browser-navigation.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-browser-navigation.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-browser-navigation.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-browser-navigation.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-browser-navigation.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -75,20 +75,20 @@ needs to be loaded after clicking, hovering, navigating etc. You can pass it an 
 to override the default 30 seconds.
 
 In the example below, we type an email address into an input field on a login modal. Notice the difference between
-the Puppeteer and Playwright example.
+the Playwright and Puppeteer example.
 
 {{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-browser-waiting.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-browser-waiting.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-browser-waiting.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-browser-waiting.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-browser-waiting.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-browser-waiting.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 

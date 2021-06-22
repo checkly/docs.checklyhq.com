@@ -12,12 +12,12 @@ in general to get a comfy feeling everything is OK.
 Add a screenshot anywhere by using the following syntax in your script:
  
 {{< tabs "Basic screenshot example" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```js
 await page.screenshot({ path: 'my_screenshot.png' })
 ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```js
 await page.screenshot({ path: 'my_screenshot.png' })
 ```
@@ -36,9 +36,9 @@ Screenshots need to stick to the following specs:
 
 
 Read more about the options for `page.screenshot()` like transparency, clipping and quality settings in the official 
-for   
-[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagescreenshotoptions), or
-[Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagescreenshotoptions).
+for
+[Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagescreenshotoptions) or
+[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagescreenshotoptions).
 
 {{< warning >}}
 The experimental video recording added in [Playwright 
@@ -48,17 +48,17 @@ is not supported by Checkly.
 
 ## Full page screenshots
 
-Both Puppeteer and Playwright allow you to capture a full-page screenshot, including the content below the fold. This is very handy for taking
+Both Playwright and Puppeteer allow you to capture a full-page screenshot, including the content below the fold. This is very handy for taking
 snapshots of a long landing page or blog site. Just add the `fullPage: true`. The framework will scroll and stitch the images together.
 
 
 {{< tabs "Full page screenshot example" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```js
 await page.screenshot({ path: 'my_screenshot.png', fullPage: true })
 ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```js
 await page.screenshot({ path: 'my_screenshot.png', fullPage: true })
 ```
@@ -71,14 +71,14 @@ You can target any specific page element and generate a screenshot just of that 
 grab the element with the `$` selector and then call the `screenshot` method on that element. 
 
 {{< tabs "Element screenshot example" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```js
 await page.goto('https://checklyhq.com/')
 const element = await page.$('a.btn-lg')
 await element.screenshot({ path: 'button.png' })
 ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```js
 await page.goto('https://checklyhq.com/')
 const element = await page.$('a.btn-lg')

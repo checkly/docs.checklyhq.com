@@ -8,7 +8,7 @@ menu:
 
 This page illustrates the standard procedure to follow in order to get started with SAML SSO on Checkly.
 
-## Initial SSO configuration
+## Initial SSO setup
 
 Setting up SSO for your organisation starts with providing [Checkly Support](mailto:support@checklyhq.com) with the following information:
 
@@ -18,13 +18,26 @@ Setting up SSO for your organisation starts with providing [Checkly Support](mai
 - sign out URL
 - public X509 certificate
 
-## Testing the SSO integration
+## IdP configuration
 
 After configuration has taken place on Checkly's side, you will receive the following information to configure your IdP:
 
-- a redirect URL
-- a signout URL
-- configuration details in XML format
+- a redirect URL (e.g. `https://auth.checklyhq.com/login/callback?connection=<YOUR_CONNECTION_ID>`)
+- a signout URL (normally `https://auth.checklyhq.com/logout`)
+- XML metadata (e.g. `https://auth.checklyhq.com/samlp/metadata?connection=<YOUR_CONNECTION_ID>`)
+
+Please make sure that Checkly is sent the email address back from your SSO Idp. This way Checkly can map the existing Checkly user to your Idp user. The object returned should have an “email” field, e.g.:
+
+```json
+{
+	"email": "<EMAIL_ADDRESS>",
+	...
+}
+```
+
+> Note: in case of issues, you might want to double-check your **Entity ID**, which should be: `urn:auth0:checkly:<YOUR_CONNECTION_ID>`
+
+## Testing the integration
 
 Once that is taken care of, you should be able to log in to Checkly via SSO already. Entering an email address associated with the domain you have provided in the login prompt should result in the password field disappearing:
 

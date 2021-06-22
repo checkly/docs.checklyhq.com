@@ -20,20 +20,20 @@ Headless browsers are fully capable of taking screenshots, which is very useful 
 
 ## Generating and saving screenshots
 
-The `page.screenshot` command is consistent across Puppeteer and Playwright, and allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot will depend on that of the viewport:
+The `page.screenshot` command is consistent across Playwright and Puppeteer, and allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot will depend on that of the viewport:
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js {6,8}
-{{< readfile filename="samples/puppeteer/basic-screenshot.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-screenshot.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js {6,8}
 {{< readfile filename="samples/playwright/basic-screenshot.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-screenshot.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js {6,8}
+{{< readfile filename="samples/puppeteer/basic-screenshot.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-screenshot.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -50,17 +50,17 @@ await page.screenshot({ path: 'my_screenshot.png', fullPage: true })
 Having our screenshot limited to a smaller portion of the viewport is also possible. All we need to do is specify the coordinates of the top left corner of the screenshot, plus `width` and `height`. We then pass these options to:
 
 {{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-screenshot-clipped.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-screenshot-clipped.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-screenshot-clipped.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-screenshot-clipped.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-screenshot-clipped.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-screenshot-clipped.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -76,6 +76,6 @@ Screenshots can be fed to image comparison libraries, such as [Resemble.js](http
 Some libraries, like [Differencify](https://github.com/NimaSoroush/differencify) and [jest-puppeteer-docker](https://github.com/gidztech/jest-puppeteer-docker), already combine Puppeteer with visual comparison libraries while exposing higher-level config to the user.
 
 ## Further reading
-1. Official documentation for taking screenshots with [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.5.0&show=api-pagescreenshotoptions) and [Playwright](https://playwright.dev/docs/verification?_highlight=screenshot#screenshots)
+1. Official documentation for taking screenshots with [Playwright](https://playwright.dev/docs/verification?_highlight=screenshot#screenshots) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.5.0&show=api-pagescreenshotoptions)
 2. Blog post from baseweb.design on the whys and hows of [visual regression testing](https://baseweb.design/blog/visual-regression-testing/)
 3. Blog post from Gideon Pyzer looking at different visual [regression testing tools](https://gideonpyzer.dev/blog/2018/06/25/visual-regression-testing/)

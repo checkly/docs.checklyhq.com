@@ -31,14 +31,14 @@ At the end of our test, we need to check if our login procedure has been success
 On our [test site](https://danube-webshop.herokuapp.com/) this could look like the following:
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/login.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/login.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/login.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}

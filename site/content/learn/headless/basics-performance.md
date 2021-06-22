@@ -46,7 +46,7 @@ Given the importance of page performance, it is no coincidence that browsers exp
 
 ## Performance with headless tools
 
-As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Puppeteer and Playwright give us a great toolkit to power both synthetic monitoring and performance testing.
+As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Playwright and Puppeteer give us a great toolkit to power both synthetic monitoring and performance testing.
 
 1. Access to the Web Performance APIs, especially [PerformanceNavigationTiming](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigationTiming) and [PerformanceResourceTiming](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming).
 2. Whenever testing against Chromium, access to the Chrome DevTools Protocol for traffic inspection, network emulation and more.
@@ -61,55 +61,55 @@ The [Navigation Timing](https://www.w3.org/TR/navigation-timing/) and the [Resou
 We can use the Navigation Timing API to retrieve timestamps of key events in the page load timeline.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-navigation.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-navigation.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-performance-navigation.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-navigation.js" "playwright"  >}}
 {{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-performance-navigation.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-performance-navigation.js" "puppeteer"  >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 The Resource Timing API allows us to zoom in to single resources and get accurate information about how quickly they are being loaded. For example, we could specifically look at our website's logo:
 
 {{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-resource.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-resource.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-performance-resource.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-resource.js" "playwright"  >}}
 {{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-performance-resource.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-performance-resource.js" "puppeteer"  >}}
+{{< /tab >}}
 {{< /tabs >}}
 
 ### Chrome DevTools for performance
 
-The Chrome DevTools Protocol offers many great performance tools for us to leverage together with Puppeteer and Playwright.
+The Chrome DevTools Protocol offers many great performance tools for us to leverage together with Playwright and Puppeteer.
 
 One important example is network throttling, through which we can simulate the experience of users accessing our page with different network conditions.
 
 {{< tabs "3" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-emulation.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-emulation.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-performance-emulation.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-emulation.js" "playwright"  >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-performance-emulation.js" >}}
+```
+{{< run-in-checkly "/samples/puppeteer/basic-performance-emulation.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -120,14 +120,14 @@ The DevTools Protocol is quite extensive. We recommend exploring the [documentat
 Lighthouse can easily be used programmatically with Playwright and Puppeteer to gather values and scores for different metrics, like [Time To Interactive (TTI)](https://web.dev/interactive/):
 
 {{< tabs "4" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-lighthouse.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-performance-lighthouse.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/basic-performance-lighthouse.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
