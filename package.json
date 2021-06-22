@@ -37,7 +37,7 @@
     "gulp-babel": "^7.0.1",
     "gulp-flatten": "^0.4.0",
     "gulp-inline-css": "3.3.1",
-    "gulp-postcss": "^7.0.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-rev-all": "^0.9.8",
     "gulp-sass": "^4.1.0",
     "gulp-purgecss": "^3.0.0",
