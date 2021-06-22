@@ -4,18 +4,18 @@
  */
 
 $(document).ready(() => {
-  const docs_menu_title_class = '.docs-menu-title'
-  var doc_menu_header = $(docs_menu_title_class);
+  const docsMenuTitleClass = '.docs-menu-title'
+  var docsMenuHeader = $(docsMenuTitleClass)
 
-  doc_menu_header.click(function() {
-    var id = $(this).attr('id');
-    var doc_menu_id = '#docs-menu-' + id
+  docsMenuHeader.click(function () {
+    var id = $(this).attr('id')
+    var docMenuId = '#docs-menu-' + id
     if ($(this).attr('class') === 'docs-menu-title') {
       $(this).addClass('active')
-      $(doc_menu_id).addClass('menu-display')
+      $(docMenuId).addClass('menu-display')
     } else {
       $(this).removeClass('active')
-      $(doc_menu_id).removeClass('menu-display')
+      $(docMenuId).removeClass('menu-display')
     }
   })
 })
@@ -25,45 +25,45 @@ $(document).ready(() => {
  */
 
 $(document).ready(() => {
-  if($('#TableOfContents ul').length >= 1){
+  if ($('#TableOfContents ul').length >= 1) {
     $('#tocMenu').css({
-      display: 'block',
+      display: 'block'
     })
   } else {
     $('#tocMenu').css({
-      display: 'none',
+      display: 'none'
     })
   }
 })
-
 
 /**
  * Docs Mobile Menu
  */
 
 $(document).ready(() => {
-  var flag = true;
-  $('.mobile-toc-button').click(function() {
-    $(".docs-menu").css({
-      left: '0',
+  // let flag = true
+  $('.mobile-toc-button').click(function () {
+    $('.docs-menu').css({
+      left: '0'
     })
     $('.docs-menu-mobile-right-space').css({
-      display: 'block',
+      display: 'block'
     })
-    $("#sideMenu").removeClass('left-transform')
-    $("#sideMenu").addClass('right-transform')
-    flag = false;
+    $('#sideMenu').removeClass('left-transform')
+    $('#sideMenu').addClass('right-transform')
+    // flag = false
   })
-  $('.docs-menu-mobile-right-space').click(function() {
-    $(".docs-menu").css({
+
+  $('.docs-menu-mobile-right-space').click(function () {
+    $('.docs-menu').css({
       left: '-100%'
     })
     $('.docs-menu-mobile-right-space').css({
-      display: 'none',
+      display: 'none'
     })
-    $("#sideMenu").removeClass('right-transform')
-    $("#sideMenu").addClass('left-transform')
-    flag = true;
+    $('#sideMenu').removeClass('right-transform')
+    $('#sideMenu').addClass('left-transform')
+    // flag = true
   })
 })
 
@@ -71,34 +71,34 @@ $(document).ready(() => {
  * '/' press for the search
  */
 
-$(document).on('keydown', function(e) {
-  if ( e.keyCode === 191 ) { //'/' key code
+$(document).on('keydown', function (e) {
+  if (e.keyCode === 191) { // '/' key code
     e.preventDefault()
-    $("#search").focus();
+    $('#search').focus()
   }
-});
+})
 
 /**
  * Sidemenu fixed position after some scroll-up
  */
 
-var sideMenuDistance = $("#sideMenu").offset().top - 10;
+var sideMenuDistance = $('#sideMenu').offset().top - 10
 
-$(window).on('scroll', function() {
+$(window).on('scroll', function () {
   if ($(window).scrollTop() >= sideMenuDistance) {
-    $("#sideMenu").css({
+    $('#sideMenu').css({
       position: 'fixed',
       top: '0px'
     })
-    $("#tocMenu").css({
+    $('#tocMenu').css({
       position: 'fixed',
       top: '30px'
     })
   } else {
-    $("#sideMenu").css({
+    $('#sideMenu').css({
       position: 'relative'
     })
-    $("#tocMenu").css({
+    $('#tocMenu').css({
       position: 'relative',
       top: '0'
     })
