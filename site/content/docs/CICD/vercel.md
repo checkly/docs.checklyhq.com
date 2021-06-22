@@ -59,6 +59,22 @@ Once the project and the check/group have been linked, you are able to specify w
 
 Should you wish to unlink the Vercel project, simply click `Unlink this project`.
 
+## Vercel-linked check results 
+
+When selecting a check which is linked to a Vercel project, any results triggered by a deployment on that project will show at the bottom of the check page, under the tab `CI/CD triggered check results`.
+
+![cicd triggered check results tab](/docs/images/cicd/vercel/vercel_result.png)
+
+### Deployments tab
+
+The Deployments tab lists all deployments on linked projects, including Vercel-based ones, together with the check executions they triggered.
+
+![deployments tab overview](/docs/images/cicd/vercel/vercel_deployments.png)
+
+Selecting a deployment enables you to quickly determine whether it caused any check failures, and to drill into the relevant information in case it did.
+
+![deployment detail](/docs/images/cicd/vercel/vercel_deployment.png)
+
 ## Password-protected deployments
 
 You can also use Checkly together with Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can bypass the login prompt as part of a [browser check](/docs/browser-checks/login-scenarios#password-protected-websites) or using an [API request](https://vercel.com/docs/platform/frequently-asked-questions#bypassing-password-protection-programmatically).
