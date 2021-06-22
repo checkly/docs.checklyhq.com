@@ -21,6 +21,41 @@ $(document).ready(() => {
   }
 })
 
+$(document).ready(() => {
+  console.log(`
+       ,,,,,,         _ ,,,p##KBBKKBKKNpp,,, _      _ ,,,,,, _
+     p#KKKKKKKKNw _,p##KKKKKKBKKKKKKKKKKKKKKKNp, _,u#KKKKKKKKNw
+   _(#KPLL@@@2I#BKKKKKPP''L**5KKKKKKKPLLL*'*5KKKKKKBKLE@@@L|IKK_
+   _1BKLL#KBKKKKBKK*'''''*****|K#KKKLL****'''''**KKKK#KKKKN|I#K_
+   _!KKNH#BBKKKP' _    __  ''*||*P5LL*''' ___   __''TKKKKKHI#KK
+     *KKp##BK*_      _        ''|***' _             _'TKKN##KM'_         __
+      'T#KKP    _,;#####Np      _''_     ,p####Npp    _'T#KKP'    __,;p####Np_
+      ,]KM'_ _,/#KKKKKKKKKKp    ___    _#KKKKKKKKKKN    _*KK, _.,p#KKKKKKKKKKN
+    _,#KP_   ;#BKKKP'_:'TKBK_          ##KKP','*KKKKKN _  'K#K#KKKKKKKBBKKKKKKN
+   _;#KP_  _]KKKKKNp#KKKKKKKH         !#BKKKKKKKp#KKKKKp   _1KKHLL****55KKKKKKKp
+  _;#KP_  _;#KKKKKKKKKKKKKKKH   ;pp_  !#BKKKKKKKKKKKKKKN    'TKKNLL******|5KKBKK
+ _,#KK    _T#KKKKKKKKKKKKKKK'_  !KP   _T#KKKKKKKKKKKKKKK_   _!#KKKKpp@|L****IIKK
+ .#KKL,,,  _TKKKKKKKKKKKKKK"_ _####KN  _TKKKKKKKKKKKKKM'  ,p,|I#KKKKKKNppLL*|$#B
+ ;#KPL|$KKm _'''"******"''_    "KKKM'_  _''""*****""''_ ,#KKEL|KKBKKKKKKKKp@|$#B
+,#KHLL*|IKKKp,    ,,,,,,,,      ____      ,,,,,,,   _,,#KKKPL*|I#BKKKKKKKKKK##KK
+K#Kb*****LKKKKN###KKKKKKKKN_           _;#KKKKKKKKN###KKKPL***|L$BKBKKKKKKKKKKKP
+KKKNL*****|@#KKKKPPLL***IKKM_          _#KKELLL*55KKKKKELL****||$BBKKKKKKKKKKKM'
+KKKKpL****IKKKKPL*****||I#KN_    ___   ,#KKELL*****|IKKKKP***||##BKKh|IKBKKKKKC
+BKKKKKpLLL***LL****||L$#KKKP|;;;;;;;;;||IKKKpLL*********LL||@##KKKKKh***IKBKKP_
+KKKKKKKKNppp@@LLL@pp##KKKPL****'''''*|***IKKKKNppp@LLL@@pp##KKKKKKKKL***|I#KM
+KKKN|*5KKKKKKKKKKKKKKKKPL**''''_ __  ''''*|5$KKKKKKKKKKKKKKKBPLL#BKBLL*|$#KM'
+'TKN@L**'''5PPKKPPL'''L*''_             __''**'''5PKKPPPL'''**|$#BKKNp|p#KP
+ !KKKL||LLLLL||*******'__                  _'*|*****||||LLLL||I#BKKKKK#KK'_
+  '#KN#KKKKKKKKp@LLL* _                      __|||L@##KKKKKKKK#BKKKKKKKP_
+   TKBKKKPPKKKKKKKpL _                        _'|##BKKKKPPKKKKBKKKKKKM'_
+   !KKHL*******5TKKN                          _;#KKPP****|*|*$BKKKKM'_
+   !KKH**''   ''*I#KN                        _;#KKL'''_ _''||#BKK' _
+   _TKK@ _      _'IKKM                        #KK* _      _|$#K'_
+    _KKNp         !##N_                      _#Kb_       _,##K"_
+     _"KKNp_   __,#KKP_                      _1KKp    _ ;##KM'_`)
+  console.log(`🚨 We're hiring, join us! https://checklyhq.com/jobs`)
+})
+
 /**
  * END Navbar
  */
