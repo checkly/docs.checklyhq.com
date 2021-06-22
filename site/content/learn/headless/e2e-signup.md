@@ -15,7 +15,7 @@ menu:
 
 Signups are key transactions in most web platforms, and therefore prime targets for automation.
 
-Oftentimes, registering an account is where we will find longer forms asking the user to answer a variety of questions. Luckily, Puppeteer and Playwright are quick enough to blaze through these in seconds.
+Oftentimes, registering an account is where we will find longer forms asking the user to answer a variety of questions. Luckily, Playwright and Puppeteer are quick enough to blaze through these in seconds.
 
 <!-- more -->
 
@@ -30,14 +30,14 @@ The flow will often match the following:
 We will likely want to also check that some change occurred in the UI to confirm that the registration worked.
 
 {{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/signup.js" >}}
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/signup.js" >}}
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+```js
+{{< readfile filename="samples/puppeteer/signup.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}

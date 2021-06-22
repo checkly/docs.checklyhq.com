@@ -12,7 +12,7 @@ menu:
     parent: "Best Practices"
 ---
 
-While automation tools are fundamental to modern software development, they also have the innate potential to be used for malicious purposes. This applies to Puppeteer and Playwright, too.
+While automation tools are fundamental to modern software development, they also have the innate potential to be used for malicious purposes. This applies to Playwright and Puppeteer, too.
 
 <!-- more -->
 
@@ -45,14 +45,6 @@ Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
 Bot detection could be deactivated for pre-production environments in order to allow automation. For production environments, a secret may be included in the User-Agent (or similar mechanism) for the system to recognize test bots and allow them through:
 
 {{< tabs "1">}}
-{{< tab "Puppeteer" >}}
- ```js
-const browser = await puppeteer.launch();
-const page = await browser.newPage();
-await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>');
-
-```
-{{< /tab >}}
 {{< tab "Playwright" >}}
 ```js
 const browser = await chromium.launch();
@@ -60,6 +52,14 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>'
 });
 const page = await context.newPage('https://example.com');
+
+```
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
+ ```js
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
+await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>');
 
 ```
 {{< /tab >}}

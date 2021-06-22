@@ -16,11 +16,11 @@ a great candidate for a browser check as these site transactions tend to be very
 The code snippet below shows how you can log into GitHub.
 
 {{< tabs "Basic login" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```javascript
-const puppeteer = require('puppeteer')
+const playwright = require('playwright')
 
-const browser = await puppeteer.launch()
+const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
 await page.goto('https://github.com/login')
 await page.type('#login_field', 'johndoe@example.com')
@@ -29,12 +29,11 @@ await page.click('[name="commit"]')
 await browser.close()
 ```
 {{< /tab >}}
-
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```javascript
-const playwright = require('playwright')
+const puppeteer = require('puppeteer')
 
-const browser = await playwright.chromium.launch()
+const browser = await puppeteer.launch()
 const page = await browser.newPage()
 await page.goto('https://github.com/login')
 await page.type('#login_field', 'johndoe@example.com')
@@ -49,11 +48,11 @@ However, notice we are hard coding the username and password into our script. Th
 Better to replace them with some environment variables. Read more about [how to use environment variables in your browser checks.](/docs/browser-checks/variables/)
 
 {{< tabs "Using environment variables" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```javascript
-const puppeteer = require('puppeteer')
+const playwright = require('playwright')
 
-const browser = await puppeteer.launch()
+const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
 await page.goto('https://github.com/login')
 await page.type('#login_field', process.env.GITHUB_USER)
@@ -62,12 +61,11 @@ await page.click('[name="commit"]')
 await browser.close()
 ```
 {{< /tab >}}
-
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```javascript
-const playwright = require('playwright')
+const puppeteer = require('puppeteer')
 
-const browser = await playwright.chromium.launch()
+const browser = await puppeteer.launch()
 const page = await browser.newPage()
 await page.goto('https://github.com/login')
 await page.type('#login_field', process.env.GITHUB_USER)
@@ -149,20 +147,20 @@ Note the following:
 
 - We create a `navigationPromise` ahead of time and wait for this promise to resolve as we navigate from domain to domain.
 - We of course store our credentials in environment variables.
-- We use the `visible: true`/`state: 'visible'` (for Puppeteer and Playwright, respectively) option when waiting for the buttons and input fields to appear. The script fails otherwise.
+- We use the `state: 'visible'`/`visible: true`(for Playwright and Puppeteer, respectively) option when waiting for the buttons and input fields to appear. The script fails otherwise.
 
 ## Password-protected websites
 
 In certain cases, for example with [Vercel password-protected deployments](https://vercel.com/blog/protecting-deployments), websites might require a password to be entered before the target page is made available. Much like login cases, this can be solved directly using Puppeteer or Playwright:
 
 {{< tabs "Password-protected deployment" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```javascript
-const puppeteer = require("puppeteer");
+const {chromium} = require("playwright");
 
 (async () => {
 
-    const browser = await puppeteer.launch();
+    const browser = await chromium.launch();
     const page = await browser.newPage();
 
     // If the check is being triggered via GitHub deployments, you might
@@ -179,13 +177,13 @@ const puppeteer = require("puppeteer");
 })()
 ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```javascript
-const {chromium} = require("playwright");
+const puppeteer = require("puppeteer");
 
 (async () => {
 
-    const browser = await chromium.launch();
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     // If the check is being triggered via GitHub deployments, you might

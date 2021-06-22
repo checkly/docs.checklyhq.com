@@ -44,6 +44,20 @@ Both check, group and global environment variables are accessible in your code u
 For example, the code snippet below show how you can log into GitHub. We have more [examples of login scenarios on this page.](/docs/browser-checks/login-scenarios/)
 
 {{< tabs "Variables example" >}}
+{{< tab "Playwright" >}}
+```js
+const playwright = require('playwright')
+const browser = await playwright.chromium.launch()
+const page = await browser.newPage()
+
+await page.goto('https://github.com/login')
+await page.type('#login_field', process.env.GITHUB_USER)
+await page.type('#password', process.env.GITHUB_PWD)
+await page.click('[name="commit"]')
+
+await browser.close()
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 const puppeteer = require('puppeteer')
@@ -58,20 +72,6 @@ await page.click('[name="commit"]')
 await browser.close()
 ```
 
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-
-await page.goto('https://github.com/login')
-await page.type('#login_field', process.env.GITHUB_USER)
-await page.type('#password', process.env.GITHUB_PWD)
-await page.click('[name="commit"]')
-
-await browser.close()
-```
 {{< /tab >}}
 {{< /tabs >}} 
 

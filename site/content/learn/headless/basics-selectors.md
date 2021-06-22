@@ -14,7 +14,7 @@ menu:
     parent: "Getting Started"
 ---
 
-The way you reference a UI element of your target web application for Puppeteer and Playwright to interact with is through [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors). Becoming proficient in the usage of such selectors is therefore a requirement for writing quality scripts.
+The way you reference a UI element of your target web application for Playwright and Puppeteer to interact with is through [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors). Becoming proficient in the usage of such selectors is therefore a requirement for writing quality scripts.
 
 <!-- more -->
 
