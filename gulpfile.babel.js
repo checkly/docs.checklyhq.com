@@ -136,7 +136,7 @@ gulp.task('clean', () => {
 })
 
 // Build/production tasks
-gulp.task('render', gulp.series(['css', 'js', 'fonts', 'hugo', 'purgecss', 'minify-css']))
+gulp.task('render', gulp.series(['css', 'copy-js', 'js', 'fonts', 'hugo', 'purgecss', 'minify-css']))
 gulp.task('build', gulp.series(['clean', 'render', 'hash']))
 
 /**
