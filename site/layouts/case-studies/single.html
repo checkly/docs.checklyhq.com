@@ -2,11 +2,11 @@
   <div class="main case-studies">
     <section class="hero">
       <div class="container">
+        <div class="hero__logo">
+          <img src={{.Params.logo}} alt="finn auto logo" width="200" height="36" />
+        </div>
         <div class="row">
           <div class="col-sm-12 col-lg-8">
-            <div class="hero__logo">
-              <img src={{.Params.logo}} alt="finn auto logo" width="200" height="36" />
-            </div>
             <h1 class="hero__title">{{.Title}}</h1>
             {{ if .Description }}
             <p class="hero__description">{{.Description}}</p>
@@ -45,7 +45,7 @@
           <div class="col-sm-12 col-lg-5">
             <div class="problem__logos">
               {{ range .Params.problem.logos }}
-              <img src={{.src}} alt={{.alt}} />
+              <img src={{.src}} alt={{.alt}} width="60" height="60" />
               {{ end }}
             </div>
           </div>
@@ -84,6 +84,11 @@
       </div>
     </section>
     <section class="solution">
+      <picture class="solution__image_mobile">
+        <source type="image/webp" srcset="/case-studies/macbook-finnauto-mobile@2x.webp">
+        <source type="image/png" srcset="/case-studies/macbook-finnauto-mobile@2x.png">
+        <img src="/case-studies/macbook-finnauto-mobile@2x.png" alt="solution section mobile image" />
+      </picture>
       <div class="container">
         <div class="col-sm-12 col-lg-7">
           <label class="solution__label">{{.Params.solution.label}}</label>

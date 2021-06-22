@@ -10,11 +10,14 @@
 			font-size: 52px;
 			line-height: 63px;
 			margin-bottom: 2rem;
-		  color: $black;
+		  color: $black-dark;
+		}
+		&__description {
+		  font-size: 18px;
+		  line-height: 32px;
 		}
 
 		.services__list {
-			padding-top: 6.5rem;
 			text-align: right;
 
 			&__title {
@@ -128,6 +131,9 @@
 	      width: 100%;
 	    }
 	  }
+	  &__image_mobile {
+	    display: none;
+	  }
 
 	  &__label {
 	    font-size: 14px;
@@ -182,6 +188,8 @@
 	  &__label {
 	    color: $blue;
 	    text-transform: uppercase;
+	    font-size: 14px;
+	    line-height: 20px;
 	    font-weight: 600;
 	    margin: 0;
 	  }
@@ -189,5 +197,251 @@
 	    color: $black;
 	    margin: 10px 0 16px; 
 	  }
+	}
+	@include media-breakpoint-down(md) {
+		.hero {
+		  .row {
+		    flex-direction: column-reverse;
+		  }
+
+		  &__logo {
+		    text-align: center;
+		  }
+		  &__title {
+		    font-size: 42px;
+		    line-height: 51px;
+		  }
+		  .services__list {
+		    display: flex;
+		    align-items: center;
+		    width: fit-content;
+		    margin: 0 auto 30px;
+
+		    &__title {
+		      margin-bottom: 0;
+		    }
+
+		    &__item {
+		      display: inline-block;
+		      margin-left: 10px;
+		    }
+		  }
+		}
+		.problem {
+		  padding-top: 200px;
+		  padding-bottom: 200px;
+
+		  &__description {
+		    margin: auto;
+		  }
+		  &__logos {
+		    margin: 30px auto 50px;
+		    max-width: 500px;
+		    width: 100%;
+		  }
+		  &__car_image {
+		    width: 50%;
+		  }
+		}
+		.quote {
+		  text-align: center;
+		  margin: 150px 0 150px;
+
+		  &__description {
+		    margin: 30px auto 0;
+		    max-width: 520px;
+		    text-align: left;
+		    font-size: 18px;
+		    line-height: 31px;
+		  }
+
+		  &__icon {
+		    left: calc(50vw - 320px);
+		  }
+		}
+		.solution {
+		  padding-top: 200px;
+
+			&__image {
+			  display: none;
+			}
+
+			&__image_mobile {
+			  position: absolute;
+			  display: block;
+			  text-align: center;
+			  top: -200px;
+			  left: 50%;
+			  transform: translateX(-50%);
+			  max-width: 390px;
+			  width: 100%;
+
+			  img {
+			    width: 100%;
+			  }
+			}
+
+			.container {
+			  max-width: 650px;
+			}
+		}
+		.property {
+			&__number {
+			  font-size: 32px;
+		    line-height: 39px;
+		  }
+		  &__label {
+		    text-transform: uppercase;
+		    margin: 0 10px;
+		    color: $white;
+		  }
+		}
+		.result {
+		  .container {
+		    max-width: 700px;
+		    margin: auto;
+		  }
+		}
+	}
+	@include media-breakpoint-down(xs) {
+		.hero {
+		  &__logo {
+		    text-align: center;
+		    margin-bottom: 24px;
+		  }
+		  &__title {
+		    font-size: 24px;
+		    line-height: 29px;
+		    margin-bottom: 10px;
+		  }
+		  .services__list {
+		  	margin: 0 auto 20px;
+
+		    &__title {
+		      display: none;
+		    }
+
+		    &__item {
+		      display: inline-block;
+		      font-size: 12px;
+		      line-height: 15px;
+		      margin-left: 5px;
+		      margin-right: 5px;
+		    }
+		  }
+		}
+		.full-width-image {
+		  margin-bottom: -100px;
+		}
+		.problem {
+		  padding-top: 100px;
+		  padding-bottom: 100px;
+
+		  &__title {
+		    font-size: 20px;
+		    line-height: 30px;
+		  }
+		  &__description {
+		    font-size: 14px;
+		    line-height: 19px;
+		  }
+		  &__logos {
+		    width: 90%;
+		    img {
+		      width: 40px;
+		    }
+		  }
+		  &__car_image {
+		    width: 60%;
+		    bottom: -100px;
+		  }
+		}
+		.quote {
+		  text-align: center;
+		  margin: 50px 0;
+
+		  &__description {
+		    margin: 30px auto 0;
+		    max-width: 520px;
+		    text-align: left;
+		    font-size: 14px;
+		    line-height: 24px;
+		  }
+
+		  img {
+		    width: 88px;
+		    height: 88px;
+		  }
+
+		  &__icon {
+		    left: 0;
+		  }
+		}
+		.solution {
+		  padding-top: 120px;
+		  padding-bottom: 50px;
+
+			&__image_mobile {
+			  top: -130px;
+			  width: 262px;
+
+			  img {
+			    width: 100%;
+			  }
+			}
+
+			&__title {
+			  font-size: 20px;
+			  line-height: 30px;
+			  margin: 10px 0;
+			}
+
+			&__description {
+			  font-size: 14px;
+			  line-height: 29px;
+			}
+
+			.container {
+			  max-width: 650px;
+			}
+		}
+		.property {
+		  padding-top: 20px;
+
+			&__number {
+			  font-size: 32px;
+		    line-height: 39px;
+		  }
+		  &__label {
+		    text-transform: uppercase;
+		    margin: 0 10px;
+		    color: $white;
+		  }
+		  .col-sm-4{
+		  	postion: relative;
+		  	border-bottom: 1px solid rgba(255, 255, 255, .2);
+		  	padding: 50px 0;
+		  	width: calc(100% - 140px);
+		  	margin: auto;
+
+		  	img {
+		  	  display: none;
+		  	}
+		  }
+		}
+		.result {
+		  padding: 50px 0 0;
+
+		  &__title {
+		    font-size: 20px;
+		    line-height: 30px;
+		    margin: 10px 0;
+		  }
+
+		  &__description {
+		    font-size: 14px;
+		    line-height: 29px;
+		  }
+		}
 	}
 }
