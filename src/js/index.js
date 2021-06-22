@@ -82,7 +82,6 @@ $(document).ready(() => {
 $(document).ready(() => {
   if ($('div').hasClass('opensource')) {
     const xhr = new XMLHttpRequest()
-
     xhr.onload = function () {
       var x2js = new X2JS()
       const data = x2js.xml2json(xhr.responseXML.documentElement)
