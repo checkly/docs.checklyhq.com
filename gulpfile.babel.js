@@ -52,15 +52,21 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('./public/css'))
 })
 
+// Copy Third Party Javascript
+
+gulp.task('copy-js', function() {
+  return gulp.src('./src/js/xml2json.js')
+    .pipe(gulp.dest('./public/js'));
+});
+
+
 // Compile Javascript
 gulp.task('js', (cb) => {
   const myConfig = Object.assign({}, webpackConfig)
-
   webpack(myConfig, (err) => {
     if (err) {
       throw err
     }
-
     browserSync.reload()
     cb()
   })
@@ -123,7 +129,7 @@ gulp.task('watch', () => {
 })
 
 // Development server with browsersync
-gulp.task('server', gulp.series(['hugo', 'css', 'js', 'fonts', 'purgecss', 'minify-css', 'serve', 'watch']))
+gulp.task('server', gulp.series(['hugo', 'css', 'copy-js', 'js', 'fonts', 'purgecss', 'minify-css', 'serve', 'watch']))
 
 gulp.task('clean', () => {
   return del(['./public/**/*'])
