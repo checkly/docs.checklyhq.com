@@ -4,18 +4,18 @@
  */
 
 $(document).ready(() => {
-  const learn_menu_title_class = '.learn-menu-title'
-  var learn_menu_header = $(learn_menu_title_class);
+  const learnMenuTitleClass = '.learn-menu-title'
+  var learnMenuHeader = $(learnMenuTitleClass)
 
-  learn_menu_header.click(function() {
-    var id = $(this).attr('id');
-    var learn_menu_id = '#learn-menu-' + id
+  learnMenuHeader.click(function () {
+    var id = $(this).attr('id')
+    var learnMenuId = '#learn-menu-' + id
     if ($(this).attr('class') === 'learn-menu-title') {
       $(this).addClass('active')
-      $(learn_menu_id).addClass('menu-display')
+      $(learnMenuId).addClass('menu-display')
     } else {
       $(this).removeClass('active')
-      $(learn_menu_id).removeClass('menu-display')
+      $(learnMenuId).removeClass('menu-display')
     }
   })
 })
@@ -25,45 +25,41 @@ $(document).ready(() => {
  */
 
 $(document).ready(() => {
-  if($('#TableOfContents ul').length >= 1){
+  if ($('#TableOfContents ul').length >= 1) {
     $('#tocMenu').css({
-      display: 'block',
+      display: 'block'
     })
   } else {
     $('#tocMenu').css({
-      display: 'none',
+      display: 'none'
     })
   }
 })
-
 
 /**
  * Learn Mobile Menu
  */
 
 $(document).ready(() => {
-  var flag = true;
-  $('.mobile-toc-button').click(function() {
-    $(".learn-menu").css({
-      left: '0',
+  $('.mobile-toc-button').click(function () {
+    $('.learn-menu').css({
+      left: '0'
     })
     $('.learn-menu-mobile-right-space').css({
-      display: 'block',
+      display: 'block'
     })
-    $("#sideMenu").removeClass('left-transform')
-    $("#sideMenu").addClass('right-transform')
-    flag = false;
+    $('#sideMenu').removeClass('left-transform')
+    $('#sideMenu').addClass('right-transform')
   })
-  $('.learn-menu-mobile-right-space').click(function() {
-    $(".learn-menu").css({
+  $('.learn-menu-mobile-right-space').click(function () {
+    $('.learn-menu').css({
       left: '-100%'
     })
     $('.learn-menu-mobile-right-space').css({
-      display: 'none',
+      display: 'none'
     })
-    $("#sideMenu").removeClass('right-transform')
-    $("#sideMenu").addClass('left-transform')
-    flag = true;
+    $('#sideMenu').removeClass('right-transform')
+    $('#sideMenu').addClass('left-transform')
   })
 })
 
@@ -71,48 +67,47 @@ $(document).ready(() => {
  * '/' press for the search
  */
 
-$(document).on('keydown', function(e) {
-  if ( e.keyCode === 191 ) { //'/' key code
+$(document).on('keydown', function (e) {
+  if (e.keyCode === 191) { // '/' key code
     e.preventDefault()
-    $("#search").focus();
+    $('#search').focus()
   }
-});
+})
 
 /**
  * Hover Dropdown
  */
 
-$(document).ready(function() {
-  $('#dropdown-li').mouseenter(function(){
-    $('#dropdown-li').addClass('show');
+$(document).ready(function () {
+  $('#dropdown-li').mouseenter(function () {
+    $('#dropdown-li').addClass('show')
   })
-  $('#dropdown-menu, #dropdown-li').mouseleave(function() {
-    $('#dropdown-li').removeClass('show');
+  $('#dropdown-menu, #dropdown-li').mouseleave(function () {
+    $('#dropdown-li').removeClass('show')
   })
 })
-
 
 /**
  * Sidemenu fixed position after some scroll-up
  */
 
-var sideMenuDistance = $("#sideMenu").offset().top - 10;
+var sideMenuDistance = $('#sideMenu').offset().top - 10
 
-$(window).on('scroll', function() {
+$(window).on('scroll', function () {
   if ($(window).scrollTop() >= sideMenuDistance) {
-    $("#sideMenu").css({
+    $('#sideMenu').css({
       position: 'fixed',
       top: '0px'
     })
-    $("#tocMenu").css({
+    $('#tocMenu').css({
       position: 'fixed',
       top: '30px'
     })
   } else {
-    $("#sideMenu").css({
+    $('#sideMenu').css({
       position: 'relative'
     })
-    $("#tocMenu").css({
+    $('#tocMenu').css({
       position: 'relative',
       top: '0'
     })
@@ -134,4 +129,3 @@ $('.run-in-checkly').on('click', function () {
       window.location.href = `${isDev ? 'http://localhost:8081' : 'https://app.checklyhq.com'}/checks/new/browser?framework=${data.framework}&script=${script}`
     })
 })
-

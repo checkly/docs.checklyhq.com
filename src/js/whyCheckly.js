@@ -2,126 +2,122 @@
  * Why-Checkly Video
  */
 
-$(document).ready(function(){
-  var screenwidth = $(window).width();
+$(document).ready(function () {
+  var screenwidth = $(window).width()
 
-  function showPlayButton() {
+  function showPlayButton () {
     $('.video-play').css({
-      display: "block"
-    });
+      display: 'block'
+    })
     $('.video-pause').css({
-      display: "none"
-    });
+      display: 'none'
+    })
   }
 
-  function showPauseButton() {
+  function showPauseButton () {
     $('.video-play').css({
-      display: "none"
-    });
+      display: 'none'
+    })
     $('.video-pause').css({
-      display: "block"
-    });
+      display: 'block'
+    })
   }
 
-  function videoPlay(width) {
-    var why_checkly_video = $('#why-checkly-video').get(0);
+  function videoPlay (width) {
+    var whyChecklyVideo = $('#why-checkly-video').get(0)
 
     if (width > 920) {
-      var videoDistance = $("#why-checkly-video").offset().top - 200;
-      
-      $(window).on('scroll', function() {
+      var videoDistance = $('#why-checkly-video').offset().top - 200
+
+      $(window).on('scroll', function () {
         if ($(window).scrollTop() >= videoDistance && $(window).scrollTop() < videoDistance + 200) {
-          why_checkly_video.play();
+          whyChecklyVideo.play()
           $('.action-button').css({
-            display: "none"
-          });
+            display: 'none'
+          })
         } else {
-          why_checkly_video.pause();
-          showPlayButton();
+          whyChecklyVideo.pause()
+          showPlayButton()
         }
       })
 
-      $('.video-wrapper').mouseenter(function(){
-        if (why_checkly_video.paused) {
-          showPlayButton();
-          
+      $('.video-wrapper').mouseenter(function () {
+        if (whyChecklyVideo.paused) {
+          showPlayButton()
         } else {
-          showPauseButton();
+          showPauseButton()
         }
       })
       $('#why-checkly-video').click(function () {
-        if (why_checkly_video.paused) {
-          why_checkly_video.play();
-          showPauseButton();
+        if (whyChecklyVideo.paused) {
+          whyChecklyVideo.play()
+          showPauseButton()
         } else {
-          why_checkly_video.pause();
-          showPlayButton();
+          whyChecklyVideo.pause()
+          showPlayButton()
         }
       })
-      $('.video-wrapper').mouseleave(function() {
-        if (why_checkly_video.paused) {
-          showPlayButton();
+      $('.video-wrapper').mouseleave(function () {
+        if (whyChecklyVideo.paused) {
+          showPlayButton()
         } else {
           $('.action-button').css({
-            display: "none"
-          });
+            display: 'none'
+          })
         }
       })
       $('.video-pause').click(function () {
-        why_checkly_video.pause();
-        showPlayButton();
+        whyChecklyVideo.pause()
+        showPlayButton()
       })
       $('.video-play').click(function () {
-        why_checkly_video.play();
-        showPauseButton();
+        whyChecklyVideo.play()
+        showPauseButton()
       })
     } else {
-      why_checkly_video.pause()
-      
+      whyChecklyVideo.pause()
+
       $('.video-play').click(function () {
-        why_checkly_video.play();
-        
+        whyChecklyVideo.play()
+
         $('.video-play').css({
-          display: "none"
-        });
+          display: 'none'
+        })
       })
       $('#why-checkly-video').click(function () {
-        why_checkly_video.pause();
-        
+        whyChecklyVideo.pause()
+
         $('.video-play').css({
-          display: "block"
-        });
+          display: 'block'
+        })
       })
     }
-  } 
+  }
 
-  
   videoPlay(screenwidth)
 
-  $(window).resize(function() {
-    screenwidth = $(window).width();
+  $(window).resize(function () {
+    screenwidth = $(window).width()
     videoPlay(screenwidth)
   })
-
 })
-
 
 /**
  * Why-Checkly Code Block
  */
 
 $(document).ready(() => {
-  var currentSelection = $('#why-checkly-select').val();
-  $('#why-checkly-select').change(function() {
-    currentSelection = $('#why-checkly-select').val();
-    var codeblock = $(".code-block").map(function() {
+  var currentSelection = $('#why-checkly-select').val()
+  $('#why-checkly-select').change(function () {
+    currentSelection = $('#why-checkly-select').val()
+    $('.code-block').map(function () {
       if ($(this).attr('id') === currentSelection) {
         $(this).css({
-          display: 'block',
+          display: 'block'
         })
       } else {
         $(this).css({
-          display: 'none',
+          display: 'none'
         })
       }
     })
