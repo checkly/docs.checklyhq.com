@@ -1,15 +1,8 @@
 ---
 title: "finn.auto uses Checkly to ensure booking processes work all the time, everywhere!"
 description: >-
-  finn.auto provides you with easy and flexible access to vehicles. You either sign up for a new car subscription or buy a used car online and have your dream model delivered to your home—a real e-commerce experience. finn.auto tests and monitors with Checkly to make sure all processes are working all the time seamlessly everywhere.
+  <a href="https://finn.auto" target="_blank">finn.auto</a> provides you with easy and flexible access to vehicles. You either sign up for a new car subscription or buy a used car online and have your dream model delivered to your home—a real e-commerce experience. finn.auto tests and monitors with Checkly to make sure all processes are working all the time seamlessly everywhere.
 logo: '/case-studies/hero_logo.svg'
-services: 
-  - name: Synthetic monitoring
-    link: '/product/synthetic-monitoring/'
-  - name: API monitoring
-    link: '/product/api-monitoring/'
-  - name: Integrations
-    link: '/integrations/'
 problem:
   label: The Problem
   title: Ensure the money-making process works

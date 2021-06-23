@@ -6,23 +6,11 @@
           <img src={{.Params.logo}} alt="finn auto logo" width="200" height="36" />
         </div>
         <div class="row">
-          <div class="col-sm-12 col-lg-8">
+          <div class="col-sm-12">
             <h1 class="hero__title">{{.Title}}</h1>
             {{ if .Description }}
-            <p class="hero__description">{{.Description}}</p>
+            <p class="hero__description">{{.Description | safeHTML}}</p>
             {{ end }}
-          </div>
-          <div class="col-sm-12 col-lg-4 services__list">
-            <div class="services__list__title">
-              Services
-            </div>
-            <div>
-              {{ range .Params.services }}
-              <a class="services__list__item" href={{.link}}>
-                {{ .name }}
-              </a>
-              {{ end }}
-            </div>
           </div>
         </div>
       </div>
@@ -115,7 +103,7 @@
             <label class="property__label">DECREASE IN FALSE FAILURE</label>
             <img src="/case-studies/slash.svg" alt="slash 2" />
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 last-property">
             <h2 class="property__number">3x</h2>
             <label class="property__label">INCREASE IN MONITORING COVERAGE</label>
           </div>
