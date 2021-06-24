@@ -23,16 +23,28 @@
 
 	}
 	.full-width-image {
-	  margin-bottom: -400px;
+	  position: relative;
+	  margin-bottom: -200px;
+	  background: $pink-light;
 
 	  img {
+	   position: relative;
 	   width: 100vw;
+	  }
+
+	  picture::after {
+	  	position: absolute;
+	    content: "";
+	    display: block;
+	    border-top: 200px solid rgba(255, 255, 255, 0.01);
+	    border-left: 100vw solid $white;
+	    bottom: 0;
 	  }
 	}
 	.problem {
 	  position: relative;
-	  background: rgba(255, 101, 157, 0.1);
-	  padding-top: 300px;
+	  background: $pink-light;
+	  padding-top: 100px;
 
 	  &__label {
 	  	font-size: 16px;
@@ -212,11 +224,16 @@
 		    line-height: 51px;
 		  }
 		}
+
 		.full-width-image {
-	  	margin-bottom: -200px;
-	  }
+		  margin-bottom: -130px;
+
+		  picture::after {
+		    border-top: 100px solid rgba(255, 255, 255, 0.01);
+		  }
+		}
+		
 		.problem {
-		  padding-top: 200px;
 		  padding-bottom: 200px;
 
 		  &__label {
@@ -319,10 +336,13 @@
 		  }
 		}
 		.full-width-image {
-		  margin-bottom: -100px;
+		  margin-bottom: -120px;
+
+		  picture::after {
+		    border-top: 80px solid rgba(255, 255, 255, 0.01);
+		  }
 		}
 		.problem {
-		  padding-top: 100px;
 		  padding-bottom: 100px;
 
 		  &__title {
