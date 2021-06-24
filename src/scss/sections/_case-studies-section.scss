@@ -50,6 +50,18 @@
 	    top: -20px;
 	    left: -20px;
 	  }
+	  .cta-link {
+	    margin-top: 18px;
+	    padding: 10px 21px;
+	    background: $blue;
+	    border-radius: 3px;
+	    font-size: 14px;
+	    line-height: 20px;
+	    color: $white;
+	    &:hover {
+	      background: rgba(69, 200, 241, .8);
+	    }
+	  }
 	}
 
 	&__title {
@@ -63,6 +75,7 @@
 	  font-size: 18px;
 	  line-height: 1.6;
 	  color: $gray-dark;
+	  margin-bottom: 30px;
 	}
 	@include media-breakpoint-down(md) {
 	  &__title {
