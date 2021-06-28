@@ -17,7 +17,7 @@
 		&__description {
 		  font-size: 18px;
 		  line-height: 32px;
-		  max-width: 700px;
+		  max-width: 735px;
 		  width: 100%;
 		}
 
@@ -44,7 +44,7 @@
 	.problem {
 	  position: relative;
 	  background: $pink-light;
-	  padding-top: 100px;
+	  padding-top: 140px;
 
 	  &__label {
 	  	font-size: 16px;
@@ -58,6 +58,7 @@
 	    line-height: 48px;
 	    color: #000000;
 	    margin: 10px 0;
+	    width: 484px;
 	  }
 	  &__description {
 	    max-width: 594px;
@@ -86,7 +87,7 @@
 	  }
 	}
 	.quote {
-	  margin: 225px 0 48px;
+	  margin: 200px 0 48px;
 	  padding: 75px 0;
 
 	  &__author {
@@ -348,6 +349,7 @@
 		  &__title {
 		    font-size: 20px;
 		    line-height: 30px;
+		    width: 320px;
 		  }
 		  &__description {
 		    font-size: 14px;
