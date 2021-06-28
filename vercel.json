@@ -4,17 +4,17 @@
   "build": {
     "env": {}
   },
-	"headers": [
-		{
-			"source": "/(.*)",
-			"headers" : [
-				{ "key": "x-frame-options", "value": "deny" },
-				{ "key": "x-xss-protection", "value": "0" },
-				{ "key": "x-content-type-options", "value": "nosniff" }
-			]
-		}
-	],
-	"rewrites": [
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers" : [
+        { "key": "x-frame-options", "value": "deny" },
+        { "key": "x-xss-protection", "value": "0" },
+        { "key": "x-content-type-options", "value": "nosniff" }
+      ]
+    }
+  ],
+  "rewrites": [
     {
       "source": "/a/b.js",
       "destination": "https://plausible.io/js/plausible.js"
