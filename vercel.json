@@ -13,5 +13,11 @@
         "x-content-type-options": "nosniff"
       }
     }
+  ],
+	"rewrites": [
+    {
+      "source": "/a/b.js",
+      "destination": "https://plausible.io/js/plausible.js"
+    }
   ]
 }
