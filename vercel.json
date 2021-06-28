@@ -4,16 +4,16 @@
   "build": {
     "env": {}
   },
-  "routes": [
-    {
-      "src": "/.*",
-      "headers": {
-        "x-frame-options": "deny",
-        "x-xss-protection": "0",
-        "x-content-type-options": "nosniff"
-      }
-    }
-  ],
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers" : [
+				{ "key": "x-frame-options", "value": "deny" },
+				{ "key": "x-xss-protection", "value": "0" },
+				{ "key": "x-content-type-options", "value": "nosniff" }
+			]
+		}
+	],
 	"rewrites": [
     {
       "source": "/a/b.js",
