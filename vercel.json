@@ -7,7 +7,7 @@
   "headers": [
     {
       "source": "/(.*)",
-      "headers" : [
+      "headers": [
         { "key": "x-frame-options", "value": "deny" },
         { "key": "x-xss-protection", "value": "0" },
         { "key": "x-content-type-options", "value": "nosniff" }
@@ -18,6 +18,10 @@
     {
       "source": "/a/b.js",
       "destination": "https://plausible.io/js/plausible.js"
+    },
+    {
+      "source": "/a/e",
+      "destination": "/api/event"
     }
   ]
 }
