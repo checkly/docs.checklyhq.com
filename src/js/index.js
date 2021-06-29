@@ -22,7 +22,7 @@ $(document).ready(() => {
 })
 
 $(document).ready(() => {
-  console.log(`
+  console.log(`%c
        ,,,,,,         _ ,,,p##KBBKKBKKNpp,,, _      _ ,,,,,, _
      p#KKKKKKKKNw _,p##KKKKKKBKKKKKKKKKKKKKKKNp, _,u#KKKKKKKKNw
    _(#KPLL@@@2I#BKKKKKPP''L**5KKKKKKKPLLL*'*5KKKKKKBKLE@@@L|IKK_
@@ -52,7 +52,8 @@ KKKN|*5KKKKKKKKKKKKKKKKPL**''''_ __  ''''*|5$KKKKKKKKKKKKKKKBPLL#BKBLL*|$#KM'
    !KKH**''   ''*I#KN                        _;#KKL'''_ _''||#BKK' _
    _TKK@ _      _'IKKM                        #KK* _      _|$#K'_
     _KKNp         !##N_                      _#Kb_       _,##K"_
-     _"KKNp_   __,#KKP_                      _1KKp    _ ;##KM'_`)
+     _"KKNp_   __,#KKP_                      _1KKp    _ ;##KM'_`,
+  'color: #45c8f1; font-size: 9px;')
   console.log(`🚨 We're hiring, join us! https://checklyhq.com/jobs`)
 })
 
