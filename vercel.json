@@ -21,7 +21,7 @@
     },
     {
       "source": "/a/e",
-      "destination": "/api/event"
+      "destination": "https://plausible.io/api/event"
     }
   ]
 }
