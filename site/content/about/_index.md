@@ -16,7 +16,7 @@ team:
   list: 
     - name: Tim Nolet
       avatar: "/about/images/tim_avatar@2x.png"
-      role: the CTO
+      role: CTO
       socials: 
         - name: Github
           link: https://github.com/tnolet
@@ -26,7 +26,7 @@ team:
           link: https://www.linkedin.com/in/tnolet/
     - name: Hannes Lenke
       avatar: "/about/images/hannes_avatar@2x.png"
-      role: the CEO
+      role: CEO
       socials:
         - name: Twitter
           link: https://twitter.com/HLENKE
@@ -34,7 +34,7 @@ team:
           link: https://www.linkedin.com/in/hanneslenke/
     - name: Timo Euteneuer
       avatar: "/about/images/timo_avatar@2x.png"
-      role: the CCO
+      role: CCO
       socials: 
         - name: LinkedIn
           link: https://www.linkedin.com/in/timo-euteneuer/
