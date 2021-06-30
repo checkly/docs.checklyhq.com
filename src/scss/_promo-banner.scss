@@ -12,15 +12,17 @@
   padding: .5rem;
 
   a {
-    color: #ff4949;
+    color: $blue;
   }
   .ion-arrow-right-c {
     color: #ff4949;
   }
+  
   .promo-banner-link {
     display: flex;
     text-decoration: none;
   }
+  
   &.headless {
     background: #f9fafc;
     color: #697280;
