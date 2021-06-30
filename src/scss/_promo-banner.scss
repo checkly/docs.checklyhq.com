@@ -26,8 +26,9 @@
   &.headless {
     background: #f9fafc;
     border-bottom: 1px solid $gray-light;
-    color: #697280;
-    font-size: 14px;
+    color: $black;
+    font-size: 16x;
+    line-height: 22px;
     strong {
       font-weight: 600;
     }
