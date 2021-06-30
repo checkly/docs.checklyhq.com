@@ -36,8 +36,6 @@ team:
       avatar: "/about/images/timo_avatar@2x.png"
       role: the CCO
       socials: 
-        - name: Twitter
-          link: https://twitter.com
         - name: LinkedIn
           link: https://www.linkedin.com/in/timo-euteneuer/
 investors:
@@ -90,6 +88,12 @@ investors:
       role: CEO @ Instana
     - name: Charles Ramsey
       role: ex-CEO Saucelabs
+    - name: Ashley Smith
+      role: ex-VP Marketing Github
+    - name: Zach Holman
+      role: Early Engineer @ Github
+    - name: Arseniy Vershinin
+      role: CTO @ Personio
 contact: 
   email: info@checklyhq.com
   address: 
@@ -108,5 +112,5 @@ joinUs:
     Checkly is growing! Join us and help us empower development teams to build, deploy and run better software. You will be working on our SaaS app and our open source projects Headless Recorder and Terraform Provider
   image: "/about/svgs/join_us_raccoon.svg"
   buttonTxt: View open positions
-  buttonLink: /
+  buttonLink: "/jobs"
 ---

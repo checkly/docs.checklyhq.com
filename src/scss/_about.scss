@@ -99,10 +99,6 @@
 	        margin-bottom: 8px;
 	        color: $black-darkish;
 	      }
-	      &:hover {
-	        cursor: pointer;
-	        background: $gray-lightest;
-	      }
 	    }
 	  }
 	  &__individuals {
@@ -180,7 +176,7 @@
 	    padding: 10px 21px;
 	    background: $blue;
 	    border-radius: 3px;
-	    font-size: 14px;
+	    font-size: 18px;
 	    line-height: 20px;
 	    color: $white;
 	    &:hover {
