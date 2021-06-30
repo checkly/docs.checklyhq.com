@@ -16,7 +16,7 @@
       <div class="row text-left justify-content-center">
         <div class="col-sm-12 col-lg-8">
           <h2>{{.Params.about.title}}</h2>
-          <p class="about__description">{{.Params.about.description | safeHTML}}</p>
+          <p class="description">{{.Params.about.description | safeHTML}}</p>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <h2>{{.Params.team.title}}</h2>
       <div class="row">
         {{ range .Params.team.list }}
-        <div class="col-sm-4">
+        <div class="col-md-4 member">
           <picture>
             <source type="image/webp" srcset="{{ substr .avatar 0 -4 | safeURL }}.webp">
             <source type="image/png" srcset="{{.avatar}}">
@@ -50,21 +50,21 @@
         <h2>Backed by best</h2>
         <div class="row">
           {{range .Params.investors.companies}}
-          <div class="col-sm-4">
+          <div class="col-md-12 col-lg-4">
             <div class="card">
               <img src="{{.logo}}" alt="{{.alt}}" width="{{.logoWidth}}" height="{{.logoHeight}}" class="logo">
               <p class="description">
                 {{ .description }}
               </p>
-              <div class="row">
-                <div class="col-sm-3">
+              <div class="row partner">
+                <div class="col-3">
                   <picture>
                     <source type="image/webp" srcset="{{ substr .avatar 0 -4 | safeURL }}.webp">
                     <source type="image/png" srcset="{{.avatar}}">
                     <img src="{{.avatar}}" alt="{{.name}}" loading="lazy" width="74" height="74" />
                   </picture>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-9">
                   <h5>{{.partner}}</h5>
                   <p>{{.role}}</p>
                 </div>
@@ -78,7 +78,7 @@
         <h4>Individuals</h4>
         <div class="row">
           {{range .Params.investors.individuals}}
-            <div class="col-sm-4">
+            <div class="col-md-4">
               <div class="card">
                 <h5>{{.name}}</h5>
                 <p>{{.role}}</p>
@@ -96,10 +96,10 @@
         {{range .Params.contact.address}}
         <div class="col-md-4">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-lg-4">
               <img src="{{.image}}" alt="{{.country}}" />
             </div>
-            <div class="col-md-8">
+            <div class="col-lg-8">
               <h5>{{.country}}</h5>
               <p>{{.address}}</p>
             </div>

@@ -29,7 +29,7 @@
 	    display: block;
 	  }
 
-	  &__description {
+	  .description {
 	    font-size: 16px;
 	    line-height: 29px;
 	  }
@@ -45,7 +45,7 @@
 	    margin-bottom: 55px;
 	  }
 
-	  .col-sm-4 {
+	  .member {
 	    text-align: center;
 
 	    h5 {
@@ -65,7 +65,7 @@
 	  }
 	}
 	&__investors {
-	  padding: 85px;
+	  padding: 85px 0;
 
 	  &__companies {
 	    h2 {
@@ -79,6 +79,7 @@
 
 	      .logo {
 	        margin: auto;
+	        max-width: 100%;
 	      }
 	      .description {
 	        margin: 30px 0 24px;
@@ -113,9 +114,7 @@
 	  	.row {
 	  	  max-width: 950px;
 	  	  margin: auto;
-	  	}
-	  	.col-sm-4 {
-	  	  margin-bottom: 32px;
+	  	  row-gap: 32px;
 	  	}
 	  	.card {
 	  	  padding: 25px 30px;
@@ -194,6 +193,85 @@
 
 	  img {
 	    margin: auto;
+	    max-width: 100%;
 	  }
+	}
+	@include media-breakpoint-down(md) {
+		&__investors {
+		  &__companies {
+		    .row {
+		      row-gap: 32px;
+		    }
+			  .card {
+			    .row {
+			      max-width: 350px;
+			    }
+			  }
+		  }
+		}
+		&__contact {
+			.col-md-4 {
+			  text-align: center;
+			}
+			img {
+			  margin: auto;
+			}
+			p {
+			  margin: auto;
+			}
+		}
+	}
+	@include media-breakpoint-down(sm) {
+		&__hero {
+		  .display-3 {
+		    line-height: 39px;
+		    font-size: 32px;
+		  }
+		}
+		&__about {
+		  padding: 30px 0;
+		  .description {
+		    font-size: 14px;
+		    line-height: 24px;
+		  }
+		}
+		&__team {
+		  padding: 50px 0 0;
+
+		  .member {
+		    text-align: center;
+		    margin-bottom: 49px;
+		  }
+		}
+		&__investors {
+		  padding: 50px 0;
+		}
+		&__contact {
+			padding: 30px 0 50px;
+
+			h2 {
+			  font-size: 24px;
+			  line-height: 48px;
+			  margin-bottom: 32px;
+			}
+			.row {
+			  row-gap: 30px;
+			}
+			.col-md-4 {
+				.row {
+				  row-gap: 10px;
+				}
+			}
+		}
+		&__joinus{
+		  padding: 50px 0;
+
+		  .row {
+		    flex-direction: column-reverse;
+		  }
+		  img {
+		    margin-left: 5%;
+		  }
+		}
 	}
 }
