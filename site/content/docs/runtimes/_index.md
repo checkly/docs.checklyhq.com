@@ -23,16 +23,13 @@ It's pretty easy. You don't have to do anything most of the time.
 
 ![runtimes](/docs/images/monitoring/account_runtimes@2x.png)
 
-Note that one runtime version, e.g. `2021.6` holds all dependencies for all check types. There is no separate runtime for
+Noteo that one runtime version, e.g. `2021.6` holds all dependencies for all check types. There is no separate runtime for
 different types of checks.
 
 ## Overriding runtimes for specific checks
 
 Before updating your Checkly account to a new runtime, you can enable a newer runtime just for one check or check group.
-This is a very powerful way to make check if your checks are compatible with a new runtime.
-
-You can make use of this by providing a default value for a specific variable at the global or group level, but allow that variable to
-be overridden at the check level.
+This is a very powerful way to make sure your checks are compatible with a new runtime.
 
 You can:
 
@@ -60,15 +57,4 @@ this if there are no known backwards compatibility issues.
 ## Why are runtimes important?
 
 We introduced the concept of runtimes so customers can upgrade their JavaScript enhanced checks to more recent Node package versions
-in a controlled fashion; and roll back if anything breaks!
-
-Before introducing runtimes, we upgraded the core packages like Playwright, Puppeteer and the Node.js versions "transparently" for all users
-of the Checkly platform. This comes with the risk of breaking your code and possibly waking you up at night because
-some method or function in an NPM package was deprecated.
-
-To mitigate this risk, we were very conservative in chasing the latest and greatest releases of the supported NPM packages.
-Also, we ran an extensive canary releasing strategy that was very time intensive and basically a hassle to deal with.
-
-Now, we allow you to upgrade one check — or a small set of checks — to a new runtime and test the waters before committing
-to a new version.
-
+in a controlled fashion; and roll back if anything breaks! Before, this was a more risky "big bang" migration.
