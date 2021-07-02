@@ -12,20 +12,27 @@
   padding: .5rem;
 
   a {
-    color: #ff4949;
+    color: $blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .ion-arrow-right-c {
     color: #ff4949;
   }
+  
   .promo-banner-link {
     display: flex;
     text-decoration: none;
   }
+
   &.headless {
     background: #f9fafc;
-    color: #697280;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid $gray-light;
+    color: $black;
+    font-size: 16x;
+    line-height: 22px;
     strong {
       font-weight: 600;
     }
