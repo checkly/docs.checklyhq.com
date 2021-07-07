@@ -67,7 +67,7 @@
     "lint-staged": "11.0.0",
     "s3-deploy": "1.4.0",
     "serve": "11.3.2",
-    "shins": "2.4.1-0",
+    "shins": "2.6.0",
     "widdershins": "4.0.1"
   },
   "hugo-bin": {
