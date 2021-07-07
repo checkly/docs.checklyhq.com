@@ -61,13 +61,13 @@
     "eslint-plugin-import": "2.23.2",
     "eslint-plugin-node": "8.0.1",
     "eslint-plugin-promise": "4.3.1",
-    "eslint-plugin-standard": "3.1.0",
+    "eslint-plugin-standard": "5.0.0",
     "gulp-cli": "2.3.0",
     "husky": "6.0.0",
     "lint-staged": "11.0.0",
     "s3-deploy": "1.4.0",
     "serve": "11.3.2",
-    "shins": "2.4.1-0",
+    "shins": "2.6.0",
     "widdershins": "4.0.1"
   },
   "hugo-bin": {
