@@ -9,16 +9,6 @@ aliases:
 - "/docs/dashboards/dashboard-url/"
 ---
 
-Checkly dashboards are public dashboards available on every plan. Use them on your wall mounted TVs, on
-shared monitors around the office or as a status page on your site.
-
-An example of a dashboard is [status.checklyhq.com](https://status.checklyhq.com).
-
-> Dashboards can be **embedded in iframes**.
-
-You can create multiple, distinct dashboards based on your plan. Edit your dashboard by clicking on
-the **Dashboards** button on the Checkly default dashboard page.
-
 ## Custom URL
 
 Every public dashboard comes with a configurable custom subdomain under the checklyhq.com domain. By default, we generate
