@@ -23,7 +23,7 @@ We are on a bottoms-up/product-led growth (PLG) path and want to continue growin
 
 1. Bring Checkly to more than 10,000 developers during the next 18 months.
 2. Build a strong community of developers that is rooting for us.
-3. Extent our platform and with that make End-to-End reliability fun!
+3. Ship features, extend our platform and make End-to-End reliability fun!
 
 As our Head of Marketing, you play a crucial role in achieving these goals. You will increase our signups and conversion by working closely with our product and go-to-market teams.
 
