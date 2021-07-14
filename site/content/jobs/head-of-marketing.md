@@ -1,12 +1,12 @@
 ---
 title: Head of Marketing
-subtitle: (worldwide, fully-remote, international team, PLG, developer-tools)
+subtitle: Full time / Remote
 position_state: Open
 draft: false
 workable_code: DC0CA546A4
 ---
 
-- Remote worldwide
+- Remote & worldwide
 - English
 - Developer-Tools, PLG
 - Full time
@@ -27,14 +27,14 @@ We are on a bottoms-up/product-led growth (PLG) path and want to continue growin
 
 As our Head of Marketing, you play a crucial role in achieving these goals. You will increase our signups and conversion by working closely with our product and go-to-market teams.
 
-## Responsibilities
+### Responsibilities
 - **Increase signups and conversion**
 - **Scaling developer awareness:** build a community of developers that become advocates.
 - **Communicating product capabilities:** communicate new features and capabilities to drive product adoption and bring Checkly to thousands of developers.
 - **Building the brand:** create and communicate well-positioned stories that resonate with developers.
 - **Building the marketing team:** build a talented PLG-marketing team.
 
-### Your skills
+## Your skills
 - Experience and passion for PLG and marketing for a developer tools SaaS.
 - The ability to build a brand and messaging that resonates with our users.
 - Experience in creating a strategy for organic customer acquisition.
