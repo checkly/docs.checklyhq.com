@@ -27,10 +27,10 @@ $(document).ready(function () {
     var whyChecklyVideo = $('#synthetic-monitoring-video').get(0)
 
     if (width > 920) {
-      var videoDistance = $('#synthetic-monitoring-video').offset().top - 200
+      var videoDistance = $('#synthetic-monitoring-video').offset().top - 300
 
       $(window).on('scroll', function () {
-        if ($(window).scrollTop() >= videoDistance && $(window).scrollTop() < videoDistance + 200) {
+        if ($(window).scrollTop() >= videoDistance && $(window).scrollTop() < videoDistance + 800) {
           whyChecklyVideo.play()
           $('.action-button').css({
             display: 'none'
