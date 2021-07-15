@@ -23,7 +23,7 @@ Both script types are written in JavaScript and have access to popular libraries
 Setup and teardown scripts are executed in a specific order in the Checkly backend. Being aware of this order is important
 to get the most out of this feature:
 
-1. Each setup script is executed once per check in a dedicated execution sandbox directly as it is scheduled to run. Any changes you make in the
+1. Each setup script executes once per check in a dedicated execution sandbox directly as it is scheduled to run. Any changes you make in the
 setup script are distributed to each check run on each data center location.
 2. For each configured data center location, the HTTP request of your API check is executed directly followed by the teardown
 script. This means your teardown script *can run multiple times!*
@@ -40,9 +40,9 @@ Setup scripts run once per check. Teardown scripts run on each data center locat
 
 ## Setup scripts
 
-Setup scripts allow you to do last minute processing of test data and request options. The scripts are executed before any
+Setup scripts allow you to do last minute processing of test data and request options. The scripts execute before any
 requests are made. You have access to a set of [built-in variables](#built-in-variables) so you can tweak the HTTP request 
-and a set of [3rd party libraries](#included-third-party-libraries).  
+and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs)
  
 Note: any libraries need to be explicitly imported using a 'require' statement.
 
