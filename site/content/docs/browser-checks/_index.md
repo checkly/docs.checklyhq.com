@@ -53,6 +53,11 @@ You use these frameworks to control the interactions you want to happen on a web
 Checkly currently supports using only **Google Chrome** with both Playwright and Puppeteer.
 {{< /info >}}
 
+{{< warning >}}
+Note: It is not possible to use both Playwright and Puppeteer in the same Browser Check script.  
+{{< /warning >}}
+
+
 ## Breaking down a browser check step-by-step
 
 Let's look at a more real life example and break down each step. The code below logs into Checkly, waits for the dashboard
