@@ -23,7 +23,7 @@ Both script types are written in JavaScript and have access to popular libraries
 Setup and teardown scripts are executed in a specific order in the Checkly backend. Being aware of this order is important
 to get the most out of this feature:
 
-1. Each setup script is executed once per check in a dedicated execution sandbox directly as it is scheduled to run. Any changes you make in the
+1. Each setup script executes once per check in a dedicated execution sandbox directly as it is scheduled to run. Any changes you make in the
 setup script are distributed to each check run on each data center location.
 2. For each configured data center location, the HTTP request of your API check is executed directly followed by the teardown
 script. This means your teardown script *can run multiple times!*
@@ -40,9 +40,9 @@ Setup scripts run once per check. Teardown scripts run on each data center locat
 
 ## Setup scripts
 
-Setup scripts allow you to do last minute processing of test data and request options. The scripts are executed before any
+Setup scripts allow you to do last minute processing of test data and request options. The scripts execute before any
 requests are made. You have access to a set of [built-in variables](#built-in-variables) so you can tweak the HTTP request 
-and a set of [3rd party libraries](#included-third-party-libraries).  
+and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs)
  
 Note: any libraries need to be explicitly imported using a 'require' statement.
 
@@ -388,41 +388,7 @@ Response properties are exposed a standard Javascript object. These are only ava
 All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js
 standard library or to arbitrary NPM modules. Currently every runner is equipped with the following libraries:
 
-### Built-in modules
-
-- assert
-- buffer
-- crypto
-- dns
-- path
-- querystring
-- readline
-- stream
-- string_decoder
-- stream
-- timers
-- tls
-- url
-- util
-- zlib
-
-See the [built-in module documentation on the official Node.js site](https://nodejs.org/dist/latest-v12.x/docs/api/)
-
-### External modules
-
-- **[node](https://nodejs.org/docs/latest-v12.x/api/)** 12.x: The general Node.js execution environment.
-- **[aws4](https://github.com/mhart/aws4)** 1.8.0: Third-party library for easily signing AWS API requests.
-- **[axios](https://github.com/axios/axios)**  0.18.0: A modern HTTP library. Supports async/await.
-- **[btoa](https://www.npmjs.com/package/btoa)** 1.2.1: Binary to base64 encoded ascii. Handy for parsing some response bodies.
-- **[jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)**  8.5.1: Implementation of JSON web tokens. Helps with signing.
-- **[crypto-js](https://github.com/brix/crypto-js)** 3.1.9: Cryptographic function library.
-- **[lodash](https://lodash.com)** 4.x.x: Javascript toolkit for many object, array and other functions.
-- **[moment](https://momentjs.com)** 2.22.2: Popular library for all things time related.
-- **[request](https://github.com/request/request)** 2.88.0: An alternative HTTP client to Axios that supports posting Form data.
-- **[request-promise](https://github.com/request/request-promise)** 4.2.2: A plugin for the request library to enable promises.
-- **[uuid](https://github.com/kelektiv/node-uuid)** 3.3.3: Simple, fast generation of UUIDS.
-- **[expect](https://www.npmjs.com/package/expect)** 26.6.2: The Jest expect assertion library.
-- **[form-data](https://github.com/form-data/form-data)** 3.x.x: Third-party library for creating form data.
+Check out [our runtimes documentation](/docs/runtimes/specs) for a full specification of which modules are included.
 
 ## Technical limitations
 
