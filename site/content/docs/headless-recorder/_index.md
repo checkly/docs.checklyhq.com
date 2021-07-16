@@ -14,7 +14,9 @@ menu:
     identifier: overview-headless-recorder
 ---
 
-![Headless Recorder Chrome extension](/docs/images/browser-checks/headless_recorder_1400.png)
+![Headless Recorder Chrome extension](/docs/images/browser-checks/headless-recorder-hero.png)
+
+> Headless Recorder 1.0 is live 🚀
 
 Headless Recorder is a Chrome extension that records your browser interactions and generates a Puppeteer or Playwright script.
 Use it to create Checkly browser checks without writing any code.
@@ -28,7 +30,8 @@ Headless Recorder has the following features:
 - Generates Playwright or Puppeteer scripts, ready for copy & pasting.
 - Shows which events are being recorded.
 - Offers configuration options to tweak the generated code.
-- Is open source. Check the code on the [GitHub repo](https://github.com/checkly/headless-recorder)!
+- Run your checks directly on Checkly.
+- Is open source. Check the code on the [GitHub repo](https://github.com/checkly/headless-recorder), PRs are welcome! 🙌
 
 **Next steps**
 

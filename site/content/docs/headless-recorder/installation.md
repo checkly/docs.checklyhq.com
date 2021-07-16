@@ -17,8 +17,7 @@ and install it as follows:
 
 ## Options
 
-Open the options tab by clicking the cogwheel icon. In this tab you will find a set of configuration options that impact
-how Headless Recorder generates Playwright and Puppeteer code.
+Open the options tab by clicking the cogwheel icon. In this tab you will find a set of configuration options that impact how Headless Recorder generates Playwright and Puppeteer code.
 
 ![Headless Recorder async setting](/docs/images/headless-recorder/recorder_options.png)
 
