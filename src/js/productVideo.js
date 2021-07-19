@@ -30,7 +30,7 @@ $(document).ready(function () {
       var videoDistance = $('#synthetic-monitoring-video').offset().top - 300
 
       $(window).on('scroll', function () {
-        if ($(window).scrollTop() >= videoDistance && $(window).scrollTop() < videoDistance + 800) {
+        if ($(window).scrollTop() >= videoDistance && $(window).scrollTop() < videoDistance + 1100) {
           whyChecklyVideo.play()
           $('.action-button').css({
             display: 'none'
