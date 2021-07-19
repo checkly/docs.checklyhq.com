@@ -45,7 +45,7 @@ videosection:
   title: "Monitoring has never been easier"
   description: >-
     Checkly is easy to use across the board. The intuitive UI lets you create checks seamlessly. From signup to running your first checks, it will only take you a few minutes.
-  video: "/why-checkly/plugandplay_amazon_nobars.mp4"
+  video: "/why-checkly/synthetic-browser-check-how-works.mp4"
 codes:
   title: Flexible and programmable
   description: >-

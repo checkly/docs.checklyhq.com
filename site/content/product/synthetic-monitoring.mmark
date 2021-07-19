@@ -36,32 +36,19 @@ Checkly uses the Puppeteer & Playwright frameworks to accurately simulate intera
 Getting a monitoring script going is a lot easier than you might think. Just follow the steps below and you'll be up in no time.
 </p>
 
-
-{{% feature-row header="Create a script" img="/product/transaction-monitoring/synthetic-howitworks-1@2x.png" imgWidth="610" imgHeight="261" %}}
-Pick one of the examples from our built-in library as your starting point. Alternatively, you can install and fire up the
-[Headless Recorder](/docs/headless-recorder/) browser extension and record a script in real-time as you click through your site.
-<div class="cta">
-{{% cta-link "Learn more" "/docs/browser-checks/" %}}
+<div class="text-center mb-5">
+  <div class="video-wrapper">
+    <video id="synthetic-monitoring-video" autoplay loop controls >
+      <source src="/product/synthetic-browser-check-how-works.mp4" type=video/mp4>
+    </video>
+    <div class="action-button video-play">
+      <img src="/why-checkly/play-button.svg" alt="play" width="72" heigt="72" />
+    </div>
+    <div class="action-button video-pause">
+      <img src="/why-checkly/pause-button.svg" alt="play" width="72" heigt="72" />
+    </div>
+  </div>
 </div>
-{{% /feature-row %}}
-
-{{% feature-row header="Tweak it" img="/product/transaction-monitoring/synthetic-howitworks-2@2x.png" imgWidth="610" imgHeight="291" %}}
-Use our in app debugger to iterate on your script and directly see the results. Add extra assertions, screenshots
-and navigation actions. Add the industry standard **Mocha and Chai libraries** for a familiar workflow.
-<div class="cta">
-{{% cta-link "Learn more" "/docs/browser-checks/using-mocha//" %}}
-</div>
-{{% /feature-row %}}
-
-{{% feature-row header="Run it every 60 seconds" img="/product/transaction-monitoring/synthetic-howitworks-3@2x.png" imgWidth="610" imgHeight="254" %}}
-Schedule your script to run as often as every minute. A high-frequent interval gives you an accurate insight into
-how your vital transactions are performing over time. We also give you **full access to the log files** for each run in case
-an alert is triggered.
-<div class="cta">
-{{% cta-link "Learn more" "/docs/browser-checks/quickstart/" %}}
-</div>
-{{% /feature-row %}}
-
 
 <div class="gray-section two-grid">
   <div class="row justify-content-center header-part">
