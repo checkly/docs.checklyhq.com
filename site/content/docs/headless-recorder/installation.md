@@ -9,7 +9,7 @@ menu:
 To install Headless Recorder, go to the [Chrome Webstore](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda)
 and install it as follows:
 
-![Headless Recorder Chrome Webstore](/docs/images/browser-checks/chrome-webstore.png)
+![Headless Recorder Chrome Webstore](/docs/images/headless-recorder/chrome-webstore.png)
 
 1. Navigate to the [Chrome Webstore](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda) with your Chrome browser.
 2. Click the "Add to Chrome" button. You will see a camera icon appear in your toolbar.
