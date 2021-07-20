@@ -24,16 +24,16 @@ An example of a dashboard is [status.checklyhq.com](https://status.checklyhq.com
 
 ## Adding checks to your dashboard
 
-By default, if no check is specified, all checks in the account will be shown in the dashboard. If instead you want to show show specific checks, this is how it's accomplished:
+By default, if no check is specified, all checks in the account will be shown in the dashboard. If instead you want to show specific checks, this is how it's accomplished:
 
 1. First add tags to one or more checks you would like to show. This is done by editing the check(s). 
 
 ![Tags](/docs/images/dashboards/tags.png)
 
-You'll need to press Enter to save the tag before you save your updated check!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You'll need to press Enter to save the tag before you save your updated check!
 
 2. Then, edit the dashboard to include the tag:
 
 ![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
 
-Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
