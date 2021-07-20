@@ -60,18 +60,9 @@ The demo video below gives an impression on how filling out a form works.
 
 ## Screenshots
 
-You can take two kinds of screenshots:
+Using the overlay at the bottom of the page, you can take two kinds of screenshots:
 
 1. A screenshot of the **current visible page**.
 2. A **clipped screenshot** of a part of the page.
 
-Activate either mode by either using the right click context menu...
-
-![headless recorder context menu](/docs/images/headless-recorder/context_menu.png)
-
-...or using keyboard shortcuts.
-
-| Action             | Short cut    |
-|--------------------|--------------|
-| Screenshot         | Ctrl+Shift+A |
-| Screenshot Clipped | Ctrl+Shift+M |
+![headless recorder context menu](/docs/images/headless-recorder/overlay-screenshots.png)

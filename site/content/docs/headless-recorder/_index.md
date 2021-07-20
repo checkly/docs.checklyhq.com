@@ -28,6 +28,7 @@ Headless Recorder has the following features:
 - Records screenshots.
 - Adds `waitForNavigation`, `setViewport`/`setViewportSize` and other useful clauses.
 - Generates Playwright or Puppeteer scripts, ready for copy & pasting.
+- Previews selectors for elements on hover.
 - Shows which events are being recorded.
 - Offers configuration options to tweak the generated code.
 - Run your checks directly on Checkly.
