@@ -184,6 +184,41 @@
         margin-top: 20px;
       }
     }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      margin: auto;
+
+      :hover {
+        cursor: pointer;
+      }
+
+      video {
+        position: relative;
+        z-index: 9;
+        width: 100%;
+        outline: none;
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-media-controls {
+          display: none !important;
+        }
+        &::-webkit-media-controls-enclosure {
+          display: none !important;
+        }
+      }
+      .action-button {
+        position: absolute;
+        z-index: 10;
+        top: calc(50% - 36px);
+        left: calc(50% - 36px);
+        width: 72px;
+        height: 72px;
+        display: none;
+      }
+    }
     .gray-section {
       position: relative;
       z-index: 10;

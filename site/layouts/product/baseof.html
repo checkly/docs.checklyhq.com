@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head" . }}
+
+<body>
+	{{ partial "promo-banner" . }}
+  {{ partial "navbar" . }}
+  {{ block "main" . }}
+  {{ end }}
+  {{ partial "footer" . }}
+  {{ partial "scripts" . }}
+  <script src="/js/productVideo.js"></script>
+</body>
+</html>
