@@ -30,10 +30,10 @@ By default, if no check is specified, all checks in the account will be shown in
 
 ![Tags](/docs/images/dashboards/tags.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You'll need to press Enter to save the tag before you save your updated check!
+You'll need to press Enter to save the tag before you save your updated check!
 
 2. Then, edit the dashboard to include the tag:
 
 ![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
+Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
