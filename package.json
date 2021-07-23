@@ -28,7 +28,7 @@
     "babel-register": "^6.26.0",
     "bootstrap": "4.0.0-alpha.6",
     "browser-sync": "^2.27.4",
-    "css-loader": "^0.28.11",
+    "css-loader": "^5.2.7",
     "del": "^6.0.0",
     "exports-loader": "^0.7.0",
     "file-loader": "^6.2.0",
