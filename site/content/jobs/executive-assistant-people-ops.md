@@ -2,7 +2,7 @@
 title: Executive Assistant / People Operations
 subtitle: Part time or Full time / Remote
 position_state: Open
-draft: false
+draft: true
 workable_code: CCB7313FBD
 ---
 
