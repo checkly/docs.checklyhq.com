@@ -32,7 +32,7 @@ you will be responsible for empowering developers to truly own operations.
 
 - **Own the discovery phase:** talk to customers, sketch out mockups and prep specs and acceptance criteria.
 - **Ship new features:** Work closely with our CTO, product designer and engineers to develop delightful new features and extend current features.
-- **Plan product launches** together with our go-to-market team, make sure our people know about and adopt new features.
+- **Plan product launches** together with our go-to-market team, make sure people know about and adopt new features.
 - **Drive discussions** via frequent, clear communication, both internally and with partners.
 
 ## About you
@@ -41,7 +41,8 @@ you will be responsible for empowering developers to truly own operations.
 - You are very hands-on in creating mock designs, assessing technical viability and writing micro-copy.
 - You "get" developers — our main customers — through your technical background.
 - You have shipped multiple product features to developers, from concept to delivery.
-- Proven ability to work cross-functionally, collaborate, influence and work as part of a team
+- You never ship "big bang", but manage early access, beta and staged rollouts using feature flags. 
+- Proven ability to work cross-functionally, collaborate, influence and work as part of a team.
 - The ability to be autonomous and self-motivated in a remote work environment.
 - Love for exceptional UX/DX.
 - Excellent verbal and written communication skills (English).
