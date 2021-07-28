@@ -1,6 +1,6 @@
 ---
 title: Frequent debugging challenges
-subTitle: todo
+subTitle: Recurring non-trivial debugging situations and how to solve them
 date: 2021-07-26
 author: Giovanni Rago
 githubUser: ragog
@@ -26,7 +26,7 @@ More often than not, folks will be looking for a solution to the "obvious" cause
 
 ## Errors and possible root causes
 
-errors are taken from puppeteer and playwright, but can most of the time be generalised to other tools
+The errors below are taken from Puppeteer and Playwright, but most of the time can be generalised to other automation tools as well.
 
 ### Element not found
 For example: 
@@ -47,8 +47,8 @@ waiting for selector ".contact-form > .form-control" to be visible
   selector resolved to hidden <element>
 ```
 
-**Obvious possible cause:** the element is set to hidden while it shouldn't. Something is wrong with the element itself.
-**Not-so-obvious possible cause:** a different element is hiding the target element without our knowledge.
+- **Obvious possible cause:** the element is set to hidden while it shouldn't. Something is wrong with the element itself.
+- **Not-so-obvious possible cause:** a different element is hiding the target element without our knowledge.
 
 **How to avoid confusion:** either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect. 
 
@@ -56,6 +56,8 @@ waiting for selector ".contact-form > .form-control" to be visible
 For example: we are waiting for an element, e.g. with `page.waitForSelector`, but the script immediately proceeds to the next instruction. This can result in an [element not found error](#element-not-found) or similar on the following step in our script.
 
 - **Not-so-obvious possible cause:** the element we are waiting for is already in the DOM, possibly not visible in our inspection but already matching our `state` requirements. 
+
+**How to avoid confusion:** try querying for the element in the browser console during inspection. If the element is found, inspect its attributes (e.g. `visibility`) and ensure they match your expectations.
 
 ### Target closed
 
@@ -67,7 +69,7 @@ UnhandledPromiseRejectionWarning: Error: Protocol error: Target closed
 - **Obvious possible cause:** the browser, context or tab is being closed at the wrong time in the script.
 - **Not-so-obvious possible cause:** promises are not being handled correctly, e.g.: [wrong foreach usage](https://github.com/babel/babel/issues/909).
 
-> Note that this list neither is nor aims to be complete: more causes certainly exist for most listed errors.
+> Note that this list neither is nor aims to be complete: more possible causes certainly exist for most listed errors.
 
 ## Further reading
 1. [Working with selectors](/learn/headless/basics-selectors/).
