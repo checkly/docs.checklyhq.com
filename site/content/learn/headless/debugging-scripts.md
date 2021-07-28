@@ -1,7 +1,7 @@
 ---
 title: Frequent debugging challenges
 subTitle: todo
-date: 2021-07-30
+date: 2021-07-26
 author: Giovanni Rago
 githubUser: ragog
 tags:
@@ -12,60 +12,63 @@ menu:
     parent: "Miscellaneous"
 ---
 
-after debugging lots of scripts for lots of people, you realise you start running into the same issues over and over again. 
+Helping a large number of users debug a large number of automation scripts across testing tools over the years, some high-level patterns begin to emerge. The issues that come up, even though each one might be unique, start showing their similarities and begin to appear related.
 
-Unfortunately, not 1:1 problem:solution, otherwise this would be easy. Oftentimes there can be more than one cause for an error. Sometimes the cause is obvious, sometimes it isn't, and while sometimes it is the obvious one, sometimes it isn't, and that will create some headaches. in most cases, folks will be looking for a solution to the "obvious" cause, while the not-so-obvious one is actually the one - that means you will be trying to solve the wrong problem! here is where people lose a lot of time.
+This guide aims to define broader categories of errors and failures in order to show the possible underlying causes and make debugging more efficient.
 
-goal of the article is to help people better understand errors and what their causes might be in order to save them time
+## Obvious vs non-obvious root causes
 
-Element not found
-- Obvious: selector is wrong
-- Not-so-obvious: Click not going through -> next element is looked for but we are on the wrong page
+Unfortunately, problems do not map one-to-one to solutions. If they did, debugging would be very easy. Rather, there can be more than one possible cause for an error.
 
-Wait not “respected”
-- Obvious: selector
-- Not-so-obvious: element was already in dom, but not visible
+Sometimes the cause is obvious and sometimes it isn't, and while sometimes it is the obvious one the user should be looking at, sometimes it isn't. That is enough to create some headaches, slow down debugging and potentially whole projects with it. 
 
-Only works some of the time:
-- Race condition
-- Identify what changes
+More often than not, folks will be looking for a solution to the "obvious" cause, while the not-so-obvious one is actually responsible for the failure - that means they will be trying to solve the wrong problem! This is where a huge amount of time can be needlessly lost.
 
-Script times out
-- Obvious: timeouts
-- Obvious: bad waiting
-- Obvious: too long
-- Obvious: not closing browser
-- Not so obvious: app slow
-- Not so obvious: element not accessible
+## Errors and possible root causes
 
-Empty/ not fully loaded screenshots
+errors are taken from puppeteer and playwright, but can most of the time be generalised to other tools
 
-target closed
-- obvious
-- not-so-obvious: prmise issues e.g. foreach wrong usage
-
-
-
-
-
-
-{{< tabs "1">}}
-{{< tab "Playwright" >}}
-```js
-const browser = await chromium.launch();
-
+### Element not found
+For example: 
 ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const browser = await puppeteer.launch();
-
-
+UnhandledPromiseRejectionWarning: Error: No node found for selector: ...
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
-## Automation-resistant UIs
+- **Obvious possible cause:** the selector is wrong. See [working with selectors](/learn/headless/basics-selectors/).
+- **Not-so-obvious possible cause:** the click on the previous element did not actually go through. From the perspective of our automation tool, everything went fine, but from ours what happened is more similar to a silent failure. We are now looking for the right element but are on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
 
+**How to avoid confusion:** either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect. 
+
+### Element not visible
+For example: 
+```
+ERROR - UserScript page.waitForSelector: Timeout 30000ms exceeded. 
+waiting for selector ".contact-form > .form-control" to be visible
+  selector resolved to hidden <element>
+```
+
+**Obvious possible cause:** the element is set to hidden while it shouldn't. Something is wrong with the element itself.
+**Not-so-obvious possible cause:** a different element is hiding the target element without our knowledge.
+
+**How to avoid confusion:** either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect. 
+
+### Wait not “respected”
+For example: we are waiting for an element, e.g. with `page.waitForSelector`, but the script immediately proceeds to the next instruction. This can result in an [element not found error](#element-not-found) or similar on the following step in our script.
+
+- **Not-so-obvious possible cause:** the element we are waiting for is already in the DOM, possibly not visible in our inspection but already matching our `state` requirements. 
+
+### Target closed
+
+For example: 
+```
+UnhandledPromiseRejectionWarning: Error: Protocol error: Target closed
+```
+
+- **Obvious possible cause:** the browser, context or tab is being closed at the wrong time in the script.
+- **Not-so-obvious possible cause:** promises are not being handled correctly, e.g.: [wrong foreach usage](https://github.com/babel/babel/issues/909).
+
+> Note that this list neither is nor aims to be complete: more causes certainly exist for most listed errors.
 
 ## Further reading
+1. [Working with selectors](/learn/headless/basics-selectors/).
+2. [Navigating and waiting](/learn/headless/basics-navigation/).
