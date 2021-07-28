@@ -12,7 +12,7 @@ menu:
     parent: "Miscellaneous"
 ---
 
-Helping a large number of users debug a large number of automation scripts across testing tools over the years, some high-level patterns begin to emerge. The issues that come up, even though each one might be unique, start showing their similarities and begin to appear related.
+Helping users debug a large number of automation scripts across testing tools over many years, some high-level patterns begin to emerge. The issues that come up, even though each one might be unique, start showing their similarities and begin to appear related.
 
 This guide aims to define broader categories of errors and failures in order to show the possible underlying causes and make debugging more efficient.
 
@@ -29,6 +29,7 @@ More often than not, folks will be looking for a solution to the "obvious" cause
 The errors below are taken from Puppeteer and Playwright, but most of the time can be generalised to other automation tools as well.
 
 ### Element not found
+
 For example: 
 ```
 UnhandledPromiseRejectionWarning: Error: No node found for selector: ...
