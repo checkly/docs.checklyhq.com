@@ -1,6 +1,6 @@
 ---
 title: Look & feel
-weight: 2
+weight: 3
 menu:
   docs:
     parent: "Dashboards"

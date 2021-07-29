@@ -1,46 +1,39 @@
 ---
-title: Url and Custom Domain
+title: Overview
 weight: 1
 menu:
   docs:
     parent: "Dashboards"
+    identifier: overview-dashboard
 aliases:
-- "/dashboards/dashboard-url/"
-- "/docs/dashboards/dashboard-url/"
+- "/dashboards/overview/"
+- "/docs/dashboards/overview/"
 ---
 
 Checkly dashboards are public dashboards available on every plan. Use them on your wall mounted TVs, on
 shared monitors around the office or as a status page on your site.
-
-An example of a dashboard is [status.checklyhq.com](https://status.checklyhq.com).
 
 > Dashboards can be **embedded in iframes**.
 
 You can create multiple, distinct dashboards based on your plan. Edit your dashboard by clicking on
 the **Dashboards** button on the Checkly default dashboard page.
 
-## Custom URL
+An example of a dashboard is [status.checklyhq.com](https://status.checklyhq.com) as shown in the screenshot below.
 
-Every public dashboard comes with a configurable custom subdomain under the checklyhq.com domain. By default, we generate
-a random ID. You can change this subdomain to anything you like as long as it is unique among all Checkly users.
-Typically a company name works best.
+![Dashboard example](/docs/images/dashboards/dashboard_example.png)
 
-![custom url for public dashboard](/docs/images/dashboards/custom_url.png)
+## Adding checks to your dashboard
 
+By default, if no check is specified, all checks in the account will be shown in the dashboard. If instead you want to show specific checks, this is how it's accomplished:
 
-## Custom Domain
+1. First add tags to one or more checks you would like to show. This is done by editing the check(s). 
 
-You can host your public dashboard under your own domain. To make this work, you need to do two things:
+![Tags](/docs/images/dashboards/tags.png)
 
-1. Add a valid custom domain to your dashboard setting.
+You'll need to press Enter to save the tag before you save your updated check!
 
-![custom domain for public dashboard](/docs/images/dashboards/custom_domain.png)
+2. Then, edit the dashboard to include the tag:
 
-2. Create a CNAME record in your DNS that points to **dashboards.checklyhq.com**
+![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
 
-Any DNS provider will have the option to easily add CNAME records. For example, on AWS Route 53 this looks like this.
-
-![add cname to DNS provider](/docs/images/dashboards/aws_cname.png)
-
-> **SSL/TLS encryption is automatically provisioned** for all dashboards on a custom domain on the first request to that domain. This
-initial request might take a bit longer.
+Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
