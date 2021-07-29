@@ -133,6 +133,11 @@ disqusShortname = "checkly"
 	weight = 50
 
 [[menu.learn]]
+	name = "Debugging"
+	pre = "/learn/icons/errors.svg"
+	weight = 60
+
+[[menu.learn]]
 	name = "Miscellaneous"
 	pre = "/learn/icons/misc.svg"
 	weight = 1000
