@@ -101,7 +101,7 @@ contact:
       address: One Boston Place Suite 2600 Boston, MA 02108
       image: "/about/svgs/us-svg.svg"
     - country: Germany
-      address: Kopernikusstraße 3510243 Berlin
+      address: Kopernikusstraße 35 10243 Berlin
       image: "/about/svgs/ger-svg.svg"
     - country: Netherlands
       address: The J.P. Coenstraat 24 BIS 3531 ET Utrecht
