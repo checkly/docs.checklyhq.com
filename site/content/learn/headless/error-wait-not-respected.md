@@ -12,8 +12,6 @@ menu:
     parent: "Debugging"
 ---
 
-## Wait not “respected”
-
 For example: we are waiting for an element, e.g. with `page.waitForSelector`, but the script immediately proceeds to the next instruction. This can result in an [element not found error](#element-not-found) or similar on the following step in our script.
 
 ## Possible causes
