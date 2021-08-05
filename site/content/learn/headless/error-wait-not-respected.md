@@ -1,7 +1,6 @@
 ---
 title: Error - Wait not respected
-subTitle: todo
-date: 2021-07-26
+date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog
 tags:
@@ -20,7 +19,7 @@ For example: we are waiting for an element, e.g. with `page.waitForSelector`, bu
 
 - **Not-so-obvious possible cause:** the element we are waiting for is already in the DOM, possibly not visible in our inspection but already matching our `state` requirements. 
 
-## How to avoid confusion:
+## How to avoid confusion
 
 Try querying for the element in the browser console during inspection. If the element is found, inspect its attributes (e.g. `visibility`) and ensure they match your expectations.
 

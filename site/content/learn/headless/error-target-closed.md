@@ -1,7 +1,6 @@
 ---
 title: Error - Target closed
-subTitle: todo
-date: 2021-07-26
+date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog
 tags:

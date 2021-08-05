@@ -1,7 +1,7 @@
 ---
 title: Debugging challenges
 subTitle: Recurring non-trivial debugging situations and how to solve them
-date: 2021-07-26
+date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog
 tags:
@@ -24,11 +24,11 @@ Unfortunately, problems do not map one-to-one to solutions. If they did, debuggi
 
 Sometimes the cause is obvious and sometimes it isn't, and while sometimes it is the obvious one the user should be looking at, sometimes it isn't. That is enough to create some headaches, slow down debugging and potentially whole projects with it. 
 
-More often than not, folks will be looking for a solution to the "obvious" cause, while the not-so-obvious one is actually responsible for the failure - that means they will be trying to solve the wrong problem! This is where a huge amount of time can be needlessly lost.
+More often than not, beginners will be looking for a solution to the "obvious" cause, while the not-so-obvious one is actually responsible for the failure - that means they will be trying to solve the wrong problem! This is where a huge amount of time can be needlessly lost.
 
 ## Error list
 
-To help avoid stressful and unsuccesful debugging sessions, it might help to consider different possible causes depending on the error you are confronted with:
+To help avoid stressful and unsuccessful debugging sessions, it might help to consider different possible causes depending on the error you are confronted with:
 
 1. [Error: element not found](/learn/headless/error-element-not-found)
 2. [Error: element not visible](/learn/headless/error-element-not-visible)
