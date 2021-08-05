@@ -46,9 +46,12 @@ We deploy every day and keep things simple. Tools we use are Clubhouse, Sketch, 
 - Having no desire to rewrite the whole product in React 😉
 
 ## What we offer
-- Competitive salary.
+- Competitive salary & stock options.
 - Working hours are flexible and we support families: you can pick up your kids without worrying about work.
 - Work with the latest technologies.
 - Contribute to open source.
 - Modern laptop and equipment provided.
+
+## Salary range
+$60,000 — $100,000/year
 

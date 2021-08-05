@@ -44,8 +44,11 @@ and real time metric feeds. *Almost* no boring CRUD forms!
 
 ## What we offer
 
-- Competitive salary.
+- Competitive salary & stock options.
 - Working hours are flexible and we support families: you can pick up your kids without worrying about work.
 - Work with the latest technologies.
 - Contribute to open source.
 - Modern laptop and equipment provided.
+
+## Salary range
+$60,000 — $100,000/year

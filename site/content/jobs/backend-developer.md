@@ -37,9 +37,12 @@ You will help us build out new features and expand existing features. We have a 
 
 ## What we offer
 
-- Competitive salary.
+- Competitive salary & stock options.
 - Working hours are flexible and we support families: you can pick up your kids without worrying about work.
 - An open, healthy workplace we all can enjoy and grow.
 - Work with the latest technologies.
 - Modern laptop and equipment provided.
+
+## Salary range
+$60,000 — $100,000/year
 
