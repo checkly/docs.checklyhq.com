@@ -67,7 +67,7 @@ await page.screenshot({ path: 'after_click.png' });
 
 Another way to better observe our script's execution is to run in headful mode:
 
-{{< tabs "1" >}}
+{{< tabs "2" >}}
 {{< tab "Playwright" >}}
 ```js
 ...
@@ -90,7 +90,7 @@ We can then tweak the `slowMo` option, which adds a delay in milliseconds betwee
 
 Sometimes we need to try and see the execution through our automation tool's eyes. Added logging can help by taking us step-by-step through every command as it is executed.
 
-{{< tabs "1" >}}
+{{< tabs "3" >}}
 {{< tab "Playwright" >}}
 ```shell
 DEBUG=pw:api node script.js
@@ -103,65 +103,50 @@ DEBUG="puppeteer:*" node script.js
 {{< /tab >}}
 {{< /tabs >}}
 
-![TODO](/samples/images/debugging-logging.png)
+![verbose playwright logs](/samples/images/debugging-logging.png)
 
 ## Accessing DevTools 
 
-A wealth of information is available through the Chrome Developer Tools. We can configure our browser to start with the devtools tab already open (this will automatically disable headless mode), which can be helpful when something is not working as expected. Careful inspection of the Console, Network and other tabs can reveal hidden errors and other important findings.
+A wealth of information is available through the Chrome Developer Tools. We can configure our browser to start with the DevTools tab already open (this will automatically disable headless mode), which can be helpful when something is not working as expected. Careful inspection of the Console, Network and other tabs can reveal hidden errors and other important findings.
 
-![TODO](/samples/images/debugging-devtools.png)
+![debugging with chrome devtools](/samples/images/debugging-devtools.png)
 
-{{< tabs "1" >}}
+{{< tabs "4" >}}
 {{< tab "Playwright" >}}
 ```js
+...
 await chromium.launch({ devtools: true });
+...
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
+...
 await browser.launch({ devtools: true });
+...
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
+We can also use the console to directly try out a selector on the page in its current state, e.g. with `document.querySelector` or `document.querySelectorAll`.
+
+![debugging selectors in browser console](/samples/images/debugging-console.png)
+
+If we are using Playwright, we can also run in debug mode with `PWDEBUG=console node script.js`. This provisions a `playwright` object in the browser which allows us to also try out [Playwright-specific selectors](https://playwright.dev/docs/selectors).
+
+![debugging playwright-specific selectors in browser console](/samples/images/debugging-selectors.png)
 
 ## The Playwright Inspector
 
+The Playwright Inspector is a GUI tool which exposes additional debugging functionality, and can be launched using `PWDEBUG=1 npm run test`.
 
+The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in [getting to the root cause](/learn/headless/debugging-challenges) of some of the more generic errors.
 
+![playwright inspector debugging](/samples/images/debugging-inspector.png)
 
+> The Inspector includes additional handy features such as selector generation and debugging, as well as script recording.
 
+## Further reading
 
-
-
-
-
-
-
-I see many beginner users jump too soon into attacking the more obvious/direct possible cause of the issue.
-
-They end up trying to solve the wrong problem. 
-
-A practical example from my day-to-day experience: a pop-up/modal (think a cookie usage notice) will come up unexpectedly for a user and cause an element in the script to not be found or not to be interactable... the script fails.
-
-In such cases, I often see folks treat the error as if it existed in a vacuum and assume something must be wrong with the element or the element query.
-
-But in many cases that is not the reason for the failure.
-
-Pausing and zooming out would help the user realise the unexpected pop-up is blocking the UI element and should instead be at the center of the changes. Once it is dismissed, the element is found and the script runs just fine.
-
-The failure was in the context, not the element.
-
-
-
-
-
-
-debugging without additional tools: sometimes commenting out the right amount of code will already give you a good idea of what is going wrong
-
-
-headful + slowmo
-
-devtools elements + console + network
-
-inspector
+1. [Debugging challenges](/learn/headless/debugging-challenges)
+2. [Working with selectors](/learn/headless/basics-selectors)

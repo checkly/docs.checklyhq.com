@@ -12,8 +12,10 @@ menu:
     parent: "Debugging"
 ---
 
+One of perhaps the most common and direct error messages one will see, especially when starting out with writing automation scripts, will be the "Element not found" error. A variety of root causes including wrong selectors, missing waits, navigation problems and more can hide behind it.
+
 Example error message: 
-```
+```js
 UnhandledPromiseRejectionWarning: Error: No node found for selector: ...
 ```
 

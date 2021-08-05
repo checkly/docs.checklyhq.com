@@ -12,8 +12,10 @@ menu:
     parent: "Debugging"
 ---
 
+Our script can return the sometimes cryptic "Target closed" error. Knowing that the "target" is normally our browser, the [context](https://playwright.dev/docs/core-concepts#browser-contexts) or tab that our script is controlling can help us close in on the cause of the issue.
+
 Example error message: 
-```
+```js
 UnhandledPromiseRejectionWarning: Error: Protocol error: Target closed
 ```
 
