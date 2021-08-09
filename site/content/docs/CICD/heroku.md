@@ -28,7 +28,7 @@ Additionally, you will need to set your `CHECKLY_TOKEN` as a [config variable](h
 
 _Note: the Checkly Token is the very last part of the check's command line trigger URL._
 
-![Jenkins Pipeline Checkly Token Config](/docs/images/cicd/herokuci-param.png)
+![Jenkins Pipeline Checkly Token Config](/images/docs/cicd/herokuci-param.png)
 
 {{< info >}}
 This is a v1 integration. We are working on providing better feedback, longer runs, GitHub PR feedback and more customization options

@@ -16,7 +16,7 @@ Triggers enable you to call a check from a CI/CD pipeline, a bash shell or progr
 
 Start by creating a trigger URL from the **CI/CD** tab of your check:
 
-![trigger monitoring checks from CI/CD](/docs/images/cicd/triggers.png)
+![trigger monitoring checks from CI/CD](/images/docs/cicd/triggers.png)
 
 ## Calling triggers
 
@@ -88,7 +88,7 @@ curl -X GET "https://api.checklyhq.com/checks/<uuid>/trigger/c0hYw?deployment=tr
 
 would record the following deployment on your events tab:
 
-![deployment parameters from CI/CD](/docs/images/cicd/trigger_parameters.png)
+![deployment parameters from CI/CD](/images/docs/cicd/trigger_parameters.png)
 
 > Note: if you want to run multiple triggers for one deployment, just provide the same `repository` and `sha` parameter on each request. We will only record one deployment.
  

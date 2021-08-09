@@ -16,4 +16,4 @@ The timing phases correspond to the Node.js request library timing phases:
 - `firstByte`: Duration of HTTP server response
 - `download`: Duration of HTTP download
 
-![api monitoring timing phases](/docs/images/api-checks/timing-phases.png)
+![api monitoring timing phases](/images/docs/api-checks/timing-phases.png)

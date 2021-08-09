@@ -23,10 +23,10 @@ Recorders can be used to quickly generate code for a scenario, saving time users
 In the world of headless automation, most open-source recorders are available in one of two formats:
 
 1. As extensions to be installed and run from your browser, e.g. [Headless Recorder](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda?hl=en-GB)
-![headless recorder screenshot](/samples/images/recorder-headless.png)
+![headless recorder screenshot](/images/samples/recorder-headless.png)
 
 2. As libraries which launch a new browser session, e.g. [QAWolf](https://www.qawolf.com/)
-![qawolf screenshot](/samples/images/recorder-qawolf.png)
+![qawolf screenshot](/images/samples/recorder-qawolf.png)
 
 Both types will record different input events and generate the corresponding code line-by-line.
 

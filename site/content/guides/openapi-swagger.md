@@ -191,33 +191,33 @@ API monitoring is key to ensure that our endpoints are returning the correct res
 
 When creating an API check, select the `import from Swagger / OpenAPI` button.
 
-{{< figure src="/guides/images/guides-checkly-openapi-check.png" alt="screenshot of checkly check api creation openapi import button" >}}
+{{< figure src="/images/guides/guides-checkly-openapi-check.png" alt="screenshot of checkly check api creation openapi import button" >}}
 
 That will bring up the import dialog. This is where we give Checkly the URL to the Swagger/OpenAPI specification file.
 
-{{< figure src="/guides/images/guides-checkly-openapi-dialog.png" alt="screenshot of checkly check api creation openapi import dialog" >}}
+{{< figure src="/images/guides/guides-checkly-openapi-dialog.png" alt="screenshot of checkly check api creation openapi import dialog" >}}
 
 Before anything is created on our behalf, Checkly will show us a summary of all the checks that will be imported. We can choose to import them all defined checks or just a subset.
 
 Notice that we can also select whether to import headers, query params and other settings or just to ignore them for now.
 
-{{< figure src="/guides/images/guides-checkly-openapi-import.png" alt="screenshot of checkly bulk openapi import" >}}
+{{< figure src="/images/guides/guides-checkly-openapi-import.png" alt="screenshot of checkly bulk openapi import" >}}
 
 Once we confirm, the checks will be created for us and will start running according to the schedule we have selected.
 
 Based on how comprehensively the file we imported described the API we want to monitor, we might have to tweak certain checks manually before they are fully set up.
 
-{{< figure src="/guides/images/guides-checkly-openapi-fail.png" alt="screenshot of checkly checks - with failures" >}}
+{{< figure src="/images/guides/guides-checkly-openapi-fail.png" alt="screenshot of checkly checks - with failures" >}}
 
 This usually includes adding missing headers or body contents that might not have been explicitly defined in the imported file.
 
 We can open the newly created checks and change any of their settings.
 
-{{< figure src="/guides/images/guides-checkly-openapi-body.png" alt="screenshot of checkly filled in check body" >}}
+{{< figure src="/images/guides/guides-checkly-openapi-body.png" alt="screenshot of checkly filled in check body" >}}
 
 After a small amount of tinkering, or none at all, we should have all our checks up and running.
 
-{{< figure src="/guides/images/guides-checkly-openapi-pass.png" alt="screenshot of checkly checks - all passing" >}}
+{{< figure src="/images/guides/guides-checkly-openapi-pass.png" alt="screenshot of checkly checks - all passing" >}}
 
 For APIs medium and large, and for any that is already described with an OAS file, this check-generating procedure can:
 1. Save us a large amount of time otherwise spent in manual check setup.

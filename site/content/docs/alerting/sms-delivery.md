@@ -12,7 +12,7 @@ The phone numbers used for SMS alerting need to be in E.164 format. Stick to the
 - Do not use any white spaces
 - Use up to 15 characters
 
-![send monitoring alerts with SMS](/docs/images/alerting/sms.png)
+![send monitoring alerts with SMS](/images/docs/alerting/sms.png)
 
 You can add as many SMS channels as you like.
 

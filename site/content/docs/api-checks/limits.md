@@ -9,7 +9,7 @@ menu:
 Sometimes an API is just slow, but not broken. We call that "degraded" and you can specify when an API checks should be 
 marked as degraded using the simple slider in the API check editor.
 
-![api soft limits and degradation thresholds](/docs/images/api-checks/limits.png)
+![api soft limits and degradation thresholds](/images/docs/api-checks/limits.png)
 
 Using this slider you set two thresholds:
 

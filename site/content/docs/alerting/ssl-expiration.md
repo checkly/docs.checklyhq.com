@@ -15,7 +15,7 @@ An expired SSL certificate can cause havoc to sites and APIs. Checkly performs a
 
 Simply create or pick an existing alert channel that your check subscribes to and enable *SSL certificate expiration* and set the day threshold to your preference. If you don't have your alert channels set up yet, see [Alert Channels](/docs/alerting/alert-channels/).
 
-![Example alert channel form](/docs/images/alerting/ssl_check_example.png)
+![Example alert channel form](/images/docs/alerting/ssl_check_example.png)
 
 {{<info >}}
 **Tips**
@@ -31,4 +31,4 @@ The domain for the certificate is parsed from the `URL` in the HTTP request sett
 ## Browser checks
 Since browser checks can connect to multiple domains, you need to set the SSL certificate domain to receive certificate alerts for them.
 
-![SSL checks for browser checks](/docs/images/alerting/browser_ssl_check.png)
+![SSL checks for browser checks](/images/docs/alerting/browser_ssl_check.png)

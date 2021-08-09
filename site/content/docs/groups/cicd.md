@@ -14,7 +14,7 @@ There are two big differences:
 1. We run all the checks in your group. Checkly looks at your **concurrency** setting to determine how many checks we
 fire at once.
 
-![Check group concurrency screenshot](/docs/images/groups/group-concurrency.png)
+![Check group concurrency screenshot](/images/docs/groups/group-concurrency.png)
 
 2. The result reported now is an aggregate of all check runs, with individual check results as part of the message, i.e.
 
@@ -31,7 +31,7 @@ To get started:
  
 Checkly will run your group and provide a detailed report right in GitHub:
 
- ![Check group GitHub deployment result screenshot](/docs/images/groups/group-cicd-github.png)
+ ![Check group GitHub deployment result screenshot](/images/docs/groups/group-cicd-github.png)
 
 ## Command line triggers
 

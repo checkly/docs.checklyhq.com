@@ -11,7 +11,7 @@ Checkly [command line trigger](/docs/cicd/triggers/) feature to run checks throu
 
 In both cases, you will need to set your `CHECKLY_TOKEN` as an environment variable for your job. This allows it to be picked up by the trigger command without the need to expose it in plain text in your repository.
 
-![Jenkins Pipeline Checkly Token Config](/docs/images/cicd/jenkins-param.png)
+![Jenkins Pipeline Checkly Token Config](/images/docs/cicd/jenkins-param.png)
 
 _Note: the Checkly Token is the very last part of the check's command line trigger URL._
 
@@ -58,7 +58,7 @@ If you are not using Jenkins Pipelines, you can leverage Checkly in your standal
 
 An example could look like the following:
 
-![Jenkins Job Checkly Build Config](/docs/images/cicd/jenkins-freestyle-build.png)
+![Jenkins Job Checkly Build Config](/images/docs/cicd/jenkins-freestyle-build.png)
 
 {{< info >}}
 This is a v1 integration. We are working on providing better feedback, longer runs, GitHub PR feedback and more customization options

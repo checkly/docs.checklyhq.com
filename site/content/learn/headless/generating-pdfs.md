@@ -143,7 +143,7 @@ We are including the following template files for our header and footer.
 
 The first page of the generated PDF looks as follows:
 
-![generated pdf example](/samples/images/pdf-generation-hd.png)
+![generated pdf example](/images/samples/pdf-generation-hd.png)
 
 > Chromium sets a default padding for header and footer. You will need to [override it](https://github.com/puppeteer/puppeteer/issues/4132#issuecomment-475110167) in your CSS.</style>
 

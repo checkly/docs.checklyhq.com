@@ -12,7 +12,7 @@ You can easily run your checks on demand as part of your GitLab CI pipelines usi
 
 To start off, you will need to set your `CHECKLY_TOKEN` as an [environment variable](https://docs.gitlab.com/ee/ci/variables/) for your pipeline. 
 
-![GitLab Checkly Token Config](/docs/images/cicd/gitlab-param.png)
+![GitLab Checkly Token Config](/images/docs/cicd/gitlab-param.png)
 
 This secret value will allow you to use the Checkly trigger to start your check on demand. Having the value masked prevents it from showing up in your logs.
 

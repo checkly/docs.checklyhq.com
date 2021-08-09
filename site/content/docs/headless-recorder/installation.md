@@ -9,7 +9,7 @@ menu:
 To install Headless Recorder, go to the [Chrome Webstore](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda)
 and install it as follows:
 
-![Headless Recorder Chrome Webstore](/docs/images/headless-recorder/chrome-webstore.png)
+![Headless Recorder Chrome Webstore](/images/docs/headless-recorder/chrome-webstore.png)
 
 1. Navigate to the [Chrome Webstore](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda) with your Chrome browser.
 2. Click the "Add to Chrome" button. You will see a camera icon appear in your toolbar.
@@ -19,7 +19,7 @@ and install it as follows:
 
 Open the options tab by clicking the cogwheel icon. In this tab you will find a set of configuration options that impact how Headless Recorder generates Playwright and Puppeteer code.
 
-![Headless Recorder async setting](/docs/images/headless-recorder/recorder_options.png)
+![Headless Recorder async setting](/images/docs/headless-recorder/recorder_options.png)
 
 The available options are:
 

@@ -19,7 +19,7 @@ throughout Checkly, hence the "Global environment variables" title*.
 All variables are stored as string values. You can click the lock icon to encrypt the values and hide the value from all users
 that do not have write access.
 
-![adding variables](/docs/images/api-checks/add-variables.png)
+![adding variables](/images/docs/api-checks/add-variables.png)
 
 ## Accessing variables in API checks
 
@@ -34,7 +34,7 @@ Variables can be used in the following API checks fields:
 
 When typing in most of the variable-enabled fields we show a small helper popup to help select the right variable.
 
-![access variables](/docs/images/api-checks/access-variables.png)
+![access variables](/images/docs/api-checks/access-variables.png)
 
 Note, just the Body input field does not show this helper popup.
 

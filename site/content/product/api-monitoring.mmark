@@ -13,7 +13,7 @@ monitoring solution to check your mobile, webapp or IoT API for performance, upt
 </p>
 
 <div class="row justify-content-center text-center">
-{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/api-monitoring/api-monitoring-hero@2x.png" alt="api monitoring" width="865" height="528" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/images/product/api-monitoring/api-monitoring-hero@2x.png" alt="api monitoring" width="865" height="528" >}}
 </div>
 
 <section class="grid-section">
@@ -30,7 +30,7 @@ monitoring solution to check your mobile, webapp or IoT API for performance, upt
 {.text-center .section-header .mt-8}
 ## How it works
 
-{{% feature-row header="Create an HTTP request" img="/product/api-monitoring/api-howitworks-1@2x.png" imgWidth="610" imgHeight="308" %}}
+{{% feature-row header="Create an HTTP request" img="/images/product/api-monitoring/api-howitworks-1@2x.png" imgWidth="610" imgHeight="308" %}}
 Import your HTTP requests or assemble one by hand. Checkly gives you full control over all HTTP request options:
 **HTTP method, URL, query parameters, headers, and body**. Add credentials or a Bearer
 token for authentication.
@@ -40,7 +40,7 @@ token for authentication.
 </div>
 {{% /feature-row %}}
 
-{{% feature-row header="Add API check assertions" img="/product/api-monitoring/api-howitworks-2@2x.png" imgWidth="610" imgHeight="308" %}}
+{{% feature-row header="Add API check assertions" img="/images/product/api-monitoring/api-howitworks-2@2x.png" imgWidth="610" imgHeight="308" %}}
 Checkly's assertion matrix helps you create as many assertions per check as you want. Monitor your API for correct response times, HTTP status code,
 plain text or JSON bodies and headers. **Drill into JSON payloads with JSON path** or user regular expression.
 
@@ -49,7 +49,7 @@ plain text or JSON bodies and headers. **Drill into JSON payloads with JSON path
 </div>
 {{% /feature-row %}}
 
-{{% feature-row header="Customize setup & teardown" img="/product/api-monitoring/api-howitworks-3@2x.png" imgWidth="610" imgHeight="308" %}}
+{{% feature-row header="Customize setup & teardown" img="/images/product/api-monitoring/api-howitworks-3@2x.png" imgWidth="610" imgHeight="308" %}}
 If needed, you can take full control of how your request executes. Use setup scripts to **cryptographically sign requests**,
 fetch OAuth tokens and update request attributes before any request is done. Use teardown scripts to clean up test data or
 **scrub sensitive data** from the response.
@@ -59,7 +59,7 @@ fetch OAuth tokens and update request attributes before any request is done. Use
 </div>
 {{% /feature-row %}}
 
-{{% feature-row header="Monitor your API every 10 seconds" img="/product/api-monitoring/api-howitworks-4@2x.png" imgWidth="610" imgHeight="308" %}}
+{{% feature-row header="Monitor your API every 10 seconds" img="/images/product/api-monitoring/api-howitworks-4@2x.png" imgWidth="610" imgHeight="308" %}}
 We monitor your API as often as every 10 seconds. This gives you a consistent and accurate view of your API performance.
 Next to aggregating metrics, we give you **access to each result** from each of the configured data centers.
 
@@ -74,9 +74,9 @@ Next to aggregating metrics, we give you **access to each result** from each of 
 		<h2 class="section-super-header">alerting</h2>
 		<div class="lead-text">
 			<picture>
-        <source type="image/webp" srcset="/landing/alerting-options@2x.webp">
-        <source type="image/png" srcset="/landing/alerting-options@2x.png">
-        <img class="alerting-top-image" src="/landing/alerting-options@2x.png" alt="checkly alerting options" width="750" height="45" />
+        <source type="image/webp" srcset="/images/landing/alerting-options@2x.webp">
+        <source type="image/png" srcset="/images/landing/alerting-options@2x.png">
+        <img class="alerting-top-image" src="/images/landing/alerting-options@2x.png" alt="checkly alerting options" width="750" height="45" />
       </picture>
 		</div>
 	  <h2 class="section-header mt-1">Alerting for any situation</h3>
@@ -102,7 +102,7 @@ Next to aggregating metrics, we give you **access to each result** from each of 
 		</p>
 	</div>
 	<div class="justify-content-center lead-text text-center">
-		{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/api-monitoring/global-coverage-screenshot@2x.png" alt="data centerlocations" width="843" height="486" >}}
+		{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/images/product/api-monitoring/global-coverage-screenshot@2x.png" alt="data centerlocations" width="843" height="486" >}}
 	</div>
 </div>
 </div>

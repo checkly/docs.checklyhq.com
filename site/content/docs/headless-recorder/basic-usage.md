@@ -34,7 +34,7 @@ is in Incognito Mode helps you dodge this pitfall, as it will become immediately
 session cookies. You need to explicitly allow the Headless Recorder extension to run in Incognito mode on the details
 section on the Extension page of your Chrome browser:
 
-![headless authentication and cookies](/docs/images/headless-recorder/allow_incognito.png)
+![headless authentication and cookies](/images/docs/headless-recorder/allow_incognito.png)
 
 
 ## Filling out forms
@@ -65,4 +65,4 @@ Using the overlay at the bottom of the page, you can take two kinds of screensho
 1. A screenshot of the **current visible page**.
 2. A **clipped screenshot** of a part of the page.
 
-![headless recorder context menu](/docs/images/headless-recorder/overlay-screenshots.png)
+![headless recorder context menu](/images/docs/headless-recorder/overlay-screenshots.png)

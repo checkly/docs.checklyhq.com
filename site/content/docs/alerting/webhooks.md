@@ -15,7 +15,7 @@ nutshell, you can:
 
 ## Using variables
 
-![webhook editor](/docs/images/alerting/webhook_editor.png)
+![webhook editor](/images/docs/alerting/webhook_editor.png)
 
 The example above shows a webhook configured to create a Jira ticket on each event. Notice the following:
 

@@ -27,11 +27,11 @@ Configuration is really simple. Just remember that you can configure your alert 
 
 - **Account** level: This is the default level and applies to all of your check unless you override these settings at the check level.
 
-![alert settings account / threshold alerting](/docs/images/alerting/alert-settings.png)
+![alert settings account / threshold alerting](/images/docs/alerting/alert-settings.png)
 
 - **Check** level: You can explicitly override the alert settings per check. Very handy for debugging or other one-off cases.
 
-![alert settings check / threshold alerting](/docs/images/alerting/alert-settings-check.png)
+![alert settings check / threshold alerting](/images/docs/alerting/alert-settings-check.png)
 
 {{<info >}}
 If you are using Groups, all the checks in the same Group will share Group-level alert settings.
@@ -52,7 +52,7 @@ from a different region are not considered "consecutive".
 
 Here's an example. You want to be alerted after two failures, so you set the escalation to:
 
-![escalation when a check has failed 2 time(s)](/docs/images/alerting/escalation-1.png)
+![escalation when a check has failed 2 time(s)](/images/docs/alerting/escalation-1.png)
 
 Your check runs in Frankfurt and Tokio. It fails from both regions because your server is down. We consider this
 one run. Five minutes later, the check fails again - assuming the check runs on a 5 minute schedule. Now we alert you.
@@ -64,7 +64,7 @@ This option should mostly be used when checks are run very regularly, i.e. once 
 
 Here's an example. You want to be alerted if your check is failing for more than 10 minutes. You set escalation to:
 
-![escalation when a check is failing for more than 10 minutes](/docs/images/alerting/escalation-2.png)
+![escalation when a check is failing for more than 10 minutes](/images/docs/alerting/escalation-2.png)
 
 Your check runs every minute. It starts failing at 15:00. Failing check results come in and are visible in the dashboard.
 After 10 minutes, the clock strikes 15:10. Any failing check results that come in now trigger an alert. If the check has
@@ -76,7 +76,7 @@ People are busy, life is complex. For this reason you can set up one or more rem
 would send you two reminders: the first reminder five minutes after the first alert is triggered and the second five minutes
 after that.
 
-![send reminder two times over ten minutes](/docs/images/alerting/reminders-1.png)
+![send reminder two times over ten minutes](/images/docs/alerting/reminders-1.png)
 
 {{<info >}}
 When a check failure is resolved, we cancel any outstanding reminders so you don't get mixed signals.
@@ -99,4 +99,4 @@ to catch false positives.
 
 This feature is switched on by default for all checks.
 
-![double checks against false positives](/docs/images/alerting/double_check.png)
+![double checks against false positives](/images/docs/alerting/double_check.png)

@@ -25,22 +25,22 @@ to any Opsgenie team. You can add as many Opsgenie channels as you wish. After s
 
     Go to the **Teams** tab and choose a team you want to integrate with Checkly,
     then navigate to your team's **Integrations** tab and click the "Add integration" button.
-    ![setup checkly opsgenie integration step 1](/docs/images/integrations/opsgenie/opsgenie_step1.png)
+    ![setup checkly opsgenie integration step 1](/images/docs/integrations/opsgenie/opsgenie_step1.png)
 
 2. Select the **API** integration from the list of integrations available in Opsgenie.
 
     > 💡 You can use the `REST API` query in the search box, to quickly find the **API** integration.
 
-    ![setup checkly opsgenie integration step 2](/docs/images/integrations/opsgenie/opsgenie_step2.png)
+    ![setup checkly opsgenie integration step 2](/images/docs/integrations/opsgenie/opsgenie_step2.png)
 
 3. Choose a name for your integration, copy the **API Key** and click "Save Integration" at the bottom of the screen to
 save your changes.  
-    ![setup checkly opsgenie integration step 3](/docs/images/integrations/opsgenie/opsgenie_step3.png)
+    ![setup checkly opsgenie integration step 3](/images/docs/integrations/opsgenie/opsgenie_step3.png)
 
 4. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings).
 Click the "Add more channels" button, find Opsgenie on the list, and click "Add channel" next to it to
 create a new Opsgenie channel.
-    ![setup checkly opsgenie integration step 4](/docs/images/integrations/opsgenie/opsgenie_step4.png)
+    ![setup checkly opsgenie integration step 4](/images/docs/integrations/opsgenie/opsgenie_step4.png)
 
 5. Choose a name for your Opsgenie channel, paste your **API Key** and select your Opsgenie region (`EU` for EU based
 customers, `US` for the rest of the world).
@@ -50,12 +50,12 @@ customers, `US` for the rest of the world).
 
     > 💡 On Checkly, you can specify which [check events](/docs/alerting/alert-channels) will be sent over to Opsgenie.
 
-    ![setup checkly opsgenie integration step 5](/docs/images/integrations/opsgenie/opsgenie_step5.png)
+    ![setup checkly opsgenie integration step 5](/images/docs/integrations/opsgenie/opsgenie_step5.png)
 
 6. You can click the "Test API Key" button to test your integration, if everything is correct you should see a test
 alert created on your Opsgenie dashboard.
 
     **To finish the setup process**, back in Checkly click the "Save Opsgenie integration" button.
-    ![setup checkly opsgenie integration step 6](/docs/images/integrations/opsgenie/opsgenie_step6.png)
+    ![setup checkly opsgenie integration step 6](/images/docs/integrations/opsgenie/opsgenie_step6.png)
 
 Congratulations! You have successfully integrated Checkly with your Opsgenie team.

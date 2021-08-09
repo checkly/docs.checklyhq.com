@@ -25,7 +25,7 @@ There are two reasons for this:
 
 A picture is a thousand words:
 
-![monitoring and alerting pipeline](/docs/images/monitoring/pipeline.png)
+![monitoring and alerting pipeline](/images/docs/monitoring/pipeline.png)
 
 1. A cron process picks up a check based on its schedule, say every 5 minutes.
 2. It validates that the check is not in progress at the moment to avoid race conditions.

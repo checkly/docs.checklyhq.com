@@ -34,7 +34,7 @@ await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
 
 2. In Google Analytics, filter on campaign source.
 
-![filter google analytics traffic on campaign source](/docs/images/monitoring/analytics.png)
+![filter google analytics traffic on campaign source](/images/docs/monitoring/analytics.png)
 
 
 For detailed instructions, see [the Google Analytics docs on custom filters](https://support.google.com/analytics/answer/1033162#CustomFilters).

@@ -6,7 +6,7 @@ author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
-{{< figure src="/guides/images/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="JAMStack applications heavily rely on APIs" >}}
+{{< figure src="/images/guides/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="JAMStack applications heavily rely on APIs" >}}
 
 ## APIs and the JAMStack
 
@@ -48,7 +48,7 @@ There is a large variety of valid requests that a user might make to a given end
 2. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" title="Headers" >}}[Headers](), like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
 3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query" title="Query parameters" >}}
 
-{{< figure src="/guides/images/guides-checkly-swagger.png" alt="swagger api documentation" title="Swagger is a popular tool for generating API documentation" >}}
+{{< figure src="/images/guides/guides-checkly-swagger.png" alt="swagger api documentation" title="Swagger is a popular tool for generating API documentation" >}}
 
 Essentially, we are trying to craft a complete request for exact endpoint. Not only that, but we might want to have multiple requests set up to cover specific options or negative cases, too.
 
@@ -200,7 +200,7 @@ API monitoring checks must be organised as to minimise the time needed to identi
 
 Checkly specialises in API monitoring and allows users to run API checks on a schedule from [global locations](https://www.checklyhq.com/docs/monitoring/global-locations/). We can combine these checks with [custom alerting](https://www.checklyhq.com/docs/alerting/) to be able to quickly respond and remediate potential API issues. 
 
-{{< figure src="/guides/images/guides-checkly-dashboard-short.png" alt="checkly dashboard with API checks" title="Checkly API checks shown on a dashboard" >}}
+{{< figure src="/images/guides/guides-checkly-dashboard-short.png" alt="checkly dashboard with API checks" title="Checkly API checks shown on a dashboard" >}}
 
 A Checkly API check is comprised of the following components.
 
@@ -208,13 +208,13 @@ A Checkly API check is comprised of the following components.
 
 The most basic building block of Checkly's API check is the main HTTP request. This can be fully configured in its method, url, parameters and body to fully reproduce a real-world web API call.
 
-{{< figure src="/guides/images/guides-checkly-stripe-check.png" alt="checkly check creation process" title="Checkly API check creation" >}}
+{{< figure src="/images/guides/guides-checkly-stripe-check.png" alt="checkly check creation process" title="Checkly API check creation" >}}
 
 ### Assertions
 
 Assertions allow us to check for every key aspect of the response. A check with one or more failing assertions will enter failing state and trigger any connected alert channel.
 
-{{< figure src="/guides/images/guides-checkly-assertions.png" alt="setting up assertions in an api check" title="Setting up assertions for our check" >}}
+{{< figure src="/images/guides/guides-checkly-assertions.png" alt="setting up assertions in an api check" title="Setting up assertions for our check" >}}
 
 In this example, we are checking against:
 
@@ -226,13 +226,13 @@ In this example, we are checking against:
 
 Response time limits enable us to set different thresholds to decide exactly which response time maps to a hard failure, a pass or a degradation. We can use transitions between these states to trigger different kinds of alerts using our preferred channels.
 
-{{< figure src="/guides/images/guides-checkly-response-limits.png" alt="setting up response time limits in an api check" title="Choosing response time limits" >}}
+{{< figure src="/images/guides/guides-checkly-response-limits.png" alt="setting up response time limits in an api check" title="Choosing response time limits" >}}
 
 ### Setup and teardown scripts
 
 Checkly is highly programmable and allows users to run scripts before and after the main HTTP request of an API check.
 
-{{< figure src="/guides/images/guides-checkly-setup.png" alt="programmable setup scripts" title="Setup and teardown methods are fully scriptable using NodeJS" >}}
+{{< figure src="/images/guides/guides-checkly-setup.png" alt="programmable setup scripts" title="Setup and teardown methods are fully scriptable using NodeJS" >}}
 
 Setup scripts run before our check and give us access to properties like the URL, headers and query parameters, enabling us to set up all the prerequisites for a successful request. Some examples could be:
 

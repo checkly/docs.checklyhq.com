@@ -16,4 +16,4 @@ Dashboards have a lot of tweakable options to make them work for you in your sit
 - **pagination:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview
 without sacrificing legibility per check.
 
-![config public monitoring dashboard](/docs/images/dashboards/look_feel.png)
+![config public monitoring dashboard](/images/docs/dashboards/look_feel.png)

@@ -18,23 +18,23 @@ reports the correct "success" message will work.
 ## Setting up your GitHub integration
 
 1. Go to the **integrations tab** in your account settings and click the "Integrate with GitHub" button.    
-![set up GitHub integration step 1](/docs/images/cicd/github_setup_1.png)
+![set up GitHub integration step 1](/images/docs/cicd/github_setup_1.png)
 
 2. You will be redirected to GitHub and prompted to select an account and install the Checkly GitHub App.  
-![set up GitHub integration step 2](/docs/images/cicd/github_setup_2.png)
+![set up GitHub integration step 2](/images/docs/cicd/github_setup_2.png)
 
 3. When accepting the installation, you are redirected back to Checkly and the integration is installed. 
 Now, go to the **CI/CD tab** of the check you want to link to a GitHub repository.    
-![set up GitHub integration step 3](/docs/images/cicd/github_setup_3.png)
+![set up GitHub integration step 3](/images/docs/cicd/github_setup_3.png)
 
 4. Click the **"Link GitHub repo"** button and select the repository you want to link.  
-![set up GitHub integration step 4](/docs/images/cicd/github_setup_4.png)
+![set up GitHub integration step 4](/images/docs/cicd/github_setup_4.png)
 
 5. On each deployment event, we will run your check and report the results directly in **your GitHub timeline and PR overview**.  
-![set up GitHub integration step 5](/docs/images/cicd/github_setup_5.png)
+![set up GitHub integration step 5](/images/docs/cicd/github_setup_5.png)
 
 6. You will also get an overview of the check result in the *details* section
-![set up GitHub integration step 6](/docs/images/cicd/github_setup_6.png)
+![set up GitHub integration step 6](/images/docs/cicd/github_setup_6.png)
 
 
 {{<info >}}

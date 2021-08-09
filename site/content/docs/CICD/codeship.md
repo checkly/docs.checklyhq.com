@@ -20,7 +20,7 @@ if [ $(grep -c '"hasFailures":true' $PWD/checkly.json) -ne 0 ]; then exit 1; fi
 
 Additionally, you will need to set the `CHECKLY_TOKEN` environment variable from the `Environment` tab in your Codeship project settings:
 
-![Codeship Checkly Token Setting](/docs/images/cicd/codeship-param.png)
+![Codeship Checkly Token Setting](/images/docs/cicd/codeship-param.png)
 
 _Note: the Checkly Token is the very last part of the check's command line trigger URL._
 

@@ -103,13 +103,13 @@ DEBUG="puppeteer:*" node script.js
 {{< /tab >}}
 {{< /tabs >}}
 
-![verbose playwright logs](/samples/images/debugging-logging.png)
+![verbose playwright logs](/images/samples/debugging-logging.png)
 
 ## Accessing DevTools 
 
 A wealth of information is available through the Chrome Developer Tools. We can configure our browser to start with the DevTools tab already open (this will automatically disable headless mode), which can be helpful when something is not working as expected. Careful inspection of the Console, Network and other tabs can reveal hidden errors and other important findings.
 
-![debugging with chrome devtools](/samples/images/debugging-devtools.png)
+![debugging with chrome devtools](/images/samples/debugging-devtools.png)
 
 {{< tabs "4" >}}
 {{< tab "Playwright" >}}
@@ -130,11 +130,11 @@ await browser.launch({ devtools: true });
 
 We can also use the console to directly try out a selector on the page in its current state, e.g. with `document.querySelector` or `document.querySelectorAll`.
 
-![debugging selectors in browser console](/samples/images/debugging-console.png)
+![debugging selectors in browser console](/images/samples/debugging-console.png)
 
 If we are using Playwright, we can also run in debug mode with `PWDEBUG=console node script.js`. This provisions a `playwright` object in the browser which allows us to also try out [Playwright-specific selectors](https://playwright.dev/docs/selectors).
 
-![debugging playwright-specific selectors in browser console](/samples/images/debugging-selectors.png)
+![debugging playwright-specific selectors in browser console](/images/samples/debugging-selectors.png)
 
 ## The Playwright Inspector
 
@@ -142,7 +142,7 @@ The Playwright Inspector is a GUI tool which exposes additional debugging functi
 
 The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in [getting to the root cause](/learn/headless/debugging-challenges) of some of the more generic errors.
 
-![playwright inspector debugging](/samples/images/debugging-inspector.png)
+![playwright inspector debugging](/images/samples/debugging-inspector.png)
 
 > The Inspector includes additional handy features such as selector generation and debugging, as well as script recording.
 

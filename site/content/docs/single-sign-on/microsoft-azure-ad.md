@@ -20,7 +20,7 @@ Setting up SSO for your organisation starts with providing [Checkly Support](mai
 
 After configuration has taken place on Checkly's side, you will receive confirmation via e-mail. Once that has happened, you should be able to log in to Checkly via SSO already. Entering an email address associated with the domain you have provided in the login prompt should result in the password field disappearing:
 
-![checkly login prompt without password screenshot](/docs/images/single-sign-on/checkly-login-prompt-sso.png)
+![checkly login prompt without password screenshot](/images/docs/single-sign-on/checkly-login-prompt-sso.png)
 
 After submitting the Checkly login form, you should be redirected to your SSO login interface. Completing the login procedure will then lead you to your existing Checkly account, if you have one, or to the new account creation screen, in case you don't.
 

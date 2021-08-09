@@ -14,7 +14,7 @@ menu:
     identifier: overview-headless-recorder
 ---
 
-![Headless Recorder Chrome extension](/docs/images/browser-checks/headless-recorder-hero.png)
+![Headless Recorder Chrome extension](/images/docs/browser-checks/headless-recorder-hero.png)
 
 > Headless Recorder 1.0 is live 🚀
 

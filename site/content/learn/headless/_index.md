@@ -14,7 +14,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="What is Playwright"
-	  img="/learn/icons/playwright.png"
+	  img="/images/learn/icons/playwright.png"
 	  description="Built on the experience of Puppeteer, Microsofts' Playwright offers unique features."
 	  link="/learn/headless/basics-playwright-intro"
 >}}
@@ -22,7 +22,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="What is Puppeteer?"
-	  img="/learn/icons/puppeteer.png"
+	  img="/images/learn/icons/puppeteer.png"
 	  description="Learn what's behind the popular Node.js library from Google and the use cases it serves."
 	  link="/learn/headless/basics-puppeteer-intro"
 >}}
@@ -32,7 +32,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 {{< doc-card
 	class="full-width-card"
 	headerTag="h3"
-	img="/learn/icons/local-setup.svg"
+	img="/images/learn/icons/local-setup.svg"
 	title="Set up Playwright and Puppeteer"
 	description="Prepare to write your first scripts and learn how the setup works."
 	link="/learn/headless/basics-local-setup"
@@ -48,7 +48,7 @@ Playwright and Puppeteer are extremely powerful and serve a wide range of use ca
 	class="full-width-card"
 	headerTag="h3"
 	title="End to end scenarios"
-	img="/learn/icons/e2e.svg"
+	img="/images/learn/icons/e2e.svg"
 	description="Learn how to script complete user scenarios from signup to checkout."
 	link="/learn/headless/e2e-account-settings"
 >}}
@@ -56,7 +56,7 @@ Playwright and Puppeteer are extremely powerful and serve a wide range of use ca
 	class="full-width-card"
 	headerTag="h3"
 	title="Session Management"
-	img="/learn/icons/session-management.svg"
+	img="/images/learn/icons/session-management.svg"
 	description="Learn how to use cookies to set states to simplify your scripts."
 	link="/learn/headless/google-login"
 >}}
@@ -64,7 +64,7 @@ Playwright and Puppeteer are extremely powerful and serve a wide range of use ca
 	class="full-width-card"
 	headerTag="h3"
 	title="Best Practices"
-	img="/learn/icons/best-practices.svg"
+	img="/images/learn/icons/best-practices.svg"
 	description="Learn about guidelines to write quality automation scripts."
 	link="/learn/headless/challenging-flows"
 >}}
@@ -72,7 +72,7 @@ Playwright and Puppeteer are extremely powerful and serve a wide range of use ca
 	class="full-width-card"
 	headerTag="h3"
 	title="Performance"
-	img="/learn/icons/performance.svg"
+	img="/images/learn/icons/performance.svg"
 	description="Learn how you can use Playwright & Puppeteer to measure page performances."
 	link="/learn/headless/basics-performance"
 >}}

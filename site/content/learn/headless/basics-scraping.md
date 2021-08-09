@@ -105,7 +105,7 @@ We are using [axios](https://github.com/axios/axios) to make a `GET` request aga
 
 Once we start scraping more information, we might want to have it stored in a standard format for later use. Let's gather the title, author and price from each book that appears on the home page of our test site:
 
-![books with titles ready for scraping](/samples/images/basics-scraping-1.png)
+![books with titles ready for scraping](/images/samples/basics-scraping-1.png)
 
 The code for that could look like this:
 

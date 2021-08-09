@@ -17,7 +17,7 @@ having big red callouts on your dashboard. Maintenance windows are also exposed 
 Adding a maintenance window is simple. Navigate to the maintenance windows overview indicated by the wrench icon on the 
 menu and click "create new". You're now on the maintenance window editor.
 
-![maintenance window editor](/docs/images/maintenance-windows/maintenance-windows-editor.png)
+![maintenance window editor](/images/docs/maintenance-windows/maintenance-windows-editor.png)
 
 After giving your window an appropriate name, the core options you have are:
 

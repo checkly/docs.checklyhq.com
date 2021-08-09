@@ -12,7 +12,7 @@ As a first step, you will need to set your `CHECKLY_TOKEN` as an environment var
 
 _Note: the Checkly Token is the very last part of the check's command line trigger URL._
 
-![CircleCI Checkly Token Config](/docs/images/cicd/circleci-param.png)
+![CircleCI Checkly Token Config](/images/docs/cicd/circleci-param.png)
 
 ## CircleCI example
 This `config.yml` file is taken from our [checkly-ci-test GitHub repo](https://github.com/checkly/checkly-ci-test). It contains different steps (here shown as generic placeholders) going from application build to deployment, with an added post-deployment step to trigger Checkly checks and mark the build passed or failed depending on the outcome.

@@ -60,11 +60,11 @@ In the following snippet we are going to abort all requests for images on our te
 
  As a result, you will see the website logo not being loaded.
 
- ![test site without images](/samples/images/request-interception-image.png)
+ ![test site without images](/images/samples/request-interception-image.png)
 
  Similarly, switching the `resourceType` to `stylesheet` would result in the target website loading without any CSS styling.
 
- ![test site without css](/samples/images/request-interception-css.png)
+ ![test site without css](/images/samples/request-interception-css.png)
 
 ## Response interception
 
@@ -89,7 +89,7 @@ Every time we load it, our test website is sending a request to its backend to f
 
 Here is what the homepage will look like with our stubbed response:
 
-![test site with stubbed response](/samples/images/response-interception.png)
+![test site with stubbed response](/images/samples/response-interception.png)
 
 Run the above examples as follows:
 ```sh

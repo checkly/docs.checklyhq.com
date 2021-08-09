@@ -22,17 +22,17 @@ For browser checks, you can create environment variables at three hierarchical l
 Check variables are added on the **Variables** tab for each browser check. Any data you "lock" is
 encrypted at rest and in flight on our back end and is only decrypted when needed.
 
-![add local variables](/docs/images/browser-checks/add-local-variable.png)
+![add local variables](/images/docs/browser-checks/add-local-variable.png)
 
 Group variables are added on the **Variables** tab in a [group](/docs/groups). The variables stored here are accessible 
 only in the group context.
 
-![add group variables](/docs/images/browser-checks/add-group-variable.png)
+![add group variables](/images/docs/browser-checks/add-group-variable.png)
 
 Global variables are added on the **Variables** tab. The variables stored here are globally accessible 
 throughout Checkly, hence the "Global environment variables" title. 
 
-![add global variables](/docs/images/browser-checks/add-global-variable.png)
+![add global variables](/images/docs/browser-checks/add-global-variable.png)
 
 {{<info >}}
 Whenever possible, store variables at the global level. This DRY's up your code.

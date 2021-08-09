@@ -19,7 +19,7 @@ you want. Know when your service fails before your customers do.
 <div class="row justify-content-center">
 <h2 class="text-center section-header">How it works</h3>
 
-{{% feature-row header="Set up your thresholds" img="/product/alerting/error-howitworks-1@2x.png" imgWidth="650" imgHeight="288" %}}
+{{% feature-row header="Set up your thresholds" img="/images/product/alerting/error-howitworks-1@2x.png" imgWidth="650" imgHeight="288" %}}
 The internet can be flaky. Sometimes a failing service is just fine 2 seconds later. **Dodge false positives** by specifying
 exactly when you should be alerted and how often you want to be reminded.
 <div class="cta">
@@ -27,7 +27,7 @@ exactly when you should be alerted and how often you want to be reminded.
 </div>
 {{% /feature-row %}}
 
-{{% feature-row header="Pick your channels" img="/product/alerting/error-howitworks-2@2x.png" imgWidth="650" imgHeight="420" %}}
+{{% feature-row header="Pick your channels" img="/images/product/alerting/error-howitworks-2@2x.png" imgWidth="650" imgHeight="420" %}}
 Choose one or more of the available alerting channels. We have everything from **email, to Pagerduty, Opsgenie and SMS**. Need something
 custom? Use the webhooks or hook up [our Prometheus integration](/docs/integrations/prometheus/) and roll your own alerting.
 <div class="cta">
@@ -50,7 +50,7 @@ custom? Use the webhooks or hook up [our Prometheus integration](/docs/integrati
 		</p>
 	</div>
 	<div class="img-w768">
-		{{< alternative-picture class="big-drop-shadow" img="/product/alerting/webhooks-screenshot@2x.png" alt="webhooks editor" width="720" height="380" >}}
+		{{< alternative-picture class="big-drop-shadow" img="/images/product/alerting/webhooks-screenshot@2x.png" alt="webhooks editor" width="720" height="380" >}}
 	</div>
 </div>
 

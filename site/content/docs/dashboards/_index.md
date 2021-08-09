@@ -20,7 +20,7 @@ the **Dashboards** button on the Checkly default dashboard page.
 
 An example of a dashboard is [status.checklyhq.com](https://status.checklyhq.com) as shown in the screenshot below.
 
-![Dashboard example](/docs/images/dashboards/dashboard_example.png)
+![Dashboard example](/images/docs/dashboards/dashboard_example.png)
 
 ## Adding checks to your dashboard
 
@@ -28,12 +28,12 @@ By default, if no check is specified, all checks in the account will be shown in
 
 1. First add tags to one or more checks you would like to show. This is done by editing the check(s). 
 
-![Tags](/docs/images/dashboards/tags.png)
+![Tags](/images/docs/dashboards/tags.png)
 
 You'll need to press Enter to save the tag before you save your updated check!
 
 2. Then, edit the dashboard to include the tag:
 
-![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
+![Filter by tags](/images/docs/dashboards/filter_by_tag.png)
 
 Also in this step, remember to hit Enter to save the tag before you hit "Save settings".

@@ -14,7 +14,7 @@ correctness and performance of all your crucial click paths.
 </p>
 
 <div class="row justify-content-center text-center">
-{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/transaction-monitoring/browser-check-editor-screenshot@2x.png" alt="synthetic monitoring" width="910" height="569" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/images/product/transaction-monitoring/browser-check-editor-screenshot@2x.png" alt="synthetic monitoring" width="910" height="569" >}}
 </div>
 
 <section class="grid-section">
@@ -39,13 +39,13 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
 <div class="text-center mb-5">
   <div class="video-wrapper">
     <video id="synthetic-monitoring-video" autoplay loop controls >
-      <source src="/product/synthetic-browser-check-how-works.mp4" type=video/mp4>
+      <source src="/images/product/synthetic-browser-check-how-works.mp4" type=video/mp4>
     </video>
     <div class="action-button video-play">
-      <img src="/why-checkly/play-button.svg" alt="play" width="72" heigt="72" />
+      <img src="/images/why-checkly/play-button.svg" alt="play" width="72" heigt="72" />
     </div>
     <div class="action-button video-pause">
-      <img src="/why-checkly/pause-button.svg" alt="play" width="72" heigt="72" />
+      <img src="/images/why-checkly/pause-button.svg" alt="play" width="72" heigt="72" />
     </div>
   </div>
 </div>
@@ -71,7 +71,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
   <div class="cta">
     {{% cta-link "Learn more" "/docs/headless-recorder/basic-usage/" %}}
   </div>
-  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/puppeteer@2x.png" alt="puppeteer screenshot" width="440" height="270" >}}
+  {{< alternative-picture class="img-440 big-drop-shadow" img="/images/product/transaction-monitoring/puppeteer@2x.png" alt="puppeteer screenshot" width="440" height="270" >}}
 </div>
 <div class="col-md-6">
   <div>
@@ -81,7 +81,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
   <div class="cta">
     {{% cta-link "Learn more" "/learn/headless" %}}
   </div>
-  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/thehd@2x.png" alt="thehd screenshot" width="440" height="270" >}}
+  {{< alternative-picture class="img-440 big-drop-shadow" img="/images/product/transaction-monitoring/thehd@2x.png" alt="thehd screenshot" width="440" height="270" >}}
 </div>
 </div>
 </div>
@@ -92,9 +92,9 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
       <h2 class="section-super-header">alerting</h2>
       <div class="lead-text">
         <picture>
-          <source type="image/webp" srcset="/landing/alerting-options@2x.webp">
-          <source type="image/png" srcset="/landing/alerting-options@2x.png">
-          <img class="alerting-top-image" src="/landing/alerting-options@2x.png" alt="checkly alerting options" width="750" height="45" />
+          <source type="image/webp" srcset="/images/landing/alerting-options@2x.webp">
+          <source type="image/png" srcset="/images/landing/alerting-options@2x.png">
+          <img class="alerting-top-image" src="/images/landing/alerting-options@2x.png" alt="checkly alerting options" width="750" height="45" />
         </picture>
       </div>
       <h2 class="section-header mt-1">Alerting for any situation</h3>
@@ -123,7 +123,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
       </p>
     </div>
     <div class="lead-text mt-5 text-center">
-      {{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/api-monitoring/global-coverage-screenshot@2x.png" alt="data centerlocations" width="843" height="486" >}}
+      {{< alternative-picture class="text-center hero-image big-drop-shadow" img="/images/product/api-monitoring/global-coverage-screenshot@2x.png" alt="data centerlocations" width="843" height="486" >}}
     </div>
   </div>
 </div>

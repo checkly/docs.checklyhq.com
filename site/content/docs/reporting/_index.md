@@ -23,7 +23,7 @@ Here you can use the toolbar to filter / sort by the following metrics:
 - Name (ASC / DESC)
 - Check Type (ASC / DESC)
 
-![Reporting Dashboard](/docs/images/reporting/dashboard.png)
+![Reporting Dashboard](/images/docs/reporting/dashboard.png)
 
 ## Graphs
 
@@ -31,7 +31,7 @@ Clicking on a check will open a graph of the **response times** and **success ra
 
 In the **response time** graph, all three metrics (`average`, `p95`, `p99`) are shown by default. However, you can individually toggle these on and off by clicking on the pills with their respective names to the right of the graph.
 
-![Reporting Dashboard Graphs](/docs/images/reporting/dashboard-graph.png)
+![Reporting Dashboard Graphs](/images/docs/reporting/dashboard-graph.png)
 
 ## CSV Export
 

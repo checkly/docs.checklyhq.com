@@ -5,6 +5,7 @@ title = "Delightful Active Monitoring for Developers"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 enableGitInfo = true
 enableRobotsTXT = true
+staticDir="static"
 
 pygmentsCodeFences = true
 pygmentsUseClasses = true
@@ -20,126 +21,126 @@ disqusShortname = "checkly"
 [[menu.docs]]
 	name = "Monitoring"
 	url = "/docs/monitoring/"
-	pre="/docs/images/icons/monitoring.svg"
+	pre="/images/docs/icons/monitoring.svg"
 	weight = 10
 
 
 [[menu.docs]]
 	name = "API checks"
 	url = "/docs/api-checks/"
-	pre="/docs/images/icons/api.svg"
+	pre="/images/docs/icons/api.svg"
 	weight = 20
 
 [[menu.docs]]
 	name = "Browser checks"
 	url = "/docs/browser-checks/"
-	pre="/docs/images/icons/browser-checks.svg"
+	pre="/images/docs/icons/browser-checks.svg"
 	weight = 30
 
 [[menu.docs]]
 	name = "Groups"
 	url = "/docs/groups/"
-	pre="/docs/images/icons/groups.svg"
+	pre="/images/docs/icons/groups.svg"
 	weight = 40
 
 [[menu.docs]]
 	name = "Alerting"
 	url = "/docs/alerting/"
-	pre="/docs/images/icons/alerting.svg"
+	pre="/images/docs/icons/alerting.svg"
 	weight = 50
 
 [[menu.docs]]
 	name = "CI/CD integration"
 	url = "/docs/cicd/"
-	pre="/docs/images/icons/ci-cd.svg"
+	pre="/images/docs/icons/ci-cd.svg"
 	weight = 60
 
 [[menu.docs]]
 	name = "Maintenance windows"
 	url = "/docs/maintenance-windows/"
-	pre="/docs/images/icons/maintenance-windows.svg"
+	pre="/images/docs/icons/maintenance-windows.svg"
 	weight = 70
 
 [[menu.docs]]
 	name = "Dashboards"
 	url = "/docs/dashboards/"
-	pre="/docs/images/icons/dashboards.svg"
+	pre="/images/docs/icons/dashboards.svg"
 	weight = 80
 
 [[menu.docs]]
 	name = "Teams"
 	url = "/docs/teams/"
-	pre="/docs/images/icons/teams.svg"
+	pre="/images/docs/icons/teams.svg"
 	weight = 90
 
 [[menu.docs]]
 	name = "Integrations"
 	url = "/docs/integrations/"
-	pre="/docs/images/icons/integrations.svg"
+	pre="/images/docs/icons/integrations.svg"
 	weight = 100
 
 [[menu.docs]]
 	name = "Reporting"
 	url = "/docs/reporting/"
-	pre="/docs/images/icons/reporting.svg"
+	pre="/images/docs/icons/reporting.svg"
 	weight = 110
 
 [[menu.docs]]
     name = "Runtimes"
     url = "/docs/runtimes/"
-    pre="/docs/images/icons/runtimes.svg"
+    pre="/images/docs/icons/runtimes.svg"
     weight = 120
 
 [[menu.docs]]
 	name = "Single sign-on"
 	url = "/docs/single-sign-on/"
-	pre="/docs/images/icons/key.svg"
+	pre="/images/docs/icons/key.svg"
 	weight = 130
 
 [[menu.docs]]
 	name = "Headless Recorder"
 	url = "/docs/headless-recorder/"
-	pre="/docs/images/icons/headless-recorder.svg"
+	pre="/images/docs/icons/headless-recorder.svg"
 	weight = 9999
 
 [[menu.learn]]
 	name = "Getting Started"
-	pre = "/learn/icons/getting-started.svg"
+	pre = "/images/learn/icons/getting-started.svg"
 	weight = 10
 
 [[menu.learn]]
 	name = "E2E"
-	pre = "/learn/icons/e2e.svg"
+	pre = "/images/learn/icons/e2e.svg"
 	weight = 20
 
 [[menu.learn]]
 	name = "Session Management"
-	pre = "/learn/icons/session-management.svg"
+	pre = "/images/learn/icons/session-management.svg"
 	weight = 30
 
 [[menu.learn]]
 	name = "Best Practices"
-	pre = "/learn/icons/best-practices.svg"
+	pre = "/images/learn/icons/best-practices.svg"
 	weight = 60
 
 [[menu.learn]]
 	name = "Performance"
-	pre = "/learn/icons/performance.svg"
+	pre = "/images/learn/icons/performance.svg"
 	weight = 40
 
 [[menu.learn]]
 	name = "Scraping"
-	pre = "/learn/icons/scraping.svg"
+	pre = "/images/learn/icons/scraping.svg"
 	weight = 50
 
 [[menu.learn]]
 	name = "Debugging"
-	pre = "/learn/icons/errors.svg"
+	pre = "/images/learn/icons/errors.svg"
 	weight = 60
 
 [[menu.learn]]
 	name = "Miscellaneous"
-	pre = "/learn/icons/misc.svg"
+	pre = "/images/learn/icons/misc.svg"
 	weight = 1000
 
 [markup.goldmark.renderer]

@@ -32,7 +32,7 @@ Screenshots need to stick to the following specs:
 - Either `.png`, `jpeg` or `jpg` suffix.
 - Allowed characters are `a-z A-Z 0-9 - _ @` So no whitespaces in the filename.
 
-![take screenshots with Puppeteer](/docs/images/browser-checks/screenshots.png)
+![take screenshots with Puppeteer](/images/docs/browser-checks/screenshots.png)
 
 
 Read more about the options for `page.screenshot()` like transparency, clipping and quality settings in the official 
@@ -89,4 +89,4 @@ await element.screenshot({ path: 'button.png' })
 
 The code above snaps a picture of just the big call to action button on the Checkly homepage.
 
-![take screenshot of page element with Puppeteer](/docs/images/browser-checks/element_screenshot.png)
+![take screenshot of page element with Puppeteer](/images/docs/browser-checks/element_screenshot.png)

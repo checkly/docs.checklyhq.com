@@ -21,7 +21,7 @@ Example use cases for groups are organizing your checks around:
 
 The screenshot below gives a quick overview of the groups' key features.
 
-![Check group editor screenshot](/docs/images/groups/group-editor.png)
+![Check group editor screenshot](/images/docs/groups/group-editor.png)
 
 1. **Activate and mute** all checks in a group
 2. Configure **shared settings** for all checks in the group

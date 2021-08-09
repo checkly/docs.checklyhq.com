@@ -14,7 +14,7 @@ all environment variables. Popular use cases are signing HMAC requests, requesti
 object, allowing you to read and modify the response. Use cases are cleaning up test data and scrubbing sensitive 
 response data for regulatory reasons.
 
-![setup and teardown script for http requests](/docs/images/api-checks/setup-teardown-1.png)
+![setup and teardown script for http requests](/images/docs/api-checks/setup-teardown-1.png)
 
 Both script types are written in JavaScript and have access to popular libraries like moment, axios and lodash. See the full list of available libraries [here](#included-libraries).
 
@@ -31,7 +31,7 @@ script. This means your teardown script *can run multiple times!*
 
 Both setup and teardown scrips have a **maximum execution time of 10 seconds**.
 
-![setup and teardown script execution](/docs/images/api-checks/setup-teardown-2.png)
+![setup and teardown script execution](/images/docs/api-checks/setup-teardown-2.png)
 
  
 {{<warning >}}
@@ -319,7 +319,7 @@ Note: Remember that teardown scripts run on each configured data center location
 To DRY (Don't Repeat Yourself) up your code, we strongly advice you create all setup and teardown scripts as code
 snippets. You can create, update and delete code snippets in the 'Code Snippets' section. Snippets are available to all checks.
 
-![reusable code snippets](/docs/images/api-checks/snippets-list.png)
+![reusable code snippets](/images/docs/api-checks/snippets-list.png)
 
 Once created, just select any snippets from the drop down menu in setup and teardown scripts section of your API check.
 

@@ -19,7 +19,7 @@ Following is a short introduction to using the Checkly Terraform provider; for i
 
 To get started, install the latest version of the Checkly Terraform provider from the [Terraform registry](https://registry.terraform.io/providers/checkly/checkly/latest).
 
-![Terraform registry](/docs/images/integrations/terraform_registry.png)
+![Terraform registry](/images/docs/integrations/terraform_registry.png)
 
 Your `main.tf` file will look similar to the following:
 

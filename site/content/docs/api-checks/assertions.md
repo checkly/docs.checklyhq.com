@@ -20,11 +20,11 @@ Assertions are statements you create that check one aspect of the HTTP response.
 
 In each assertion, a **source** is connected to a **comparison** and a **target**.
 
-![api monitoring assertions example 1](/docs/images/api-checks/assertions-1.png)
+![api monitoring assertions example 1](/images/docs/api-checks/assertions-1.png)
 
 In some cases a **property** is added, for example when asserting headers or JSON response bodies.
 
-![api monitoring assertions example 2](/docs/images/api-checks/assertions-2.png)
+![api monitoring assertions example 2](/images/docs/api-checks/assertions-2.png)
 
 Assertions are executed from top to bottom. If one assertion fails, the full check is considered as failed.
 
@@ -177,18 +177,18 @@ module](https://github.com/dchester/jsonpath) under the hood.
 Asserting string, boolean and number values works exactly as you'd expect, e.g. the example below asserts the number value of
 the `id` property is greater than `2000`.
 
-![api monitoring assertions example 4](/docs/images/api-checks/assertions-4.png)
+![api monitoring assertions example 4](/images/docs/api-checks/assertions-4.png)
 
 ### Nested properties
 
 You can traverse a JSON object using a dot notation. In the example below we are checking the string-based `size`
 property that is part of the `product` object in the JSON response.
 
-![api monitoring assertions JSON object](/docs/images/api-checks/assertions-3.png)
+![api monitoring assertions JSON object](/images/docs/api-checks/assertions-3.png)
 
 This next example checks for a **boolean** value in the `owner.site_admin` property:
 
-![api monitoring assertions nested JSON object](/docs/images/api-checks/assertions-5.png)
+![api monitoring assertions nested JSON object](/images/docs/api-checks/assertions-5.png)
 
 ### Asserting arrays
 
@@ -196,20 +196,20 @@ For response bodies with JSON arrays you use JSON path's `[]` expressions.
 
 In the first example below we check if the first item in our result array has a property `title`:
 
-![api monitoring assertions nested JSON array](/docs/images/api-checks/assertions-6.png)
+![api monitoring assertions nested JSON array](/images/docs/api-checks/assertions-6.png)
 
 In the next example we pick the last item in the array and check if the `customerId` property has the value `123abc`:
 
-![api monitoring assertions nested JSON array pick item](/docs/images/api-checks/assertions-7.png)
+![api monitoring assertions nested JSON array pick item](/images/docs/api-checks/assertions-7.png)
 
 In this example we pick the item with index value 4. This is the 5th item as array indexes start at 0. We then assert
 that the `responseTime` property is less than `2000`.  
 
-![api monitoring assertions nested JSON array pick nth item](/docs/images/api-checks/assertions-8.png)
+![api monitoring assertions nested JSON array pick nth item](/images/docs/api-checks/assertions-8.png)
 
 In the last example we check if the returned array has more than 10 items.
 
-![api monitoring array has more than 10 items](/docs/images/api-checks/assertions-9.png)
+![api monitoring array has more than 10 items](/images/docs/api-checks/assertions-9.png)
 
 {{<info >}}
 If the JSON path expression in an assertion returns an array of values, Checkly will perform the comparison for 
@@ -266,7 +266,7 @@ Remember: regular expressions in assertions only return the **first capturing gr
 If our API returns HTML, there might be a `lang="en"` attribute in the `<html>` element. We can capture the two character 
 country/language code value of that attribute with the following expression.
 
-![api monitoring use regular expression on text body](/docs/images/api-checks/assertions-10.png)
+![api monitoring use regular expression on text body](/images/docs/api-checks/assertions-10.png)
 
 The expression `lang="(.{2})"` means 'grab any of the first two characters between `lang="` and the next `"`'. If we were
 sure there are only non-capital characters, we could tighten it up a bit with `lang="([a-z]*)"`.
@@ -276,7 +276,7 @@ sure there are only non-capital characters, we could tighten it up a bit with `l
 We can use regular expressions with headers too. In this example, we check if the `max-age` property of a `Strict-Transport-Security`
 response header is above a `100000`
 
-![api monitoring use regular expression on http header](/docs/images/api-checks/assertions-11.png)
+![api monitoring use regular expression on http header](/images/docs/api-checks/assertions-11.png)
 
 
 

@@ -12,7 +12,7 @@ If you have checks running, you can select them on the main Checkly dashboard an
 
 The Overview tab offers a summary with key metrics at a glance:
 
-![check results summary](/docs/images/monitoring/check-results-summary.png)
+![check results summary](/images/docs/monitoring/check-results-summary.png)
 
 1. **24-hour ratio**: the percentage of successful check runs over the last 24 hours
 2. **7-day ratio**: the percentage of successful check runs over the last 7 days
@@ -27,11 +27,11 @@ You also have access to a graph showing status and response times per location a
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
 {{< /info >}}
 
-![check results graph](/docs/images/monitoring/check-results-graph.png)
+![check results graph](/images/docs/monitoring/check-results-graph.png)
 
 Single check runs can be accessed either by selecting a recent (less than 30 days old) execution either on the graph or just below.
 
-![check results list](/docs/images/monitoring/check-results-results.png)
+![check results list](/images/docs/monitoring/check-results-results.png)
 
 Note that you can access two separate tabs, one for scheduled and one for triggered executions.
 
@@ -67,7 +67,7 @@ API check results expose:
 
     e. Download
 
-![api check results detail page](/docs/images/monitoring/check-results-api.png)
+![api check results detail page](/images/docs/monitoring/check-results-api.png)
 
 ### Browser check results
 
@@ -77,10 +77,10 @@ Browser check results contain:
 2. The full job log (including any `console.log()` printed by the user)
 3. Any screenshots taken during the check execution
 
-![browser check results detail page](/docs/images/monitoring/check-results-browser.png)
+![browser check results detail page](/images/docs/monitoring/check-results-browser.png)
 
 ## Events
 
 The Events tab shows you alerts, deployments and other key events that have taken place during the execution timeframe of the check.
 
-![check results events tab](/docs/images/monitoring/check-results-events.png)
+![check results events tab](/images/docs/monitoring/check-results-events.png)

@@ -16,7 +16,7 @@ API checks on the production infrastructure and help you debug any issues.
 
 An API check starts with creating an HTTP request including a HTTP verb (GET, POST, PUT, etc.) and a URL at the minimum.
 
-![api monitoring http request](/docs/images/api-checks/http-request-method.png)
+![api monitoring http request](/images/docs/api-checks/http-request-method.png)
 
 - Available methods are `GET, POST, PUT, HEAD, DELETE, PATCH`
 - URL's are checked for correctness and must start with either `http://` or `https://`
@@ -76,7 +76,7 @@ Use this input if neither JSON nor form parameters work for you. No `Content-Typ
 
 Add HTTP request headers. The type ahead feature is pre-populated with the most common headers, but you can add any custom headers you want.
 
-![api monitoring HTTP headers](/docs/images/api-checks/headers-query.png)
+![api monitoring HTTP headers](/images/docs/api-checks/headers-query.png)
 
 Clicking the **lock icon** toggles between encrypting the value of the header on the Checkly backend and hiding it from your screen.
 
@@ -91,7 +91,7 @@ This section allows you to add query parameters to the request URL in a structur
 To add [HTTP basic authentication parameters](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) to your API
 request, use the username and password fields in the relevant section.
 
-![api monitoring basic auth](/docs/images/api-checks/basic-auth.png)
+![api monitoring basic auth](/images/docs/api-checks/basic-auth.png)
 
 ## Import a cURL request
 
@@ -103,7 +103,7 @@ Arguments `--user-agent`, `--cookie` and `--compressed` also work.
 If your API implements the Swagger 2.0 or OpenAPI spec, you can import the `swagger.json` spec. The importer
 parses your spec and prompts you to make some decisions about which requests are to be imported and how.
 
-![api import Swagger](/docs/images/api-checks/swagger.png)
+![api import Swagger](/images/docs/api-checks/swagger.png)
 
 - **Name:** you can set the check name to the "description" or "url" from your spec.
 - **Tags:** import tags from you spec.
