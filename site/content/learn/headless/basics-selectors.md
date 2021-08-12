@@ -87,7 +87,7 @@ Examples:
 
 ## Finding selectors
 
-There are different ways one can go about finding a selector for one or more UI elements. Let's take a look at each.
+There are different ways one can go about finding a selector for one or more UI elements. Let's take a look at each one.
 
 ### Looking at the page's source code
 
@@ -139,7 +139,7 @@ The Playwright-specific selectors can be tested by running the Playwright Inspec
 
 ## Choosing selectors
 
-The CSS selectors you ultimately choose to use in your scripts will determine how much maintenance work will go into your Puppeteer/Playwright scripts over the course of their lifetime. Ideally, you want to have robust selectors in place since the inception of the script to save yourself time and effort going forward.
+The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place since the inception of the script to save yourself time and effort going forward.
 
 The attributes of a good selector are:
 
@@ -160,6 +160,12 @@ Avoid this kind of selector *whenever possible:*
 3. `a[data-v-9a19ef14]`
     - not stable: attribute is [auto-generated](https://vue-loader.vuejs.org/guide/scoped-css.html#scoped-css) and changes between deployments
     - likely not unique: is it always going to be the right element?
+4. `//div[1]/table[1]/tbody/tr[7]/td/a`
+    - not concise
+    - likely not stable: reliant on a precise page structure; extremely brittle
+5. `text=Continue`
+    - likely not stable: the text might change for multiple reasons (restyling, localisation...)
+    - likely not unique: is it always going to be the right element?
 
 ### Examples of (potentially) good selectors
 
@@ -177,6 +183,10 @@ The following *might* be good selectors:
     - concise
     - unique, as long as only one element has class `.close-button`
     - potentially stable, as long as `.close-button` does not change very often
+4. `div[@data-testid="cta"]`
+    - concise
+    - unique, as long as only one element has attribute `data-testid` equal to `cta`
+    - potentially stable, as long as `data-testid` is not changed often
 
 ## Further reading
 1. [W3C CSS spec](https://www.w3.org/TR/CSS21/selector.html%23id-selectors) for CSS selectors.
