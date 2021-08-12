@@ -2,9 +2,47 @@ name: algolia doc-search
 on:
   - push
 jobs:
+  check:
+    name: Check changed docs files
+    outputs:
+      run-scrape-docs-job: ${{ steps.check_files.outputs.run_scrape_docs_job }}
+      run-scrape-learn-job: ${{ steps.check_files.outputs.run_scrape_learn_job }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: check files
+        id: check_files
+        run: |
+          echo "=============== set defaults ==============="
+          echo "::set-output name=run_scrape_docs_job::false"
+          echo "::set-output name=run_scrape_learn_job::false"
+          echo "=============== list changed files ==============="
+          git diff --name-only HEAD^ HEAD
+
+          echo "========== check paths of changed files =========="
+          git diff --name-only HEAD^ HEAD > docs_files.txt
+          while IFS= read -r file
+          do
+            echo $file
+            if [[ $file == "site/content/docs/"* ]]; then
+              echo "::set-output name=run_scrape_docs_job::true"
+              break
+            fi
+          done < docs_files.txt
+          git diff --name-only HEAD^ HEAD > learn_files.txt
+          while IFS= read -r file
+          do
+            echo $file
+            if [[ $file == "site/content/learn/"* ]]; then
+              echo "::set-output name=run_scrape_learn_job::true"
+              break
+            fi
+          done < learn_files.txt
   scrape-docs:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    needs: check
+    if: needs.check.outputs.run_scrape_docs_job == 'true' && github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
       - name: Run doc-search
@@ -15,7 +53,8 @@ jobs:
           file: 'algolia/config-docs.json'
   scrape-learn:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    needs: check
+    if: needs.check.outputs.run_scrape_learn_job == 'true' && github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
       - name: Run learn-search
