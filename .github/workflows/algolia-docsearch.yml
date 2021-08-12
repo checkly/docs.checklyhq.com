@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - name: check files
         id: check_files
         run: |
@@ -18,10 +20,10 @@ jobs:
           echo "::set-output name=run_scrape_docs_job::false"
           echo "::set-output name=run_scrape_learn_job::false"
           echo "=============== list changed files ==============="
-          git diff --name-only HEAD~1 HEAD
+          git diff --name-only HEAD^ HEAD
 
           echo "========== check paths of changed files =========="
-          git diff --name-only HEAD~1 HEAD > docs_files.txt
+          git diff --name-only HEAD^ HEAD > docs_files.txt
           while IFS= read -r file
           do
             echo $file
@@ -30,7 +32,7 @@ jobs:
               break
             fi
           done < docs_files.txt
-          git diff --name-only HEAD~1 HEAD > learn_files.txt
+          git diff --name-only HEAD^ HEAD > learn_files.txt
           while IFS= read -r file
           do
             echo $file
