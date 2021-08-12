@@ -123,9 +123,7 @@
     <div class="container">
       <h3 class="section-header">{{.Params.join.title}}</h3>
       <p class="lead-text">{{.Params.join.description | safeHTML}}</p>
-      <script src='https://www.workable.com/assets/embed.js' type='text/javascript'></script>
-      <script type='text/javascript'>whr(document).ready(function(){whr_embed("{{.Site.Params.workableJobsToken}}", {detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none'});});</script>
-      <div id="whr_embed_hook"></div>
+      {{ partial "jobs-embeded" . }}
     </div>
   </section>
 </div>

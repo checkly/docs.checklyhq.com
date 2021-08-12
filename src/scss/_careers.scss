@@ -189,54 +189,9 @@
     	border-radius: 3px;
 	  }
 	  #whr_embed_hook {
-	    max-width: 760px;
-	    margin: auto;
-
-	    .whr-items {
-	      padding-left: 0;
-	    }
-
-	    .whr-item {
-	      position: relative;
-	      margin-bottom: 30px;
-	      padding: 18px 24px;
-		    background: $gray-lightest;
-	    	border: 1px solid $gray-lighter;
-	    	border-radius: 3px;
-	    	&:hover {
-	    	  background: $gray-light;
-	    	  cursor: pointer;
-	    	}
-	    	&::after {
-	    	  content: "\2192";
-	    	  position: absolute;
-	    	  font-size: 20px;
-	    	  top: 32px;
-	    	  right: 20px;
-	    	}
-	    	&::marker {
-	    	  display: none !important;
-	    	  content: "";
-	    	}
-	    	.whr-title {
-	    	  font-size: 20px;
-	        line-height: 30px;
-	        margin-bottom: 10px;
-	        a {
-	        	color: $black;
-	        }
-
-	    	}
-	    	.whr-info {
-	    	  display: flex;
-	    	  padding-left: 0;
-	    	  li {
-	    	    list-style: none;
-	    	    padding-right: 20px;
-	    	  }
-	    	}
-	    }
-	  }
+      max-width: 760px;
+      margin: auto;
+    }
 	  .flex-wrap {
 	  	display: flex;
 	  	align-items: center;
