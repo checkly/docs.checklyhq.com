@@ -38,8 +38,3 @@ As a freelance Web Designer, you will be working directly with our GTM and desig
 ## About you
 - Proven experience with designing landing pages, static sites, and social media assets. Preferably you can share a portfolio with live examples.
 - Excellent verbal and written communication skills (English).
-
-
-## How to apply
-
-Send us your application alongside your hourly rate. Please help us by providing as much related stuff as possible. LinkedIn, Dribbble, Behance or/and standalone PDFs.
