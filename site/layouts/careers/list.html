@@ -1,0 +1,132 @@
+{{ define "main" }}
+<div class="career">
+  <div class="container py-5 career__hero">
+    <div class="row">
+      <div class="col-sm-12 col-lg-8 offset-lg-2 text-center">
+        <h1 class="display-3">{{.Params.hero.title}}</h1>
+        <p class="lead-text">
+          {{ .Params.hero.description}}
+        </p>
+        <div>
+          <a class="btn btn-blue" href={{.Params.hero.buttonLink}} rel="noopener">
+            {{ .Params.hero.buttonTxt}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="career__about py-5">
+    <div class="container">
+      <div class="row">
+        <div class="career__about__logo">
+          <picture>
+            <source type="image/webp" srcset="{{ substr .Params.aboutUs.image 0 -4 | safeURL }}.webp">
+            <source type="image/png" srcset="{{ .Params.aboutUs.image }}">
+            <img src="{ .Params.aboutUs.image }}" alt="{{ .Params.integrates.title }}" loading="lazy" width="140" height="125" />
+          </picture>
+        </div>
+        <div class="career__about__text">
+          <h3>{{.Params.aboutUs.title}}</h3>
+          <p class="lead-text">{{.Params.aboutUs.description | safeHTML}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="career__features section-light-gray py-5">
+    <div class="container">
+      <div class="row">
+        {{ range .Params.features}}
+        <div class="feature-item">
+          <h2>{{.number}}</h2>
+          <p>{{.text}}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <section class="career__values py-5">
+    <div class="container">
+      <h3 class="section-header">{{.Params.values.title}}</h3>
+      <p class="lead-text">{{.Params.values.description}}</p>
+      <div class="row">
+        {{ range .Params.values.list }}
+        <div class="value-card">
+          <img src={{.icon}} alt={{.title}} />
+          <h5>{{.title}}</h5>
+          <p>{{.description}}</p>
+        </div>
+        {{ end }}
+      </div>
+      <div>
+        <a class="btn btn-blue" href={{.Params.values.buttonLink}} rel="noopener">
+          {{ .Params.values.buttonTxt}}
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="career__trusted section-light-gray py-5">
+    <div class="container">
+      <h3 class="section-header text-center">{{.Params.trusted.title}}</h3>
+      <div class="row">
+        {{ range .Params.trusted.logos}}
+          <picture>
+            <source type="image/webp" srcset="{{ substr .logo 0 -4 | safeURL }}.webp">
+            <source type="image/png" srcset="{{ .logo }}">
+            <img src="{ .logo }}" alt="{{ .alt }}" width={{ .width }} loading="lazy" />
+          </picture>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <section class="career__location py-5">
+    <div class="container">
+      <h3 class="section-header text-center">{{.Params.location.title}}</h3>
+      <p class="lead-text text-center">{{.Params.location.description}}</p>
+      <div class="career__location__map">
+        <picture>
+          <source type="image/webp" srcset="{{ substr .Params.location.map 0 -4 | safeURL }}.webp">
+          <source type="image/png" srcset="{{ .Params.location.map }}">
+          <img src="{ .Params.location.map }}" alt="{{ .Params.location.title }}" loading="lazy" />
+        </picture>
+      </div>
+    </div>
+  </section>
+  <section class="career__benefits section-light-gray py-5">
+    <div class="container">
+      <h3 class="section-header text-center">{{.Params.benefits.title}}</h3>
+      <p class="lead-text text-center">{{.Params.benefits.description}}</p>
+      <div class="row">
+        {{ $list := (.Params.benefits.list) }}
+        {{ $length := (len $list) }}
+        {{ $rest := (mod $length 3) }}
+        {{ range $index, $element := .Params.benefits.list}}
+          <div class="benefit">
+            <div class="image-wrap">
+              <img src={{$element.icon}} alt="{{$element.title}}" />
+            </div>
+            <div class="text-wrap">
+              <h5>{{$element.title}}</h5>
+              <p>{{$element.description}}</p>
+            </div>
+          </div>
+          {{ if eq $rest 1}}
+            {{ if eq $index (sub $length 2)}}
+            <div class="benefit"></div>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        <div class="benefit"></div>
+      </div>
+    </div>
+  </section>
+  <section class="career__join py-5">
+    <div class="container">
+      <h3 class="section-header">{{.Params.join.title}}</h3>
+      <p class="lead-text">{{.Params.join.description | safeHTML}}</p>
+      <script src='https://www.workable.com/assets/embed.js' type='text/javascript'></script>
+      <script type='text/javascript' charset='utf-8'>whr(document).ready(function(){whr_embed("{{.Site.Params.workableJobsToken}}", {detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none'});});</script>
+      <div id="whr_embed_hook"></div>
+    </div>
+  </section>
+</div>
+{{end}}

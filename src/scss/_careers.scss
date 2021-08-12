@@ -1,0 +1,264 @@
+.career {
+	.btn-blue {
+	  background: $blue;
+	  color: white;
+	  padding: 14px 49px;
+	  font-size: 18px;
+	  line-height: 20px;
+	}
+	
+  .lead-text {
+    max-width: 655px;
+    margin: auto;
+    margin-bottom: 48px;
+    font-size: 18px;
+    line-height: 28.8px;
+  }
+  .section-header{
+    color: $black;
+  }
+  .section-light-gray {
+    background: $gray-lightest;
+    border: 1px solid $gray-lighter;
+  }
+
+	&__about {
+		.container {
+		  max-width: 900px;
+		}
+	  &__logo{
+	  	width: 230px;
+	  	height: 230px;
+	  	text-align: center;
+	  	border-radius: 300px;
+	  	box-shadow: 0 5px 25px rgba(0, 0, 0, .15);
+
+	  	img {
+	  	  margin-top: 50px;
+	  	}
+	  }
+	  &__text {
+	    margin-left: 80px;
+	    width: calc(100% - 310px);
+
+	    h3 {
+	      font-size: 32px;
+	      line-height: 48px;
+	      color: $black;
+	      margin-bottom: 8px;
+	    }
+	  }
+	}
+	&__features{
+	  
+	  .row {
+	    justify-content: space-between;
+	    padding: 0 1rem;
+	  }
+	  .feature-item {
+	    text-align: center;
+
+	    h2 {
+	      font-size: 72px;
+	      line-height: 87px;
+	      margin-bottom: 0;
+	      color: $black;
+	    }
+	    p {
+	      font-size: 14px;
+	      line-height: 20px;
+	      color: $black;
+	      margin: 0;
+	      text-transform: uppercase;
+	    }
+	  }
+	}
+	&__values {
+	  text-align: center;
+	  .section-header {
+	    margin-bottom: 0;
+	  }
+	  .lead-text{
+	    margin: 0 auto;
+	    margin-bottom: 2rem;
+	  }
+	  .row {
+	    flex-wrap: wrap;
+	    justify-content: space-between;
+	    padding: 0 1rem;
+
+	    .value-card {
+	      width: 31%;
+	      border: 1px solid $gray-light;
+	      padding: 35px 16px 24px;
+	      margin-bottom: 40px;
+	      border-radius: 6px;
+
+	      img {
+	        margin-bottom: 40px;
+	      }
+
+	      h5 {
+	        font-size: 18px;
+	        line-height: 20px;
+	        color: $black-darkish;
+	        max-width: 160px;
+	        margin: auto;
+	        margin-bottom: 8px;
+	      }
+	    }
+	  }
+	  .btn-blue {
+	    margin: 20px 0;
+	  }
+	}
+	&__trusted {
+		.section-header {
+		  margin-bottom: 30px;
+		}
+	  .row {
+	    justify-content: space-between;
+	    padding: 0 1rem;
+	    align-items: center;
+	  }
+	}
+	&__location {
+		padding: 5rem 0 !important;
+
+	  &__map {
+	    margin: 30px auto 0;
+	    width: 720px;
+
+	    img {
+	      width: 100%;
+	    }
+	  }
+	}
+	&__benefits {
+		.row {
+		  padding: 0 1rem;
+		  flex-wrap: wrap;
+		  justify-content: space-between;
+
+		  .benefit {
+		    width: 30%;
+		    max-width: 284px;
+		    margin-bottom: 40px;
+		    display: flex;
+		    align-items: flex-start;
+
+		    .image-wrap {
+		      width: 32px;
+		      margin-right: 32px;
+		    }
+		    .text-wrap {
+		      width: calc(100% - 	64px);
+
+		      h5 {
+		        font-size: 18px;
+		        line-height: 20px;
+		        margin-bottom: 8px;
+		      }
+		      p {
+		        color: $gray-darkish;
+		        margin: 0;
+		      }
+		    }
+		  }
+		}
+	}
+	&__join {
+	  .section-header {
+	    max-width: 655px;
+	    margin: auto;
+	    margin-bottom: 1rem;
+	  }
+	  .lead-text {
+	    br {
+	      display: block;
+		    padding: 10px 0;
+		    content: "";
+	    }
+	  }
+	  .job-card {
+	    width: 720px;
+	    margin: 0 auto 30px;
+	    padding: 18px 24px;
+	    background: $gray-lightest;
+    	border: 1px solid $gray-lighter;
+    	border-radius: 3px;
+	  }
+	  #whr_embed_hook {
+	    max-width: 760px;
+	    margin: auto;
+
+	    .whr-items {
+	      padding-left: 0;
+	    }
+
+	    .whr-item {
+	      position: relative;
+	      margin-bottom: 30px;
+	      padding: 18px 24px;
+		    background: $gray-lightest;
+	    	border: 1px solid $gray-lighter;
+	    	border-radius: 3px;
+	    	&:hover {
+	    	  background: $gray-light;
+	    	  cursor: pointer;
+	    	}
+	    	&::after {
+	    	  content: "\2192";
+	    	  position: absolute;
+	    	  font-size: 20px;
+	    	  top: 32px;
+	    	  right: 20px;
+	    	}
+	    	&::marker {
+	    	  display: none !important;
+	    	  content: "";
+	    	}
+	    	.whr-title {
+	    	  font-size: 20px;
+	        line-height: 30px;
+	        margin-bottom: 10px;
+	        a {
+	        	color: $black;
+	        }
+
+	    	}
+	    	.whr-info {
+	    	  display: flex;
+	    	  padding-left: 0;
+	    	  li {
+	    	    list-style: none;
+	    	    padding-right: 20px;
+	    	  }
+	    	}
+	    }
+	  }
+	  .flex-wrap {
+	  	display: flex;
+	  	align-items: center;
+	    justify-content: space-between;
+
+	    .title-wrap {
+	      width: calc(100% - 40px);
+	      margin-right: 20px;
+
+	      h5 {
+	        font-size: 20px;
+	        line-height: 30px;
+	        margin-bottom: 10px;
+	      }
+	      p {
+	        margin: 0;
+
+	        span {
+	          margin-right: 25px;
+	        }
+	      }
+	    }
+	  }
+	}
+}
