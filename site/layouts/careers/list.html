@@ -26,7 +26,7 @@
           </picture>
         </div>
         <div class="career__about__text">
-          <h3>{{.Params.aboutUs.title}}</h3>
+          <h3 class="section-header">{{.Params.aboutUs.title}}</h3>
           <p class="lead-text">{{.Params.aboutUs.description | safeHTML}}</p>
         </div>
       </div>
@@ -111,7 +111,7 @@
           </div>
           {{ if eq $rest 1}}
             {{ if eq $index (sub $length 2)}}
-            <div class="benefit"></div>
+            <div class="benefit tablet-hidden"></div>
             {{ end }}
           {{ end }}
         {{ end }}

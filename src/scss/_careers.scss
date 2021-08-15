@@ -40,13 +40,6 @@
 	  &__text {
 	    margin-left: 80px;
 	    width: calc(100% - 310px);
-
-	    h3 {
-	      font-size: 32px;
-	      line-height: 48px;
-	      color: $black;
-	      margin-bottom: 8px;
-	    }
 	  }
 	}
 	&__features{
@@ -215,5 +208,163 @@
 	      }
 	    }
 	  }
+	}
+	@include media-breakpoint-down(md) {
+    &__hero {
+      .display-3 {
+        font-size: 48px;
+        line-height: 58px;
+      }
+    }
+    &__about {
+      &__logo {
+        margin-top: 10px;
+        width: 150px;
+        height: 150px;
+
+        img {
+          margin-top: 35px;
+          width: 91px;
+          height: 81px;
+        }
+      }
+      &__text {
+        width: calc(100% - 230px);
+      }
+    }
+    &__features{
+      .row {
+        flex-wrap: wrap;
+      }
+      .feature-item {
+        width: 45%;
+        margin: 20px 0;
+      }
+    }
+    &__values {
+      max-width: 610px;
+      margin: auto;
+      .row {
+	      .value-card {
+	        width: 264px;
+	        margin-bottom: 30px;
+	      }
+	    }
+    }
+    &__trusted {
+      .row {
+        img {
+          width: auto;
+          max-width: 100px;
+        }
+      }
+    }
+    &__location {
+      &__map {
+        width: 100%;
+      }
+    }
+    &__benefits {
+      .row {
+      	max-width: 640px;
+      	margin: auto;
+        .benefit {
+          width: 48%;
+        }
+        .tablet-hidden {
+          display: none;
+          width: 0;
+          height: 0;
+          padding: 0;
+        }
+      }
+    }
+	}
+	@include media-breakpoint-down(sm) {
+		.lead-text {
+		  font-size: 16px;
+		  line-height: 1.6;
+    }
+		&__hero {
+      .display-3 {
+        font-size: 32px;
+        line-height: 38px;
+        margin-bottom: 8px;
+      }
+      .lead-text {
+        margin-bottom: 20px;
+      }
+    }
+    &__about {
+      padding: 10px 0 !important;
+
+      .row {
+        margin: 0;
+      }
+
+      &__logo {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+
+        img {
+          margin-top: 35px;
+          width: 91px;
+          height: 81px;
+        }
+      }
+      &__text {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+    &__features{
+      .feature-item {
+      	h2 {
+      	  font-size: 42px;
+      	  line-height: 51px;
+      	}
+      }
+    }
+    &__values {
+      .row {
+	      .value-card {
+	        margin: auto;
+	        margin-bottom: 16px;
+	      }
+	    }
+    }
+    &__trusted {
+      .row {
+        img {
+          max-width: 58px;
+        }
+      }
+    }
+    &__location {
+      padding: 2rem 0 !important;
+    }
+    &__benefits {
+    	.lead-text {
+    	  margin-bottom: 10px;
+    	}
+      .row {
+      	max-width: 400px;
+      	margin: auto;
+        .benefit {
+          width: 100%;
+          margin: 30px auto 0px;
+        }
+      }
+    }
+	}
+	@include media-breakpoint-down(xs) {
+		&__values {
+      .lead-text {
+        width: 300px;
+        margin: 0 auto 42px;
+      }
+    }
 	}
 }

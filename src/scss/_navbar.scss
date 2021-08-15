@@ -104,16 +104,4 @@
     }
   }
 }
-@include media-breakpoint-down(sm) {
-  .navbar {
-    .container {
-      padding-right: 0;
-      padding-left: 0;
-    }
-    .navbar-toggler {
-      &.navbar-toggler-right {
-        padding-right: 0px;
-      }
-    }
-  }
-}
+
