@@ -5,6 +5,10 @@
 	  padding: 14px 49px;
 	  font-size: 18px;
 	  line-height: 20px;
+
+	  &:hover {
+	    opacity: 0.8;
+	  }
 	}
 	
   .lead-text {
@@ -61,6 +65,7 @@
 	      font-size: 14px;
 	      line-height: 20px;
 	      color: $black;
+	      opacity: 0.6;
 	      margin: 0;
 	      text-transform: uppercase;
 	    }
@@ -98,6 +103,9 @@
 	        max-width: 160px;
 	        margin: auto;
 	        margin-bottom: 8px;
+	      }
+	      p {
+	        color: $gray-darkish;
 	      }
 	    }
 	  }
@@ -210,6 +218,11 @@
 	  }
 	}
 	@include media-breakpoint-down(md) {
+	  .section-header {
+	    max-width: 655px;
+	    margin-left: auto;
+	    margin-right: auto;
+	  }
     &__hero {
       .display-3 {
         font-size: 48px;
@@ -217,6 +230,10 @@
       }
     }
     &__about {
+      .row {
+        max-width: 700px;
+        margin: auto;
+      }
       &__logo {
         margin-top: 10px;
         width: 150px;
@@ -229,7 +246,8 @@
         }
       }
       &__text {
-        width: calc(100% - 230px);
+        width: calc(100% - 200px);
+        margin-left: 50px;
       }
     }
     &__features{

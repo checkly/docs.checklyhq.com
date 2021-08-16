@@ -1,5 +1,7 @@
 ---
 title: Jobs
+aliases: 
+  - '/careers'
 ---
 
 Checkly is growing! Join us and help us empower development teams
