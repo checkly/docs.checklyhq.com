@@ -27,6 +27,7 @@
   }
 
 	&__about {
+	  padding: 61px 0 131px;
 		.container {
 		  max-width: 900px;
 		}
@@ -44,10 +45,14 @@
 	  &__text {
 	    margin-left: 80px;
 	    width: calc(100% - 310px);
+
+	    .lead-text {
+	      margin-bottom: 0;
+	    }
 	  }
 	}
 	&__features{
-	  
+	  padding: 81px 0 79px;
 	  .row {
 	    justify-content: space-between;
 	    padding: 0 1rem;
@@ -73,6 +78,8 @@
 	}
 	&__values {
 	  text-align: center;
+	  padding: 80px 0 120px;
+
 	  .section-header {
 	    margin-bottom: 0;
 	  }
@@ -110,10 +117,11 @@
 	    }
 	  }
 	  .btn-blue {
-	    margin: 20px 0;
+	    margin: 20px 0 0;
 	  }
 	}
 	&__trusted {
+	  padding: 55px 0 90px;
 		.section-header {
 		  margin-bottom: 30px;
 		}
@@ -124,7 +132,7 @@
 	  }
 	}
 	&__location {
-		padding: 5rem 0 !important;
+		padding: 80px 0 120px;
 
 	  &__map {
 	    margin: 30px auto 0;
@@ -136,6 +144,8 @@
 	  }
 	}
 	&__benefits {
+	  padding: 80px 0 77px;
+
 		.row {
 		  padding: 0 1rem;
 		  flex-wrap: wrap;
@@ -169,6 +179,7 @@
 		}
 	}
 	&__join {
+	  padding: 80px 0 120px;
 	  .section-header {
 	    max-width: 655px;
 	    margin: auto;
@@ -230,6 +241,7 @@
       }
     }
     &__about {
+      padding: 71px 0 59px;
       .row {
         max-width: 700px;
         margin: auto;
@@ -251,15 +263,17 @@
       }
     }
     &__features{
+      padding: 20px 0 19px;
       .row {
         flex-wrap: wrap;
       }
       .feature-item {
         width: 45%;
-        margin: 20px 0;
+        margin: 60px 0;
       }
     }
     &__values {
+      padding: 82px 0 56px;
       max-width: 610px;
       margin: auto;
       .row {
@@ -270,6 +284,7 @@
 	    }
     }
     &__trusted {
+      padding: 29px 0 59px;
       .row {
         img {
           width: auto;
@@ -278,11 +293,13 @@
       }
     }
     &__location {
+      padding: 60px 0 120px;
       &__map {
         width: 100%;
       }
     }
     &__benefits {
+      padding: 66px 0 25px;
       .row {
       	max-width: 640px;
       	margin: auto;
@@ -296,6 +313,9 @@
           padding: 0;
         }
       }
+    }
+    &__join {
+      padding: 60px 0 68px;
     }
 	}
 	@include media-breakpoint-down(sm) {
@@ -314,7 +334,7 @@
       }
     }
     &__about {
-      padding: 10px 0 !important;
+      padding: 10px 0 51px;
 
       .row {
         margin: 0;
@@ -338,7 +358,9 @@
       }
     }
     &__features{
+      padding: 0;
       .feature-item {
+        margin: 51px 0;
       	h2 {
       	  font-size: 42px;
       	  line-height: 51px;
@@ -346,6 +368,7 @@
       }
     }
     &__values {
+      padding: 48px 0 89px;
       .row {
 	      .value-card {
 	        margin: auto;
@@ -354,6 +377,7 @@
 	    }
     }
     &__trusted {
+      padding: 29px 0 50px;
       .row {
         img {
           max-width: 58px;
@@ -361,9 +385,11 @@
       }
     }
     &__location {
-      padding: 2rem 0 !important;
+      padding: 30px 0 51px;
     }
     &__benefits {
+      padding: 66px 0 35px;
+
     	.lead-text {
     	  margin-bottom: 10px;
     	}
@@ -375,6 +401,9 @@
           margin: 30px auto 0px;
         }
       }
+    }
+    &__join {
+      padding: 58px 0 54px;
     }
 	}
 	@include media-breakpoint-down(xs) {

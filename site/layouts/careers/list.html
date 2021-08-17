@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <section class="career__about py-5">
+  <section class="career__about">
     <div class="container">
       <div class="row">
         <div class="career__about__logo">
@@ -32,7 +32,7 @@
       </div>
     </div>
   </section>
-  <section class="career__features section-light-gray py-5">
+  <section class="career__features section-light-gray">
     <div class="container">
       <div class="row">
         {{ range .Params.features}}
@@ -44,7 +44,7 @@
       </div>
     </div>
   </section>
-  <section class="career__values py-5">
+  <section class="career__values">
     <div class="container">
       <h3 class="section-header">{{.Params.values.title}}</h3>
       <p class="lead-text">{{.Params.values.description}}</p>
@@ -64,7 +64,7 @@
       </div>
     </div>
   </section>
-  <section class="career__trusted section-light-gray py-5">
+  <section class="career__trusted section-light-gray">
     <div class="container">
       <h3 class="section-header text-center">{{.Params.trusted.title}}</h3>
       <div class="row">
@@ -78,7 +78,7 @@
       </div>
     </div>
   </section>
-  <section class="career__location py-5">
+  <section class="career__location">
     <div class="container">
       <h3 class="section-header text-center">{{.Params.location.title}}</h3>
       <p class="lead-text text-center">{{.Params.location.description}}</p>
@@ -91,7 +91,7 @@
       </div>
     </div>
   </section>
-  <section class="career__benefits section-light-gray py-5">
+  <section class="career__benefits section-light-gray">
     <div class="container">
       <h3 class="section-header text-center">{{.Params.benefits.title}}</h3>
       <p class="lead-text text-center">{{.Params.benefits.description}}</p>
@@ -119,7 +119,7 @@
       </div>
     </div>
   </section>
-  <section class="career__join py-5" id="open-position">
+  <section class="career__join" id="open-position">
     <div class="container">
       <h3 class="section-header">{{.Params.join.title}}</h3>
       <p class="lead-text">{{.Params.join.description | safeHTML}}</p>
