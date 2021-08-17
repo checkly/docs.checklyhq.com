@@ -45,6 +45,7 @@
             <a href="#triggers">Triggers</a>
             <a href="#frameworks">Frameworks</a>
             <a href="#infrastructure">Infrastructure</a>
+            <a href="#infrastructure">Status pages</a>
           </div>
         </div>
         <div class="integrations__cardlist" id="alert">
@@ -143,6 +144,36 @@
           </h3>
           <div class="d-flex">
             {{ range .Params.infrastructure}}
+              <div class="card">
+                <div class="card__img">
+                  <img src="{{.icon}}" alt="{{.service}}" width="{{.iconWidth}}" height="{{.iconHeight}}" />
+                </div>
+                <h4 class="card__title">
+                  {{.service}}
+                </h4>
+                <p class="card__description">
+                  {{.description}}
+                </p>
+                <div class="card__cta">
+                  {{ if ne .ctaLink "" }}
+                  <a class="cta-link" href="{{.ctaLink}}">
+                    {{.service}} integration
+                  </a>
+                  {{ else }}
+                    Coming soon!
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+            <div class="card hidden"></div>
+          </div>
+        </div>
+        <div class="integrations__cardlist" id="statuspages">
+          <h3 class="list-title">
+            Status pages
+          </h3>
+          <div class="d-flex">
+            {{ range .Params.statuspages}}
               <div class="card">
                 <div class="card__img">
                   <img src="{{.icon}}" alt="{{.service}}" width="{{.iconWidth}}" height="{{.iconHeight}}" />
