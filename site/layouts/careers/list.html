@@ -8,7 +8,7 @@
           {{ .Params.hero.description}}
         </p>
         <div>
-          <a class="btn btn-blue" href={{.Params.hero.buttonLink}} rel="noopener">
+          <a class="btn btn-blue" href="#open-position" rel="noopener">
             {{ .Params.hero.buttonTxt}}
           </a>
         </div>
@@ -58,7 +58,7 @@
         {{ end }}
       </div>
       <div>
-        <a class="btn btn-blue" href={{.Params.values.buttonLink}} rel="noopener">
+        <a class="btn btn-blue" href="#open-position" rel="noopener">
           {{ .Params.values.buttonTxt}}
         </a>
       </div>
@@ -119,7 +119,7 @@
       </div>
     </div>
   </section>
-  <section class="career__join py-5">
+  <section class="career__join py-5" id="open-position">
     <div class="container">
       <h3 class="section-header">{{.Params.join.title}}</h3>
       <p class="lead-text">{{.Params.join.description | safeHTML}}</p>

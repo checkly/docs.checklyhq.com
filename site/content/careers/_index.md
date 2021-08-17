@@ -1,5 +1,7 @@
 ---
 title: Careers
+aliases:
+  - "/jobs"
 hero:
   title: Checkly Careers
   description: "Working at Checkly is not only lorem ipsum dolor sit amet but also pellentesque quam arcu"
