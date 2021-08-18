@@ -162,4 +162,12 @@ infrastructure:
     ctaLink: "/docs/integrations/prometheus/"
     description: >-
       Export your monitoring data to Prometheus and integrate it into your Graphana dashboards.
+statuspages:
+  - service: Atlassian StatusPage
+    icon: "/integrations/statuspages/statuspage@2x.png"
+    iconWidth: 153
+    iconHeight: 26
+    ctaLink: "/docs/integrations/statuspage/"
+    description: >-
+      Open incidents automatically when your checks fail and keep your users up to date.
 ---
