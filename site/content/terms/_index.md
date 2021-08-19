@@ -12,7 +12,7 @@ If you are entering into these Terms on behalf of a company or other legal entit
 
 # **DEFINITIONS**
 
-. For purposes of these Terms, the following terms shall have the following meanings:
+For purposes of these Terms, the following terms shall have the following meanings:
 
   1. &quot;Affiliate&quot; means a company controlling, controlled by, or under common control with a party (an entity will be deemed to have control if it owns over 50% of another entity).
   2. &quot;Authorized Users&quot; means employees or contractors, authorized by Customer to use the Service solely for the internal use of Customer and its Affiliates, subject to the terms and conditions of these Terms.
@@ -27,7 +27,9 @@ If you are entering into these Terms on behalf of a company or other legal entit
 # **SERVICE**
 
   1.Access. Subject to payment of all applicable fees set forth in the Order and these Terms, Checkly grants Customer, during the Subscription Term, a non-exclusive, non-transferable right to access and use (and permit Authorized Users to access and use) the Service solely for Customer&#39;s and its Affiliates&#39; internal business purposes in accordance with the Documentation and in accordance with the parameters specified in the applicable Order.
+
   2.Authorized Users. Customer is solely responsible for ensuring: (i) that only appropriate Authorized Users have access to the Service, (ii) that such Authorized Users have been trained in proper use of the Service, and (iii) confidentiality and proper usage of passwords and access procedures with respect to logging into the Service. Customer shall be responsible for the acts and omissions of its Authorized Users.
+  
   3.Changes to Service. Checkly reserves the right to modify or discontinue any part of the Service at any time, provided that in the event such modification or discontinuance materially reduces the functionality of the Service, Customer may terminate this agreement by written notice to Checkly, and Checkly shall provide Customer with a pro-rated refund of any pre-paid fees for Service not performed by the effective date of termination.
   4.Service Availability. Checkly will use commercially reasonable efforts to maintain the Service availability, subject to downtimes resulting from maintenance, repairs and upgrades. Checkly will attempt to notify Customer electronically via the Service in advance of any planned downtime.
   5.Service Support. Checkly will provide Customer with support for Customer&#39;s use of the Service in accordance with Checkly&#39;s then applicable support policy as described on the Site under [insert link], or as otherwise specified on the Order. Customer agrees that Checkly is not responsible to provide support for any issues resulting from problems, errors or inquiries related to Customer&#39;s systems or hardware or Customer Content (as defined below).
