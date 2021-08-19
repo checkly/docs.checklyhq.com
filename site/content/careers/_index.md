@@ -89,7 +89,7 @@ howWehire:
   description: >-
     We're all about being transparent and setting clear expectations. That's why we've put together our hiring playbook. There you'll find a sneak peek of who we are and what you can expect in our hiring process.
   buttonText: See our hiring playbook
-  buttonLink: "/"
+  buttonLink: "https://www.notion.so/checkly/Checkly-Hiring-Playbook-public-54bc05178d3b4118a15effe885f96d1a"
 join:
   title: Join us!
   description: >-
