@@ -12,12 +12,12 @@ aboutUs:
   description: >-
     We are a small team with a big impact and believe in a bright future where apps are built and shipped more reliably from to dev to production and further.<br /> Our mission is to create the best active monitoring platform for developers. A platform that makes reliability delightful!
 features:
-  - number: "$12"
-    text: MILLION RAISED
   - number: "350+"
-    text: DIFFERENT LOCATIONS
+    text: HAPPY Customers
   - number: "19"
     text: EMPLOYEES
+  - number: "$12M"
+    text: RAISED
   - number: "100%"
     text: REMOTE
 values:
