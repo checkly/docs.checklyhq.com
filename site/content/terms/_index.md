@@ -10,19 +10,27 @@ These Terms of Use (the &quot;Terms&quot; or the &quot;Terms of Use&quot;) are a
 
 If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have the authority to bind such entity to these Terms. In that case, the terms &quot;Customer&quot;, &quot;you&quot; or &quot;your&quot; shall also refer to such entity. If you do not have such authority, or if you do not agree with these Terms, you may not use the Service. Registration for use of the Service by &quot;robots&quot; or other automated methods is expressly prohibited.
 
-# **DEFINITIONS**
+# **1. DEFINITIONS**
 
 For purposes of these Terms, the following terms shall have the following meanings:
 
-  **1. &quot;Affiliate&quot;** means a company controlling, controlled by, or under common control with a party (an entity will be deemed to have control if it owns over 50% of another entity).
-  **2. &quot;Authorized Users&quot;** means employees or contractors, authorized by Customer to use the Service solely for the internal use of Customer and its Affiliates, subject to the terms and conditions of these Terms.
-  **3. &quot;Documentation&quot;** means the user guides, security fundamentals documentation, and specifications for the Service that are made available from time to time by Checkly in electronic or tangible form, but excluding any sales or marketing materials.
-  **4. &quot;Effective Date&quot;** means the date a Service commences as listed on the Order.
-  **5. &quot;Order&quot;** means Checkly&#39;s quote accepted by Customer via an ordering document submitted to Checkly or via subscription on the Site, to order the Service, which references the ordered software-as-a-service products, pricing, payment terms, Service parameters, term of Service and other terms as applicable.
-  **6. &quot;Service&quot;** means the software-as-a-service products specified in the Order as further described in the Documentation (including any updates and upgrades to the Service provided by Checkly in its sole discretion).
-  **7. &quot;Site&quot;** means the Website accessible at https://checklyhq.com (or any successor thereto).
-  **8. &quot;Subscription Term&quot;** means the period of time during which Customer is subscribed to the Service, as specified in an Order.
-  **9. &quot;Usage Data&quot;** means statistical data related to Customer&#39;s access to and use of the Service and data derived from it, that is used by Checkly in an aggregate manner, including to compile statistical and performance information related to the provision and operation of the Service.
+  **1.1 &quot;Affiliate&quot;** means a company controlling, controlled by, or under common control with a party (an entity will be deemed to have control if it owns over 50% of another entity).
+
+  **1.2. &quot;Authorized Users&quot;** means employees or contractors, authorized by Customer to use the Service solely for the internal use of Customer and its Affiliates, subject to the terms and conditions of these Terms.
+
+  **1.3. &quot;Documentation&quot;** means the user guides, security fundamentals documentation, and specifications for the Service that are made available from time to time by Checkly in electronic or tangible form, but excluding any sales or marketing materials.
+
+  **1.4. &quot;Effective Date&quot;** means the date a Service commences as listed on the Order.
+
+  **1.5. &quot;Order&quot;** means Checkly&#39;s quote accepted by Customer via an ordering document submitted to Checkly or via subscription on the Site, to order the Service, which references the ordered software-as-a-service products, pricing, payment terms, Service parameters, term of Service and other terms as applicable.
+
+  **1.6. &quot;Service&quot;** means the software-as-a-service products specified in the Order as further described in the Documentation (including any updates and upgrades to the Service provided by Checkly in its sole discretion).
+
+  **1.7. &quot;Site&quot;** means the Website accessible at https://checklyhq.com (or any successor thereto).
+
+  **1.8. &quot;Subscription Term&quot;** means the period of time during which Customer is subscribed to the Service, as specified in an Order.
+
+  **1.9. &quot;Usage Data&quot;** means statistical data related to Customer&#39;s access to and use of the Service and data derived from it, that is used by Checkly in an aggregate manner, including to compile statistical and performance information related to the provision and operation of the Service.
 
 # **SERVICE**
 
@@ -72,9 +80,9 @@ For purposes of these Terms, the following terms shall have the following meanin
 
 # **LIMITED WARRANTY AND DISCLAIMERS**
 
-  **1.General.** Each party represents and warrants that: (a) it has full power and authority to enter into these Terms and to perform its obligations hereunder; (b) these Terms are legally binding upon it and enforceable in accordance with its terms; and (c) the execution, delivery and performance of these Terms does not and will not conflict with any agreement, instrument, judgment or understanding to which it is a party or by which it may be bound.
+  **1. General.** Each party represents and warrants that: (a) it has full power and authority to enter into these Terms and to perform its obligations hereunder; (b) these Terms are legally binding upon it and enforceable in accordance with its terms; and (c) the execution, delivery and performance of these Terms does not and will not conflict with any agreement, instrument, judgment or understanding to which it is a party or by which it may be bound.
   
-  **2.Customer.** Customer represents and warrants that (a) Customer has all rights to grant the licenses to Checkly set forth herein, including to Customer Content, without infringement or violation of any applicable laws or third party rights, including any privacy rights, publicity rights, copyrights, trademarks, contract rights, or any other intellectual property or proprietary rights, and (b) Customer shall not make available through the Service any Content that is disparaging, obscene, offensive, or otherwise inappropriate or that contains any viruses or any other harmful code.
+  **2. Customer.** Customer represents and warrants that (a) Customer has all rights to grant the licenses to Checkly set forth herein, including to Customer Content, without infringement or violation of any applicable laws or third party rights, including any privacy rights, publicity rights, copyrights, trademarks, contract rights, or any other intellectual property or proprietary rights, and (b) Customer shall not make available through the Service any Content that is disparaging, obscene, offensive, or otherwise inappropriate or that contains any viruses or any other harmful code.
   
   **3.EXCEPT AS PROVIDED IN SECTION 7.1 HEREIN, TO THE FULLEST EXTENT PERMITTED BY LAW, CHECKLY HEREBY DISCLAIMS ALL OTHER WARRANTIES, WHETHER EXPRESS OR IMPLIED, ORAL OR WRITTEN, WITH RESPECT TO THE SERVICE, INCLUDING ALL IMPLIED WARRANTIES OF TITLE, NON-INFRINGEMENT, QUIET ENJOYMENT, INTEGRATION, MERCHANTABILITY, FITNESS FOR ANY PARTICULAR PURPOSE, RELIABILITY, OR THAT THE SERVICE&#39;S OPERATION WILL BE UNINTERRUPTED OR ERROR-FREE, AS WELL AS ALL WARRANTIES ARISING FROM COURSE OF DEALING, COURSE OF PERFORMANCE OR USAGE OF TRADE. CHECKLY WILL NOT BE RESPONSIBLE OR LIABLE FOR ANY FAILURE IN THE SERVICE RESULTING FROM OR ATTRIBUTABLE TO (A) CUSTOMER USE OF THE SERVICE NOT IN ACCORDANCE WITH THESE TERMS OR ANY DOCUMENTATION, (B) FAILURES IN ANY TELECOMMUNICATIONS, NETWORK OR OTHER SERVICE OR EQUIPMENT OUTSIDE OF CHECKLY&#39;S FACILITIES, (C) CUSTOMER&#39;S OR ANY THIRD PARTY&#39;S CONTENT, PRODUCTS, SERVICES, NEGLIGENCE, ACTS OR OMISSIONS, (D) ANY FORCE MAJEURE OR OTHER CAUSE BEYOND CHECKLY&#39;S REASONABLE CONTROL, OR (E) UNAUTHORIZED ACCESS, BREACH OF FIREWALLS OR OTHER HACKING BY THIRD PARTIES.**
 
