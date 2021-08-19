@@ -34,13 +34,9 @@
 	  &__logo{
 	  	width: 230px;
 	  	height: 230px;
-	  	text-align: center;
+	  	padding: 53.8px 38.33px 51.6px 51.6px;
 	  	border-radius: 300px;
 	  	box-shadow: 0 5px 25px rgba(0, 0, 0, .15);
-
-	  	img {
-	  	  margin-top: 50px;
-	  	}
 	  }
 	  &__text {
 	    margin-left: 80px;
@@ -48,6 +44,7 @@
 
 	    .lead-text {
 	      margin-bottom: 0;
+	      margin-bottom: 20px;
 	    }
 	  }
 	}
@@ -107,7 +104,7 @@
 	        font-size: 18px;
 	        line-height: 20px;
 	        color: $black-darkish;
-	        max-width: 160px;
+	        max-width: 190px;
 	        margin: auto;
 	        margin-bottom: 8px;
 	      }
@@ -144,39 +141,81 @@
 	  }
 	}
 	&__benefits {
-	  padding: 80px 0 77px;
+	  padding: 80px 0 25px;
+
+	  .section-header {
+	    margin-bottom: 50px;
+	  }
 
 		.row {
 		  padding: 0 1rem;
 		  flex-wrap: wrap;
-		  justify-content: space-between;
+		  justify-content: center;
 
-		  .benefit {
-		    width: 30%;
-		    max-width: 284px;
-		    margin-bottom: 40px;
-		    display: flex;
-		    align-items: flex-start;
+		  .benefit-card {
+		  	position: relative;
+		    width: 220px;
+		    height: 180px;
+		    text-align: center;
+		    padding: 29px 0px;
+		    border: 1px solid $gray-light;
+		    background: $white;
+		    margin: 0 20px 63px;
+
+		    .content-wrap {
+		      position: absolute;
+		      width: 100%;
+		      top: 50%;
+		      transform: translateY(-50%);
+		      margin: auto;
+		    }
 
 		    .image-wrap {
-		      width: 32px;
-		      margin-right: 32px;
+		      width: 48px;
+		      height: 48px;
+		      margin: auto;
+		      margin-bottom: 16px;
+		      img {
+		        width: 100%;
+		      }
 		    }
 		    .text-wrap {
-		      width: calc(100% - 	64px);
-
 		      h5 {
 		        font-size: 18px;
-		        line-height: 20px;
-		        margin-bottom: 8px;
-		      }
-		      p {
-		        color: $gray-darkish;
-		        margin: 0;
+		        line-height: 29px;
+		        margin-bottom: 0;
 		      }
 		    }
 		  }
 		}
+	}
+	&__howhire {
+	  margin: 62px 0 40px;
+
+	  &__card {
+	    width: 100%;
+	    max-width: 730px;
+	    margin: auto;
+	    padding: 40px 80px;
+	    border: 1px solid $gray-light;
+
+	    .section-header {
+	      margin-bottom: 16px;
+	    }
+
+	    .lead-text {
+	      margin-bottom: 34px;
+	    }
+
+	    .btn-blue {
+	      padding: 10px 21px;
+
+	      img {
+	        margin-right: 10px;
+	        margin-top: -2px;
+	      }
+	    }
+	  }
 	}
 	&__join {
 	  padding: 80px 0 120px;
@@ -186,6 +225,9 @@
 	    margin-bottom: 1rem;
 	  }
 	  .lead-text {
+	    max-width: 655px;
+	    margin: 0 auto 61px;
+
 	    br {
 	      display: block;
 		    padding: 10px 0;
@@ -250,9 +292,9 @@
         margin-top: 10px;
         width: 150px;
         height: 150px;
+        padding: 34.62px 25px 33.65px 33.65px;
 
         img {
-          margin-top: 35px;
           width: 91px;
           height: 81px;
         }
@@ -300,11 +342,14 @@
     }
     &__benefits {
       padding: 66px 0 25px;
+      .section-header {
+        margin-bottom: 40px;
+      }
       .row {
       	max-width: 640px;
       	margin: auto;
-        .benefit {
-          width: 48%;
+        .benefit-card {
+          margin-bottom: 40px;
         }
         .tablet-hidden {
           display: none;
@@ -396,10 +441,14 @@
       .row {
       	max-width: 400px;
       	margin: auto;
-        .benefit {
-          width: 100%;
-          margin: 30px auto 0px;
+        .benefit-card {
+          margin-bottom: 40px;
         }
+      }
+    }
+    &__howhire {
+      &__card {
+        padding: 30px;
       }
     }
     &__join {

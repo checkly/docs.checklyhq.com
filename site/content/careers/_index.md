@@ -4,48 +4,46 @@ aliases:
   - "/jobs"
 hero:
   title: Checkly Careers
-  description: "Working at Checkly is not only lorem ipsum dolor sit amet but also pellentesque quam arcu"
+  description: "Help create an amazing Developer Experience by delivering the #1 active monitoring platform."
   buttonTxt: "See open positions"
-  buttonLink: '/'
 aboutUs:
   image: '/images/careers/logo@2x.png'
   title: About us
   description: >-
-    We're proud of our product that empowers development teams to build, deploy and run better software, and we love shipping quality results.<br>
-    We are a small team with a big impact, both in the monitoring and E2E testing space, as well as in the company's processes and decisions.
+    We are a small team with a big impact and believe in a bright future where apps are built and shipped more reliably from to dev to production and further.<br /> Our mission is to create the best active monitoring platform for developers. A platform that makes reliability delightful!
 features:
   - number: "$12"
     text: MILLION RAISED
-  - number: "999+"
+  - number: "350+"
     text: DIFFERENT LOCATIONS
-  - number: "16"
+  - number: "19"
     text: EMPLOYEES
   - number: "100%"
     text: REMOTE
 values:
   title: Our values
-  description: Checkly prouds of following lorem ipsum values
+  description: The values that guide our actions and decisions
   buttonTxt: See open positions
   buttonLink: /
   list: 
     - icon: '/images/careers/search.svg'
-      title: We focus Second line
-      description: Lorem ipsum dolor sit amet
+      title: Focus
+      description: Focus.
     - icon: '/images/careers/people.svg'
-      title: Talk to customers lorem ipsum
-      description: Lorem ipsum dolor sit amet
+      title: We talk to customers, we ship features
+      description: The customer comes first. All interactions matter. We ship communication & features.
     - icon: '/images/careers/ruby.svg'
-      title: Good intentions
-      description: Lorem ipsum dolor sit amet
+      title: We assume good intentions
+      description: People have many sides. Stories have many sides. Don't judge before learning and listening.
     - icon: '/images/careers/shield-check.svg'
-      title: Trustworthy
-      description: Lorem ipsum dolor sit amet
+      title: We are reliable and trustworthy
+      description: Customers need to trust us, when they lost trust in themselves.
     - icon: '/images/careers/law.svg'
-      title: Balance tech and art second line
-      description: Lorem ipsum dolor sit amet
+      title: We balance art & engineering
+      description: Sometimes the mathematical solution is the right one. Sometimes what feels right is right.
     - icon: '/images/careers/heart.svg'
-      title: Support open source
-      description: Lorem ipsum dolor sit amet
+      title: We support open source
+      description: We donate 1% of MRR to non-corporate backed Open Source projects.
 trusted:
   title: Trusted by the best
   logos:
@@ -67,35 +65,33 @@ trusted:
 location:
   title: Fully remote
   description: >-
-    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 5+ countries. As part of our team, you can work from wherever you're happiest and most productive.
+    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 7+ countries. As part of our team, you can work from wherever you're happiest and most productive.
   map: '/images/careers/remote_map@2x.png'
 benefits:
   title: Perks and benefits
-  description: Checkly prouds of following lorem ipsum values
   list:
     - icon: '/images/careers/smiley.svg'
       title: Competetive salary and stock options
-      description: $750 personal development budget
+    - icon: '/images/careers/book.svg'
+      title: $750 personal development budget
+    - icon: '/images/careers/sun.svg'
+      title: 27 days of vacation + local public holidays
+    - icon: '/images/careers/codespaces.svg'
+      title: Home office setup
     - icon: '/images/careers/thumbsup.svg'
       title: Work remotely
-      description: $750 personal development budget
-    - icon: '/images/careers/codespaces.svg'
-      title: Office setup
-      description: $750 personal development budget
-    - icon: '/images/careers/book.svg'
-      title: Personal budget
-      description: $750 personal development budget
-    - icon: '/images/careers/sun.svg'
-      title: 27 days of vacation
-      description: $750 personal development budget
+    - icon: '/images/careers/star.svg'
+      title: Team Retreats
     - icon: '/images/careers/heartsmall.svg'
       title: Paid sick leaves
-      description: $750 personal development budget
-    - icon: '/images/careers/star.svg'
-      title: Retreats
-      description: $750 personal development budget
+howWehire:
+  title: How we hire
+  description: >-
+    We're all about being transparent and setting clear expectations. That's why we've put together our hiring playbook. There you'll find a sneak peek of who we are and what you can expect in our hiring process.
+  buttonText: See our hiring playbook
+  buttonLink: "/"
 join:
   title: Join us!
   description: >-
-    Do you want to work for a fully remote company that hires talented people from a wide variety of backgrounds and experiences, and that is committed to a respectful, kind and inclusive work environment?<br/>Surround yourself with talented team players, who are all supporting each other and working together towards one clear goal. Our culture of ownership and transparency empowers our team members to achieve goals and keep growing.
+    Do you want to empower developers to ship reliable apps and APIs delightfully?<br/>Work for a fully remote company that hires talented people from a wide variety of backgrounds and experiences, and that is committed to a respectful and inclusive work environment. Surround yourself with talented team players who support each other and work together towards one clear goal.
 ---

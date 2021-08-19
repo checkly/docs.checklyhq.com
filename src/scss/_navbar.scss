@@ -94,12 +94,13 @@
   .navbar {
     .container {
       width: 100%;
-      padding-right: 6px;
-      padding-left: 6px;
+      padding-right: 16px;
+      padding-left: 16px;
     }
     .navbar-toggler {
       &.navbar-toggler-right {
         margin-top: 5px;
+        padding-right: 16px;
       }
     }
   }

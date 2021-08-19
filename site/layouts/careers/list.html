@@ -28,6 +28,7 @@
         <div class="career__about__text">
           <h3 class="section-header">{{.Params.aboutUs.title}}</h3>
           <p class="lead-text">{{.Params.aboutUs.description | safeHTML}}</p>
+          <a href="/">Learn more about our story</a>
         </div>
       </div>
     </div>
@@ -94,28 +95,32 @@
   <section class="career__benefits section-light-gray">
     <div class="container">
       <h3 class="section-header text-center">{{.Params.benefits.title}}</h3>
-      <p class="lead-text text-center">{{.Params.benefits.description}}</p>
       <div class="row">
-        {{ $list := (.Params.benefits.list) }}
-        {{ $length := (len $list) }}
-        {{ $rest := (mod $length 3) }}
         {{ range $index, $element := .Params.benefits.list}}
-          <div class="benefit">
-            <div class="image-wrap">
-              <img src={{$element.icon}} alt="{{$element.title}}" />
-            </div>
-            <div class="text-wrap">
-              <h5>{{$element.title}}</h5>
-              <p>{{$element.description}}</p>
+          <div class="benefit-card">
+            <div class="content-wrap">
+              <div class="image-wrap">
+                <img src={{$element.icon}} alt="{{$element.title}}" />
+              </div>
+              <div class="text-wrap">
+                <h5>{{$element.title}}</h5>
+              </div>
             </div>
           </div>
-          {{ if eq $rest 1}}
-            {{ if eq $index (sub $length 2)}}
-            <div class="benefit tablet-hidden"></div>
-            {{ end }}
-          {{ end }}
         {{ end }}
-        <div class="benefit"></div>
+      </div>
+    </div>
+  </section>
+  <section class="career__howhire">
+    <div class="container">
+      <div class="career__howhire__card">
+        <h3 class="section-header">{{.Params.howWeHire.title}}</h3>
+        <p class="lead-text">{{.Params.howWeHire.description}}</p>
+        <a class="btn btn-blue" href="{{.Params.howWeHire.buttonLink}}" rel="noopener">
+          <img src="/images/careers/book-icon.svg" alt="book icon" />
+          {{ .Params.howWeHire.buttonText}}
+        </a>
+      </div>
       </div>
     </div>
   </section>

@@ -42,8 +42,16 @@
     #whr_embed_hook  .whr-items .whr-item .whr-title {
       font-size: 20px;
       line-height: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 0 !important;
     }
+    #whr_embed_hook  .whr-items .whr-item .whr-title:after {
+      content: 'Remote (GMT +/- 3 hours)';
+      display: block;
+      font-size: 16px;
+      font-weight: 400; 
+      color:#697280;
+    }
+
     #whr_embed_hook  .whr-items .whr-item .whr-title  a {
       color: #3c4858;
     }
@@ -51,7 +59,7 @@
       text-decoration: none;
     }
     #whr_embed_hook  .whr-items .whr-item  .whr-info {
-      display: flex;
+      display: none !important;
       padding-left: 0;
     }
     #whr_embed_hook  .whr-items .whr-item  .whr-info li {
