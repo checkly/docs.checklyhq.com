@@ -96,10 +96,14 @@
 
 @include media-breakpoint-down(md) {
   .navbar {
+    padding: 1rem 0;
     .container {
       width: 100%;
       padding-right: 6px;
       padding-left: 6px;
+    }
+    .navbar-hiring-callout {
+      display: none;
     }
     .navbar-toggler {
       &.navbar-toggler-right {
