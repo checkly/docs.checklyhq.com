@@ -1,0 +1,72 @@
+<div>
+  <script src='https://www.workable.com/assets/embed.js' type='text/javascript'></script>
+  <script type='text/javascript'>
+    whr(document).ready(function(){
+      whr_embed("{{.Site.Params.workableJobsToken}}", {detail: 'titles', base: 'jobs', zoom: 'country', grouping: 'none'});
+
+      whr(document).on('click', 'li.whr-item', function(e) { 
+        e.preventDefault(); 
+        window.open(whr(this).find('a').attr('href'), '_blank');
+      });
+    });
+  </script>
+  <style type="text/css">
+    #whr_embed_hook  .whr-items {
+      padding-left: 0 !important;
+    }
+    #whr_embed_hook  .whr-items .whr-item {
+      position: relative;
+      margin-bottom: 16px;
+      padding: 18px 24px;
+      background: #F9FAFC;
+      border: 1px solid #E0E6ED;
+      border-radius: 3px;
+    }
+    #whr_embed_hook  .whr-items .whr-item:hover {
+      background: #EFF2F7;
+      cursor: pointer;
+    }
+    #whr_embed_hook  .whr-items .whr-item::after {
+      content: "\2192";
+      position: absolute;
+      font-size: 23px;
+      font-weight: 600;
+      color: #697280;
+      top: 30px;
+      right: 20px;
+    }
+    #whr_embed_hook  .whr-items .whr-item::marker {
+      display: none !important;
+      content: "";
+    }
+    #whr_embed_hook  .whr-items .whr-item .whr-title {
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 0 !important;
+    }
+    #whr_embed_hook  .whr-items .whr-item .whr-title:after {
+      content: 'Remote (GMT +/- 3 hours)';
+      display: block;
+      font-size: 16px;
+      font-weight: 400; 
+      color:#697280;
+    }
+
+    #whr_embed_hook  .whr-items .whr-item .whr-title  a {
+      color: #3c4858;
+    }
+    #whr_embed_hook  .whr-items .whr-item .whr-title  a:hover {
+      text-decoration: none;
+    }
+    #whr_embed_hook  .whr-items .whr-item  .whr-info {
+      display: none !important;
+      padding-left: 0;
+    }
+    #whr_embed_hook  .whr-items .whr-item  .whr-info li {
+      list-style: none;
+      padding-right: 20px;
+      color: #697280;
+    }
+  </style>
+  <div id="whr_embed_hook"></div>
+</div>
