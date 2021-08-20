@@ -71,7 +71,7 @@ benefits:
   title: Perks and benefits
   list:
     - icon: '/images/careers/smiley.svg'
-      title: Competetive salary and stock options
+      title: Competitive salary & stock options
     - icon: '/images/careers/book.svg'
       title: $750 personal development budget
     - icon: '/images/careers/sun.svg'
