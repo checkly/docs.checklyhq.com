@@ -19,3 +19,4 @@ Checkly integrates with the services and tool stack you use. Missing an integrat
 * [Splunk On-Call](/docs/integrations/splunk_on_call)
 * [Prometheus](/docs/integrations/prometheus)
 * [FireHydrant](/docs/integrations/firehydrant)
+* [StatusPage](/docs/integrations/statuspage)

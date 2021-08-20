@@ -1,6 +1,6 @@
 ---
 title: FireHydrant
-weight: 11
+weight: 12
 menu:
   docs:
     parent: "Integrations"
