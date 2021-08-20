@@ -15,7 +15,9 @@ disqusShortname = "checkly"
   blog = "/blog/:year/:month/:title/"
 
 [params]
-    description = "Checkly is the API & E2E monitoring platform for the modern stack: programmable, flexible and loving JavaScript."
+  description = "Checkly is the API & E2E monitoring platform for the modern stack: programmable, flexible and loving JavaScript."
+  hiringcallout = true
+  callouticon = "/images/icons/call-out.svg"
 
 [[menu.docs]]
 	name = "Monitoring"
