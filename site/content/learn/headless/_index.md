@@ -15,7 +15,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 	  headerTag="h3"
 	  title="What is Playwright"
 	  img="/learn/icons/playwright.png"
-	  description="Built on the experience of Puppeteer, Microsofts' Playwright offers unique features."
+	  description="Built on the experience of Puppeteer, Microsoft's Playwright offers unique features."
 	  link="/learn/headless/basics-playwright-intro"
 >}}
 {{< doc-card
