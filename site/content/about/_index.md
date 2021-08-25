@@ -103,9 +103,6 @@ contact:
     - country: Germany
       address: Kopernikusstraße 35 10243 Berlin
       image: "/about/svgs/ger-svg.svg"
-    - country: Netherlands
-      address: The J.P. Coenstraat 24 BIS 3531 ET Utrecht
-      image: "/about/svgs/netherlands-svg.svg"
 joinUs:
   title: Join us
   description: >-
