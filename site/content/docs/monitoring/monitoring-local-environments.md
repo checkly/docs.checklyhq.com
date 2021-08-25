@@ -10,8 +10,6 @@ Checkly allows you to check your publicly accessible websites and APIs. However,
 
 With [ngrok](https://ngrok.com/) you can secure a tunnel to your localhost, so you can run checks on your internal sites directly, without the need to deploy every change.
 
-Here 
-
 1. Go to [https://ngrok.com/](https://ngrok.com/) and create an account. 
 2. Download Ngrok, install it and [get it started](https://dashboard.ngrok.com/get-started/setup)
 3. Say you want to run checks on [http://localhost:80](http://localhost:80), you'll need expose port 80, with the command `./ngrok http 80`, or `ngrok http 80` if you extracted ngrok on your system's $PATH.
