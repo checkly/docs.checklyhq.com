@@ -165,8 +165,8 @@ infrastructure:
 statuspages:
   - service: Atlassian StatusPage
     icon: "/integrations/statuspages/statuspage@2x.png"
-    iconWidth: 153
-    iconHeight: 26
+    iconWidth: 40
+    iconHeight: 32
     ctaLink: "/docs/integrations/statuspage/"
     description: >-
       Open incidents automatically when your checks fail and keep your users up to date.
