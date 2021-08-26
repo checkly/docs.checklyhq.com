@@ -9,7 +9,7 @@ menu:
 
 Checkly allows you to check your publicly accessible websites and APIs. However, by default Checkly won't have access to sites that aren't publicly available (for instance localhost). 
 
-With [ngrok](https://ngrok.com/) you can secure a tunnel to your localhost, so you can run checks on your internal sites directly, without the need to deploy every change.
+With <a href="https://ngrok.com/" target="_blank">ngrok</a> you can secure a tunnel to your localhost, so you can run checks on your internal sites directly, without the need to deploy every change.
 
 1. Go to <a href="https://ngrok.com/" target="_blank">ngrok's site</a> and create an account. 
 2. Download Ngrok, install it and <a href="https://dashboard.ngrok.com/get-started/setup" target="_blank">get it started</a>.
