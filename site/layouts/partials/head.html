@@ -16,7 +16,6 @@
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | Checkly {{ end }}" />
   <meta property="og:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-  <!-- <meta property="og:image" content="{{ if .Params.featured_image }}{{ .Params.featured_image }}{{ else }}https://checklyhq.com/images/checkly_og_image.png{{end}}" /> -->
   <meta property="og:image" content="https://og-image-checkly.vercel.app/image.png?titleText={{ .Title }}&subtitleText={{ .Summary }}&template=site" />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:creator" content="@checklyHQ" />
@@ -24,7 +23,7 @@
   <meta property="twitter:site" content="@checklyHQ" />
   <meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | Checkly {{ end }}" />
   <meta property="twitter:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
-  <meta property="twitter:image" content="{{ if .Params.featured_image }}{{ .Params.featured_image }}{{ else }}https://checklyhq.com/images/checkly_og_image.png{{end}}" />
+  <meta property="twitter:image" content="https://og-image-checkly.vercel.app/image.png?titleText={{ .Title }}&subtitleText={{ .Summary }}&template=site" />
   <meta name="msvalidate.01" content="36F243A91FAA24DE468D8A8EECF33554" />
   <link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://blog.checklyhq.com/rss/" />
   <link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
