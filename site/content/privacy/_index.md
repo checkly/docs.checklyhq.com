@@ -4,11 +4,11 @@ title: Privacy policy
 
 # Privacy policy
 
-Last Updated: January 15, 2020
+Last Updated: August 19, 2021
 
 ---
   
-The Checkly service (hereinafter "Service") provided by the company Pink Robots B.V. provides this Privacy Policy to 
+The Checkly service (hereinafter "Service") provided by Checkly Inc. and its affiliates (Checkly GmhH) provides this Privacy Policy to 
 inform users of our policies and procedures regarding the collection, use and disclosure of information received from users
 of this website, located at https://checklyhq.com ("Site"), as well as all related websites, applications, and other 
 services provided by us (collectively, together with the Site, our “Service”).
