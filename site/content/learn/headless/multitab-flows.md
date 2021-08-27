@@ -1,11 +1,12 @@
 ---
 title: Multi-tab flows
-subTitle: TODO
-date: 2020-08-27
+subTitle: Controlling multiple tabs
+date: 2021-08-29
 author: Giovanni Rago
 githubUser: ragog
 tags:
-  - todo
+  - multi-tab
+  - testing
 
 menu:
   learn:

@@ -1,6 +1,6 @@
 ---
 title: Using Mocha in Browser Checks
-weight: 8
+weight: 9
 menu:
   docs:
     parent: "Browser checks"
