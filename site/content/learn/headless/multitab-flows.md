@@ -1,7 +1,7 @@
 ---
 title: Multi-tab flows
 subTitle: Controlling multiple tabs
-date: 2021-08-29
+date: 2021-08-25
 author: Giovanni Rago
 githubUser: ragog
 tags:
