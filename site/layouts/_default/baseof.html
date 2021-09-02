@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 {{ .Scratch.Set "template_name" "site" }}
+{{ if .Params.description }}
+	{{ .Scratch.Set "subtitle_text" .Params.description }}
+{{ else if .Params.hero.description }}
+  {{ .Scratch.Set "subtitle_text" .Params.hero.description }}
+{{ else if .Params.heroDescription }}
+  {{ .Scratch.Set "subtitle_text" .Params.heroDescription }}
+{{ end }}
 {{ partial "head" . }}
 
 <body>
