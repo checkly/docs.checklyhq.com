@@ -39,7 +39,7 @@ The screenshot below gives a quick overview of the groups' key features.
 It helps to understand how we run the checks in a group, specifically if you're doing more sophisticated checks with shared
 variables, script and alerting channels. Here are the rules:
 
-1. Check are scheduled as individual checks, not "as a group".
+1. Checks are scheduled as individual checks, not "as a group".
 2. Calling a "group run" using a trigger (either command line or via our GitHub integration) runs all the checks in a group.
 3. The group itself does not have an explicit runtime state.
 4. There are no results or metrics collected at the group level.
