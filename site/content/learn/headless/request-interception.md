@@ -79,11 +79,13 @@ Every time we load it, our test website is sending a request to its backend to f
 ```js {19-24}
 {{< readfile filename="samples/playwright/response-interception.js" >}}
 ```
+{{< run-in-checkly "/samples/playwright/response-interception.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js {19-28}
 {{< readfile filename="samples/puppeteer/response-interception.js" >}}
 ```
+{{< run-in-checkly "/samples/puppeteer/response-interception.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 

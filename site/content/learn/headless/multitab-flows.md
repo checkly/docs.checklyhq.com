@@ -24,11 +24,13 @@ If we are looking to open brand new tabs with which to interact, the setup is ra
 ```js
 {{< readfile filename="samples/playwright/multitab-open.js" >}}
 ```
+{{< run-in-checkly "/samples/playwright/multitab-open.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 {{< readfile filename="samples/puppeteer/multitab-open.js" >}}
 ```
+{{< run-in-checkly "/samples/puppeteer/multitab-open.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -45,11 +47,13 @@ With Puppeteer we need to follow a different procedure, using `page.waitForTarge
 ```js
 {{< readfile filename="samples/playwright/multitab-flows.js" >}}
 ```
+{{< run-in-checkly "/samples/playwright/multitab-flows.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 {{< readfile filename="samples/puppeteer/multitab-flows.js" >}}
 ```
+{{< run-in-checkly "/samples/puppeteer/multitab-flows.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -60,6 +64,7 @@ Note that, if running Puppeteer in headful mode, you will have to manually bring
 ```js {20}
 {{< readfile filename="samples/puppeteer/multitab-headful.js" >}}
 ```
+{{< run-in-checkly "/samples/puppeteer/multitab-headful.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
