@@ -30,11 +30,13 @@ The following example, running against our [test site](https://danube-webshop.he
 ```js
 {{< readfile filename="samples/playwright/coupon.js" >}}
 ```
+{{< run-in-checkly "/samples/playwright/coupon.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 {{< readfile filename="samples/puppeteer/coupon.js" >}}
 ```
+{{< run-in-checkly "/samples/puppeteer/coupon.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
