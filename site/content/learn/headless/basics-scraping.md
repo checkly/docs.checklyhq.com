@@ -42,7 +42,7 @@ Below is an example running against our [test site](https://danube-webshop.herok
 {{< /tab >}}
 {{< /tabs >}}
 
-As an alternative, it is also possible to retrieve an [ElementHandle](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
+As an alternative, it is also possible to retrieve an [ElementHandle](hhttps://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
@@ -158,7 +158,7 @@ $ node scraping.js
 ```
 
 ## Further reading
-1. [Playwright](https://playwright.dev/#version=v1.2.1&path=docs%2Fapi.md&q=pageevalselector-pagefunction-arg)'s adn [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pageevalselector-pagefunction-args)'s official API reference on the topic
-2. An [E2E example test](e2e-coupon/) asserting agains an element's `innerText`
+1. [Playwright](https://playwright.dev/docs/assertions#text-content)'s and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pageevalselector-pagefunction-args)'s official API reference on the topic
+2. An [E2E example test](/learn/headless/e2e-coupon/) asserting agains an element's `innerText`
 3. An excellent introduction to [scraping with Puppeteer](https://www.toptal.com/puppeteer/headless-browser-puppeteer-tutorial) by Nick Chikovani
 4. A practical tutorial on [web scraping with Puppeteer](https://blog.datahut.co/web-scraping-headless-browser-puppeteer/) by Kartik Singh

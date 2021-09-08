@@ -18,5 +18,4 @@ However, this means that not all DOM elements, browser interactions and events a
 
 If some events are not recorded, please check the source files for which elements and which events are now supported.
 
-
-- [events](https://github.com/checkly/headless-recorder/blob/master/src/code-generator/dom-events-to-record.js)
+- [events](https://github.com/checkly/headless-recorder/blob/master/src/modules/code-generator/constants.js)

@@ -37,8 +37,6 @@ In the example below we trigger two navigations:
 1. The initial load of the page.
 2. A navigation to the shopping cart by clicking a link
 
-<!-- more -->
-
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
 ```js
@@ -166,6 +164,6 @@ Which of these options is useful to you depends on your situation:
 Now that we know how to start a browser and navigate to a URL, the clear next step is to learn how to [interact with a webpage](/learn/headless/basics-clicking-typing/).
 
 ## Further reading
-1. [Playwright general navigation docs](https://playwright.dev/#version=v1.3.0&path=docs%2Floading.md&q=)
-2. [Puppeteer page.goto() docs](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pagegotourl-options)
-3. [Playwright auto waiting](https://playwright.dev/#version=v1.3.0&path=docs%2Fcore-concepts.md&q=auto-waiting)
+1. [Playwright general navigation docs](https://playwright.dev/docs/navigations)
+2. [Puppeteer page.goto() docs](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pagegotourl-options)
+3. [Playwright auto waiting](https://playwright.dev/docs/actionability)
