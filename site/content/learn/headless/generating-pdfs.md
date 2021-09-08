@@ -27,13 +27,11 @@ After loading a page, we use the `page.pdf()` command to convert it to a PDF.
 ```js {7}
 {{< readfile filename="samples/playwright/pdf-minimal.js" >}}
 ```
-{{< run-in-checkly "/samples/playwright/pdf-minimal.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js {7}
 {{< readfile filename="samples/puppeteer/pdf-minimal.js" >}}
 ```
-{{< run-in-checkly "/samples/puppeteer/pdf-minimal.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 

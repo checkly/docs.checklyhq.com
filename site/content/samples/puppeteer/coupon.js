@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const assert = require("chai").assert;
-const productsNumber = process.env.PRODUCTS_NUMBER;
+const productsNumber = process.env.PRODUCTS_NUMBER || 3;
 
 (async () => {
   const browser = await puppeteer.launch();
