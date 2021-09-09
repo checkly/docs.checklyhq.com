@@ -1,5 +1,4 @@
 ---
 title: Pricing
+description: Free for developers. Grow as you go! Enjoy our forever-free plan and a fair and transparent usage-based pricing model when you expand!
 ---
-
-Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
