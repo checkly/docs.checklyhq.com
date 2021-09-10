@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {{ .Scratch.Set "template_name" "learn" }}
+  {{ $breadcrumb_text := "" }}
+  {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
+  {{ range $index, $element := split $url "/" }}
+    {{ if ne $element "" }}
+      {{ if eq $element "learn" }}
+        {{ $breadcrumb_text = (print $breadcrumb_text "Headless Automation Guides")}}
+      {{ else }}
+        {{ if eq $index 4 }}
+          {{ $sub_str := humanize . }}
+          {{ $breadcrumb_text = (print $breadcrumb_text " / " $sub_str) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ .Scratch.Set "breadcrumb_text" $breadcrumb_text }}
   {{ partial "head" . }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 </head>

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+{{ .Scratch.Set "template_name" "site" }}
+{{ .Scratch.Set "subtitle_text" .Params.description }}
 {{ partial "head" . }}
 
 <body>

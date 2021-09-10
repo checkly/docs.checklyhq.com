@@ -1,5 +1,6 @@
 ---
 title: Synthetic Monitoring
+description: Synthetic monitoring for your vital click flows. Simulate interaction with your site in real Chrome browsers and validate the correctness and performance.
 alias:
     - transaction-monitoring
 ---
