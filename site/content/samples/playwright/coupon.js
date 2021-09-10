@@ -1,6 +1,6 @@
 const assert = require("chai").assert;
 const { chromium } = require("playwright");
-const productsNumber = process.env.PRODUCTS_NUMBER;
+const productsNumber = process.env.PRODUCTS_NUMBER || 3;
 
 (async () => {
   const browser = await chromium.launch();

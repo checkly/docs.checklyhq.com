@@ -24,7 +24,7 @@ reports the correct "success" message will work.
 ![set up GitHub integration step 2](/docs/images/cicd/github_setup_2.png)
 
 3. When accepting the installation, you are redirected back to Checkly and the integration is installed. 
-Now, go to the **CI/CD tab** of the check you want to link to a GitHub repository.    
+Now, go to the **CI/CD tab** of the check you want to link to a GitHub repository. In Browser checks, this will be under "Check settings".
 ![set up GitHub integration step 3](/docs/images/cicd/github_setup_3.png)
 
 4. Click the **"Link GitHub repo"** button and select the repository you want to link.  
