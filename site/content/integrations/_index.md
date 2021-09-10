@@ -1,5 +1,5 @@
 ---
-title: Integration
+title: Integrations
 heroTitle: Connect to the tools you already use
 heroDescription: >-
   Checkly works with the key tools, frameworks and platforms in the modern development eco-system.
@@ -171,3 +171,4 @@ statuspages:
     description: >-
       Open incidents automatically when your checks fail and keep your users up to date.
 ---
+

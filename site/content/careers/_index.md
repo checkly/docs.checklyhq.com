@@ -4,7 +4,7 @@ aliases:
   - "/jobs"
 hero:
   title: Checkly Careers
-  description: "Help create an amazing Developer Experience by delivering the #1 active monitoring platform."
+  description: "Help create an amazing Developer Experience by delivering the number one active monitoring platform."
   buttonTxt: "See open positions"
 aboutUs:
   image: '/images/careers/logo@2x.png'

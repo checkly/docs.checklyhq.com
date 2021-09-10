@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  {{ .Scratch.Set "template_name" "site" }}
   {{ partial "head" . }}
   <body class="landing">
     {{ partial "navbar" . }}
