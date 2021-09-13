@@ -41,7 +41,7 @@ Request interception enables us to observe which requests and responses are bein
 
 We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/headless/basics-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
 
-In the following snippet we are going to abort all requests for images on our test website. We will identify them based off of their [`resourceType`](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-httprequestresourcetype), while letting all other requests through without modification.
+In the following snippet we are going to abort all requests for images on our test website. We will identify them based off of their [`resourceType`](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-httprequestresourcetype), while letting all other requests through without modification.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
@@ -105,5 +105,5 @@ node request-interception.js
 
 ## Further reading
 
-1. Official documentation on this topic from [Playwright](https://playwright.dev/#version=v1.3.0&path=docs%2Fnetwork.md&q=handle-requests) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-class-httprequest).
+1. Official documentation on this topic from [Playwright](https://playwright.dev/docs/network) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-class-httprequest).
 2. [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) by Martin Fowler.

@@ -201,5 +201,5 @@ $ node basic-click-type.js
 ```
 
 ## Further reading
-1. The related official documentation of [Playwright](https://playwright.dev/#version=v1.2.1&path=docs%2Finput.md&q=) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.2.1&show=api-pageclickselector-options)
+1. The related official documentation of [Playwright](https://playwright.dev/docs/input#mouse-click) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pageclickselector-options)
 2. [Finding effective selectors](/learn/headless/basics-selectors/)
