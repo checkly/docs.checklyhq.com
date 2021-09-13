@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {{ .Scratch.Set "template_name" "docs" }}
+  {{ $breadcrumb_text := "" }}
+  {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
+  {{ range $index, $element := split $url "/" }}
+    {{ if ne $element "" }}
+      {{ if eq $element "docs" }}
+        {{ $breadcrumb_text = (print $breadcrumb_text "Checkly docs")}}
+      {{ else }}
+        {{ if eq $index 3 }}
+          {{ $sub_str := humanize . }}
+          {{ $breadcrumb_text = (print $breadcrumb_text " / " $sub_str) }}
+        {{ else }}
+          {{ $sub_str := humanize . }}
+          {{ $breadcrumb_text = (print $breadcrumb_text " / " $sub_str) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ .Scratch.Set "breadcrumb_text" $breadcrumb_text }}
   {{ partial "head" . }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 </head>
 
 <body>
-  {{ partial "promo-banner" . }}
   {{ partial "navbar" . }}
   {{ block "main" . }}
   {{ end }}

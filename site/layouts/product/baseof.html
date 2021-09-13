@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+{{ .Scratch.Set "template_name" "site" }}
+{{ .Scratch.Set "subtitle_text" .Params.description }}
 {{ partial "head" . }}
 
 <body>
-	{{ partial "promo-banner" . }}
   {{ partial "navbar" . }}
   {{ block "main" . }}
   {{ end }}
