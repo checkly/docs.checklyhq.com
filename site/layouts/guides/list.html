@@ -7,7 +7,7 @@
   			{{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "guides" }}
   				<div class="guide-card">
   					<div class="guide-info">
-  					  <h2>{{ .Title }}</h2>
+  					  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
   					  <p>{{ .Params.description }}</p>
   					</div>
   					<div class="write-info">
