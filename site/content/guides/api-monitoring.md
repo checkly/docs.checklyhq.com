@@ -248,4 +248,4 @@ As we increase our monitoring coverage across our APIs, we can also increase the
 
 1. Importing existing [Swagger/OpenAPI specs](https://www.checklyhq.com/docs/api-checks/request-settings/#import-a-swagger--openapi-specification) or even [cURL commands](https://www.checklyhq.com/docs/api-checks/request-settings/#import-a-curl-request) using built-in functionality.
 2. [Defining our API checks as code](/guides/monitoring-as-code) to scale our setup while lowering maintenance needs.
-3. Combining our API checks with [E2E monitoring](/guides/e2e-monitoring) for any website or web app service whose API we might be monitoring.
+3. Combining our API checks with [E2E monitoring](/guides/end-to-end-monitoring) for any website or web app service whose API we might be monitoring.

@@ -91,14 +91,14 @@ We are now able to read the file later and load the cookies into our new browser
 
 While brand new browser sessions with both Playwright and Puppeteer will not contain any cookies by default, there might be points when it is necessary to clear them.
 
-In case you need to clear cookies, you can use [`page.deleteCookie(...cookies)`](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagedeletecookiecookies) with Puppeteer and [`browserContext.clearCookies()`](https://playwright.dev/#version=v1.4.2&path=docs%2Fapi.md&q=browsercontextclearcookies) with Playwright.
+In case you need to clear cookies, you can use [`page.deleteCookie(...cookies)`](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pagedeletecookiecookies) with Puppeteer and [`browserContext.clearCookies()`](https://playwright.dev/docs/api/class-browsercontext#browser-context-clear-cookies) with Playwright.
 
 
 > Notice how Puppeteer handles cookies at page level while Playwright does so at context level.
 
 ## localStorage and sessionStorage
 
-Cookies are sent with every request, potentially deteriorating [performance](basics-performance/) if used for storing large amounts of data. The [localStorage and sessionStorage](https://javascript.info/localstorage) APIs can help us offload some of this data to the browser. Just like with cookies, Playwright and Puppeteer make accessing localStorage and sessionStorage straightforward.
+Cookies are sent with every request, potentially deteriorating [performance](/learn/headless/basics-performance/) if used for storing large amounts of data. The [localStorage and sessionStorage](https://javascript.info/localstorage) APIs can help us offload some of this data to the browser. Just like with cookies, Playwright and Puppeteer make accessing localStorage and sessionStorage straightforward.
 
 Our test site, [Danube](https://danube-webshop.herokuapp.com/), actually uses localStorage to keep track of a few things, such as the content of your cart. Let's see how we can access this state and then replicate it in a later session.
 
@@ -170,4 +170,4 @@ node managing-cookies.js
 
 1. The official MDN docs for [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).
 2. A practical guide to the [Web Storage APIs](https://javascript.info/localstorage), sessionStorage and localStorage.
-2. Official [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagecookiesurls) and [Playwright](https://playwright.dev/#version=v1.4.2&path=docs%2Fauth.md&q=cookies) docs around cookies.
+2. Official [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagecookiesurls) and [Playwright](https://playwright.dev/docs/api/class-browsercontext#browser-context-add-cookies) docs around cookies.
