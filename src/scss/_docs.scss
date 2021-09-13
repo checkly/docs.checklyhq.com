@@ -473,6 +473,20 @@
 
       .markdown {
         opacity: 0.25;
+
+      }
+    }
+    .docs-page {
+      .markdown {
+        .cards-list {
+          .two-column-card {
+            width: 100%;
+          }
+          .three-column-card {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+        }
       }
     }
   }
