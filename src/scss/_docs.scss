@@ -294,6 +294,10 @@
       ul {
         border-left: 2px solid $brand-primary;
         padding-left: .5rem;
+
+        li > ul {
+          display: none;
+        }
       }
     }
     .cards-list {
