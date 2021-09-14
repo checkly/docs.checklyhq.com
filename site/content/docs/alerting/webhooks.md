@@ -6,7 +6,7 @@ menu:
     parent: "Alerting"
 ---
 
-Webhooks allows you to POST custom payloads to any endpoint in your own infrastructure or a third party provider. In a
+Webhooks allow you to POST custom payloads to any endpoint in your own infrastructure or a third party provider. In a
 nutshell, you can:
 
 - Create a **custom URL** by adding in authentication tokens or other secrets.
