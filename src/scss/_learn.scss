@@ -518,8 +518,8 @@
           img {
             top: 15px;
           }
-          .ds-dropdown-menu {
-            min-width: 100%;
+          span {
+            min-width: 100% !important;
           }
         }
       }
