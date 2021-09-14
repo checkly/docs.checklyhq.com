@@ -504,11 +504,14 @@
         }
         .form-inline {
           width: 100%;
-          span {
+          input {
             height: 45px;
           }
           img {
             top: 15px;
+          }
+          .ds-dataset-1 {
+            margin-left: 8px;
           }
         }
       }
