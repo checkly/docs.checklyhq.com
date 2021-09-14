@@ -41,7 +41,7 @@ Note that we need to pass the `path` option to have the PDF file actually saved 
 
 ## Tweaking the result
 
-It is important to take a quick look at the official docs for `page.pdf()` ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagepdfoptions) or [Playwright](https://playwright.dev/#version=v1.6.1&path=docs%2Fapi.md&q=pagepdfoptions)), as it is almost certain that we will want to tweak the appearance of our page in the resulting PDF.
+It is important to take a quick look at the official docs for `page.pdf()` ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pagepdfoptions) or [Playwright](https://playwright.dev/docs/api/class-page#page-pdf)), as it is almost certain that we will want to tweak the appearance of our page in the resulting PDF.
 
 In certain cases, our webpage might look significantly different in our PDF compared to our browser. Depending on the case, it can pay off to experiment with the following:
 
