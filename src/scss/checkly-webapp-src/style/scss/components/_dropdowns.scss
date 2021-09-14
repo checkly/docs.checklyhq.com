@@ -25,8 +25,9 @@
   }
 }
 .product-dropdown {
+  padding-top: 0;
   padding-bottom: 0;
-  width: 617px;
+  width: 614px;
 
   .dropmenu-triangle {
     left: 145px;
@@ -35,26 +36,39 @@
   .d-flex {
     flex-wrap: wrap;
     justify-content: space-between;
+
+    .left-side {
+      padding-top: 15px;
+      width: 320px;
+      border-right: 1px solid $gray-lighter;
+    }
+    .right-side {
+      width: calc(100% - 320px);
+      .monitoring {
+        border-bottom: 1px solid $gray-lighter;
+      }
+    }
   }
 
   .dropdown-item {
-    width: 50%;
+    width: 100%;
     .d-flex {
       flex-wrap: nowrap;
     }
   }
 
-  .why-checkly{
+  .right-side-item{
     width: 100%;
-    border-top: 1px solid $gray-lighter;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 50%;
     .d-flex {
-      align-items: center;
       justify-content: space-between;
       .menu-title {
         color: $pink;
       }
       .menu-icon {
-        margin-right: 0;
+        margin-right: 12px;
       }
     }
   }
@@ -110,11 +124,23 @@
     }
   }
   .product-dropdown {
+    .d-flex {
+      .left-side {
+        padding-top: 0;
+        width: 100%;
+        border: 0px;
+      }
+      .right-side {
+        width: 100%;
+        .monitoring {
+          border: 0;
+        }
+      }
+    }
     .dropdown-item {
       width: 100%;
-    }
-    .dropdown-item:last-child{
-      border-top: 0px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       .d-flex {
         .menu-title {
           color: $gray-darkish;
