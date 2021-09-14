@@ -19,14 +19,14 @@
   {{ $template_name := .Scratch.Get "template_name"}}
   {{ $breadcrumb_text := .Scratch.Get "breadcrumb_text"}}
   {{ $subtitle_text := .Scratch.Get "subtitle_text"}}
-  <meta property="og:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ htmlEscape $subtitle_text | replace "\r\n" "%20" }}{{ else }}{{ htmlEscape .Summary | replace "\r\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
+  <meta property="og:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace htmlEscape $subtitle_text "\n" "%20" }}{{ else }}{{ replace htmlEscape .Summary "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:creator" content="@checklyHQ" />
   <meta property="twitter:domain" content="https://checklyhq.com" />
   <meta property="twitter:site" content="@checklyHQ" />
   <meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | Checkly {{ end }}" />
   <meta property="twitter:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
-  <meta property="twitter:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ htmlEscape $subtitle_text | replace "\r\n" "%20" }}{{ else }}{{ htmlEscape .Summary | replace "\r\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
+  <meta property="twitter:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace htmlEscape $subtitle_text "\n" "%20" }}{{ else }}{{ replace htmlEscape .Summary "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
   <meta name="msvalidate.01" content="36F243A91FAA24DE468D8A8EECF33554" />
   <link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://blog.checklyhq.com/rss/" />
   <link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
