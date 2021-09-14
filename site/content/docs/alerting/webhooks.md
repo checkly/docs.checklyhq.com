@@ -244,14 +244,39 @@ In case you would like different teams to be responsible for different Check Gro
 ]
 ```
 
+## PagerDuty
+
+Given an existing service on your PagerDuty account, create an incident for it by posting the following body
+
+```json
+{
+  "incident": {
+    "type": "incident",
+    "title": "{{ALERT_TITLE}}",
+    "service": {
+      "id": "<YOUR_SERVICE_ID_FROM_PAGERDUTY>",
+      "type": "service_reference"
+    },
+    "body": {
+      "type": "incident_body",
+      "details": "Check {{CHECK_NAME}} with ID {{CHECK_ID}} has failed from location {{RUN_LOCATION}}. See check result for details: {{RESULT_LINK}}"
+    }
+  }
+}
+```
+
+to `https://api.pagerduty.com/incidents`. You will need to set the following headers:
+
+![pagerduty incident headers](/docs/images/alerting/webhook-pagerduty-headers.png)
+
 ## Pushover
 
 Send a message using [Pushover](https://pushover.net/) by posting this body:
 
 ```json
 {
-  "token":"FILL_IN_YOUR_SECRET_TOKEN_FROM_PUSHOVER",
-  "user":"FILL_IN_YOUR_USER_FROM_PUSHOVER",
+  "token":"YOUR_SECRET_TOKEN_FROM_PUSHOVER",
+  "user":"YOUR_USER_FROM_PUSHOVER",
   "title":"{{ALERT_TITLE}}",
   "html":1,
   "priority":2,
