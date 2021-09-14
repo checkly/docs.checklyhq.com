@@ -27,6 +27,14 @@
 	  	  letter-spacing: 0.3px;
 	  	  margin-bottom: 10px;
 	  	  color: $black;
+
+	  	  a {
+	  	    color: $black;
+	  	  }
+
+	  	  a:hover {
+	  	    text-decoration-color: $black;
+	  	  }
 	  	}
 	  	p {
 	  	  margin-bottom: 0;

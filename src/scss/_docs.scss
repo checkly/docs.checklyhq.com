@@ -294,6 +294,10 @@
       ul {
         border-left: 2px solid $brand-primary;
         padding-left: .5rem;
+
+        li > ul {
+          display: none;
+        }
       }
     }
     .cards-list {
@@ -469,6 +473,20 @@
 
       .markdown {
         opacity: 0.25;
+
+      }
+    }
+    .docs-page {
+      .markdown {
+        .cards-list {
+          .two-column-card {
+            width: 100%;
+          }
+          .three-column-card {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+        }
       }
     }
   }
