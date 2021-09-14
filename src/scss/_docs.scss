@@ -504,11 +504,14 @@
         }
         .form-inline {
           width: 100%;
-          span {
+          input {
             height: 45px;
           }
           img {
             top: 15px;
+          }
+          span {
+            min-width: 100% !important;
           }
         }
       }
