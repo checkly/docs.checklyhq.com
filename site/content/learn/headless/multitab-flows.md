@@ -61,7 +61,7 @@ Note that, if running Puppeteer in headful mode, you will have to manually bring
 
 {{< tabs "3" >}}
 {{< tab "Puppeteer" >}}
-```js {20}
+```js {hl_lines=[20]}
 {{< readfile filename="samples/puppeteer/multitab-headful.js" >}}
 ```
 {{< run-in-checkly "/samples/puppeteer/multitab-headful.js" "puppeteer"  >}}

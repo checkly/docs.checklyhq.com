@@ -25,12 +25,12 @@ On our [test site](https://danube-webshop.herokuapp.com/), such a test could loo
 
 {{< tabs "1">}}
 {{< tab "Playwright" >}}
-```js {18-21}
+```js {hl_lines=["19-22"]}
 {{< readfile filename="samples/playwright/file-upload.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {24-27}
+```js {hl_lines=["25-28"]}
 {{< readfile filename="samples/puppeteer/file-upload.js" >}}
 ```
 {{< /tab >}}
