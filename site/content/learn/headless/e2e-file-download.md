@@ -31,12 +31,12 @@ We can approach this scenario in different ways. One possibility is to perform t
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
-```js {22-27}
+```js {hl_lines=["23-28"]}
 {{< readfile filename="samples/playwright/file-download.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {29-34}
+```js {hl_lines=["29-35"]}
 {{< readfile filename="samples/puppeteer/file-download.js" >}}
 ```
 {{< /tab >}}
@@ -48,7 +48,7 @@ Note that in this case, we need to enable downloads in the browser context befor
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {7,22-25,27}
+```js {hl_lines=["23-26"]}
 {{< readfile filename="samples/playwright/file-download-alt.js" >}}
 ```
 {{< /tab >}}

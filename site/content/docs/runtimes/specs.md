@@ -34,4 +34,6 @@ See the [built-in module documentation on the official Node.js site](https://nod
 
 These are the currently available runtimes and the included external NPM dependencies.
 
+> Note: the below libraries are included for **setup and teardown scripts** as well, with the exclusion of Puppeteer, Playwright and Mocha.
+
 {{< runtimes >}}

@@ -24,13 +24,13 @@ The `page.screenshot` command is consistent across Playwright and Puppeteer, and
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
-```js {6,8}
+```js
 {{< readfile filename="samples/playwright/basic-screenshot.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-screenshot.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {6,8}
+```js 
 {{< readfile filename="samples/puppeteer/basic-screenshot.js" >}}
 ```
 {{< run-in-checkly "/samples/puppeteer/basic-screenshot.js" "puppeteer"  >}}
