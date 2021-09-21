@@ -45,13 +45,13 @@ In the following snippet we are going to abort all requests for images on our te
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {hl_lines=["11-13"]}
+```js {hl_lines=["11-13", "16-20"]}
 {{< readfile filename="samples/playwright/request-interception-block.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/request-interception-block.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {hl_lines=[13,14]}
+```js {hl_lines=[13,14, "17-21"]}
 {{< readfile filename="samples/puppeteer/request-interception-block.js" >}}
 ```
 {{< run-in-checkly "/samples/puppeteer/request-interception-block.js" "puppeteer"  >}}

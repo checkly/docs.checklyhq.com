@@ -56,12 +56,12 @@ We can also have custom headers and footers added to our pages, displaying value
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {hl_lines=["11-12","21-31"]}
+```js {hl_lines=["11-12","18-31"]}
 {{< readfile filename="samples/playwright/pdf-hd.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {hl_lines=["11-12","23-33"]}
+```js {hl_lines=["11-12","20-33"]}
 {{< readfile filename="samples/puppeteer/pdf-hd.js" >}}
 ```
 {{< /tab >}}
