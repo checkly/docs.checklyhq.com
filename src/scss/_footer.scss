@@ -91,6 +91,10 @@
 @include media-breakpoint-down(md) {
   .footer {
     .footer-top {
+      .mb-4 {
+        margin-bottom: 0 !important;
+      }
+      
       h6 {
         margin-bottom: $spacer;
         &:before {
