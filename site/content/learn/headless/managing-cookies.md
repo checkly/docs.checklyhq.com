@@ -26,12 +26,12 @@ The following examples show how we can save existing cookies after logging in to
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
-```js {20,21,23}
+```js {hl_lines=[21,22,24]}
 {{< readfile filename="samples/playwright/cookies-reading.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {18,19,21}
+```js {hl_lines=[19,20,22]}
 {{< readfile filename="samples/puppeteer/cookies-reading.js" >}}
 ```
 {{< /tab >}}
@@ -75,12 +75,12 @@ We are now able to read the file later and load the cookies into our new browser
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {8,10,11}
+```js {hl_lines=[9,11,12]}
 {{< readfile filename="samples/playwright/cookies-writing.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {8,10,11}
+```js {hl_lines=[9,11,12]}
 {{< readfile filename="samples/puppeteer/cookies-writing.js" >}}
 ```
 {{< /tab >}}
@@ -106,12 +106,12 @@ We will first fill the cart by adding three items, then we will copy the content
 
 {{< tabs "3" >}}
 {{< tab "Playwright" >}}
-```js {16,17}
+```js {hl_lines=[17,18]}
 {{< readfile filename="samples/playwright/localstorage-reading.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {21,22}
+```js {hl_lines=[22,23]}
 {{< readfile filename="samples/puppeteer/localstorage-reading.js" >}}
 ```
 {{< /tab >}}
@@ -129,12 +129,13 @@ We can use the content of this file to set localStorage in a separate session. T
 
 {{< tabs "4" >}}
 {{< tab "Playwright" >}}
-```js {10,12-17}
+```js {hl_lines=[10,"12-17"]}
+
 {{< readfile filename="samples/playwright/localstorage-writing.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {10,12-17}
+```js {hl_lines=[9,"11-16"]}
 {{< readfile filename="samples/puppeteer/localstorage-writing.js" >}}
 ```
 {{< /tab >}}
