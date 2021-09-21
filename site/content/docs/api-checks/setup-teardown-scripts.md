@@ -385,8 +385,7 @@ Response properties are exposed a standard Javascript object. These are only ava
 
 ## Included libraries
 
-All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js
-standard library or to arbitrary NPM modules. Currently every runner is equipped with the following libraries:
+All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js standard library or to arbitrary NPM modules. 
 
 Check out [our runtimes documentation](/docs/runtimes/specs) for a full specification of which modules are included.
 
