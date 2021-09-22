@@ -1,18 +1,16 @@
 ---
 title: Setup and teardown script for API monitoring
 description: >-
-  TODO
+  Setup and teardown scripts are fundamental tools to adapt your API checks to real-world scenarios and tailor them to your own target endpoints. Their power and flexibility can intimidate beginners, who might struggle to understand how the different parts fit together. This guide will present and break down different real-world examples to help you master these helpful tools.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
 ## The importance of self-contained checks
 
-Checks run independently and on different schedules. It is therefore important not to create inter-check dependencies, which could introduce false failures that do not depend on the target system's status. Checkly prevents (or tries to prevent) this antipattern by having each check run fully isolated in its own sandbox.
+Checks run independently and on different schedules. It is therefore important not to create dependencies between them, which could introduce failures that do not depend on the target system's status. These are also known as "false failures" and "flakiness". Checkly prevents (or tries to prevent) this antipattern by having each check run fully isolated in its own sandbox.
 
-But then how do we run more complex API checks that might have prerequisites (think auth tokens, test data) that themselves require an API call? That's what [setup and teardown scripts](https://www.checklyhq.com/docs/api-checks/setup-teardown-scripts/) exist for. They run respectively right before and right after the API check's main request (and, in the case of the teardown, just before the check's assertions), and enable us to do any preparation, elaboration and cleanup that might be needed to make our check work according to [best practices](https://www.checklyhq.com/learn/headless/valuable-tests/). 
-
-TODO Rephrase above
+But then how do we run more complex API checks that might have prerequisites (think auth tokens, test data) that themselves require an API call? That's what [setup and teardown scripts](https://www.checklyhq.com/docs/api-checks/setup-teardown-scripts/) exist for. They run respectively right before and right after the API check's main request (and, in the case of the teardown, just before the check's assertions), and enable us to do any preparation, elaboration and cleanup that might be needed to make our check work according to industry [best practices](https://www.checklyhq.com/learn/headless/valuable-tests/). 
 
 ## Setup scripts
 
@@ -21,8 +19,6 @@ Setup scripts are where we prepare everything that needs to be in place before t
 - HTTP requests to other services (and parsing of the responses)
 - encrypt data payloads
 - generate unique IDs, timestamps and date strings
-
-? TODO link runtimes for included libraries:L https://www.checklyhq.com/docs/runtimes/specs
 
 In many cases, we will need to pass data we have retrieved, modified or created into the main HTTP request from our setup script. To do this, we have direct access to every field of the `request` object:
 
@@ -36,13 +32,23 @@ In many cases, we will need to pass data we have retrieved, modified or created 
 
 This means we can e.g. set the `Authorization` header of the request programmatically (maybe with a value we have just fetched in the same script) by setting `request.headers['Authorization'] = my_token`, or set the request body content with `request.body = { 'id': 123 }`.
 
+> Like with [Browser checks](/docs/browser-checks), which libraries and modules are available in setup and teardown scripts depends on which [Runtime]() you are running on. You can find a list of exactly [which libraries are included](/docs/runtimes/specs) in which runtime.
+
 ### Prepare test data
 
 A check that is self-contained is responsible for preparing (and cleaning up) all the test data it needs to properly test the target functionality. Let's take a look at an example.
 
-We [use Checkly to monitor Checkly](https://blog.checklyhq.com/how-we-monitor-checkly/)! That means also [our API](https://www.checklyhq.com/docs/api), which includes endpoints for CRUD operations on checks, groups, alert channels and other resources. One of the checks we run verifies that our `DELETE /v1/checks/{id}` works. To verify that we will need a check to actually delete. To keep things nice and clean, we can create a new check in the setup script, then retrieve its ID and pass it to the main HTTP request so we can tell our API exactly which check to delete.
+We [use Checkly to monitor Checkly](https://blog.checklyhq.com/how-we-monitor-checkly/)! That means also [our API](https://www.checklyhq.com/docs/api), which includes endpoints for CRUD operations on checks, groups, alert channels and other resources. One of the checks we run verifies that our `DELETE /v1/checks/{id}` works correctly. To verify that we will need a check to actually delete. To keep things nice and clean, we can create a new check in the setup script, then retrieve its unique `id` and pass it to the main HTTP request so we can tell our API exactly which check to delete.
 
-Let's look at the setup script. The first thing we need to do is decide what library we will use for creating our dummy check, then import it. I will use axios.
+First things first, let's look at the basic HTTP request config inside our new API check. Note that this will be the request to delete the existing check, not the one to create the dummy check that will be deleted: that will be featured in our setup script, which will run before the request shown below.
+
+Our main request will hit the `DELETE` endpoint at `https://api.checklyhq.com/v1/checks`:
+
+{{< figure src="/guides/images/guides-checkly-setup-delete.png" alt="checkly API check http request config" title="The basic config for our API check's HTTP request" >}}
+
+Note that we are including the `Authorization` header set to `Bearer <YOUR_CHECKLY_API_KEY>`. We will not need to set the body or other parameters.
+
+Let's now look at the setup script. The first thing we need to do is decide what library we will use for creating our dummy check, then import it. I will use axios:
 
 ```js
 const axios = require("axios"); // import axios library explicitly
@@ -64,7 +70,7 @@ const { data } = await axios({ // create dummy check on checkly
 Note that you can use [environment variables](https://www.checklyhq.com/docs/api-checks/variables/) not to expose your credentials in the setup script:
 
 ```js
-const apiKey = process.env.API_KEY
+const apiKey = process.env.API_KEY;
 
 const { data } = await axios({ // create dummy check on checkly
   ...
@@ -131,6 +137,8 @@ const { data } = await axios({ // create dummy check on checkly
 const checkId = data.id; // extract dummy check id from response
 request.url = request.url + "/" + checkId; // pass check id as path param in check's main http request url
 ```
+
+TODO EXPLAIN WHAT YOU JUST DID
 
 How to monitor api endpoint that needs specific test data always present?
 example: delete check endpoint, which deletes an existing check
