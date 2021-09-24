@@ -1,0 +1,80 @@
+@import 'variables.scss';
+
+.cardbg {
+    position: relative;
+	width: 100%;
+	height: 200px;
+	margin-bottom: 17px;
+	background-size: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    div {
+        background: #161616;
+        opacity: 0.15;
+        width: 100%;
+	    height: 200px;
+    }
+        img {
+            position: absolute;
+            top: 80%;
+            left: 5%;
+          }
+        .schwarz-logo {
+            position: absolute;
+            top: 26%;
+            left: 0%;
+        }
+}
+
+.opensource {
+    .card{
+        padding: 0 !important;
+    }
+}
+.main-text{
+    padding: 10px 20px 20px 20px;
+}
+
+.finn {
+    background-image: url("../casestudiesmain/finnauto.webp");
+}
+.locus {
+    background-image: url("../casestudiesmain/locus.webp");
+}
+.schwarz {
+    background-image: url("../casestudiesmain/schwarz.webp");
+}
+
+.password { 
+    background-image: url("../casestudiesmain/1pass.webp");
+}
+
+@include media-breakpoint-down(sm) {
+	.cta-link {
+	    margin-left: 0px !important;
+	}
+    .cases {
+        font-size: 32px !important;
+    }
+    .card-set{
+        margin: 0 -15px !important;
+    }
+	}
+@include media-breakpoint-down(xs) {
+    .cta-wraps {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    }
+
+@include media-breakpoint-down(md) {
+    .card-set {
+        margin: 0 20px;
+        justify-content: space-around;
+    }
+    .main-client{
+        justify-content: center;
+    }
+}

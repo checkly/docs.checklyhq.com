@@ -17,6 +17,9 @@
 		}
 
 	}
+	&__detail {
+		margin-right: 30px;
+	}
 	&__initiatives {
 		padding: 60px 0 50px;
 
@@ -86,7 +89,6 @@
 	  	margin-bottom: 17px;
 	  	background-image: url('../opensource/image-background-pattern.png');
 	  	background-size: 80px;
-
 	  	img {
 	  	  position: absolute;
 	  		top: 50%;
@@ -145,7 +147,7 @@
 	}
 	@include media-breakpoint-down(md) {
 		&__hero {
-	  	margin-bottom: 50px;
+		margin-bottom: 50px;
 	  }
 	  &__initiatives {
 	  	padding-top: 0;
@@ -153,6 +155,10 @@
 	  &__posts {
 	  	padding-top: 50px;
 	  }
+	  &__detail {
+		margin-right: 0 !important;
+	}
+	  
 	  .card {
 			.cta-wraps {
 				flex-wrap: no-wrap;
@@ -173,6 +179,14 @@
 		  width: 100%;
 		  border-radius: 5px;
 		}
+	}
+	@include media-breakpoint-down(sm) {
+	&__detail,&__aligning {
+		margin: 0 30px 20px 30px;
+	}
+	&__detail {
+		margin-right: 30px !important;
+	}
 	}
 }
 
