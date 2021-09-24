@@ -17,6 +17,9 @@
 		}
 
 	}
+	&__detail {
+		margin-right: 30px;
+	}
 	&__initiatives {
 		padding: 60px 0 50px;
 
@@ -173,6 +176,14 @@
 		  width: 100%;
 		  border-radius: 5px;
 		}
+	}
+	@include media-breakpoint-down(sm) {
+	&__detail,&__aligning {
+		margin: 0 30px 20px 30px;
+	}
+	&__detail {
+		margin-right: 30px !important;
+	}
 	}
 }
 
