@@ -1,80 +1,241 @@
-@import 'variables.scss';
+@import "variables.scss";
 
-.cardbg {
-    position: relative;
-	width: 100%;
-	height: 200px;
-	margin-bottom: 17px;
-	background-size: 80px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    div {
+.case-studies {
+  &__hero {
+    margin-bottom: 58px;
+    .display-3 {
+      width: 100%;
+      line-height: 120%;
+      letter-spacing: -0.04em;
+    }
+    &__lead {
+      width: 100%;
+      font-size: 18px;
+    }
+    p {
+      margin-bottom: 0px !important;
+    }
+  }
+  &__detail {
+    margin-right: 30px;
+  }
+  &__initiatives {
+    padding: 60px 0 0px;
+
+    .section-header {
+      margin-bottom: 30px;
+    }
+
+    .d-flex {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      h5 {
+        display: flex;
+        align-items: center;
+
+        span {
+          font-size: 14px;
+        }
+
+        img {
+          margin: 0 5px 3px 10px;
+        }
+      }
+    }
+  }
+  &__mmr {
+    padding: 40px 0 58px;
+    background: $ash;
+
+    p {
+      max-width: 580px;
+      width: 100%;
+      margin: 0 auto 20px;
+      text-align: center;
+      color: $black;
+    }
+  }
+  &__posts {
+    padding: 100px 0 0;
+
+    .section-header {
+      margin-bottom: 7px;
+
+      img {
+        vertical-align: unset;
+      }
+    }
+
+    .d-flex {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 43px;
+    }
+  }
+  .cases {
+    color: #161616;
+  }
+  .card {
+    padding: 0px;
+    margin-bottom: 30px;
+    width: calc((100% - 80px) / 3);
+    border-radius: 5px;
+    .finn {
+      background-image: url("../casestudiesmain/finnauto.webp");
+    }
+    .locus {
+      background-image: url("../casestudiesmain/locus.webp");
+    }
+    .schwarz {
+      background-image: url("../casestudiesmain/schwarz.webp");
+    }
+    .password {
+      background-image: url("../casestudiesmain/1pass.webp");
+    }
+    h5 {
+      margin-bottom: 5px;
+    }
+    h6 {
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      color: $gray-darkish;
+    }
+    .main-text {
+      padding: 10px 20px 20px 20px;
+      p {
+        color: #3c4858;
+      }
+    }
+    .cardbg {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      margin-bottom: 17px;
+      background-size: 80px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      .opacity-filter {
         background: #161616;
         opacity: 0.15;
         width: 100%;
-	    height: 200px;
+        height: 200px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      img {
+        position: absolute;
+        top: 80%;
+        left: 5%;
+      }
+      .schwarz-logo {
+        position: absolute;
+        top: 26%;
+        left: 0%;
+      }
     }
-        img {
-            position: absolute;
-            top: 80%;
-            left: 5%;
-          }
-        .schwarz-logo {
-            position: absolute;
-            top: 26%;
-            left: 0%;
-        }
-}
-
-.opensource {
-    .card{
-        padding: 0 !important;
-    }
-}
-.main-text{
-    padding: 10px 20px 20px 20px;
-}
-
-.finn {
-    background-image: url("../casestudiesmain/finnauto.webp");
-}
-.locus {
-    background-image: url("../casestudiesmain/locus.webp");
-}
-.schwarz {
-    background-image: url("../casestudiesmain/schwarz.webp");
-}
-
-.password { 
-    background-image: url("../casestudiesmain/1pass.webp");
-}
-
-@include media-breakpoint-down(sm) {
-	.cta-link {
-	    margin-left: 0px !important;
-	}
-    .cases {
-        font-size: 32px !important;
-    }
-    .card-set{
-        margin: 0 -15px !important;
-    }
-	}
-@include media-breakpoint-down(xs) {
     .cta-wraps {
-        flex-direction: column !important;
-        align-items: flex-start !important;
+      display: flex;
+      align-items: center;
+      .cta-link {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        img {
+          margin-right: 5px;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .cta-link:nth-child(2) {
+        margin-left: 30px;
+      }
     }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .card {
+      .cta-wraps {
+        flex-wrap: wrap;
+
+        .cta-link {
+          width: 100%;
+        }
+
+        .cta-link:nth-child(2) {
+          margin-top: 10px;
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__hero {
+      margin-bottom: 50px;
+    }
+    &__initiatives {
+      padding-top: 0;
+    }
+    &__posts {
+      padding-top: 50px;
+    }
+    &__detail {
+      margin-right: 0 !important;
     }
 
-@include media-breakpoint-down(md) {
+    .card {
+      margin-bottom: 20px;
+      width: 100%;
+      border-radius: 5px;
+      .cta-wraps {
+        flex-wrap: no-wrap;
+
+        .cta-link {
+          width: auto;
+        }
+
+        .cta-link:nth-child(2) {
+          margin-left: 30px;
+          margin-top: 0;
+        }
+      }
+    }
     .card-set {
-        margin: 0 20px;
-        justify-content: space-around;
+      margin: 0 20px;
+      justify-content: space-around;
     }
-    .main-client{
-        justify-content: center;
+    .main-client {
+      justify-content: center;
     }
+  }
+  @include media-breakpoint-down(sm) {
+    &__detail,
+    &__aligning {
+      margin: 0 30px 20px 30px;
+    }
+    &__detail {
+      margin-right: 30px !important;
+    }
+    .cta-link {
+      margin-left: 0px !important;
+    }
+    .cases {
+      font-size: 32px !important;
+    }
+    .card-set {
+      margin: 0 -15px !important;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .cta-wraps {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+  }
 }
