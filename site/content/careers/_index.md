@@ -14,7 +14,7 @@ aboutUs:
 features:
   - number: "350+"
     text: HAPPY Customers
-  - number: "19"
+  - number: "21"
     text: EMPLOYEES
   - number: "$12M"
     text: RAISED
