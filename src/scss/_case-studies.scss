@@ -544,6 +544,12 @@
     margin-bottom: 30px;
     width: calc((100% - 80px) / 3);
     border-radius: 5px;
+	&:hover{
+		background-color: #F9FAFC;
+	}
+	a:hover {
+		text-decoration: none;
+	}
     .finn {
       background-image: url("../case-studies/finnauto.webp");
     }
@@ -614,6 +620,10 @@
           display: none;
         }
       }
+	  .cta-p {
+		  color: #45C8F1 !important;
+          font-weight: 600;
+	  }
       .cta-link:nth-child(2) {
         margin-left: 30px;
       }
