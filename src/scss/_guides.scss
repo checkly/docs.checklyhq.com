@@ -17,7 +17,9 @@
 	  border: 1px solid $gray-light;
 	  border-radius: 6px;
 	  margin-bottom: 30px;
-
+		&:hover{
+			background: $gray-lightest
+		}
 	  .guide-info {
 	  	padding: 20px 20px 24px 20px;
 
