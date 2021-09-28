@@ -539,6 +539,10 @@
   .cases {
     color: #161616;
   }
+  .soon-card {
+	border: 0px !important;
+	background-color: #F9FAFC !important;
+	}
   .card {
     padding: 0px;
     margin-bottom: 30px;
@@ -579,6 +583,10 @@
       p {
         color: #3c4858;
       }
+	  .coming-soon{
+		  font-weight: 600;
+		  color: #8492A6
+	  }
     }
     .cardbg {
       position: relative;
