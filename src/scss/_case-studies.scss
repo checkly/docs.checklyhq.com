@@ -544,6 +544,8 @@
     margin-bottom: 30px;
     width: calc((100% - 80px) / 3);
     border-radius: 5px;
+	a {color:inherit;
+	text-decoration:none;}
 	&:hover{
 		background-color: #F9FAFC;
 	}
@@ -613,6 +615,7 @@
         display: flex;
         align-items: center;
         font-size: 14px;
+		color: #45C8F1 !important;
         img {
           margin-right: 5px;
         }
