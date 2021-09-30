@@ -101,7 +101,7 @@ const { data } = await axios({ // create dummy check on Checkly
 }
 ```
 
-The last bit of the script is where we will extract the `id` of the newly created dummy check from the response to our axios request, in order to pass it on to our API check's own HTTP request. Specifically, we will adding the `id` to the target URL, as the target endpoint (`DELETE /v1/checks/{id}`) requires.
+The last bit of the script is where we will extract the `id` of the newly created dummy check from the response to our axios request, in order to pass it on to our API check's own HTTP request. Specifically, we will add the `id` to the target URL, as the target endpoint (`DELETE /v1/checks/{id}`) requires.
 
 ```js
 const checkId = data.id; // extract dummy check id from response
