@@ -86,7 +86,6 @@
 	  	margin-bottom: 17px;
 	  	background-image: url('../opensource/image-background-pattern.png');
 	  	background-size: 80px;
-
 	  	img {
 	  	  position: absolute;
 	  		top: 50%;
@@ -145,7 +144,7 @@
 	}
 	@include media-breakpoint-down(md) {
 		&__hero {
-	  	margin-bottom: 50px;
+		margin-bottom: 50px;
 	  }
 	  &__initiatives {
 	  	padding-top: 0;
@@ -153,6 +152,7 @@
 	  &__posts {
 	  	padding-top: 50px;
 	  }
+	  
 	  .card {
 			.cta-wraps {
 				flex-wrap: no-wrap;

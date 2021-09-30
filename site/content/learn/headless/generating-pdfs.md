@@ -24,12 +24,12 @@ After loading a page, we use the `page.pdf()` command to convert it to a PDF.
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
-```js {7}
+```js {hl_lines=[7]}
 {{< readfile filename="samples/playwright/pdf-minimal.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {7}
+```js {hl_lines=[7]}
 {{< readfile filename="samples/puppeteer/pdf-minimal.js" >}}
 ```
 {{< /tab >}}
@@ -56,12 +56,12 @@ We can also have custom headers and footers added to our pages, displaying value
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {10-11,21-31}
+```js {hl_lines=["11-12","18-31"]}
 {{< readfile filename="samples/playwright/pdf-hd.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js {10-11,13,23-33}
+```js {hl_lines=["11-12","20-33"]}
 {{< readfile filename="samples/puppeteer/pdf-hd.js" >}}
 ```
 {{< /tab >}}

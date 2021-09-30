@@ -168,7 +168,7 @@
 	  text-align: center;
 
 	  .col-sm-4{
-	  	postion: relative;
+	  	position: relative;
 
 	  	img {
 	  	  position: absolute;
@@ -428,7 +428,7 @@
 		    color: $white;
 		  }
 		  .col-sm-4{
-		  	postion: relative;
+		  	position: relative;
 		  	border-bottom: 1px solid rgba(255, 255, 255, .2);
 		  	padding: 50px 0;
 		  	width: calc(100% - 140px);
@@ -459,3 +459,266 @@
 		}
 	}
 }
+
+@import "variables.scss";
+
+.case-studies {
+  &__hero {
+    margin-bottom: 58px;
+    .display-3 {
+      width: 100%;
+      line-height: 120%;
+      letter-spacing: -0.04em;
+    }
+    &__lead {
+      width: 100%;
+      font-size: 18px;
+    }
+    p {
+      margin-bottom: 0px !important;
+    }
+  }
+  &__detail {
+    margin-right: 30px;
+  }
+  &__initiatives {
+    padding: 60px 0 0px;
+
+    .section-header {
+      margin-bottom: 30px;
+    }
+
+    .d-flex {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      h5 {
+        display: flex;
+        align-items: center;
+
+        span {
+          font-size: 14px;
+        }
+
+        img {
+          margin: 0 5px 3px 10px;
+        }
+      }
+    }
+  }
+  &__mmr {
+    padding: 40px 0 58px;
+    background: $ash;
+
+    p {
+      max-width: 580px;
+      width: 100%;
+      margin: 0 auto 20px;
+      text-align: center;
+      color: $black;
+    }
+  }
+  &__posts {
+    padding: 100px 0 0;
+
+    .section-header {
+      margin-bottom: 7px;
+
+      img {
+        vertical-align: unset;
+      }
+    }
+
+    .d-flex {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 43px;
+    }
+  }
+  .cases {
+    color: #161616;
+  }
+  .soon-card {
+	border: 0px !important;
+	background-color: #F9FAFC !important;
+	}
+  .card {
+    padding: 0px;
+    margin-bottom: 30px;
+    width: calc((100% - 80px) / 3);
+    border-radius: 5px;
+	a {color:inherit;
+	text-decoration:none;}
+	&:hover{
+		background-color: #F9FAFC;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+    .finn {
+      background-image: url("../case-studies/finnauto.webp");
+    }
+    .locus {
+      background-image: url("../case-studies/locus.webp");
+    }
+    .schwarz {
+      background-image: url("../case-studies/schwarz.webp");
+    }
+    .password {
+      background-image: url("../case-studies/1pass.webp");
+    }
+    h5 {
+      margin-bottom: 5px;
+    }
+    h6 {
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      color: $gray-darkish;
+    }
+    .main-text {
+      padding: 10px 20px 20px 20px;
+      p {
+        color: #3c4858;
+      }
+	  .coming-soon{
+		  font-weight: 600;
+		  color: #8492A6
+	  }
+    }
+    .cardbg {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      margin-bottom: 17px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      .opacity-filter {
+        background: #161616;
+        opacity: 0.15;
+        width: 100%;
+        height: 200px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      img {
+        position: absolute;
+        top: 80%;
+        left: 5%;
+      }
+      .schwarz-logo {
+        position: absolute;
+        top: 26%;
+        left: 0%;
+      }
+    }
+    .cta-wraps {
+      display: flex;
+      align-items: center;
+      .cta-link {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+		color: #45C8F1 !important;
+        img {
+          margin-right: 5px;
+        }
+        &:after {
+          display: none;
+        }
+      }
+	  .cta-p {
+		  color: #45C8F1 !important;
+          font-weight: 600;
+	  }
+      .cta-link:nth-child(2) {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .card {
+      .cta-wraps {
+        flex-wrap: wrap;
+
+        .cta-link {
+          width: 100%;
+        }
+
+        .cta-link:nth-child(2) {
+          margin-top: 10px;
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__hero {
+      margin-bottom: 50px;
+    }
+    &__initiatives {
+      padding-top: 0;
+    }
+    &__posts {
+      padding-top: 50px;
+    }
+    &__detail {
+      margin-right: 0 !important;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      width: 100%;
+      border-radius: 5px;
+      .cta-wraps {
+        flex-wrap: no-wrap;
+
+        .cta-link {
+          width: auto;
+        }
+
+        .cta-link:nth-child(2) {
+          margin-left: 30px;
+          margin-top: 0;
+        }
+      }
+    }
+    .card-set {
+      margin: 0 20px;
+      justify-content: space-around;
+    }
+    .main-client {
+      justify-content: center;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__detail,
+    &__aligning {
+      margin: 0 30px 20px 30px;
+    }
+    &__detail {
+      margin-right: 30px !important;
+    }
+    .cta-link {
+      margin-left: 0px !important;
+    }
+    .cases {
+      font-size: 32px !important;
+    }
+    .card-set {
+      margin: 0 -15px !important;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    .cta-wraps {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+  }
+}
+
