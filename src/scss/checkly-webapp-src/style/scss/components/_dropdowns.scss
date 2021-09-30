@@ -44,6 +44,7 @@
     }
     .right-side {
       width: calc(100% - 320px);
+      padding-top: 15px;
       .monitoring {
         border-bottom: 1px solid $gray-lighter;
       }
@@ -59,9 +60,7 @@
 
   .right-side-item{
     width: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    height: 50%;
+    height: 33%;
     .d-flex {
       justify-content: space-between;
       .menu-title {
@@ -132,6 +131,7 @@
       }
       .right-side {
         width: 100%;
+        padding-top: 0px;
         .monitoring {
           border: 0;
         }
