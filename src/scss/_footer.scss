@@ -64,6 +64,13 @@
 
   .desktop-show {
     display: block;
+    .hiring-badge{
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      background-color: #FF659D;
+      border-radius: 3px;
+    }
   }
 
   .dot {
