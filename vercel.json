@@ -13,7 +13,7 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         { "key": "x-frame-options", "value": "deny" },
         { "key": "x-xss-protection", "value": "0" },
