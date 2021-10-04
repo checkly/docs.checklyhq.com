@@ -6,16 +6,16 @@
   },
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/jamstackconf",
       "headers": [
-        { "key": "x-frame-options", "value": "deny" },
         { "key": "x-xss-protection", "value": "0" },
         { "key": "x-content-type-options", "value": "nosniff" }
       ]
     },
     {
-      "source": "/jamstackconf",
+      "source": "/(.*)",
       "headers": [
+        { "key": "x-frame-options", "value": "deny" },
         { "key": "x-xss-protection", "value": "0" },
         { "key": "x-content-type-options", "value": "nosniff" }
       ]
