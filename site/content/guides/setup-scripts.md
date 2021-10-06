@@ -222,14 +222,6 @@ request.body = JSON.stringify(responseData) // set request body to stringified r
 ```
 
 
-
-
-
-
-
-
-
-
 ```
 const axios = require('axios')
 
@@ -246,14 +238,5 @@ request.body = JSON.stringify({
   category: "device"
 })
 ```
-
-### Adding a timestamp to the headers
-
-momentjs to match exact format
-
-
-
-
-
 
 > There is a huge variety of cases in which setup scripts can be used. Stay tuned for more examples over the coming weeks!
