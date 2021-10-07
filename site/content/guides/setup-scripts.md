@@ -142,4 +142,85 @@ We have built a fully autonomous and self-contained API check, which will take c
 
 Note that the check might still fail due to an issue with an endpoint other than the one we are checking (`DELETE /v1/checks/{id}`), as the `POST /v1/checks` call in our setup script might also break at some point. Here, the Checkly check result will let us know whether the error occurred in the setup script or in the main HTTP request, allowing us to easily recognise the cause of the issue.
 
+### Fetching dynamic test data
+
+There are several scenarios in which we might want to fetch test data from an external source. It might be out of convience, or because the data itself is changing often and we want to always grab the newest version, or maybe even because we want to make our check more dynamic to ensure our target system can handle different inputs.
+
+Our example will be about creating a new product for our webshop using its API. Specifically, we will 
+
+1. Use our setup script to request the test data from an API generating random device information.
+2. Map that data field-by-field to match the schema of our target API.
+3. Check against the target API, in our case `fakestoreapi.com`.
+
+Our main request will hit the `POST` endpoint at `https://fakestoreapi.com/products`:
+
+{{< figure src="/guides/images/guides-checkly-setup-create.png" alt="checkly API check http request" title="Our API check's HTTP request" >}}
+
+Now for the setup script. We are going to have an external API generate random data for us. In this case, we want to request information about a random device (e.g. a smartphone) from `random-data-api.com`, precisely with a `GET` to `https://random-data-api.com/api/device/random_device`. Using axios, the request will look as follows:
+
+```js
+const axios = require('axios') // import axios library explicitly
+
+const { data } = await axios({ // retrieve random device information from random-data-api.com
+  method: "GET",
+  url: "https://random-data-api.com/api/device/random_device",
+})
+```
+
+The response body we will get back from this endpoint will look similar to the following (try running `curl https://random-data-api.com/api/device/random_device` from your command line):
+
+```json
+{
+    "build_number": 486,
+    "id": 4837,
+    "manufacturer": "Apple",
+    "model": "iPhone 5C",
+    "platform": "iOS",
+    "serial_number": "9vxM9fCsG9nXg8EjTN5ygV2LvaDZdG",
+    "uid": "aeeebb85-aef7-427e-beaf-c65fab5e9154",
+    "version": 201
+}
+```
+
+We will then need to extract some of this information and manually add it to the right fields in the body of the second request, to match its expected schema. First, let's create the object that will make up the response body.
+
+```js
+const responseData = { // create the response body object
+  title: data.model,
+  price: data.id,
+  description: data.manufacturer,
+  category: "device"
+}
+```
+
+Notice that, since the first API did not return anything to do with the product's category, we are explicitly specifying a static string.
+
+Now, we can transform the object into a JSON string and add it to the body of the second request:
+
+```js
+request.body = JSON.stringify(responseData) // set request body to stringified response body object
+```
+
+Putting everything together our setup script will look as follows:
+
+```js
+const axios = require('axios') // import axios library explicitly
+
+const { data } = await axios({ // retrieve random device information from random-data-api.com
+  method: "GET",
+  url: "https://random-data-api.com/api/device/random_device",
+})
+
+const responseData = { // create the response body object
+  title: data.model,
+  price: data.id,
+  description: data.manufacturer,
+  category: "device"
+}
+
+request.body = JSON.stringify(responseData) // set request body to stringified response body object
+```
+
+We built a fully encapsulated check that fetches dynamic (random, in this case) test data from an external API and repurposes it for one of our webshop's endpoints. 
+
 > There is a huge variety of cases in which setup scripts can be used. Stay tuned for more examples over the coming weeks!
