@@ -182,7 +182,7 @@ The response body we will get back from this endpoint will look similar to the f
 }
 ```
 
-We will then need to extract some of this information and manually add it to the right fields in the body of the second request, to match its expected schema. First, let's create a the object that will make up the response body.
+We will then need to extract some of this information and manually add it to the right fields in the body of the second request, to match its expected schema. First, let's create the object that will make up the response body.
 
 ```js
 const responseData = { // create the response body object
@@ -221,22 +221,6 @@ const responseData = { // create the response body object
 request.body = JSON.stringify(responseData) // set request body to stringified response body object
 ```
 
-
-```
-const axios = require('axios')
-
-const { data } = await axios({
-  method: "GET",
-  url: "https://random-data-api.com/api/device/random_device",
-})
-
-request.body = JSON.stringify({
-  title: data.model,
-  price: data.id,
-  description: data.manufacturer,
-  image: "https://i.pravatar.cc",
-  category: "device"
-})
-```
+We built a fully encapsulated check that fetches dynamic (random, in this case) test data from an external API and repurposes it for one of our webshop's endpoints. 
 
 > There is a huge variety of cases in which setup scripts can be used. Stay tuned for more examples over the coming weeks!
