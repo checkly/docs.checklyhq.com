@@ -210,6 +210,13 @@
 	    line-height: 29px;
 	  }
 	}
+	.free-trial-section {
+	  .card {
+	  	a {
+	  		color: $white;
+	  	}
+	  }
+	}
 
 	@include media-breakpoint-down(md) {
 		.hero {
