@@ -7,13 +7,13 @@ menu:
 ---
 
 Sometimes an API is just slow, but not broken. We call that "degraded" and you can specify when an API checks should be 
-marked as degraded using the simple slider in the API check editor.
+marked as degraded using the menu in the API check editor.
 
 ![api soft limits and degradation thresholds](/docs/images/api-checks/limits.png)
 
-Using this slider you set two thresholds:
+You can set two thresholds:
 
-1. The **Degraded at** threshold e.g. 8 seconds.
+1. The **Degraded at** threshold e.g. 5 seconds.
 2. The **Fail at** threshold when we consider the check to be failing due to being too slow, e.g. 20 sec.
 
 The benefit of using the degraded state is that it does not affect your check's success ratio like a failed state does. 
