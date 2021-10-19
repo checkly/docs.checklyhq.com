@@ -396,3 +396,4 @@ Check out [our runtimes documentation](/docs/runtimes/specs) for a full specific
 - Setup and teardown scripts are implicitly wrapped in async function. This means you can always use `await` statements.
 - You cannot use nested callbacks as there is no way to determine the callback function. Always use `await` statements.
 - You need to include modules and libraries explicitly, e.g. `const moment = require('moment')` before you can use them.
+- You can pass a maximum of 256KB of data to and from the check's main request (e.g. using `request.body = data`).
