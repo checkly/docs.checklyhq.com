@@ -13,7 +13,7 @@ event. This works out-of-the-box with the following services.
 - [Heroku Pipelines](https://devcenter.heroku.com/articles/pipelines)
 
 Any (SaaS) service that interacts with the [GitHub deployments API](https://developer.github.com/v3/repos/deployments/) and
-reports the correct "success" message will work.
+reports the correct "success" message will work, both with production and preview deployments.
 
 ## Setting up your GitHub integration
 
