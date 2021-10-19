@@ -1,5 +1,5 @@
 ---
-title: Tracing & Web Vitals
+title: Tracing and Web Vitals
 weight: 10
 menu:
   docs: 
@@ -14,19 +14,19 @@ snap a screenshots automatically whenever your script encounters and error.
 
 ## Navigation tracing
 
-For each page you visit, we automatically collect the following.
+For each page you visit, we automatically collect the following:
 
 1. Any `error`, `warning` or `info` level console messages.
 2. Any network requests, like `xhr/fetch`, `javascript`, `css` and others.
 
 You can use this data to quickly find issues with the pages you visit. Use cases are:
 
-- Find critical errors in your Javascript by scanning the console logs.
+- Finding critical errors in your JavaScript by scanning the console logs.
 - Pinpoint missing images or other resources: they will show a `404` in the network tab.
 
 ## Automatic screenshots on error
 
-Whenever your Playwright script encounters an error, we will try to automatically snap a screenshot the moment the error
+Whenever your Playwright script encounters an error, we will automatically snap a screenshot the moment the error
 occurs. Here is an example from real life!
 
 1. Your script clicks on a button using a selector `wait page.click(".my-button-class")`.
@@ -80,7 +80,7 @@ the page from Japan, expect a higher TTFB.
 
 [Read more about TTFB over at web.dev](https://web.dev/time-to-first-byte/)
 
-### Lab metrics vs. Field metrics
+## Lab metrics vs. Field metrics
 
 Checkly collects "lab" metrics for you. These are different from "field" metrics. 
 
