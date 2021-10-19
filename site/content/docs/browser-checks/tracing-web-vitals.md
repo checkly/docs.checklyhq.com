@@ -37,8 +37,7 @@ occurs. Here is an example from real life!
 ## Web Vitals
 
 For each page your script visits, we automatically collect a set of five [Web Vitals](https://web.dev/learn-web-vitals/).
-Web Vitals are quality signals for web pages that indicate a good, ok or poor user experience. 
-
+Web Vitals are user focused quality signals for web pages that indicate a good, ok or poor user experience.
 
 ### First Contentful Paint
 
@@ -79,6 +78,24 @@ requests a page. TTFB can vary from run location to run location of course: when
 the page from Japan, expect a higher TTFB.
 
 [Read more about TTFB over at web.dev](https://web.dev/time-to-first-byte/)
+
+
+## Why are some Web Vitals not reported?
+
+Checkly automatically instruments your Playwright code to collect Web Vitals metrics. However, is some cases we will not
+be able to collect a good measurement. There are multiple reasons for this:
+
+1. A Single Page App (SPA) like a React, Vue or Angular app only has one HTML page load event and then relies on route changes.
+The underlying [library we use for collecting Web Vitals](https://github.com/GoogleChrome/web-vitals) does not yet account for this.
+The folks over at Google are aware of this and [posted an FAQ](https://web.dev/vitals-spa-faq/).
+
+2. Cumulative Layout Shift (CLS) relies on layout events accumulating over time. If your script exits very fast, or triggers
+a redirect, there might not be enough time to actually "catch" this metric.
+
+3. Some metrics require a small amount of interaction to effectively "trigger". Clicking a button or other screen element
+in your Playwright script can help here.
+
+> We are constantly tweaking and updating our Web Vitals collection code, so expect improvements in the future! 
 
 ## Lab metrics vs. Field metrics
 
