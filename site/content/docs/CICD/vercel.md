@@ -53,7 +53,7 @@ You will just need to select the right project to link to your check or group.
 
 ![vercel project selection](/docs/images/cicd/vercel/vercel_link.png)
 
-Once the project and the check/group have been linked, you are able to specify whether a new preview or production deployment should trigger a new execution.
+Once the project and the check/group have been linked, you are able to specify whether a new preview or production deployment should trigger a new execution. You will also have the chance to choose from which location this check will run.
 
 ![linked check](/docs/images/cicd/vercel/vercel_linked.png)
 
@@ -64,6 +64,14 @@ Should you wish to unlink the Vercel project, simply click `Unlink this project`
 When selecting a check which is linked to a Vercel project, any results triggered by a deployment on that project will show at the bottom of the check page, under the tab `CI/CD triggered check results`.
 
 ![cicd triggered check results tab](/docs/images/cicd/vercel/vercel_result.png)
+
+On Vercel, you will also see a breakdown of checks that were executed on a given deployment, together with a breakdown of various key web vitals.
+
+![vercel checks vitals](/docs/images/cicd/vercel/vercel_vitals.png)
+
+{{< info >}}
+Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
+{{< /info >}}
 
 ### Deployments tab
 
