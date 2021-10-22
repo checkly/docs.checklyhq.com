@@ -8,7 +8,6 @@ docs: {parent: Integrations}
 Checkly integrates with the services and tool stack you use. Missing an integration? Let us know via 
 <a class="open-intercom-link" href="mailto:support@checklyhq.com">support</a>.
 
-* [Vercel](/docs/integrations/vercel)
 * [Slack](/docs/integrations/slack)
 * [Pagerduty](/docs/integrations/pagerduty)
 * [Opsgenie](/docs/integrations/opsgenie)

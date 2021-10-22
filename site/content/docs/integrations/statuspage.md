@@ -1,6 +1,6 @@
 ---
 title: StatusPage
-weight: 10
+weight: 9
 menu:
   docs:
     parent: "Integrations"

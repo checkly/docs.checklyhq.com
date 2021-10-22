@@ -1,6 +1,6 @@
 ---
 title: Pagerduty
-weight: 4
+weight: 3
 menu:
   docs:
     parent: "Integrations"
