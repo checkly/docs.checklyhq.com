@@ -1,6 +1,6 @@
 ---
 title: Spike.sh
-weight: 9
+weight: 8
 menu:
   docs:
     parent: "Integrations"

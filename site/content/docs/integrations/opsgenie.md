@@ -1,6 +1,6 @@
 ---
 title: Opsgenie
-weight: 5
+weight: 4
 menu:
   docs:
     parent: "Integrations"

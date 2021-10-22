@@ -1,6 +1,6 @@
 ---
 title: Microsoft Teams
-weight: 6
+weight: 5
 menu:
   docs:
     parent: "Integrations"
