@@ -7,12 +7,21 @@ menu:
     identifier: tracing-web-vitals-browser-checks
 ---
 
-For all your browser checks runs we collect a comprehensive set of data to triage and troubleshoot your checks. We also
-snap a screenshots automatically whenever your script encounters and error.
+For all your browser checks we automatically collect a comprehensive set of data like **console logs and network requests** 
+to help you triage the root cause whenever your check might fail. We also snap a screenshot automatically whenever your 
+script encounters an error.
 
-> Note: we only collect this data for Playwright-based Browser checks running on any runtime above [2021.06](/docs/runtimes/specs/#npm-packages)
+Next to this, we also automatically collect **Web Vitals** scores for each of the pages you visit in the browser session.
 
-## Navigation tracing
+![tracing and web vitals for Playwright based browser checks](/docs/images/browser-checks/tracing_web_vitals.png)
+
+{{<info >}}
+Checkly only collects tracing and web vitals data if your browser check meets the following criteria:
+- It is based on **Playwright**.
+- It runs on any **runtime above [2021.06](/docs/runtimes/specs/#npm-packages)**
+{{</info >}}
+
+## Page navigations
 
 For each page you visit, we automatically collect the following:
 
@@ -23,16 +32,6 @@ You can use this data to quickly find issues with the pages you visit. Use cases
 
 - Finding critical errors in your JavaScript by scanning the console logs.
 - Pinpoint missing images or other resources: they will show a `404` in the network tab.
-
-## Automatic screenshots on error
-
-Whenever your Playwright script encounters an error, we will automatically snap a screenshot the moment the error
-occurs. Here is an example from real life!
-
-1. Your script clicks on a button using a selector `wait page.click(".my-button-class")`.
-2. For some reason, that button does not exist or is not clickable.
-3. Playwright waits for the button with the selector to appear. It does not and Playwright throws an error.
-4. Checkly automatically calls `page.screensohot()` a screenshot. The screenshot indicates that that specific button was missing.
 
 ## Web Vitals
 
@@ -108,6 +107,14 @@ deploys before you go live.
 Field metrics are based on real user traffic collected "in the wild". These types of metrics are also known as Real User
 Monitoring (RUM) and can vary a ton based on the device, location and network quality of and end user. 
 
+## Automatic screenshots on error
 
+Whenever your Playwright script encounters an error, we will automatically snap a screenshot the moment the error
+occurs. Here is an example from real life!
+
+1. Your script clicks on a button using a selector `wait page.click(".my-button-class")`.
+2. For some reason, that button does not exist or is not clickable.
+3. Playwright waits for the button with the selector to appear. It does not and Playwright throws an error.
+4. Checkly automatically calls `page.screensohot()` a screenshot. The screenshot indicates that that specific button was missing.
 
 
