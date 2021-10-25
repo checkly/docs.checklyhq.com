@@ -78,7 +78,7 @@ the page from Japan, expect a higher TTFB.
 
 [Read more about TTFB over at web.dev](https://web.dev/time-to-first-byte/)
 
-> Web Vitals are not [Google Lighthouse](https://developers.google.com/web/tools/lighthouse), but rather a higher-level abstraction on existing browser APIs. Being less resource-intensive than Lighthouse, Web Vitals can be reliably calculated for you on cloud resources every minute.
+> Web Vitals are a part [Google Lighthouse](https://developers.google.com/web/tools/lighthouse), but the two are not the same: Web Vitals are a lighter, higher-level tool built on existing browser APIs. Being less resource-intensive than Lighthouse, Web Vitals can be reliably calculated for you on cloud resources every minute.
 
 ## Why are some Web Vitals not reported?
 
