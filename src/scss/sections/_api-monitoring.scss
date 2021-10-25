@@ -21,8 +21,9 @@
   }
 
   img.screenshots {
-    top: 270px;
+    top: 290px;
     left: 250px;
+    height: auto;
   }
 
   @include media-breakpoint-down(md) {
