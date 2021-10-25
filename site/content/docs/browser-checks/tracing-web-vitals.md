@@ -115,6 +115,6 @@ occurs. Here is an example from real life!
 1. Your script clicks on a button using a selector `wait page.click(".my-button-class")`.
 2. For some reason, that button does not exist or is not clickable.
 3. Playwright waits for the button with the selector to appear. It does not and Playwright throws an error.
-4. Checkly automatically calls `page.screensohot()` a screenshot. The screenshot indicates that that specific button was missing.
+4. Checkly automatically calls `page.screenshot()` a screenshot. The screenshot indicates that that specific button was missing.
 
 
