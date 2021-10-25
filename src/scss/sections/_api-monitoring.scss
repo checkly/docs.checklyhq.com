@@ -3,9 +3,10 @@
 .api-monitoring-section {
   height: 887px;
   padding-top: 1.6 * $section-top-padding;
-  padding-bottom: 1.6 * $section-bottom-padding;
+  padding-bottom: 0;
   overflow: hidden;
   background: $ash;
+
   .image-side {
     position: relative;
   }
@@ -13,13 +14,15 @@
     margin-top: 195px;
   }
   
-  img.assertions {
+  img.code {
+    top: 100px;
     left: 85px;
-    top: 180px;
+    height: auto;
   }
 
-  img.results {
-    left: 229px;
+  img.screenshots {
+    top: 270px;
+    left: 250px;
   }
 
   @include media-breakpoint-down(md) {
@@ -36,15 +39,16 @@
       margin-top: 50px;
       height: 340px;
 
-      img.assertions {
+      img.code {
         width: 85%;
-        top: 100px;
         height: auto;
         left: 0;
       }
-      img.results {
+      img.screenshots {
         left: 110px;
+        top: 0;
         width: calc(100% - 110px);
+        height: auto;
       }
     }
   }
@@ -61,12 +65,13 @@
   @include media-breakpoint-down(xs) {
     .image-side {
       height: 37vw;
-      img.assertions {
+      img.code {
         top: 50px;
       }
-      img.results {
+      img.screenshots {
         left: 50px;
         width: calc(100% - 50px);
+        height: auto;
       }
     }
   }
