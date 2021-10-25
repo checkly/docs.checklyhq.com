@@ -48,7 +48,7 @@ a user will see a white screen for a long time, doubting whether the page works 
 
 ### Largest Contentful Paint
 
-Largest ContentFul Paint is similar to FCP, but measures the time it took to render the largest visual item within the
+Largest Contentful Paint is similar to FCP, but measures the time it took to render the largest visual item within the
 browser viewport. If you have a high FCP, your user might wait too long before the most useful part of your page has loaded.
 This makes it hard for the user to determine if your page is useful to them at all.
 
