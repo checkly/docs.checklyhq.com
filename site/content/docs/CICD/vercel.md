@@ -94,9 +94,8 @@ A Browser check — when using the Playwright library — automatically [collect
 These Web Vitals are reported to Vercel as the separate Performance check.
 
 Together with the team at Vercel, we developed some custom logic to **block** deployments if any Web Vitals on your project
-degrade from **good** to **needs improvement** to **poor**. These ranges are listed in the table below and are based on the
-guidelines developed by the [Web Vitals maintainers at Google.](https://web.dev/learn-web-vitals/)
-
+degrade and cross from a "superior" range to a "inferior". For example, this could be going from **good** to **needs improvement**. 
+These ranges are listed in the table below and are based on the guidelines developed by the [Web Vitals maintainers at Google.](https://web.dev/learn-web-vitals/)
 
 | KPI | good       | needs improvement  | poor     |
 |-----|------------|--------------------|----------|
@@ -118,7 +117,7 @@ We will report it as **blocking** when:
 
 We will report it as **skipped** when:
 
-1. A check doesn't report any Web Vitals. They are all `null`. This happens when using Puppeteer based checks.
+1. A check doesn't report any Web Vitals. They are all `null`. This happens when for example when using Puppeteer based checks.
 2. Or, the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
 
 
