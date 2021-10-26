@@ -11,7 +11,7 @@ For all your browser checks we automatically collect a comprehensive set of data
 to help you triage the root cause whenever your check might fail. We also snap a screenshot automatically whenever your 
 script encounters an error.
 
-Next to this, we also automatically collect **Web Vitals** scores for each of the pages you visit in the browser session.
+Next to this, we also automatically collect Performance signals (**Web Vitals**) for each of the pages you visit in the browser session.
 
 ![tracing and web vitals for Playwright based browser checks](/docs/images/browser-checks/tracing_web_vitals.png)
 
@@ -33,7 +33,7 @@ You can use this data to quickly find issues with the pages you visit. Use cases
 - Finding critical errors in your JavaScript by scanning the console logs.
 - Pinpoint missing images or other resources: they will show a `404` in the network tab.
 
-## Web Vitals
+## Performance tracing with Web Vitals
 
 For each page your script visits, we automatically collect a set of five [Web Vitals](https://web.dev/learn-web-vitals/).
 Web Vitals are user focused quality signals for web pages that indicate a good, ok or poor user experience.
@@ -78,6 +78,7 @@ the page from Japan, expect a higher TTFB.
 
 [Read more about TTFB over at web.dev](https://web.dev/time-to-first-byte/)
 
+> Web Vitals are a part [Google Lighthouse](https://developers.google.com/web/tools/lighthouse), but the two are not the same: Web Vitals are a lighter, higher-level tool built on existing browser APIs. Being less resource-intensive than Lighthouse, Web Vitals can be reliably calculated for you on cloud resources every minute.
 
 ## Why are some Web Vitals not reported?
 
