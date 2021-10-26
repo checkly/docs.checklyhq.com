@@ -55,6 +55,72 @@ Once the project and the check/group have been linked, you are able to specify w
 
 Should you wish to unlink the Vercel project, simply click `Unlink this project`.
 
+## How Checkly checks maps to Vercel checks
+
+Vercel recently released their [Checks functionality](https://vercel.com/docs/concepts/deployments/checks) and Checkly integrates deeply into this new API.
+Vercel uses a slightly different way in representing checks than Checkly does, specifically splitting individual check results into either:
+
+1. **Reliability checks**
+2. **Performance checks**
+
+This is how a Checkly check maps to a Vercel check:
+
+- **API checks** are always mapped 1:1 and marked as a **Reliability** check.
+- **Browser checks** are split into a **Performance** and **Reliability** check, where the Performance part is populated with Web Vitals data*.
+- **Groups** of checks are "unfolded" in the Vercel user interface and all checks are shown individually.
+
+&ast; *Web Vitals are only recorded for [Playwright-based Browser checks](/docs/browser-checks/tracing-web-vitals/#performance-tracing-with-web-vitals)*
+
+## Blocking Vercel deployments
+
+If you have the `Block my deployment when a check fails` checkbox enabled, Checkly informs Vercel whether a Vercel deployment should be "blocked" based on the following rules, per check type:
+
+### API checks
+For **API checks** any failing check results in a blocked Vercel deployment. This is a simple, binary state: it either fails or doesn't.
+
+### Browser checks
+
+For **Browser checks**, there are different ways a check can fail a Vercel deployment because the Reliability part and Performance part are evaluated separately.
+
+**Browser Reliability check**
+
+1. When the script has **syntax** errors, e.g `await pag.goto()`— note the missing `e`.
+2. When the script **throws an error**. The `Error` can come from Playwright, a user supplied assertion using `expect` or any other user supplied code.
+3. When a **script times out**. This can be anything from a domain not existing to a selector not being in the page. The default timeout is 30 seconds. This is essentially the same as throwing an `Error`.
+
+**Browser Performance check**
+
+A Browser check — when using the Playwright library — automatically [collects and reports Web Vital metrics](/docs/browser-checks/tracing-web-vitals/#performance-tracing-with-web-vitals). 
+These Web Vitals are reported to Vercel as the separate Performance check.
+
+Together with the team at Vercel, we developed some custom logic to **block** deployments if any Web Vitals on your project
+degrade and cross from a "superior" range to a "inferior". For example, this could be going from **good** to **needs improvement**. 
+These ranges are listed in the table below and are based on the guidelines developed by the [Web Vitals maintainers at Google.](https://web.dev/learn-web-vitals/)
+
+| KPI | good       | needs improvement  | poor     |
+|-----|------------|--------------------|----------|
+| FCP | <= 1.8 sec | > 1.8 sec <= 3 sec | > 3 sec  |
+| LCP | <= 2.5 sec | > 2.5 sec <= 4 sec | > 4 sec  |
+| CLS | <= 0.1     | > 0.1  <= 0.25     | > 0.25   |
+| TBT | <= 200 ms  | > 200 ms <= 600 ms | > 600 ms |
+
+
+We will report a Browser Performance check as **passing** when:
+
+1. The Web Vitals measurement on a previous deploy is missing, but the current deployment does have measurements; we assume the new score is better.
+2. The Web Vitals measurements are within the target range.
+
+We will report it as **blocking** when:
+
+1. A check reports web vitals, and...
+2. The web vitals have degraded in relation to the last available **Production** deploy. Degraded means they passed the range threshold, i.e from **poor** to **needs improvement**.
+
+We will report it as **skipped** when:
+
+1. A check doesn't report any Web Vitals. They are all `null`. This happens when for example when using Puppeteer based checks.
+2. Or, the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
+
+
 ## Vercel-linked check results 
 
 When selecting a check which is linked to a Vercel project, any results triggered by a deployment on that project will show at the bottom of the check page, under the tab `CI/CD triggered check results`.
