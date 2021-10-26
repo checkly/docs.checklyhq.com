@@ -35,11 +35,7 @@ Single check runs can be accessed either by selecting a recent (less than 30 day
 
 Note that you can access two separate tabs, one for scheduled and one for triggered executions.
 
-## Execution results
-
-Selecting a check execution will expose additional details, depending on whether it belongs to an API or Browser check.
-
-### API check results
+## API check results
 
 API check results expose:
 
@@ -69,7 +65,7 @@ API check results expose:
 
 ![api check results detail page](/docs/images/monitoring/check-results-api.png)
 
-### Browser check results
+## Browser check results
 
 Browser check results contain:
 
