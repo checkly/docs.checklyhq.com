@@ -55,7 +55,7 @@ Once the project and the check/group have been linked, you are able to specify w
 
 Should you wish to unlink the Vercel project, simply click `Unlink this project`.
 
-## How Checkly checks maps to Vercel checks.
+## How Checkly checks maps to Vercel checks
 
 Vercel recently released their [Checks functionality](https://vercel.com/docs/concepts/deployments/checks) and Checkly integrates deeply into this new API.
 Vercel uses a slightly different way in representing checks than Checkly does, specifically splitting individual check results into either:
@@ -73,10 +73,10 @@ This is how a Checkly check maps to a Vercel check:
 
 ## Blocking Vercel deployments
 
-If you have the `Block my deployment when a check fails`-checkbox enabled, Checkly informs Vercel whether a Vercel deployment should be "blocked" based on the following rules, per check type:
+If you have the `Block my deployment when a check fails` checkbox enabled, Checkly informs Vercel whether a Vercel deployment should be "blocked" based on the following rules, per check type:
 
 ### API checks
-For **API checks** any failing check results in a blocked Vercel deployment. This is simple, binary state e.g. it either fails or doesn't.
+For **API checks** any failing check results in a blocked Vercel deployment. This is a simple, binary state: it either fails or doesn't.
 
 ### Browser checks
 
@@ -86,11 +86,11 @@ For **Browser checks**, there are different ways a check can fail a Vercel deplo
 
 1. When the script has **syntax** errors, e.g `await pag.goto()`— note the missing `e`.
 2. When the script **throws an error**. The `Error` can come from Playwright, a user supplied assertion using `expect` or any other user supplied code.
-3. When a **script times out**. This can be anything from a domain not existing to a selector not being in the page. The default timeout is 30 seconds. This is essentially the same as throwing an `Error`
+3. When a **script times out**. This can be anything from a domain not existing to a selector not being in the page. The default timeout is 30 seconds. This is essentially the same as throwing an `Error`.
 
 **Browser Performance check**
 
-A Browser check — when using the Playwright library — automatically [collects and reports Web Vital metrics]((/docs/browser-checks/tracing-web-vitals/#performance-tracing-with-web-vitals)). 
+A Browser check — when using the Playwright library — automatically [collects and reports Web Vital metrics](/docs/browser-checks/tracing-web-vitals/#performance-tracing-with-web-vitals). 
 These Web Vitals are reported to Vercel as the separate Performance check.
 
 Together with the team at Vercel, we developed some custom logic to **block** deployments if any Web Vitals on your project
@@ -113,13 +113,13 @@ We will report a Browser Performance check as **passing** when:
 
 We will report it as **blocking** when:
 
-1. A check reports web vitals.
+1. A check reports web vitals, and...
 2. The web vitals have degraded in relation to the last available **Production** deploy. Degraded means they passed the range threshold, i.e from **poor** to **needs improvement**.
 
 We will report it as **skipped** when:
 
 1. A check doesn't report any Web Vitals. They are all `null`. This happens when using Puppeteer based checks.
-2. The domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
+2. Or, the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
 
 
 ## Vercel-linked check results 
