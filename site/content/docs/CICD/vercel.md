@@ -23,7 +23,7 @@ After scrolling down, click the `Vercel marketplace` button.
 
 ![vercel integration step 2](/docs/images/cicd/vercel/vercel_step2.png)
 
-On the marketplace page for Checkly, click `Add`.
+On the marketplace page for Checkly, click `Add Integration`.
 
 ![vercel integration step 3](/docs/images/cicd/vercel/vercel_step3.png)
 
@@ -37,7 +37,7 @@ You can choose to map your Vercel projects to existing checks on your Checkly ac
 
 Additionally, you can have new checks automatically generated for existing Vercel projects, and set them up to automatically run on preview and/or production deployments.
 
-![vercel integration step 6](/docs/images/cicd/vercel/vercel_step6a.png)
+![vercel integration step 6](/docs/images/cicd/vercel/vercel_step6.png)
 
 ## Linking checks and groups
 
