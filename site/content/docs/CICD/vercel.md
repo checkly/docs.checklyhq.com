@@ -80,7 +80,7 @@ For **API checks** any failing check results in a blocked Vercel deployment. Thi
 
 ### Browser checks
 
-For **Browser checks**, there are different ways a check can fail a Vercel deployment. because the Reliability part and Performance part are evaluated separately.
+For **Browser checks**, there are different ways a check can fail a Vercel deployment because the Reliability part and Performance part are evaluated separately.
 
 **Browser Reliability check**
 
