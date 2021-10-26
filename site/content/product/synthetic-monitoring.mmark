@@ -58,7 +58,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
       Every browser check you run will automatically collect error traces, screenshots and performance metrics. Error Tracing enables you to easily identify JavaScript errors and missing resources while automatically generated screenshots help with debugging. Additionally, we have added performance metrics such as Google's Core Web Vitals to ensure your WebApp is snappy and provides a great user experience.
       </p>
       <p class="lead-text mt-2">
-      {{% cta-link "Learn more" "/docs/monitoring/global-locations/" %}}
+      {{% cta-link "Learn more" "/docs/browser-checks/tracing-web-vitals/" %}}
       </p>
     </div>
     <div class="lead-text mt-5 text-center">
