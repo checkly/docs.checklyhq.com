@@ -74,19 +74,19 @@ API check results expose:
 Browser check results contain:
 
 1. A short check summary, including errors broken down by category.
-![TODO](/docs/images/monitoring/check-results-browser-summary.png)
+![check results browser summary](/docs/images/monitoring/check-results-browser-summary.png)
 2. A timeline showing how much time was spent on each page.
-![TODO](/docs/images/monitoring/check-results-browser-timeline.png)
+![check results browser timeline](/docs/images/monitoring/check-results-browser-timeline.png)
 3. An error log, only if your script failed.
-![TODO](/docs/images/monitoring/check-results-browser-error-log.png)
+![check results browser error log](/docs/images/monitoring/check-results-browser-error-log.png)
 4. Expandable tabs on page your script navigated to.
-![TODO](/docs/images/monitoring/check-results-browser-page-navigations.png)
+![check results browser page navigation](/docs/images/monitoring/check-results-browser-page-navigations.png)
 When expanded, each tab shows its own navigation/loading timeline and web vitals...
-![TODO](/docs/images/monitoring/check-results-browser-navigation-top.png)
-... together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
-![TODO](/docs/images/monitoring/check-results-browser-navigation-bottom.png)
+![check results browser navigation top](/docs/images/monitoring/check-results-browser-navigation-top.png)
+...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
+![check results browser navigation bottom](/docs/images/monitoring/check-results-browser-navigation-bottom.png)
 5. A job log for the check
-![TODO](/docs/images/monitoring/check-results-browser-job-log.png)
+![check results browser job log](/docs/images/monitoring/check-results-browser-job-log.png)
 
 
 ## Events
