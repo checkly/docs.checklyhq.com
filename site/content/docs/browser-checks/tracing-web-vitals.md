@@ -33,7 +33,7 @@ You can use this data to quickly find issues with the pages you visit. Use cases
 - Finding critical errors in your JavaScript by scanning the console logs.
 - Pinpoint missing images or other resources: they will show a `404` in the network tab.
 
-## Perfromance tracing with Web Vitals
+## Performance tracing with Web Vitals
 
 For each page your script visits, we automatically collect a set of five [Web Vitals](https://web.dev/learn-web-vitals/).
 Web Vitals are user focused quality signals for web pages that indicate a good, ok or poor user experience.
