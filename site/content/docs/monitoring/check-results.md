@@ -35,11 +35,7 @@ Single check runs can be accessed either by selecting a recent (less than 30 day
 
 Note that you can access two separate tabs, one for scheduled and one for triggered executions.
 
-## Execution results
-
-Selecting a check execution will expose additional details, depending on whether it belongs to an API or Browser check.
-
-### API check results
+## API check results
 
 API check results expose:
 
@@ -69,15 +65,25 @@ API check results expose:
 
 ![api check results detail page](/docs/images/monitoring/check-results-api.png)
 
-### Browser check results
+## Browser check results
 
 Browser check results contain:
 
-1. A short check summary
-2. The full job log (including any `console.log()` printed by the user)
-3. Any screenshots taken during the check execution
+1. A short check summary, including errors broken down by category.
+![check results browser summary](/docs/images/monitoring/check-results-browser-summary.png)
+2. A timeline showing how much time was spent on each page.
+![check results browser timeline](/docs/images/monitoring/check-results-browser-timeline.png)
+3. An error log, only if your script failed.
+![check results browser error log](/docs/images/monitoring/check-results-browser-error-log.png)
+4. Expandable tabs on page your script navigated to.
+![check results browser page navigation](/docs/images/monitoring/check-results-browser-page-navigations.png)
+When expanded, each tab shows its own navigation/loading timeline and web vitals...
+![check results browser navigation top](/docs/images/monitoring/check-results-browser-navigation-top.png)
+...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
+![check results browser navigation bottom](/docs/images/monitoring/check-results-browser-navigation-bottom.png)
+5. A job log for the check
+![check results browser job log](/docs/images/monitoring/check-results-browser-job-log.png)
 
-![browser check results detail page](/docs/images/monitoring/check-results-browser.png)
 
 ## Events
 
