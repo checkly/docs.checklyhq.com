@@ -13,10 +13,6 @@ The Vercel integration will help you by:
 1. Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
 2. Enabling you to run checks against preview and production deployments on Vercel.
 
-{{< info >}}
-If the native integration described in this page does not fit your use case, you can also leverage Checkly together with Vercel through the [GitHub Deployments integration](/docs/cicd/github/).
-{{< /info >}}
-
 ## Installation
 
 To install Checkly's native Vercel integration, navigate to `Integratons`, under your account's dropdown menu.
@@ -27,7 +23,7 @@ After scrolling down, click the `Vercel marketplace` button.
 
 ![vercel integration step 2](/docs/images/cicd/vercel/vercel_step2.png)
 
-On the marketplace page for Checkly, click `Add`.
+On the marketplace page for Checkly, click `Add Integration`.
 
 ![vercel integration step 3](/docs/images/cicd/vercel/vercel_step3.png)
 
@@ -41,7 +37,7 @@ You can choose to map your Vercel projects to existing checks on your Checkly ac
 
 Additionally, you can have new checks automatically generated for existing Vercel projects, and set them up to automatically run on preview and/or production deployments.
 
-![vercel integration step 6](/docs/images/cicd/vercel/vercel_step6a.png)
+![vercel integration step 6](/docs/images/cicd/vercel/vercel_step6.png)
 
 ## Linking checks and groups
 
@@ -53,7 +49,7 @@ You will just need to select the right project to link to your check or group.
 
 ![vercel project selection](/docs/images/cicd/vercel/vercel_link.png)
 
-Once the project and the check/group have been linked, you are able to specify whether a new preview or production deployment should trigger a new execution.
+Once the project and the check/group have been linked, you are able to specify whether a new preview or production deployment should trigger a new execution. You will also have the chance to choose from which location this check will run.
 
 ![linked check](/docs/images/cicd/vercel/vercel_linked.png)
 
@@ -64,6 +60,14 @@ Should you wish to unlink the Vercel project, simply click `Unlink this project`
 When selecting a check which is linked to a Vercel project, any results triggered by a deployment on that project will show at the bottom of the check page, under the tab `CI/CD triggered check results`.
 
 ![cicd triggered check results tab](/docs/images/cicd/vercel/vercel_result.png)
+
+On Vercel, you will also see a breakdown of checks that were executed on a given deployment, together with a breakdown of various key web vitals.
+
+![vercel checks vitals](/docs/images/cicd/vercel/vercel_vitals.png)
+
+{{< info >}}
+Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
+{{< /info >}}
 
 ### Deployments tab
 
@@ -78,7 +82,3 @@ Selecting a deployment enables you to quickly determine whether it caused any ch
 ## Password-protected deployments
 
 You can also use Checkly together with Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can bypass the login prompt as part of a [browser check](/docs/browser-checks/login-scenarios#password-protected-websites) or using an [API request](https://vercel.com/docs/platform/frequently-asked-questions#bypassing-password-protection-programmatically).
-
-{{< info >}}
-This is a v1 integration. We are working on providing additional functionality, as well a smoother experience in v2.
-{{< /info >}}
