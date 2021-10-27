@@ -131,9 +131,7 @@ On Vercel, you will also see a breakdown of checks that were executed on a given
 
 ![vercel checks vitals](/docs/images/cicd/vercel/vercel_vitals.png)
 
-{{< info >}}
-Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
-{{< /info >}}
+> Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
 
 ### Deployments tab
 
