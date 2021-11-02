@@ -99,12 +99,12 @@ The request body will contain our GraphQL query:
 ```graphql
 query {
   repository(owner:"checkly", name:"headless-recorder") {
-    issues(last:5, states:OPEN) {
+    issues(last:3, states:OPEN) {
       edges {
         node {
           title
           url
-          labels(first:5) {
+          labels(first:3) {
             edges {
               node {
                 name
