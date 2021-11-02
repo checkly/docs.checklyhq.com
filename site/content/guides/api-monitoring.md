@@ -40,7 +40,7 @@ The more customisable the HTTP request is, the more cases can be covered, for ex
 
 Let's dive in deeper into each point.
 
-### Configurable HTTP request
+### HTTP request for REST APIs
 
 There is a large variety of valid requests that a user might make to a given endpoint. Being able to customise all aspects of our test request is therefore fundamental. Key aspects are:
 
@@ -79,12 +79,119 @@ axios({
     url: 'https://api.stripe.com/v1/customers',
     headers: { 
         'Authorization': `Basic ${AUTH_TOKEN}`,
-        'content-type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
     },
     data: 'limit=3'
 }).then((response)=> {
     console.log(response.data)
 })
+```
+
+### HTTP request for GraphQL APIs
+
+So far we have looked at a REST API. Let's now take a look at an example of how to build a request for a {{< newtabref  href="https://graphql.org/" title="GraphQL" >}} endpoint. We will use {{< newtabref  href="https://docs.github.com/en/graphql" title="GitHub's GraphQL API" >}} to retrieve information about the latest open issues on {{< newtabref  href="https://github.com/checkly/headless-recorder" title="Headless Recorder's repository" >}}.
+
+To achieve that, we make a `POST` request to the API's GraphQL endpoint: `https://api.github.com/graphql`. 
+We also need to authenticate to GitHub, by sending over our {{< newtabref  href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" title="personal access token" >}} via the `Authorization` header.
+
+The request body will contain our GraphQL query:
+
+```graphql
+query {
+  repository(owner:"checkly", name:"headless-recorder") {
+    issues(last:3, states:OPEN) {
+      edges {
+        node {
+          title
+          url
+          labels(first:3) {
+            edges {
+              node {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Putting it all together into a cURL command:
+
+```sh
+curl https://api.github.com/graphql -H "Authorization: bearer <GITHUB_TOKEN>" -d '{"query":"query { repository (owner:\"checkly\", name:\"headless-recorder\") { issues (last:3,states:OPEN) { edges { node{ title url labels(first:3) { edges { node { name } } } } } } } }","variables":{}}'
+```
+
+The response should look similar to the following:
+
+```json
+{
+    "data": {
+        "repository": {
+            "issues": {
+                "edges": [
+                    {
+                        "node": {
+                            "title": "UI truncated when default chrome zoom is more than 100%",
+                            "url": "https://github.com/checkly/headless-recorder/issues/161",
+                            "labels": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "name": "🐛 bug"
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "name": "🐣 good first issue"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "title": "Add support for Java?",
+                            "url": "https://github.com/checkly/headless-recorder/issues/162",
+                            "labels": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "name": "🙏 feature request"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "node": {
+                            "title": "Default to text selectors for Playwright",
+                            "url": "https://github.com/checkly/headless-recorder/issues/167",
+                            "labels": {
+                                "edges": [
+                                    {
+                                        "node": {
+                                            "name": "🦾 enhancement"
+                                        }
+                                    },
+                                    {
+                                        "node": {
+                                            "name": "❓ question"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ### Assertions
@@ -154,7 +261,7 @@ axios({
     url: 'https://api.stripe.com/v1/customers',
     headers: { 
         'Authorization': `Basic ${AUTH_TOKEN}`,
-        'content-type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
     },
     data: 'limit=3'
 }).then((response)=> {
@@ -206,9 +313,11 @@ A Checkly API check is comprised of the following components.
 
 ### Main HTTP request
 
-The most basic building block of Checkly's API check is the main HTTP request. This can be fully configured in its method, url, parameters and body to fully reproduce a real-world web API call.
+The most basic building block of Checkly's API check is the main HTTP request. This can be fully configured in its method, URL, parameters and body to fully reproduce a real-world web API call.
 
 {{< figure src="/guides/images/guides-checkly-stripe-check.png" alt="checkly check creation process" title="Checkly API check creation" >}}
+
+> Our previous GraphQL-based example is also supported, see the `GraphQL` option under the `Body` tab.
 
 ### Assertions
 
