@@ -55,6 +55,47 @@ Once the project and the check/group have been linked, you are able to specify w
 
 Should you wish to unlink the Vercel project, simply click `Unlink this project`.
 
+## Targeting Preview deployments with `ENVIRONMENT_URL`
+
+By default, Vercel deploys your project as a **Preview deployment** using the unique **preview URL**. This URL is exposed
+to Checkly via a webhook and injected into the Checkly runtime as `ENVIRONMENT_URL`. 
+
+This means you can write a Browser check using Playwright that automatically targets the Preview deploy whenever this URL is 
+available, but otherwise just defaults to the stable **production URL**. 
+
+Here is a full example that we use ourselves to monitor checklyhq.com which is actually also deployed to Vercel.
+
+
+```js {hl_lines=[7]}
+const { chromium } = require('playwright')
+
+(async () => {
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
+
+  const targetUrl = process.env.ENVIRONMENT_URL || 'https://www.checklyhq.com'
+  
+  const response = await page.goto(targetUrl)
+  
+  if (response.status() > 399) {
+    throw new Error(`Failed with response code ${response.status()}`)
+  }
+  
+  await page.screenshot({ path: 'screenshot.jpg' })
+  
+  await page.close()
+  await browser.close()
+})
+```
+
+Notice the following:
+
+1. We set the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL.
+2. Whenever a **Preview** deploy happens on Vercel, this check gets called and runs the script against the preview environment.
+3. This check also runs on a 5 minute schedule, and checks our production environment.
+
+This way, we kill two birds with one stone and don't need separate checks for separate environments.
+
 ## How Checkly checks maps to Vercel checks
 
 Vercel recently released their [Checks functionality](https://vercel.com/docs/concepts/deployments/checks) and Checkly integrates deeply into this new API.
@@ -99,10 +140,10 @@ These ranges are listed in the table below and are based on the guidelines devel
 
 | KPI | good       | needs improvement  | poor     |
 |-----|------------|--------------------|----------|
-| FCP | <= 1.8 sec | > 1.8 sec <= 3 sec | > 3 sec  |
-| LCP | <= 2.5 sec | > 2.5 sec <= 4 sec | > 4 sec  |
+| FCP | <= .93 sec | > .93 sec <= 1.6 sec | > 1.6 sec  |
+| LCP | <= 1.2 sec | > 1.2 sec <= 2.4 sec | > 2.4 sec  |
 | CLS | <= 0.1     | > 0.1  <= 0.25     | > 0.25   |
-| TBT | <= 200 ms  | > 200 ms <= 600 ms | > 600 ms |
+| TBT | <= 150 ms  | > 150 ms <= 350 ms | > 350 ms |
 
 
 We will report a Browser Performance check as **passing** when:
