@@ -63,7 +63,7 @@ to Checkly via a webhook and injected into the Checkly runtime as `ENVIRONMENT_U
 This means you can write a Browser check using Playwright that automatically targets the Preview deploy whenever this URL is 
 available, but otherwise just defaults to the stable **production URL**. 
 
-Here is a full example that we use ourselves to monitor the exact site your are on right now.
+Here is a full example that we use ourselves to monitor checklyhq.com which is actually also deployed to Vercel.
 
 
 ```js {hl_lines=[7]}
