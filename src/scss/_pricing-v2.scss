@@ -34,6 +34,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-bottom: 40px;
 
     &--label {
       width: 100%;
@@ -46,7 +47,7 @@
 
     &--toggle{
       width: 100%;
-      margint: 20px 0 12px;
+      margin: 60px 0 20px;
       text-align: center;
       color: $pink;
       font-size: 16px;
@@ -87,7 +88,7 @@
         margin-right: 10px;
       }
     }
-    
+
   }
 
   &__card {
@@ -133,7 +134,7 @@
       .d-flex {
         align-items: center;
       }
-      
+
       .pricing__wrap {
         display: flex;
         align-items: center;
@@ -245,7 +246,7 @@
   }
 
   &__calculation {
-    margin-top: 120px;
+    margin-top: 40px;
   }
 
   &__enterprise {
@@ -530,7 +531,7 @@
       margin-right: auto;
     }
   }
-  
+
 }
 
 @include media-breakpoint-down(sm) {
