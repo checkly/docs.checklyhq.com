@@ -15,13 +15,13 @@ jobs:
         with:
           fetch-depth: 2
       - uses: dorny/paths-filter@v2.2.1
-        id: check_files
+        id: filter
         with:
           filters: |
             docs:
-              - 'site/content/docs/**/*.*'
+              - 'site/content/docs/**'
             learn:
-              - 'site/content/learn/**/*.*'
+              - 'site/content/learn/**'
   scrape-docs:
     runs-on: ubuntu-latest
     needs: changes
