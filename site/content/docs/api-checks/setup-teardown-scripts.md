@@ -31,7 +31,7 @@ script. This means your teardown script *can run multiple times!*
 
 Both setup and teardown scrips have a **maximum execution time of 10 seconds**.
 
-![setup and teardown script execution](/docs/images/api-checks/setup-teardown-2.png)
+![setup and teardown script execution](/docs/images/api-checks/setup-teardown-snippet.png)
 
  
 {{<warning >}}
