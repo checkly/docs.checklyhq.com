@@ -8,7 +8,7 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 ## Puppeteer and Playwright
 
-While they share a number of similarities, Puppeteer and Playwright have evolved at different speeds over the last two years, with Playwright closing (if not reversing) the feature gap that had once separated the two tools. The greater momentum Playwright seems to enjoy also comes from a very encouraging community engagement on the part of the developers - try looking at the Slack channels and GitHub repositories of both tools and the difference will be immediately evident.
+While they share a number of similarities, {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}} have evolved at different speeds over the last two years, with Playwright closing (if not reversing) the feature gap that had once separated the two tools. The greater momentum Playwright seems to enjoy also comes from a very encouraging community engagement on the part of the developers - try looking at the Slack channels and GitHub repositories of both tools and the difference will be immediately evident.
 
 These developments have led many to switch from Puppeteer to Playwright. This guide aims to show what practical steps are necessary and what new possibilities this transition enables. Do not let the length of this article discourage you - in most cases the migration is quick and painless.
 TODO rephrase
@@ -54,37 +54,96 @@ In Puppeteer, this would have been done throught the browser's launch options:
 
 ### The browser context
 
-- browser context explicitly created
-should use default only in very basic cases
+Browser contexts already existed in Puppeteer:
 
-### explicit vs auto-waiting
+```js
+const browser = await puppeteer.launch();
+const context = await browser.createIncognitoBrowserContext();
+const page = await context.newPage();
+```
 
+Playwright's API puts even more importance on them, and handles them a little differently:
+
+```js
+const browser = await chromium.launch();
+const context = await browser.newContext();
+const page = await context.newPage();
+```
+
+Like in Puppeteer, for basic cases and single-page flows, the default context can be used.
+
+```js
+const browser = await chromium.launch();
+const page = await browser.newPage();
+```
+
+### Waiting
+
+The auto-waiting mechanism in Playwright means you will likely not need to care about explicitly waiting as often. Still, waiting being one of the trickiest bits of UI automation, you will still want to know the main 
 - explicit waits not necessary _in most cases_
 
-### setting viewport
+page.waitFor(timeout) becomes page.waitForTimeout(timeout)
+This is as good a place as any to remind you this should not be in any of your production scripts! Hard waits/sleeps should be used only for debugging purposes.
 
-- page.setViewport -> page.setViewportSize
+page.waitForEvent is new
 
-### hard waits (sleeps)
+waitForNavigation is the guy you will get rid of a lot
+together with waitForSelector
 
-- waitFor becomes waitForTimeout (but if you are using it you are doing things wrong)
+page.waitForXPath(xpath[, options]) incorporate into waitForSelector
 
-### Setting cookies
+page.waitForFileChooser([options]) removed (see file upload)
 
-TODO check other cookie methods
-- page.setCookies(...cookies), and similar, become simpler and move to context level: browserContext.addCookies
+page.waitForNetworkIdle([options]) generalised into page.waitForLoadState([state, options])
+
+page.waitForURL(url[, options]) https://playwright.dev/docs/api/class-page#page-wait-for-url A glob pattern, regex pattern or predicate receiving URL to match while waiting for the navigation
+
+### Setting viewport
+
+Puppeteer's `page.setViewport` becomes `page.setViewportSize` in Playwright.
+
+### Cookies
+
+With Puppeteer cookies are handled at the page level; with Playwright you manipulate them at the Browser Context level. 
+
+The old...
+
+```js
+page.cookies([...urls])
+page.deleteCookie(...cookies)
+page.setCookie(...cookies)
+```
+
+...become:
+
+```js
+browserContext.addCookies(cookies)
+browserContext.clearCookies()
+browserContext.cookies([urls])
+```
+
+Note the slight differences in the methods and how the cookies are passed to them.
 
 ### XPath selectors
 
-- page.$x(expression) to just normal page.$ (verify this works)
+XPath selectors starting with `//` or `..` are automatically recognised by Playwright, whereas Puppeteer had dedicated methods for them. That means you can use e.g. `page.$(xpath_selector)` instead of `page.$x(xpath_selector)`, and `page.waitForSelector(xpath_selector)` instead of `page.waitForXPath(xpath_selector)`.
 
 ### Device emulation
 
-- page.emulate -> all shown in here https://playwright.dev/docs/emulation#devices
+Playwright {{< newtabref href="https://playwright.dev/docs/emulation" title="device emulation settings" >}} are set at Browser Context level, e.g.:
+
+```js
+const pixel2 = devices['Pixel 2'];
+const context = await browser.newContext({
+  ...pixel2,
+});
+```
+
+On top of that, permission, geolocation and other device parameters are also available for you to control.
 
 ### File download
 
-- file download (need to find out) and upload (https://www.checklyhq.com/learn/headless/e2e-account-settings/)
+- file download and upload (https://www.checklyhq.com/learn/headless/e2e-account-settings/)
 
 ### File upload
 
@@ -113,8 +172,6 @@ LInk example: https://www.checklyhq.com/learn/headless/request-interception/
 - added selectors engines! make sure you know what new possibilities you have! https://www.checklyhq.com/learn/headless/basics-selectors/
 - also make sure you are aware of locator and the possibilities for POM https://playwright.dev/docs/api/class-locator
 - playwright test "the differences in this article are about Playwright Library - for the additional benefits of the runner, which puppeteer lacks completely, check out Playwright Test."
-
-
 
 
 bonus:
