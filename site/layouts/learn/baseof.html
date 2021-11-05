@@ -17,12 +17,12 @@
     {{ end }}
   {{ end }}
   {{ .Scratch.Set "breadcrumb_text" $breadcrumb_text }}
-  {{ partial "promo-banner" . }}
   {{ partial "head" . }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
 </head>
 
 <body>
+  {{ partial "promo-banner" . }}
   {{ partial "navbar" . }}
   {{ block "main" . }}
   {{ end }}
