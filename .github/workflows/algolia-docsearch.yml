@@ -19,9 +19,9 @@ jobs:
         with:
           filters: |
             docs:
-              - 'site/content/docs/**'
+              - 'site/content/docs/**/*.md'
             learn:
-              - 'site/content/learn/**'
+              - 'site/content/learn/**/*.md'
   scrape-docs:
     runs-on: ubuntu-latest
     needs: changes
