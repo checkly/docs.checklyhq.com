@@ -1,12 +1,13 @@
 name: algolia doc-search
 on:
   - push
+
 jobs:
-  check:
+  changes:
     name: Check changed docs files
     outputs:
-      run-scrape-docs-job: ${{ steps.check_files.outputs.run_scrape_docs_job }}
-      run-scrape-learn-job: ${{ steps.check_files.outputs.run_scrape_learn_job }}
+      docs: ${{ steps.filter.outputs.docs }}
+      learn: ${{ steps.filter.outputs.learn }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,8 +24,8 @@ jobs:
               - 'site/content/learn/**/*.*'
   scrape-docs:
     runs-on: ubuntu-latest
-    needs: check
-    if: ${{ steps.check_files.outputs.docs == 'true' }} && github.ref == 'refs/heads/master'
+    needs: changes
+    if: ${{ needs.changes.outputs.docs == 'true' && github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v2
       - name: Run doc-search
@@ -35,8 +36,8 @@ jobs:
           file: 'algolia/config-docs.json'
   scrape-learn:
     runs-on: ubuntu-latest
-    needs: check
-    if: ${{ steps.check_files.outputs.learn == 'true' }} && github.ref == 'refs/heads/master'
+    needs: changes
+    if: ${{ needs.changes.outputs.learn == 'true' && github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v2
       - name: Run learn-search
