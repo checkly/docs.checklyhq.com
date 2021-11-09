@@ -21,7 +21,7 @@ If you have Puppeteer scripts you want to migrate over to Playwright, the follow
 
 ### Require Playwright package
 
-In Puppeteer, the first few lines of our script would have most likely looked close to the following:
+In Puppeteer, the first few lines of your script would have most likely looked close to the following:
 
 ```js
 const puppeteer = require('puppeteer');
@@ -33,7 +33,7 @@ const puppeteer = require('puppeteer');
   // ...
 ```
 
-With Playwright, things still look similar:
+With Playwright you do not need to change much:
 
 ```js
 const { chromium } = require('playwright');
@@ -45,7 +45,7 @@ const { chromium } = require('playwright');
   // ...
 ```
 
-Playwright offers cross-browser support out of the box, and we can choose which browser to run with just by changing the first line, e.g. to `const { webkit } = require('playwright');`
+Playwright offers cross-browser support out of the box, and you can choose which browser to run with just by changing the first line, e.g. to `const { webkit } = require('playwright');`
 In Puppeteer, this would have been done throught the browser's launch options:
 
 ```js
@@ -70,18 +70,20 @@ const context = await browser.newContext();
 const page = await context.newPage();
 ```
 
-Like in Puppeteer, for basic cases and single-page flows, the default context can be used.
+Like in Puppeteer, for basic cases and single-page flows, you can use the default context:
 
 ```js
 const browser = await chromium.launch();
 const page = await browser.newPage();
 ```
 
+> When in doubt, explicitly create a new context at the beginning of your script.
+
 ### Waiting
 
 The auto-waiting mechanism in Playwright means you will likely not need to care about explicitly waiting as often. Still, waiting being one of the trickiest bits of UI automation, you will still want to know different ways of having your script explicitly wait for one or more conditions to be met.
 
-In this area, Playwright brings about several changes: 
+In this area, Playwright brings about several changes you want to be mindful of: 
 
 * `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-navigation" title="page.waitForNavigation" >}}` and `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}` remain, but in many cases will not be necessary due to auto-waiting.
 
@@ -95,7 +97,7 @@ In this area, Playwright brings about several changes:
 
 * `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForUrl" >}}` has been added allowing you to wait until a URL has been loaded by the page's main frame.
 
-* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForTimeout(timeout)" >}}`
+* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForTimeout(timeout)" >}}`.
 
 > This is as good a place as any to remind that this should never be used in production scripts! Hard waits/sleeps should be used only for debugging purposes.
 
@@ -109,25 +111,21 @@ With Puppeteer cookies are handled at the page level; with Playwright you manipu
 
 The old...
 
-```js
-page.cookies([...urls])
-page.deleteCookie(...cookies)
-page.setCookie(...cookies)
-```
+1. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagecookiesurls" title="page.cookies([...urls])" >}}`
+2. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagedeletecookiecookies" title="page.deleteCookie(...cookies)" >}}`
+3. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagesetcookiecookies" title="page.setCookie(...cookies)" >}}`
 
 ...become:
 
-```js
-browserContext.addCookies(cookies)
-browserContext.clearCookies()
-browserContext.cookies([urls])
-```
+1. `{{< newtabref  href="https://playwright.dev/docs/api/class-browsercontext#browser-context-cookies" title="browserContext.cookies([urls])" >}}`
+2. `{{< newtabref  href="https://playwright.dev/docs/api/class-browsercontext#browser-context-clear-cookies" title="browserContext.clearCookies()" >}}`
+3. `{{< newtabref  href="https://playwright.dev/docs/api/class-browsercontext#browser-context-add-cookies" title="browserContext.addCookies(cookies)" >}}`
 
 Note the slight differences in the methods and how the cookies are passed to them.
 
 ### XPath selectors
 
-XPath selectors starting with `//` or `..` are automatically recognised by Playwright, whereas Puppeteer had dedicated methods for them. That means you can use e.g. `page.$(xpath_selector)` instead of `page.$x(xpath_selector)`, and `page.waitForSelector(xpath_selector)` instead of `page.waitForXPath(xpath_selector)`.
+XPath selectors starting with `//` or `..` are automatically recognised by Playwright, whereas Puppeteer had dedicated methods for them. That means you can use e.g. `page.$(xpath_selector)` instead of `page.$x(xpath_selector)`, and `page.waitForSelector(xpath_selector)` instead of `page.waitForXPath(xpath_selector)`. The same holds true for `page.click` and `page.fill`.
 
 ### Device emulation
 
@@ -144,29 +142,56 @@ On top of that, permission, geolocation and other device parameters are also ava
 
 ### File download
 
-- file download and upload (https://www.checklyhq.com/learn/headless/e2e-account-settings/)
+Trying to download files in Puppeteer in headless mode can be tricky. Playwright makes this more streamlined:
+
+```js
+const [download] = await Promise.all([
+  page.waitForEvent('download'),
+  page.click('#orders > ul > li:nth-child(1) > a')
+])
+
+const path = await download.path();
+```
+
+See our [example on file download](https://www.checklyhq.com/learn/headless/e2e-file-download/).
 
 ### File upload
 
-- request interception:
+Puppeteer's `elementHandle.uploadFile` becomes `elementHandle.setInputFiles()`.
+
+
+ `{{< newtabref href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-elementhandleuploadfilefilepaths" title="elementHandle.uploadFile" >}}`
+
+Playwright: `{{< newtabref href="https://playwright.dev/docs/api/class-elementhandle#element-handle-set-input-files" title="elementHandle.setInputFiles" >}}`
+
+See our [example on file upload](https://www.checklyhq.com/learn/headless/e2e-account-settings/).
+
+### Request interception
+
+Request interception in Puppeteer is handled via `{{< newtabref href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-event-request" title="page.on('request', ...)" >}}`:
+
+```js
 await page.setRequestInterception(true)
 
-  page.on('request', (request) => {
-    if (request.resourceType() === 'image') request.abort()
-    else request.continue()
-  })
+page.on('request', (request) => {
+  if (request.resourceType() === 'image') request.abort()
+  else request.continue()
+})
+```
 
-becomes
+In Playwright, `{{< newtabref href="https://playwright.dev/docs/api/class-page#page-route" title="page.route" >}}` can be used to intercept requests with a URL matching a specific pattern:
 
-  await page.route('**/*', (route) => {
-    return route.request().resourceType() === 'image'
-      ? route.abort()
-      : route.continue()
-  })
+```js
+await page.route('**/*', (route) => {
+  return route.request().resourceType() === 'image'
+    ? route.abort()
+    : route.continue()
+})
+```
 
+See our [full guide](https://www.checklyhq.com/learn/headless/request-interception/) on request interception for more examples.
 
-LInk example: https://www.checklyhq.com/learn/headless/request-interception/
-
+> For many of the points in the list above, variations of the same function exist at `{{< newtabref href="https://playwright.dev/docs/api/class-page/" title="Page" >}}`, `{{< newtabref href="https://playwright.dev/docs/api/class-frame/" title="Frame" >}}` and `{{< newtabref href="https://playwright.dev/docs/api/class-elementhandle/" title="ElementHandle" >}}` level. For simplicity, we reported only one. 
 
 ## New possibilities to be aware of
 
