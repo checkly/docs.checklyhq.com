@@ -11,13 +11,40 @@ avatar: 'images/avatars/giovanni-rago.png'
 While they share a number of similarities, {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}} have evolved at different speeds over the last two years, with Playwright closing (if not reversing) the feature gap that had once separated the two tools. The greater momentum Playwright seems to enjoy also comes from a very encouraging community engagement on the part of the developers - try looking at the Slack channels and GitHub repositories of both tools and the difference will be immediately evident.
 
 These developments have led many to switch from Puppeteer to Playwright. This guide aims to show what practical steps are necessary and what new possibilities this transition enables. Do not let the length of this article discourage you - in most cases the migration is quick and painless.
-TODO rephrase
 
 ## What to change in existing scripts
 
 If you have Puppeteer scripts you want to migrate over to Playwright, the following checklist will guide you through exactly what you will have to change.
 
 > Did we forget anything? Please let us know by getting in touch, or {{< newtabref  href="https://github.com/checkly/checklyhq.com" title="submit your own PR" >}}.
+
+## In summary - The cheat sheet
+
+Remember to add `await` as necessary.
+
+| Puppeteer             | Playwright                 |
+| --------------------- | -------------------------- |
+| `require('puppeteer')`       | `require('playwright')` |
+| `puppeteer.launch(...)`       | `playwright.chromium.launch(...)` |
+| `browser.createIncognitoBrowserContext(...)`       | `browser.newContext(...)` |
+| `page.setViewport(...)`       | `page.setViewportSize(...)` |
+| `page.waitForSelector(selector)` `page.click(selector);`       | `page.click(selector)` |
+| `page.waitForXPath(XPathSelector)`       | `page.waitForSelector(XPathSelector)` |
+| `page.$x(xpath_selector)`        | `page.$(xpath_selector)`   |
+| `page.waitForNetworkIdle(...)`       | `page.waitForLoadState({ state: 'networkidle' }})` |
+| `page.waitForFileChooser(...)`       | Removed, [different usage](https://playwright.dev/docs/input/#upload-files). |
+| `page.waitFor(timeout)`       | `page.waitForTimeout(timeout)` |
+| `page.type(selector, text)`       | `page.fill(selector, text)` |
+| `page.cookies([...urls])`       | `browserContext.cookies([urls])` |
+| `page.deleteCookie(...cookies)`       | `browserContext.clearCookies()` |
+| `page.setCookie(...cookies)`       | `browserContext.addCookies(cookies)` |
+| `page.on('request', ...)`       | Handled through [page.route](https://playwright.dev/docs/api/class-page#page-route). |
+| `elementHandle.uploadFile(...)`       | `elementHandle.setInputFiles(...)` |
+| Tricky file download.       | Better [support for downloads](https://playwright.dev/docs/downloads). |
+
+## In depth - All needed changes
+
+This section of our guide will dive into the changes in more detail.
 
 ### Require Playwright package
 
@@ -54,7 +81,7 @@ In Puppeteer, this would have been done throught the browser's launch options:
 
 ### The browser context
 
-Browser contexts already existed in Puppeteer:
+{{< newtabref  href="https://playwright.dev/docs/api/class-browsercontext" title="Browser contexts" >}} already existed in Puppeteer:
 
 ```js
 const browser = await puppeteer.launch();
@@ -97,7 +124,7 @@ In this area, Playwright brings about several changes you want to be mindful of:
 
 * `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForUrl" >}}` has been added allowing you to wait until a URL has been loaded by the page's main frame.
 
-* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForTimeout(timeout)" >}}`.
+* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-frame#frame-wait-for-timeout" title="page.waitForTimeout(timeout)" >}}`.
 
 > This is as good a place as any to remind that this should never be used in production scripts! Hard waits/sleeps should be used only for debugging purposes.
 
@@ -105,9 +132,13 @@ In this area, Playwright brings about several changes you want to be mindful of:
 
 Puppeteer's `page.setViewport` becomes `page.setViewportSize` in Playwright.
 
+### Typing
+
+While puppeteer's `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-type" title="page.type" >}}` is available in Playwright and still handles fine-grained keyboard events, Playwright adds `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-fill" title="page.fill" >}}` specifically for filling and clearing forms.
+
 ### Cookies
 
-With Puppeteer cookies are handled at the page level; with Playwright you manipulate them at the Browser Context level. 
+With Puppeteer cookies are handled at the page level; with Playwright you manipulate them at the BrowserContext level. 
 
 The old...
 
@@ -157,12 +188,7 @@ See our [example on file download](https://www.checklyhq.com/learn/headless/e2e-
 
 ### File upload
 
-Puppeteer's `elementHandle.uploadFile` becomes `elementHandle.setInputFiles()`.
-
-
- `{{< newtabref href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-elementhandleuploadfilefilepaths" title="elementHandle.uploadFile" >}}`
-
-Playwright: `{{< newtabref href="https://playwright.dev/docs/api/class-elementhandle#element-handle-set-input-files" title="elementHandle.setInputFiles" >}}`
+Puppeteer's `{{< newtabref href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-elementhandleuploadfilefilepaths" title="elementHandle.uploadFile" >}}` becomes `{{< newtabref href="https://playwright.dev/docs/api/class-elementhandle#element-handle-set-input-files" title="elementHandle.setInputFiles" >}}`.
 
 See our [example on file upload](https://www.checklyhq.com/learn/headless/e2e-account-settings/).
 
@@ -195,10 +221,40 @@ See our [full guide](https://www.checklyhq.com/learn/headless/request-intercepti
 
 ## New possibilities to be aware of
 
-- added selectors engines! make sure you know what new possibilities you have! https://www.checklyhq.com/learn/headless/basics-selectors/
+When moving from Puppeteer to Playwright, make sure you inform yourself about the many completely new features Playwright introduces, as they might open up new solutions and possibilities for your testing or monitoring setup.
+
+### New selector engines
+
+Playwright brings with it added flexibility when referencing UI elements via selectors by exposing `{{< newtabref href="https://playwright.dev/docs/selectors" title="different selector engines" >}}`. Aside from CSS and XPath, it adds:
+
+1. Playwright-specific selectors, e.g.: `:nth-match(:text("Buy"), 3)`
+2. Text selectors, e.g.: `text=Add to Cart`
+3. Chained selectors, e.g.: `css=preview >> text=In stock`
+
+You can even create your own {{< newtabref href="https://playwright.dev/docs/extensibility#custom-selector-engines" title="custom selector engine" >}}.
+
+For more information on selectors and how to use them, see [our dedicated guide](https://www.checklyhq.com/learn/headless/basics-selectors/).
+
+### Locator API
+
 - also make sure you are aware of locator and the possibilities for POM https://playwright.dev/docs/api/class-locator
+
+### Playwright Test
+
 - playwright test "the differences in this article are about Playwright Library - for the additional benefits of the runner, which puppeteer lacks completely, check out Playwright Test."
 
+### Playwright Inspector
 
-bonus:
-enable RBCR (remember new runtime, too)
+### Trace Viewer
+
+### Test generator
+
+### Video recording
+
+## Switching to Playwright for Rich Browser Check Results
+
+Checkly users switching to Playwright can take advantage of its new Rich Browser Check Results, which come with performance and error tracing, as well as web vitals and screenshots on failure.
+
+TODO what it looks like
+
+TODO (remember new runtime, too)
