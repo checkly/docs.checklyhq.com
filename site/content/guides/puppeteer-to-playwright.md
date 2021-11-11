@@ -184,13 +184,13 @@ const [download] = await Promise.all([
 const path = await download.path();
 ```
 
-See our [example on file download](https://www.checklyhq.com/learn/headless/e2e-file-download/).
+See our [example on file download](/learn/headless/e2e-file-download/).
 
 ### File upload
 
 Puppeteer's `{{< newtabref href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-elementhandleuploadfilefilepaths" title="elementHandle.uploadFile" >}}` becomes `{{< newtabref href="https://playwright.dev/docs/api/class-elementhandle#element-handle-set-input-files" title="elementHandle.setInputFiles" >}}`.
 
-See our [example on file upload](https://www.checklyhq.com/learn/headless/e2e-account-settings/).
+See our [example on file upload](/learn/headless/e2e-account-settings/).
 
 ### Request interception
 
@@ -215,7 +215,7 @@ await page.route('**/*', (route) => {
 })
 ```
 
-See our [full guide](https://www.checklyhq.com/learn/headless/request-interception/) on request interception for more examples.
+See our [full guide](/learn/headless/request-interception/) on request interception for more examples.
 
 > For many of the points in the list above, variations of the same function exist at `{{< newtabref href="https://playwright.dev/docs/api/class-page/" title="Page" >}}`, `{{< newtabref href="https://playwright.dev/docs/api/class-frame/" title="Frame" >}}` and `{{< newtabref href="https://playwright.dev/docs/api/class-elementhandle/" title="ElementHandle" >}}` level. For simplicity, we reported only one. 
 
@@ -233,23 +233,37 @@ Playwright brings with it added flexibility when referencing UI elements via sel
 
 You can even create your own {{< newtabref href="https://playwright.dev/docs/extensibility#custom-selector-engines" title="custom selector engine" >}}.
 
-For more information on selectors and how to use them, see [our dedicated guide](https://www.checklyhq.com/learn/headless/basics-selectors/).
+For more information on selectors and how to use them, see [our dedicated guide](/learn/headless/basics-selectors/).
+
+### Saving and reusing state
+
+Playwright makes it easy for you to save the authenticated state (cookies and localStorage) of a given session and reuse it for subsequent script runs. 
+
+Reusing state can [save significant amounts of time](/learn/headless/valuable-tests/#keep-tests-independent) on larger suites by skipping the pre-authentication phase in scripts where it is not supposed to be directly tested / monitored.
 
 ### Locator API
 
-- also make sure you are aware of locator and the possibilities for POM https://playwright.dev/docs/api/class-locator
+You might be interested in checking out Playwright's {{< newtabref href="https://playwright.dev/docs/api/class-locator" title="Locator API" >}}, which encapsulates the logic necessary to retrieve a given element, allowing you to easily retrieve an up-to-date DOM element at different points in time in your script.
 
-### Playwright Test
-
-- playwright test "the differences in this article are about Playwright Library - for the additional benefits of the runner, which puppeteer lacks completely, check out Playwright Test."
+This is particularly helpful if you are structuring your setup according to the {{< newtabref href="https://martinfowler.com/bliki/PageObject.html" title="Page Object Model" >}}, or if you are interested to do start doing that.
 
 ### Playwright Inspector
 
+The {{< newtabref href="https://playwright.dev/docs/inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more esily identify the cause of a failure.
+
+The Inspector also comes in handy due its ability to suggest selectors for page elements and even record new scripts from scratch.
+
+### Playwright Test
+
+Playwright comes with its own runner, {{< newtabref href="https://playwright.dev/docs/intro" title="Playwright Test" >}}, which adds useful features around end-to-end testing, like out-of-the-box parallelisation, test fixtures, hooks and more. 
+
 ### Trace Viewer
 
-### Test generator
+The {{< newtabref href="https://playwright.dev/docs/trace-viewer" title="Playwright Trace Viewer" >}} allows you to explore traces recorded using Playwright Test or the BrowserContext Tracing API. Traces are where you can get the most fine-grained insights into your script's execution.
 
-### Video recording
+### Test Generator
+
+You can use the {{< newtabref href="https://playwright.dev/docs/codegen" title="Playwright Test Generator" >}} to record interactions in your browser. The output will be a full-fledged script ready to review and execute.
 
 ## Switching to Playwright for Rich Browser Check Results
 
