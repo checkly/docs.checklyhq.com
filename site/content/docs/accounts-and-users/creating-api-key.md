@@ -1,0 +1,36 @@
+---
+title: Creating an API key
+weight: 2
+menu:
+  docs:
+    parent: "Accounts & Users"
+aliases:
+- "/docs/accounts-users/creating-api-key/"
+---
+
+The Checkly Public API uses API keys to authenticate requests. API keys are unique to the user and not tied to accounts. 
+
+Be aware that Account-based API keys will be deprecated soon. Please create an API key for your user account in [User Settings](https://app.checklyhq.com/settings/user/).
+
+
+**Steps to create an API key:** 
+
+1. Go to the API keys section in the [User Settings](https://app.checklyhq.com/settings/user/)
+2. Click **Create new API key**. A modal pops up. 
+3. Enter a name for the API key.
+4. Click **Create new API key**
+5. The new API key is shown and can be copied. Make sure to copy it immediately as it won't be shown again.
+
+## Using an API key
+
+Use the API key as a Bearer token in the Authorization header when calling the Checkly API, e.g.
+
+```console
+curl -H "Authorization: Bearer my_token" -H "X-Checkly-Account: my_account_ID" https://api.checklyhq.com/v1/checks
+```
+
+## Deleting an API key
+
+Only the user can delete an API key. To delete an API key click on the **Delete** icon in the Api Keys section of the User Settings. 
+
+If you wish to revoke access of a user to an account, remove the user from the team in the Account Settings. 

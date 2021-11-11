@@ -68,8 +68,8 @@ disqusShortname = "checkly"
 	weight = 80
 
 [[menu.docs]]
-	name = "Teams"
-	url = "/docs/teams/"
+	name = "Accounts & Users"
+	url = "/docs/accounts-users/"
 	pre="/docs/images/icons/teams.svg"
 	weight = 90
 
