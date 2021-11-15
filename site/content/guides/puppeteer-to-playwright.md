@@ -22,25 +22,25 @@ If you have Puppeteer scripts you want to migrate over to Playwright, the follow
 
 Remember to add `await` as necessary.
 
-| Puppeteer             | Playwright                 |
-| --------------------- | -------------------------- |
-| `require('puppeteer')`       | `require('playwright')` |
-| `puppeteer.launch(...)`       | `playwright.chromium.launch(...)` |
-| `browser.createIncognitoBrowserContext(...)`       | `browser.newContext(...)` |
-| `page.setViewport(...)`       | `page.setViewportSize(...)` |
-| `page.waitForSelector(selector)` `page.click(selector);`       | `page.click(selector)` |
-| `page.waitForXPath(XPathSelector)`       | `page.waitForSelector(XPathSelector)` |
-| `page.$x(xpath_selector)`        | `page.$(xpath_selector)`   |
-| `page.waitForNetworkIdle(...)`       | `page.waitForLoadState({ state: 'networkidle' }})` |
-| `page.waitForFileChooser(...)`       | Removed, [different usage](https://playwright.dev/docs/input/#upload-files). |
-| `page.waitFor(timeout)`       | `page.waitForTimeout(timeout)` |
-| `page.type(selector, text)`       | `page.fill(selector, text)` |
-| `page.cookies([...urls])`       | `browserContext.cookies([urls])` |
-| `page.deleteCookie(...cookies)`       | `browserContext.clearCookies()` |
-| `page.setCookie(...cookies)`       | `browserContext.addCookies(cookies)` |
-| `page.on('request', ...)`       | Handled through [page.route](https://playwright.dev/docs/api/class-page#page-route). |
-| `elementHandle.uploadFile(...)`       | `elementHandle.setInputFiles(...)` |
-| Tricky file download.       | Better [support for downloads](https://playwright.dev/docs/downloads). |
+| Puppeteer                                   | Playwright                                       |
+| ------------------------------------------- | ------------------------------------------------ |
+| `require('puppeteer')`                      | `require('playwright')`                          |
+| `puppeteer.launch(...)`                     | `playwright.chromium.launch(...)`                |
+| `browser.createIncognitoBrowserContext(...)`|  `browser.newContext(...)`                       |
+| `page.setViewport(...)`                     | `page.setViewportSize(...)`                      |
+| `page.waitForSelector(selector)` `page.click(selector);` | `page.click(selector)`              |
+| `page.waitForXPath(XPathSelector)`          | `page.waitForSelector(XPathSelector)`            |
+| `page.$x(xpath_selector)`                   | `page.$(xpath_selector)`                         |
+| `page.waitForNetworkIdle(...)`              | `page.waitForLoadState({ state: 'networkidle' }})` |
+| `page.waitForFileChooser(...)`              | Removed, [different usage](https://playwright.dev/docs/input/#upload-files). |
+| `page.waitFor(timeout)`                     | `page.waitForTimeout(timeout)` |
+| `page.type(selector, text)`                 | `page.fill(selector, text)` |
+| `page.cookies([...urls])`                   | `browserContext.cookies([urls])` |
+| `page.deleteCookie(...cookies)`             | `browserContext.clearCookies()` |
+| `page.setCookie(...cookies)`                | `browserContext.addCookies(cookies)` |
+| `page.on('request', ...)`                   | Handled through [page.route](https://playwright.dev/docs/api/class-page#page-route). |
+| `elementHandle.uploadFile(...)`             | `elementHandle.setInputFiles(...)` |
+| Tricky file download.                       | Better [support for downloads](https://playwright.dev/docs/downloads). |
 
 ## In depth - All needed changes
 
@@ -112,19 +112,19 @@ The auto-waiting mechanism in Playwright means you will likely not need to care 
 
 In this area, Playwright brings about several changes you want to be mindful of: 
 
-* `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-navigation" title="page.waitForNavigation" >}}` and `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}` remain, but in many cases will not be necessary due to auto-waiting.
+1. `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-navigation" title="page.waitForNavigation" >}}` and `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}` remain, but in many cases will not be necessary due to auto-waiting.
 
-* `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-event" title="page.waitForEvent" >}}` has been added.
+2. `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-event" title="page.waitForEvent" >}}` has been added.
 
-* Puppeteer's `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforxpathxpath-options" title="page.waitForXPath" >}}` has been incorporated into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}`, which recognises XPath expressions automatically.
+3. Puppeteer's `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforxpathxpath-options" title="page.waitForXPath" >}}` has been incorporated into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}`, which recognises XPath expressions automatically.
 
-* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptionshas" title="page.waitForFileChooser" >}}` been removed removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
+4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptionshas" title="page.waitForFileChooser" >}}` been removed removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
 
-* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitfornetworkidleoptions" title="page.waitForNetworkIdle" >}}` has been generalised into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" title="page.waitForLoadState" >}}` (see the `networkidle` state to recreate previous behaviour)
+5. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitfornetworkidleoptions" title="page.waitForNetworkIdle" >}}` has been generalised into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" title="page.waitForLoadState" >}}` (see the `networkidle` state to recreate previous behaviour)
 
-* `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForUrl" >}}` has been added allowing you to wait until a URL has been loaded by the page's main frame.
+6. `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-url" title="page.waitForUrl" >}}` has been added allowing you to wait until a URL has been loaded by the page's main frame.
 
-* `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-frame#frame-wait-for-timeout" title="page.waitForTimeout(timeout)" >}}`.
+7. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-frame#frame-wait-for-timeout" title="page.waitForTimeout(timeout)" >}}`.
 
 > This is as good a place as any to remind that this should never be used in production scripts! Hard waits/sleeps should be used only for debugging purposes.
 
@@ -225,7 +225,7 @@ When moving from Puppeteer to Playwright, make sure you inform yourself about th
 
 ### New selector engines
 
-Playwright brings with it added flexibility when referencing UI elements via selectors by exposing `{{< newtabref href="https://playwright.dev/docs/selectors" title="different selector engines" >}}`. Aside from CSS and XPath, it adds:
+Playwright brings with it added flexibility when referencing UI elements via selectors by exposing {{< newtabref href="https://playwright.dev/docs/selectors" title="different selector engines" >}}. Aside from CSS and XPath, it adds:
 
 1. Playwright-specific selectors, e.g.: `:nth-match(:text("Buy"), 3)`
 2. Text selectors, e.g.: `text=Add to Cart`
@@ -251,6 +251,8 @@ This is particularly helpful if you are structuring your setup according to the 
 
 The {{< newtabref href="https://playwright.dev/docs/inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more esily identify the cause of a failure.
 
+{{< figure src="/guides/images/guides-migration-playwright-inspector.png" alt="playwright inspector" title="Playwright Inspector" >}}
+
 The Inspector also comes in handy due its ability to suggest selectors for page elements and even record new scripts from scratch.
 
 ### Playwright Test
@@ -261,9 +263,13 @@ Playwright comes with its own runner, {{< newtabref href="https://playwright.dev
 
 The {{< newtabref href="https://playwright.dev/docs/trace-viewer" title="Playwright Trace Viewer" >}} allows you to explore traces recorded using Playwright Test or the BrowserContext Tracing API. Traces are where you can get the most fine-grained insights into your script's execution.
 
+{{< figure src="/guides/images/guides-migration-playwright-trace-viewer.png" alt="playwright trace inspection" title="Trace inspection with Trave Viewer" >}}
+
 ### Test Generator
 
 You can use the {{< newtabref href="https://playwright.dev/docs/codegen" title="Playwright Test Generator" >}} to record interactions in your browser. The output will be a full-fledged script ready to review and execute.
+
+{{< figure src="/guides/images/guides-migration-playwright-codegen.png" alt="page being inspected with playwright codegen" title="Script recording with Playwright Inspector" >}}
 
 ## Switching to Playwright for Rich Browser Check Results
 
