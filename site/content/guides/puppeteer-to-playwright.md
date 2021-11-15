@@ -1,7 +1,7 @@
 ---
 title: Migrating from Puppeteer to Playwright
 description: >-
-  How does one migrate existing scripts from Puppeteer to Playwright? How much time and effort is needed? What are the needed code-level changes, and what new features and approaches does the switch enable? Last but not least, is it advisable to invest time in migrating in the first place?
+  How does one migrate existing scripts from Puppeteer to Playwright? How much time and effort is needed, what are the required code-level changes, and what new features and approaches does the switch enable? 
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
@@ -12,13 +12,9 @@ While they share a number of similarities, {{< newtabref  href="https://pptr.dev
 
 These developments have led many to switch from Puppeteer to Playwright. This guide aims to show what practical steps are necessary and what new possibilities this transition enables. Do not let the length of this article discourage you - in most cases the migration is quick and painless.
 
-## What to change in existing scripts
+## What to change in your scripts - short version
 
-If you have Puppeteer scripts you want to migrate over to Playwright, the following checklist will guide you through exactly what you will have to change.
-
-> Did we forget anything? Please let us know by getting in touch, or {{< newtabref  href="https://github.com/checkly/checklyhq.com" title="submit your own PR" >}}.
-
-## In summary - The cheat sheet
+Below you can find a cheat sheet with Puppeteer commands and the corresponding evolution in Playwright. Keep reading for a longer, more in-depth explanation of each change.
 
 Remember to add `await` as necessary.
 
@@ -42,9 +38,9 @@ Remember to add `await` as necessary.
 | `elementHandle.uploadFile(...)`             | `elementHandle.setInputFiles(...)` |
 | Tricky file download.                       | Better [support for downloads](https://playwright.dev/docs/downloads). |
 
-## In depth - All needed changes
+> Did we forget anything? Please let us know by getting in touch, or {{< newtabref  href="https://github.com/checkly/checklyhq.com" title="submit your own PR" >}}.
 
-This section of our guide will dive into the changes in more detail.
+## What to change in your scripts - in depth
 
 ### Require Playwright package
 
@@ -271,10 +267,16 @@ You can use the {{< newtabref href="https://playwright.dev/docs/codegen" title="
 
 {{< figure src="/guides/images/guides-migration-playwright-codegen.png" alt="page being inspected with playwright codegen" title="Script recording with Playwright Inspector" >}}
 
-## Switching to Playwright for Rich Browser Check Results
+## Switching to Playwright for richer browser check results
 
-Checkly users switching to Playwright can take advantage of its new Rich Browser Check Results, which come with performance and error tracing, as well as web vitals and screenshots on failure.
+Checkly users switching to Playwright can take advantage of its new Rich Browser Check Results, which come with [tracing and Web Vitals](https://www.checklyhq.com/docs/browser-checks/tracing-web-vitals/) which make it easier to isolate the root cause of a failed check and remediate faster.
 
-TODO what it looks like
+{{< figure src="/docs/images/browser-checks/tracing_web_vitals.png" alt="performance and error tracing check results on checkly" title="A browser check result with performance and error tracing" >}}
 
-TODO (remember new runtime, too)
+This reveals additional information about the check execution, including:
+1. Overview of all errors raised (console, network and script errors)
+2. A timeline summarising the execution across page navigations
+3. For each page visited, a network & timing timeline, Web Vitals, console and network tabs.
+4. In case of a failing check, a screenshot on failure.
+
+> Aside from running a Playwright script, performance and error tracing also require the use of runner `2021.06` or newer.
