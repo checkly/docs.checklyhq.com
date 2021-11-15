@@ -47,7 +47,7 @@ If you are using Cloudflare, one or more of your automated checks might trigger 
 
 If you want to prevent that from happening, without exposing your website to any and all automated traffic, you might want to set up a new [firewall rule](https://developers.cloudflare.com/firewall/cf-firewall-rules/) allowing traffic from Checkly as long as it contains a specific header or sets a certain user agent.
 
-You can make the header and/or user agent specific to your own Checkly user account by grabbing the first eight digits of your unique user ID, which you can find below your account name on the [Account Settings page](https://app.checklyhq.com/account/). Embedding this value in your checks will enable them to be allowed through by your firewall rules.
+You can make the header and/or user agent specific to your own Checkly user account by grabbing the first eight digits of your unique user ID, which you can find below your account name on the [Account Settings page](https://app.checklyhq.com/settings/account/). Embedding this value in your checks will enable them to be allowed through by your firewall rules.
 
 ### Whitelisting API checks
 
