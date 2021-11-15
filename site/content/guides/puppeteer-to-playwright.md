@@ -6,7 +6,7 @@ author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
-## Puppeteer and Playwright
+## Puppeteer and Playwright today
 
 While they share a number of similarities, {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}} have evolved at different speeds over the last two years, with Playwright closing (if not reversing) the feature gap that had once separated the two tools. The greater momentum Playwright seems to enjoy also comes from a very encouraging community engagement on the part of the developers - try looking at the Slack channels and GitHub repositories of both tools and the difference will be immediately evident.
 
@@ -28,7 +28,7 @@ Remember to add `await` as necessary.
 | `page.waitForXPath(XPathSelector)`          | `page.waitForSelector(XPathSelector)`            |
 | `page.$x(xpath_selector)`                   | `page.$(xpath_selector)`                         |
 | `page.waitForNetworkIdle(...)`              | `page.waitForLoadState({ state: 'networkidle' }})` |
-| `page.waitForFileChooser(...)`              | Removed, [different usage](https://playwright.dev/docs/input/#upload-files). |
+| `page.waitForFileChooser(...)`              | Removed, [handled differently](https://playwright.dev/docs/input/#upload-files). |
 | `page.waitFor(timeout)`                     | `page.waitForTimeout(timeout)` |
 | `page.type(selector, text)`                 | `page.fill(selector, text)` |
 | `page.cookies([...urls])`                   | `browserContext.cookies([urls])` |
@@ -114,7 +114,7 @@ In this area, Playwright brings about several changes you want to be mindful of:
 
 3. Puppeteer's `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforxpathxpath-options" title="page.waitForXPath" >}}` has been incorporated into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}`, which recognises XPath expressions automatically.
 
-4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptionshas" title="page.waitForFileChooser" >}}` been removed removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
+4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptions" title="page.waitForFileChooser" >}}` been removed removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
 
 5. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitfornetworkidleoptions" title="page.waitForNetworkIdle" >}}` has been generalised into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" title="page.waitForLoadState" >}}` (see the `networkidle` state to recreate previous behaviour)
 
@@ -122,7 +122,7 @@ In this area, Playwright brings about several changes you want to be mindful of:
 
 7. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforselectororfunctionortimeout-options-args" title="page.waitFor(timeout)" >}}` becomes `{{< newtabref  href="https://playwright.dev/docs/api/class-frame#frame-wait-for-timeout" title="page.waitForTimeout(timeout)" >}}`.
 
-> This is as good a place as any to remind that this should never be used in production scripts! Hard waits/sleeps should be used only for debugging purposes.
+> This is as good a place as any to remind that `page.waitForTimeout` should never be used in production scripts! Hard waits/sleeps should be used only for debugging purposes.
 
 ### Setting viewport
 
@@ -269,7 +269,7 @@ You can use the {{< newtabref href="https://playwright.dev/docs/codegen" title="
 
 ## Switching to Playwright for richer browser check results
 
-Checkly users switching to Playwright can take advantage of its new Rich Browser Check Results, which come with [tracing and Web Vitals](https://www.checklyhq.com/docs/browser-checks/tracing-web-vitals/) which make it easier to isolate the root cause of a failed check and remediate faster.
+Checkly users switching to Playwright can take advantage of its new Rich Browser Check Results, which come with [tracing and Web Vitals](https://www.checklyhq.com/docs/browser-checks/tracing-web-vitals/) and make it easier to isolate the root cause of a failed check and remediate faster.
 
 {{< figure src="/docs/images/browser-checks/tracing_web_vitals.png" alt="performance and error tracing check results on checkly" title="A browser check result with performance and error tracing" >}}
 
@@ -279,4 +279,4 @@ This reveals additional information about the check execution, including:
 3. For each page visited, a network & timing timeline, Web Vitals, console and network tabs.
 4. In case of a failing check, a screenshot on failure.
 
-> Aside from running a Playwright script, performance and error tracing also require the use of runner `2021.06` or newer.
+> Aside from running a Playwright script, performance and error tracing also require the use of [Runtime](https://www.checklyhq.com/docs/runtimes/) `2021.06` or newer.
