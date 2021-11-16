@@ -1,16 +1,25 @@
 ---
 title: Migrating from Puppeteer to Playwright
 description: >-
-  How does one migrate existing scripts from Puppeteer to Playwright? How much time and effort is needed, what are the required code-level changes, and what new features and approaches does the switch enable? 
+  The switch from Puppeteer to Playwright is easy. But is it worth it? And how exactly does one migrate existing scripts from one tool to another? What are the required code-level changes, and what new features and approaches does the switch enable?
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
 ## Puppeteer and Playwright today
 
-While they share a number of similarities, {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}} have evolved at different speeds over the last two years, with Playwright closing (if not reversing) the feature gap that had once separated the two tools. The greater momentum Playwright seems to enjoy also comes from a very encouraging community engagement on the part of the developers - try looking at the Slack channels and GitHub repositories of both tools and the difference will be immediately evident.
+While they share a number of similarities, {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}} have evolved at different speeds over the last two years, with Playwright gaining a lot of momentum and arguably even leaving Puppeteer behind.
 
 These developments have led many to switch from Puppeteer to Playwright. This guide aims to show what practical steps are necessary and what new possibilities this transition enables. Do not let the length of this article discourage you - in most cases the migration is quick and painless.
+
+### Why switch
+
+While a comprehensive comparison of each tool's strengths and weaknesses could fill up a guide of its own (see our [previous benchmarks](https://blog.checklyhq.com/cypress-vs-selenium-vs-playwright-vs-puppeteer-speed-comparison/) for an example), the case for migrating to Playwright today is rather straightforward:
+
+1. As of the writing of this guide, Playwright has been frequently and consistently adding game changing features (see [below](#new-possibilities-to-be-aware-of) for a partial list) for many months, with Puppeteer releasing in turn mostly smaller changes and bug fixes. This led to a reversal of the feature gap that had once separated the two tools.
+2. Playwright maintains an edge in performance in real-world E2E scenarios (see benchmark linked above), resulting in lower execution times for test suites and faster monitoring checks.
+3. Playwright scripts seem to run even more stable than their already reliable Puppeteer counterparts.
+4. The Playwright community on GitHub, Slack and beyond has gotten very vibrant, while Puppeteer's has gone more and more quiet. 
 
 ## What to change in your scripts - short version
 
@@ -280,3 +289,5 @@ This reveals additional information about the check execution, including:
 4. In case of a failing check, a screenshot on failure.
 
 > Aside from running a Playwright script, performance and error tracing also require the use of [Runtime](https://www.checklyhq.com/docs/runtimes/) `2021.06` or newer.
+
+> Note that cross-browser support is not available on Checkly - [our Browser checks run on Chromium](https://www.checklyhq.com/docs/browser-checks/) only.
