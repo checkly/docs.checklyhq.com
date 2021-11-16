@@ -1,9 +1,9 @@
 ---
 title: About roles
-weight: 2
+weight: 1
 menu:
   docs:
-    parent: "Teams"
+    parent: "Accounts & Users"
 aliases:
 - "/docs/teams/roles/"
 ---
