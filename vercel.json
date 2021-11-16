@@ -14,7 +14,7 @@
       ]
     },
     {
-      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp)",
+      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp|svg)",
       "headers": [
         { "key": "cache-control", "value": "max-age=86400, s-maxage=86400" }
       ]
