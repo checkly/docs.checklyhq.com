@@ -19,7 +19,7 @@ While a comprehensive comparison of each tool's strengths and weaknesses could f
 1. As of the writing of this guide, Playwright has been frequently and consistently adding game changing features (see [below](#new-possibilities-to-be-aware-of) for a partial list) for many months, with Puppeteer releasing in turn mostly smaller changes and bug fixes. This led to a reversal of the feature gap that had once separated the two tools.
 2. Playwright maintains an edge in performance in real-world E2E scenarios (see benchmark linked above), resulting in lower execution times for test suites and faster monitoring checks.
 3. Playwright scripts seem to run even more stable than their already reliable Puppeteer counterparts.
-4. The Playwright community on GitHub, Slack and beyond has gotten very vibrant, while Puppeteer's has gone more and more quiet. 
+4. The Playwright community on {{< newtabref  href="https://github.com/microsoft/playwright/discussions" title="GitHub" >}}, {{< newtabref  href="https://twitter.com/playwrightweb" title="Twitter" >}}, {{< newtabref  href="https://aka.ms/playwright-slack" title="Slack" >}} and beyond has gotten very vibrant, while Puppeteer's has gone more and more quiet. 
 
 ## What to change in your scripts - short version
 
