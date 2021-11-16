@@ -12,6 +12,12 @@
         { "key": "x-xss-protection", "value": "0" },
         { "key": "x-content-type-options", "value": "nosniff" }
       ]
+    },
+    {
+      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp)",
+      "headers": [
+        { "key": "cache-control", "value": "max-age=86400, s-maxage=86400" }
+      ]
     }
   ],
   "rewrites": [
