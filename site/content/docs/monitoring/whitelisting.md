@@ -8,8 +8,6 @@ menu:
 
 Whitelisting Checkly traffic in your firewall or load balancer by IP address is not possible at this moment as Checkly uses a non-static set of IP addresses in the cloud to run its checks.
 
-This is a feature we want to implement so expect changes on this topic in the future.
-
 You can however fetch a list of the [dynamic IP addresses](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in use at AWS, our cloud provider.
 
 ## Filtering Google Analytics
