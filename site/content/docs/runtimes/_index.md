@@ -23,7 +23,7 @@ It's pretty easy. You don't have to do anything most of the time.
 
 ![runtimes](/docs/images/monitoring/account_runtimes@2x.png)
 
-Noteo that one runtime version, e.g. `2021.6` holds all dependencies for all check types. There is no separate runtime for
+Note that one runtime version, e.g. `2021.6` holds all dependencies for all check types. There is no separate runtime for
 different types of checks.
 
 ## Overriding runtimes for specific checks
