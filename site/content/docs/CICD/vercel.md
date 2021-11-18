@@ -60,11 +60,12 @@ Should you wish to unlink the Vercel project, simply click `Unlink this project`
 By default, Vercel deploys your project as a **Preview deployment** using the unique **preview URL**. This URL is exposed
 to Checkly via a webhook and injected into the Checkly runtime as `ENVIRONMENT_URL`. 
 
+### Browser checks
+
 This means you can write a Browser check using Playwright that automatically targets the Preview deploy whenever this URL is 
 available, but otherwise just defaults to the stable **production URL**. 
 
 Here is a full example that we use ourselves to monitor checklyhq.com which is actually also deployed to Vercel.
-
 
 ```js {hl_lines=[7]}
 const { chromium } = require('playwright')
@@ -88,13 +89,23 @@ const { chromium } = require('playwright')
 })
 ```
 
-Notice the following:
+This way we are setting set the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL. 
 
-1. We set the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL.
-2. Whenever a **Preview** deploy happens on Vercel, this check gets called and runs the script against the preview environment.
-3. This check also runs on a 5 minute schedule, and checks our production environment.
+Whenever a **Preview** deploy happens on Vercel, this check gets called and runs the script against the preview environment. This check also runs on a 5 minute schedule, and checks our production environment.
 
 This way, we kill two birds with one stone and don't need separate checks for separate environments.
+
+### API checks
+
+With API checks, we automatically replace the hostname part of your request URL with the host in the environment URL. For example:
+
+* Your configured URL: https://api.acme.com/v1/customers?page=1
+* Environment URL: https://now.customer-api.qis6va2z7.now.sh
+* Replaced URL: https://now.customer-api.qis6va2z7.now.sh/v1/customers?page=1
+
+Notice we only replace the host part, not the URL path or any query parameters.
+
+Just like for browser checks, the check will run on deploy against our preview environment, while also still running on a schedule against production.
 
 ## How Checkly checks maps to Vercel checks
 
