@@ -97,7 +97,7 @@ This way, we kill two birds with one stone and don't need separate checks for se
 
 ### API checks
 
-With API checks, we automatically replace the hostname part of your request url with the host in the environment URL. For example:
+With API checks, we automatically replace the hostname part of your request URL with the host in the environment URL. For example:
 
 * Your configured URL: https://api.acme.com/v1/customers?page=1
 * Environment URL: https://now.customer-api.qis6va2z7.now.sh
