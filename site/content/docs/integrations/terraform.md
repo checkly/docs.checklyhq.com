@@ -47,7 +47,7 @@ To use the provider with your Checkly account, you will need an API Key for your
 $ export TF_VAR_checkly_api_key=cu_xxx
 ```
 
-1. You also need to set your target Account ID, you can find the Checkly Account ID under your [account settings](https://app.checklyhq.com/settings/account/general). If you don't have access to account settings, please contact your account owner/admin.
+You also need to set your target Account ID, which you can find under your [account settings](https://app.checklyhq.com/settings/account/general). If you don't have access to account settings, please contact your account owner/admin.
 
 ```bash
 $ export TF_VAR_checkly_account_id=xxx
