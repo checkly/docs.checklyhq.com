@@ -132,17 +132,17 @@ screenshot below.
 
 We have two flavours here...
 
-1. **Block my deployment when a check fails**  does what it says on the tin and only apply to Vercel **Reliability checks**.
+1. **Block my deployment when a check fails** does what it says on the tin and only applies to Vercel **Reliability checks**.
 2. **Block my deployment when Web Vitals degrade** is a bit special and only applies to Vercel **Performance checks** for our Browser checks. 
 
-This table below show help you determine how blocking checks works. Note, again, that **Browser checks**, can fail a 
+This table below should help you determine how blocking checks works. Note — again — that **Browser checks**, can fail a 
 Vercel deployment in two ways because the Reliability part and Performance part are evaluated separately.
 
 | Checkly       | Vercel            | Blocking heuristic                                                                                                                                   |
 |---------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| API Check     | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes, assertions and other API check specific features                                   |
+| API Check     | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes, assertions and other API check specific features.                                   |
 | Browser Check | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes on the main HTML document, syntax errors in the script, or assertions using the `expect` or `assert` libraries in the browser check script. |
-|               | Performance Check | Blocks deployment when a degradation is registered in the aggregate **Virtual Experience Score** based on Web Vitals. Read below for more details                                   |
+|               | Performance Check | Blocks deployment when a degradation is registered in the aggregate **Virtual Experience Score** based on Web Vitals. Read below for more details.                                   |
 
 ## Virtual Experience Score & Web Vitals
 
@@ -156,7 +156,7 @@ The Virtual Experience Score does three things:
 2. It assigns a "weight" to each score, marking its impact on your UX.
 3. It chops up the score into the top 10% (p10), the top 50% (median) and the rest.
 
-In the table below you can see the exact numbers their weight in the Virtual Experience Score.
+In the table below you can see the exact numbers and their weight in the Virtual Experience Score.
 
 | Web Vitals metrics | p10 / 90%    | median / 50% | weight |
 |--------------------|--------|--------|--------|
@@ -171,14 +171,14 @@ So, what does this mean for the blocking heuristics? It means that we will mark 
 1. A check reports web vitals, and...
 2. The VES has degraded in relation to the last available **Production** deploy. Degraded means they passed the range threshold, i.e from **p10** to **median**. 
 
-For more info on the **Virtual Experience Score** [check the documentation on the Vercel site](https://vercel.com/docs/concepts/analytics/web-vitals#virtual-experience-score)
+For more info on the **Virtual Experience Score** [check the documentation on the Vercel site](https://vercel.com/docs/concepts/analytics/web-vitals#virtual-experience-score).
 
 ## Skipping Performance checks
 
 In some cases, Checkly will completely skip performance checks. You will see the "skipped" status in your Vercel deployment overview.
 Checkly skips performance checks when...
 
-1. A check doesn't report any Web Vitals. They are all `null`. This happens when for example when using Puppeteer based checks.
+1. A check doesn't report any Web Vitals. They are all `null`. For example, this happens when using Puppeteer based checks.
 2. Or, the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
 
 
