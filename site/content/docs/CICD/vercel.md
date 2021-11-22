@@ -125,51 +125,60 @@ This is how a Checkly check maps to a Vercel check:
 
 ## Blocking Vercel deployments
 
-If you have the `Block my deployment when a check fails` checkbox enabled, Checkly informs Vercel whether a Vercel deployment should be "blocked" based on the following rules, per check type:
+You can block your Vercel deployments if any of your checks fail by enabling the checkboxes highlighted in the
+screenshot below. 
 
-### API checks
-For **API checks** any failing check results in a blocked Vercel deployment. This is a simple, binary state: it either fails or doesn't.
+![blocking deployments](/docs/images/cicd/vercel/vercel_block.png)
 
-### Browser checks
+We have two flavours here...
 
-For **Browser checks**, there are different ways a check can fail a Vercel deployment because the Reliability part and Performance part are evaluated separately.
+1. **Block my deployment when a check fails** does what it says on the tin and only applies to Vercel **Reliability checks**.
+2. **Block my deployment when Web Vitals degrade** is a bit special and only applies to Vercel **Performance checks** for our Browser checks. 
 
-**Browser Reliability check**
+This table below should help you determine how blocking checks works. Note — again — that **Browser checks**, can fail a 
+Vercel deployment in two ways because the Reliability part and Performance part are evaluated separately.
 
-1. When the script has **syntax** errors, e.g `await pag.goto()`— note the missing `e`.
-2. When the script **throws an error**. The `Error` can come from Playwright, a user supplied assertion using `expect` or any other user supplied code.
-3. When a **script times out**. This can be anything from a domain not existing to a selector not being in the page. The default timeout is 30 seconds. This is essentially the same as throwing an `Error`.
+| Checkly       | Vercel            | Blocking heuristic                                                                                                                                   |
+|---------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| API Check     | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes, assertions and other API check specific features.                                   |
+| Browser Check | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes on the main HTML document, syntax errors in the script, or assertions using the `expect` or `assert` libraries in the browser check script. |
+|               | Performance Check | Blocks deployment when a degradation is registered in the aggregate **Virtual Experience Score** based on Web Vitals. Read below for more details.                                   |
 
-**Browser Performance check**
+## Virtual Experience Score & Web Vitals
 
-A Browser check — when using the Playwright library — automatically [collects and reports Web Vital metrics](/docs/browser-checks/tracing-web-vitals/#performance-tracing-with-web-vitals). 
-These Web Vitals are reported to Vercel as the separate Performance check.
+Together with the team at Vercel, we developed the **Virtual Experience Score** (VES) that gives you one simple KPI to track. 
 
-Together with the team at Vercel, we developed some custom logic to **block** deployments if any Web Vitals on your project
-degrade and cross from a "superior" range to a "inferior". For example, this could be going from **good** to **needs improvement**. 
-These ranges are listed in the table below and are based on the guidelines developed by the [Web Vitals maintainers at Google.](https://web.dev/learn-web-vitals/)
+![blocking deployments](/docs/images/cicd/vercel/vercel_ves.png)
 
-| KPI | good       | needs improvement  | poor     |
-|-----|------------|--------------------|----------|
-| FCP | <= .93 sec | > .93 sec <= 1.6 sec | > 1.6 sec  |
-| LCP | <= 1.2 sec | > 1.2 sec <= 2.4 sec | > 2.4 sec  |
-| CLS | <= 0.1     | > 0.1  <= 0.25     | > 0.25   |
-| TBT | <= 150 ms  | > 150 ms <= 350 ms | > 350 ms |
+The Virtual Experience Score does three things:
+
+1. It aggregates your Web Vitals metrics into one number from 0 to 100, just like you might have seen with [Lighthouse scoring](https://web.dev/performance-scoring/).
+2. It assigns a "weight" to each score, marking its impact on your UX.
+3. It chops up the score into the top 10% (p10), the top 50% (median) and the rest.
+
+In the table below you can see the exact numbers and their weight in the Virtual Experience Score.
+
+| Web Vitals metrics | p10 / 90%    | median / 50% | weight |
+|--------------------|--------|--------|--------|
+| FCP                | 934ms  | 1600ms | 0.20   |
+| LCP                | 1200ms | 2400ms | 0.35   |
+| TBT                | 150ms  | 350ms  | 0.30   |
+| CLS                | 0.1    | 0.25   | 0.15   |
 
 
-We will report a Browser Performance check as **passing** when:
-
-1. The Web Vitals measurement on a previous deploy is missing, but the current deployment does have measurements; we assume the new score is better.
-2. The Web Vitals measurements are within the target range.
-
-We will report it as **blocking** when:
+So, what does this mean for the blocking heuristics? It means that we will mark a check as **blocking** when:
 
 1. A check reports web vitals, and...
-2. The web vitals have degraded in relation to the last available **Production** deploy. Degraded means they passed the range threshold, i.e from **poor** to **needs improvement**.
+2. The VES has degraded in relation to the last available **Production** deploy. Degraded means they passed the range threshold, i.e from **p10** to **median**. 
 
-We will report it as **skipped** when:
+For more info on the **Virtual Experience Score** [check the documentation on the Vercel site](https://vercel.com/docs/concepts/analytics/web-vitals#virtual-experience-score).
 
-1. A check doesn't report any Web Vitals. They are all `null`. This happens when for example when using Puppeteer based checks.
+## Skipping Performance checks
+
+In some cases, Checkly will completely skip performance checks. You will see the "skipped" status in your Vercel deployment overview.
+Checkly skips performance checks when...
+
+1. A check doesn't report any Web Vitals. They are all `null`. For example, this happens when using Puppeteer based checks.
 2. Or, the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
 
 
