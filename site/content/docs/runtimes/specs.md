@@ -16,7 +16,6 @@ By default, all our runners have their timezone set to UTC, regardless of their 
 - buffer
 - crypto
 - dns
-- faker
 - path
 - querystring
 - readline
