@@ -37,7 +37,7 @@
       padding: 20px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
-      
+
       border: 1px solid $gray-light;
       border-radius: 5px;
       ul {
@@ -265,6 +265,11 @@
     h1, h2, h3, h4, h5 {
       color: $black;
     }
+
+    .heading-anchor {
+      color: $black;
+    }
+
     .breadcrumb {
       display: flex;
       align-items: center;
@@ -272,7 +277,7 @@
       padding: 0;
       background: none;
       font-size: 14px;
-      
+
       & a {
         color: $gray;
         &:hover {
