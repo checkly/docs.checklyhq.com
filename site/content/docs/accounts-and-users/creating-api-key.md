@@ -4,8 +4,6 @@ weight: 2
 menu:
   docs:
     parent: "Accounts & Users"
-aliases:
-- "/docs/accounts-users/creating-api-key/"
 ---
 
 The Checkly public API uses API keys to authenticate requests. API keys are unique to the user and not tied to an account. 

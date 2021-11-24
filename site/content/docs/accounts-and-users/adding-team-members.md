@@ -5,7 +5,7 @@ menu:
   docs:
     parent: "Accounts & Users"
 aliases:
-- "/docs/accounts-users/adding-team-members/"
+- "/docs/teams/adding-team-members/"
 ---
 
 You can invite team members to join your Checkly account to view and manage all checks and related settings.
