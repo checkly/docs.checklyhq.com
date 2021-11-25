@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "E2E"
+    parent: "E2E examples"
 ---
 
 Websites might expose files for users to download and then access from their local machine. Common cases are downloading tickets, receipts and itineraries.

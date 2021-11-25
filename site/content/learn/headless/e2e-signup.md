@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "E2E"
+    parent: "E2E examples"
 ---
 
 Signups are key transactions in most web platforms, and therefore prime targets for automation.

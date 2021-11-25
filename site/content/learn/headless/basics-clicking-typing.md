@@ -15,7 +15,7 @@ weight: 6
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 Users normally access most website functionality through clicks, keystrokes etc. Playwright and Puppeteer allow us to replicate these events by referencing elements on the page using [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors).
