@@ -21,6 +21,10 @@ that do not have write access.
 
 ![adding variables](/docs/images/api-checks/add-variables.png)
 
+{{<warning >}}
+Every check run is a self-contained run, so setting an environment variable during a check does not make its value "flow back" to our database for it to be shared with other runs.
+{{</warning >}}
+
 ## Accessing variables in API checks
 
 Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{BASIC_PWD}}`.
