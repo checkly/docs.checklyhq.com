@@ -8,7 +8,7 @@ menu:
 
 The Checkly public API uses API keys to authenticate requests. API keys are unique to the user and not tied to an account. 
 
->Be aware that account-based API keys will be deprecated soon. Please create an API key for your user account in [User Settings](https://app.checklyhq.com/settings/user/).
+>Be aware that account-scoped API keys will be deprecated soon. Please create an API key for your user account in [User Settings](https://app.checklyhq.com/settings/user/).
 
 
 **Steps to create an API key:** 
