@@ -5,6 +5,7 @@ menu:
   docs:
     parent: "Accounts & Users"
 aliases:
+- "/docs/teams/"
 - "/docs/teams/roles/"
 ---
 
