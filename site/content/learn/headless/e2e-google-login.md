@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "E2E"
+    parent: "E2E examples"
 ---
 
 Social login using your personal Google or Google Gsuite account is a common use case for many login scenarios.

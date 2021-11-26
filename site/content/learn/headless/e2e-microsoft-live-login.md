@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "E2E"
+    parent: "E2E examples"
 ---
 
 Playwright and Puppeteer also allow us to automate logging in to a Microsoft Live account.
@@ -22,8 +22,6 @@ Playwright and Puppeteer also allow us to automate logging in to a Microsoft Liv
 1. We start at `https://login.live.com`
 2. We provide the username and password, injected by using environment variables
 3. We are redirected to the main account page
-
-<!-- more -->
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}

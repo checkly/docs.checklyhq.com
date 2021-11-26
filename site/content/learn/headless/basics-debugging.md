@@ -9,7 +9,7 @@ tags:
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 Understanding why a script does not work as expected, or just what the root cause of a failure is, is a key skill for automation. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention. 

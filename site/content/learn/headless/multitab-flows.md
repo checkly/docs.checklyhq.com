@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "Miscellaneous"
+    parent: "Pages & frames"
 ---
 
 Both Puppeteer and Playwright enable us to control multiple browser tabs, albeit in different ways. 

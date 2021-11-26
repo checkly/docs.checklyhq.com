@@ -10,7 +10,7 @@ weight: 2
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 The [official documentation](https://playwright.dev/) for Playwright reads:

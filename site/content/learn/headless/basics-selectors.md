@@ -11,7 +11,7 @@ weight: 5
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 With Puppeteer and Playwright, as well as with most other UI automation tools, elements on the UI are referenced through element selectors. Becoming proficient in the use of selectors is a hard requirement for writing scripts; an eye for good, solid selectors can make the difference between unstable (or "flaky") high-maintenace script and solid, reliable ones.

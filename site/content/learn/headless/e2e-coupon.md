@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "E2E"
+    parent: "E2E examples"
 ---
 
 Webshops and subscription-based services often offer discounts through coupon codes. Applying a valid coupon code during checkout might reduce the price of one, several, or all items in the shopping cart.
