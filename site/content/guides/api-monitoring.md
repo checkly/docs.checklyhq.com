@@ -44,8 +44,8 @@ Let's dive in deeper into each point.
 
 There is a large variety of valid requests that a user might make to a given endpoint. Being able to customise all aspects of our test request is therefore fundamental. Key aspects are:
 
-1. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" title="Methods" >}}[Method](), like `GET`, `PUT`, `POST`, `DELETE`, etc
-2. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" title="Headers" >}}[Headers](), like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
+1. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" title="Methods" >}}, like `GET`, `PUT`, `POST`, `DELETE`, etc
+2. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" title="Headers" >}}, like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
 3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query" title="Query parameters" >}}
 
 {{< figure src="/guides/images/guides-checkly-swagger.png" alt="swagger api documentation" title="Swagger is a popular tool for generating API documentation" >}}
