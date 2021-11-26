@@ -10,7 +10,7 @@ tags:
 
 menu:
   learn:
-    parent: "Best Practices"
+    parent: "Best practices"
 ---
 
 We define _test data_ as any data we consistently use to verify a certain property, like functionality or performance, of a system. Another popular term for the same concept is _fixture_. We will use these interchangeably.

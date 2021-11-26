@@ -10,7 +10,7 @@ weight: 3
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 Let's start by creating a new directory and navigating to it. Assuming you already have [Node.js](https://nodejs.org/) available in your local environment, installing Puppeteer or Playwright is achieved with just one instruction:

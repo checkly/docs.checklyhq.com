@@ -9,7 +9,7 @@ tags:
 
 menu:
   learn:
-    parent: "Best Practices"
+    parent: "Miscellaneous"
 ---
 
 With Playwright and Puppeteer, writing scripts by hand is not the only option. Since browser automation first became possible, there have always been tools trying to simplify script creation. Such instruments normally aim to help users with little or no scripting skills use automation tools, while also saving more expert users time when creating brand new scripts.

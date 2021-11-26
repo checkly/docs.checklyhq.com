@@ -12,7 +12,7 @@ weight: 1
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 Straight from the [official documentation](https://developers.google.com/web/tools/puppeteer):
