@@ -17,7 +17,7 @@ If you are using Heroku CI, you can add a post-deploy step in your `app.json` fi
     // ...
 
     "scripts": {
-      "postdeploy": "echo 'Deployment finished.' && curl 'https://api-test.checklyhq.com/check-groups/4/trigger/$CHECKLY_TOKEN' > $PWD/checkly.json' && if [ $(grep -c '\"hasFailures\":true' $PWD/checkly.json) -ne 0 ]; then exit 1; fi"
+      "postdeploy": "echo 'Deployment finished.' && curl 'https://api.checklyhq.com/check-groups/4/trigger/$CHECKLY_TOKEN' > $PWD/checkly.json' && if [ $(grep -c '\"hasFailures\":true' $PWD/checkly.json) -ne 0 ]; then exit 1; fi"
     }
 }
 ```
