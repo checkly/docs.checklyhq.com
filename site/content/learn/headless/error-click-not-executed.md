@@ -27,4 +27,6 @@ Unless you know for certain, do not assume that the page you are automating foll
 
 ![chrome devtools console showing alert for duplicated id](/samples/images/errors-ids-console.png)
 
+If you are running Playwright 1.14 or newer, you can also enable [strict mode](https://playwright.dev/docs/release-notes#version-114) to have it throw an error in case your selector matches more than one element on the page: `await page.click('mySelector', { strict: true });`
+
 > Note that this list neither is nor aims to be complete: additional possible causes most likely exist for this error.
