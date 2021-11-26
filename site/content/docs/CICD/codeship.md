@@ -14,7 +14,7 @@ If you are using Codeship, you can add an extra [custom deployment script](https
 
 ```bash
 echo 'Deployment finished.'
-curl "https://api-test.checklyhq.com/check-groups/4/trigger/$CHECKLY_TOKEN" > $PWD/checkly.json
+curl "https://api.checklyhq.com/check-groups/4/trigger/$CHECKLY_TOKEN" > $PWD/checkly.json
 if [ $(grep -c '"hasFailures":true' $PWD/checkly.json) -ne 0 ]; then exit 1; fi
 ```
 
