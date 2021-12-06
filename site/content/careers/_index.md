@@ -65,7 +65,7 @@ trusted:
 location:
   title: Fully remote
   description: >-
-    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 7+ countries. As part of our team, you can work from wherever you're happiest and most productive.
+    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 10+ countries. As part of our team, you can work from wherever you're happiest and most productive.
   map: '/images/careers/remote_map@2x.png'
 benefits:
   title: Perks and benefits
