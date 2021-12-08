@@ -23,6 +23,10 @@ There are two reasons for this:
 > Note that **we run checks sequentially**, not in parallel. For example, a 1 minute API check, with data center locations
 > Paris and Frankfurt selected, will first run in Paris and 1 minute later in Frankfurt.
 
+{{< info >}}
+The total lenght of the check must be under 256KB
+{{< /info >}}
+
 A picture is a thousand words:
 
 ![monitoring and alerting pipeline](/docs/images/monitoring/pipeline.png)
