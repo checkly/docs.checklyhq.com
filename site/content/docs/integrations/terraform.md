@@ -197,6 +197,10 @@ We often publish in-depth articles on how to use Terraform with Checkly on our b
 1. [Managing Checkly checks with Terraform](https://blog.checklyhq.com/managing-checkly-checks-with-terraform/)
 2. [Scaling Puppeteer & Playwright on Checkly with Terraform](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform/)
 
+{{<info >}}
+If you find the error `402 payment required` when creating checks through Terraform or the API, possibly you have reached the maximum number of checks you can create on your account. Contact Checkly Support to talk about options. 
+{{</info >}}
+
 ## Development version
 
 If you want to get your hands dirty on the very last in development version, you can:
