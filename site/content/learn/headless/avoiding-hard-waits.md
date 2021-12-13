@@ -16,7 +16,7 @@ In a bid to quickly resolve the issue of a page or element not being loaded, man
 
 <!-- more -->
 
-## The problems of hard waits
+## The problems with hard waits
 
 Hard waits do one thing and one thing only: wait for the specified amount of time. There is nothing more to them. This makes them dangerous: they are intuitive enough to be favoured by beginners and inflexbile enough to create serious issues.
 
@@ -46,23 +46,43 @@ Our aim should be to wait just long enough for the element to appear. We want to
 
 ILLUSTRATION: smart waits
 
-don't use hard waits at all (only fine for when writing scripts, not prod)
+Different tools approach the broad topic of waiting in different ways. Both Puppeteer and Playwright offer many different kinds of smart waits, but Playwright takes things one step further and introduces an [auto-waiting mechanism] on most page interactions. 
 
-playwright has built-in mechanisms for waiting, and even if those don't work, there are better ways to wait
-essentially, there is never a reason for using hard waits in production, ever.
+Let's take a look at different smart waiting techniques and how they are used.
 
-### built-in
+## Built-in waits
 
-on navigations
-https://playwright.dev/docs/navigations#auto-wait
+Playwright comes with built-in waiting mechanisms on [navigation](https://playwright.dev/docs/navigations) and [page interactions](https://playwright.dev/docs/actionability). Since these are baked into the tool itself, it is good to get familiar with the logic behind them, as well as how to override the default behaviour when necessary.
 
-> callout: lazy-loaded pages see explicit waiting
+## Explicit waits
 
-on elements
-https://playwright.dev/docs/actionability
+Explicit waits are a type of smart wait we invoke explicitly as part of our script. We will want to use them more or less often depending on whether our automation tool has a built-in waiting mechanism (e.g. Playwright) or requires us to handle all the waiting (e.g. Puppeteer).
 
-### explicit
+### Waiting on navigations and network conditions
 
-list methods
+On a page load, we can use the following:
 
+1. `page.waitForNavigation` to wait until a page navigation (new URL or page reload) has completed.
+2. `page.waitForLoadState` for Playwright, waits until the required load state has been reached (defaults to `load`);`page.waitForNetworkIdle` with Puppeteer, a narrower method to wait until all network calls have ended.
+3. `page.waitForUrl` with Playwright, waits until a navigation to the target URL.
+	
+All the above default to waiting for the [`load` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) event, but can also be set to wait for:
+* the [`domcontentloaded` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event).
+* Playwright only: `networkidle`, raised when there are no network connections for at least 500 ms.
+* Playwright only: `commit`, when the network response is received and the document starts loading (Playwright only).
+* Puppeteer only: `networkidle0`, raised when there are no network connections for at least 500 ms.
+* Puppeteer only: `networkidle2`, raise when the there are no more than 2 network connections for at least 500 ms.
 
+> [Lazy-loaded pages](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading) might require extra attention when waiting for the content to load, often demanding explicitly waiting for specific UI elements. See the following section.
+
+### Waiting for an element
+
+We can also explicitly wait for a specific element to appear on the page. This is normally done via `page.waitForSelector` or a similar method, like `page.waitForXPath` (Puppeteer only). A good knowledge of [selectors](/learn/headless/basics-selectors) is key to enable us to select precisely the element we need to wait for.
+	
+2. page.$x(xpath_selector)	page.$(xpath_selector)
+
+### Waiting on page events
+
+TODO EXTERNAL LINKS
+
+page.waitForEvent 
