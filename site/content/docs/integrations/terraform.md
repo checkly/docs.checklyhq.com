@@ -191,6 +191,8 @@ After each change to your Terraform file, you will need to run both following co
 
 If you are using [Terraform Cloud](https://www.terraform.io/cloud), the above will be run for you automatically every time a pull request is merged into a main branch.
 
+>**Error: 402 payment required** If you find this error when creating checks through Terraform or the API, possibly you have reached the maximum number of checks you can create on your account. Contact Checkly Support to talk about options. 
+
 ## Additional material
 
 We often publish in-depth articles on how to use Terraform with Checkly on our blog:
