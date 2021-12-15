@@ -16,7 +16,7 @@ Sending out alert notifications like emails and Slack hooks depends on four fact
 As you can see, 1 and 2 are how Checkly works in the backend; you have no influence on this. But 3 and 4 are user configurable.
 We can even add a fifth factor: if the check is muted, no alerts are send out at all.
 
-> Note: Browser checks currently do not have a degraded states.
+> Note: Browser checks currently do not have a degraded state.
 
 ## Alert states & transitions
 
