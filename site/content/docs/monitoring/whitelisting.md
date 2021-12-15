@@ -83,7 +83,7 @@ const page = await browser.newPage({userAgent})
 {{< /tab >}}
 {{< /tabs >}}
 
-## User Agent used by Checkly
+## Default Checkly user agent
 
 This is what Checkly sends as user-agent:
 
