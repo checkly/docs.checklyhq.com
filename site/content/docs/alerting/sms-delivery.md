@@ -23,7 +23,7 @@ messages, check if your country is in the list on [this AWS support page](https:
 
 ## SMS alert number and sender ID
 
-SMS alerts will be sent with a sender ID and phone number. But not all charriers support that. For instance, the number the SMS is sent from in the US will be +18334730650. But in other countries only the sender ID will be displayed, which is "Checkly". 
+SMS alerts will be sent with a sender ID and phone number. But not all carriers support that. For instance, the number the SMS is sent from in the US will be +18334730650. But in other countries only the sender ID will be displayed, which is "Checkly". 
 
 {{< info >}}
 For limits and other SMS-related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing#features).
