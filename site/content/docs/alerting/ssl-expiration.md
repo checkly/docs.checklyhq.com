@@ -11,7 +11,7 @@ aliases:
 
 > On August 13, 2020, we [changed how SSL alerting is configured](/docs/alerting/). Your [old settings](https://app.checklyhq.com/alert-settings?showSslAlertingV1Notice=true) will be supported for 3 months until November 13, 2020. This page reflects the current usage.
 
-An expired SSL certificate can cause havoc to sites and APIs. Checkly performs a daily check on your certificate and can alert you 30, 14, 7 and/or 3 days before your certificate expires. All alert channels (e-mail, SMS, OpsGenie, Webhook etc.) can be used for this alert.
+An expired SSL certificate can cause havoc to sites and APIs. Checkly performs a daily check on your certificate and can alert you up to 30 days before your certificate expires. All alert channels (e-mail, SMS, OpsGenie, Webhook etc.) can be used for this alert.
 
 Simply create or pick an existing alert channel that your check subscribes to and enable *SSL certificate expiration* and set the day threshold to your preference. If you don't have your alert channels set up yet, see [Alert Channels](/docs/alerting/alert-channels/).
 
@@ -27,6 +27,12 @@ Simply create or pick an existing alert channel that your check subscribes to an
 
 ## API checks
 The domain for the certificate is parsed from the `URL` in the HTTP request settings so it does not require any setup.
+
+
+>**Error: unable to verify the first certificate.**
+If prompted with this error, the usual cause is the certificate chain of the given website being incomplete. This will not happen with a browser check, because the browser will complete the certificate chain on its own. When running an API check, though, no browser is involved - therefore the error takes place.
+You can use an online SSL checker (e.g.: [SSLHopper](https://www.sslshopper.com/ssl-checker.html)) to help you diagnose issues with your certificate.
+
 
 ## Browser checks
 Since browser checks can connect to multiple domains, you need to set the SSL certificate domain to receive certificate alerts for them.
