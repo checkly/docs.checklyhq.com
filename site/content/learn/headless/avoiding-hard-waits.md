@@ -20,7 +20,16 @@ In a bid to quickly resolve the issue of a page or element not being loaded, man
 
 Hard waits do one thing and one thing only: wait for the specified amount of time. There is nothing more to them. This makes them dangerous: they are intuitive enough to be favoured by beginners and inflexbile enough to create serious issues.
 
-Let's explore these issues in practical terms through an example. Imagine the following situation: our script is running using a tool without any sort of built-in smart waiting, and we need to wait until an element appears on a page and then attempt to click it. We try to solve this issue with a hard wait, like Puppeteer's `page.waitFor(timeout)`. The following can happen:
+Let's explore these issues in practical terms through an example. Imagine the following situation: our script is running using a tool without any sort of built-in smart waiting, and we need to wait until an element appears on a page and then attempt to click it. We try to solve this issue with a hard wait, like Puppeteer's `page.waitFor(timeout)`. 
+
+This could looks something like the following:
+
+```js
+await page.waitFor(1000); // hard wait for 1000ms
+await page.click('#button-login');
+```
+
+In such a situation, the following can happen:
 
 1. We can end up waiting for a shorter amount of time than the element takes to load!
 
@@ -58,6 +67,8 @@ Playwright comes with built-in waiting mechanisms on {{< newtabref title="naviga
 
 Explicit waits are a type of smart wait we invoke explicitly as part of our script. We will want to use them more or less often depending on whether our automation tool has a built-in waiting mechanism (e.g. Playwright) or requires us to handle all the waiting (e.g. Puppeteer).
 
+If you can rely on automatic waits, use explicit waits only when necessary. An auto-wait system failing once is no good reason for ditching the approach completely and adding explicit waits before every page load and element interaction. If the tool you are using does not do auto-waiting, you will be using explicit waits quite heavily (possibly after each navigation and before each element interaction), and that is fine - there is just less work being done behind the scenes, and you are therefore expected to take more control into your hands.
+
 ### Waiting on navigations and network conditions
 
 On a page load, we can use the following:
@@ -87,4 +98,4 @@ With Playwright, we can also directly wait on {{< newtabref title="page events" 
 
 ### Waiting on page functions
 
-For more advanced cases, we can pass a function to be evaluated within the browser context via `{{< newtabref title="page.waitForFunction" href="https://playwright.dev/docs/api/class-page#page-wait-for-function" >}}`. 
+For more advanced cases, we can pass a function to be evaluated within the browser context via `{{< newtabref title="page.waitForFunction" href="https://playwright.dev/docs/api/class-page#page-wait-for-function" >}}`.
