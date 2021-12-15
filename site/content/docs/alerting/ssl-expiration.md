@@ -11,7 +11,7 @@ aliases:
 
 > On August 13, 2020, we [changed how SSL alerting is configured](/docs/alerting/). Your [old settings](https://app.checklyhq.com/alert-settings?showSslAlertingV1Notice=true) will be supported for 3 months until November 13, 2020. This page reflects the current usage.
 
-An expired SSL certificate can cause havoc to sites and APIs. Checkly performs a daily check on your certificate and can alert you 30, 14, 7 and/or 3 days before your certificate expires. All alert channels (e-mail, SMS, OpsGenie, Webhook etc.) can be used for this alert.
+An expired SSL certificate can cause havoc to sites and APIs. Checkly performs a daily check on your certificate and can alert you up to 30 days before your certificate expires. All alert channels (e-mail, SMS, OpsGenie, Webhook etc.) can be used for this alert.
 
 Simply create or pick an existing alert channel that your check subscribes to and enable *SSL certificate expiration* and set the day threshold to your preference. If you don't have your alert channels set up yet, see [Alert Channels](/docs/alerting/alert-channels/).
 
