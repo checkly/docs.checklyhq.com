@@ -82,3 +82,12 @@ const page = await browser.newPage({userAgent})
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+## User Agent used by Checkly
+
+This is what Checkly sends as user-agent:
+
+- API checks: `Checkly/1.0 (https://www.checklyhq.com)`.
+- Browser checks: `Checkly, https://www.checklyhq.com`.
+
+Changing the user agent of a check will not change the browser or browser version, it will simply set a new string for user-agent.
