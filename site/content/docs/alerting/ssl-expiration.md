@@ -31,7 +31,7 @@ The domain for the certificate is parsed from the `URL` in the HTTP request sett
 
 >**Error: unable to verify the first certificate.**
 If prompted with this error, the usual cause is the certificate chain of the given website being incomplete. This will not happen with a browser check, because the browser will complete the certificate chain on its own. When running an API check, though, no browser is involved - therefore the error takes place.
-You can use an online SSL checker (e.g.: [https://www.sslshopper.com/ssl-checker.html](https://www.sslshopper.com/ssl-checker.html)) to help you diagnose issues with your certificate.
+You can use an online SSL checker (e.g.: [SSLHopper](https://www.sslshopper.com/ssl-checker.html)) to help you diagnose issues with your certificate.
 
 
 ## Browser checks
