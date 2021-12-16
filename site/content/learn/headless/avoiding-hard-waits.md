@@ -12,7 +12,7 @@ menu:
     parent: "Best practices"
 ---
 
-In a bid to quickly resolve the issue of a page or element not being loaded, many take the shortcut of waiting for a fixed amount of time - adding a hard wait, in other words. This is regarded as an anti-pattern, as it lowers performance and increases the chances of a script breaking (possibly intermittently). Let's explore how those issues arise and what better solutions we can use to avoid them.
+Looking to solve the issue of a page or element not being loaded, many take the shortcut of waiting for a fixed amount of time - adding a hard wait, in other words. This is regarded as an anti-pattern, as it lowers performance and increases the chances of a script breaking (possibly intermittently). Let's explore how those issues arise and what better solutions we can use to avoid them.
 
 <!-- more -->
 
@@ -49,7 +49,7 @@ Flakiness, a higher-than-acceptable false failure rate, can be a major problem. 
 
 ## How to fix it
 
-To avoid the issues we have mentioned, we have to ditch hard waits completely outside debugging scenarios. That means that hard waits should never appear in production scripts under any circumstance.
+To avoid these issues, we have to ditch hard waits completely outside debugging scenarios. That means that **hard waits should never appear in production scripts under any circumstance**.
 
 Our aim should be to wait just long enough for the element to appear. We want to always be certain the element is available, and never waste any time doing that. Luckily most automation tools and frameworks today offer multiple ways to achieve this. We can call these "smart waits".
 
@@ -99,3 +99,9 @@ With Playwright, we can also directly wait on {{< newtabref title="page events" 
 ### Waiting on page functions
 
 For more advanced cases, we can pass a function to be evaluated within the browser context via `{{< newtabref title="page.waitForFunction" href="https://playwright.dev/docs/api/class-page#page-wait-for-function" >}}`.
+
+## Takeaways
+
+1. Never use hard waits outside of debugging
+2. Use smart waits instead, choosing the best one for your situation
+3. Use more or less smart waits depending on whether your tool support auto-waits
