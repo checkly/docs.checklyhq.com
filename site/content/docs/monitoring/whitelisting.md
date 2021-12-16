@@ -15,7 +15,7 @@ You can however fetch a list of the [dynamic IP addresses](https://docs.aws.amaz
 If you want to filter Checkly traffic in Google Analytics because Checkly browser checks are skewing your 
 numbers, here is one way how to do it:
 
-1. Ad a UTM source tag to the URL's your requesting, i.e.
+1. Add a UTM source tag to the URL's your requesting, i.e.
 
 {{< tabs "Goto example" >}}
 {{< tab "Puppeteer" >}}
@@ -82,3 +82,12 @@ const page = await browser.newPage({userAgent})
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+## Default Checkly user agent
+
+This is what Checkly sends as user-agent:
+
+- API checks: `Checkly/1.0 (https://www.checklyhq.com)`.
+- Browser checks: `Checkly, https://www.checklyhq.com`.
+
+Changing the user agent of a check will not change the browser or browser version, it will simply set a new string for user-agent.
