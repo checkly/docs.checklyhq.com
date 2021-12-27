@@ -18,6 +18,10 @@ The timing phases correspond to the Node.js request library timing phases:
 
 ![api monitoring timing phases](/docs/images/api-checks/timing-phases.png)
 
+{{<info>}}
+"wait" is the time it takes for the underlying Node HTTP module to get a socket from the network layer. This time can vary quite a bit, usually it goes from 900 microseconds to some milliseconds. Most clients for API / webpage will have this lag too. 
+{{</info>}}
+
 >**Error: ESOCKETTIMEDOUT.** Sometimes API checks return this error, without any other information on what caused it. 
 >- This is a socket timeout error. Essentially there is no successful connection with the API at the TCP and/or DNS level. Then, Checkly is closing the connection after the usual 30 seconds timeout, because the server didn’t respond. 
 >- Usually the root cause for this error is intermittent network issues on the application side.
