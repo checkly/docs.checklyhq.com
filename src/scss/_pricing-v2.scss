@@ -18,16 +18,7 @@
   }
 
   &__trusted-by {
-    padding-top: 5.5rem;
-    .trusted-by-section {
-      padding: 0;
-    }
-    @include media-breakpoint-down(sm) {
-      padding-top: 4rem;
-    }
-    @include media-breakpoint-down(sm) {
-      padding-top: 2.5rem;
-    }
+    margin: 50px 0;
   }
 
   &__testimonials {
