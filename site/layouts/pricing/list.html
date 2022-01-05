@@ -119,7 +119,61 @@
               </li>
             </ul>
           </div>
-          <a class="btn btn-primary pricing__card-right__btn open-intercom-link" href="mailto:support@checklyhq.com" rel="noopener">Contact sales</a>
+          <!-- <a class="btn btn-primary pricing__card-right__btn open-intercom-link" href="mailto:support@checklyhq.com" rel="noopener">Contact sales</a> -->
+          <button type="button" class="btn btn-primary pricing__card-right__btn" data-toggle="modal" data-target="#contactSalesModal">
+            Contact sales
+          </button>
+        </div>
+
+
+        <!-- CONTACT SALES MODAL -->
+        <div class="modal fade" id="contactSalesModal" tabindex="-1" role="dialog" aria-labelledby="contactSalesModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="email">Your work email</label>
+                      <input type="email" class="form-control" id="email" placeholder="bob@checklyhq.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Your name</label>
+                      <input type="text" class="form-control" id="name" placeholder="Robert Raccoon">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="website">Company website</label>
+                      <input type="text" class="form-control" id="website" placeholder="checklyhq.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="size">Company size</label>
+                      <select class="form-control" id="size">
+                        <option>1</option>
+                        <option>2-15</option>
+                        <option>16-30</option>
+                        <option>31-100</option>
+                        <option>100+</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="project">Tell us about your project</label>
+                    <textarea class="form-control" id="project" rows="7"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Contact sales</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="pricing__plans--toggle">

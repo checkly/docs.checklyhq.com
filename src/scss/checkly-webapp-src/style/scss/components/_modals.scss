@@ -1,3 +1,53 @@
 .modal-body {
   background-color: $white;
 }
+
+#contactSalesModal {
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    .form-group {
+      width: 48%;
+    }
+    @include media-breakpoint-down(md) {
+      flex-flow: column;
+      .form-group {
+        width: 100%;
+      }
+    }
+  }
+  .form-group {
+    text-align: left;
+    label {
+      font-weight: $font-weight-semi-bold;
+    }
+    input {
+      height: 2.8rem;
+      font-size: 1rem;
+    }
+    select.form-control {
+      height: 2.8rem;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: none;
+    }
+  }
+  .modal-header {
+    position: relative;
+    display: block;
+    button {
+      position: absolute;
+      right: 15px;
+      top: 9px;
+    }
+  }
+  .modal-body {
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+  }
+  .modal-footer {
+    border-top: none;
+    padding-top: 0;
+  }
+}
