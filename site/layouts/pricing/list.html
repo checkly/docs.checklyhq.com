@@ -6,8 +6,7 @@
 
       <div class="pricing__hero d-flex flex-column align-items-center text-center">
         <h1 class="display-3">Flexible pricing</h1>
-        <div class="pricing__lead">
-Get started with the most delightful active monitoring for your hobby projects, business sites, and crucial enterprise applications.
+        <div class="pricing__lead">Get started with the most delightful active monitoring for your hobby projects, business sites, and crucial enterprise applications.
         </div>
       </div>
 
@@ -118,15 +117,14 @@ Get started with the most delightful active monitoring for your hobby projects, 
               </li>
             </ul>
           </div>
-          <!-- <a class="btn btn-primary pricing__card-right__btn open-intercom-link" href="mailto:support@checklyhq.com" rel="noopener">Contact sales</a> -->
-          <button type="button" class="btn btn-primary pricing__card-right__btn" data-toggle="modal" data-target="#contactSalesModal">
+          <button type="button" class="btn btn-primary pricing__card-right__btn" data-toggle="modal" data-target="#contact-sales-modal">
             Contact sales
           </button>
         </div>
 
 
         <!-- CONTACT SALES MODAL -->
-        <div class="modal fade" id="contactSalesModal" tabindex="-1" role="dialog" aria-labelledby="contactSalesModalLabel" aria-hidden="true">
+        <div class="modal fade contact-modal" id="contact-sales-modal" tabindex="-1" role="dialog" aria-labelledby="contactSalesModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -135,41 +133,31 @@ Get started with the most delightful active monitoring for your hobby projects, 
                 </button>
               </div>
               <div class="modal-body">
-                <form>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label for="email">Your work email</label>
-                      <input type="email" class="form-control" id="email" placeholder="bob@checklyhq.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Your name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Robert Raccoon">
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label for="website">Company website</label>
-                      <input type="text" class="form-control" id="website" placeholder="checklyhq.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="size">Company size</label>
-                      <select class="form-control" id="size">
-                        <option>1</option>
-                        <option>2-15</option>
-                        <option>16-30</option>
-                        <option>31-100</option>
-                        <option>100+</option>
-                      </select>
-                    </div>
+                <form id="contact-sales-form" action="#" onsubmit="checkForm();return false">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Doe">
                   </div>
                   <div class="form-group">
-                    <label for="project">Tell us about your project</label>
-                    <textarea class="form-control" id="project" rows="7"></textarea>
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Company website</label>
+                    <input type="text" class="form-control" id="website" placeholder="example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="company_size">Company size</label>
+                    <input type="text" class="form-control" id="company_size" placeholder="25 people"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Project Details or Questions</label>
+                    <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company? What are you planning to monitor?"></textarea>
+                  </div>
+                  <div class="submit-button">
+                    <input class="btn btn-primary" form="contact-sales-form" type="submit" value= "Send message"/>
                   </div>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Contact sales</button>
               </div>
             </div>
           </div>
@@ -592,6 +580,59 @@ Get started with the most delightful active monitoring for your hobby projects, 
 
     document.getElementById('prepaid-api-annual').style.display = 'none'
     document.getElementById('prepaid-browser-annual').style.display = 'none'
+  }
+
+  function checkForm () {
+    if (document.getElementById('contact-sales-form').checkValidity()) {
+      setTimeout(() => {
+        submissionNotice()
+      }, 500)
+    }
+    return false
+  }
+
+  function submissionNotice () {
+    const modal = document.querySelector('.modal-body')
+    modal.innerHTML = ''
+    const message = document.createElement('p')
+    message.classList.add('submission-notice')
+    message.innerHTML = 'Thank you for contacting us. We will be in touch shortly.'
+    modal.appendChild(message)
+
+    const closeButton = document.querySelector('.modal-header .close')
+    closeButton.addEventListener('click', () => {
+      // wait for modal to close
+      setTimeout(() => {
+        // reset form
+        modal.innerHTML = `
+        <form id="contact-sales-form" action="#" onsubmit="checkForm();return false">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="website">Company website</label>
+            <input type="text" class="form-control" id="website" placeholder="example.com">
+          </div>
+          <div class="form-group">
+            <label for="company_size">Company size</label>
+            <input type="text" class="form-control" id="company_size" placeholder="25 people"/>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details or Questions</label>
+            <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company? What are you planning to monitor?"></textarea>
+          </div>
+          <div class="submit-button">
+            <input class="btn btn-primary" form="contact-sales-form" type="submit" value= "Send message"/>
+          </div>
+        </form>
+      `
+      }, 500)
+    })
   }
 </script>
 {{end}}
