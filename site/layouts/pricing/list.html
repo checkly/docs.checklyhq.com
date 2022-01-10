@@ -122,52 +122,6 @@
           </button>
         </div>
 
-
-        <!-- CONTACT SALES MODAL -->
-        <div class="modal fade contact-modal" id="contact-sales-modal" tabindex="-1" role="dialog" aria-labelledby="contactSalesModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form id="contact-sales-form" action="#" onsubmit="checkForm();return false">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="John Doe">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Company website</label>
-                    <input type="text" class="form-control" id="website" placeholder="example.com">
-                  </div>
-                  <div class="form-group">
-                    <label for="company_size">Company size</label>
-                    <select class="form-control" id="company_size">
-                      <option>1-100</option>
-                      <option>101-500</option>
-                      <option>501-1000</option>
-                      <option>1000+</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="message">Project Details or Questions</label>
-                    <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company? What are you planning to monitor?"></textarea>
-                  </div>
-                  <div class="submit-button">
-                    <input class="btn btn-primary" form="contact-sales-form" type="submit" value= "Send message"/>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="pricing__plans--toggle">
           <span><img class="pricing__plans--toggle-arrow" src="/images/icons/svg/pink-drop.svg" width="14" height="7.75" /></span>
           <span class="ml-1 mr-1">Get a discount for your commitment.</span>
@@ -230,6 +184,51 @@
             </div>
           </div>
           <a class="btn btn-success pricing__card-right__btn" href="https://app.checklyhq.com/signup" rel="noopener">Start for free</a>
+        </div>
+      </div>
+
+      <!-- CONTACT SALES MODAL -->
+      <div class="modal fade contact-modal" id="contact-sales-modal" tabindex="-1" role="dialog" aria-labelledby="contactSalesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="contact-sales-form" action="#" onsubmit="checkForm();return false">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="website">Company website</label>
+                  <input type="text" class="form-control" id="website" placeholder="example.com">
+                </div>
+                <div class="form-group">
+                  <label for="company_size">Company size</label>
+                  <select class="form-control" id="company_size">
+                    <option>1-100</option>
+                    <option>101-500</option>
+                    <option>501-1000</option>
+                    <option>1000+</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Project Details or Questions</label>
+                  <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company? What are you planning to monitor?"></textarea>
+                </div>
+                <div class="submit-button">
+                  <input class="btn btn-primary" form="contact-sales-form" type="submit" value= "Send message"/>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -593,6 +592,7 @@
         submissionNotice()
       }, 500)
     }
+    // prevents page reload
     return false
   }
 
