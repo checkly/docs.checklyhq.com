@@ -1,5 +1,5 @@
 import gulp from 'gulp'
-import {spawn} from 'child_process'
+import { spawn } from 'child_process'
 import hugoBin from 'hugo-bin'
 import postcss from 'gulp-postcss'
 import cssImport from 'postcss-import'
@@ -27,7 +27,7 @@ gulp.task('hugo', (cb) => buildSite(cb))
 gulp.task('css', function buildCss () {
   return gulp.src('./src/scss/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([cssImport({from: './src/css/main.css'}), cssnext()]))
+    .pipe(postcss([cssImport({ from: './src/css/main.css' }), cssnext()]))
     .pipe(gulp.dest('./public/css'))
     .pipe(browserSync.stream())
 })
@@ -37,7 +37,7 @@ gulp.task('purgecss', () => {
   return gulp.src('./public/css/**/*.css')
     .pipe(purgecss({
       content: ['./public/**/*.html'],
-      safelist: [/dot--*/]
+      safelist: [/dot--*/, /modal/]
     }))
     .pipe(gulp.dest('./public/css'))
 })
@@ -45,7 +45,7 @@ gulp.task('purgecss', () => {
 // minifycss
 gulp.task('minify-css', () => {
   return gulp.src('./public/css/*.css')
-    .pipe(cleanCSS({debug: true}, (details) => {
+    .pipe(cleanCSS({ debug: true }, (details) => {
       console.log(`${details.name}: ${details.stats.originalSize}`)
       console.log(`${details.name}: ${details.stats.minifiedSize}`)
     }))
@@ -54,11 +54,10 @@ gulp.task('minify-css', () => {
 
 // Copy Third Party Javascript
 
-gulp.task('copy-js', function() {
+gulp.task('copy-js', function () {
   return gulp.src('./src/js/xml2json.js')
-    .pipe(gulp.dest('./public/js'));
-});
-
+    .pipe(gulp.dest('./public/js'))
+})
 
 // Compile Javascript
 gulp.task('js', (cb) => {
@@ -147,7 +146,7 @@ function buildSite (cb, options, environment = 'development') {
 
   process.env.NODE_ENV = environment
 
-  return spawn(hugoBin, args, {stdio: 'inherit'}).on('close', (code) => {
+  return spawn(hugoBin, args, { stdio: 'inherit' }).on('close', (code) => {
     if (code === 0) {
       browserSync.reload()
       cb()
