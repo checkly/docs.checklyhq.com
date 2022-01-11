@@ -421,20 +421,6 @@
       &--white {
         color: $white;
       }
-
-      &--plus {
-        position: relative;
-        &::after {
-          position: absolute;
-          right: -38px;
-          font-size: 32px;
-          color: $gray;
-          content: "+";
-          @include media-breakpoint-down(md) {
-            right: -65%;
-          }
-        }
-      }
     }
 
     &__interval {
@@ -648,11 +634,5 @@
         }
       }
     }
-  }
-}
-
-@media(max-width: 400px) {
-  .pricing__fancy-price__price--plus::after {
-    display: none
   }
 }
