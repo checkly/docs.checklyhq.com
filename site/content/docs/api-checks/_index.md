@@ -21,7 +21,3 @@ This is where you determine whether the response of the HTTP request is correct 
 [Read more about assertions]({{< ref "assertions.md" >}})
 
 These two phase are executed under the hood by the Node.js request library and the chai.js assertions library. All checks are executed on Amazon's AWS Lambda infrastructure.
-
-{{<info>}}
-It's not possible to set a DNS servers for API checks. Using `dns.setServers()` in a setup script also won't work, because that sets the DNS server in the context of that setup script, which is completely separate from the API check runtime.
-{{</info>}}
