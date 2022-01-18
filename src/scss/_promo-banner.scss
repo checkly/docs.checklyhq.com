@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  text-align: center;
   min-height: 56px;
   z-index: 999999;
   width: 100%;
@@ -13,6 +14,7 @@
 
   a {
     color: $blue;
+    text-align: center;
 
     &:hover {
       text-decoration: underline;
@@ -21,17 +23,16 @@
   .ion-arrow-right-c {
     color: #ff4949;
   }
-  
+
   .promo-banner-link {
     display: flex;
     text-decoration: none;
   }
 
   &.headless {
-    background: #ffffff;
+    background: $white;
     border-bottom: 1px solid $gray-light;
     color: $black;
-    font-size: 16x;
     line-height: 22px;
     strong {
       font-weight: 600;

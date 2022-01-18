@@ -72,11 +72,6 @@
 @import './components/tags';
 
 
-// fix for modal not showing in bootstrap-vue
-.modal {
-  display: block;
-}
-
 //fix for weird transition on tooltips
 .tooltip {
   display: block;
