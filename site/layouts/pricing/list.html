@@ -208,7 +208,7 @@
                 </div>
                 <div class="form-group">
                   <label for="website">Company website</label>
-                  <input type="text" class="form-control" id="website" placeholder="example.com">
+                  <input type="url" class="form-control" id="website" placeholder="https://example.com">
                 </div>
                 <div class="form-group">
                   <label for="company_size">Company size</label>
@@ -221,7 +221,7 @@
                 </div>
                 <div class="form-group">
                   <label for="message">Project Details or Questions</label>
-                  <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company? What are you planning to monitor?"></textarea>
+                  <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company. What are you planning to monitor?"></textarea>
                 </div>
                 <div class="submit-button">
                   <input class="btn btn-primary" form="contact-sales-form" type="submit" value= "Send message"/>
@@ -621,15 +621,20 @@
           </div>
           <div class="form-group">
             <label for="website">Company website</label>
-            <input type="text" class="form-control" id="website" placeholder="example.com">
+            <input type="url" class="form-control" id="website" placeholder="https://example.com">
           </div>
           <div class="form-group">
             <label for="company_size">Company size</label>
-            <input type="text" class="form-control" id="company_size" placeholder="25 people"/>
+            <select class="form-control" id="company_size">
+              <option>1-100</option>
+              <option>101-1000</option>
+              <option>1001-5000</option>
+              <option>5000+</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="message">Project Details or Questions</label>
-            <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company? What are you planning to monitor?"></textarea>
+            <textarea class="form-control" id="message" rows="7" placeholder="Tell us about your project, your team and your company. What are you planning to monitor?"></textarea>
           </div>
           <div class="submit-button">
             <input class="btn btn-primary" form="contact-sales-form" type="submit" value= "Send message"/>
