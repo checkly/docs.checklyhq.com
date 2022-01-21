@@ -12,9 +12,9 @@ aboutUs:
   description: >-
     We are a small team with a big impact and believe in a bright future where apps are built and shipped more reliably from to dev to production and further.<br /> Our mission is to create the best active monitoring platform for developers. A platform that makes reliability delightful!
 features:
-  - number: "350+"
+  - number: "450+"
     text: HAPPY Customers
-  - number: "22"
+  - number: "23"
     text: EMPLOYEES
   - number: "$12M"
     text: RAISED
@@ -25,7 +25,7 @@ values:
   description: The values that guide our actions and decisions
   buttonTxt: See open positions
   buttonLink: /
-  list: 
+  list:
     - icon: '/images/careers/search.svg'
       title: Focus
       description: Focus.
@@ -65,7 +65,7 @@ trusted:
 location:
   title: Fully remote
   description: >-
-    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 10+ countries. As part of our team, you can work from wherever you're happiest and most productive.
+    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 12+ countries. As part of our team, you can work from wherever you're happiest and most productive.
   map: '/images/careers/remote_map@2x.png'
 benefits:
   title: Perks and benefits
@@ -73,17 +73,24 @@ benefits:
     - icon: '/images/careers/smiley.svg'
       title: Competitive salary & stock options
     - icon: '/images/careers/book.svg'
-      title: $750 personal development budget
+      title: $1.000 learning & visiting budget
     - icon: '/images/careers/sun.svg'
-      title: 27 days of vacation + local public holidays
+      title: 27 days of vacation & local public holidays
+    - icon: '/images/careers/health-package.svg'
+      title: Inclusive health package
     - icon: '/images/careers/codespaces.svg'
       title: Home office setup
     - icon: '/images/careers/thumbsup.svg'
       title: Work remotely
     - icon: '/images/careers/star.svg'
-      title: Team Retreats
+      title: Team retreats
     - icon: '/images/careers/heartsmall.svg'
-      title: Paid sick leaves
+      title: Paid sick leave
+    - icon: '/images/careers/employment-options.svg'
+      title: Employment & contractor options
+    - icon: '/images/careers/parental-leave.svg'
+      title: Inclusive paid parental leave
+
 howWehire:
   title: How we hire
   description: >-

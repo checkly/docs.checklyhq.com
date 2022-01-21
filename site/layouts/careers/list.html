@@ -65,20 +65,9 @@
       </div>
     </div>
   </section>
-  <section class="career__trusted section-light-gray">
-    <div class="container">
-      <h3 class="section-header text-center">{{.Params.trusted.title}}</h3>
-      <div class="row">
-        {{ range .Params.trusted.logos}}
-          <picture>
-            <source type="image/webp" srcset="{{ substr .logo 0 -4 | safeURL }}.webp">
-            <source type="image/png" srcset="{{ .logo }}">
-            <img src="{ .logo }}" alt="{{ .alt }}" width={{ .width }} loading="lazy" />
-          </picture>
-        {{ end }}
-      </div>
-    </div>
-  </section>
+  <div class="career__trusted section-light-gray">
+    {{ partial "trusted-by-section" . }}
+  </div>
   <section class="career__location">
     <div class="container">
       <h3 class="section-header text-center">{{.Params.location.title}}</h3>
