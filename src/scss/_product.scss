@@ -19,7 +19,7 @@
           padding-top: 3 * $spacer;
         }
         margin-bottom: 1.25 * $spacer;
-        font-weight: $font-weight-seimi-bold;
+        font-weight: $font-weight-semi-bold;
         font-size: 3.625rem;
         letter-spacing: -0.04em;
         color: $black;
@@ -78,7 +78,7 @@
     h5 {
       font-size: .875rem;
       text-transform: uppercase;
-      font-weight: $font-weight-seimi-bold;
+      font-weight: $font-weight-semi-bold;
       &::before {
         content: "\f4b3" !important;
         color: $yellow;
