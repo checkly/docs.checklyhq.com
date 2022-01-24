@@ -73,7 +73,7 @@ benefits:
     - icon: '/images/careers/smiley.svg'
       title: Competitive salary & stock options
     - icon: '/images/careers/book.svg'
-      title: $1.000 learning & visiting budget
+      title: $1,000 learning & visiting budget
     - icon: '/images/careers/sun.svg'
       title: 27 days of vacation & local public holidays
     - icon: '/images/careers/health-package.svg'
