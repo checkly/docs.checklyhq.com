@@ -117,7 +117,9 @@ filtering and grouping related checks in the Checkly dashboard.
 In almost all cases, you have full access to the HTTP response for assertions. We also store the full response
 for later retrieval and triaging issues.
 
-However, if your API responds with a binary type body, i.e. a PDF or video file, we scrub the body and replace
+Response bodies are limited to a size of 25MB. Responses over this size will trigger a check failure.
+
+Additionally, if your API responds with a binary type body, i.e. a PDF or video file, we scrub the body and replace
 it with a short text saying that we scrubbed it. We determine the body content type by looking at the `Content-Type`
 response header. 
 
