@@ -149,6 +149,11 @@ Vercel deployment in two ways because the Reliability part and Performance part 
 | Browser Check | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes on the main HTML document, syntax errors in the script, or assertions using the `expect` or `assert` libraries in the browser check script. |
 |               | Performance Check | Blocks deployment when a degradation is registered in the aggregate **Virtual Experience Score** based on Web Vitals. Read below for more details.                                   |
 
+
+{{< info >}}
+Reliability and performance checks run against the [automatic deployment URL](https://vercel.com/docs/concepts/deployments/automatic-urls) Vercel generates. In case of failures or degradations, what _actually_ gets blocked is the deployment to all other URLs, e.g. branch URLs and user-assigned domains. 
+{{< /info >}}
+
 ## Virtual Experience Score & Web Vitals
 
 Together with the team at Vercel, we developed the **Virtual Experience Score** (VES) that gives you one simple KPI to track. 
