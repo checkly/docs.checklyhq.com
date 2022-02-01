@@ -69,13 +69,13 @@ Triggers are rate limited to **10 requests / minute / trigger** and are only run
 You can add the following query parameters to any trigger request. This enables you to record deployments in the Checkly
 event timeline, in turn enabling you to track application performance across deploys.
 
-| parameter        | type    | required |                                                                               |
-|------------------|---------|----------|-------------------------------------------------------------------------------|
-| `deployment`     | Boolean | false    | Set to true to record each trigger invocation as a deployment event.          |
-| `repository`     | String  | false    | Repository name, i.e. "checkly/backend-api"                                   |
-| `sha`            | String  | false    | Git hash, tag, version "v1.0.1" or other identifier making this deploy unique |
-| `environmentUrl` | String  | false    | A staging or preview URL injected as ENVIRONMENT_URL in browser checks and auto-replaced in API checks |
-
+| parameter         | type    | required |                                                                                                        |
+|-------------------|---------|----------|--------------------------------------------------------------------------------------------------------|
+| `deployment`      | Boolean | false    | Set to true to record each trigger invocation as a deployment event.                                   |
+| `repository`      | String  | false    | Repository name, i.e. "checkly/backend-api"                                                            |
+| `sha`             | String  | false    | Git hash, tag, version "v1.0.1" or other identifier making this deploy unique                          |
+| `environmentUrl`  | String  | false    | A staging or preview URL injected as ENVIRONMENT_URL in browser checks and auto-replaced in API checks |
+| `environmentName` | String  | false    | The environment name of your triggered check, i.e. "production".                                       |                                
 
 
 ## Example 1: Recording deployments
