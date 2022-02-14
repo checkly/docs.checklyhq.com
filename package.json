@@ -64,7 +64,7 @@
     "eslint-plugin-standard": "5.0.0",
     "gulp-cli": "2.3.0",
     "husky": "7.0.4",
-    "lint-staged": "12.3.3",
+    "lint-staged": "12.3.4",
     "s3-deploy": "1.4.0",
     "serve": "13.0.2",
     "shins": "2.6.0",
