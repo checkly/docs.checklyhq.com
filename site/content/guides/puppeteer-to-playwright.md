@@ -6,6 +6,8 @@ author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
+> **UPDATE**: _you can use our {{< newtabref  href="https://github.com/checkly/puppeteer-to-playwright" title="puppeteer-to-playwright" >}} conversion script to quickly migrate your Puppeteer codebase to Playwright._
+
 ## Puppeteer and Playwright today
 
 While they share a number of similarities, {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}} have evolved at different speeds over the last two years, with Playwright gaining a lot of momentum and arguably even leaving Puppeteer behind.
