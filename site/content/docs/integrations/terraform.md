@@ -11,7 +11,7 @@ You can use [Hashicorp's Terraform](https://www.terraform.io/) to create and man
 1. Specify your monitoring infrastructure as code, and have it live in source control.
 2. Manage large numbers of checks efficiently and without manual intervention.
 
-If you have a complex active monitoring setup that often need updating, Terraform is our recommended solution.
+If you have a complex active monitoring setup that often needs updating, Terraform is our recommended solution.
 
 Following is a short introduction to using the Checkly Terraform provider; for in-depth information, please see the [official documentation](https://registry.terraform.io/providers/checkly/checkly/latest/docs).
 
@@ -28,7 +28,7 @@ terraform {
   required_providers {
     checkly = {
       source = "checkly/checkly"
-      version = "1.3.0"
+      version = "1.4.1"
     }
   }
 }
@@ -148,7 +148,7 @@ resource "checkly_check" "browser-check-1" {
 
 ### Check Groups
 
-Checkly's groups feature allows you to group together a set of related checks, which can also share default settings for various attributes. Here is an example check group:
+Checkly's groups feature allows you to group a set of related checks, which can also share default settings for various attributes. Here is an example check group:
 
 ```terraform
 resource "checkly_check_group" "example-group" {
@@ -185,11 +185,11 @@ The `group_order` attribute specifies in which order the checks will be executed
 
 ## Applying changes
 
-After each change to your Terraform file, you will need to run both following commands:
+After each change to your Terraform file, you will need to run the following two commands:
 1. `terraform plan -out tf.plan` - to plan the necessary actions that Terraform will need to make.
 2. `terraform apply "tf.plan"` - to apply the plan and have the changes reflected on Checkly.
 
-If you are using [Terraform Cloud](https://www.terraform.io/cloud), the above will be run for you automatically every time a pull request is merged into a main branch.
+If you are using [Terraform Cloud](https://www.terraform.io/cloud), the above will be run for you automatically every time a pull request is merged into the main branch.
 
 >**Error: 402 payment required** If you find this error when creating checks through Terraform or the API, possibly you have reached the maximum number of checks you can create on your account. Contact Checkly Support to talk about options. 
 
@@ -201,8 +201,8 @@ We often publish in-depth articles on how to use Terraform with Checkly on our b
 
 ## Development version
 
-If you want to get your hands dirty on the very last in development version, you can:
+If you want to get your hands dirty in the bleeding edge version, you can:
 
-1. Checkout the Checkly Terraform provider in [this GitHub repo](https://github.com/checkly/terraform-provider-checkly).
+1. Check out the Checkly Terraform provider in [this GitHub repo](https://github.com/checkly/terraform-provider-checkly).
 2. Build the provider and add it to your Terraform installation.
 3. Write your first Checkly resource and apply it.
