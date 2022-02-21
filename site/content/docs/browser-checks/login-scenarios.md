@@ -83,6 +83,30 @@ redirects involved. Also, many providers make their login pages "bot resistant" 
 below uses the Google social login option on the Checkly login page.
 
 {{< tabs "Social login" >}}
+{{< tab "Playwright" >}}
+```javascript
+const playwright = require('playwright')
+
+const browser = await playwright.chromium.launch()
+const page = await browser.newPage()
+
+await page.setViewportSize({ width: 1280, height: 800 })
+await page.goto('https://app.checklyhq.com/')
+
+// Click Google login
+await page.click('a[data-provider="google-oauth2"]')
+
+// provide email address and click next
+await page.fill('input[type="email"]', process.env.GOOGLE_USER)
+await page.click('#identifierNext')
+
+// provide password, click next and wait for redirect back to Checkly
+await page.fill('input[type="password"]', process.env.GOOGLE_PWD)
+await page.click('#passwordNext')
+
+await browser.close()
+```
+{{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```javascript
 const puppeteer = require('puppeteer')
@@ -113,30 +137,6 @@ const navigationPromise2 = page.waitForNavigation()
 await page.waitForSelector('#passwordNext', { visible: true })
 await page.click('#passwordNext')
 await navigationPromise2
-
-await browser.close()
-```
-{{< /tab >}}
-{{< tab "Playwright" >}}
-```javascript
-const playwright = require('playwright')
-
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-
-await page.setViewportSize({ width: 1280, height: 800 })
-await page.goto('https://app.checklyhq.com/')
-
-// Click Google login
-await page.click('a[data-provider="google-oauth2"]')
-
-// provide email address and click next
-await page.fill('input[type="email"]', process.env.GOOGLE_USER)
-await page.click('#identifierNext')
-
-// provide password, click next and wait for redirect back to Checkly
-await page.fill('input[type="password"]', process.env.GOOGLE_PWD)
-await page.click('#passwordNext')
 
 await browser.close()
 ```

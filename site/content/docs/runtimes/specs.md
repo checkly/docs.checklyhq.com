@@ -21,7 +21,6 @@ By default, all our runners have their timezone set to UTC, regardless of their 
 - readline
 - stream
 - string_decoder
-- stream
 - timers
 - tls
 - url
