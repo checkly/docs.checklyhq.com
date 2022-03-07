@@ -54,3 +54,12 @@ In the reporting overview, you can export all available statistics to a CSV. Sel
 - Check Tags
 
 Remember these statistics, like success ratio and response times, are calculated based upon the selected date range. By default, this is set to "**Last 24 Hours**".
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

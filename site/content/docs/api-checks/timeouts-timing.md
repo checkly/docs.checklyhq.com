@@ -27,3 +27,12 @@ The timing phases correspond to the Node.js request library timing phases:
 >- Usually the root cause for this error is intermittent network issues on the application side.
 >- There will probably be no errors in the application logs, as it was not even possible to establish a connection.
 >- The response headers will be empty. If Checkly doesn't get a connection, there is nothing to send back, e.g. the response headers.
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

@@ -110,3 +110,12 @@ would record the same deployment as in the first example, but would do two extra
 
 This behaviour is exactly the same as with our GitHub integration. [Check the GitHub integration's environment URL documentation
 to find out how this exactly works.](/docs/cicd/github/#using-environment-urls)
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

@@ -39,3 +39,12 @@ Headless Recorder has the following features:
 - [Install Headless Recorder](/docs/headless-recorder/installation/) and tweak some options.
 - Learn how to [record scripts](/docs/headless-recorder/basic-usage/).
 - Learn about some of the current [limitations](/docs/headless-recorder/development/) of Headless Recorder and how to file bugs and feature request.
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

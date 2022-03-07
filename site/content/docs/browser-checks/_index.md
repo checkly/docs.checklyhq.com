@@ -221,3 +221,12 @@ alerting channels will be triggered, notifying your team that something is up.
 - [pptr.dev](https://pptr.dev/) is the official API documentation site for the Puppeteer framework.
 - [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) is a great GitHub repo full of Puppeteer
 related libraries, tips and resources.
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

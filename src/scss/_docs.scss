@@ -496,11 +496,9 @@
     }
   }
   .contribute-doc {
-    p {
-      color: #697280;
-      font-size: 14px;
-    }
-  }
+    color: #697280;
+    font-size: 14px;
+}
   @include media-breakpoint-down(xs) {
     .docs-page {
       .markdown {

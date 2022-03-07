@@ -22,4 +22,11 @@ Or in another words:
 You can make use of this by providing a default value for a specific variable at the global or group level, but allow 
 that variable to be overridden at the group level or check level.
 
-
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

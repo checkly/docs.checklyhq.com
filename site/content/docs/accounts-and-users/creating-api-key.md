@@ -35,3 +35,12 @@ curl -H "Authorization: Bearer my_token" -H "X-Checkly-Account: my_account_ID" h
 Only the user can delete an API key. To delete an API key click on the **Delete** icon in the Api Keys section of the [User Settings](https://app.checklyhq.com/settings/user/). 
 
 If you wish to revoke access of a user to an account, remove the user from the team in the [Team section of Account Settings](https://app.checklyhq.com/settings/account/team). 
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

@@ -39,7 +39,9 @@
         
         {{if .PrevInSection}}
         <hr class="pt-2 mb-2" />
-        <div class="text-right mb-4">
+        <div class="d-flex justify-content-between flex-wrap mb-4">
+          <p class="contribute-doc"><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+          You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
           <a href="{{.PrevInSection.Permalink}}">Next: {{.PrevInSection.Title }}
           </a>
         </div>

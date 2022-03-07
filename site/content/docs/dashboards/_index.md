@@ -37,3 +37,12 @@ You'll need to press Enter to save the tag before you save your updated check!
 ![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
 
 Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
+
+##
+||
+| ------------- |
+<div class="contribute-doc">
+<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+You can contribute to this documentation by 
+<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
+</div>

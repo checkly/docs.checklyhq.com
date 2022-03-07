@@ -39,7 +39,13 @@
       </article>
       <hr class="pt-2 mb-2" />
       {{if .PrevInSection}}
-      <div class="text-right mb-4 next-nav">
+      <!-- <div class="text-right mb-4 next-nav">
+        <a href="{{.PrevInSection.Permalink}}">Nt: {{.PrevInSection.Title }}
+        </a>
+      </div> -->
+      <div class="d-flex justify-content-between mb-4 next-nav">
+        <p class="contribute-doc"><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+        You can contribute to this documentation by <a class="learn-link" href="https://github.com/checkly/checklyhq.com/tree/main/site/content/learn/headless" target="_blank"> editing this page on Github </a></p>
         <a href="{{.PrevInSection.Permalink}}">Next: {{.PrevInSection.Title }}
         </a>
       </div>
