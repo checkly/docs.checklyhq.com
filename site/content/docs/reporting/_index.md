@@ -29,6 +29,13 @@ Here you can use the toolbar to filter / sort by the following metrics:
 
 Clicking on a check will open a graph of the **response times** and **success ratio**. These graphs are tied to the date range selected in the toolbar above.
 
+> The graph _x-axis_ granularity will be adjusted according to the size of the data range that you selected using the date picker, as follows:
+> * Up to **two weeks**, data will be grouped **hourly**.
+> * Up to **6 months**, data will be grouped **daily**.
+> * Up to **24 months**, data will be grouped **weekly**.
+> * Up to **48 months**, data will be grouped **monthly**.
+> * From that point onwards, data will be grouped **yearly**.
+
 In the **response time** graph, all three metrics (`average`, `p95`, `p99`) are shown by default. However, you can individually toggle these on and off by clicking on the pills with their respective names to the right of the graph.
 
 ![Reporting Dashboard Graphs](/docs/images/reporting/dashboard-graph.png)

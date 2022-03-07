@@ -27,8 +27,8 @@
           <h6 class="menu_header" id="menu_2">Company</h6>
           <ul id="menu_2_drop" class="desktop-show">
             <li><a href="/about">About</a></li>
-            <li><a href="/careers">Careers
-            </a></li>
+            <li class="d-flex flex-row"><a href="/careers">Careers
+            </a><p class="hiring-badge text-center p-1 mb-0 mx-1">WE'RE HIRING</p></li>
             <li><a href="https://blog.checklyhq.com/" target="_blank" rel="noopener">Blog</a></li>
             <li><a href="/open-source">Open Source</a></li>
             <li><a href="/security">Security</a></li>
@@ -60,7 +60,7 @@
           <ul id="menu_5_drop" class="desktop-show">
             <li><a class="open-intercom-link" href="mailto:support@checklyhq.com">Support</a></li>
             <li><a href="https://twitter.com/checklyHQ" target="_blank" rel="noopener">Twitter @ChecklyHQ</a></li>
-            <li><a href="https://github.com/checkly/product-roadmap/projects/1" target="_blank" rel="noopener">Public Roadmap</a></li>
+            <li><a href="https://github.com/orgs/checkly/projects/4" target="_blank" rel="noopener">Public Roadmap</a></li>
           </ul>
         </div>
         <div class="mb-3 mb-md-0">
@@ -81,7 +81,7 @@
       <div class="col-12 flex-wrap">
         <div class="float-left">
           <img class="logo" src="/images/footer-logo.svg" width="52" height="47" alt="checkly logo"/>
-          <div>Copyright © 2021 Checkly Inc. All rights reserved.</div>
+          <div>Copyright © {{ now.Format "2006" }} Checkly Inc. All rights reserved.</div>
         </div>
         <div class="float-right">
           <a class="github" href="https://github.com/checkly" target="_blank" rel="noopener"><img

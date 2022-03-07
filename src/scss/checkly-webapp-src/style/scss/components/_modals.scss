@@ -1,3 +1,61 @@
 .modal-body {
   background-color: $white;
 }
+
+.modal-dialog {
+  max-width: 600px;
+}
+
+.contact-modal {
+  .modal-header {
+    position: absolute;
+    right: -20px;
+    display: block;
+    z-index: 9999;
+    top: -8px;
+  }
+
+  .modal-body {
+    padding: 32px 28px 36px;
+    text-align: left;
+    @include media-breakpoint-down(md) {
+      padding: 24px 15px;
+    }
+    form {
+      text-align: left;
+      .form-group {
+        text-align: left;
+        margin-bottom: 20px;
+        .form-control {
+          padding: 6px 10px;
+          font-size: 14px;
+          border-radius: 3px;
+        }
+        label {
+          font-weight: $font-weight-semi-bold;
+          text-transform: uppercase;
+          font-size: 12px;
+          color: color($gray-darkish);
+          margin-bottom: 4px;
+        }
+        input {
+          font-size: 1rem;
+          height: 32px;
+        }
+        textarea {
+          resize: none;
+        }
+      }
+    }
+    .submit-button {
+      input {
+        width: 100%;
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+    }
+    .submission-notice {
+      margin-bottom: 0;
+    }
+  }
+}

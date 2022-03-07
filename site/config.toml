@@ -68,8 +68,8 @@ disqusShortname = "checkly"
 	weight = 80
 
 [[menu.docs]]
-	name = "Teams"
-	url = "/docs/teams/"
+	name = "Accounts & Users"
+	url = "/docs/accounts-users/"
 	pre="/docs/images/icons/teams.svg"
 	weight = 90
 
@@ -104,34 +104,39 @@ disqusShortname = "checkly"
 	weight = 9999
 
 [[menu.learn]]
-	name = "Getting Started"
+	name = "Getting started"
 	pre = "/learn/icons/getting-started.svg"
 	weight = 10
 
 [[menu.learn]]
-	name = "E2E"
+	name = "E2E examples"
 	pre = "/learn/icons/e2e.svg"
 	weight = 20
 
 [[menu.learn]]
-	name = "Session Management"
-	pre = "/learn/icons/session-management.svg"
+	name = "Pages & frames"
+	pre = "/learn/icons/pages.svg"
 	weight = 30
 
 [[menu.learn]]
-	name = "Best Practices"
+	name = "Network & state"
+	pre = "/learn/icons/network.svg"
+	weight = 32
+
+[[menu.learn]]
+	name = "Best practices"
 	pre = "/learn/icons/best-practices.svg"
 	weight = 60
 
 [[menu.learn]]
 	name = "Performance"
 	pre = "/learn/icons/performance.svg"
-	weight = 40
+	weight = 50
 
 [[menu.learn]]
 	name = "Scraping"
 	pre = "/learn/icons/scraping.svg"
-	weight = 50
+	weight = 45
 
 [[menu.learn]]
 	name = "Debugging"

@@ -8,10 +8,9 @@ questions:
       and Playwright. Each browser check uses an actual Chrome browser to execute clicks, fill out forms and validate if
       these interactions have the correct results. This is also commonly called “synthetic monitoring”. For billing we count
       every executed script as a check run. Browser check runs have a timeout threshold of 60 seconds.
-  - q: How does the free trial work?
-    a: By signing up for the free trial, you get full access to all of Checkly's functions. You do not need a credit card
-      to get started. You can execute up to 50,000 API and 5,000 browser check runs. The trial ends either when you have used all available check runs or after 14 days, whichever comes first. After the Free trial, we will automatically convert your account to
-      the Free plan if you haven't signed up for a Prepaid or Pay-as-you-go Plan.
+  - q: How does the free plan work?
+    a: By signing up for the free plan, you get access to almost all of Checkly's features. You do not need a credit card
+      to get started. You can execute up to 50,000 API and 5,000 browser check runs.
   - q: What is Pay-as-you-go pricing?
     a: With a Pay-as-you-go plan, you have maximum flexibility! It is not a subscription model. You can just run your API
       and browser checks, and we will charge you at the end of the 30-day billing cycle for the check runs you have executed.

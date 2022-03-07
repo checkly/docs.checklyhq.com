@@ -5,18 +5,17 @@
   padding-bottom: 2.01 * $section-bottom-padding;
   overflow: hidden;
 
-  img.code {
-    margin-left: 70px;
-    width: 600px;
-    height: auto;
-  }
-
-  img.screenshots {
-    left: 120px;
-    top: -30px;
+  img.first {
+    left: 100px;
+    top: -60px;
     z-index: auto;
     width: 760px;
     height: auto;
+  }
+
+  img.second {
+    left: 210px;
+    top: 30px;
   }
   @include media-breakpoint-down(md) {
     padding-top: $section-top-padding;
@@ -26,15 +25,18 @@
       margin-top: 50px;
       height: 350px;
 
-      img.code {
+      img.first {
         margin-left: 0;
+        top: 50px;
         width: 85%;
+        left: 16px;
         height: auto;
       }
-      img.screenshots {
-        top: 30px;
-        left: 60px;
-        width: calc(100% - 128px);
+      img.second {
+        top: 200px;
+        left: 120px;
+        width: calc(100% - 136px);
+        height: auto;
       }
     }
   }
@@ -44,17 +46,15 @@
       .big-landing-image {
         position: absolute;
       }
+      img.first {
+        left: 16px;
+        width: calc(100% - 68px);
+      }
     }
   }
   @include media-breakpoint-down(xs) {
     .image-side {
       height: 200px;
-
-      img.screenshots {
-        top: 70px;
-        left: 35px;
-        width: calc(100% - 68px);
-      }
     }
   }
 }

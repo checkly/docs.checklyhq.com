@@ -19,7 +19,7 @@
           padding-top: 3 * $spacer;
         }
         margin-bottom: 1.25 * $spacer;
-        font-weight: $font-weight-seimi-bold;
+        font-weight: $font-weight-semi-bold;
         font-size: 3.625rem;
         letter-spacing: -0.04em;
         color: $black;
@@ -33,13 +33,33 @@
     }
 
     .hero-image {
-      max-width: 905px;
+      max-width: 910px;
       width: calc(100% - 30px);
       height: auto;
-      margin: auto;
       margin-bottom: -100px;
     }
 
+    .images {
+      position: relative;
+      margin-top: 52px;
+      min-height: 480px;
+
+      .hero-first {
+        position: absolute;
+        z-index: 1;
+        width: calc(100% - 190px);
+        left: 30px;
+      }
+
+      .hero-second {
+        position: absolute;
+        z-index: 2;
+        right: 30px;
+        top: 100px; 
+        width: calc(100% - 164px);
+      }
+    }
+    
     h2 {
       &.section-header {
         font-size: 2rem;
@@ -58,7 +78,7 @@
     h5 {
       font-size: .875rem;
       text-transform: uppercase;
-      font-weight: $font-weight-seimi-bold;
+      font-weight: $font-weight-semi-bold;
       &::before {
         content: "\f4b3" !important;
         color: $yellow;

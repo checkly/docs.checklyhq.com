@@ -2,7 +2,7 @@
 title: Learn Playwright & Puppeteer
 ---
 
-Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation frameworks, Playwright and Puppeteer. 
+Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation frameworks, Playwright and Puppeteer.
 This guide provides detailed information and examples how you can write high-quality scripts for testing and synthetic monitoring.
 
 ## Getting Started
@@ -55,10 +55,10 @@ Playwright and Puppeteer are extremely powerful and serve a wide range of use ca
 {{< doc-card
 	class="full-width-card"
 	headerTag="h3"
-	title="Session Management"
-	img="/learn/icons/session-management.svg"
-	description="Learn how to use cookies to set states to simplify your scripts."
-	link="/learn/headless/google-login"
+	title="Network & state"
+	img="/learn/icons/network.svg"
+	description="Learn how to use cookies to set state and simplify your scripts."
+	link="/learn/headless/managing-cookies"
 >}}
 {{< doc-card
 	class="full-width-card"

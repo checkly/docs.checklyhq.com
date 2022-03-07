@@ -9,23 +9,22 @@ alias:
 # Synthetic monitoring for your vital click flows
 
 <p class="text-center hero-sub hero-sub-center mb-lg-5">
-Broken signup forms and flaky shopping carts are extremely frustrating to your customers.
-With Checkly's Browser checks you can accurately simulate interaction with your site and validate the
-correctness and performance of all your crucial click paths.
+Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. With Checkly's Browser checks you can validate the correctness and performance of your web app and get rich insights for debugging.
 </p>
 
-<div class="row justify-content-center text-center">
-{{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/transaction-monitoring/browser-check-editor-screenshot@2x.png" alt="synthetic monitoring" width="910" height="569" >}}
+<div class="row justify-content-center text-center images">
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-first" img="/product/transaction-monitoring/rbcr-fullpage@2x.png" alt="synthetic monitoring rbcr" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second" img="/product/transaction-monitoring/app.checklyhq@2x.png" alt="synthetic monitoring" width="910" height="568" >}}
 </div>
 
 <section class="grid-section">
 <div class="row">
 {{< sm-4-col-item "Real browsers" "Your checks are run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security." >}}
-{{< sm-4-col-item "Validate all the things" "In a Browser check you can check for specific content items, browser responses, visibility and error responses." >}}
-{{< sm-4-col-item "Screenshots" "Take a screenshot at any stage in your transaction for quick and easy reference. You can take full page shots, or just a specific page element for more focus." >}}
-{{< sm-4-col-item "Monitor globally every minute" "We monitor your transactions every 60 seconds from data center locations around the world." >}}
-{{< sm-4-col-item "CI/CD integration" "Integrate your Browser checks into your QA or continuous delivery process by triggering adhoc runs from GitHub or the command line." >}}
-{{< sm-4-col-item "Coding optional" "Use our browser plugin to record a script and import it into Checkly. Want more control? Dive into the code and tweak your script to perfection." >}}
+{{< sm-4-col-item "VALIDATE ALL THINGS" "In a Browser check you can check for specific content items, browser responses, visibility and error responses." >}}
+{{< sm-4-col-item "ERROR TRACING" "Automatically collect error traces such as network and console logs and screenshots for faster debugging." >}}
+{{< sm-4-col-item "SETUP & TEARDOWN SCRIPTS" "Run custom Javascript before and after your API check. Sign requests, get auth tokens and clean up test data." >}}
+{{< sm-4-col-item "IMPORT FROM TOOLS YOU KNOW" "Checkly's cUrl and Swagger API importers create fully fledged API checks with just a couple of clicks." >}}
+{{< sm-4-col-item "PERFORMANCE TRACING" "Receive Web Vitals for every browser check you run to ensure an outstanding user experience." >}}
 </div>
 </section>
 
@@ -51,40 +50,21 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
   </div>
 </div>
 
-<div class="gray-section two-grid">
+<div class="gray-section">
   <div class="row justify-content-center header-part">
     <div class="col-sm-12 col-md-8">
-      <h2 class="section-header mt-1">Learn from the community</h3>
-      <p class="lead-text">
-      Checkly helps you create scripts every step of the way. With our <strong>free & open source</strong> Chrome Extension you can get started without writing any code. Want to dive deeper? Dive into our open source knowledge base with practical coding tips and examples.
+      <h2 class="section-header mt-1">Actionable browser checks with Performance and Error Tracing</h2>
+      <p class="lead-text mb-lg-2">
+      Every browser check you run will automatically collect error traces, screenshots and performance metrics. Error Tracing enables you to easily identify JavaScript errors and missing resources while automatically generated screenshots help with debugging. Additionally, we have added performance metrics such as Google's Core Web Vitals to ensure your WebApp is snappy and provides a great user experience.
+      </p>
+      <p class="lead-text mt-2">
+      {{% cta-link "Learn more" "/docs/browser-checks/tracing-web-vitals/" %}}
       </p>
     </div>
+    <div class="lead-text mt-5 text-center">
+      {{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/transaction-monitoring/app.checklyhq-22@2x.png" alt="data centerlocations" width="888" height="675" >}}
+    </div>
   </div>
-
-<div class="row mt-7">
-
-<div class="col-md-6">
-  <div class="flex-wrap">
-    <h3 class="section-header" style="margin-right: 1rem;">Headless Recorder</h3>
-    <a class="github-button" href="https://github.com/checkly/headless-recorder" data-show-count="true" aria-label="Star checkly/headless-recorder on GitHub" rel="noopener">Star</a>
-  </div>
-  <p>Install the Headless Recorder browser extension in your Chrome browser and start recording scripts in under a minute. This extension has a ton of options for tweaking your scripts as you click through your site and fill out web forms. </p>
-  <div class="cta">
-    {{% cta-link "Learn more" "/docs/headless-recorder/basic-usage/" %}}
-  </div>
-  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/puppeteer@2x.png" alt="puppeteer screenshot" width="440" height="270" >}}
-</div>
-<div class="col-md-6">
-  <div>
-    <h3 class="section-header">Headless Automation Guides</h3>
-  </div>
-  <p>Learning headless automation for testing or monitoring from scratch, or improving on existing expertise? The Headless Automation Guides</p>
-  <div class="cta">
-    {{% cta-link "Learn more" "/learn/headless" %}}
-  </div>
-  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/thehd@2x.png" alt="thehd screenshot" width="440" height="270" >}}
-</div>
-</div>
 </div>
 
 <div class="mt-4 pb-9">
@@ -127,4 +107,40 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
       {{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/api-monitoring/global-coverage-screenshot@2x.png" alt="data centerlocations" width="843" height="486" >}}
     </div>
   </div>
+</div>
+
+<div class="mt-4 two-grid">
+  <div class="row justify-content-center header-part">
+    <div class="col-sm-12 col-md-8">
+      <h2 class="section-header mt-1">Learn from the community</h3>
+      <p class="lead-text">
+      Checkly helps you create scripts every step of the way. With our <strong>free & open source</strong> Chrome Extension you can get started without writing any code. Want to dive deeper? Dive into our open source knowledge base with practical coding tips and examples.
+      </p>
+    </div>
+  </div>
+
+<div class="row mt-7">
+
+<div class="col-md-6">
+  <div class="flex-wrap">
+    <h3 class="section-header" style="margin-right: 1rem;">Headless Recorder</h3>
+    <a class="github-button" href="https://github.com/checkly/headless-recorder" data-show-count="true" aria-label="Star checkly/headless-recorder on GitHub" rel="noopener">Star</a>
+  </div>
+  <p>Install the Headless Recorder browser extension in your Chrome browser and start recording scripts in under a minute. This extension has a ton of options for tweaking your scripts as you click through your site and fill out web forms. </p>
+  <div class="cta">
+    {{% cta-link "Learn more" "/docs/headless-recorder/basic-usage/" %}}
+  </div>
+  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/puppeteer@2x.png" alt="puppeteer screenshot" width="440" height="270" >}}
+</div>
+<div class="col-md-6">
+  <div>
+    <h3 class="section-header">Headless Automation Guides</h3>
+  </div>
+  <p>Learning headless automation for testing or monitoring from scratch, or improving on existing expertise? The Headless Automation Guides</p>
+  <div class="cta">
+    {{% cta-link "Learn more" "/learn/headless" %}}
+  </div>
+  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/thehd@2x.png" alt="thehd screenshot" width="440" height="270" >}}
+</div>
+</div>
 </div>

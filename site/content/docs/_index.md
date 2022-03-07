@@ -1,7 +1,8 @@
 ---
 title: Checkly documentation
 ---
-Learn how to use Checkly to monitor your vital frontend webapp transactions and backend API's. Our docs cover everything 
+
+Learn how to use Checkly to monitor your vital frontend webapp transactions and backend API's. Our docs cover everything
 from initial setup, scripting with extensive JavaScript examples to alerting and integrations.
 
 ## Getting started: monitoring & alerting
@@ -10,21 +11,21 @@ Start with monitoring your key webapp flows, your backend API's and set up alert
 break or slow down.
 
 <div class="cards-list">
-{{< doc-card 
+{{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="Create browser checks"
-	  img="/docs/images/icons/chrome@2x.png" 
+	  img="/docs/images/icons/chrome@2x.png"
 	  description="Use JavaScript and Headless browsers to navigate, screenshot and assert your key webapp flows. E2E monitoring as it should be."
-	  link="/docs/browser-checks" 
+	  link="/docs/browser-checks"
 >}}
-{{< doc-card 
+{{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="Create API checks"
-	  img="/docs/images/icons/api@2x.png" 
+	  img="/docs/images/icons/api@2x.png"
 	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything."
-	  link="/docs/api-checks" 
+	  link="/docs/api-checks"
 >}}
 </div>
 
@@ -41,7 +42,7 @@ break or slow down.
 
 ## Diving deeper
 
-Checkly offers a lot of power and perks to modern developers and DevOps teams. Manage checks at scale with Terraform, hook into your CI/CD and deployment flow. 
+Checkly offers a lot of power and perks to modern developers and DevOps teams. Manage checks at scale with Terraform, hook into your CI/CD and deployment flow.
 
 <div class="cards-list">
 {{< doc-card
@@ -80,6 +81,3 @@ Checkly offers a lot of power and perks to modern developers and DevOps teams. M
 {{< doc-card class="three-column-card" title="Maintenance Windows" description="Manage your scheduled maintenance periods so your numbers don't get skewed." link="/docs/maintenance-windows" >}}
 
 </div>
-
-
-

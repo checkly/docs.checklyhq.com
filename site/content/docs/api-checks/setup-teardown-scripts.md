@@ -14,29 +14,13 @@ all environment variables. Popular use cases are signing HMAC requests, requesti
 object, allowing you to read and modify the response. Use cases are cleaning up test data and scrubbing sensitive 
 response data for regulatory reasons.
 
-![setup and teardown script for http requests](/docs/images/api-checks/setup-teardown-1.png)
+![setup and teardown script for http requests](/docs/images/api-checks/setup-teardown-inline.png)
 
 Both script types are written in JavaScript and have access to popular libraries like moment, axios and lodash. See the full list of available libraries [here](#included-libraries).
 
-## Script execution flow
-
-Setup and teardown scripts are executed in a specific order in the Checkly backend. Being aware of this order is important
-to get the most out of this feature:
-
-1. Each setup script executes once per check in a dedicated execution sandbox directly as it is scheduled to run. Any changes you make in the
-setup script are distributed to each check run on each data center location.
-2. For each configured data center location, the HTTP request of your API check is executed directly followed by the teardown
-script. This means your teardown script *can run multiple times!*
-3. After the teardown script has run, all results are collected in our central storage.
-
+{{<info >}}
 Both setup and teardown scrips have a **maximum execution time of 10 seconds**.
-
-![setup and teardown script execution](/docs/images/api-checks/setup-teardown-2.png)
-
- 
-{{<warning >}}
-Setup scripts run once per check. Teardown scripts run on each data center location.
-{{</warning >}}
+{{</info >}}
 
 ## Setup scripts
 
@@ -44,7 +28,7 @@ Setup scripts allow you to do last minute processing of test data and request op
 requests are made. You have access to a set of [built-in variables](#built-in-variables) so you can tweak the HTTP request 
 and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs)
  
-Note: any libraries need to be explicitly imported using a 'require' statement.
+Note: any libraries need to be explicitly imported using a `require` statement.
 
 ## Setup script examples
 
@@ -272,6 +256,27 @@ Checkly backend.
 response.statusCode = 201
 ```
 
+### perform additional assertions
+
+In certain cases you might want to run additional assertion as part of your teardown script. 
+
+```javascript
+const expect = require('expect')
+
+expect(response.body).toBe('myString')
+```
+
+This can come in handy when the main assertions of the API check are not fine-grained enough, or when you want to assert against a dynamic value. An example could be wanting to assert that the timestamp returned in your response matches today's date:
+
+```javascript
+const expect = require('expect')
+const moment = require('moment')
+
+const currentDate = moment().format('llll')
+
+expect(response.body.date).toBe(currentDate)
+```
+
 ### delete created test data based on response
 
 This is an actual script we use to monitor our own "create API check" API endpoint. It runs after a normal API check where
@@ -312,16 +317,16 @@ body.someKey = 1
 response.body = JSON.stringify(body)
 ```
 
-Note: Remember that teardown scripts run on each configured data center location. 
-
 ## Reusable code snippets
 
 To DRY (Don't Repeat Yourself) up your code, we strongly advice you create all setup and teardown scripts as code
 snippets. You can create, update and delete code snippets in the 'Code Snippets' section. Snippets are available to all checks.
 
-![reusable code snippets](/docs/images/api-checks/snippets-list.png)
+![reusable code snippets](/docs/images/api-checks/snippets.png)
 
 Once created, just select any snippets from the drop down menu in setup and teardown scripts section of your API check.
+
+![setup and teardown script for http requests with snippets](/docs/images/api-checks/setup-teardown-snippet.png)
 
 ## Built-in variables
 
@@ -394,3 +399,4 @@ Check out [our runtimes documentation](/docs/runtimes/specs) for a full specific
 - Setup and teardown scripts are implicitly wrapped in async function. This means you can always use `await` statements.
 - You cannot use nested callbacks as there is no way to determine the callback function. Always use `await` statements.
 - You need to include modules and libraries explicitly, e.g. `const moment = require('moment')` before you can use them.
+- You can pass a maximum of 256KB of data to and from the check's main request (e.g. using `request.body = data`).

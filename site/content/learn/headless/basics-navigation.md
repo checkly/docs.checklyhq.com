@@ -11,7 +11,7 @@ weight: 4
 
 menu:
   learn:
-    parent: "Getting Started"
+    parent: "Getting started"
 ---
 
 Every useful script that we will write will almost certainly do three key things:

@@ -1,0 +1,12 @@
+addReviewers: true
+addAssignees: author
+
+reviewers:
+  - pilimartinez
+  - ianaya89
+  - orcunilbeyli
+
+skipKeywords:
+  - wip
+
+numberOfReviewers: 3
