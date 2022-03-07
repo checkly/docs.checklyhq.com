@@ -17,12 +17,3 @@ Dashboards have a lot of tweakable options to make them work for you in your sit
 without sacrificing legibility per check.
 
 ![config public monitoring dashboard](/docs/images/dashboards/look_feel.png)
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

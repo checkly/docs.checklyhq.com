@@ -26,12 +26,3 @@ You can also integrate with your CI/CD using our API directly:
 For any other platform, check out how to use our command line trigger API:
 
 - [Command Line triggers](/docs/cicd/triggers/)
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

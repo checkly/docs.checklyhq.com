@@ -38,12 +38,3 @@ At this point, you can choose to either create an incident on FireHydrant or dis
 ![firehydrant integration step 6](/docs/images/integrations/firehydrant/firehydrant_step6.png)
 
 Congratulations, you have successfully integrated Checkly with FireHydrant!
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

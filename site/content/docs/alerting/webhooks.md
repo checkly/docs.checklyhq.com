@@ -315,12 +315,3 @@ certificate expires.
   "link": "http://app-test.checklyhq.com/checks/08437f9c-df8c-45ed-975a-a3f9e24d626d"
 }
 ```
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

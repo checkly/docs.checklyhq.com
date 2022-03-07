@@ -36,12 +36,3 @@ Such limitation doesn't exist with the paid version.
 {{< info >}}
 This is v1 documentation. We are working on providing documentation on how to setup ngrok so it runs on a permanent basis. 
 {{< /info >}}
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

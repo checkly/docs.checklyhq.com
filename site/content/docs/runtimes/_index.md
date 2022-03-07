@@ -58,12 +58,3 @@ this if there are no known backwards compatibility issues.
 
 We introduced the concept of runtimes so customers can upgrade their JavaScript enhanced checks to more recent Node package versions
 in a controlled fashion; and roll back if anything breaks! Before, this was a more risky "big bang" migration.
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

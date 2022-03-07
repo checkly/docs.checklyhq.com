@@ -44,12 +44,3 @@ You need to select which checks and/or check groups are targeted by your mainten
 
 This way, any checks or check groups created *after* creating your maintenance window can still be made part of the window; no
 need to update the maintenance window configuration. Just set the correct tags.
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

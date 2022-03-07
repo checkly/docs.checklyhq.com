@@ -39,12 +39,3 @@ These are the currently available runtimes and the included external NPM depende
 > Note: the below libraries are included for **setup and teardown scripts** as well, with the exclusion of Puppeteer, Playwright and Mocha.
 
 {{< runtimes >}}
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>

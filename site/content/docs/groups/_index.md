@@ -47,12 +47,3 @@ variables, script and alerting channels. Here are the rules:
 
 As you can see, groups in their current incarnation are mostly handy configuration buckets for common properties. In the 
 future we will expand the group features to make them smarter.
-
-##
-||
-| ------------- |
-<div class="contribute-doc">
-<p><img src="/docs/images/icons/edit.png" width="14px" height="14px">
-You can contribute to this documentation by 
-<a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
-</div>
