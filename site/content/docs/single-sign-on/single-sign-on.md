@@ -1,6 +1,7 @@
 ---
 title: Overview
-weight: 1
+weight: 71
+slug: /
 aliases:
 - "/docs/single-sign-on/"
 menu:

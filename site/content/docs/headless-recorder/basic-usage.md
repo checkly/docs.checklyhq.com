@@ -1,6 +1,6 @@
 ---
 title: Basic Usage
-weight: 3
+weight: 76
 menu:
   docs:
     parent: "Headless Recorder"

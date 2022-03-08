@@ -1,6 +1,6 @@
 ---
 title: Runtime specification
-weight: 9999
+weight: 70
 menu:
   docs:
     parent: "Runtimes"

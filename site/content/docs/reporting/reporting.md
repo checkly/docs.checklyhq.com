@@ -1,6 +1,7 @@
 ---
 title: Dashboard
-weight: 1
+weight: 68
+slug: /
 aliases:
 - /docs/reporting
 menu:

@@ -1,6 +1,6 @@
 ---
 title: Setup & teardown scripts
-weight: 6
+weight: 12
 menu:
   docs:
     parent: "API checks"

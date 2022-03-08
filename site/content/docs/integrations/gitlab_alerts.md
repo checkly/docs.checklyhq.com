@@ -1,6 +1,6 @@
 ---
 title: GitLab Alerts
-weight: 8
+weight: 60
 menu:
   docs:
     parent: "Integrations"

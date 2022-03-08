@@ -1,6 +1,6 @@
 ---
 title: Discord
-weight: 9
+weight: 61
 menu:
   docs:
     parent: "Integrations"

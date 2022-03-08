@@ -1,6 +1,6 @@
 ---
 title: SAML
-weight: 2
+weight: 72
 menu:
   docs:
     parent: "Single sign-on"

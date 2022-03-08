@@ -1,6 +1,6 @@
 ---
 title: Using the file system
-weight: 3
+weight: 16
 menu:
   docs:
     parent: "Browser checks"

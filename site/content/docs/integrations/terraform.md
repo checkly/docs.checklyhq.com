@@ -1,6 +1,6 @@
 ---
 title: Terraform
-weight: 12
+weight: 66
 menu:
   docs:
     parent: "Integrations"

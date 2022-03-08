@@ -1,6 +1,6 @@
 ---
 title: Login scenarios
-weight: 6
+weight: 19
 aliases:
 - login-and-secrets
 menu:

@@ -1,6 +1,7 @@
 ---
 title: Overview
-weight: 1
+weight: 36
+slug: /
 menu:
   docs:
     parent: "CI/CD integration"
