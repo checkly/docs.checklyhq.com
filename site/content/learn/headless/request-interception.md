@@ -10,7 +10,7 @@ githubUser:
   - thompsonjonm
 tags:
   - network
-
+weight: 19
 menu:
   learn:
     parent: "Network & state"

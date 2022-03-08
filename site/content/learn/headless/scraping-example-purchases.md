@@ -6,7 +6,7 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - scraping
-
+weight: 22
 menu:
   learn:
     parent: "Scraping"
