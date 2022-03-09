@@ -8,7 +8,7 @@ tags:
   - e2e
   - assertions
   - search
-
+weight: 15
 menu:
   learn:
     parent: "E2E examples"

@@ -1,6 +1,6 @@
 ---
 title: HTTP request settings
-weight: 2
+weight: 8
 menu:
   docs:
     parent: "API checks"

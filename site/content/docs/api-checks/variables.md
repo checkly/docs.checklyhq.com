@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-weight: 3
+weight: 9
 menu:
   docs:
     parent: "API checks"

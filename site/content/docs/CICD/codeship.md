@@ -1,6 +1,6 @@
 ---
 title: Codeship
-weight: 4
+weight: 39
 menu:
   docs:
     parent: "CI/CD integration"

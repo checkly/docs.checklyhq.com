@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
   - testing
-
+weight: 27
 menu:
   learn:
     parent: "Best practices"

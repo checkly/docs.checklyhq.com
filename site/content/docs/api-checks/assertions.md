@@ -1,6 +1,6 @@
 ---
 title: Assertions
-weight: 4
+weight: 10
 menu:
   docs:
     parent: "API checks"

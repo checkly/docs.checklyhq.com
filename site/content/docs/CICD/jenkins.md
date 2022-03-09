@@ -1,6 +1,6 @@
 ---
 title: Jenkins
-weight: 5
+weight: 40
 menu:
   docs:
     parent: "CI/CD integration"

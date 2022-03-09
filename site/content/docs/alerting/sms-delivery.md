@@ -1,6 +1,6 @@
 ---
 title: SMS delivery
-weight: 5
+weight: 34
 menu:
   docs:
     parent: "Alerting"

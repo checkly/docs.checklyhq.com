@@ -1,6 +1,7 @@
 ---
 title: Overview
-weight: 1
+weight: 47
+slug: /
 menu:
   docs:
     parent: "Dashboards"

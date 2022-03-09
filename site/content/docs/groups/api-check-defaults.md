@@ -1,6 +1,6 @@
 ---
 title: API check defaults
-weight: 2
+weight: 27
 menu:
   docs:
     parent: "Groups"

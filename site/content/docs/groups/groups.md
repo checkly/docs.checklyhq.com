@@ -1,6 +1,7 @@
 ---
 title: Overview
-weight: 1
+weight: 26
+slug: /
 menu:
   docs:
     parent: "Groups"

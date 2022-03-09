@@ -1,6 +1,6 @@
 ---
 title: Travis CI
-weight: 6
+weight: 42
 menu:
   docs:
     parent: "CI/CD integration"

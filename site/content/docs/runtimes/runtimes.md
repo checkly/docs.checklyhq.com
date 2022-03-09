@@ -1,6 +1,7 @@
 ---
 title: How runtimes work
-weight: 1
+weight: 69
+slug: /
 menu:
   docs:
     parent: "Runtimes"

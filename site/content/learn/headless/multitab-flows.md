@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - multi-tab
   - testing
-
+weight: 18
 menu:
   learn:
     parent: "Pages & frames"

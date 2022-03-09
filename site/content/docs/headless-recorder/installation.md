@@ -1,6 +1,6 @@
 ---
 title: Installation
-weight: 2
+weight: 75
 menu:
   docs:
     parent: "Headless Recorder"

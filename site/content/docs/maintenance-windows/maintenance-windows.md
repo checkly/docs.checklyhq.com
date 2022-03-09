@@ -1,6 +1,7 @@
 ---
 title: Overview
-weight: 1
+weight: 46
+slug: /
 menu:
   docs:
     parent: "Maintenance windows"

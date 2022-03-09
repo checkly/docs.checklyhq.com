@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
   - assertions
-
+weight: 11
 menu:
   learn:
     parent: "E2E examples"

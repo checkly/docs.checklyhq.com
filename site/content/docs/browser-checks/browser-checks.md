@@ -1,6 +1,7 @@
 ---
 title: Quickstart
-weight: 1
+weight: 14
+slug: /
 menu:
   docs:
     parent: "Browser checks"

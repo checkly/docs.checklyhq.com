@@ -1,6 +1,6 @@
 ---
 title: Alert channels
-weight: 2
+weight: 31
 menu:
   docs:
     parent: "Alerting"

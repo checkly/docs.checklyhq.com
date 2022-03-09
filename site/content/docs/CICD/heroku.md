@@ -1,6 +1,6 @@
 ---
 title: Heroku CI
-weight: 6
+weight: 41
 menu:
   docs:
     parent: "CI/CD integration"

@@ -79,5 +79,4 @@ Checkly offers a lot of power and perks to modern developers and DevOps teams. M
 {{< doc-card class="three-column-card" title="Dashboards" description="Whip up a status page on your own domain or create an internal dashboard." link="/docs/dashboards" >}}
 
 {{< doc-card class="three-column-card" title="Maintenance Windows" description="Manage your scheduled maintenance periods so your numbers don't get skewed." link="/docs/maintenance-windows" >}}
-
 </div>

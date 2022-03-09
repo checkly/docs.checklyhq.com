@@ -6,7 +6,7 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - security
-
+weight: 25
 menu:
   learn:
     parent: "Best practices"

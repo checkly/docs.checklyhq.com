@@ -1,6 +1,6 @@
 ---
 title: Adding team members
-weight: 2
+weight: 51
 menu:
   docs:
     parent: "Accounts & Users"

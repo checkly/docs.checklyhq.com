@@ -207,6 +207,21 @@
     }
   }
 
+  .nav-docs {
+    display: flex;
+    align-items: center;
+  }
+  .learn{
+    fill: #FF4949;
+  }
+  .contribute-doc {
+    color: #697280;
+    font-size: 14px;
+      a {
+        color: #FF4949 !important;
+    }
+}
+
   &-toc {
     position: relative;
     flex: 0 0 $toc-width;

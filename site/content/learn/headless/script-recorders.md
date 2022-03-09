@@ -6,7 +6,7 @@ author: Hannes Lenke
 githubUser: hlenke
 tags:
   - script generation
-
+weight: 35
 menu:
   learn:
     parent: "Miscellaneous"
