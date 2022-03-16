@@ -1,11 +1,11 @@
 ---
-title: Adding private locations
+title: Getting started with private locations
 weight: 51
 menu:
   docs:
-    parent: "Accounts & Users"
+    parent: "Private Locations"
 aliases:
-- "/docs/teams/adding-private-locations/"
+- "/docs/private-locations/private-locations-getting-started/"
 ---
 
 **Checkly private locations is a technical preview feature. It is not recommended for production use and is available on request.**
@@ -35,23 +35,23 @@ A private location is similar to our existing public locations, but you have con
 
 2) Navigate to the Private Locations settings page.
 
-![private locations settings](/docs/images/teams/private_locations_settings.png)
+![private locations settings](/docs/images/private-locations/private_locations_settings.png)
 
 3) Click the New Private Location button.
 
 4) Provide a name and icon for the new private location. The ID is automatically generated ID for API access.
 
-![new private location](/docs/images/teams/new_private_location.png)
+![new private location](/docs/images/private-locations/new_private_location.png)
 
 5) Click Create.
 
 6) You will receive an API key for the new location. Copy this key and keep it safe as you will need it to add agents to the location, and you won’t be able to see it again.
 
-![private location key](/docs/images/teams/private_location_key.png)
+![private location key](/docs/images/private-locations/private_location_key.png)
 
 7) You now see your new private location in the list with no agents installed. Copy the docker run command as shown.
 
-![private location added](/docs/images/teams/private_location_key.png)
+![private location added](/docs/images/private-locations/private_location_added.png)
 
 8) Paste the `docker run` command into your container host. Paste your API key from step 6 between the quotation marks for the `API_KEY` environment variable. Optionally, replace `docker` with the command for your container engine of choice (podman, etc.).
 
@@ -83,14 +83,14 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 
 14) Refresh the private locations page in the Checkly app and you will see a count of the number of running agents.
 
-![agent running](/docs/images/teams/agent_running.png)
+![agent running](/docs/images/private-locations/agent_running.png)
 
 15) Create a new API or Browser check as you normally would in Checkly. You will now see your new private location in the list of available locations. Select it and deselect any other locations.
 
-![select private location](/docs/images/teams/select_private_location.png)
+![select private location](/docs/images/private-locations/select_private_location.png)
 
 16) Finish configuring your check and save it.
 
 17) You can now see the results in the check results page.
 
-![private location results](/docs/images/teams/private_location_results.png)
+![private location results](/docs/images/private-locations/private_location_results.png)
