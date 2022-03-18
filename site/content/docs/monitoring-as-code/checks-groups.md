@@ -1,6 +1,6 @@
 ---
 title: Checks and groups
-weight: 77
+weight: 76
 menu:
   docs:
     parent: "Monitoring-as-Code"
@@ -20,7 +20,7 @@ For example, a browser check can look as follows:
 resource "checkly_check" "browser-check-1" {
   name                      = "Example check" // The name of the check
   type                      = "BROWSER"       // The type of the check
-  activated                 = true            // Whether the check will start as active or not on creation
+  activated                 = true            // Whether the check will start as active on creation
   frequency                 = 10              // The frequency of the check in minutes
   double_check              = true            // Whether the check should be run once more on failure
   ssl_check                 = true            // Whether your SSL cert for the given domain should be checked too
@@ -47,7 +47,7 @@ EOT
 }
 ```
 
-For tidiness and easy of use, it is recommended to store scripts in separate files, instead of using the inline option:
+For tidiness and ease of use, it is recommended to store scripts in separate files, instead of using the inline option:
 
 ```terraform
 resource "checkly_check" "browser-check" {
@@ -76,7 +76,7 @@ On the other hand, an API check shares some part of the initial configuration, b
 resource "checkly_check" "example-check" {
   name                      = "Example check"   // The name of the check
   type                      = "API"     // The type of the check
-  activated                 = true      // Whether the check will start as active or not on creation
+  activated                 = true      // Whether the check will start as active on creation
   should_fail               = false     // Whether the check's HTTP response's status is expected to be >399
   frequency                 = 1         // The frequency of the check in minutes
   double_check              = true      // Whether the check should be run once more on failure
@@ -108,22 +108,17 @@ You can see all the configuration options for checks, as well as more examples, 
 Once you start having more than just a handful of checks, it makes sense to start looking into groups to keep things tidy:
 
 ```terraform
-resource "checkly_check_group" "key-shop-flows" {
-  name      = "Key Shop Flows"
-  activated = true
-  muted     = false
+resource "checkly_check_group" "example-group" {
+  name      = "Key Shop Flows"  // The name of the group
+  activated = true              // Whether the group will start as active on creation
+  muted     = false             // Whether the group will start as muted on creation
 
-  locations = [
+  locations = [                 // Which locations the check should run from (if not in a group)
     "eu-west-1",
     "eu-central-1"
   ]
 
-  concurrency = 3
-  environment_variables = {
-    USER_EMAIL = "user@email.com",
-    USER_PASSWORD = "supersecure1",
-    PRODUCTS_NUMBER = 3
-  }
+  concurrency               = 3
   double_check              = true
   use_global_alert_settings = false
 }

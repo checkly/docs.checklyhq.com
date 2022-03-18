@@ -1,6 +1,6 @@
 ---
 title: CI Usage
-weight: 76
+weight: 80
 menu:
   docs:
     parent: "Monitoring-as-Code"
