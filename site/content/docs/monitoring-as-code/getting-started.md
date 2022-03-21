@@ -1,6 +1,6 @@
 ---
 title: Getting started
-weight: 75
+weight: 1
 menu:
   docs:
     parent: "Monitoring-as-Code"

@@ -1,6 +1,6 @@
 ---
 title: Alert channels and settings
-weight: 78
+weight: 3
 
 menu:
   docs:

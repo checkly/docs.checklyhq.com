@@ -1,6 +1,6 @@
 ---
 title: Common issues
-weight: 85
+weight: 100
 menu:
   docs:
     parent: "Monitoring-as-Code"

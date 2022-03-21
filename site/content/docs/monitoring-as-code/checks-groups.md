@@ -1,6 +1,6 @@
 ---
 title: Checks and groups
-weight: 76
+weight: 2
 menu:
   docs:
     parent: "Monitoring-as-Code"

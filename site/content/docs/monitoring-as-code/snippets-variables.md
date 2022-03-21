@@ -1,6 +1,6 @@
 ---
 title: Snippets and environment variables
-weight: 79
+weight: 4
 menu:
   docs:
     parent: "Monitoring-as-Code"

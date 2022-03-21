@@ -1,6 +1,6 @@
 ---
 title: CI/CD pipelines
-weight: 80
+weight: 30
 menu:
   docs:
     parent: "Monitoring-as-Code"
