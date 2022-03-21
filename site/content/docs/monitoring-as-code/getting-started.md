@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring-as-Code"
 ---
 
-You can get started with Terraform on Checkly in a matter of minutes by following the steps shown below.
+The Checkly Terraform provider enables you to declare your monitoring setup as code using [HashiCorp Terraform](https://www.terraform.io/). You can get started with it in a matter of minutes by following the steps shown below.
 
 ## Installation
 
@@ -19,7 +19,7 @@ terraform {
   required_providers {
     checkly = {
       source = "checkly/checkly"
-      version = "1.4.3"
+      version = "~> 1.0"
     }
   }
 }
@@ -44,6 +44,10 @@ You also need to set your target Account ID, which you can find under your [acco
 ```bash
 $ export TF_VAR_checkly_account_id=xxx
 ```
+
+{{<info>}}
+If you do not export these environment variables, Terraform will ask you to enter them later.
+{{</info>}}
 
 Running `terraform init` will install the Checkly Terraform provider for you, as well as initialising your project. You can now start adding resources to your file. You can check the official documentation to see [available parameters](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check) for each resource type. As an example, you could add a basic browser check resource at the bottom of your `main.tf`:
 

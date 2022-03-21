@@ -1,5 +1,5 @@
 ---
-title: CI Usage
+title: CI/CD pipelines
 weight: 80
 menu:
   docs:
@@ -8,7 +8,7 @@ menu:
 
 You can use the Checkly Terraform provider as part of your delivery pipeline.
 
-key is state locking using a TF backend
+key is state locking using a [Terraform backend](https://www.terraform.io/language/settings/backends)
 
 
 Azure example
