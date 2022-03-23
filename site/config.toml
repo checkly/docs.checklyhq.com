@@ -80,6 +80,12 @@ disqusShortname = "checkly"
 	weight = 90
 
 [[menu.docs]]
+	name = "Private Locations"
+	url = "/docs/private-locations/"
+	pre="/docs/images/icons/private-locations.svg"
+	weight = 95
+
+[[menu.docs]]
 	name = "Integrations"
 	url = "/docs/integrations/"
 	pre="/docs/images/icons/integrations.svg"
