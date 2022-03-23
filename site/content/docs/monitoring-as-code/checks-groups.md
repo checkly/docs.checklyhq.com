@@ -126,9 +126,9 @@ resource "checkly_check_group" "key-shop-flows" {
     "eu-central-1"
   ]
 
-  concurrency               = 3
-  double_check              = true
-  use_global_alert_settings = false
+  concurrency               = 3     // How many checks to run at once when triggering the group using CI/CD triggers
+  double_check              = true  // Whether to re-run a failed check from a different location
+  use_global_alert_settings = false // Whether to use global alert settings or group-specific ones
 }
 ```
 

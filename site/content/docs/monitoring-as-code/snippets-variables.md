@@ -10,13 +10,35 @@ Checkly exposes handy resources to avoid code duplication and reduce the mainten
 
 ## Code snippets
 
-[Code snippets](/docs/browser-checks/partials-code-snippets) are useful for reusing bits of code without duplication. They can be used for [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets) in API checks, as well as in [browser checks](/docs/browser-checks/partials-code-snippets/).
+[Code snippets](/docs/browser-checks/partials-code-snippets) are useful for reusing bits of code without duplication. They can be used for [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets) in API checks, as well as in [browser checks](/docs/browser-checks/partials-code-snippets/) and come as standalone resources:
+
+```terraform
+resource "checkly_snippet" "procedure-login" {
+  name   = "Login"  // The snippet name
+  script   = <<EOT  // The content of the snippet
+    page.fill('#field-email')
+    page.fill('#field-password')
+    page.click('#btn-login')
+EOT
+}
+```
+
+For tidiness and ease of use, it is recommended to store scripts in separate files, instead of using the inline option:
+
+```terraform
+resource "checkly_snippet" "procedure-login" {
+  name   = "Login"
+  script = file("${path.module}/snippets/login.js") // Our script is contained in this file
+EOT
+}
+```
 
 ## Environment variables
 
 [Environment variables](/docs/browser-checks/variables) help you store data (like credentials or other strings) on Checkly that you might need to use in one or more checks and groups. They can exist as arguments in check or group type resources:
 
 ```terraform
+// In a check:
 resource "checkly_check" "e2e-login" {
   name                      = "Login Flow"
   type                      = "BROWSER"
@@ -40,6 +62,7 @@ resource "checkly_check" "e2e-login" {
   script = file("${path.module}/scripts/login.js")
 }
 
+// In a group:
 resource "checkly_check_group" "key-shop-flows" {
   name      = "Key Shop Flows"
   activated = true

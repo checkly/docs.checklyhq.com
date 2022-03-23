@@ -8,9 +8,13 @@ menu:
 
 The Checkly Terraform provider enables you to declare your monitoring setup as code using [HashiCorp Terraform](https://www.terraform.io/). You can get started with it in a matter of minutes by following the steps shown below.
 
+{{<info>}}
+For in-depth information on Terraform, please see HashiCorp's [official documentation](https://registry.terraform.io/providers/checkly/checkly/latest/docs).
+{{</info>}}
+
 ## Installation
 
-To get started, you will need to install the latest version of [HashiCorp Terraform](https://www.terraform.io/downloads).
+To get started, you need to install the [latest version](https://www.terraform.io/downloads) of Terraform.
 
 Next, switch to a new folder for your project, and create your `main.tf` file:
 
@@ -33,13 +37,13 @@ provider "checkly" {
 }
 ```
 
-To use the provider with your Checkly account, you will need an API Key for your Checkly user. Go to the [API keys tab](https://app.checklyhq.com/settings/user/api-keys) in your user settings and click 'Create API Key'. Get your User API Key and add it to your env:
+To use the provider with your Checkly account, you will need an API Key for your Checkly user. Go to the [API keys tab](https://app.checklyhq.com/settings/user/api-keys) in your user settings and click `Create API key`. Get your User API key and add it to your env:
 
 ```bash
 $ export TF_VAR_checkly_api_key=cu_xxx
 ```
 
-You also need to set your target Account ID, which you can find under your [account settings](https://app.checklyhq.com/settings/account/general). If you don't have access to account settings, please contact your account owner/admin.
+You also need to set your target account ID, which you can find under your [account settings](https://app.checklyhq.com/settings/account/general). If you don't have access to account settings, please contact your account owner/admin.
 
 ```bash
 $ export TF_VAR_checkly_account_id=xxx
@@ -88,6 +92,6 @@ After each change to your Terraform file, you will need to run the following two
 If you are using [Terraform Cloud](https://www.terraform.io/cloud), the above will be run for you automatically every time a pull request is merged into the main branch.
 
 {{<warning>}}
-Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both!
+Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both.
 Modifying Terraform-managed resources via the UI, and viceversa, is likely to cause issues.
 {{</warning>}}

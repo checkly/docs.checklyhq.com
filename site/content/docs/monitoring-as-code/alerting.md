@@ -14,30 +14,31 @@ Alerting is organised around alert settings and alert channels.
 [Alert settings](https://www.checklyhq.com/docs/alerting/) determine _when_ and how many times alerts should be sent out. You can set the alert settings at check level:
 
 ```terraform
-resource "checkly_check" "example-check-2" {
-  name                   = "Example API check 2"
+resource "checkly_check" "get-books" {
+  name                   = "GET /books"
   type                   = "API"
   
   // ...
 
   alert_settings {
-    escalation_type = "RUN_BASED"
+    escalation_type = "RUN_BASED"   // Whether to alert after a certain number of runs or time
 
     run_based_escalation {
-      failed_run_threshold = 1
+      failed_run_threshold = 1      // (RUN_BASED escalation only) after how many failed runs to send an alert
     }
 
     time_based_escalation {
-      minutes_failing_threshold = 5
+      minutes_failing_threshold = 5 // (TIME_BASED escalation only) after how many minutes spent in failing state to send an alert
     }
 
     ssl_certificates {
-      enabled         = true
-      alert_threshold = 30
+      enabled         = true        // Whether the SSL certificate will be checked for expiry
+      alert_threshold = 30          // At which number of days remaining before expiry should the alert be sent
     }
 
     reminders {
-      amount = 1
+      amount   = 2                  // How many reminders to send after the first alert
+      interval = 5                  // How many minutes to wait between reminders
     }
   }
 
@@ -48,11 +49,12 @@ resource "checkly_check" "example-check-2" {
 Or at group level:
 
 ```terraform
-resource "checkly_check_group" "example-group" {
-  name      = "My test group 1"
+resource "checkly_check_group" "key-shop-flows" {
+  name      = "Key Shop Flows"
   activated = true
   
   // ...
+  
   alert_settings {
     escalation_type = "RUN_BASED"
 
@@ -99,8 +101,8 @@ Checkly supports a variety of alert channels, from email and SMS to Pagerduty an
 Checks or groups are subscribed to one or more alert channels:
 
 ```terraform
-resource "checkly_check" "example-check-2" {
-  name                   = "Example API check 2"
+resource "checkly_check" "get-books" {
+  name                   = "GET /books"
   type                   = "API"
   
   // ...
@@ -114,8 +116,8 @@ resource "checkly_check" "example-check-2" {
 
 }
 
-resource "checkly_check_group" "example-group" {
-  name      = "My test group 1"
+resource "checkly_check_group" "key-shop-flows" {
+  name      = "Key Shop Flows"
   activated = true
   
   // ...
