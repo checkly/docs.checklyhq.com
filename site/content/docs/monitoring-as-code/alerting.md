@@ -4,7 +4,7 @@ weight: 3
 
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 Alerting is organised around alert settings and alert channels.

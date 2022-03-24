@@ -3,7 +3,7 @@ title: Service maintenance windows
 weight: 6
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 With [maintenance windows](/docs/maintenance-windows/) you can schedule planned maintenance for whatever you are monitoring in order to prevent your checks from running at specific times. Maintenance windows have their own resource:

@@ -3,7 +3,7 @@ title: Common issues
 weight: 100
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 ## Troubleshooting common issues

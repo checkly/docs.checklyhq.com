@@ -3,7 +3,7 @@ title: Public dashboards
 weight: 5
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 [Public dashboards](http://localhost:3000/docs/dashboards/) allow you to display checks and their related metrics on a single page. They come with their own dedicated resource:

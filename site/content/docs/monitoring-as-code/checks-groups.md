@@ -3,7 +3,7 @@ title: Checks and groups
 weight: 2
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 Checks make up the most important unit of your Checkly monitoring setup. Groups help you split them up according to your needs and keep complexity down.

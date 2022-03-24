@@ -3,7 +3,7 @@ title: Command line triggers
 weight: 7
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 [Command line triggers](https://www.checklyhq.com/docs/cicd/triggers/) enable you to call a check from a CI/CD pipeline, a bash shell or programmatically in your code.

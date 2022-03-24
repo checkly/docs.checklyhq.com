@@ -50,8 +50,8 @@ disqusShortname = "checkly"
 	weight = 50
 
 [[menu.docs]]
-	name = "Monitoring-as-Code"
-	url = "/docs/monitoring-as-code/"
+	name = "Terraform provider"
+	url = "/docs/terraform-provider/"
 	pre="/docs/images/icons/code.svg"
 	weight = 55
 

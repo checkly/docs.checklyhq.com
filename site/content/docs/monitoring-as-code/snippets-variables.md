@@ -3,7 +3,7 @@ title: Snippets and environment variables
 weight: 4
 menu:
   docs:
-    parent: "Monitoring-as-Code"
+    parent: "Terraform provider"
 ---
 
 Checkly exposes handy resources to avoid code duplication and reduce the maintenance load on whoever is maintaining checks and scripts.
