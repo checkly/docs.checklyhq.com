@@ -20,6 +20,10 @@ To get started, you first need to install [Terraform](https://www.terraform.io/d
 
 Next, switch to a new folder for your project, and create your `main.tf` file:
 
+```mkdir terraform-checkly-getting-started && cd $_ && touch main.tf```
+
+Start by adding the following to your `main.tf`:
+
 ```terraform
 terraform {
   required_providers {
@@ -41,7 +45,9 @@ provider "checkly" {
 
 This is all the code you need to set up the Checkly Terraform provider. You now need to set your credentials to give the provider access to your Checkly account.
 
-First, you will need an API Key for your Checkly user. Go to the [API keys tab](https://app.checklyhq.com/settings/user/api-keys) in your user settings and click `Create API key`. 
+First, you will need an API Key for your Checkly user. Go to the [API keys tab](https://app.checklyhq.com/settings/user/api-keys) in your user settings and click `Create API key`.
+
+![api key tab in checkly settings](/docs/images/terraform-provider/getting-started-1.png)
 
 Get your User API key and add it to your env using your terminal:
 
@@ -50,6 +56,8 @@ $ export TF_VAR_checkly_api_key=cu_xxx
 ```
 
 You also need to set your target account ID, which you can find under your [account settings](https://app.checklyhq.com/settings/account/general). 
+
+![account id in checkly settings](/docs/images/terraform-provider/getting-started-2.png)
 
 If you don't have access to account settings, please contact your account owner/admin.
 
@@ -84,7 +92,7 @@ commands will detect it and remind you to do so if necessary.
 
 You can now start adding resources to your file. You can check the official documentation to see [available parameters](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check) for each resource type. 
 
-### Your first browser check
+## Your first browser check
 
 As an example, you could add a basic browser check resource at the bottom of your `main.tf`.
 
@@ -151,7 +159,11 @@ checkly_check.browser-check-1: Creation complete after 1s [id=cc143901-fbae-4942
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-### Adding an API check
+Your Checkly account should now show the first check up and running:
+
+![checkly dashboard with running check](/docs/images/terraform-provider/getting-started-3.png)
+
+## Adding an API check
 
 You can also add an API check to monitor an API endpoint:
 
@@ -182,7 +194,7 @@ resource "checkly_check" "example-check" {
 
 You can now choose to re-run `terraform apply` or wait until we have added an alert channel and have Terraform create both resources at once.
 
-### Setting up alerts
+## Setting up alerts
 
 Now that you have your checks set up, you'll want to set up an alert channel for Checkly to promptly inform you when one of them fails. For example, you could create an email channel:
 
@@ -228,6 +240,10 @@ resource "checkly_check" "example-check" {
 ```
 
 You can now run `terraform apply` for the last time and have Terraform create your checks and alert channel for you.
+
+![checkly dashboard with running check](/docs/images/terraform-provider/getting-started-4.png)
+
+Congratulations! You have created your first Checkly monitoring setup using Terraform.
 
 {{<warning>}}
 Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both.
