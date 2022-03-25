@@ -2,7 +2,7 @@
   <nav id="sideMenu" class="left-transform right-transform">
     <a
       class="api-reference-link"
-      href="/docs/api"
+      href="https://developers.checklyhq.com"
       target="_blank"
     >
       API reference
@@ -38,7 +38,7 @@
   <!-- Restore menu position as soon as possible to avoid flickering -->
   <script>
     (function () {
-      var menu = document.querySelector('aside.docs-menu nav')
+      const menu = document.querySelector('aside.docs-menu nav')
       addEventListener('beforeunload', function () {
         localStorage.setItem('menu.scrollTop', menu.scrollTop)
       })
