@@ -20,7 +20,9 @@ To get started, you first need to install [Terraform](https://www.terraform.io/d
 
 Next, switch to a new folder for your project, and create your `main.tf` file:
 
-```mkdir terraform-checkly-getting-started && cd $_ && touch main.tf```
+```bash
+$ mkdir terraform-checkly-getting-started && cd $_ && touch main.tf
+```
 
 Start by adding the following to your `main.tf`:
 
