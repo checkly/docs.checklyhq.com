@@ -29,7 +29,6 @@ For tidiness and ease of use, it is recommended to store scripts in separate fil
 resource "checkly_snippet" "procedure-login" {
   name   = "Login"
   script = file("${path.module}/snippets/login.js") // Our script is contained in this file
-EOT
 }
 ```
 
