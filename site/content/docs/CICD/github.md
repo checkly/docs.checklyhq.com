@@ -1,6 +1,6 @@
 ---
 title: GitHub deployments
-weight: 2
+weight: 37
 menu:
   docs:
     parent: "CI/CD integration"

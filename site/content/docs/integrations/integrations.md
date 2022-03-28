@@ -1,8 +1,11 @@
 ---
-title: 'Integrations'
-weight: 1
+title: 'Overview'
+weight: 53
+slug: /
 menu:
-docs: {parent: Integrations}
+    docs: 
+        parent: "Integrations"
+        identifier: overview-integration
 ---
 
 Checkly integrates with the services and tool stack you use. Missing an integration? Let us know via 

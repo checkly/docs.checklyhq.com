@@ -1,6 +1,6 @@
 ---
 title: Alert states
-weight: 3
+weight: 32
 menu:
   docs:
     parent: "Alerting"

@@ -8,7 +8,7 @@ tags:
   - basics
   - performance
 
-weight: 8
+weight: 23
 
 menu:
   learn:

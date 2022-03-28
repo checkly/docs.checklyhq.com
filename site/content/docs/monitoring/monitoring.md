@@ -1,6 +1,7 @@
 ---
 title: How we run checks
 weight: 1
+slug: /
 aliases:
 - /docs/monitoring
 menu:

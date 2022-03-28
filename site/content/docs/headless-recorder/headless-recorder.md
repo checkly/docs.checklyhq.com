@@ -1,6 +1,6 @@
 ---
 title: Overview
-weight: 1
+weight: 74
 slug: /
 aliases:
 - "/docs/puppeteer-recorder/"

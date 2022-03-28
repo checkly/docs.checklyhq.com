@@ -1,6 +1,6 @@
 ---
 title: Multiple tabs
-weight: 7
+weight: 20
 aliases:
 - multiple-tabs
 menu:

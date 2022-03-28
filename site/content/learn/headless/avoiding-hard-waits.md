@@ -6,7 +6,7 @@ githubUser: ragog
 tags:
   - best practices
   - waiting
-
+weight: 24
 menu:
   learn:
     parent: "Best practices"

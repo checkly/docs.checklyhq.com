@@ -1,6 +1,6 @@
 ---
 title: Prometheus
-weight: 11
+weight: 65
 menu:
   docs:
     parent: "Integrations"
@@ -32,12 +32,12 @@ Here is an example:
 ```bash
 # HELP checkly_check_status The status of the last check. 1 is passing, 0 is failing
 # TYPE checkly_check_status gauge
-checkly_check_status{check_name="Customer API",check_type="api",muted="false",activated="true" tags="alerts,public"} 1
-checkly_check_status{check_name="Email login",check_type="browser",muted="false",activated="true" tags="auth,browser-checks,public"} 0
+checkly_check_status{check_name="Customer API",check_type="api",muted="false",activated="true",tags="alerts,public"} 1
+checkly_check_status{check_name="Email login",check_type="browser",muted="false",activated="true",tags="auth,browser-checks,public"} 0
 # HELP checkly_check_degraded_status The degraded status of the last check. 1 is not-degraded, 0 is degraded
 # TYPE checkly_check_degraded_status gauge
-checkly_check_degraded_status{check_name="Customer API",check_type="api",muted="false",activated="true" tags="alerts,public"} 0
-checkly_check_degraded_status{check_name="Email login",check_type="browser",muted="false",activated="true" tags="auth,browser-checks,public"} 1
+checkly_check_degraded_status{check_name="Customer API",check_type="api",muted="false",activated="true",tags="alerts,public"} 0
+checkly_check_degraded_status{check_name="Email login",check_type="browser",muted="false",activated="true",tags="auth,browser-checks,public"} 1
 # HELP checkly_check_result The response time of the last check per region.
 # TYPE checkly_check_result gauge
 checkly_check_result{check_name="Customer API",check_type="api",region="ap-northeast-2",tags="alerts,public"} 1168

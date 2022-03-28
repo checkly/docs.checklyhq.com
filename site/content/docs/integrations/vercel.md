@@ -1,6 +1,6 @@
 ---
 title: Vercel
-weight: 2
+weight: 54
 menu:
   docs:
     parent: "Integrations"

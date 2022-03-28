@@ -1,6 +1,6 @@
 ---
 title: Splunk On-Call
-weight: 9
+weight: 63
 menu:
   docs:
     parent: "Integrations"

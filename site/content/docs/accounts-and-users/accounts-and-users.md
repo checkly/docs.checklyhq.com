@@ -1,6 +1,7 @@
 ---
 title: About roles
-weight: 1
+weight: 50
+slug: /
 menu:
   docs:
     parent: "Accounts & Users"

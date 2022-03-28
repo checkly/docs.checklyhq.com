@@ -1,6 +1,6 @@
 ---
 title: Slack
-weight: 3
+weight: 55
 menu:
   docs:
     parent: "Integrations"

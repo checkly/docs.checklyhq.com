@@ -1,6 +1,6 @@
 ---
 title: Url and Custom Domain
-weight: 2
+weight: 48
 menu:
   docs:
     parent: "Dashboards"

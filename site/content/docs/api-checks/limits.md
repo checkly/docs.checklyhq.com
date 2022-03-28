@@ -1,6 +1,6 @@
 ---
 title: Response time limits
-weight: 5
+weight: 11
 menu:
   docs:
     parent: "API checks"

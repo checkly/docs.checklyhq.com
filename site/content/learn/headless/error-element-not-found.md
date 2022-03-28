@@ -5,7 +5,7 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - debugging
-
+weight: 30
 menu:
   learn:
     parent: "Debugging"

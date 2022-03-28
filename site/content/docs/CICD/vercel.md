@@ -1,6 +1,6 @@
 ---
 title: Vercel
-weight: 9
+weight: 44
 menu:
   docs:
     parent: "CI/CD integration"

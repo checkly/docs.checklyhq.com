@@ -1,6 +1,6 @@
 ---
 title: Tracing and Web Vitals
-weight: 10
+weight: 24
 menu:
   docs: 
     parent: "Browser checks"

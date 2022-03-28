@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-weight: 3
+weight: 29
 menu:
   docs:
     parent: "Groups"
@@ -21,5 +21,3 @@ Or in another words:
 
 You can make use of this by providing a default value for a specific variable at the global or group level, but allow 
 that variable to be overridden at the group level or check level.
-
-

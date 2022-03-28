@@ -37,13 +37,37 @@
         </div>
         {{- .Content -}}
       </article>
-      <hr class="pt-2 mb-2" />
-      {{if .PrevInSection}}
-      <div class="text-right mb-4 next-nav">
-        <a href="{{.PrevInSection.Permalink}}">Next: {{.PrevInSection.Title }}
-        </a>
+      {{if and (.NextInSection) (.PrevInSection)}}
+      <div class="d-flex justify-content-between flex-wrap next-nav my-5">
+        <a href="{{.NextInSection.Permalink}}" class="nav-docs"> 
+          <svg class="mr-2" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="learn" fill-rule="evenodd" clip-rule="evenodd" d="M5.78033 10.5303C5.48744 10.8232 5.01256 10.8232 4.71967 10.5303L0.469668 6.28033C0.176777 5.98744 0.176777 5.51256 0.469668 5.21967L4.71967 0.969668C5.01256 0.676777 5.48744 0.676777 5.78033 0.969668C6.07322 1.26256 6.07322 1.73744 5.78033 2.03033L2.81066 5H10.25C10.6642 5 11 5.33579 11 5.75C11 6.16421 10.6642 6.5 10.25 6.5H2.81066L5.78033 9.4697C6.07322 9.7626 6.07322 10.2374 5.78033 10.5303Z" fill="#45C8F1"/>
+            </svg>{{ .NextInSection.Title }}</a>
+        <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}
+          <svg class="ml-2" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="learn" fill-rule="evenodd" clip-rule="evenodd" d="M5.21967 0.969668C5.51256 0.676777 5.98744 0.676777 6.28033 0.969668L10.5303 5.21967C10.8232 5.51256 10.8232 5.98744 10.5303 6.28033L6.28033 10.5303C5.98744 10.8232 5.51256 10.8232 5.21967 10.5303C4.92678 10.2374 4.92678 9.7626 5.21967 9.4697L8.1893 6.5H0.75C0.33579 6.5 0 6.16421 0 5.75C0 5.33579 0.33579 5 0.75 5H8.1893L5.21967 2.03033C4.92678 1.73744 4.92678 1.26256 5.21967 0.969668Z" fill="#45C8F1"/>
+            </svg>            
+            </a>
+      </div>
+      {{ else if .PrevInSection }}
+      <div class="text-right next-nav my-5">
+      <a href="{{.PrevInSection.Permalink}}">{{ .PrevInSection.Title }}
+        <svg class="ml-2" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="learn" fill-rule="evenodd" clip-rule="evenodd" d="M5.21967 0.969668C5.51256 0.676777 5.98744 0.676777 6.28033 0.969668L10.5303 5.21967C10.8232 5.51256 10.8232 5.98744 10.5303 6.28033L6.28033 10.5303C5.98744 10.8232 5.51256 10.8232 5.21967 10.5303C4.92678 10.2374 4.92678 9.7626 5.21967 9.4697L8.1893 6.5H0.75C0.33579 6.5 0 6.16421 0 5.75C0 5.33579 0.33579 5 0.75 5H8.1893L5.21967 2.03033C4.92678 1.73744 4.92678 1.26256 5.21967 0.969668Z" fill="#45C8F1"/>
+          </svg>
+      </a>
+      </div>
+      {{ else if .NextInSection}}
+      <div class="text-left next-nav my-5">
+      <a href="{{.NextInSection.Permalink}}" class="nav-docs">
+        <svg class="mr-2" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="learn" fill-rule="evenodd" clip-rule="evenodd" d="M5.78033 10.5303C5.48744 10.8232 5.01256 10.8232 4.71967 10.5303L0.469668 6.28033C0.176777 5.98744 0.176777 5.51256 0.469668 5.21967L4.71967 0.969668C5.01256 0.676777 5.48744 0.676777 5.78033 0.969668C6.07322 1.26256 6.07322 1.73744 5.78033 2.03033L2.81066 5H10.25C10.6642 5 11 5.33579 11 5.75C11 6.16421 10.6642 6.5 10.25 6.5H2.81066L5.78033 9.4697C6.07322 9.7626 6.07322 10.2374 5.78033 10.5303Z" fill="#45C8F1"/>
+        </svg>{{ .NextInSection.Title }}</a>
       </div>
       {{end}}
+      <hr class="pt-2 mb-2" />
+      <p class="contribute-doc"><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+        You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/learn/headless" target="_blank"> editing this page on Github </a></p>
     </div>
     <aside class="learn-toc mb-3">
       <div id="tocMenu">
