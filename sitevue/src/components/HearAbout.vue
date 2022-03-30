@@ -1,12 +1,12 @@
 <template>
-  <div style="background: #F9FAFC;" class="py-5">
+  <div style="background: #F9FAFC;" class="py-5" id="hear-about">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-3 mb-4">
           <div class="d-flex flex-column align-items-center">
             <div style="background-color: white;" class="p-3" >
-              <h2 class="text-center fw-bolder text-uppercase text-decoration-underline" style="color: #939598;">SCHWARZ</h2>
-              <div class="images">
+              <h2 class="text-center text-uppercase text-decoration-underline title mb-4">SCHWARZ</h2>
+              <div class="d-flex flex-column justify-content-center align-items-center">
                 <div class="d-flex gap-2 mb-2">
                   <img src="../assets/logo1.png" alt="" style="width: 72px; height: auto;">
                   <img src="../assets/logo2.png" alt="" style="width: 72px; height: auto;">
@@ -24,8 +24,8 @@
             <h2>Hear about it from the pros</h2>
             <p>Learn how the Schwarz Group uses Checkly and Terraform to make complex real-world infrastructure more resilient and delivering a better end-user experience.</p>
             <div class="d-flex flex-column flex-md-row justify-content-start align-items-start gap-4">
-              <a class="text-center" href="#">Read Case Study</a>
-              <a class="text-center" href="#">Watch Webinar Recording</a>
+              <a class="text-center btn btn-link text-decoration-none" href="#">Read Case Study</a>
+              <a class="text-center btn btn-link text-decoration-none" href="#">Watch Webinar Recording</a>
             </div>
           </div>
         </div>

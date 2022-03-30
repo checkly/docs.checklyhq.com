@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="../assets/logo-navbar.png" alt="" width="100px" height="auto">
@@ -38,3 +38,6 @@
     </div>
   </nav>
 </template>
+<style lang="scss">
+
+</style>
