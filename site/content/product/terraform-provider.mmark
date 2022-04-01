@@ -1,0 +1,392 @@
+---
+title: Alerting
+description: It's how you respond that makes the difference. Get quick and contextful alerts from Checkly on any channel you want. Know when your service fails before your customers do.
+---
+
+<div id="lading-header">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="d-flex justify-content-center justify-content-md-start mb-1">
+        <span class="terraform-text p-2">TERRAFORM</span>
+      </div>
+      <h1 class="text-center text-md-start mb-3 terra-title">
+        There’s a better way to monitor your assets
+      </h1>
+      <p class="text-center text-md-start mb-3">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
+      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+        <button type="button" class="btn btn-primary mb-2">Get Started</button>
+        <a class="text-center text-decoration-none btn btn-link bold-link" href="#">Read Documentation</a>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 py-5 d-flex justify-content-center">
+        <div style="background-image:  url('/product/terraform/header.png'); background-size: 100% 100%; background-repeat: no-repeat; width: 100%; padding-top: 17vw;">
+          <pre style="color: white; font-family: 'Inter', sans-serif; font-size: 1.7vw; line-height: 1.7vw; background-color: transparent; margin-bottom: 0px; padding-bottom: 2%; margin-top: 0px;">
+resource "checkly_check" "stripe-charges" {
+  name                      = "Stripe Charges"
+  type                      = "API"
+  activated                 = true
+  frequency                 = 1
+  ssl_check                 = true
+  use_global_alert_settings = true
+  locations = ["eu-central-1"]
+  request {
+    url        = "https://api.stripe.com/v1charges"
+    follow_redirects = true
+   assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
+}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gray-section">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="text-center section-header">
+                Your app’s code lives in source control. <br>
+                Your monitoring should, too.
+              </h3>
+            </div>
+          </div>
+          <div class="row align-items-center py-2">
+            <div class="col-12 col-lg-8 order-1 order-lg-2 p-3">
+              <div>
+                  <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                    <source src="/product/terraform/video/source_control_terraform.mp4" type=video/mp4>
+                  </video>
+              </div>
+            </div>
+            <div class="col col-lg-4 order-2 order-lg-1">
+              <div class="feature-item d-flex">
+                {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" img="/product/terraform/icon1.png" alt="" >}}
+                <div>
+                  <h3 class="feature-title">Compatible with your workflow</h3>
+                  <p>Already using Terraform for IaC? Great. Not using Terraform yet? Easily plug it into your existing pipeline.</p>
+                </div>
+              </div>
+              <div class="feature-item d-flex">
+                {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" img="/product/terraform/icon2.png" alt="" >}}
+                <div>
+                  <h3 class="feature-title">Increased transparency</h3>
+                  <p>Declaring your checks as code aligns your monitoring with your releases and rollbacks, while also serving as documentation.</p>
+                </div>
+              </div>
+              <div class="feature-item d-flex">
+                {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" img="/product/terraform/icon3.png" alt="" >}}
+                <div>
+                  <h3 class="feature-title">One setup for local and cloud</h3>
+                  <p>Seamlessly develop and test your checks locally, push to source control and apply automatically.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="py-5" id="provision-all">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <h3 class="text-center section-header">Provision all you need in just seconds</h3>
+                    <p class="text-center">Managing your checks, groups, alert channels and other monitoring resources should never be the bottleneck for shipping more code or increasing visibility into the state of your systems.</p>
+                  </div>
+                </div>
+                <div class="row justify-content-center no-wrap">
+                  <ul class="col-12 nav nav-pills mb-3 mt-3 checks-list" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" id="first-check-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">First checks</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Grouped checks</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Alerting groups</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="code-block dark">
+                            <pre>
+                                <code>
+resource "checkly_check" "add-to-cart" {
+  name      = "Add to cart" name
+  type      = "BROWSER"
+  frequency = 5
+  activated = true
+  locations = ["us-west-1", "eu-central-1"]
+  script    = file("${path.module}/scripts/add-to-cart.js")
+}</code>
+                            </pre>
+                        </div>
+                        <div>
+                            <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                              <source src="/product/terraform/video/first-checks.mp4" type=video/mp4>
+                            </video>
+                         </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="code-block dark">
+<pre>
+<code>
+resource "checkly_check_group" "purchase" {
+  name        = "Purchase"
+  activated   = true
+  concurrency = 5
+  locations = [ "us-west-1", "eu-central-1"]
+}
+resource "checkly_check" "add-to-cart" {
+  name                      = "Add to cart"
+  type                      = "BROWSER"
+  frequency                 = 5
+  activated                 = true
+  locations = [ "us-west-1", "eu-central-1" ]
+  script = file("${path.module}/scripts/add-to-cart.js")
+  group_id = checkly_check_group.purchase.id
+}
+resource "checkly_check" "payment" {
+  name                      = "Payment"
+  type                      = "API"
+  frequency                 = 1
+  activated                 = true
+  locations = [ "us-west-1", "eu-central-1" ]
+  request {
+    url              = "https://webshop.com/api/charges"
+    assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
+  }
+  group_id = checkly_check_group.purchase.id
+}</code>
+</pre>
+</div>
+                    <div>
+                      <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                        <source src="/product/terraform/grouped-checks.mp4" type=video/mp4>
+                      </video>
+                    </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="code-block dark">
+<pre>
+<code>
+resource "checkly_alert_channel" "pagerduty_ac" {
+  pagerduty {
+    account      = "checkly"
+    service_key  = "key1"
+    service_name = "pdalert"
+  }
+}
+resource "checkly_alert_channel" "email_ac" {
+  email {
+    address = "john@acme.com"
+  }
+}
+resource "checkly_check_group" "purchase" {
+  name        = "Purchase"
+  activated   = true
+  concurrency = 5
+  locations   = ["us-west-1", "eu-central-1"]
+}
+resource "checkly_check" "add-to-cart" {
+  name      = "Add to cart"
+  type      = "BROWSER"
+  frequency = 5
+  activated = true
+  locations = ["us-west-1", "eu-central-1"]
+  script    = file("${path.module}/scripts/add-to-cart.js")
+  group_id  = checkly_check_group.purchase.id
+  alert_channel_subscription {
+    channel_id = checkly_alert_channel.pagerduty_ac.id
+    activated  = true
+  }
+  alert_channel_subscription {
+    channel_id = checkly_alert_channel.slack_ac.id
+    activated  = true
+  }
+}
+resource "checkly_check" "payment" {
+  name      = "Payment"
+  type      = "API"
+  frequency = 1
+  activated = true
+  locations = ["us-west-1", "eu-central-1"]
+  request {
+    url = "https://webshop.com/api/charges"
+    assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
+  }
+  group_id = checkly_check_group.purchase.id
+  alert_channel_subscription {
+    channel_id = checkly_alert_channel.email_ac.id
+    activated  = true
+  }
+}</code>
+</pre>
+                    </div>
+                     <div>
+                      <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                        <source src="/product/terraform/video/group-alerting.mp4" type=video/mp4>
+                      </video>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="pb-5" id="scale-across">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h3 class="text-center section-header">Scale across teams and projects</h3>
+                <p class="text-center">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div>
+                <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                  <source src="/product/terraform/video/team-scale.mp4" type=video/mp4>
+                </video>
+              </div>
+            </div>
+          </div>
+    </div><!-- hear about start -->
+              <div class="py-5 gray-section" id="hear-about">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 col-md-3 mb-4">
+                        <div class="d-flex justify-content-center">
+                          {{< alternative-picture class="img-fluid" img="/product/terraform/hearabout.png" alt="" >}}
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h3 class="section-header">Hear about it from the pros</h2>
+                          <p>Learn how the Schwarz Group uses Checkly and Terraform to make complex real-world infrastructure more resilient and delivering a better end-user experience.</p>
+                          <div class="d-flex flex-column flex-md-row justify-content-start align-items-start mt-3">
+                            <a class="ps-0 text-center btn btn-link text-decoration-none bold-link pl-0"" href="#">
+                            Read Case Study
+                            {{< alternative-picture class="img-fluid" img="/product/terraform/iconlink.png" width="16px" height="height: 16px" alt="" >}}
+                            </a>
+                            <a class="text-center btn btn-link text-decoration-none bold-link pl-0" href="#">
+                                Watch Webinar Recording
+                                {{< alternative-picture class="img-fluid" img="/product/terraform/iconlink.png" width="16px" height="height: 16px" alt="" >}}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- hear about end -->
+
+<!-- start get started -->
+  <div class="py-5" id="get-started">
+    <div class="container">
+      <h2 class="d-none d-md-block text-center mb-4">Get Started</h2>
+      <div class="row my-4">
+        <div class="col-12 col-lg-5 d-flex flex-column flex-md-row mb-4">
+          <div class="d-flex flex-column align-items-center pe-md-4">
+            {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted1.png" width="56px" height="56px" alt="" >}}
+          </div>
+          <div class="content">
+            <div class="text">
+              <h3 class="text-center text-md-start">Get the installation code</h3>
+              <p class="text-center text-md-start">Copy the installation code and save it in your terraform file.</p>
+            </div>
+            <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
+              <button type="button" class="btn btn-primary d-inline-block" style="max-width: 300px;">Copy the installation code</button>
+              <span class="or">OR</span>
+              <button type="button" class="btn btn-light d-inline-block" style="max-width: 300px;">Clone sample repo</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="code-block light">
+             <pre>
+                <code>
+variable "checkly_api_key" {}
+variable "checkly_account_id" {}
+terraform {
+  required_providers {
+    checkly = {
+      source = "checkly/checkly"
+      version = "~> 1.0"
+    }
+  }
+}
+provider "checkly" {
+  api_key = var.checkly_api_key
+  account_id = var.checkly_account_id
+}
+                </code>
+             </pre>
+          </div>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-12 col-lg-5 d-flex flex-column flex-md-row">
+          <div class="d-flex flex-column align-items-center pe-md-4">
+          {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted2.png" width="56px" height="56px" alt="" >}}
+          </div>
+          <div class="content mb-3">
+            <div class="text">
+              <h3 class="text-center text-md-start">Export your credentials</h3>
+              <p class="text-center text-md-start">Find your API key and account ID in your user settings, then export them as environment variables.</p>
+            </div>
+            <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
+              <button type="button" class="btn btn-link bold-link d-inline-block" style="max-width: 300px;">Get your account ID</button>
+              <span class="d-none d-md-block">AND</span>
+              <button type="button" class="btn btn-link bold-link d-inline-block" style="max-width: 300px;">Create API key</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-7">
+            <div class="code-block dark">
+<pre>
+<code>
+resource "checkly_check" "add-to-cart" {
+  name      = "Add to cart" name
+  type      = "BROWSER"
+  frequency = 5
+  activated = true
+  locations = ["us-west-1", "eu-central-1"]
+  script    = file("${path.module}/scripts/add-to-cart.js")
+}</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-12 col-lg-5 d-flex flex-column flex-md-row">
+          <div class="d-flex flex-column align-items-center pe-md-4">
+          {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted2.png" width="56px" height="56px" alt="" >}}
+          </div>
+          <div class="content">
+            <div class="text">
+              <h3 class="text-center text-md-start">Run it</h3>
+              <p class="text-center text-md-start">Initialize and apply your Terraform config.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="code-block dark">
+<pre>
+<code>
+$ terraform init
+$ terraform apply
+</code>
+</pre>
+                    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- end get started -->
+</div>

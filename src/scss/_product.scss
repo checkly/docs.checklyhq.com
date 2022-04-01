@@ -1,4 +1,5 @@
 @import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 .product {
   $product-max-width: 760px;
 
@@ -30,6 +31,12 @@
         margin-left: auto;
         margin-right: auto;
       }
+      &.terra-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #1F2D3D;
+        line-height: 1.5;
+      }
     }
 
     .hero-image {
@@ -37,6 +44,18 @@
       width: calc(100% - 30px);
       height: auto;
       margin-bottom: -100px;
+    }
+
+    .terraform-text {
+      background-color: $light-blue;
+      color: $brand-primary;
+      font-weight: 600;
+      font-size: .875em;
+      border-radius: 8px;
+    }
+
+    .bold-link {
+      font-weight: 600;
     }
 
     .images {
@@ -72,6 +91,9 @@
         font-size: 1.25rem;
         margin-top: 0;
         border-bottom: 0;
+      }
+      &.feature-title {
+        font-size: 1rem;
       }
     }
 
@@ -116,6 +138,60 @@
         max-width: $product-max-width;
         margin-left: auto;
         margin-right: auto;
+      }
+    }
+
+    ul {
+      &.checks-list {
+        justify-content: center;
+        gap: 10px;
+        padding-left: 0px;
+        .nav-link {
+          background-color: transparent;
+          border-color: transparent;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 20px;
+          color: #697280;
+          padding: 4px 4px;
+          text-align: center;
+          &.active {
+            background-color: #45C8F1;
+            border-color: #45C8F1;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      padding-top: 0px;
+    }
+
+    .code-block {
+      &.dark {
+        background-color: #1f1f1f;
+        color: white;
+      }
+      &.light {
+        background-color: #E0E6ED;
+        pre {
+          background-color: transparent;
+          code {
+            color: #1f1f1f;
+            border: none;
+          }
+        }
+      }
+      pre {
+        height: auto;
+        max-height: 400px;
+        margin-top: 0px;
+        width: 100vw;
+        overflow: auto;
+        word-break: normal !important;
+        word-wrap: normal !important;
+        white-space: pre !important;
       }
     }
 
