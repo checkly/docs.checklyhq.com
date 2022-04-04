@@ -1,12 +1,10 @@
 ---
-title: Recommended setup
+title: Testing scripts locally
 weight: 8
 menu:
   docs:
     parent: "Terraform provider"
 ---
-
-Once you got the hang of the basics, it pays off to invest more into your Checkly Terraform setup in order to take full advantage of the possibilities it offers.
 
 ## Enabling local script execution
 
@@ -83,43 +81,3 @@ resource "checkly_snippet" "procedure-login" {
 {{<info>}}
 The `./snippets/` path is where Checkly will make your snippets available. Use this directory in your Terraform setup to keep things consistent.
 {{</info>}}
-
-## Parameterised check resources
-
-Terraform enables you to declare a parameterised resource once while having it manage multiple similar resources. You can use this to your advantage, for example when creating browser checks that share all their settings apart from their script:
-
-```terraform
-resource "checkly_check" "browser-check" {}
-  for_each = fileset("${path.module}/scripts", "*") //
-
-  name                      = each.key //
-  type                      = "BROWSER"
-  activated                 = true
-  frequency                 = 1
-  double_check              = true
-  ssl_check                 = false
-  locations = [
-    "us-west-1",
-    "eu-central-1"
-  ]
-
-  script = file("${path.module}/scripts/${each.key}") //
-
-}
-```
-
-This will create as many browser checks running each minute as there are files in the `./scripts` folder in your project's path.
-
-You can find more information on the `for_each` meta-argument on the [official Terraform documentation](https://www.terraform.io/language/meta-arguments/for_each).
-
-## CI/CD compatibility
-
-Terraform relies on its stored state to know which resources it is supposed to manage and what to do to apply your configuration. If you are applying Terraform configurations from different machines, or are working on your setup with your colleagues, you need to make sure the Terraform state stays in sync. Failure to do that will lead to duplicated resources and other critical issues with your checks and other managed resources.
-
-Terraform enables 
-https://www.terraform.io/language/state/remote
-via
-https://www.terraform.io/language/settings/backends
-built-in in case of Terraform Cloud usage
-
-## Scaling across multiple accounts
