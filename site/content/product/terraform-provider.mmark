@@ -1,5 +1,5 @@
 ---
-title: Alerting
+title: Terraform Provider
 description: It's how you respond that makes the difference. Get quick and contextful alerts from Checkly on any channel you want. Know when your service fails before your customers do.
 ---
 
@@ -9,7 +9,7 @@ description: It's how you respond that makes the difference. Get quick and conte
       <div class="d-flex justify-content-center justify-content-md-start mb-1">
         <span class="terraform-text p-2">TERRAFORM</span>
       </div>
-      <h1 class="text-center text-md-start mb-3 terra-title">
+      <h1 class="text-center text-md-start mb-3 hero-text terraform-title">
         There’s a better way to monitor your assets
       </h1>
       <p class="text-center text-md-start mb-3">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
@@ -18,29 +18,37 @@ description: It's how you respond that makes the difference. Get quick and conte
         <a class="text-center text-decoration-none btn btn-link bold-link" href="#">Read Documentation</a>
       </div>
     </div>
-    <div class="col-12 col-lg-6 py-5 d-flex justify-content-center">
-        <div style="background-image:  url('/product/terraform/header.png'); background-size: 100% 100%; background-repeat: no-repeat; width: 100%; padding-top: 17vw;">
-          <pre style="color: white; font-family: 'Inter', sans-serif; font-size: 1.7vw; line-height: 1.7vw; background-color: transparent; margin-bottom: 0px; padding-bottom: 2%; margin-top: 0px;">
-resource "checkly_check" "stripe-charges" {
-  name                      = "Stripe Charges"
-  type                      = "API"
-  activated                 = true
-  frequency                 = 1
-  ssl_check                 = true
-  use_global_alert_settings = true
-  locations = ["eu-central-1"]
-  request {
-    url        = "https://api.stripe.com/v1charges"
-    follow_redirects = true
-   assertion {
-      source     = "STATUS_CODE"
-      comparison = "EQUALS"
-      target     = "200"
-    }
+    <div class="col-12 col-lg-6 pt-5 pb-0 d-flex justify-content-center" style="background-image:  url('/product/terraform/background-header.png'); background-size: contain; background-repeat: no-repeat; background-position: top right;">
+      <div class="row tab-code-wrapper">
+            <div class="col-10">
+              <div class="tab-code-wrapper">
+                <div class="window-header">
+                  <div class="dots d-flex pl-2">
+                   <div class="dot mr-2"></div>
+                   <div class="dot mr-2"></div>
+                   <div class="dot"></div>
+                  </div>
+                  <div class="text">payment-check.tf</div>
+                  <div class="dots"></div>
+                </div>
+                <div class="code-block dark adjust-margin">
+<pre>
+<code>
+resource "checkly_check" "add-to-cart" {
+name      = "Add to cart" name
+type      = "BROWSER"
+frequency = 5
+activated = true
+locations = ["us-west-1", "eu-central-1"]
+script    = file("${path.module}/scripts/add-to-cart.js")
 }
-          </pre>
-        </div>
-      </div>
+</code>
+</pre>
+                </div> <!-- end codeblock -->
+              </div>
+            </div>
+        </div> <!-- end row -->
+    </div>
     </div>
   </div>
   <div class="gray-section">
@@ -62,22 +70,28 @@ resource "checkly_check" "stripe-charges" {
             </div>
             <div class="col col-lg-4 order-2 order-lg-1">
               <div class="feature-item d-flex">
-                {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" img="/product/terraform/icon1.png" alt="" >}}
-                <div>
+                <div class="mt-1 ml-1">
+                  {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" width="28px" height="28px" img="/product/terraform/icon1.png" alt="" >}}
+                </div>
+                <div class="ml-4">
                   <h3 class="feature-title">Compatible with your workflow</h3>
                   <p>Already using Terraform for IaC? Great. Not using Terraform yet? Easily plug it into your existing pipeline.</p>
                 </div>
               </div>
               <div class="feature-item d-flex">
-                {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" img="/product/terraform/icon2.png" alt="" >}}
-                <div>
+                <div class="mt-1 ml-1">
+                  {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" width="28px" height="28px" img="/product/terraform/icon2.png" alt="" >}}
+                </div>
+                <div class="ml-4">
                   <h3 class="feature-title">Increased transparency</h3>
                   <p>Declaring your checks as code aligns your monitoring with your releases and rollbacks, while also serving as documentation.</p>
                 </div>
               </div>
               <div class="feature-item d-flex">
-                {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" img="/product/terraform/icon3.png" alt="" >}}
-                <div>
+                <div class="mt-1 ml-1">
+                  {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" width="28px" height="28px" img="/product/terraform/icon3.png" alt="" >}}
+                </div>
+                <div class="ml-4">
                   <h3 class="feature-title">One setup for local and cloud</h3>
                   <p>Seamlessly develop and test your checks locally, push to source control and apply automatically.</p>
                 </div>
@@ -94,40 +108,69 @@ resource "checkly_check" "stripe-charges" {
                   </div>
                 </div>
                 <div class="row justify-content-center no-wrap">
-                  <ul class="col-12 nav nav-pills mb-3 mt-3 checks-list" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <a class="nav-link active" id="first-check-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">First checks</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Grouped checks</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Alerting groups</a>
-                    </li>
-                  </ul>
+                  <div class="col-12">
+                      <ul class="col-12 nav nav-pills mb-3 mt-3 checks-list" id="pills-tab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="first-check-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">First checks</a>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Grouped checks</a>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Alerting groups</a>
+                          </li>
+                        </ul>
+                  </div>
                   <div class="tab-content" id="pills-tabContent">
+                  <!-- start tab pane -->
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="code-block dark">
-                            <pre>
-                                <code>
+                        <div class="row tab-code-wrapper">
+                            <div class="window-header hide-mobile">
+                               <div class="dots d-flex pl-2">
+                                 <div class="dot mr-2"></div>
+                                 <div class="dot mr-2"></div>
+                                 <div class="dot"></div>
+                               </div>
+                               <div class="text">main.tf</div>
+                               <div class="dots"></div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-7">
+                              <div class="code-block dark width-90">
+<pre>
+<code>
 resource "checkly_check" "add-to-cart" {
-  name      = "Add to cart" name
-  type      = "BROWSER"
-  frequency = 5
-  activated = true
-  locations = ["us-west-1", "eu-central-1"]
-  script    = file("${path.module}/scripts/add-to-cart.js")
-}</code>
-                            </pre>
-                        </div>
-                        <div>
-                            <video id="why-checkly-video" autoplay loop style="width: 100%;">
-                              <source src="/product/terraform/video/first-checks.mp4" type=video/mp4>
-                            </video>
-                         </div>
+name      = "Add to cart" name
+type      = "BROWSER"
+frequency = 5
+activated = true
+locations = ["us-west-1", "eu-central-1"]
+script    = file("${path.module}/scripts/add-to-cart.js")
+}
+</code>
+</pre>
+                              </div> <!-- end codeblock -->
+                            </div> <!-- end col -->
+                            <div class="col-12 col-md-6 col-lg-5 video-tab">
+                                <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                                  <source src="/product/terraform/video/first-checks.mp4" type=video/mp4>
+                                </video>
+                             </div>
+                         </div> <!-- end row -->
                     </div>
+                    <!-- start tab pane -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="code-block dark">
+                        <div class="row tab-code-wrapper">
+                          <div class="window-header hide-mobile">
+                            <div class="dots d-flex pl-2">
+                               <div class="dot mr-2"></div>
+                               <div class="dot mr-2"></div>
+                               <div class="dot"></div>
+                             </div>
+                             <div class="text">main.tf</div>
+                             <div class="dots"></div>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-7">
+                            <div class="code-block dark width-90">
 <pre>
 <code>
 resource "checkly_check_group" "purchase" {
@@ -162,15 +205,28 @@ resource "checkly_check" "payment" {
   group_id = checkly_check_group.purchase.id
 }</code>
 </pre>
-</div>
-                    <div>
-                      <video id="why-checkly-video" autoplay loop style="width: 100%;">
-                        <source src="/product/terraform/grouped-checks.mp4" type=video/mp4>
-                      </video>
+                         </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-5">
+                          <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                            <source src="/product/terraform/grouped-checks.mp4" type=video/mp4>
+                          </video>
+                        </div>
                     </div>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <div class="code-block dark">
+                    <div class="row tab-code-wrapper">
+                      <div class="window-header hide-mobile">
+                        <div class="dots d-flex pl-2">
+                           <div class="dot mr-2"></div>
+                           <div class="dot mr-2"></div>
+                           <div class="dot"></div>
+                         </div>
+                         <div class="text">main.tf</div>
+                         <div class="dots"></div>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-7">
+                        <div class="code-block dark width-90">
 <pre>
 <code>
 resource "checkly_alert_channel" "pagerduty_ac" {
@@ -229,12 +285,14 @@ resource "checkly_check" "payment" {
   }
 }</code>
 </pre>
-                    </div>
-                     <div>
-                      <video id="why-checkly-video" autoplay loop style="width: 100%;">
-                        <source src="/product/terraform/video/group-alerting.mp4" type=video/mp4>
-                      </video>
-                    </div>
+                         </div>
+                       </div> <!-- col end -->
+                       <div class="col-12 col-md-6 col-lg-5">
+                        <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                          <source src="/product/terraform/video/group-alerting.mp4" type=video/mp4>
+                        </video>
+                      </div>
+                    </div> <!-- row end -->
                     </div>
                   </div>
                 </div>
@@ -288,7 +346,7 @@ resource "checkly_check" "payment" {
 
 <!-- start get started -->
   <div class="py-5" id="get-started">
-    <div class="container">
+    <div>
       <h2 class="d-none d-md-block text-center mb-4">Get Started</h2>
       <div class="row my-4">
         <div class="col-12 col-lg-5 d-flex flex-column flex-md-row mb-4">
@@ -307,7 +365,7 @@ resource "checkly_check" "payment" {
             </div>
           </div>
         </div>
-        <div>
+        <div class="col-12 col-lg-7" style="position: relative;">
           <div class="code-block light">
              <pre>
                 <code>
@@ -389,4 +447,26 @@ $ terraform apply
     </div>
   </div>
 <!-- end get started -->
+<div class="container-fluid px-0">
+<div class="code-block light">
+<pre>
+<code>
+variable "checkly_api_key" {}
+variable "checkly_account_id" {}
+terraform {
+  required_providers {
+    checkly = {
+      source = "checkly/checkly"
+      version = "~> 1.0"
+    }
+  }
+}
+provider "checkly" {
+  api_key = var.checkly_api_key
+  account_id = var.checkly_account_id
+}
+</code>
+</pre>
+</div>
+</div>
 </div>

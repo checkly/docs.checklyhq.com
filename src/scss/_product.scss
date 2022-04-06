@@ -31,11 +31,11 @@
         margin-left: auto;
         margin-right: auto;
       }
-      &.terra-title {
-        font-size: 1.5em;
+      &.terraform-title {
         font-weight: bold;
-        color: #1F2D3D;
-        line-height: 1.5;
+        &:not(:first-child) {
+          padding-top: $spacer;
+        }
       }
     }
 
@@ -94,6 +94,10 @@
       }
       &.feature-title {
         font-size: 1rem;
+        margin-top: 0;
+        @media (min-width: 768px) {
+          font-size: 1.25rem;
+        }
       }
     }
 
@@ -168,10 +172,63 @@
       padding-top: 0px;
     }
 
-    .code-block {
-      &.dark {
+    .tab-code-wrapper {
+      max-width: 100%;
+      position: relative;
+      @media (min-width: 768px) {
+        height: 400px;
+        div[class^="col"] {
+          height: 100%;
+          padding-top: 32px;
+        }
+      }
+      .window-header {
+        display: flex;
+        align-items: center;
+        &.hide-mobile {
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+        border-radius: 8px 8px 0px 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        height: 34px;
+        width: 100%;
+        margin-left: 15px;
+        margin-right: 20px;
         background-color: #1f1f1f;
+        z-index: 10;
+        .dots {
+          flex: 1;
+          .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background-color: #697280;
+            content: '';
+            align-self: flex-start;
+          }
+        }
+        .text {
+          font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+          color: #8492A6;
+        }
+      }
+    }
+
+    .code-block {
+      height: 100%;
+      &.adjust-margin {
+        margin-right: -15px;
+      }
+      &.dark {
         color: white;
+        pre {
+          background-color: #1f1f1f;
+        }
       }
       &.light {
         background-color: #E0E6ED;
@@ -183,11 +240,19 @@
           }
         }
       }
+      &.width-90 {
+        pre {
+          @media(max-width: 575px) {
+            width: 90vw;
+          }
+        }
+      }
       pre {
-        height: auto;
-        max-height: 400px;
+        @media(max-width: 575px) {
+          max-height: 400px;
+        }
+        height: 100%;
         margin-top: 0px;
-        width: 100vw;
         overflow: auto;
         word-break: normal !important;
         word-wrap: normal !important;
