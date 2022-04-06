@@ -14,7 +14,7 @@ description: It's how you respond that makes the difference. Get quick and conte
       </h1>
       <p class="text-center text-md-left mb-3 terraform-sub">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <button type="button" class="btn btn-primary mb-2">Get Started</button>
+        <button type="button" class="btn btn-primary mb-2 b-cta">Get Started</button>
         <a class="text-center text-decoration-none btn landing-link landing-link" href="#">Read Documentation</a>
       </div>
     </div>
@@ -63,7 +63,7 @@ resource "checkly_check" "stripe-charges" {
   <div class="gray-section">
           <div class="row">
             <div class="col-12">
-              <h3 class="text-center section-header">
+              <h3 class="text-center sub-heading">
                 Your app’s code lives in source control. <br>
                 Your monitoring should, too.
               </h3>
@@ -112,7 +112,7 @@ resource "checkly_check" "stripe-charges" {
               <div class="container">
                 <div class="row">
                   <div class="col-12">
-                    <h3 class="text-center section-header">Provision all you need in just seconds</h3>
+                    <h3 class="text-center sub-heading">Provision all you need in just seconds</h3>
                     <p class="text-center">Managing your checks, groups, alert channels and other monitoring resources should never be the bottleneck for shipping more code or increasing visibility into the state of your systems.</p>
                   </div>
                 </div>
@@ -311,7 +311,7 @@ resource "checkly_check" "payment" {
           <div class="container">
             <div class="row">
               <div class="col-12">
-                <h3 class="text-center section-header">Scale across teams and projects</h3>
+                <h3 class="text-center sub-heading">Scale across teams and projects</h3>
                 <p class="text-center">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
               </div>
             </div>
@@ -356,7 +356,7 @@ resource "checkly_check" "payment" {
 <!-- start get started -->
   <div class="py-5" id="get-started">
     <div>
-      <h2 class="d-none d-md-block text-center mb-4">Get Started</h2>
+      <h2 class="d-none d-md-block text-center mb-4 sub-heading">Get Started</h2>
       <div class="row my-4">
         <div class="col-12 col-lg-5 d-flex flex-column flex-md-row mb-4">
           <div class="d-flex flex-column align-items-center pe-md-4">

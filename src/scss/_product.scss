@@ -39,6 +39,9 @@
         }
       }
     }
+    .b-cta {
+      font-size: 1.25rem;
+    }
 
     .hero-image {
       max-width: 910px;
@@ -58,9 +61,6 @@
       background-size: 70% auto;
       background-repeat: no-repeat;
       background-position: top right;
-      .code-block {
-        height: 100%;
-      }
     }
 
     .terraform-text {
@@ -116,6 +116,9 @@
         @media (min-width: 768px) {
           font-size: 1.25rem;
         }
+      }
+      &.sub-heading {
+        font-size: 2rem;
       }
     }
 
@@ -241,7 +244,7 @@
     }
 
     .code-block {
-      height: 250px;
+      height: 100%;
       @media (min-width: 576px) {
         max-height: 400px;
       }
@@ -481,6 +484,9 @@
           margin-bottom: 50px;
         }
       }
+      .b-cta {
+        font-size: 1.125rem;
+      }
       .img-w768 {
         width: calc(100% - 30px);
         height: auto;
@@ -536,10 +542,21 @@
           font-size: 1.5rem;
         }
       }
+      h3 {
+        &.sub-heading {
+          font-size: 1.25rem;
+        }
+      }
       p {
         &.terraform-sub {
           font-size: 1rem;
         }
+      }
+      .code-block {
+        height: 250px;
+      }
+      .b-cta {
+        font-size: 0.875rem;
       }
       .terraform-text {
         font-size: .875em;
