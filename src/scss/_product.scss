@@ -33,6 +33,7 @@
       }
       &.terraform-title {
         font-weight: bold;
+        font-size: 3.25rem;
         &:not(:first-child) {
           padding-top: $spacer;
         }
@@ -46,16 +47,33 @@
       margin-bottom: -100px;
     }
 
+    .right-header {
+      background-image:  url('/product/terraform/background-header.png');
+      @media (min-width: 576px) {
+        background-image:  url('/product/terraform/background-header@2x.png');
+      }
+      @media (max-width: 991px) {
+        max-width: 750px;
+      }
+      background-size: 70% auto;
+      background-repeat: no-repeat;
+      background-position: top right;
+      .code-block {
+        height: 100%;
+      }
+    }
+
     .terraform-text {
       background-color: $light-blue;
       color: $brand-primary;
       font-weight: 600;
-      font-size: .875em;
+      font-size: 1rem;
       border-radius: 8px;
     }
 
-    .bold-link {
+    .landing-link {
       font-weight: 600;
+      font-size: 1rem;
     }
 
     .images {
@@ -143,6 +161,10 @@
         margin-left: auto;
         margin-right: auto;
       }
+
+      &.terraform-sub {
+        font-size: 1.125rem;
+      }
     }
 
     ul {
@@ -173,7 +195,6 @@
     }
 
     .tab-code-wrapper {
-      max-width: 100%;
       position: relative;
       @media (min-width: 768px) {
         height: 400px;
@@ -184,7 +205,7 @@
       }
       .window-header {
         display: flex;
-        align-items: center;
+        align-items: end;
         &.hide-mobile {
           @media (max-width: 767px) {
             display: none;
@@ -220,7 +241,10 @@
     }
 
     .code-block {
-      height: 100%;
+      height: 250px;
+      @media (min-width: 576px) {
+        max-height: 400px;
+      }
       &.adjust-margin {
         margin-right: -15px;
       }
@@ -448,6 +472,9 @@
           margin-bottom: 1.5 * $spacer;
           font-size: 3rem;
         }
+        &.terraform-title {
+          font-size: 2.625rem;
+        }
       }
       p {
         &.hero-sub-center {
@@ -504,6 +531,22 @@
       }
     }
     @include media-breakpoint-down(sm) {
+      h1 {
+        &.terraform-title {
+          font-size: 1.5rem;
+        }
+      }
+      p {
+        &.terraform-sub {
+          font-size: 1rem;
+        }
+      }
+      .terraform-text {
+        font-size: .875em;
+      }
+      .landing-link {
+        font-size: .875rem;
+      }
       .mt-8 {
         margin-top: 50px;
       }
@@ -560,6 +603,9 @@
         &.hero-text {
           margin-bottom: 1.875 * $spacer;
           font-size: 2rem;
+        }
+        &.terraform-title {
+          font-size: 1.5rem;
         }
       }
       p {

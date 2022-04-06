@@ -4,22 +4,22 @@ description: It's how you respond that makes the difference. Get quick and conte
 ---
 
 <div id="lading-header">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <div class="d-flex justify-content-center justify-content-md-start mb-1">
         <span class="terraform-text p-2">TERRAFORM</span>
       </div>
-      <h1 class="text-center text-md-start mb-3 hero-text terraform-title">
+      <h1 class="mb-3 hero-text terraform-title text-center text-md-left">
         There’s a better way to monitor your assets
       </h1>
-      <p class="text-center text-md-start mb-3">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
-      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+      <p class="text-center text-md-left mb-3 terraform-sub">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
+      <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <button type="button" class="btn btn-primary mb-2">Get Started</button>
-        <a class="text-center text-decoration-none btn btn-link bold-link" href="#">Read Documentation</a>
+        <a class="text-center text-decoration-none btn landing-link landing-link" href="#">Read Documentation</a>
       </div>
     </div>
-    <div class="col-12 col-lg-6 pt-5 pb-0 d-flex justify-content-center" style="background-image:  url('/product/terraform/background-header.png'); background-size: contain; background-repeat: no-repeat; background-position: top right;">
-      <div class="row tab-code-wrapper">
+    <div class="col-12 col-lg-6 pt-5 pb-0 d-flex justify-content-center justify-content-lg-start right-header">
+      <div class="row tab-code-wrapper w-100 d-flex justify-content-start justify-content-md-center justify-content-lg-start">
             <div class="col-10">
               <div class="tab-code-wrapper">
                 <div class="window-header">
@@ -34,13 +34,22 @@ description: It's how you respond that makes the difference. Get quick and conte
                 <div class="code-block dark adjust-margin">
 <pre>
 <code>
-resource "checkly_check" "add-to-cart" {
-name      = "Add to cart" name
-type      = "BROWSER"
-frequency = 5
-activated = true
-locations = ["us-west-1", "eu-central-1"]
-script    = file("${path.module}/scripts/add-to-cart.js")
+resource "checkly_check" "stripe-charges" {
+  name                      = "Stripe Charges"
+  type                      = "API"
+  activated                 = true
+  frequency                 = 1
+  ssl_check                 = true
+  use_global_alert_settings = true
+  locations = ["eu-central-1"]
+  request {
+    url        = "https://api.stripe.com/v1charges"
+    follow_redirects = true
+   assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
 }
 </code>
 </pre>
@@ -48,7 +57,7 @@ script    = file("${path.module}/scripts/add-to-cart.js")
               </div>
             </div>
         </div> <!-- end row -->
-    </div>
+    </div> <!-- end col section -->
     </div>
   </div>
   <div class="gray-section">
@@ -328,11 +337,11 @@ resource "checkly_check" "payment" {
                           <h3 class="section-header">Hear about it from the pros</h2>
                           <p>Learn how the Schwarz Group uses Checkly and Terraform to make complex real-world infrastructure more resilient and delivering a better end-user experience.</p>
                           <div class="d-flex flex-column flex-md-row justify-content-start align-items-start mt-3">
-                            <a class="ps-0 text-center btn btn-link text-decoration-none bold-link pl-0"" href="#">
+                            <a class="ps-0 text-center btn btn-link text-decoration-none landing-link pl-0 landing-link" href="#">
                             Read Case Study
                             {{< alternative-picture class="img-fluid" img="/product/terraform/iconlink.png" width="16px" height="height: 16px" alt="" >}}
                             </a>
-                            <a class="text-center btn btn-link text-decoration-none bold-link pl-0" href="#">
+                            <a class="text-center btn btn-link text-decoration-none landing-link pl-0" href="#">
                                 Watch Webinar Recording
                                 {{< alternative-picture class="img-fluid" img="/product/terraform/iconlink.png" width="16px" height="height: 16px" alt="" >}}
                             </a>
@@ -359,9 +368,9 @@ resource "checkly_check" "payment" {
               <p class="text-center text-md-start">Copy the installation code and save it in your terraform file.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <button type="button" class="btn btn-primary d-inline-block" style="max-width: 300px;">Copy the installation code</button>
+              <button type="button" class="btn btn-primary d-inline-block landing-link" style="max-width: 300px;">Copy the installation code</button>
               <span class="or">OR</span>
-              <button type="button" class="btn btn-light d-inline-block" style="max-width: 300px;">Clone sample repo</button>
+              <button type="button" class="btn btn-light d-inline-block landing-link" style="max-width: 300px;">Clone sample repo</button>
             </div>
           </div>
         </div>
@@ -399,9 +408,9 @@ provider "checkly" {
               <p class="text-center text-md-start">Find your API key and account ID in your user settings, then export them as environment variables.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <button type="button" class="btn btn-link bold-link d-inline-block" style="max-width: 300px;">Get your account ID</button>
+              <button type="button" class="btn btn-link landing-link d-inline-block" style="max-width: 300px;">Get your account ID</button>
               <span class="d-none d-md-block">AND</span>
-              <button type="button" class="btn btn-link bold-link d-inline-block" style="max-width: 300px;">Create API key</button>
+              <button type="button" class="btn btn-link landing-link d-inline-block" style="max-width: 300px;">Create API key</button>
             </div>
           </div>
         </div>
@@ -447,26 +456,5 @@ $ terraform apply
     </div>
   </div>
 <!-- end get started -->
-<div class="container-fluid px-0">
-<div class="code-block light">
-<pre>
-<code>
-variable "checkly_api_key" {}
-variable "checkly_account_id" {}
-terraform {
-  required_providers {
-    checkly = {
-      source = "checkly/checkly"
-      version = "~> 1.0"
-    }
-  }
-}
-provider "checkly" {
-  api_key = var.checkly_api_key
-  account_id = var.checkly_account_id
-}
-</code>
-</pre>
-</div>
 </div>
 </div>
