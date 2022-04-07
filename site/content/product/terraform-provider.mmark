@@ -4,23 +4,24 @@ description: It's how you respond that makes the difference. Get quick and conte
 ---
 
 <div id="lading-header">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 col-lg-6 pr-lg-5">
       <div class="d-flex justify-content-center justify-content-md-start mb-1">
         <span class="terraform-text p-2">TERRAFORM</span>
       </div>
       <h1 class="mb-3 hero-text terraform-title text-center text-md-left">
         There’s a better way to monitor your assets
       </h1>
-      <p class="text-center text-md-left mb-3 terraform-sub">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
+      <p class="text-center text-md-left mb-3 terraform-sub mb-4">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <button type="button" class="btn btn-primary mb-2 b-cta">Get Started</button>
         <a class="text-center text-decoration-none btn landing-link landing-link" href="#">Read Documentation</a>
       </div>
     </div>
-    <div class="col-12 col-lg-6 pt-5 pb-0 d-flex justify-content-center justify-content-lg-start right-header">
-      <div class="row tab-code-wrapper w-100 d-flex justify-content-start justify-content-md-center justify-content-lg-start">
-            <div class="col-10">
+    <div class="col-12 col-lg-6 pb-0 d-flex justify-content-center justify-content-lg-start right-header">
+      <img class="img-fluid d-block d-md-none" src="/product/terraform/code-block-header.svg" width="100%" height="auto" alt="checkly code"/>
+      <div class="row tab-code-wrapper w-100 d-flex justify-content-start  justify-content-md-center justify-content-lg-start align-bottom mb-xl-5">
+            <div class="col-10 col-lg-11">
               <div class="tab-code-wrapper">
                 <div class="window-header">
                   <div class="dots d-flex pl-2">
@@ -34,21 +35,21 @@ description: It's how you respond that makes the difference. Get quick and conte
                 <div class="code-block dark adjust-margin">
 <pre>
 <code>
-resource "checkly_check" "stripe-charges" {
-  name                      = "Stripe Charges"
-  type                      = "API"
-  activated                 = true
-  frequency                 = 1
-  ssl_check                 = true
-  use_global_alert_settings = true
-  locations = ["eu-central-1"]
+resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
+  name                      <span class="code-grey">=</span> <span class="code-blue">"Stripe Charges"</span>
+  type                      <span class="code-grey">=</span> <span class="code-blue">"API"</span>
+  activated                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  frequency                 <span class="code-grey">=</span> <span class="code-yellow">1</span>
+  ssl_check                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  use_global_alert_settings <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  locations <span class="code-grey">=</span> ["eu-central-1"]
   request {
-    url        = "https://api.stripe.com/v1charges"
-    follow_redirects = true
+    url        <span class="code-grey">=</span> <span class="code-blue">"https://api.stripe.com/v1charges"</span>
+    follow_redirects <span class="code-grey">=</span> <span class="code-yellow">true</span>
    assertion {
-      source     = "STATUS_CODE"
-      comparison = "EQUALS"
-      target     = "200"
+      source     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
+      comparison <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
+      target     <span class="code-grey">=</span> <span class="code-blue">"200"</span>
     }
 }
 </code>
@@ -69,38 +70,38 @@ resource "checkly_check" "stripe-charges" {
               </h3>
             </div>
           </div>
-          <div class="row align-items-center py-2">
-            <div class="col-12 col-lg-8 order-1 order-lg-2 p-3">
-              <div>
+          <div class="row align-items-center py-2 mb-5 m-lg-4 apps-code">
+            <div class="col-12 col-lg-7 order-1 order-lg-2 p-3">
+              <div class="video-wrapper px-5">
                   <video id="why-checkly-video" autoplay loop style="width: 100%;">
                     <source src="/product/terraform/video/source_control_terraform.mp4" type=video/mp4>
                   </video>
               </div>
             </div>
-            <div class="col col-lg-4 order-2 order-lg-1">
-              <div class="feature-item d-flex">
-                <div class="mt-1 ml-1">
-                  {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" width="28px" height="28px" img="/product/terraform/icon1.png" alt="" >}}
+            <div class="col col-lg-5 order-2 order-lg-1">
+              <div class="feature-item row mb-4">
+                <div class="col-1 p-lg-0 mt-0 d-none d-md-block">
+                  <img class="img-fluid" src="/product/terraform/compatible_icon.svg" width="100%" height="auto" alt="checkly code"/>
                 </div>
-                <div class="ml-4">
+                <div class="col-12 col-md-11">
                   <h3 class="feature-title">Compatible with your workflow</h3>
                   <p>Already using Terraform for IaC? Great. Not using Terraform yet? Easily plug it into your existing pipeline.</p>
                 </div>
               </div>
-              <div class="feature-item d-flex">
-                <div class="mt-1 ml-1">
-                  {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" width="28px" height="28px" img="/product/terraform/icon2.png" alt="" >}}
+              <div class="feature-item row mb-4">
+                <div class="col-1 p-lg-0 d-none d-md-block">
+                  <img class="img-fluid" src="/product/terraform/search_icon.svg" width="40px" height="40px" alt="checkly code"/>
                 </div>
-                <div class="ml-4">
+                <div class="col-12 col-md-11">
                   <h3 class="feature-title">Increased transparency</h3>
                   <p>Declaring your checks as code aligns your monitoring with your releases and rollbacks, while also serving as documentation.</p>
                 </div>
               </div>
-              <div class="feature-item d-flex">
-                <div class="mt-1 ml-1">
-                  {{< alternative-picture class="img-fluid d-none d-md-inline-block me-4" width="28px" height="28px" img="/product/terraform/icon3.png" alt="" >}}
+              <div class="feature-item row mb-4">
+                <div class="col-1 p-lg-0 d-none d-md-block">
+                  <img class="img-fluid" src="/product/terraform/rocket_icon.svg" width="100%" height="auto" alt="checkly code"/>
                 </div>
-                <div class="ml-4">
+                <div class="col-12 col-md-11">
                   <h3 class="feature-title">One setup for local and cloud</h3>
                   <p>Seamlessly develop and test your checks locally, push to source control and apply automatically.</p>
                 </div>
@@ -108,7 +109,7 @@ resource "checkly_check" "stripe-charges" {
             </div>
           </div>
       </div>
-      <div class="py-5" id="provision-all">
+      <div class="pt-5 pb-2" id="provision-all">
               <div class="container">
                 <div class="row">
                   <div class="col-12">
@@ -146,21 +147,19 @@ resource "checkly_check" "stripe-charges" {
                             <div class="col-12 col-md-6 col-lg-7">
                               <div class="code-block dark width-90">
 <pre>
-<code>
-resource "checkly_check" "add-to-cart" {
+<code>resource "checkly_check" "add-to-cart" {
 name      = "Add to cart" name
 type      = "BROWSER"
 frequency = 5
 activated = true
 locations = ["us-west-1", "eu-central-1"]
 script    = file("${path.module}/scripts/add-to-cart.js")
-}
-</code>
+}</code>
 </pre>
                               </div> <!-- end codeblock -->
                             </div> <!-- end col -->
-                            <div class="col-12 col-md-6 col-lg-5 video-tab">
-                                <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                            <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
+                                <video id="why-checkly-video" autoplay loop>
                                   <source src="/product/terraform/video/first-checks.mp4" type=video/mp4>
                                 </video>
                              </div>
@@ -181,8 +180,7 @@ script    = file("${path.module}/scripts/add-to-cart.js")
                           <div class="col-12 col-md-6 col-lg-7">
                             <div class="code-block dark width-90">
 <pre>
-<code>
-resource "checkly_check_group" "purchase" {
+<code>resource "checkly_check_group" "purchase" {
   name        = "Purchase"
   activated   = true
   concurrency = 5
@@ -216,8 +214,8 @@ resource "checkly_check" "payment" {
 </pre>
                          </div>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-5">
-                          <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                        <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
+                          <video id="why-checkly-video" autoplay loop">
                             <source src="/product/terraform/grouped-checks.mp4" type=video/mp4>
                           </video>
                         </div>
@@ -237,8 +235,7 @@ resource "checkly_check" "payment" {
                       <div class="col-12 col-md-6 col-lg-7">
                         <div class="code-block dark width-90">
 <pre>
-<code>
-resource "checkly_alert_channel" "pagerduty_ac" {
+<code>resource "checkly_alert_channel" "pagerduty_ac" {
   pagerduty {
     account      = "checkly"
     service_key  = "key1"
@@ -296,8 +293,8 @@ resource "checkly_check" "payment" {
 </pre>
                          </div>
                        </div> <!-- col end -->
-                       <div class="col-12 col-md-6 col-lg-5">
-                        <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                       <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
+                        <video id="why-checkly-video" autoplay loop">
                           <source src="/product/terraform/video/group-alerting.mp4" type=video/mp4>
                         </video>
                       </div>
@@ -312,12 +309,12 @@ resource "checkly_check" "payment" {
             <div class="row">
               <div class="col-12">
                 <h3 class="text-center sub-heading">Scale across teams and projects</h3>
-                <p class="text-center">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
+                <p class="text-center scale-across">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
               </div>
             </div>
             <div class="row mt-4">
-              <div>
-                <video id="why-checkly-video" autoplay loop style="width: 100%;">
+              <div class="video-wrapper d-flex align-items-center px-4">
+                <video id="why-checkly-video" autoplay loop>
                   <source src="/product/terraform/video/team-scale.mp4" type=video/mp4>
                 </video>
               </div>
@@ -329,12 +326,12 @@ resource "checkly_check" "payment" {
                     <div class="row">
                       <div class="col-12 col-md-3 mb-4">
                         <div class="d-flex justify-content-center">
-                          {{< alternative-picture class="img-fluid" img="/product/terraform/hearabout.png" alt="" >}}
+                          <img class="img-fluid d-block hear-about" src="/product/terraform/hearabout.svg" width="100%" height="auto" alt="checkly code"/>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
                         <div class="d-flex flex-column justify-content-center">
-                          <h3 class="section-header">Hear about it from the pros</h2>
+                          <h3 class="section-header hear-about">Hear about it from the pros</h2>
                           <p>Learn how the Schwarz Group uses Checkly and Terraform to make complex real-world infrastructure more resilient and delivering a better end-user experience.</p>
                           <div class="d-flex flex-column flex-md-row justify-content-start align-items-start mt-3">
                             <a class="ps-0 text-center btn btn-link text-decoration-none landing-link pl-0 landing-link" href="#">
@@ -356,21 +353,21 @@ resource "checkly_check" "payment" {
 <!-- start get started -->
   <div class="py-5" id="get-started">
     <div>
-      <h2 class="d-none d-md-block text-center mb-4 sub-heading">Get Started</h2>
+      <h3 class="d-none d-md-block text-center mb-4 sub-heading">Get Started</h3>
       <div class="row my-4">
         <div class="col-12 col-lg-5 d-flex flex-column flex-md-row mb-4">
           <div class="d-flex flex-column align-items-center pe-md-4">
-            {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted1.png" width="56px" height="56px" alt="" >}}
+            <!-- {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted1.png" width="56px" height="56px" alt="" >}} -->
           </div>
           <div class="content">
             <div class="text">
-              <h3 class="text-center text-md-start">Get the installation code</h3>
-              <p class="text-center text-md-start">Copy the installation code and save it in your terraform file.</p>
+              <h3 class="text-center text-md-left">Get the installation code</h3>
+              <p class="text-center text-md-left mb-3">Copy the installation code and save it in your terraform file.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <button type="button" class="btn btn-primary d-inline-block landing-link" style="max-width: 300px;">Copy the installation code</button>
-              <span class="or">OR</span>
-              <button type="button" class="btn btn-light d-inline-block landing-link" style="max-width: 300px;">Clone sample repo</button>
+              <button type="button" class="btn btn-primary d-inline-block landing-link mb-3" style="max-width: 300px;">Copy the installation code</button>
+              <span class="or mb-3">OR</span>
+              <button type="button" class="btn btn-light d-inline-block landing-link mb-3" style="max-width: 300px;">Clone sample repo</button>
             </div>
           </div>
         </div>
@@ -400,17 +397,17 @@ provider "checkly" {
       <div class="row my-4">
         <div class="col-12 col-lg-5 d-flex flex-column flex-md-row">
           <div class="d-flex flex-column align-items-center pe-md-4">
-          {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted2.png" width="56px" height="56px" alt="" >}}
+          <!-- {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted2.png" width="56px" height="56px" alt="" >}} -->
           </div>
           <div class="content mb-3">
             <div class="text">
-              <h3 class="text-center text-md-start">Export your credentials</h3>
-              <p class="text-center text-md-start">Find your API key and account ID in your user settings, then export them as environment variables.</p>
+              <h3 class="text-center text-md-left">Export your credentials</h3>
+              <p class="text-center text-md-left">Find your API key and account ID in your user settings, then export them as environment variables.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <button type="button" class="btn btn-link landing-link d-inline-block" style="max-width: 300px;">Get your account ID</button>
+              <button type="button" class="btn btn-link landing-link d-inline-block pl-0" style="max-width: 300px;">Get your account ID</button>
               <span class="d-none d-md-block">AND</span>
-              <button type="button" class="btn btn-link landing-link d-inline-block" style="max-width: 300px;">Create API key</button>
+              <button type="button" class="btn btn-link landing-link d-inline-block pl-0" style="max-width: 300px;">Create API key</button>
             </div>
           </div>
         </div>
@@ -433,12 +430,12 @@ resource "checkly_check" "add-to-cart" {
       <div class="row my-4">
         <div class="col-12 col-lg-5 d-flex flex-column flex-md-row">
           <div class="d-flex flex-column align-items-center pe-md-4">
-          {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted2.png" width="56px" height="56px" alt="" >}}
+          <!-- {{< alternative-picture class="img-fluid" img="/product/terraform/getStarted2.png" width="56px" height="56px" alt="" >}} -->
           </div>
           <div class="content">
             <div class="text">
-              <h3 class="text-center text-md-start">Run it</h3>
-              <p class="text-center text-md-start">Initialize and apply your Terraform config.</p>
+              <h3 class="text-center text-md-left">Run it</h3>
+              <p class="text-center text-md-left">Initialize and apply your Terraform config.</p>
             </div>
           </div>
         </div>

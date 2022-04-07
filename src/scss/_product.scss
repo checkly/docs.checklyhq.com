@@ -51,16 +51,51 @@
     }
 
     .right-header {
-      background-image:  url('/product/terraform/background-header.png');
-      @media (min-width: 576px) {
-        background-image:  url('/product/terraform/background-header@2x.png');
+      @media (max-width: 767px) {
+        margin-bottom: 0px;
+       img {
+         margin-top: 64px;
+       }
       }
       @media (max-width: 991px) {
+        background-image:  url('/product/terraform/background-header.svg');
         max-width: 750px;
+        margin-bottom: 32px;
+        .tab-code-wrapper {
+          margin-top: 40px;
+        }
       }
       background-size: 70% auto;
       background-repeat: no-repeat;
       background-position: top right;
+      @media (min-width: 768px) {
+        margin-bottom: 100px;
+      }
+      @media (min-width: 992px) {
+        background-image: none;
+        padding-top: 80px;
+        margin-bottom: 32px;
+        .code-block {
+          height: 350px;
+        }
+        &::after {
+          content: " ";
+          position: absolute;
+          top: 0;
+          right: -30%;
+          width: 399px;
+          height: 350px;
+          z-index: -1;
+          background-image: url("/product/terraform/background-header.svg");
+          background-size: 100% 100%;
+        }
+      }
+      @media (min-width: 1200px) {
+        padding-top: 50px;
+        .code-block {
+          height: 100%;
+        }
+      }
     }
 
     .terraform-text {
@@ -69,6 +104,23 @@
       font-weight: 600;
       font-size: 1rem;
       border-radius: 8px;
+    }
+
+    .apps-code {
+      .order-1 {
+        order: 1;
+      }
+      .order-2 {
+        order: 2
+      }
+      @media (min-width: 992px) {
+        .order-lg-1 {
+          order: 1;
+        }
+        .order-lg-2 {
+          order: 2;
+        }
+      }
     }
 
     .landing-link {
@@ -120,6 +172,12 @@
       &.sub-heading {
         font-size: 2rem;
       }
+      &.hear-about {
+        font-size: 1.5rem;
+        @media (min-width: 992px) {
+          font-size: 2rem;
+        }
+      }
     }
 
     h5 {
@@ -168,6 +226,9 @@
       &.terraform-sub {
         font-size: 1.125rem;
       }
+      &.scale-across {
+        font-size: 1.125rem;
+      }
     }
 
     ul {
@@ -208,7 +269,7 @@
       }
       .window-header {
         display: flex;
-        align-items: end;
+        align-items: center;
         &.hide-mobile {
           @media (max-width: 767px) {
             display: none;
@@ -248,6 +309,9 @@
       @media (min-width: 576px) {
         max-height: 400px;
       }
+      @media (min-width: 768px) {
+        max-height: 500px;
+      }
       &.adjust-margin {
         margin-right: -15px;
       }
@@ -255,6 +319,15 @@
         color: white;
         pre {
           background-color: #1f1f1f;
+        }
+        .code-blue {
+          color: #45C8F1;
+        }
+        .code-grey {
+          color: #8492A6;
+        }
+        .code-yellow {
+          color: #FFC82C;
         }
       }
       &.light {
@@ -278,9 +351,11 @@
         @media(max-width: 575px) {
           max-height: 400px;
         }
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         height: 100%;
         margin-top: 0px;
         overflow: auto;
+        font-size: 1rem;
         word-break: normal !important;
         word-wrap: normal !important;
         white-space: pre !important;
@@ -478,6 +553,9 @@
         &.terraform-title {
           font-size: 2.625rem;
         }
+        &.hear-about {
+          font-size: 1.125rem;
+        }
       }
       p {
         &.hero-sub-center {
@@ -550,6 +628,19 @@
       p {
         &.terraform-sub {
           font-size: 1rem;
+        }
+        &.scale-across {
+          font-size: 0.875rem;
+        }
+      }
+      img {
+        &.hear-about {
+          max-width: 300px;
+        }
+      }
+      .right-header {
+        .tab-code-wrapper {
+          display: none;
         }
       }
       .code-block {
