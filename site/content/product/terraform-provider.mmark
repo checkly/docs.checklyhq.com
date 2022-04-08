@@ -3,7 +3,7 @@ title: Terraform Provider
 description: It's how you respond that makes the difference. Get quick and contextful alerts from Checkly on any channel you want. Know when your service fails before your customers do.
 ---
 
-<div id="lading-header">
+<div id="landing-header">
   <div class="row justify-content-center mb-5">
     <div class="col-12 col-lg-6 pr-lg-5 left-header">
       <div class="d-flex justify-content-center justify-content-md-start">
@@ -35,23 +35,23 @@ description: It's how you respond that makes the difference. Get quick and conte
                 <div class="code-block dark adjust-margin">
 <pre>
 <code>
- resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
-   name                      <span class="code-grey">=</span> <span class="code-blue">"Stripe Charges"</span>
-   type                      <span class="code-grey">=</span> <span class="code-blue">"API"</span>
-   activated                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
-   frequency                 <span class="code-grey">=</span> <span class="code-yellow">1</span>
-   ssl_check                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
-   use_global_alert_settings <span class="code-grey">=</span> <span class="code-yellow">true</span>
-   locations <span class="code-grey">=</span> ["eu-central-1"]
-   request {
-     url        <span class="code-grey">=</span> <span class="code-blue">"https://api.stripe.com/v1charges"</span>
-     follow_redirects <span class="code-grey">=</span> <span class="code-yellow">true</span>
-    assertion {
-       source     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
-       comparison <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
-       target     <span class="code-grey">=</span> <span class="code-blue">"200"</span>
-     }
- }</code>
+resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
+  name                      <span class="code-grey">=</span> <span class="code-blue">"Stripe Charges"</span>
+  type                      <span class="code-grey">=</span> <span class="code-blue">"API"</span>
+  activated                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  frequency                 <span class="code-grey">=</span> <span class="code-yellow">1</span>
+  ssl_check                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  use_global_alert_settings <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  locations <span class="code-grey">=</span> ["eu-central-1"]
+  request {
+    url        <span class="code-grey">=</span> <span class="code-blue">"https://api.stripe.com/v1charges"</span>
+    follow_redirects <span class="code-grey">=</span> <span class="code-yellow">true</span>
+   assertion {
+      source     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
+      comparison <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
+      target     <span class="code-grey">=</span> <span class="code-blue">"200"</span>
+    }
+}</code>
 </pre>
                 </div> <!-- end codeblock -->
               </div>

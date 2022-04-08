@@ -14,6 +14,9 @@
     img {
       height: auto !important;
     }
+    code {
+      font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
     h1 {
       &.hero-text {
         &:not(:first-child) {
@@ -57,10 +60,22 @@
       margin-bottom: -100px;
     }
 
+    #landing-header {
+      @media (min-width: 992px) {
+        margin-top: 24px;
+      }
+      @media (min-width: 1200px) {
+        margin-bottom: 88px;
+      }
+    }
+
     .right-header {
       @media (min-width: 768px) {
         background-size: 80% auto;
         margin-bottom: 100px;
+        .tab-code-wrapper {
+          margin-top: 37%;
+        }
       }
       background-repeat: no-repeat;
       background-position: top right;
@@ -68,26 +83,34 @@
         background-size: 90% auto;
       }
       @media (min-width: 850px) {
-        background-size: 89% auto;
+        background-size: 82% auto;
         .tab-code-wrapper {
           margin-top: 36%;
-          width: 590px;
+          width: 600px;
         }
       }
       @media (min-width: 992px) {
         background-image: none;
-        padding-top: 80px;
+        padding-top: 110px;
         margin-bottom: 32px;
+        .tab-code-wrapper {
+          margin-top: 0px;
+          width: 450px;
+          pre {
+            line-height: 1.1rem;
+            font-size: .875rem;
+          }
+        }
         .code-block {
           height: 350px;
         }
         &::after {
           content: " ";
           position: absolute;
-          top: 0;
-          right: -30%;
-          width: 399px;
-          height: 350px;
+          top: -7%;
+          right: -46%;
+          width: 480px;
+          height: 430px;
           z-index: -1;
           background-image: url("/product/terraform/background-header.svg");
           background-size: 100% 100%;
@@ -97,6 +120,17 @@
         padding-top: 50px;
         .code-block {
           height: 100%;
+        }
+        .tab-code-wrapper {
+          width: 510px;
+          height: 360px;
+          margin-top: 50px;
+          pre {
+            font-size: 1rem;
+          }
+        }
+        &::after {
+          right: -41%;
         }
       }
     }
@@ -271,7 +305,6 @@
           height: 100%;
           padding-top: 32px;
         }
-        margin-top: 37%;
       }
       .window-header {
         display: flex;
