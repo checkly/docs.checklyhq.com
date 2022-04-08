@@ -34,13 +34,20 @@
       &.terraform-title {
         font-weight: bold;
         font-size: 3.25rem;
-        &:not(:first-child) {
-          padding-top: $spacer;
-        }
+        line-height: 1.2;
+        padding-top: .625rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 0;
+      }
+    }
+    a {
+      &.read-docs {
+        padding-left: 1.5rem;
       }
     }
     .b-cta {
       font-size: 1.25rem;
+      padding: .75rem 2rem;
     }
 
     .hero-image {
@@ -51,25 +58,21 @@
     }
 
     .right-header {
-      @media (max-width: 767px) {
-        margin-bottom: 0px;
-       img {
-         margin-top: 64px;
-       }
+      @media (min-width: 768px) {
+        background-size: 80% auto;
+        margin-bottom: 100px;
       }
-      @media (max-width: 991px) {
-        background-image:  url('/product/terraform/background-header.svg');
-        max-width: 750px;
-        margin-bottom: 32px;
-        .tab-code-wrapper {
-          margin-top: 40px;
-        }
-      }
-      background-size: 70% auto;
       background-repeat: no-repeat;
       background-position: top right;
-      @media (min-width: 768px) {
-        margin-bottom: 100px;
+      @media (max-width: 991px) {
+        background-size: 90% auto;
+      }
+      @media (min-width: 850px) {
+        background-size: 89% auto;
+        .tab-code-wrapper {
+          margin-top: 36%;
+          width: 590px;
+        }
       }
       @media (min-width: 992px) {
         background-image: none;
@@ -104,6 +107,7 @@
       font-weight: 600;
       font-size: 1rem;
       border-radius: 8px;
+      padding: .25rem .75rem;
     }
 
     .apps-code {
@@ -225,6 +229,7 @@
 
       &.terraform-sub {
         font-size: 1.125rem;
+        margin-bottom: 1.875rem;
       }
       &.scale-across {
         font-size: 1.125rem;
@@ -266,6 +271,7 @@
           height: 100%;
           padding-top: 32px;
         }
+        margin-top: 37%;
       }
       .window-header {
         display: flex;
@@ -552,6 +558,7 @@
         }
         &.terraform-title {
           font-size: 2.625rem;
+          padding-bottom: .625rem;
         }
         &.hear-about {
           font-size: 1.125rem;
@@ -561,9 +568,25 @@
         &.hero-sub-center {
           margin-bottom: 50px;
         }
+        &.terraform-sub {
+          margin-bottom: 1.5rem;
+        }
+      }
+      .right-header {
+        background-image:  url('/product/terraform/background-header.svg');
+        margin-bottom: 32px;
+        width: 100%;
+        height: auto;
+        .tab-code-wrapper {
+          height: auto;
+        }
+      }
+      .left-header {
+        margin-bottom: 3.5rem;
       }
       .b-cta {
         font-size: 1.125rem;
+        padding: .5rem 1rem;
       }
       .img-w768 {
         width: calc(100% - 30px);
@@ -618,6 +641,8 @@
       h1 {
         &.terraform-title {
           font-size: 1.5rem;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
         }
       }
       h3 {
@@ -628,29 +653,52 @@
       p {
         &.terraform-sub {
           font-size: 1rem;
+          margin-bottom: 1rem;
         }
         &.scale-across {
           font-size: 0.875rem;
         }
       }
       img {
+        &.code-block-header {
+          width: 75%;
+          height: auto;
+        }
         &.hear-about {
           max-width: 300px;
         }
       }
+      a {
+        &.read-docs {
+          padding-top: .625rem;
+          padding-left: 1rem;
+        }
+      }
       .right-header {
+        background-size: 75% auto;
+        height: auto;
         .tab-code-wrapper {
           display: none;
+          margin-top: 35%;
         }
+        margin-bottom: 0px;
+        img {
+          margin-top: 18%;
+        }
+      }
+      .left-header {
+        margin-bottom: 1.75rem;
       }
       .code-block {
         height: 250px;
       }
       .b-cta {
         font-size: 0.875rem;
+        padding: .5rempx;
       }
       .terraform-text {
         font-size: .875em;
+        padding: .25rem .5rem;
       }
       .landing-link {
         font-size: .875rem;
