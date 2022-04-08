@@ -9,7 +9,7 @@ menu:
     parent: "Monitoring"
 ---
 
-Checklyyyy runs your API & browser checks every x minutes, based on an interval you select. 
+Checkly runs your API & browser checks every x minutes, based on an interval you select. 
 We have different minimum intervals for each check type:
 
 - API checks can be scheduled to run **every 10 seconds**.
