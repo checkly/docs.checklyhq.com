@@ -279,7 +279,9 @@
         color: #1F2D3D;
       }
       &.hear-about {
+        color: #1F2D3D;
         font-size: 1.5rem;
+        margin-bottom: .5rem !important;
         @media (min-width: 992px) {
           font-size: 2rem;
         }
@@ -340,6 +342,10 @@
       }
       &.scale-across {
         font-size: 1.125rem;
+      }
+      &.hear-about-text {
+        font-size: 1.125rem;
+        margin-bottom: 1.875rem;
       }
     }
 
@@ -480,6 +486,10 @@
     #scale-across {
       padding-top: 1rem;
       padding-bottom: 10.4rem;
+    }
+    #hear-about {
+      padding-top: 7.625rem;
+      padding-bottom: 7.625rem;
     }
     figure {
       &.text-center {
@@ -690,6 +700,15 @@
         &.terraform-sub {
           margin-bottom: 1.5rem;
         }
+        &.hear-about-text {
+          font-size: 1rem;
+          margin-bottom: .5rem;
+        }
+      }
+      a {
+        &.hear-link {
+          padding-right: 24px;
+        }
       }
       .right-header {
         background-image:  url('/product/terraform/background-header.svg');
@@ -759,6 +778,10 @@
         padding-top: 1rem;
         padding-bottom: 6rem;
       }
+      #hear-about {
+        padding-top: 4.375rem;
+        padding-bottom: 4.375rem;
+      }
       .code-block {
         pre {
           line-height: 1.4rem;
@@ -824,6 +847,9 @@
         &.scale-across-title {
           margin-bottom: .5rem;
         }
+        &.hear-about {
+          font-size: 1.25rem;
+        }
       }
       p {
         &.terraform-sub {
@@ -832,6 +858,10 @@
         }
         &.scale-across {
           font-size: 0.875rem;
+        }
+        &.hear-about-text {
+          font-size: .875rem;
+          margin-bottom: .875rem;
         }
       }
       img {
@@ -923,6 +953,10 @@
       #scale-across {
         padding-top: 2rem;
         padding-bottom: 2rem;
+      }
+      #hear-about {
+        padding-top: 2.125rem;
+        padding-bottom: 2.5rem;
       }
       .mt-8 {
         margin-top: 50px;
