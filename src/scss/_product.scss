@@ -284,6 +284,11 @@
           font-size: 2rem;
         }
       }
+      &.scale-across-title {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding-bottom: 0;
+      }
     }
 
     h5 {
@@ -472,7 +477,10 @@
         white-space: pre !important;
       }
     }
-
+    #scale-across {
+      padding-top: 1rem;
+      padding-bottom: 10.4rem;
+    }
     figure {
       &.text-center {
         margin-left: auto;
@@ -727,7 +735,7 @@
       }
       #provision-all {
         padding-top: 9.75rem;
-        padding-bottom: 9.75rem;
+        padding-bottom: 5rem;
         .text-section {
           margin-bottom: 2.5rem;
         }
@@ -746,6 +754,10 @@
             font-weight: 500;
           }
         }
+      }
+      #scale-across {
+        padding-top: 1rem;
+        padding-bottom: 6rem;
       }
       .code-block {
         pre {
@@ -808,6 +820,9 @@
       h3 {
         &.sub-heading {
           font-size: 1.25rem;
+        }
+        &.scale-across-title {
+          margin-bottom: .5rem;
         }
       }
       p {
@@ -904,6 +919,10 @@
         .video-wrapper {
           padding-top: 0px;
         }
+      }
+      #scale-across {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
       }
       .mt-8 {
         margin-top: 50px;

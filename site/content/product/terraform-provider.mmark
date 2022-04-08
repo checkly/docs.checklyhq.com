@@ -303,11 +303,11 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                 </div>
               </div>
     </div>
-    <div class="pb-5" id="scale-across">
+    <div id="scale-across">
           <div class="container">
             <div class="row">
               <div class="col-12">
-                <h3 class="text-center sub-heading">Scale across teams and projects</h3>
+                <h3 class="text-center sub-heading scale-across-title">Scale across teams and projects</h3>
                 <p class="text-center scale-across">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
               </div>
             </div>
