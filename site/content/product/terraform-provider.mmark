@@ -60,47 +60,47 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
     </div> <!-- end col section -->
     </div>
   </div>
-  <div class="gray-section">
+  <div class="gray-section" id="code-lives">
           <div class="row">
             <div class="col-12">
-              <h3 class="text-center sub-heading">
+              <h3 class="text-center sub-heading title">
                 Your app’s code lives in source control. <br>
                 Your monitoring should, too.
               </h3>
             </div>
           </div>
-          <div class="row align-items-center py-2 mb-5 m-lg-4 apps-code">
-            <div class="col-12 col-lg-7 order-1 order-lg-2 p-3">
-              <div class="video-wrapper px-5">
+          <div class="row align-items-start apps-code">
+            <div class="col-12 col-lg-7 order-1 order-lg-2">
+              <div class="video-wrapper">
                   <video id="why-checkly-video" autoplay loop style="width: 100%;">
                     <source src="/product/terraform/video/source_control_terraform.mp4" type=video/mp4>
                   </video>
               </div>
             </div>
-            <div class="col col-lg-5 order-2 order-lg-1">
-              <div class="feature-item row mb-4">
-                <div class="col-1 p-lg-0 mt-0 d-none d-md-block">
-                  <img class="img-fluid" src="/product/terraform/compatible_icon.svg" width="100%" height="auto" alt="checkly code"/>
+            <div class="col col-lg-5 order-2 order-lg-1 pt-lg-4 pt-xl-5">
+              <div class="feature-item row">
+                <div class="col-1 p-0 mt-0 d-none d-md-flex justify-content-md-center align-items-md-start">
+                  <img class="img-fluid" src="/product/terraform/compatible_icon.svg" alt="checkly code"/>
                 </div>
-                <div class="col-12 col-md-11">
+                <div class="col-12 col-md-11 text">
                   <h3 class="feature-title">Compatible with your workflow</h3>
                   <p>Already using Terraform for IaC? Great. Not using Terraform yet? Easily plug it into your existing pipeline.</p>
                 </div>
               </div>
-              <div class="feature-item row mb-4">
-                <div class="col-1 p-lg-0 d-none d-md-block">
+              <div class="feature-item row">
+                <div class="col-1 p-0 mt-0 d-none d-md-flex justify-content-md-center align-items-md-start">
                   <img class="img-fluid" src="/product/terraform/search_icon.svg" width="40px" height="40px" alt="checkly code"/>
                 </div>
-                <div class="col-12 col-md-11">
+                <div class="col-12 col-md-11 text">
                   <h3 class="feature-title">Increased transparency</h3>
                   <p>Declaring your checks as code aligns your monitoring with your releases and rollbacks, while also serving as documentation.</p>
                 </div>
               </div>
-              <div class="feature-item row mb-4">
-                <div class="col-1 p-lg-0 d-none d-md-block">
+              <div class="feature-item row">
+                <div class="col-1 p-0 mt-0 d-none d-md-flex justify-content-md-center align-items-md-start">
                   <img class="img-fluid" src="/product/terraform/rocket_icon.svg" width="100%" height="auto" alt="checkly code"/>
                 </div>
-                <div class="col-12 col-md-11">
+                <div class="col-12 col-md-11 text">
                   <h3 class="feature-title">One setup for local and cloud</h3>
                   <p>Seamlessly develop and test your checks locally, push to source control and apply automatically.</p>
                 </div>
