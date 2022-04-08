@@ -116,10 +116,11 @@
           pre {
             line-height: 1.1rem;
             font-size: .875rem;
+            padding-top: 1.6rem;
           }
         }
         .code-block {
-          height: 350px;
+          height: 360px;
         }
         &::after {
           content: " ";
@@ -209,10 +210,20 @@
           }
         }
       }
+      .code-block {
+        code {
+          white-space: normal;
+        }
+      }
       .video-wrapper {
         padding-top: 2.75rem;
         video {
           max-height: 100%;
+        }
+      }
+      .tab-code-wrapper {
+        pre {
+          font-size: 1rem;
         }
       }
     }
@@ -459,9 +470,6 @@
         word-break: normal !important;
         word-wrap: normal !important;
         white-space: pre !important;
-        code {
-          white-space: normal;
-        }
       }
     }
 
@@ -682,6 +690,9 @@
         height: auto;
         .tab-code-wrapper {
           height: auto;
+          pre {
+            padding-top: 1.3rem;
+          }
         }
       }
       .left-header {
