@@ -16,6 +16,7 @@
     }
     code {
       font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      display: inline-block;
     }
     h1 {
       &.hero-text {
@@ -82,6 +83,62 @@
         .text {
           padding-left: 0;
           padding-left: 1.25rem;
+        }
+      }
+    }
+    #get-started {
+      .number {
+        height: 56px;
+        width: 56px;
+        background-color: rgba(69, 200, 241, 0.1);
+        font-size: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        color: #45C8F1;
+      }
+      .main-title {
+        margin-bottom: 3.5rem;
+      }
+      .title {
+        color: #1F2D3D;
+        margin-top: 0px;
+        font-size: 1.5rem;
+        margin-bottom: .625rem;
+        padding-bottom: 0;
+      }
+      .step-element {
+        margin-bottom: 3.5rem;
+      }
+      .step-description {
+        font-size: 1rem;
+        color: #697280;
+      }
+      .or {
+        color: #8492A6;
+      }
+      .content {
+        padding-left: 2rem;
+      }
+      .or-action {
+        background-color: #e0e6ed;
+        color: #1F2D3D;
+      }
+      .code-block {
+        &.light {
+          pre {
+            line-height: .7rem;
+          }
+        }
+        pre {
+          margin-bottom: 0px;
+          font-size: 1.125rem;
+          code {
+            white-space: normal;
+          }
         }
       }
     }
@@ -455,7 +512,7 @@
       &.light {
         background-color: #E0E6ED;
         pre {
-          background-color: transparent;
+          background-color: #E0E6ED;
           code {
             color: #1f1f1f;
             border: none;
@@ -782,9 +839,41 @@
         padding-top: 4.375rem;
         padding-bottom: 4.375rem;
       }
+      #get-started {
+        .title {
+          font-size: 1.5rem;
+        }
+        .step-description {
+          font-size: 1rem;
+        }
+        .content {
+          padding-left: 2rem;
+        }
+        .step-element {
+          margin-bottom: 0;
+        }
+        .c-wrapper {
+          margin-bottom: 3.5rem;
+        }
+        .main-title {
+          margin-bottom: 2.625rem;
+          padding-bottom: 0px;
+        }
+        .code-block {
+          &.light {
+            pre {
+              line-height: .7rem;
+            }
+          }
+        }
+      }
       .code-block {
         pre {
           line-height: 1.4rem;
+          font-size: 1.125rem;
+          code {
+            font-size: 1.125rem;
+          }
         }
       }
       .grid-section {
@@ -957,6 +1046,39 @@
       #hear-about {
         padding-top: 2.125rem;
         padding-bottom: 2.5rem;
+      }
+      #get-started {
+        .number {
+          margin-bottom: 1.5rem;
+        }
+        .title {
+          font-size: 1.25rem;
+        }
+        .step-description {
+          font-size: .875rem;
+        }
+        .content {
+          padding-left: 0px;
+        }
+        .c-wrapper {
+          margin-bottom: 3.5rem;
+        }
+        .step-element {
+          margin-bottom: 0;
+        }
+        .code-block {
+          margin-left: 0px;
+          &.light {
+            pre {
+              line-height: .7rem;
+            }
+          }
+          pre {
+            code {
+              font-size: .875rem;
+            }
+          }
+        }
       }
       .mt-8 {
         margin-top: 50px;
