@@ -141,6 +141,9 @@
           }
         }
       }
+      .and {
+        margin-bottom: .5rem;
+      }
     }
 
     .right-header {
@@ -482,9 +485,6 @@
 
     .code-block {
       height: 100%;
-      //@media (min-width: 576px) {
-      //    max-height: 400px;
-      //}
       @media (min-width: 768px) {
         max-height: 500px;
       }
@@ -510,7 +510,9 @@
         }
       }
       &.light {
-        background-color: #E0E6ED;
+        background: #F9FAFC;
+        border: #E0E6ED;
+        border-radius: 0;
         pre {
           background-color: #E0E6ED;
           code {
@@ -860,6 +862,11 @@
           padding-bottom: 0px;
         }
         .code-block {
+          pre {
+            code {
+              font-size: 1.125rem;
+            }
+          }
           &.light {
             pre {
               line-height: .7rem;
@@ -871,9 +878,6 @@
         pre {
           line-height: 1.4rem;
           font-size: 1.125rem;
-          code {
-            font-size: 1.125rem;
-          }
         }
       }
       .grid-section {
@@ -1074,6 +1078,8 @@
             }
           }
           pre {
+            white-space: normal;
+            font-size: .875rem;
             code {
               font-size: .875rem;
             }
