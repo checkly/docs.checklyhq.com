@@ -10,7 +10,7 @@ Checks make up the most important unit of your Checkly monitoring setup. Groups 
 
 ## Checks
 
-Browser checks and API checks share many arguments, configuration-wise, but also have their own unique ones. The type of your check is controlled using the `type` argument.
+[Browser checks](/docs/browser-checks) and [API checks](/docs/api-checks) share many arguments, configuration-wise, but also have their own unique ones. The type of your check is controlled using the `type` argument.
 
 ### Browser checks
 
@@ -113,7 +113,7 @@ You can see all the configuration options for checks, as well as more examples, 
 
 ## Groups
 
-Once you start having more than just a handful of checks, it makes sense to start looking into groups to keep things tidy:
+Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups) to keep things tidy:
 
 ```terraform
 resource "checkly_check_group" "key-shop-flows" {

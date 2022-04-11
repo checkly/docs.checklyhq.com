@@ -6,9 +6,11 @@ menu:
     parent: "Terraform provider"
 ---
 
+Having the possibility to develop Playwright scripts for your browser checks locally will allow you to move faster and with more confidence.
+
 ## Enabling local script execution
 
-Having the possibility to develop Playwright scripts for your browser checks locally will allow you to move faster and with more confidence. You can easily achieve this by storing your scripts in local folders and passing the path to the right script:
+You can easily enable local execution by storing your browser check scripts in local folders and passing the path to the right script:
 
 ```terraform
 resource "checkly_check" "e2e-checkout" {
@@ -29,7 +31,7 @@ resource "checkly_check" "e2e-checkout" {
 }
 ```
 
-In order to have the script work both locally and on Checkly without changes, make sure your script is wrapped in a function:
+In order to have the script work both locally and on Checkly without changes, make sure your script is wrapped in an async function:
 
 ```javascript
 async function run () {

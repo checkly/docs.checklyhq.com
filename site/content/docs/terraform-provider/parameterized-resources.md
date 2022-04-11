@@ -1,5 +1,5 @@
 ---
-title: Parameterized check resources
+title: Parameterized resources
 weight: 9
 menu:
   docs:
@@ -12,9 +12,9 @@ Terraform enables you to declare a parameterised resource once while having it m
 
 ```terraform
 resource "checkly_check" "browser-check" {}
-  for_each = fileset("${path.module}/scripts", "*") //
+  for_each = fileset("${path.module}/scripts", "*") // Iterates through the files in the scripts folder in your project's directory
 
-  name                      = each.key //
+  name                      = each.key              // Sets the check name to match the file's 
   type                      = "BROWSER"
   activated                 = true
   frequency                 = 1
@@ -25,11 +25,13 @@ resource "checkly_check" "browser-check" {}
     "eu-central-1"
   ]
 
-  script = file("${path.module}/scripts/${each.key}") //
+  script = file("${path.module}/scripts/${each.key}") // Assigns the script contained in each file to each new created check resource
 
 }
 ```
 
 This will create as many browser checks running each minute as there are files in the `./scripts` folder in your project's path.
 
-You can find more information on the `for_each` meta-argument on the [official Terraform documentation](https://www.terraform.io/language/meta-arguments/for_each).
+You can find more information on the [`for_each` meta-argument](https://www.terraform.io/language/meta-arguments/for_each) and the [fileset function](https://www.terraform.io/language/functions/fileset) on the official Terraform documentation.
+
+Keep in mind these constructs can be useful for a variety of resources, not just for checks.
