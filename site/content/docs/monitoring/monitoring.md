@@ -34,6 +34,7 @@ A picture is a thousand words:
 The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations.
 4. If the check is an API check and has a [teardown script](/docs/api-checks/setup-teardown-scripts/), the teardown script is executed.
 Teardown scripts are run *before* any assertions are validated.
+In the case of an API check with a setup, a teardown script and a retry, the setup script is only retried if it failed in the initial run. The initial request and the teardown script are always retried in the case of a failure. 
 5. The result is stored in our central database and any alerts are sent where applicable.
 
  
