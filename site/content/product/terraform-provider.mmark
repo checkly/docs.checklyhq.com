@@ -14,7 +14,7 @@ description: It's how you respond that makes the difference. Get quick and conte
       </h1>
       <p class="text-center text-md-left terraform-sub">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <button type="button" class="btn btn-primary b-cta">Get Started</button>
+        <a href="#get-started"><button type="button" class="btn btn-primary b-cta">Get Started</button></a>
         <a class="text-center text-decoration-none btn landing-link read-docs" href="#">Read Documentation</a>
       </div>
     </div>
@@ -72,7 +72,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
           <div class="row align-items-start apps-code">
             <div class="col-12 col-lg-7 order-1 order-lg-2">
               <div class="video-wrapper">
-                  <video id="why-checkly-video" autoplay loop style="width: 100%;">
+                  <video id="why-checkly-video" autoplay muted loop style="width: 100%;">
                     <source src="/product/terraform/video/source_control_terraform.mp4" type=video/mp4>
                   </video>
               </div>
@@ -158,7 +158,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
                               </div> <!-- end codeblock -->
                             </div> <!-- end col -->
                             <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
-                                <video id="why-checkly-video" autoplay loop>
+                                <video id="why-checkly-video" autoplay muted loop playsinline>
                                   <source src="/product/terraform/video/first-checks.mp4" type=video/mp4>
                                 </video>
                              </div>
@@ -214,8 +214,8 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                          </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
-                          <video id="why-checkly-video" autoplay loop">
-                            <source src="/product/terraform/grouped-checks.mp4" type=video/mp4>
+                          <video id="why-checkly-video" autoplay muted loop playsinline">
+                            <source src="/product/terraform/video/grouped-checks.mp4" type=video/mp4>
                           </video>
                         </div>
                     </div>
@@ -293,7 +293,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                          </div>
                        </div> <!-- col end -->
                        <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
-                        <video id="why-checkly-video" autoplay loop">
+                        <video id="why-checkly-video" autoplay muted loop playsinline">
                           <source src="/product/terraform/video/group-alerting.mp4" type=video/mp4>
                         </video>
                       </div>
@@ -312,8 +312,8 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
               </div>
             </div>
             <div class="row mt-4">
-              <div class="video-wrapper d-flex align-items-center px-4">
-                <video id="why-checkly-video" autoplay loop>
+              <div class="video-wrapper d-flex align-items-center justify-content-center px-4">
+                <video id="why-checkly-video" autoplay muted loop>
                   <source src="/product/terraform/video/team-scale.mp4" type=video/mp4>
                 </video>
               </div>

@@ -36,13 +36,14 @@
         margin-right: auto;
       }
       &.terraform-title {
-        font-weight: bold;
+        font-weight: $font-weight-semi-bold;
         font-size: 3.25rem;
         line-height: 1.2;
         padding-top: .625rem;
         padding-bottom: 1.5rem;
         margin-bottom: 0;
-        color: #1F2D3D;
+        color: $black;
+        letter-spacing: -0.04em;
       }
     }
     a {
@@ -545,6 +546,11 @@
     #scale-across {
       padding-top: 1rem;
       padding-bottom: 10.4rem;
+      video {
+        width: 100%;
+        max-width: 719px;
+        padding: 0 54px;
+      }
     }
     #hear-about {
       padding-top: 7.625rem;
