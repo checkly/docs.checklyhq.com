@@ -10,8 +10,6 @@ aliases:
 
 **Checkly private locations is a technical preview feature. It is not recommended for production use and is available on request.**
 
-Note: While scheduled check runs work as expected, you cannot currently test checks from private locations. We are working on adding this soon. When saving an API check using the "Run & save" button, the test check will fail and you will need to click "Save this check anyway" to continue.
-
 Note: The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
 
 ## About Private Locations
