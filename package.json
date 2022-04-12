@@ -4,6 +4,7 @@
   "description": "Checkly public website",
   "repository": "checkly/checklyhq.com",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "hugo": "gulp hugo",
     "build": "gulp build && npm run copy-api-docs",
