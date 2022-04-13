@@ -6,9 +6,9 @@ menu:
     parent: "Terraform provider"
 ---
 
-There are cases where you might want to declare a single, parameterised resource in place of a (possibly variable) number of resources to be managed. Terraform enables this through some of its native constructs.
+There are cases where you might want to declare a single, parameterized resource in place of a (possibly variable) number of resources to be managed. Terraform enables this through some of its native constructs.
 
-## Parameterized resources
+## File-based parameterization 
 
 You can use a combination of the [`for_each` meta-argument](https://www.terraform.io/language/meta-arguments/for_each) and the [fileset function](https://www.terraform.io/language/functions/fileset) to your advantage, for example when creating browser checks that share all their settings apart from their script:
 
