@@ -25,17 +25,16 @@ description: It's how you respond that makes the difference. Get quick and conte
               <div class="tab-code-wrapper">
                 <div class="window-header">
                   <div class="dots d-flex pl-2">
-                   <div class="dot mr-2"></div>
+                   <div class="dot mr-2 ml-1"></div>
                    <div class="dot mr-2"></div>
                    <div class="dot"></div>
                   </div>
                   <div class="text">payment-check.tf</div>
                   <div class="dots"></div>
                 </div>
-                <div class="code-block dark adjust-margin">
+                <div class="code-block dark">
 <pre>
-<code>
-resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
+<code>resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
   name                      <span class="code-grey">=</span> <span class="code-blue">"Stripe Charges"</span>
   type                      <span class="code-grey">=</span> <span class="code-blue">"API"</span>
   activated                 <span class="code-grey">=</span> <span class="code-yellow">true</span>
@@ -108,7 +107,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
             </div>
           </div>
       </div>
-      <div class="" id="provision-all">
+      <div id="provision-all">
               <div class="container">
                 <div class="row text-section">
                   <div class="col-12">
@@ -116,7 +115,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
                     <p class="text-center provision-text">Managing your checks, groups, alert channels and other monitoring resources should never be the bottleneck for shipping more code or increasing visibility into the state of your systems.</p>
                   </div>
                 </div>
-                <div class="row justify-content-center no-wrap">
+                <div class="row">
                   <div class="col-12 px-0">
                       <ul class="col-12 nav nav-pills checks-list p-0" id="pills-tab" role="tablist">
                           <li class="nav-item" role="presentation">
@@ -133,7 +132,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
                   <div class="tab-content" id="pills-tabContent">
                   <!-- start tab pane -->
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="row tab-code-wrapper">
+                        <div class="row tab-code-wrapper d-flex align-items-stretch">
                             <div class="window-header hide-mobile">
                                <div class="dots d-flex pl-2">
                                  <div class="dot mr-2"></div>
@@ -143,8 +142,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
                                <div class="text">main.tf</div>
                                <div class="dots"></div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-7">
-                              <div class="code-block dark width-90">
+                            <div class="code-block dark">
 <pre>
 <code>resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
  <span class="pl-2">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
@@ -155,9 +153,8 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
  <span class="pl-2">script</span>    <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
 }</code>
 </pre>
-                              </div> <!-- end codeblock -->
-                            </div> <!-- end col -->
-                            <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
+                            </div> <!-- end codeblock -->
+                            <div class="video-wrapper">
                                 <video id="why-checkly-video" autoplay muted loop playsinline>
                                   <source src="/product/terraform/video/first-checks.mp4" type=video/mp4>
                                 </video>
@@ -166,7 +163,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
                     </div>
                     <!-- start tab pane -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="row tab-code-wrapper">
+                        <div class="row tab-code-wrapper d-flex align-items-start">
                           <div class="window-header hide-mobile">
                             <div class="dots d-flex pl-2">
                                <div class="dot mr-2"></div>
@@ -176,8 +173,7 @@ resource <span class="code-blue">"checkly_check" "stripe-charges"</span> {
                              <div class="text">main.tf</div>
                              <div class="dots"></div>
                           </div>
-                          <div class="col-12 col-md-6 col-lg-7">
-                            <div class="code-block dark width-90">
+                          <div class="code-block dark">
 <pre>
 <code>resource <span class="code-blue">"checkly_check_group" "purchase"</span> {<br>
   <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span><br>
@@ -211,9 +207,8 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
   <span class="pl-2">group_id</span> <span class="code-grey">=</span> checkly_check_group<span class="code-green">.purchase.id</span><br>
 }</code>
 </pre>
-                         </div>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
+                        <div class="video-wrapper">
                           <video id="why-checkly-video" autoplay muted loop playsinline">
                             <source src="/product/terraform/video/grouped-checks.mp4" type=video/mp4>
                           </video>
@@ -221,7 +216,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                     </div>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <div class="row tab-code-wrapper">
+                    <div class="row tab-code-wrapper d-flex align-items-start">
                       <div class="window-header hide-mobile">
                         <div class="dots d-flex pl-2">
                            <div class="dot mr-2"></div>
@@ -231,8 +226,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                          <div class="text">main.tf</div>
                          <div class="dots"></div>
                       </div>
-                      <div class="col-12 col-md-6 col-lg-7">
-                        <div class="code-block dark width-90">
+                      <div class="code-block dark">
 <pre>
 <code>resource <span class="code-blue">"checkly_alert_channel" "pagerduty_ac"</span> {<br>
   <span class="pl-2">pagerduty</span> {<br>
@@ -290,9 +284,8 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
   <span class="pl-2">}</span><br>
 }</code>
 </pre>
-                         </div>
-                       </div> <!-- col end -->
-                       <div class="col-12 col-md-6 col-lg-5 video-wrapper d-flex align-items-center">
+                        </div>
+                       <div class="video-wrapper">
                         <video id="why-checkly-video" autoplay muted loop playsinline">
                           <source src="/product/terraform/video/group-alerting.mp4" type=video/mp4>
                         </video>
@@ -311,9 +304,9 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                 <p class="text-center scale-across">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
               </div>
             </div>
-            <div class="row mt-4">
-              <div class="video-wrapper d-flex align-items-center justify-content-center px-4">
-                <video id="why-checkly-video" autoplay muted loop>
+            <div class="row mt-4 d-flex align-items-center justify-content-center">
+              <div class="video-wrapper ">
+                <video id="why-checkly-video" autoplay muted loop playsinline>
                   <source src="/product/terraform/video/team-scale.mp4" type=video/mp4>
                 </video>
               </div>
@@ -356,7 +349,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
 <!-- start get started -->
   <div class="py-5" id="get-started">
     <div>
-      <h3 class="d-none d-md-block text-center sub-heading main-title">Get Started</h3>
+      <h3 class="d-md-block text-center sub-heading main-title">Get Started</h3>
       <div class="row step-element">
         <div class="col-12 col-lg-5 d-flex flex-column flex-md-row mb-3">
           <div class="d-flex flex-column align-items-center">
