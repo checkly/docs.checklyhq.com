@@ -1,0 +1,6 @@
+Contact: mailto: security@checklyhq.com
+Preferred-Languages: en
+Canonical: https://checklyhq.com/.well-known/security.txt
+Policy: https://www.checklyhq.com/security/security-response/
+Hiring: https://checklyhq.com/jobs
+

@@ -8,7 +8,7 @@ We want to make Checkly as secure as possible. We take measures to not store any
 and will make mistakes so your input and feedback on our security is always appreciated.
 
 ## Reporting security problems
-Send urgent reports directly to info@checklyhq.com. We’ll get back to you ASAP, usually within 24 hours.
+Send urgent reports directly to security@checklyhq.com. We’ll get back to you ASAP, usually within 24 hours.
 Please follow up or ping us on Twitter [@checklyHQ](https://twitter.com/checklyHQ) if you don’t hear back. For requests that aren’t urgent or sensitive: submit a
 support request.
 
