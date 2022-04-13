@@ -335,6 +335,10 @@
     .landing-link {
       font-weight: 600;
       font-size: 1rem;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
 
     .images {

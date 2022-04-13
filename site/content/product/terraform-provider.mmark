@@ -15,7 +15,7 @@ description: It's how you respond that makes the difference. Get quick and conte
       <p class="text-center text-md-left terraform-sub">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <a href="#get-started"><button type="button" class="btn btn-primary b-cta">Get Started</button></a>
-        <a class="text-center text-decoration-none btn landing-link read-docs" href="#">Read Documentation</a>
+        <a class="text-center text-decoration-none btn landing-link read-docs" href="/docs/terraform-provider/getting-started/">Read Documentation</a>
       </div>
     </div>
     <div class="col-12 col-lg-6 pb-0 right-header">
@@ -361,9 +361,9 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
               <p class="text-center text-md-left mb-3 step-description">Copy the installation code and save it in your terraform file.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <button type="button" class="btn btn-primary d-inline-block landing-link mb-2 mb-lg-3 mr-md-3 mr-lg-0" style="max-width: 300px;">Copy the installation code</button>
+              <button id="copy-installation-code" type="button" class="btn btn-primary d-inline-block landing-link mb-2 mb-lg-3 mr-md-3 mr-lg-0" style="max-width: 300px;">Copy the installation code</button>
               <span class="or mb-2 mb-lg-3 mr-md-3 mr-lg-0">OR</span>
-              <button type="button" class="btn btn-light d-inline-block landing-link mb-2 or-action" style="max-width: 300px;">Clone sample repo</button>
+              <a target="_blank" href="https://github.com/checkly/checkly-terraform-getting-started"><button type="button" class="btn btn-light d-inline-block landing-link mb-2 or-action" style="max-width: 300px;">Clone sample repo</button></a>
             </div>
           </div>
         </div>
@@ -400,13 +400,13 @@ provider "checkly" {<br>
               <p class="text-center text-md-left step-description mb-2">Find your API key and account ID in your user settings, then export them as environment variables.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <button type="button" class="btn btn-link landing-link d-inline-block pl-0 mb-lg-2" style="max-width: 300px;">Get your account ID
+              <a href="https://app.checklyhq.com/settings/account/general"><button type="button" class="btn btn-link landing-link d-inline-block pl-0 mb-lg-2" style="max-width: 300px;">Get your account ID
               <span class="pl-1"> <img class="img-fluid" src="/product/terraform/iconlink.svg" width="14px" height="14px" alt="link"/></span>
-              </button>
+              </button></a>
               <span class="d-none d-lg-block and or pl-1">AND</span>
-              <button type="button" class="btn btn-link landing-link d-inline-block pl-0" style="max-width: 300px;">Create API key
+              <a href="https://app.checklyhq.com/settings/user/api-keys"><button type="button" class="btn btn-link landing-link d-inline-block pl-0" style="max-width: 300px;">Create API key
               <span class="pl-2"><img class="img-fluid" src="/product/terraform/iconlink.svg" width="14px" height="14px" alt="link"/></span>
-              </button>
+              </button></a>
             </div>
           </div>
         </div>
