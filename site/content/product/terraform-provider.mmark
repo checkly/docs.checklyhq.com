@@ -326,13 +326,13 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                           <h3 class="section-header hear-about">Hear about it from the pros</h2>
                           <p class="hear-about-text">Learn how the Schwarz Group uses Checkly and Terraform to make complex real-world infrastructure more resilient and delivering a better end-user experience.<br><span class="pl-2 d-none d-lg-block"> • Andreas Lehr, Team Lead at Schwarz Group IT</span></p>
                           <div class="d-flex flex-column flex-md-row justify-content-start align-items-start">
-                            <a class="ps-0 text-center btn btn-link text-decoration-none pl-0 landing-link hear-link" href="#">
+                            <a class="ps-0 text-center btn btn-link text-decoration-none pl-0 landing-link hear-link" href="https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly">
                             Read Case Study
                             <span class="pl-2">
                                 <img class="img-fluid" src="/product/terraform/iconlink.svg" width="15px" height="15px" alt="link"/>
                             </span>
                             </a>
-                            <a class="text-center btn btn-link text-decoration-none landing-link pl-0" href="#">
+                            <a class="text-center btn btn-link text-decoration-none landing-link pl-0" href="https://www.hashicorp.com/events/webinars/monitoring-as-code-webinar-with-checkly">
                                 Watch Webinar Recording
                                 <span class="pl-2">
                                   <img class="img-fluid" src="/product/terraform/iconlink.svg" width="15px" height="15px" alt="link"/>
