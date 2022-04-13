@@ -6,7 +6,7 @@ menu:
     parent: "Terraform provider"
 ---
 
-Having the possibility to develop Playwright scripts for your browser checks locally will allow you to move faster and with more confidence.
+Having the possibility to run Playwright scripts for your browser checks locally will allow you to develop them faster and with more confidence.
 
 ## Enabling local script execution
 

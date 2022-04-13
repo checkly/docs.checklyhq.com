@@ -6,9 +6,11 @@ menu:
     parent: "Terraform provider"
 ---
 
-## Parameterised check resources
+There are cases where you might want to declare a single, parameterised resource in place of a (possibly variable) number of resources to be managed. Terraform enables this through some of its native constructs.
 
-Terraform enables you to declare a parameterised resource once while having it manage multiple similar resources. You can use this to your advantage, for example when creating browser checks that share all their settings apart from their script:
+## Parameterized resources
+
+You can use a combination of the [`for_each` meta-argument](https://www.terraform.io/language/meta-arguments/for_each) and the [fileset function](https://www.terraform.io/language/functions/fileset) to your advantage, for example when creating browser checks that share all their settings apart from their script:
 
 ```terraform
 resource "checkly_check" "browser-check" {}
@@ -32,6 +34,6 @@ resource "checkly_check" "browser-check" {}
 
 This will create as many browser checks running each minute as there are files in the `./scripts` folder in your project's path.
 
-You can find more information on the [`for_each` meta-argument](https://www.terraform.io/language/meta-arguments/for_each) and the [fileset function](https://www.terraform.io/language/functions/fileset) on the official Terraform documentation.
-
-Keep in mind these constructs can be useful for a variety of resources, not just for checks.
+{{<info>}}
+Aside from checks, these constructs can be useful for a variety of resources like alert channels, snippets and more.
+{{</info>}}
