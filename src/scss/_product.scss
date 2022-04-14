@@ -486,6 +486,7 @@
 
     .tab-content {
       padding-top: 0px;
+      width: 100%;
     }
 
     .tab-code-wrapper {
@@ -595,7 +596,7 @@
       padding-bottom: 10.4rem;
       video {
         width: 100%;
-        max-width: 719px;
+        max-height: 363px;
         padding: 0 54px;
       }
     }
@@ -604,7 +605,6 @@
       padding-bottom: 7.625rem;
       .hear-about-text {
         font-size: 1.125rem;
-        max-width: 615px;
       }
       .hear-about-author {
         font-weight: $font-weight-semi-bold;
