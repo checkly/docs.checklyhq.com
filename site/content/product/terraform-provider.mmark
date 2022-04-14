@@ -180,7 +180,7 @@ description: It's how you respond that makes the difference. Get quick and conte
   <span class="pl-2">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
   <span class="pl-2">concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
   <span class="pl-2">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
-}<br>
+}<br><br>
 resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
   <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
   <span class="pl-2">type</span>        <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
@@ -189,7 +189,7 @@ resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
   <span class="pl-2">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]<br>
   <span class="pl-2">script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
   <span class="pl-2">group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
-}<br>
+}<br><br>
 resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
   <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Payment"</span><br>
   <span class="pl-2">type</span>        <span class="code-grey">=</span> <span class="code-blue">"API"</span><br>
@@ -234,18 +234,18 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
     <span class="pl-3">service_key</span>  <span class="code-grey">=</span> <span class="code-blue">"key1"</span><br>
     <span class="pl-3">service_name</span> <span class="code-grey">=</span> <span class="code-blue">"pdalert"</span><br>
   <span class="pl-2">}</span><br>
-}<br>
+}<br><br>
 resource <span class="code-blue">"checkly_alert_channel" "email_ac"</span> {<br>
   <span class="pl-2">email</span> {<br>
     <span class="pl-3">address</span> <span class="code-grey">=</span> <span class="code-blue">"john@acme.com"</span><br>
   <span class="pl-2">}</span><br>
-}<br>
+}<br><br>
 resource <span class="code-blue">"checkly_check_group" "purchase"</span> {<br>
   <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span><br>
   <span class="pl-2">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
   <span class="pl-2">concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
   <span class="pl-2">locations</span>   <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
-}<br>
+}<br><br>
 resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
   <span class="pl-2">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
   <span class="pl-2">type</span>      <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
@@ -262,7 +262,7 @@ resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
     <span class="pl-3">channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">slack_ac.id</span><br>
    <span class="pl-3">activated</span>  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
   <span class="pl-2">}</span><br>
-}<br>
+}<br><br>
 resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
   <span class="pl-2">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Payment"</span><br>
   <span class="pl-2">type</span>      <span class="code-grey">=</span> <span class="code-blue">"API"</span><br>
@@ -324,10 +324,12 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                       <div class="col-12 col-md-9">
                         <div class="d-flex flex-column justify-content-center">
                           <h3 class="section-header hear-about">Hear about it from our customers</h2>
-                          <p class="hear-about-text">"Checkly integrated with Terraform enables us to quickly create, modify, and deploy API and browser checks for a broad and diverse audience of internal customers."</p>
-                          <p class="hear-about-author">Andreas Lehr</p>
-                          <p>Team Lead at Schwarz Group IT</p>
-                          <div class="d-flex flex-column flex-md-row justify-content-start align-items-start pt-3">
+                          <div class="hear-about-text">
+                            <p>"Checkly integrated with Terraform enables us to quickly create, modify, and deploy API and browser checks for a broad and diverse audience of internal customers."</p>
+                            <p class="hear-about-author pt-4">Andreas Lehr</p>
+                            <p>Team Lead at Schwarz Group IT</p>
+                          </div>
+                          <div class="d-flex flex-column flex-md-row justify-content-start align-items-start pt-4">
                             <a class="ps-0 text-center btn btn-link text-decoration-none pl-0 landing-link hear-link" href="https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly">
                             Read Case Study
                             <span class="pl-2">
