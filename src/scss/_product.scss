@@ -37,7 +37,7 @@
         margin-right: auto;
       }
       &.terraform-title {
-        font-weight: $font-weight-semi-bold;
+        font-weight: 700;
         font-size: 3.25rem;
         line-height: 1.2;
         padding-top: .625rem;
@@ -45,6 +45,7 @@
         margin-bottom: 0;
         color: $black;
         letter-spacing: -0.04em;
+        max-width: 465px;
       }
     }
     a {
@@ -77,6 +78,7 @@
 
     #code-lives {
       border-top: 1px solid #E0E6ED;
+      border-bottom: 1px solid #E0E6ED;
       padding-top: 2.5 * $spacer;
       .title {
         margin-top: 0px;
@@ -387,7 +389,7 @@
         color: #1F2D3D;
       }
       &.hear-about {
-        color: #1F2D3D;
+        color: $gray-dark;
         font-size: 1.5rem;
         margin-bottom: .5rem !important;
         @media (min-width: 992px) {
@@ -447,6 +449,7 @@
       &.terraform-sub {
         font-size: 1.125rem;
         margin-bottom: 1.875rem;
+        max-width: 471px;
       }
       &.scale-across {
         font-size: 1.125rem;
@@ -598,6 +601,9 @@
     #hear-about {
       padding-top: 7.625rem;
       padding-bottom: 7.625rem;
+      .hear-about-author {
+        font-weight: $font-weight-semi-bold;
+      }
     }
     figure {
       &.text-center {
@@ -717,6 +723,8 @@
       position: relative;
       z-index: 10;
       background: $ash;
+      border-top: 1px solid $gray-light;
+      border-bottom: 1px solid $gray-light;
       overflow: hidden;
       width: 100vw;
       margin-left: calc(570px - 24px - 50vw);
@@ -724,7 +732,6 @@
       padding-top: 3 * $spacer;
       padding-left: calc(50vw + 24px - 570px);
       padding-right: calc(50vw + 24px - 570px);
-
       h3 {
         padding-bottom: 0;
         margin-bottom: 10px;
@@ -791,6 +798,7 @@
         &.terraform-title {
           font-size: 2.625rem;
           padding-bottom: .625rem;
+          max-width: 100%;
         }
         &.hear-about {
           font-size: 1.125rem;
@@ -802,6 +810,7 @@
         }
         &.terraform-sub {
           margin-bottom: 1.5rem;
+          max-width: 100%;
         }
         &.hear-about-text {
           font-size: 1rem;
