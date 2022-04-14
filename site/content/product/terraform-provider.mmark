@@ -110,7 +110,7 @@ description: It's how you respond that makes the difference. Get quick and conte
       <div id="provision-all">
               <div class="container">
                 <div class="row text-section">
-                  <div class="col-12">
+                  <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
                     <h3 class="text-center sub-heading">Provision all you need in just seconds</h3>
                     <p class="text-center provision-text">Managing your checks, groups, alert channels and other monitoring resources should never be the bottleneck for shipping more code or increasing visibility into the state of your systems.</p>
                   </div>
@@ -299,7 +299,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
     <div id="scale-across">
           <div class="container">
             <div class="row">
-              <div class="col-12">
+              <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
                 <h3 class="text-center sub-heading scale-across-title">Scale across teams and projects</h3>
                 <p class="text-center scale-across">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
               </div>

@@ -264,6 +264,7 @@
       }
       .provision-text {
         font-size: 1.125rem;
+        max-width: 830px;
       }
       ul {
         li {
@@ -314,6 +315,8 @@
           }
         }
         @include media-breakpoint-down(sm) {
+          width: 100vw;
+          margin-left: calc(-50vw + 50% - 30px);
           filter: none;
           .code-block {
             width: 100%;
@@ -454,6 +457,7 @@
       }
       &.scale-across {
         font-size: 1.125rem;
+        max-width: 828px;
       }
     }
 
@@ -1240,5 +1244,3 @@
     }
   }
 }
-
-
