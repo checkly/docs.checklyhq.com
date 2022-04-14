@@ -54,7 +54,7 @@ KKKN|*5KKKKKKKKKKKKKKKKPL**''''_ __  ''''*|5$KKKKKKKKKKKKKKKBPLL#BKBLL*|$#KM'
     _KKNp         !##N_                      _#Kb_       _,##K"_
      _"KKNp_   __,#KKP_                      _1KKp    _ ;##KM'_`,
   'color: #45c8f1; font-size: 9px;')
-  console.log(`🚨 We're hiring, join us! https://checklyhq.com/jobs`)
+  // console.log(`🚨 We're hiring, join us! https://checklyhq.com/jobs`)
 })
 
 /**
@@ -84,11 +84,11 @@ $(document).ready(() => {
   if ($('div').hasClass('opensource')) {
     const xhr = new XMLHttpRequest()
     xhr.onload = function () {
-      var x2js = new X2JS()
+      const x2js = new X2JS()
       const data = x2js.xml2json(xhr.responseXML.documentElement)
-      var titleId = ''
-      var descId = ''
-      var linkId = ''
+      let titleId = ''
+      let descId = ''
+      let linkId = ''
       data.channel.item.forEach(function (node, i) {
         if (i < 6) {
           titleId = '#card-' + (i + 1) + '-title'
@@ -189,7 +189,7 @@ $(document).ready(() => {
   const toggle = $('.pricing__plans--toggle')
   const toggleCard = $('#pricing__plans--toggle-card')
   const toggleArrow = $('.pricing__plans--toggle-arrow')
-  var toggleFlag = 0
+  let toggleFlag = 0
   toggle.click(() => {
     if (toggleFlag === 0) {
       toggleCard.css({
@@ -249,13 +249,13 @@ $(document).ready(() => {
   button.click(() => {
     $('.toggle').toggleClass('toggle-selected')
     if (current === 'YEAR') {
-      for (let plan of plans) {
+      for (const plan of plans) {
         $(`[data-${plan.name}-price]`).text(plan.month)
         $(`[data-${plan.name}-strikeout-price]`).hide()
       }
       current = 'MONTH'
     } else {
-      for (let plan of plans) {
+      for (const plan of plans) {
         $(`[data-${plan.name}-price]`).text(plan.monthByYear)
         $(`[data-${plan.name}-strikeout-price]`).text(` $ ${plan.month} / month `).show()
       }
@@ -274,12 +274,12 @@ $(document).ready(() => {
 $(document).ready(() => {
   $('#integration-tab-0').addClass('active')
   $('#integration-tab-0-content').addClass('active')
-  var integrationTab = $('.integration-tab')
-  var tabContent = $('.integration-tab-content')
+  const integrationTab = $('.integration-tab')
+  const tabContent = $('.integration-tab-content')
 
   integrationTab.click(function () {
-    var id = $(this).attr('id')
-    var conentId = '#' + id + '-content'
+    const id = $(this).attr('id')
+    const conentId = '#' + id + '-content'
     $(integrationTab).removeClass('active')
     $(tabContent).removeClass('active')
     $(this).addClass('active')
@@ -291,9 +291,9 @@ $(document).ready(() => {
  *Footer DropDown in Tablet&Mobile
  */
 $(document).ready(() => {
-  var menuHeader = $('.menu_header')
+  const menuHeader = $('.menu_header')
   menuHeader.click(function () {
-    var id = $(this).attr('id')
+    const id = $(this).attr('id')
     const menuHeaderId = '#' + id
     const menuId = '#' + id + '_drop'
     if ($(menuId).attr('class') === 'desktop-show') {
