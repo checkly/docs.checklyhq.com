@@ -18,6 +18,12 @@
       font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       display: inline-block;
       width: 100%;
+      .pl-4 {
+        padding-left: 2rem !important;
+      }
+      .pl-5 {
+        padding-left: 3rem;
+      }
     }
     h1 {
       &.hero-text {

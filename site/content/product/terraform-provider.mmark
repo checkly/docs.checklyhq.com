@@ -1,6 +1,6 @@
 ---
-title: Terraform Provider
-description: "It's how you respond that makes the difference. Get quick and contextful alerts from Checkly on any channel you want. Know when your service fails before your customers do."
+title: Checkly's Terraform Provider for Monitoring
+description: There’s a better way to monitor your assets. Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.
 ---
 
 <div id="landing-header">
@@ -145,12 +145,12 @@ description: "It's how you respond that makes the difference. Get quick and cont
                             <div class="code-block dark">
 <pre>
 <code>resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
- <span class="pl-2">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
- <span class="pl-2">type</span>      <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
- <span class="pl-2">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
- <span class="pl-2">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
- <span class="pl-2">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1", "eu-central-1"</span>]<br>
- <span class="pl-2">script</span>    <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
+ <span class="pl-3">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
+ <span class="pl-3">type</span>      <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
+ <span class="pl-3">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
+ <span class="pl-3">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+ <span class="pl-3">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1", "eu-central-1"</span>]<br>
+ <span class="pl-3">script</span>    <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
 }</code>
 </pre>
                             </div> <!-- end codeblock -->
@@ -176,35 +176,35 @@ description: "It's how you respond that makes the difference. Get quick and cont
                           <div class="code-block dark">
 <pre>
 <code>resource <span class="code-blue">"checkly_check_group" "purchase"</span> {<br>
-  <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span><br>
-  <span class="pl-2">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
-  <span class="pl-2">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
+  <span class="pl-3">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span><br>
+  <span class="pl-3">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
+  <span class="pl-3">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
 }<br><br>
 resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
-  <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
-  <span class="pl-2">type</span>        <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
-  <span class="pl-2">frequency</span>   <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
-  <span class="pl-2">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]<br>
-  <span class="pl-2">script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
-  <span class="pl-2">group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
+  <span class="pl-3">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
+  <span class="pl-3">type</span>        <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
+  <span class="pl-3">frequency</span>   <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
+  <span class="pl-3">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]<br>
+  <span class="pl-3">script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
+  <span class="pl-3">group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
 }<br><br>
 resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
-  <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Payment"</span><br>
-  <span class="pl-2">type</span>        <span class="code-grey">=</span> <span class="code-blue">"API"</span><br>
-  <span class="pl-2">frequency</span>   <span class="code-grey">=</span> <span class="code-yellow">1</span><br>
-  <span class="pl-2">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]<br>
-  <span class="pl-2">request</span> {<br>
-    <span class="pl-3">url</span>       <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span><br>
-    <span class="pl-3">assertion</span> {<br>
-      <span class="pl-4">source</span>     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span><br>
-      <span class="pl-4">comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span><br>
-      <span class="pl-4">target</span>     <span class="code-grey">=</span> <span class="code-blue">"200"</span><br>
-    <span class="pl-3">}</span><br>
-  <span class="pl-2">}</span><br>
-  <span class="pl-2">group_id</span> <span class="code-grey">=</span> checkly_check_group<span class="code-green">.purchase.id</span><br>
+  <span class="pl-3">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Payment"</span><br>
+  <span class="pl-3">type</span>        <span class="code-grey">=</span> <span class="code-blue">"API"</span><br>
+  <span class="pl-3">frequency</span>   <span class="code-grey">=</span> <span class="code-yellow">1</span><br>
+  <span class="pl-3">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">locations</span>   <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]<br>
+  <span class="pl-3">request</span> {<br>
+    <span class="pl-4">url</span>       <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span><br>
+    <span class="pl-4">assertion</span> {<br>
+      <span class="pl-5">source</span>     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span><br>
+      <span class="pl-5">comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span><br>
+      <span class="pl-5">target</span>     <span class="code-grey">=</span> <span class="code-blue">"200"</span><br>
+    <span class="pl-4">}</span><br>
+  <span class="pl-3">}</span><br>
+  <span class="pl-3">group_id</span> <span class="code-grey">=</span> checkly_check_group<span class="code-green">.purchase.id</span><br>
 }</code>
 </pre>
                         </div>
@@ -229,59 +229,59 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
                       <div class="code-block dark">
 <pre>
 <code>resource <span class="code-blue">"checkly_alert_channel" "pagerduty_ac"</span> {<br>
-  <span class="pl-2">pagerduty</span> {<br>
-    <span class="pl-3">account</span>      <span class="code-grey">=</span> <span class="code-blue">"checkly"</span><br>
-    <span class="pl-3">service_key</span>  <span class="code-grey">=</span> <span class="code-blue">"key1"</span><br>
-    <span class="pl-3">service_name</span> <span class="code-grey">=</span> <span class="code-blue">"pdalert"</span><br>
-  <span class="pl-2">}</span><br>
+  <span class="pl-3">pagerduty</span> {<br>
+    <span class="pl-4">account</span>      <span class="code-grey">=</span> <span class="code-blue">"checkly"</span><br>
+    <span class="pl-4">service_key</span>  <span class="code-grey">=</span> <span class="code-blue">"key1"</span><br>
+    <span class="pl-4">service_name</span> <span class="code-grey">=</span> <span class="code-blue">"pdalert"</span><br>
+  <span class="pl-3">}</span><br>
 }<br><br>
 resource <span class="code-blue">"checkly_alert_channel" "email_ac"</span> {<br>
-  <span class="pl-2">email</span> {<br>
-    <span class="pl-3">address</span> <span class="code-grey">=</span> <span class="code-blue">"john@acme.com"</span><br>
-  <span class="pl-2">}</span><br>
+  <span class="pl-3">email</span> {<br>
+    <span class="pl-4">address</span> <span class="code-grey">=</span> <span class="code-blue">"john@acme.com"</span><br>
+  <span class="pl-3">}</span><br>
 }<br><br>
 resource <span class="code-blue">"checkly_check_group" "purchase"</span> {<br>
-  <span class="pl-2">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span><br>
-  <span class="pl-2">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
-  <span class="pl-2">locations</span>   <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
+  <span class="pl-3">name</span>        <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span><br>
+  <span class="pl-3">activated</span>   <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
+  <span class="pl-3">locations</span>   <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
 }<br><br>
 resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {<br>
-  <span class="pl-2">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
-  <span class="pl-2">type</span>      <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
-  <span class="pl-2">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
-  <span class="pl-2">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
-  <span class="pl-2">script</span>    <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
-  <span class="pl-2">group_id</span>  <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
-  <span class="pl-2">alert_channel_subscription</span> {<br>
-    <span class="pl-3">channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">pagerduty_ac.id</span><br>
-    <span class="pl-3">activated</span>  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">}</span><br>
-  <span class="pl-2">alert_channel_subscription</span> {<br>
-    <span class="pl-3">channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">slack_ac.id</span><br>
-   <span class="pl-3">activated</span>  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">}</span><br>
+  <span class="pl-3">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span><br>
+  <span class="pl-3">type</span>      <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span><br>
+  <span class="pl-3">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span><br>
+  <span class="pl-3">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
+  <span class="pl-3">script</span>    <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)<br>
+  <span class="pl-3">group_id</span>  <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
+  <span class="pl-3">alert_channel_subscription</span> {<br>
+    <span class="pl-4">channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">pagerduty_ac.id</span><br>
+    <span class="pl-4">activated</span>  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">}</span><br>
+  <span class="pl-3">alert_channel_subscription</span> {<br>
+    <span class="pl-4">channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">slack_ac.id</span><br>
+   <span class="pl-4">activated</span>  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">}</span><br>
 }<br><br>
 resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
-  <span class="pl-2">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Payment"</span><br>
-  <span class="pl-2">type</span>      <span class="code-grey">=</span> <span class="code-blue">"API"</span><br>
-  <span class="pl-2">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">1</span><br>
-  <span class="pl-2">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
-  <span class="pl-2">request</span> {<br>
-    <span class="pl-3">url</span> <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span><br>
-    <span class="pl-3">assertion</span> {<br>
-      <span class="pl-4">source</span>     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span><br>
-      <span class="pl-4">comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span><br>
-      <span class="pl-4">target</span>     <span class="code-grey">=</span> <span class="code-blue">"200"</span><br>
-    <span class="pl-3">}</span><br>
-  <span class="pl-2">}</span><br>
-  <span class="pl-2">group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
-  <span class="pl-2">alert_channel_subscription</span> {<br>
-    <span class="pl-3"></span>channel_id <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">email_ac.id</span><br>
-    <span class="pl-3"></span>activated  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
-  <span class="pl-2">}</span><br>
+  <span class="pl-3">name</span>      <span class="code-grey">=</span> <span class="code-blue">"Payment"</span><br>
+  <span class="pl-3">type</span>      <span class="code-grey">=</span> <span class="code-blue">"API"</span><br>
+  <span class="pl-3">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">1</span><br>
+  <span class="pl-3">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]<br>
+  <span class="pl-3">request</span> {<br>
+    <span class="pl-4">url</span> <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span><br>
+    <span class="pl-4">assertion</span> {<br>
+      <span class="pl-5">source</span>     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span><br>
+      <span class="pl-5">comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span><br>
+      <span class="pl-5">target</span>     <span class="code-grey">=</span> <span class="code-blue">"200"</span><br>
+    <span class="pl-4">}</span><br>
+  <span class="pl-3">}</span><br>
+  <span class="pl-3">group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span><br>
+  <span class="pl-3">alert_channel_subscription</span> {<br>
+    <span class="pl-4"></span>channel_id <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">email_ac.id</span><br>
+    <span class="pl-4"></span>activated  <span class="code-grey">=</span> <span class="code-yellow">true</span><br>
+  <span class="pl-3">}</span><br>
 }</code>
 </pre>
                         </div>
@@ -301,7 +301,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
             <div class="row">
               <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
                 <h3 class="text-center sub-heading scale-across-title">Scale across teams and projects</h3>
-                <p class="text-center scale-across">Need hundreds or thousands of checks running at all time, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
+                <p class="text-center scale-across">Need hundreds or thousands of checks running at all times, giving teams the flexibility to manage their own resources independently? We take the power of IaC and apply it to monitoring.</p>
               </div>
             </div>
             <div class="row mt-4 d-flex align-items-center justify-content-center">
@@ -362,7 +362,7 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {<br>
           <div class="content">
             <div class="text">
               <h3 class="text-center text-md-left title">Get the installation code</h3>
-              <p class="text-center text-md-left mb-3 step-description">Copy the installation code and save it in your terraform file.</p>
+              <p class="text-center text-md-left mb-3 step-description">Copy the installation code and save it in your Terraform file.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
               <button id="copy-installation-code" type="button" class="btn btn-primary d-inline-block landing-link mb-2 mb-lg-3 mr-md-3 mr-lg-0" style="max-width: 300px;">Copy the installation code</button>
