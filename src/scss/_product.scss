@@ -702,15 +702,17 @@
       }
     }
     .video-wrapper {
-      :hover {
-        cursor: pointer;
+      &--with-pause {
+        :hover {
+          cursor: pointer;
+        }
       }
 
       video {
         z-index: 9;
-        outline: none;
-        &:focus {
-          outline: none;
+        outline: none !important;
+        &:focus, &:hover {
+          outline: none !important;
         }
 
         &::-webkit-media-controls {
