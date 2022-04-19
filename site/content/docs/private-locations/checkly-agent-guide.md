@@ -1,6 +1,6 @@
 ---
 title: Installing Checkly Agent
-weight: 51
+weight: 52
 menu:
   docs:
     parent: "Private Locations"
@@ -44,51 +44,58 @@ Scaling up of individual agents is generally memory-constrained. For reference, 
 
 `JOB_CONCURRENCY = Container memory allocation (GB) / 1.5`
 
+For example: if your container has 8GB of memory allocated, you should set `JOB_CONCURRENCY` to 5 (8GB / 1.5GB per check).
+
 If your private location is only running API checks:
 
 `JOB_CONCURRENCY = Container memory allocation (GB) / 0.15`
 
+For example: if your container has 1GB of memory allocated, you should set `JOB_CONCURRENCY` to 6 (1GB / 0.15GB per API check). With 1.5GB of memory you can set `JOB_CONCURRENCY` to the maximum value of 10.
+
  ### Scale out
 
-To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and browser checks as frequently as every 1 minute. XXX
+To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and browser checks as frequently as every 1 minute. Based on your configuration, you should be able to estimate how many checks will run per minute in your private location. Checks have a maximum running time of 30 seconds. This means that in the worst case scenario, a checkly agent with a `JOB_CONCURRENCY` of 1 can run two checks per minute. In an average configuration this will be higher and API checks are generally faster than browser checks.
 
-Once you have an idea of how many checks will be running and you know the JOB_CONCURRENCY limit based on the agent container memory allocation XXX
-
+Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as `agents = (JOB_CONCURRENCY / Checks per minute / 2) + 1`. This should give you a safe amount of overhead to run your checks and the `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure. 
 
 ## Installing and configuring the Checkly agent:
 
-The Checkly agent is a container XXX
+The Checkly agent is a container that runs your checks from within your infrastructure. It needs to be installed in an OCI-compliant container engine such as Docker or Podman.
 
 Checkly agents use API keys to associate with private locations. An agent can only associate and run checks for one private location. A private location can have one or two API keys defined to allow for key rotation. This means you can rotate keys on a regular basis for security or in case you lose a key. Keys are only shown once upon creation. After that you can only see the trailing characters to identify the keys.
 
-6) You will receive an API key for the new location. Copy this key and keep it safe as you will need it to add agents to the location, and you won’t be able to see it again.
+This guide is specific to the Checkly agent. For information about the overall steps for creating a private location see the [getting started guide](/docs/private-locations/private-locations-getting-started/).
 
-![private location key](/docs/images/private-locations/private_location_key.png)
+### Agent installation steps
 
-7) You now see your new private location in the list with no agents installed. Copy the docker run command as shown.
+1) You will have received an API key for the private location when it was created. You can also see the trailing characters for the key in the private locations list to ensure you're using the correct one. You can also easily copy the `docker run` command from that page.
 
 ![private location added](/docs/images/private-locations/private_location_added.png)
 
-8) Paste the `docker run` command into your container host. Paste your API key from step 6 between the quotation marks for the `API_KEY` environment variable. Optionally, replace `docker` with the command for your container engine of choice (podman, etc.). For example:
+2) Paste or type the `docker run` command into your container host. Paste your API key from step 6 between the quotation marks for the `API_KEY` environment variable. Optionally, replace `docker` with the command for your container engine of choice (podman, etc.). For example:
 
 `docker run -e API_KEY="pl_...." -d ghcr.io/checkly/agent:latest`
 
-Note that at this point you can add additional environment variables and startup parameters to the run command. XXX 
+Note that at this point you can add additional environment variables and startup parameters to the run command. You can also set memory and CPU allocations for the container and other settings (e.g. networking) as needed for your container environment (not shown).
 
-9) Optional: You can configure an HTTP proxy if one is required for your environment. Add an additional environment variable after the `API_KEY` like this:
+3) Optional: Set the `JOB_CONCURRENCY` to the appropriate value (1-10) based on your scaling calculations:
 
-`-e HTTP_PROXY="https://user:password@127.0.0.1:8080"`
+`-e JOB_CONCURRENCY=10`
 
-10) Run the complete `docker run` command to start the agent.
+4) Optional: You can configure an HTTPS or HTTP proxy if one is required for your environment. Add an additional environment variable after the `API_KEY` like this:
 
-11) Once the agent container is downloaded and starts up, you can see it in a running state using the appropriate command from your container engine (typically `docker ps`).
+`-e HTTPS_PROXY="https://user:password@127.0.0.1:8080"`
+
+5) Run the complete `docker run` command to start the agent.
+
+6) Once the agent container is downloaded and starts up, you can see it in a running state using the appropriate command from your container engine (typically `docker ps`).
 
 ```
 CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS            PORTS   NAMES
 5c8753a42d05  [ghcr.io/checkly/agent:latest](http://ghcr.io/checkly/agent:latest)  node index.js  2 minutes ago  Up 2 minutes ago          confident_leakey
 ```
 
-12) You can also check the logs of the new container to ensure it's up and running (typically `docker logs <container_name>`).
+7) You can also check the logs of the new container to ensure it's up and running (typically `docker logs <container_name>`).
 
 ```
 [checkly-agent] Starting Consumer c7495186-6f1e-4526-b173-14ee9ad21775
@@ -99,9 +106,9 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 [checkly-agent] No jobs. Waiting..
 ```
 
-13) Start additional agents as required. A single agent is fine for testing but multiple agent containers are recommended for redundancy.
+8) Start additional agents as required. A single agent is fine for testing but multiple agent containers are recommended for redundancy. These agent containers should be on different hosts or nodes.
 
-14) Refresh the private locations page in the Checkly app and you will see a count of the number of running agents.
+9) Refresh the private locations page in the Checkly app and you will see a count of the number of running agents.
 
 ![agent running](/docs/images/private-locations/agent_running.png)
 

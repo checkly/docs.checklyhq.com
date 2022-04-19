@@ -8,8 +8,6 @@ aliases:
 - "/docs/private-locations/private-locations-getting-started/"
 ---
 
-**Checkly private locations is a technical preview feature. It is not recommended for production use and is available on request.**
-
 Note: The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
 
 ## About Private Locations
