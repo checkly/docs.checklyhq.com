@@ -8,7 +8,9 @@ aliases:
 - "/docs/private-locations/private-locations-getting-started/"
 ---
 
+{{<info>}}
 Note: The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
+{{<info>}}
 
 ## About Private Locations
 

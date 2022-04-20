@@ -27,7 +27,7 @@ Here are the requirements before you get started:
 
 ## Redundancy and scaling
 
-We recommend at least two agents per private location for redundancy. When considering scaling, you should use at least N+1 agents per private location to ensure checks will be processed even if an agent fails. Agents are stateless, ephemeral, and scale automatically. You can add additional agents to a location at any time and remove them as necessary. If an agent fails, the other agents in the same private location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period (140s). There are two cases where checks assigned to a location could fail to run:
+We recommend at least two agents per private location for redundancy. When considering scaling, you should use at least N+1 agents per private location to ensure checks will be processed even if an agent fails. Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them as necessary. If an agent fails, the other agents in the same private location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period (140s). There are two cases where checks assigned to a location could fail to run:
 
 * All of the agents in the private location have failed
 * There is insufficient agent capacity in the private location
