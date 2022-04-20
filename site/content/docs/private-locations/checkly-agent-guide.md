@@ -104,7 +104,7 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 [checkly-agent] No jobs. Waiting..
 ```
 
-8) Start additional agents as required. A single agent is fine for testing but multiple agent containers are recommended for redundancy. These agent containers should be on different hosts or nodes.
+8) Start additional agents as required. While a single agent is fine for testing, we recommend running multiple agent containers across several hosts/nodes for redundancy and performance.
 
 9) Refresh the private locations page in the Checkly app and you will see a count of the number of running agents.
 
@@ -112,7 +112,9 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 
 ## Updating the agent container
 
-Since the agents are stateless, they are updated by replacing them or updating the image in place. An in-place upgrade is easiest as it keeps the previously defined environment variables. You can use this command to do an in-place upgrade of an agent container. Ensure you have sufficient agent capacity as the agent container will have a short outage as it is upgraded. As agent shutdowns are graceful, no running checks will be lost:
+Since the agents are stateless, they can be updated by replacing them or updating the image in place. If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
+
+You can use the [Watchtower tool](https://containrrr.dev/watchtower/) to do an in-place upgrade of an agent container. Ensure you have sufficient agent capacity as the agent container will have a short outage as it is upgraded. As agent shutdowns are graceful, no running checks will be lost:
 
 `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once <container-name-to-be-updated>`
 
