@@ -10,7 +10,7 @@ aliases:
 
 {{<info>}}
 Note: The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
-{{<info>}}
+{{</info>}}
 
 ## About Private Locations
 
