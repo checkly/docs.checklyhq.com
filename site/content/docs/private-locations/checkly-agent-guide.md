@@ -16,10 +16,6 @@ Note: The Checkly Agent currently only supports x86/AMD64 architecture and not A
 
 The Checkly Agent is a container-based tool that enables private locations in Checkly. The agent runs on your infrastructure in a container and runs checks on behalf of the Checkly application. Since the agent is local to your infrastructure, checks can run against any application accessible from the agent via HTTPS or HTTP.
 
-Here's how private locations work:
-
-A private location is similar to our existing public locations, but you have control over it. A private location can be in your own segregated network,  on-premises or cloud-based. You need one or more Checkly agents installed in that location/network with access to your applications. Checks are configured and scheduled in the Checkly cloud-based web UI as usual, but selecting a private location runs the check on the agent(s) in your infrastructure. Agents are stateless and ephemeral. As long as you have at least one operational agent, checks will run in your private location. Adding more agents will distribute the load and improve resilience and performance automatically.
-
 Here are the requirements before you get started:
 
 - The API key received when creating a private location in the Checkly account settings page
@@ -70,7 +66,7 @@ This guide is specific to the Checkly agent. For information about the overall s
 
 1) You will have received an API key for the private location when it was created. You can also see the trailing characters for the key in the private locations list to ensure you're using the correct one. You can also easily copy the `docker run` command from that page.
 
-![private location added](/docs/images/private-locations/private_location_added.png)
+![private location added](/docs/images/private-locations/private_location_added_command.png)
 
 2) Paste or type the `docker run` command into your container host. Paste your API key from step 6 between the quotation marks for the `API_KEY` environment variable. Optionally, replace `docker` with the command for your container engine of choice (podman, etc.). For example:
 
