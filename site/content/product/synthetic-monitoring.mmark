@@ -37,7 +37,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
 </p>
 
 <div class="text-center mb-5">
-  <div class="video-wrapper">
+  <div class="video-wrapper video-wrapper--with-pause">
     <video id="synthetic-monitoring-video" autoplay loop controls >
       <source src="/product/synthetic-browser-check-how-works.mp4" type=video/mp4>
     </video>
