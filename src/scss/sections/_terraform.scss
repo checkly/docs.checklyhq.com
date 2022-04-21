@@ -1,6 +1,6 @@
 @import '../variables';
 
-.e2e-pr-section {
+.terraform-section {
   padding-top: 1.4 * $section-top-padding;
   padding-bottom: 1.7 * $section-bottom-padding;
   background: $white;
@@ -40,11 +40,6 @@
   	margin-bottom: 0;
   }
 
-  img.pr-image {
-    width: 690px;
-    margin-left: 50px;
-  }
-
   @include media-breakpoint-down(md) {
     padding-top: $section-top-padding;
     padding-bottom: 30px;
@@ -53,19 +48,16 @@
       margin-bottom: 20px;
     }
 
-    img.pr-image {
-      position: relative;
-      width: 100%;
-      height: auto;
-      margin-left: 0;
-    }
     .pt-4 {
       padding-top: 10px !important;
     }
   }
 
   .img-offset {
-    margin-top: -10%
+    margin-top: -5%;
+    width: 576px;
+    height: 512px;
+    float:right;
   }
 
   .extra-margin-right {
