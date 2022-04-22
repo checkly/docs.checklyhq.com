@@ -47,7 +47,7 @@
       "source": "/",
       "has": [
         {
-          "key": "host",
+          "type": "host",
           "value": "docs.checklyhq.com"
         }
       ],
