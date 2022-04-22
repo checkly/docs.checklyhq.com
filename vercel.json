@@ -8,15 +8,27 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "x-frame-options", "value": "deny" },
-        { "key": "x-xss-protection", "value": "0" },
-        { "key": "x-content-type-options", "value": "nosniff" }
+        {
+          "key": "x-frame-options",
+          "value": "deny"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "0"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        }
       ]
     },
     {
       "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp|svg)",
       "headers": [
-        { "key": "cache-control", "value": "max-age=86400, s-maxage=86400" }
+        {
+          "key": "cache-control",
+          "value": "max-age=86400, s-maxage=86400"
+        }
       ]
     }
   ],
@@ -28,6 +40,18 @@
     {
       "source": "/a/e",
       "destination": "https://plausible.io/api/event"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "key": "host",
+          "value": "docs.checklyhq.com"
+        }
+      ],
+      "destination": "/docs"
     }
   ]
 }
