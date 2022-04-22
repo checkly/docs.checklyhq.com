@@ -51,7 +51,7 @@
           "value": "docs.checklyhq.com"
         }
       ],
-      "destination": "/docs"
+      "destination": "https://www.checklyhq.com/docs"
     }
   ]
 }
