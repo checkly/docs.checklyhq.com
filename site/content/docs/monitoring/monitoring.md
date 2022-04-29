@@ -28,7 +28,7 @@ A picture is a thousand words:
 
 ![monitoring and alerting pipeline](/docs/images/monitoring/pipeline.png)
 
-1. A cron process picks up a check based on its schedule, say every 5 minutes. It validates that the check is not in progress at the moment to avoid race conditions. The script is put into a queue to be run from the next configured data center location.
+1. A cron process picks up a check based on its schedule, say every 5 minutes. It validates that the check is not in progress at the moment to avoid race conditions. The check is put into a queue to be run from the next configured data center location.
 2. If the check is an API check and has a [setup script](/docs/api-checks/setup-teardown-scripts/), the setup script is executed. 
 3. The check is executed. If the check fails and "double check" is enabled, the check is retried once in a different location.
 The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations. Setup scripts are executed again during the retry.
