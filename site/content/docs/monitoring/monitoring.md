@@ -28,13 +28,12 @@ A picture is a thousand words:
 
 ![monitoring and alerting pipeline](/docs/images/monitoring/pipeline.png)
 
-1. A cron process picks up a check based on its schedule, say every 5 minutes. It validates that the check is not in progress at the moment to avoid race conditions.
-2. The script is put into a queue to be run from the next configured data center location. If the check is an API check and has a [setup script](/docs/api-checks/setup-teardown-scripts/), the setup script is executed. 
-3. If the check fails and "double check" is enabled, the check is retried once in the same location *and* in a different location.
-The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations.
+1. A cron process picks up a check based on its schedule, say every 5 minutes. It validates that the check is not in progress at the moment to avoid race conditions. The script is put into a queue to be run from the next configured data center location.
+2. If the check is an API check and has a [setup script](/docs/api-checks/setup-teardown-scripts/), the setup script is executed. 
+3. The check is executed. If the check fails and "double check" is enabled, the check is retried once in a different location.
+The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations. Setup scripts are executed again during the retry.
 4. If the check is an API check and has a [teardown script](/docs/api-checks/setup-teardown-scripts/), the teardown script is executed.
 Teardown scripts are run *before* any assertions are validated.
-In the case of an API check with a setup, a teardown script and a retry, the setup script is only retried if it failed in the initial run. The initial request and the teardown script are always retried in the case of a failure. 
 5. The result is stored in our central database and any alerts are sent where applicable.
 
  
