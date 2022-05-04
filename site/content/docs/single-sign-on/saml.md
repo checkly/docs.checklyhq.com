@@ -8,6 +8,8 @@ menu:
 
 This page illustrates the standard procedure to follow in order to get started with SAML SSO on Checkly.
 
+> SSO is only available for Checkly's [enterprise plans](/pricing).
+
 ## Initial SSO setup
 
 Setting up SSO for your organisation starts with providing [Checkly Support](mailto:support@checklyhq.com) with the following information:
