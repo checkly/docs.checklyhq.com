@@ -43,6 +43,7 @@ You can use the following event-related variables in both URL and payload.
 | `SSL_CHECK_DOMAIN`  | The domain of the SSL certificate. For ALERT_SSL only.       |
 | `STARTED_AT`        | The ISO timestamp from when this check run started           |
 | `TAGS`              | An array of tags assigned to the check. Have a look at our Opsgenie example below on how to render this to a JSON array. |
+| `GROUP_NAME`        | The name of the group, if the check belongs to one.          |
 
 ## Using Handlebars helpers
 
