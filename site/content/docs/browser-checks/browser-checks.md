@@ -46,7 +46,7 @@ The script validates assumptions you have about that web page, for instance:
 - Can users add products to the shopping cart?
 - Can users log in to my app?
 
-Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)** 
+Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
 frameworks to drive these actions. Playwright and Puppeteer are Javascript frameworks that "talk" to a real Google Chrome browser.
 You use these frameworks to control the interactions you want to happen on a web page.
 
@@ -55,7 +55,7 @@ Checkly currently supports using only **Google Chrome** with both Playwright and
 {{< /info >}}
 
 {{< warning >}}
-Note: It is not possible to use both Playwright and Puppeteer in the same Browser Check script.  
+Note: It is not possible to use both Playwright and Puppeteer in the same Browser Check script.
 {{< /warning >}}
 
 
@@ -219,6 +219,8 @@ alerting channels will be triggered, notifying your team that something is up.
 - [Headless Automation guides](/learn/headless), a free & open source knowledge base for Playwright and Puppeteer
 (maintained by Checkly).
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
+- [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
+Playwright-related libraries, tips and resources.
 - [pptr.dev](https://pptr.dev/) is the official API documentation site for the Puppeteer framework.
-- [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) is a great GitHub repo full of Puppeteer
-related libraries, tips and resources.
+- [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) is a great GitHub repo full of
+Puppeteer-related libraries, tips and resources.
