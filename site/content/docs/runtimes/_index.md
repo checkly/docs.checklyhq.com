@@ -5,6 +5,8 @@ slug: /
 menu:
   docs:
     parent: "Runtimes"
+aliases:
+- /docs/runtimes/
 ---
 
 Checkly allows you to use JavaScript code in your [Browser checks](/docs/browser-checks) and in the optional 

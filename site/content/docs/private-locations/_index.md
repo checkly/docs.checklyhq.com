@@ -1,11 +1,13 @@
 ---
 title: Getting started with private locations
 weight: 51
+slug: /
 menu:
   docs:
     parent: "Private Locations"
 aliases:
 - "/docs/private-locations/private-locations-getting-started/"
+- "/docs/private-locations/"
 ---
 
 {{<info>}}
