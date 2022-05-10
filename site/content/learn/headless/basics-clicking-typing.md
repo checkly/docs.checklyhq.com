@@ -29,9 +29,9 @@ Clicking is the default way of selecting and activating elements on web pages, a
 {{< tabs "1">}}
 {{< tab "Playwright" >}}
  ```js
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -44,9 +44,9 @@ const { chromium } = require('playwright');
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer')
 
-(async () => {
+;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -72,9 +72,9 @@ A popular pattern among web pages is exposing additional information or function
 {{< tabs "3" >}}
 {{< tab "Playwright" >}}
  ```js
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -87,9 +87,9 @@ const { chromium } = require('playwright');
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer')
 
-(async () => {
+;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -110,9 +110,9 @@ Focussing on specific UI elements allows the user to interact with them without 
 {{< tabs "4" >}}
 {{< tab "Playwright" >}}
  ```js
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -125,9 +125,9 @@ const { chromium } = require('playwright');
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer')
 
-(async () => {
+;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -148,9 +148,9 @@ We can simulate typing on a real keyboard using `page.type()`:
 {{< tabs "5" >}}
 {{< tab "Playwright" >}}
  ```js
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')
@@ -163,9 +163,9 @@ const { chromium } = require('playwright');
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer')
 
-(async () => {
+;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com/')

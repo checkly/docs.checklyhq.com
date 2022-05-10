@@ -1,8 +1,8 @@
 const { chromium } = require('playwright')
 const fs = require('fs')
-const assert = require('chai').assert;
+const assert = require('chai').assert
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const context = await browser.newContext({ acceptDownloads: true })
   const page = await context.newPage()

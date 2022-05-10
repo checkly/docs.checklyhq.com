@@ -1,9 +1,9 @@
 const { chromium } = require('playwright')
 const axios = require('axios')
 const fs = require('fs')
-const assert = require('chai').assert;
+const assert = require('chai').assert
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
