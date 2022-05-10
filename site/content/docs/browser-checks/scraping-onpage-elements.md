@@ -42,7 +42,7 @@ await browser.close()
 {{< tab "Puppeteer" >}}
  ```js
 const puppeteer = require('puppeteer')
-const expect = require('expect').expect
+const expect = require('expect')
 
 const browser = await puppeteer.launch()
 const page = await browser.newPage()
