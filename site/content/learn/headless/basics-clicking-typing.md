@@ -32,13 +32,13 @@ Clicking is the default way of selecting and activating elements on web pages, a
 const { chromium } = require('playwright');
 
 (async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.click('#login');
+  await page.click('#login')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -47,14 +47,14 @@ const { chromium } = require('playwright');
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.waitForSelector('#login');
-  await page.click('#login');
+  await page.waitForSelector('#login')
+  await page.click('#login')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -75,13 +75,13 @@ A popular pattern among web pages is exposing additional information or function
 const { chromium } = require('playwright');
 
 (async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.hover('a');
+  await page.hover('a')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -90,14 +90,14 @@ const { chromium } = require('playwright');
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.waitForSelector('a');
-  await page.hover('a');
+  await page.waitForSelector('a')
+  await page.hover('a')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -113,13 +113,13 @@ Focussing on specific UI elements allows the user to interact with them without 
 const { chromium } = require('playwright');
 
 (async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.focus('input');
+  await page.focus('input')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -128,14 +128,14 @@ const { chromium } = require('playwright');
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.waitForSelector('input');
-  await page.focus('input');
+  await page.waitForSelector('input')
+  await page.focus('input')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -151,13 +151,13 @@ We can simulate typing on a real keyboard using `page.type()`:
 const { chromium } = require('playwright');
 
 (async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
-  await page.fill('input', 'some search terms');
+  await page.fill('input', 'some search terms')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -166,14 +166,14 @@ const { chromium } = require('playwright');
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://danube-webshop.herokuapp.com/');
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto('https://danube-webshop.herokuapp.com/')
 
   await page.waitForSelector('input')
-  await page.type('input', 'some search terms');
+  await page.type('input', 'some search terms')
 
-  await browser.close();
+  await browser.close()
 })()
  ```
 {{< /tab >}}
@@ -190,9 +190,9 @@ Key presses can also be sent to a specific element:
 We can also hold down and release one or more keys, possibly combining them to use keyboard shortcuts:
 
 ```js
-await page.keyboard.down('Control');
-await page.keyboard.press('V');
-await page.keyboard.up('Control');
+await page.keyboard.down('Control')
+await page.keyboard.press('V')
+await page.keyboard.up('Control')
 ```
 
 You can run (from the terminal) the above examples as follows:
