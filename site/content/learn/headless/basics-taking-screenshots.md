@@ -20,7 +20,7 @@ Headless browsers are fully capable of taking screenshots, which is very useful 
 
 ## Generating and saving screenshots
 
-The `page.screenshot` command is consistent across Playwright and Puppeteer, and allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot will depend on that of the viewport:
+The `page.screenshot` command is consistent across Playwright and Puppeteer, and allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot depends on the viewport size:
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
@@ -30,7 +30,7 @@ The `page.screenshot` command is consistent across Playwright and Puppeteer, and
 {{< run-in-checkly "/samples/playwright/basic-screenshot.js" "playwright"  >}}
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
-```js 
+```js
 {{< readfile filename="samples/puppeteer/basic-screenshot.js" >}}
 ```
 {{< run-in-checkly "/samples/puppeteer/basic-screenshot.js" "puppeteer"  >}}

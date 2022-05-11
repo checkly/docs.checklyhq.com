@@ -1,6 +1,6 @@
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const context = await browser.newContext()
   const page = await context.newPage()

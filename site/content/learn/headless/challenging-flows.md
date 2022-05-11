@@ -47,19 +47,19 @@ Bot detection could be deactivated for pre-production environments in order to a
 {{< tabs "1">}}
 {{< tab "Playwright" >}}
 ```js
-const browser = await chromium.launch();
+const browser = await chromium.launch()
 const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>'
-});
-const page = await context.newPage('https://example.com');
+})
+const page = await context.newPage('https://example.com')
 
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
  ```js
-const browser = await puppeteer.launch();
-const page = await browser.newPage();
-await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>');
+const browser = await puppeteer.launch()
+const page = await browser.newPage()
+await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>')
 
 ```
 {{< /tab >}}

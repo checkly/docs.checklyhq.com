@@ -1,7 +1,7 @@
-const {chromium} = require('playwright')
-const fs = require('fs');
+const { chromium } = require('playwright')
+const fs = require('fs')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
@@ -10,14 +10,14 @@ const fs = require('fs');
   const localStorage = fs.readFileSync('localstorage.json', 'utf8')
 
   const deserializedStorage = JSON.parse(localStorage)
-  await page.evaluate(deserializedStorage => {
+  await page.evaluate((deserializedStorage) => {
     for (const key in deserializedStorage) {
-      localStorage.setItem(key, deserializedStorage[key]);
+      localStorage.setItem(key, deserializedStorage[key])
     }
-  }, deserializedStorage);
+  }, deserializedStorage)
 
-  await page.waitForSelector("#cart")
-  await page.click("#cart")
+  await page.waitForSelector('#cart')
+  await page.click('#cart')
 
   await browser.close()
 })()

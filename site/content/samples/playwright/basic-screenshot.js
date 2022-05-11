@@ -1,6 +1,6 @@
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
   await page.setViewportSize({ width: 1280, height: 800 })

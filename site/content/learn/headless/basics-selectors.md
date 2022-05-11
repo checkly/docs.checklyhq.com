@@ -14,7 +14,7 @@ menu:
     parent: "Getting started"
 ---
 
-With Puppeteer and Playwright, as well as with most other UI automation tools, elements on the UI are referenced through element selectors. Becoming proficient in the use of selectors is a hard requirement for writing scripts; an eye for good, solid selectors can make the difference between unstable (or "flaky") high-maintenace script and solid, reliable ones.
+Puppeteer, Playwright and most other UI automation tools reference UI elements through selectors. Becoming proficient in the use of selectors is a hard requirement for writing scripts. An eye for good, solid selectors can make the difference between unstable (or "flaky") high-maintenace scripts and solid, reliable ones.
 
 This guide aims to get new users started with selectors, and to serve a refresher for more experienced automators. Even though some content will be specific to Puppeteer and Playwright, most principles will apply to most, if not all, UI automation tools.
 
@@ -22,7 +22,7 @@ This guide aims to get new users started with selectors, and to serve a refreshe
 
 ## Different types of selectors
 
-Depending on the tool and the application being tested, different kind of selectors might be available. Puppeteer and Playwright share two main types of selector:
+Depending on the tool and the application being tested, different kind of selectors might be available. Puppeteer and Playwright share two main selector types:
 
 1. [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
 2. [XPath selectors](https://developer.mozilla.org/en-US/docs/Web/XPath)
@@ -44,7 +44,7 @@ Originally used to target HTML elements for [applying CSS rules](https://develop
 Examples:
 1. `#add-to-cart` selects the item with id `add-to-cart`, e.g. `<button id="add-to-cart">Buy</button>`
 2. `.preview` selects the item with class `preview`, e.g. `<li data-v-5ad54829="" class="preview">...</li>`
-3. `.preview .preview-price` selects the item with class `price` within the element with class `preview`
+3. `.preview .preview-price` selects the item with class `preview-price` within the element with class `preview`
 4. `[data-test=login-button]` selects the item with attribute `data-test` equal to `login-button`, e.g. `<button id="btn-login" aria-label="Log in" data-test="login-button">Log in</button>`
 5. `a.preview-link` selects the item of type `a` with class `preview-link`, e.g. `<a href="https://example.com/ class="preview-link">Example</a>"`
 6. `#navbar > .button-cart` selected the item with class `button-cart` within the item with id `navbar`
@@ -68,7 +68,7 @@ Examples:
 Text selectors allow selecting an element via its text content directly. They are Playwright-specific.
 
 Examples:
-1. `text=Add` selects the element containing text `Add`, `add` or similar (case insensitive) 
+1. `text=Add` selects the element containing text `Add`, `add` or similar (case insensitive)
 2. `text="Add to cart"` selects the element containing exactly the text `Add to cart`
 
 ### Playwright-specific selectors
@@ -83,7 +83,7 @@ Examples:
 With Playwright, multiple selectors of different types can be combined to reference elements relative to other elements.
 
 Examples:
-1. `css=preview >> text=In stock` selects the item with class `preview` and text content `In stock`, `in stock` or similar (case insensitive) 
+1. `css=preview >> text=In stock` selects the item with class `preview` and text content `In stock`, `in stock` or similar (case insensitive)
 
 ## Finding selectors
 
@@ -97,7 +97,7 @@ Once you know enough about selectors, looking at a page's HTML will be enough to
 
 ### Inspecting the page
 
-You can also use your browser's inspector tool, as found e.g. in the [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/dom), to highlight elements on the page and see their attributes. 
+You can also use your browser's inspector tool, as found e.g. in the [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/dom), to highlight elements on the page and see their attributes.
 
 ![getting selectors via the browser inspector](/samples/images/selectors-inspector.png)
 
@@ -133,19 +133,19 @@ We can also test our selectors directly in the browser, before touching our scri
 
 Similarly, we can test XPath selectors using `$x(<selector>)`, which will return all the element matching our criteria.
 
-The Playwright-specific selectors can be tested by running the Playwright Inspector, which will provision a `playwright` object for access in the console. 
+The Playwright-specific selectors can be tested by running the Playwright Inspector, which provisions an accessible `playwright` object in the console.
 
 ![playwright inspector object in console](/samples/images/selectors-pwobject.png)
 
 ## Choosing selectors
 
-The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place since the inception of the script to save yourself time and effort going forward.
+The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
 
 The attributes of a good selector are:
 
-- **Uniqueness**: the goal is to choose something that will identify the target element, and nothing else; [IDs](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors#ID_Selectors) are the natural choice, when available.
-- **Stability**: choosing an attribute that is not likely to change over time as the page gets updated lowers the chances that you will need to manually update it.
-- **Conciseness**: a short selector is easier to read, understand and possibly replace if it finally breaks.
+- **Uniqueness**: choose a selector that will identify the target element, and nothing else; [IDs](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors#ID_Selectors) are the natural choice, when available.
+- **Stability**: use an attribute that is unlikely to change as the page gets updated lowers the chances that you will need to manually update it.
+- **Conciseness**: prefer short selectors that are easier to read, understand and possibly replace if a script breaks.
 
 ### Examples of bad selectors
 
@@ -155,7 +155,7 @@ Avoid this kind of selector *whenever possible:*
     - not concise
     - likely not stable: class names are auto-generated, they could change rapidly
 2. `.g:nth-child(3) > .rc`
-    - likely not stable: is the third child of .g always going to be present?
+    - likely not stable: is the third child of `.g` always going to be present?
     - likely not unique: is it always going to be the right element?
 3. `a[data-v-9a19ef14]`
     - not stable: attribute is [auto-generated](https://vue-loader.vuejs.org/guide/scoped-css.html#scoped-css) and changes between deployments
