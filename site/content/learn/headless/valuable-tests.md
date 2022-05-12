@@ -13,7 +13,7 @@ menu:
     parent: "Best practices"
 ---
 
-Headless browsers can be leveraged for testing in a variety of ways, and different scenarios do command different approaches. That being said, there are some general pointers most should follow in order to keep their tests _valuable_.
+Headless browsers can be leveraged for testing in a variety of ways, and different scenarios do command different approaches. There are some general pointers most should follow in order to keep their tests _valuable_.
 
 Here, we define _valuable_ as _sustainably expressing meaningful, truthful information about the state of a system_.
 A test that does not reliably fulfill these criteria should be fixed, if possible, or simply removed.

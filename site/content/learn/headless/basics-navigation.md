@@ -14,13 +14,12 @@ menu:
     parent: "Getting started"
 ---
 
-Every useful script that we will write will almost certainly do three key things:
+Every script that we will write will almost certainly do three key things:
 1. Navigating to some web page
 2. Waiting for something
 3. Possibly getting a timeout 😐
 
-Both frameworks handle these scenarios in very similar ways but Playwright explicitly differentiates itself from Puppeteer
-by having a "built in" waiting mechanism that covers a lot of common scenarios.
+> Both frameworks handle these scenarios in very similar ways but [Playwright explicitly differentiates itself from Puppeteer by having a "built-in" waiting mechanism](https://playwright.dev/docs/actionability) that covers many common scenarios.
 
 <!-- more -->
 
@@ -73,7 +72,7 @@ needs to be loaded after clicking, hovering, navigating etc. You can pass it an 
 to override the default 30 seconds.
 
 In the example below, we type an email address into an input field on a login modal. Notice the difference between
-the Playwright and Puppeteer example.
+the Playwright and Puppeteer example. Playwright's `fill` method comes with built-in waiting functionality.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}

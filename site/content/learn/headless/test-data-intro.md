@@ -42,11 +42,11 @@ Looking at our [test webshop](https://danube-store.herokuapp.com/), we might wan
 We are then able to feed this file into our test...
 
 ```js
-const fs = require('fs');
+const fs = require('fs')
 ...
-let rawdata = fs.readFileSync('books.json');
-const bookList = JSON.parse(rawdata);
-const foundList = bookList;
+let rawdata = fs.readFileSync('books.json')
+const bookList = JSON.parse(rawdata)
+const foundList = bookList
 ```
 
 ...and have each comparison executed to ensure the right elements are being shown.
@@ -70,9 +70,9 @@ In case the platform you are testing exposes an API endpoint to pull up-to-date 
 ```js
 const axios = require('axios');
 ...
-const { data } = await axios.get('https://danube-store.herokuapp.com/api/books');
-const bookList = JSON.parse(data);
-const foundList = bookList;
+const { data } = await axios.get('https://danube-store.herokuapp.com/api/books')
+const bookList = JSON.parse(data)
+const foundList = bookList
 ```
 
 ## Takeaways

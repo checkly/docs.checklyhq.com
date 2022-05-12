@@ -1,7 +1,7 @@
 const { chromium } = require('playwright')
-const fs = require('fs');
+const fs = require('fs')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
