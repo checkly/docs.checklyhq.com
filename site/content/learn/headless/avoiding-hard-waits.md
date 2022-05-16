@@ -20,13 +20,13 @@ Looking to solve the issue of a page or element not being loaded, many take the 
 
 Hard waits do one thing and one thing only: wait for the specified amount of time. There is nothing more to them. This makes them dangerous: they are intuitive enough to be favoured by beginners and inflexbile enough to create serious issues.
 
-Let's explore these issues in practical terms through an example. Imagine the following situation: our script is running using a tool without any sort of built-in smart waiting, and we need to wait until an element appears on a page and then attempt to click it. We try to solve this issue with a hard wait, like Puppeteer's `page.waitFor(timeout)`. 
+Let's explore these issues in practical terms through an example. Imagine the following situation: our script is running using a tool without any sort of built-in smart waiting, and we need to wait until an element appears on a page and then attempt to click it. We try to solve this issue with a hard wait, like Puppeteer's `page.waitFor(timeout)`.
 
 This could looks something like the following:
 
 ```js
-await page.waitFor(1000); // hard wait for 1000ms
-await page.click('#button-login');
+await page.waitFor(1000) // hard wait for 1000ms
+await page.click('#button-login')
 ```
 
 In such a situation, the following can happen:
@@ -45,7 +45,7 @@ While the element is correctly clicked once our wait expires, and our script con
 
 In general, with hard waits we are virtually always waiting too little or too long. In the worst case scenario, the fluctuations in load time between different script executions are enough to make the wait sometimes too long and sometimes too short (meaning we will switch between scenario 1 and 2 from above in an unpredictable manner), making our script fail intermittently. That will result in unpredictable, seemingly random failures, also known as flakiness.
 
-Flakiness, a higher-than-acceptable false failure rate, can be a major problem. It is essentially a source of noise, making it harder to understand what the state of the system we are testing or monitoring really is. Not only that, but stakeholders who routinely need to investigate failures only to find out that they are script-related (instead of system-related) will rapidly lose confidence in an automation setup. 
+Flakiness, a higher-than-acceptable false failure rate, can be a major problem. It is essentially a source of noise, making it harder to understand what the state of the system we are testing or monitoring really is. Not only that, but stakeholders who routinely need to investigate failures only to find out that they are script-related (instead of system-related) will rapidly lose confidence in an automation setup.
 
 ## How to fix it
 
@@ -55,7 +55,7 @@ Our aim should be to wait just long enough for the element to appear. We want to
 
 ![playwright smart wait](/learn/images/smart_wait_01@2x.png)
 
-Different tools approach the broad topic of waiting in different ways. Both Puppeteer and Playwright offer many different kinds of smart waits, but Playwright takes things one step further and introduces an auto-waiting mechanism on most page interactions. 
+Different tools approach the broad topic of waiting in different ways. Both Puppeteer and Playwright offer many different kinds of smart waits, but Playwright takes things one step further and introduces an auto-waiting mechanism on most page interactions.
 
 Let's take a look at different smart waiting techniques and how they are used.
 
@@ -76,7 +76,7 @@ On a page load, we can use the following:
 1. `{{< newtabref title="page.waitForNavigation" href="https://playwright.dev/docs/api/class-page#page-wait-for-navigation" >}}` to wait until a page navigation (new URL or page reload) has completed.
 2. `{{< newtabref title="page.waitForLoadState" href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" >}}` for Playwright, waits until the required load state has been reached (defaults to `load`); `{{< newtabref title="page.waitForNetworkIdle" href="https://pptr.dev/#?product=Puppeteer&show=api-pagewaitfornetworkidleoptions" >}}` with Puppeteer, a narrower method to wait until all network calls have ended.
 3. `{{< newtabref title="page.waitForURL" href="https://playwright.dev/docs/api/class-page#page-wait-for-url" >}}` with Playwright, waits until a navigation to the target URL.
-	
+
 All the above default to waiting for the `{{< newtabref title="load" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" >}}` event, but can also be set to wait for:
 * the `{{< newtabref title="DOMContentLoaded" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event" >}}` event.
 * Playwright only: `networkidle`, raised when there are no network connections for at least 500 ms.
@@ -91,10 +91,10 @@ Additionally, we can also wait until a specific request is sent out or a specifi
 ### Waiting for an element
 
 We can also explicitly wait for a specific element to appear on the page. This is normally done via `{{< newtabref title="page.waitForSelector" href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" >}}` or a similar method, like `{{< newtabref title="page.waitForXPath" href="https://pptr.dev/#?product=Puppeteer&show=api-pagewaitforxpathxpath-options" >}}` (Puppeteer only). A good knowledge of [selectors](/learn/headless/basics-selectors) is key to enable us to select precisely the element we need to wait for.
-	
+
 ### Waiting on page events
 
-With Playwright, we can also directly wait on {{< newtabref title="page events" href="https://playwright.dev/docs/events" >}} using `{{< newtabref title="page.waitForEvent" href="https://playwright.dev/docs/api/class-page#page-wait-for-event" >}}`. 
+With Playwright, we can also directly wait on {{< newtabref title="page events" href="https://playwright.dev/docs/events" >}} using `{{< newtabref title="page.waitForEvent" href="https://playwright.dev/docs/api/class-page#page-wait-for-event" >}}`.
 
 ### Waiting on page functions
 

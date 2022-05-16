@@ -1,20 +1,20 @@
 ---
-title: API Monitoring for the JAMStack
+title: API Monitoring for the Jamstack
 description: >-
-  Application Programming Interfaces (APIs) are used throughout software to define interactions between different software applications. In this article we focus on web APIs specifically, taking a look at how they fit in the JAMStack architecture and how we can set up API monitoring in order to make sure they don't break and respond fast.
+  Application Programming Interfaces (APIs) are used throughout software to define interactions between different software applications. In this article we focus on web APIs specifically, taking a look at how they fit in the Jamstack architecture and how we can set up API monitoring in order to make sure they don't break and respond fast.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
-{{< figure src="/guides/images/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="JAMStack applications heavily rely on APIs" >}}
+{{< figure src="/guides/images/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="Jamstack applications heavily rely on APIs" >}}
 
-## APIs and the JAMStack
+## APIs and the Jamstack
 
-With the rise of the {{< newtabref  href="https://jamstack.org/" title="JAMStack" >}}, the already broadly used web APIs have been brought further into the spotlight and explicitly named as cornerstone of a new way of building web applications. In the JAMStack paradigm, applications rely on APIs (the _A_ in "JAM") returning structured data (JSON or XML) when queried via the HTML and Javascript-based frontend. 
+With the rise of the {{< newtabref  href="https://jamstack.org/" title="Jamstack" >}}, the already broadly used web APIs have been brought further into the spotlight and explicitly named as cornerstone of a new way of building web applications. In the Jamstack paradigm, applications rely on APIs returning structured data (JSON or XML) when queried via a build process or Javascript-based frontend.
 
 The API calls might be aimed at internal services or at third-parties handling complex flows such as content management, authentication, merchant services and more. An example of third-party API could be {{< newtabref  href="https://stripe.com/" title="Stripe" >}}, which acts as payment infrastructure for a multitude of businesses.
 
-Given their importance in this new kind of web application, APIs both internal and external need to be tightly monitored, as failures and performance degradations will immediately be felt by the end-user.
+Given their importance in this new kind of web application, internal and external APIs need to be tightly monitored, because failures and performance degradations will immediately be felt by the end-user.
 
 ## API failures
 
@@ -24,7 +24,7 @@ API endpoints can break in a variety of ways. The most obvious examples are:
 2. The response is incorrect.
 3. The response time is too high.
 
-All of the above can result in the application becoming broken for the end-user. This applies to internal APIs and, especially in the case of JAMStack applications, to third parties as well. API checks allow us to monitor both by mimicking the end-user's own behaviour.
+All of the above can result in the application becoming broken for the end-user. This applies to internal APIs and, especially in the case of Jamstack applications, to third parties as well. API checks allow us to monitor both by mimicking the end-user's own behaviour.
 
 ## API checks
 
@@ -34,7 +34,7 @@ If we were interested in just verifying a server or a virtual machine's availabi
 2. One or more assertions, used to specify exactly what the response should look like, and fail the check if the criteria are not met.
 3. A threshold indicating the maximum acceptable response time.
 
-The more customisable the HTTP request is, the more cases can be covered, for example with authentication, headers and payloads. 
+The more customisable the HTTP request is, the more cases can be covered, for example with authentication, headers and payloads.
 
 > It is worth noting that in real-world scenarios, requests do not happen in a vacuum: they are often handling data retrieved previously, possibly by earlier API calls. Therefore, some mechanism to gather this data and inject it into the request is often needed.
 
@@ -77,7 +77,7 @@ const AUTH_TOKEN = Buffer.from(process.env.API_KEY).toString('base64')
 axios({
     method: 'get',
     url: 'https://api.stripe.com/v1/customers',
-    headers: { 
+    headers: {
         'Authorization': `Basic ${AUTH_TOKEN}`,
         'Content-Type': 'application/x-www-form-urlencoded'
     },
@@ -91,7 +91,7 @@ axios({
 
 So far we have looked at a REST API. Let's now take a look at an example of how to build a request for a {{< newtabref  href="https://graphql.org/" title="GraphQL" >}} endpoint. We will use {{< newtabref  href="https://docs.github.com/en/graphql" title="GitHub's GraphQL API" >}} to retrieve information about the latest open issues on {{< newtabref  href="https://github.com/checkly/headless-recorder" title="Headless Recorder's repository" >}}.
 
-To achieve that, we make a `POST` request to the API's GraphQL endpoint: `https://api.github.com/graphql`. 
+To achieve that, we make a `POST` request to the API's GraphQL endpoint: `https://api.github.com/graphql`.
 We also need to authenticate to GitHub, by sending over our {{< newtabref  href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" title="personal access token" >}} via the `Authorization` header.
 
 The request body will contain our GraphQL query:
@@ -238,7 +238,7 @@ After that, we can see the headers, which we might want to check for:
 And finally the response body, which we might want to inspect to ensure the right data is being sent back:
 
 ```
-{ 
+{
   "id": "cus_JAp37QquOLWbRs",
   "object": "customer",
   "account_balance": 0,
@@ -259,14 +259,14 @@ const AUTH_TOKEN = Buffer.from(process.env.API_KEY).toString('base64')
 axios({
     method: 'get',
     url: 'https://api.stripe.com/v1/customers',
-    headers: { 
+    headers: {
         'Authorization': `Basic ${AUTH_TOKEN}`,
         'Content-Type': 'application/x-www-form-urlencoded'
     },
     data: 'limit=3'
 }).then((response)=> {
     console.log(response.data)
-    expect(response.status).toBe(200) // 1) assert again status code 
+    expect(response.status).toBe(200) // 1) assert again status code
     expect(response.headers['content-type']).toBe('application/json') // 2) assert against header
     expect(response.data['has_more']).toBe(true) // 3) assert against body
 })
@@ -305,7 +305,7 @@ API monitoring checks must be organised as to minimise the time needed to identi
 
 ## Scheduled global API checks
 
-Checkly specialises in API monitoring and allows users to run API checks on a schedule from [global locations](https://www.checklyhq.com/docs/monitoring/global-locations/). We can combine these checks with [custom alerting](https://www.checklyhq.com/docs/alerting/) to be able to quickly respond and remediate potential API issues. 
+Checkly specialises in API monitoring and allows users to run API checks on a schedule from [global locations](https://www.checklyhq.com/docs/monitoring/global-locations/). We can combine these checks with [custom alerting](https://www.checklyhq.com/docs/alerting/) to be able to quickly respond and remediate potential API issues.
 
 {{< figure src="/guides/images/guides-checkly-dashboard-short.png" alt="checkly dashboard with API checks" title="Checkly API checks shown on a dashboard" >}}
 

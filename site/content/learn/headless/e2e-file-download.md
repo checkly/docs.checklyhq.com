@@ -48,7 +48,7 @@ Note that in this case, we need to enable downloads in the browser context befor
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {hl_lines=["23-26"]}
+```js {hl_lines=["8", "23-26"]}
 {{< readfile filename="samples/playwright/file-download-alt.js" >}}
 ```
 {{< /tab >}}

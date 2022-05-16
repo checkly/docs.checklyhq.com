@@ -1,7 +1,7 @@
 const { chromium } = require('playwright')
-const productsNumber = process.env.PRODUCTS_NUMBER || 3;
+const productsNumber = process.env.PRODUCTS_NUMBER || 3
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
@@ -9,7 +9,7 @@ const productsNumber = process.env.PRODUCTS_NUMBER || 3;
 
   await page.goto('https://danube-webshop.herokuapp.com/')
 
-  for (i = 1; i <= productsNumber; i++) {
+  for (let i = 1; i <= productsNumber; i++) {
     await page.click(`.preview:nth-child(${i}) > .preview-author`)
     await page.click('.detail-wrapper > .call-to-action')
     await page.click('#logo')

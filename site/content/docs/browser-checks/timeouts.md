@@ -245,15 +245,13 @@ describe('Check Google Homepage', () => {
 {{< /tab >}}
 {{< /tabs >}} 
 
-This means this test will fail if it does not resolve within 10 seconds. You can also add a timeout at the suite level,
-however, the syntax is a bit different if you want to use arrow functions: you have to pass in the `suite` and then set
-the timeout on that object.
+This means this test will fail if it does not resolve within 10 seconds. You can also add a timeout at the suite level. However, the syntax is a bit different, because you cannot use an arrow function if you are going to call `this.timeout`.
 
 {{< tabs "Mocha suite timeout example" >}}
 {{< tab "Playwright" >}}
 ```js
-describe('Check Google Homepage', (suite) => {
-  suite.timeout(10000)
+describe('Check Google Homepage', function () {
+  this.timeout(10000)
   it('has title "Google"', async () => {
     await page.goto('https://google.com', { waitUntil: 'networkidle' })
     const title = await page.title()
@@ -264,8 +262,8 @@ describe('Check Google Homepage', (suite) => {
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
-describe('Check Google Homepage', (suite) => {
-  suite.timeout(10000)
+describe('Check Google Homepage', function () => {
+  this.timeout(10000)
   it('has title "Google"', async () => {
     await page.goto('https://google.com', { waitUntil: 'networkidle2' })
     const title = await page.title()
@@ -277,4 +275,4 @@ describe('Check Google Homepage', (suite) => {
 {{< /tab >}}
 {{< /tabs >}} 
 
-[Read more on the Mocha site](https://mochajs.org/#timeouts) and in this [enlightening GitHub issue](https://github.com/mochajs/mocha/issues/2018).
+[Read more on the Mocha site](https://mochajs.org/#timeouts).
