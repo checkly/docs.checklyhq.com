@@ -105,7 +105,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
       </p>
     </div>
     <div class="lead-text mt-5 text-center">
-      {{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/api-monitoring/global-coverage-screenshot@2x.png" alt="data centerlocations" width="843" height="486" >}}
+      {{< alternative-picture class="text-center hero-image big-drop-shadow" img="/product/api-monitoring/global-coverage-screenshot@2x.jpg" alt="data centerlocations" width="2584 " height="1549" >}}
     </div>
   </div>
 </div>

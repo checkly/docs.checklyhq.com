@@ -1,63 +1,49 @@
 @import '../variables';
 
-.private-locations-section {
-  padding-top: 2 * $section-top-padding;
-  padding-bottom: 2.01 * $section-bottom-padding;
+.private-locations {
+  padding-top: 1.4 * $section-top-padding;
+  padding-bottom: 0;
+  background: $white;
   overflow: hidden;
 
-  img.first {
-    left: 100px;
-    top: -20px;
-    z-index: auto;
-    width: 760px;
-    height: auto;
+  .section-super-header {
+    width: 100%;
+    margin-bottom: 1.125rem;
   }
 
-  img.second {
-    left: 140px;
-    top: 90px;
-    height: auto;
+  .display-4 {
+    margin-top: 5px;
+    margin-bottom: 10px;
   }
-  @include media-breakpoint-down(md) {
-    padding-top: $section-top-padding;
-    padding-bottom: $section-top-padding;
 
-    .image-side {
+  .lead {
+    margin-bottom: 14px;
+  }
+
+  .alerting-options-image {
+    @include media-breakpoint-down(xs) {
+      width: 240px;
+    }
+  }
+
+  .location-image {
+    margin-top: 40px;
+    max-width: 920px;
+    width: 100%;
+  }
+}
+@include media-breakpoint-down(xl) {
+  .alerting-section {
+    .location-image {
       margin-top: 50px;
-      height: 350px;
-
-      img.first {
-        margin-left: 0;
-        top: 50px;
-        width: 85%;
-        left: 16px;
-        height: auto;
-      }
-      img.second {
-        top: 200px;
-        left: 120px;
-        width: calc(100% - 136px);
-        height: auto;
-      }
-    }
-  }
-  @include media-breakpoint-down(sm) {
-    .image-side {
-      margin-top: 0px;
-      .big-landing-image {
-        position: absolute;
-      }
-      img.first {
-        left: 16px;
-        width: calc(100% - 68px);
-      }
-    }
-  }
-  @include media-breakpoint-down(xs) {
-    .image-side {
-      height: 200px;
     }
   }
 }
 
+@include media-breakpoint-down(md) {
+  .location-image {
+    margin-top: 40px;
+    margin-bottom: -60px;
+  }
+}
 
