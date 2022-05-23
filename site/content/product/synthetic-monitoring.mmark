@@ -96,8 +96,9 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
     <div class="col-sm-12 col-md-8">
       <h2 class="section-header mt-1">Global coverage</h2>
       <p class="lead-text mb-lg-2">
-      Get a clear picture of how your services perform for all your users around the world. Run your check from any of twenty
-      data center locations spread over the Americas, EMEA and Asia Pacific.
+      Get a clear picture of how your services perform for your users worldwide.
+      Run your checks from twenty data center locations spread around the world
+      and get complete visibility of private applications across your private or hybrid cloud infrastructure.
       </p>
       <p class="lead-text mt-2">
       {{% cta-link "Learn more" "/docs/monitoring/global-locations/" %}}

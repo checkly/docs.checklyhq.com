@@ -1,9 +1,8 @@
 @import '../variables';
 
-.results-section {
+.private-locations-section {
   padding-top: 1.4 * $section-top-padding;
   background: $white;
-  height: 960px;
   overflow: hidden;
 
   .display-4 {
@@ -19,21 +18,22 @@
     border-radius: 5px;
     border: 1px solid $gray-light;
     margin-top: 50px;
+    margin-bottom: -25px;
   }
 }
 
 @include media-breakpoint-down(md) {
-  .results-section {
+  .private-locations-section {
     padding-top: $section-top-padding;
     height: auto;
     .results-image {
-      margin-bottom: -100px;
+      margin-bottom: -25px;
     }
   }
 }
 
 @include media-breakpoint-down(sm) {
-  .results-section {
+  .private-locations-section {
     .results-image {
       margin-top: 40px;
     }
