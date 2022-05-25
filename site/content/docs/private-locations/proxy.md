@@ -47,4 +47,4 @@ const puppeteer = require('puppeteer');
   {{< /tab >}}   
 {{< /tabs >}}   
 
-This is all that is required for Playwright to proxy all outbound network connections via your designated HTTP proxy. For more information, please check out the [Playwright docs](https://playwright.dev/docs/network#http-proxy).
+This is all that is required for a browser check to proxy all outbound network connections via your designated HTTP proxy. For more information, please check out the [Playwright docs](https://playwright.dev/docs/network#http-proxy) and the Chromium [Network Settings docs](https://www.chromium.org/developers/design-documents/network-settings/).
