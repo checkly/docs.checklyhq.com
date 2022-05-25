@@ -6,10 +6,7 @@ menu:
     parent: "Private Locations"
 ---
 
-If you are operating our [Checkly Agent](/docs/private-locations/private-locations-getting-started/) behind an HTTP proxy, for example in an enterprise environment, you can use the `proxy` option when instantiating Playwright in your browser checks.
-
-For example, at the start of a Playwright-based browser check, you can pass an options object with the proxy configuration. For puppeteer, the setup is slightly different, please check that tab for an example.
-
+If you are operating our [Checkly Agent](/docs/private-locations/private-locations-getting-started/) behind an HTTP proxy, for example in an enterprise environment, you can enable this directly in your browser checks via a few extra lines of code. For Playwright you can use the `proxy` option when launching a new browser instance. With Puppeteer, you can pass a CLI argument to Chromium itself.
 
 {{< tabs "Proxy Settings" >}}
   {{< tab "Playwright" >}}
