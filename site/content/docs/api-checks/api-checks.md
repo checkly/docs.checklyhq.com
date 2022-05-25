@@ -32,7 +32,7 @@ You can import a cURL command, Swagger.json or OpenAPI specification here too.
 **3. Setup and teardown scripts**
 
 Setup scripts allow you to do last minute processing of test data and request options. The scripts execute before any requests are made.
-Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. With a maximum execution time of 10 seconds, these scripts are really useful for things like signing HMAC requests, requesting tokens, setting up test data, cleaning up test data and scrubbing sensitive response data for regulatory reasons.
+Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. With a maximum execution time of 10 seconds, these scripts are really useful for things like signing HMAC requests, requesting tokens, setting up or cleaning up test data and scrubbing sensitive response data for regulatory reasons.
 
 [Read more about setup and teardown scripts](setup-teardown-scripts)
 ![setup and teardown scripts](/docs/images/api-checks/overview-scripts.png)
