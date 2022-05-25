@@ -16,9 +16,7 @@ const { chromium } = require('playwright')
 (async () {
   const browser = await chromium.launch({
     proxy: {
-      server: 'http://proxy.server:8080',
-      username: 'usr',
-      password: 'pwd'
+      server: 'http://proxy.server:8080'
     }
   });
   const page = await browser.newPage()
