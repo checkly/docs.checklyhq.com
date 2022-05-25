@@ -369,7 +369,7 @@
         position: absolute;
         z-index: 2;
         right: 30px;
-        top: 100px; 
+        top: 100px;
         width: calc(100% - 164px);
       }
     }
@@ -642,7 +642,7 @@
       width: 100vw;
       margin-left: calc(570px - 24px - 50vw);
       padding-top: 2 * $section-top-padding;
-      padding-bottom: 15px; 
+      padding-bottom: 15px;
       padding-left: calc(50vw + 24px - 570px);
       padding-right: calc(50vw + 24px - 570px);
 
@@ -711,6 +711,7 @@
       video {
         z-index: 9;
         outline: none !important;
+        max-width: 100%;
         &:focus, &:hover {
           outline: none !important;
         }
