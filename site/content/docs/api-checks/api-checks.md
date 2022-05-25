@@ -16,18 +16,16 @@ API checks consist of few parts:
 **1. Name and tags**
 
 Start as you mean to go on. Pick a sensible name, something that other members of your team are going to understand. A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide better a better alerting experience if your checks fall into an alert state.
-Tags can relate your checks together, they also determine which checks are shown on your public [dashboards](./dashboards)
+Tags can relate your checks together, they also determine which checks are shown on your public [dashboards](/docs/dashboards).
 ![http request](/docs/images/api-checks/overview-name-tag.png)
 
 **2. The HTTP request**
 
-This is where you configure the API endpoint. You define the method, URL, body, headers, query parameters and authentication for the API check itself. These [request settings](request-settings) determine the actions taken by the API and therefore the response sent back. The most important part of your API check is its URL and its method.
+This is where you configure the API endpoint. You define the request method, URL, body data, headers, query parameters and authentication for the API check. These [request settings](request-settings) determine the actions taken by the API and therefore the response sent back. The most important part of your API check is its URL and its method.
 
-Endpoints have can be accessed and manipulated through [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), not all methods are valid for all endpoints.
+Endpoints can be accessed and manipulated through [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), not all methods are valid for all endpoints.
 
 ![http request](/docs/images/api-checks/overview-http.png)
-
->An endpoint is sometimes referred to as a "URI" or uniform resource identifier.
 
 You can import a cURL command, Swagger.json or OpenAPI specification here too. 
 
@@ -41,13 +39,13 @@ Teardown scripts are run after the HTTP request has finished, but before any ass
 
 **4. Response time limits**
 
-Our [time limits](limits) are flexible, we know that sometimes an API is just slow, but not broken. We call that “degraded” and you can specify when an API checks should be marked as degraded and when it should be marked as failed.
+Our [time limits](limits) are customisable, sometimes API's can be slow, but not broken. We call that **degraded**. We let you specify when an API check should be marked as **degraded** and when it should be marked as **failed**.
 ![response times](/docs/images/api-checks/overview-response-time.png)
 
 **5. Assertions**
 
 This is where you determine whether the response of the HTTP request is correct or within acceptable bounds.
-You can assert by difference sources. These could be:
+You can assert on different sources. These could be:
 - The HTTP status code returned from the API
 - Something missing or required within the response body
 - A specific response header
@@ -58,7 +56,7 @@ You can assert by difference sources. These could be:
 
 **6. Locations**
 
-You can configure your checks to run from our ever-growing amount of global [public](../monitoring/global-locations) locations or use a Checkly Agent to host your own [private](../private-locations/private-locations-getting-started)
+You can configure your checks to run from our ever-growing amount of global [public](/docs/monitoring/global-locations) locations or use a Checkly Agent to host your own [private](/docs/private-locations/private-locations-getting-started)
 If you don't select more than one data center location, we will pick a random location when retrying checks if you have "double check" enabled.
 ![locations](/docs/images/api-checks/overview-locations.png)
 
@@ -70,8 +68,7 @@ The quickest schedule you can run is every 10 seconds and the slowest is every 2
 
 **8. Alerting**
 
-Our alerting is pretty flexible. You can configure any of our [alert channels](../alerting/alert-channels/#managing-alert-channels) for whichever checks you like.
-Take a look at our [alert channels](../alerting/alert-channels/). If we don't have your preferred alert method, why not try out our [Webhooks](../alerting/webhooks)?
-> [SMS](../alerting/sms-delivery/) alerts are only available on our [paid plans](https://www.checklyhq.com/pricing#features) 
+Our alerting is pretty flexible. You can configure any of our [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for whichever checks you like. If we don't have your preferred alert method, why not try out our [Webhooks](/docs/alerting/webhooks)?
+> [SMS](/docs/alerting/sms-delivery/) alerts are only available on our [paid plans](https://www.checklyhq.com/pricing#features) 
 
 ![alerting](/docs/images/api-checks/overview-alerting.png)
