@@ -1,5 +1,5 @@
-const { chromium } = require('playwright');
-(async () => {
+const { chromium } = require('playwright')
+;(async () => {
   const currency = process.env.CURRENCY
   const amazonUrl = process.env.AMAZON_URL
   const amazonUser = process.env.AMAZON_USER
@@ -24,7 +24,9 @@ const { chromium } = require('playwright');
 
   await page.click('#nav-link-accountList > .nav-long-width')
 
-  await page.click('.ya-card__whole-card-link > .a-box > .a-box-inner > .a-row > .a-column > div')
+  await page.click(
+    '.ya-card__whole-card-link > .a-box > .a-box-inner > .a-row > .a-column > div'
+  )
 
   await page.click('#a-autoid-1-announce > .a-dropdown-prompt')
 
@@ -37,8 +39,8 @@ const { chromium } = require('playwright');
   const pages = await page.$$('.a-normal')
 
   for (const singlePage of pages) {
-    await page.waitForSelector('.a-last')
-    prices = await page.$$eval(
+    await singlePage.waitForSelector('.a-last')
+    prices = await singlePage.$$eval(
       '.a-column:nth-child(2) .a-color-secondary.value',
       (nodes) => nodes.map((n) => n.innerText)
     )
@@ -46,15 +48,18 @@ const { chromium } = require('playwright');
     filteredPrices = filteredPrices.concat(
       prices.filter((price) => price.includes(currency))
     )
-    await page.waitForSelector('li.a-last')
-    await page.click('li.a-last')
+    await singlePage.waitForSelector('li.a-last')
+    await singlePage.click('li.a-last')
   }
 
   const cleanPrices = filteredPrices.map((x) => {
     return x.replace(',', '.').replace(/[^\d.,-]/g, '')
   })
 
-  const totalExpense = cleanPrices.reduce((a, b) => parseFloat(a) + parseFloat(b), 0)
+  const totalExpense = cleanPrices.reduce(
+    (a, b) => parseFloat(a) + parseFloat(b),
+    0
+  )
   console.log(`Total expense for the year: ${currency} ${totalExpense}`)
 
   await browser.close()

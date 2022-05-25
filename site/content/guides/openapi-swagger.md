@@ -20,7 +20,7 @@ For those new to the OAS and wanting to get a basic understanding without diving
 
 ## Swagger vs OpenAPI
 
-The OpenAPI Specification is based on the SmartBear SoftwareSmartBear Software, which had previously been a project driven by {{< newtabref  href="https://smartbear.com" title="SmartBear Software" >}}. SmartBear donated the Swagger Specification to the Linux Foundation in 2015. In a sense, the OAS is the newer, fully open source-driven incarnation of the Swagger Specification.
+The OpenAPI Specification is the newer, fully open source-driven incarnation of the Swagger Specification maintained by {{< newtabref  href="https://smartbear.com" title="SmartBear Software" >}}. The spec describes, produces, consumes, and visualizes RESTful application and web services.
 
 The name {{< newtabref  href="https://swagger.io/" title="Swagger" >}} today indicates a set of tools, both free and paid, that support users of the OpenAPI ecosystem.
 
@@ -49,7 +49,7 @@ paths:
   # User account balance
   /balance/{id}:
     # Retrieve the user's balance on the given account
-    get: 
+    get:
       ...
 ```
 
@@ -64,7 +64,7 @@ paths:
   # User account balance
   /balance/{id}:
     # Retrieve the user's balance on the given account
-    get: 
+    get:
       summary: Get the user's account balance
       description: Retrieves the current account balance for the given user.
       operationId: get-balance
@@ -116,7 +116,7 @@ We can keep on building out our API spec as needed. The more precisely we descri
 
 Let's now take a look at a more complex, finished example: the {{< newtabref  href="https://petstore.swagger.io/v2/swagger.json" title="Swagger PetStore demo" >}}. Even if we had written it ourselves, this description of a complete API could be overwhelming if we just tried to parse the file line by line. To first-time users, that could feel even more daunting. A better option would be to use the open-source toolset Swagger offers to generate human-readable, interactive API documentation from the file we already have.
 
-Pasting the content of the spec file to {{< newtabref  href="https://editor.swagger.io" title="Swagger Editor" >}} will produce a preview of our {{< newtabref  href="https://swagger.io/tools/swagger-ui/" title="Swagger UI documentation" >}}. This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations. 
+Pasting the content of the spec file to {{< newtabref  href="https://editor.swagger.io" title="Swagger Editor" >}} will produce a preview of our {{< newtabref  href="https://swagger.io/tools/swagger-ui/" title="Swagger UI documentation" >}}. This is helpful for consumers of the API, who will be presented with an orderly documentation page breaking down each endpoint while also allowing users to test out different operations.
 
 ## Generating boilerplate code from OpenAPI
 

@@ -12,7 +12,7 @@ menu:
     parent: "Getting started"
 ---
 
-Understanding why a script does not work as expected, or just what the root cause of a failure is, is a key skill for automation. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention. 
+Understanding why a script does not work as expected and finding the failure root cause are automation key skills. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention.
 
 This article will explore basic concepts and tools to point beginners in the right direction.
 
@@ -25,7 +25,7 @@ Script debugging is firstly about observing and understanding. Finding out what 
 1. What the script you are looking at is _supposed_ to do
 2. How the application the script is running against is supposed to behave at each step of the script
 
-When approaching a debugging session, make sure the above points are taken care of. Skipping this step is way more likely to cost you additional time than it is to save you any. 
+When approaching a debugging session, make sure the above points are taken care of. Skipping this step is way more likely to cost you additional time than it is to save you any.
 
 ## The error message
 
@@ -39,7 +39,7 @@ Do not fall into the easy trap of reading the error message and immediately jump
 
 ## Gaining visibility
 
-Given that Headless browser scripts will run without a GUI, a visual assessment of the state of the application needs additional steps. 
+Given that Headless browser scripts will run without a GUI, a visual assessment of the state of the application needs additional steps.
 
 One possibility is to adding screenshots in specific parts of the script, to validate our assumptions on what might be happening at a given moment of the execution. For example, before and after a problematic click or page transition:
 
@@ -47,19 +47,19 @@ One possibility is to adding screenshots in specific parts of the script, to val
 {{< tab "Playwright" >}}
 ```js
 ...
-await page.screenshot({ path: 'before_click.png' });
+await page.screenshot({ path: 'before_click.png' })
 await page.click('#button')
-await page.screenshot({ path: 'after_click.png' });
+await page.screenshot({ path: 'after_click.png' })
 ...
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 ...
-await page.screenshot({ path: 'before_click.png' });
-await page.waitForSelector('#button');
+await page.screenshot({ path: 'before_click.png' })
+await page.waitForSelector('#button')
 await page.click('#button')
-await page.screenshot({ path: 'after_click.png' });
+await page.screenshot({ path: 'after_click.png' })
 ...
 ```
 {{< /tab >}}
@@ -71,14 +71,14 @@ Another way to better observe our script's execution is to run in headful mode:
 {{< tab "Playwright" >}}
 ```js
 ...
-const browser = await chromium.launch({ headless: false, slowMo: 20 });
+const browser = await chromium.launch({ headless: false, slowMo: 20 })
 ...
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 ...
-const browser = await puppeteer.launch({ headless: false, slowMo: 20 });
+const browser = await puppeteer.launch({ headless: false, slowMo: 20 })
 ...
 ```
 {{< /tab >}}
@@ -105,7 +105,7 @@ DEBUG="puppeteer:*" node script.js
 
 ![verbose playwright logs](/samples/images/debugging-logging.png)
 
-## Accessing DevTools 
+## Accessing DevTools
 
 A wealth of information is available through the Chrome Developer Tools. We can configure our browser to start with the DevTools tab already open (this will automatically disable headless mode), which can be helpful when something is not working as expected. Careful inspection of the Console, Network and other tabs can reveal hidden errors and other important findings.
 
@@ -115,14 +115,14 @@ A wealth of information is available through the Chrome Developer Tools. We can 
 {{< tab "Playwright" >}}
 ```js
 ...
-await chromium.launch({ devtools: true });
+await chromium.launch({ devtools: true })
 ...
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js
 ...
-await browser.launch({ devtools: true });
+await browser.launch({ devtools: true })
 ...
 ```
 {{< /tab >}}
