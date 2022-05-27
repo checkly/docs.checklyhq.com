@@ -9,6 +9,7 @@ menu:
 aliases:
 - "/dashboards/overview/"
 - "/docs/dashboards/overview/"
+- "/docs/dashboards/"
 ---
 
 Checkly dashboards are public dashboards available on every plan. Use them on your wall mounted TVs, on

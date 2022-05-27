@@ -5,6 +5,8 @@ slug: /
 menu:
   docs:
     parent: "CI/CD integration"
+aliases:
+- /docs/cicd/
 ---
 
 Checkly enables you to trigger **single checks or groups of checks** as you deploy your code from your CI/CD pipeline. 
