@@ -6,6 +6,8 @@ menu:
     docs: 
         parent: "Integrations"
         identifier: overview-integration
+aliases:
+- /integrations/
 ---
 
 Checkly integrates with the services and tool stack you use. Missing an integration? Let us know via 

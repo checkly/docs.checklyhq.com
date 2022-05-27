@@ -6,6 +6,8 @@ menu:
   docs:
     parent: "Groups"
     identifier: overview-groups
+aliases:
+- /docs/groups/
 ---
 
 Groups allow you to organize your checks and centralize settings like base URL's, headers, variables and other properties
