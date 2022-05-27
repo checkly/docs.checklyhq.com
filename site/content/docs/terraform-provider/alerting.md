@@ -133,3 +133,6 @@ resource "checkly_check_group" "key-shop-flows" {
 Checks and groups need to be _explicitly_ subscribed to an alert channel as shown above - they will _not_ be autosubscribed.
 {{</warning>}}
 
+{{<info>}}
+Checks which are part of a group inherit the group's alert subscriptions. If you know a check will be part of a group, you can avoid needlessly subscribing it to alert channels and just handle everything at the group level.
+{{</info>}}
