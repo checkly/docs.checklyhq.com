@@ -6,7 +6,7 @@ author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
-## Infrastructure-as-Code
+## Infrastructure-as-Code (IaC)
 
 Historically, IT infrastructure has been provisioned manually, both on premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files as code.
 
@@ -18,7 +18,7 @@ Terraform can be used to provision infrastructure on many different cloud vendor
 
 ## Monitoring the IaC way
 
-Setting up monitoring can present some of the same issues as provisioning infrastructure. This becomes apparent when we move past the initial rollout or proof-of-concept and onboard multiple products and/or teams, and see our monitoring setup rapidly grow in scope - along with its maintenance needs, that is. 
+Setting up monitoring can present some of the same issues as provisioning infrastructure. This becomes apparent when we move past the initial rollout or proof-of-concept and onboard multiple products and/or teams, and see our monitoring setup rapidly grow in scope - along with its maintenance needs, that is.
 
 Monitoring-as-Code learns from IaC and brings your monitoring config closer to your application and your development workflows. How? By having it also declared as code, much like you would do with any kind of IT infrastructure.
 
@@ -424,7 +424,7 @@ resource "checkly_alert_channel" "alert-email" {
   email {
     address = "<YOUR_EMAIL_ADDRESS>"
   }
-  send_recovery = true 
+  send_recovery = true
   send_failure = true
   send_degraded = false
 }

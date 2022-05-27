@@ -71,13 +71,13 @@ When you are first writing and debugging your scripts, it is a good idea to disa
 
 {{< tab "Playwright" >}}
 ```js
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ headless: false })
 ```
 {{< /tab >}}
 
 {{< tab "Puppeteer" >}}
 ```js
-const browser = await puppeteer.launch({ headless: false });
+const browser = await puppeteer.launch({ headless: false })
 ```
 {{< /tab >}}
 {{< /tabs >}}

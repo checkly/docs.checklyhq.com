@@ -1,5 +1,5 @@
-const puppeteer = require('puppeteer');
-(async () => {
+const puppeteer = require('puppeteer')
+;(async () => {
   const browser = await puppeteer.launch({ headless: false })
   const page = await browser.newPage()
 
@@ -14,7 +14,9 @@ const puppeteer = require('puppeteer');
 
   await page.screenshot({ path: 'screenshot-tab-old.png' })
 
-  const newTarget = await browser.waitForTarget(target => target.opener() === pageTarget)
+  const newTarget = await browser.waitForTarget(
+    (target) => target.opener() === pageTarget
+  )
 
   const newPage = await newTarget.page()
   await newPage.bringToFront()

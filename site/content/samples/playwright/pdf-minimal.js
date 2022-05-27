@@ -1,6 +1,6 @@
-const { chromium } = require('playwright');
+const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
   await page.goto('https://checklyhq.com/learn/headless')

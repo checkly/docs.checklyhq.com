@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer')
 const axios = require('axios')
 const fs = require('fs')
-const assert = require('chai').assert;
+const assert = require('chai').assert
 
-(async () => {
+;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
