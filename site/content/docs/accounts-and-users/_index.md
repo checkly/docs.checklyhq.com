@@ -8,6 +8,7 @@ menu:
 aliases:
 - "/docs/teams/"
 - "/docs/teams/roles/"
+- "/docs/accounts-and-users"
 ---
 
 When inviting a team member to join your account you can assign one of three roles that all have different access patterns.
