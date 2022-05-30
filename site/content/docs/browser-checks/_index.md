@@ -213,6 +213,7 @@ alerting channels will be triggered, notifying your team that something is up.
 - Install and use [Headless Recorder](/docs/headless-recorder/) to record scripts without coding.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [creating reusable code snippets](/docs/browser-checks/partials-code-snippets/).
+- Run checks behind an [HTTP proxy](/docs/private-locations/proxy).
 
 ## More Playwright and Puppeteer resources
 
