@@ -4,6 +4,8 @@ weight: 1
 menu:
   docs:
     parent: "Terraform provider"
+aliases:
+- /terraform-provider/getting-started/
 ---
 
 The [Checkly Terraform provider](https://github.com/checkly/terraform-provider-checkly) enables you to declare your monitoring setup as code using [HashiCorp Terraform](https://www.terraform.io/). You can get started with it in a matter of minutes by following the steps shown below.
