@@ -18,7 +18,7 @@ const { chromium } = require('playwright')
     proxy: {
       server: 'http://proxy.server:8080'
     }
-  });
+  })
   const page = await browser.newPage()
   await page.goto('https://google.com')
   await page.close()
