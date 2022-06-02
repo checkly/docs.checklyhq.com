@@ -13,7 +13,7 @@ If you are operating our [Checkly Agent](/docs/private-locations/private-locatio
 ```javascript
 const { chromium } = require('playwright')
 
-(async () {
+;(async () => {
   const browser = await chromium.launch({
     proxy: {
       server: 'http://proxy.server:8080'
@@ -21,6 +21,8 @@ const { chromium } = require('playwright')
   });
   const page = await browser.newPage()
   await page.goto('https://google.com')
+  await page.close()
+  await browser.close()
 })()
 ```
   {{< /tab >}}   
@@ -28,12 +30,13 @@ const { chromium } = require('playwright')
 ```javascript
 const puppeteer = require('puppeteer')
 
-(async () => {
+;(async () => {
   const browser = await puppeteer.launch({
     args: ['--proxy-server=http://proxy.server:8080']
   })
   const page = await browser.newPage()
   await page.goto('https://google.com')
+  await page.close()
   await browser.close()
 })()
 ```
