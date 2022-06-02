@@ -84,7 +84,7 @@ running.
 
 Activating this integration is simple.
 
-1. Navigate to the **integrations** tab on the account screen and click the 'Create Prometheus endpoint' button.
+1. Navigate to the <a href="https://app.checklyhq.com/settings/account/integrations" target="_blank">integrations</a> tab on the account screen and click the 'Create Prometheus endpoint' button.
 ![Prometheus integration step 1](/docs/images/integrations/prometheus_step1.png)
 
 2. We directly create an endpoint for you and five your the URL and the required Bearer token.
