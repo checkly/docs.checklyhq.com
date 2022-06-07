@@ -132,7 +132,7 @@ browser checks to have granular feedback whether each part functions.
 
 1. Create a snippet named **github_login** in the "code snippets" section with the code below.
 
-   {{< tabs "github_login" >}}
+   {{< tabs "github_login_legacy" >}}
    {{< tab "Playwright" >}}
 ```javascript
 const playwright = require('playwright')
@@ -167,7 +167,7 @@ await page.click('[name="commit"]')
 2. Create a new browser check. Reference the code snippet you just created as a partial. After this, just continue with the normal check.
    During execution, the code snippet will be inlined before the script is run.
 
-   {{< tabs "github_login_referenced" >}}
+   {{< tabs "github_login_referenced_legacy" >}}
    {{< tab "Playwright" >}}
 ```javascript
     {{> github_login}}
