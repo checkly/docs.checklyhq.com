@@ -6,11 +6,11 @@ menu:
     parent: "Monitoring"
 ---
 
-There are cases in which you might have to whitelist Checkly traffic in your firewall, load balancer or other to prevent it from being blocked or skewing analytics data. Below are some of solutions you can look into to achieve that.
+There are cases in which you might have to whitelist Checkly traffic in your firewall, load balancer or other to prevent it from being blocked or skewing analytics data. Below are some solutions to help you achieve that.
 
 ## IP range whitelisting
 
-Whitelisting Checkly traffic by IP address or range is not possible at this moment as Checkly uses a non-static set of IP addresses in the cloud to run its checks.
+Whitelisting Checkly traffic by IP address or range is not possible at this moment, as Checkly uses a non-static set of IP addresses in the cloud to run its checks.
 
 You can however fetch a list of the [dynamic IP addresses](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in use at AWS, our cloud provider.
 
