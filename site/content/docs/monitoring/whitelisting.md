@@ -33,14 +33,14 @@ To whitelist API checks, allow traffic that contains a cookie in the shape of `C
 You can then [set the Cookie header](https://checklyhq.com/docs/api-checks/request-settings/#headers) while editing your check.
 
 {{<info>}}
-You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every check in the group.
+You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every API check in the group.
 {{</info>}}
 
 ### Whitelisting browser checks with user agents
 
 To whitelist browser checks, allow traffic with user agent containing `Checkly/<UUID>`, with `<UUID>` being your shortened Checkly ID or another chosen value. 
 
-You will then be able to set up the matching user agent in your browser checks using Playwright's [`userAgent`](https://playwright.dev/docs/emulation#user-agent) context property or Puppeteer's [setUserAgent method](https://pptr.dev/#?product=Puppeteer&show=api-pagesetuseragentuseragent-useragentmetadata).
+You will then be able to set up the matching user agent in your browser checks using Playwright's [`userAgent`](https://playwright.dev/docs/emulation#user-agent) context property or Puppeteer's [`setUserAgent`](https://pptr.dev/#?product=Puppeteer&show=api-pagesetuseragentuseragent-useragentmetadata) method.
 
 {{< tabs "User agent example" >}}
 {{< tab "Playwright" >}}
@@ -72,7 +72,7 @@ await page.setUserAgent(userAgent);
 If you want to filter Checkly traffic in Google Analytics to prevent Checkly browser checks from skewing your 
 numbers, here is one way to do it:
 
-1. Add a UTM source tag to the URL's your requesting, i.e.
+1. Add a UTM source tag to the URLs your requesting, i.e.:
 
 {{< tabs "Goto example" >}}
 {{< tab "Playwright" >}}
