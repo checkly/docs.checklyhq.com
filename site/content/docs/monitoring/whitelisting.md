@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-There are cases in which you might have to whitelist Checkly traffic in your firewall or load balancer to prevent it from being blocked or to prevent it from skewing analytics data. Below are some of solutions you can look into to achieve that.
+There are cases in which you might have to whitelist Checkly traffic in your firewall, load balancer or other to prevent it from being blocked or skewing analytics data. Below are some of solutions you can look into to achieve that.
 
 ## IP range whitelisting
 
@@ -35,7 +35,6 @@ You can then [set the Cookie header](https://checklyhq.com/docs/api-checks/reque
 {{<info>}}
 You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every check in the group.
 {{</info>}}
-
 
 ### Whitelisting browser checks with user agents
 
@@ -70,18 +69,18 @@ await page.setUserAgent(userAgent);
 
 ## Filtering Google Analytics
 
-If you want to filter Checkly traffic in Google Analytics because Checkly browser checks are skewing your 
-numbers, here is one way how to do it:
+If you want to filter Checkly traffic in Google Analytics to prevent Checkly browser checks from skewing your 
+numbers, here is one way to do it:
 
 1. Add a UTM source tag to the URL's your requesting, i.e.
 
 {{< tabs "Goto example" >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Playwright" >}}
 ```js
 await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
  ```
 {{< /tab >}}
-{{< tab "Playwright" >}}
+{{< tab "Puppeteer" >}}
 ```js
 await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
  ```
@@ -94,7 +93,9 @@ await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
 
 For detailed instructions, see [the Google Analytics docs on custom filters](https://support.google.com/analytics/answer/1033162#CustomFilters).
 
- > Note, it will take some hours for this to take effect.
+{{<info>}}
+Note, it will take some hours for this to take effect.
+{{</info>}}
 
 ## Default Checkly user agent
 
@@ -103,4 +104,4 @@ This is what Checkly sends as user agent:
 - API checks: `Checkly/1.0 (https://www.checklyhq.com)`.
 - Browser checks: `Checkly, https://www.checklyhq.com`.
 
-Changing the user agent of a check will not change the browser or browser version, it will simply set a new string for user-agent.
+Changing the user agent of a check will not change the browser or browser version, it will simply set a new string for user agent.
