@@ -13,13 +13,20 @@ like an authentication token, a specific user name or even just some specific pa
 
 ## Managing variables
 
-You can add variables on the **Environment variables** tab. The variables stored here are globally accessible
-throughout Checkly, hence the "Global environment variables" title*.  
+You can manage environment variables for API checks at two different levels:
 
-All variables are stored as string values. You can click the lock icon to encrypt the values and hide the value from all users
-that do not have write access.
+* Group level
+* Global level
+ 
+Group variables are added on the Variables tab in a group. The variables stored here are accessible only in the group context.
 
-![adding variables](/docs/images/api-checks/add-variables.png)
+![set group environment variable](/docs/images/api-checks/add-group-variable.png)
+
+Global variables are added on the Variables tab. The variables stored here are globally accessible throughout Checkly, hence the “Global environment variables” title.
+
+![set global environment variable](/docs/images/api-checks/add-global-variable.png)
+
+All variables are stored as string values. You can click the lock icon to encrypt the values and hide the value from all users that do not have write access. Any data you “lock” is encrypted at rest and in flight on our back end and is only decrypted when needed.
 
 ## Accessing variables in API checks
 
@@ -43,3 +50,12 @@ Note, just the Body input field does not show this helper popup.
 Next to your own variables, we've added some built-in variables and extended the [Handlebars](https://handlebarsjs.com/) templating system:
 
 {{< markdownpartial "_shared/handlebars-helpers.md" >}}
+
+## Variable hierarchy
+As API checks are scheduled, Checkly merges the check, group and global environment variables into one data set and exposes them to the runtime environment. During merging, any check variable with the same name as a global or group variable overrides that variable.
+
+Or in another words:
+
+> check variables trump group variables trump global variables.
+
+You can make use of this by providing a default value for a specific variable at the global or group level, but allow that variable to be overridden at the check level.
