@@ -30,7 +30,7 @@ All variables are stored as string values. You can click the lock icon to encryp
 
 ## Accessing variables in API checks
 
-Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{BASIC_PWD}}`. Note that Handlebars (double brackets) variables will be URI encoded. To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{BASIC_PWD}}}`.
+Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{USER_API_KEY}}`. Note that Handlebars (double brackets) variables will be URI encoded. To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{USER_API_KEY}}}`.
 Variables can be used in the following API checks fields:
 
 - URL
@@ -50,12 +50,3 @@ Note, just the Body input field does not show this helper popup.
 Next to your own variables, we've added some built-in variables and extended the [Handlebars](https://handlebarsjs.com/) templating system:
 
 {{< markdownpartial "_shared/handlebars-helpers.md" >}}
-
-## Variable hierarchy
-As API checks are scheduled, Checkly merges the check, group and global environment variables into one data set and exposes them to the runtime environment. During merging, any check variable with the same name as a global or group variable overrides that variable.
-
-Or in another words:
-
-> check variables trump group variables trump global variables.
-
-You can make use of this by providing a default value for a specific variable at the global or group level, but allow that variable to be overridden at the check level.
