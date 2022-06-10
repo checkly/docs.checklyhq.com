@@ -23,7 +23,7 @@ that do not have write access.
 
 ## Accessing variables in API checks
 
-Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{BASIC_PWD}}`.
+Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{BASIC_PWD}}`. Note that Handlebars (double brackets) variables will be URI encoded. To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{BASIC_PWD}}}`.
 Variables can be used in the following API checks fields:
 
 - URL
