@@ -149,7 +149,7 @@ However, many times you want to assert specific values on a page.
 
 To do this, you can:
 
-1. Use the popular [Jest except](https://jestjs.io/docs/expect) library (Recommended).
+1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (Recommended).
 2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
 3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
