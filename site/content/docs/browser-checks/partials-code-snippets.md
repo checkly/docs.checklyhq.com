@@ -8,36 +8,35 @@ menu:
     parent: "Browser checks"
 ---
 
-You can reuse commonly used parts of code by importing code snippets in any Browser check. To do this, you use the standard
-`require(./snippets/my-snippet.js)` syntax supported in the Node.js runtime.
+Reuse code by creating and importing snippets in any Browser check via the Node.js `require` function (`require(./snippets/my-snippet.js)`).
 
-This comes in very handy when you have multiple browser checks targeting the same site or web app that share a:
- 
-- common login procedure 
-- common navigation flow
-- common setup and/or teardown procedures
+Snippets are handy when multiple Browser checks target the same site or web app and share test instruction for:
+
+- a common login procedure
+- a common navigation flow
+- a common setup and/or teardown procedures
 
 ## How to use snippets in Browser checks
 
-Using snippets is very straightforward.
+Using snippets is straightforward.
 
-1. Create a snippet.
-2. Import the snippet by referencing it from the `./snippets/` root folder.
+1. Create a JavaScript snippet. Note that the snippet name will be used as its filename.
+2. Load and require the snippet by referencing it from the `./snippets/` root folder.
 
-You can treat snippets just like any Javascript file you would have on your local disk in a Node.js context, including the option to expose
+Snippets work like any Javascript file on your local disk in a Node.js context so that you can expose
 functions and properties on the `module.exports` object.
 
-> Note: we use to recommend the Handlebars syntax, but we do not recommend this anymore. Use the `require` syntax and use exported functions to DRY up your code.
+> Note: we used to recommend the Handlebars syntax to run snippts. It's now deprecated. **Use `require` and exported functions to DRY up your code.**
 
 ## Example: GitHub login
 
 Say we want to validate some parts of the GitHub website only available to logged in users. We want to have separate, small
-browser checks to have granular feedback whether each part functions.  
+browser checks to have granular feedback whether each part functions.
 
-Create a snippet named **github_login** in the "code snippets" section with a function that executes the login routine.
+Create a snippet named `github_login` in the "code snippets" section with a function that executes the login routine.
 
-   {{< tabs "github_login" >}}
-   {{< tab "Playwright" >}}
+{{< tabs "github_login" >}}
+{{< tab "Playwright" >}}
 ```javascript
 async function gitHubLogin (page, username, password) {
   await page.goto("https://github.com/login")
@@ -50,8 +49,8 @@ module.exports = {
   gitHubLogin
 }
 ```
-    {{< /tab >}}   
-    {{< tab "Puppeteer" >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
 ```javascript
 async function gitHubLogin (page, username, password) {
   await page.goto("https://github.com/login")
@@ -64,23 +63,23 @@ module.exports = {
   gitHubLogin
 }
 ```
-    {{< /tab >}}
-    {{< /tabs >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 Notice three things:
 
-- We are creating a standard `async` function that expects three parameters: the `page` object, a `username` and a `password` variable. 
-- We are exporting this function on the standard `module.exports` object.
+- We created a standard `async` function that expects three parameters: the `page` object, a `username` and a `password` variable.
+- We exported this function on the standard `module.exports` object.
 - You now have a function you can call in any of your Browser checks to perform a login on GitHub.
 
-Your snippet should look like this now
+Your snippet should look like this now.
 
 ![github login snippet example](/docs/images/browser-checks/github_login_snippet_example.png)
 
-Create a new browser check and `require` the code snippet you just created. 
+Create a new browser check and `require` the code snippet you just created.
 
-   {{< tabs "github_login_referenced" >}}
-   {{< tab "Playwright" >}}
+{{< tabs "github_login_referenced" >}}
+{{< tab "Playwright" >}}
 ```javascript
 const playwright = require('playwright')
 const { gitHubLogin } = require('./snippets/github_login.js')
@@ -93,8 +92,8 @@ await gitHubLogin(page, process.env.GITHUB_USER, process.env.GITHUB_PWD)
 // your normal check code
 await page.click('.header-search-input')
 ```
-    {{< /tab >}}   
-    {{< tab "Puppeteer" >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
 ```javascript
 const puppeteer = require('puppeteer')
 const { gitHubLogin } = require('./snippets/github_login.js')
@@ -108,8 +107,8 @@ await gitHubLogin(page, process.env.GITHUB_USER, process.env.GITHUB_PWD)
 await page.waitForSelector('.application-main')
 await page.click('.header-search-input')
 ```
-    {{< /tab >}}
-    {{< /tabs >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 Notice we are referencing the `GITHUB_USER` and `GITHUB_PWD` environment variables and passing them to the `gitHubLogin()` function.
 You should store these in [your environment variables](/docs/browser-checks/variables/).
@@ -117,8 +116,7 @@ You should store these in [your environment variables](/docs/browser-checks/vari
 ## Legacy: Handlebars Syntax
 
 > We still support our legacy Handlebars syntax for referencing snippets in Browser check code but recommend using the **require**
-syntax discussed at the beginning of this document.
-
+> syntax discussed at the beginning of this document.
 
 You can reuse commonly used parts of code by referencing code snippets in any browser check. To do this, you use the
 [Handlebars](https://handlebarsjs.com/guide/partials.html) partial notation `{{> my_code_snippet }}`.
@@ -138,8 +136,8 @@ browser checks to have granular feedback whether each part functions.
 
 1. Create a snippet named **github_login** in the "code snippets" section with the code below.
 
-   {{< tabs "github_login_legacy" >}}
-   {{< tab "Playwright" >}}
+{{< tabs "github_login_legacy" >}}
+{{< tab "Playwright" >}}
 ```javascript
 const playwright = require('playwright')
 const browser = await playwright.chromium.launch()
@@ -150,48 +148,48 @@ await page.type('#login_field', process.env.GITHUB_USER)
 await page.type('#password', process.env.GITHUB_PWD)
 await page.click('[name="commit"]')
 ```
-    {{< /tab >}}   
-    {{< tab "Puppeteer" >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
 ```javascript
-const puppeteer = require('puppeteer')     
+const puppeteer = require('puppeteer')
 const browser = await puppeteer.launch()
 const page = await browser.newPage()
-    
+
 await page.goto('https://github.com/login')
 await page.type('#login_field', process.env.GITHUB_USER)
 await page.type('#password', process.env.GITHUB_PWD)
 await page.click('[name="commit"]')
 ```
-    {{< /tab >}}
-    {{< /tabs >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 Notice we are referencing the `GITHUB_USER` and `GITHUB_PWD` environment variables. All environment variables are available
 in partials / snippets, just like in "normal" browser check scripts. Your snippet should look like the screenshot below.
 
-    ![browser check code snippet](/docs/images/browser-checks/code-snippet.png)
+![browser check code snippet](/docs/images/browser-checks/code-snippet.png)
 
 2. Create a new browser check. Reference the code snippet you just created as a partial. After this, just continue with the normal check.
    During execution, the code snippet will be inlined before the script is run.
 
-   {{< tabs "github_login_referenced_legacy" >}}
-   {{< tab "Playwright" >}}
+{{< tabs "github_login_referenced_legacy" >}}
+{{< tab "Playwright" >}}
 ```javascript
     {{> github_login}}
-    
+
     // your normal check code
     await page.click('.header-search-input')
 ```
-    {{< /tab >}}   
-    {{< tab "Puppeteer" >}}
+{{< /tab >}}
+{{< tab "Puppeteer" >}}
 ```javascript
     {{> github_login}}
-    
+
     // your normal check code
     await page.waitForSelector('.application-main')
     await page.click('.header-search-input')
 ```
-    {{< /tab >}}
-    {{< /tabs >}}
+{{< /tab >}}
+{{< /tabs >}}
 
 ### Passing variables to partials
 
