@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Public Roadmap
+    url: https://github.com/orgs/checkly/projects/4
+    about: Check our roadmap and feel free to submit your request
