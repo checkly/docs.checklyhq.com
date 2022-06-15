@@ -8,36 +8,48 @@ menu:
 
 If you have checks running, you can select them on the main Checkly dashboard and get an overview of the results they have produced so far. 
 
-## Overview
+## Check overview
 
-The Overview tab offers a summary with key metrics at a glance:
+Select a check and you will see a breakdown of its recent runs, together with key availability and performance metrics. All results are shown based on the selected timeframe.
 
-![check results summary](/docs/images/monitoring/check-results-summary.png)
+![check results overview](/docs/images/monitoring/check-results-summary.png)
 
-1. **24-hour ratio**: the percentage of successful check runs over the last 24 hours
-2. **7-day ratio**: the percentage of successful check runs over the last 7 days
-3. **30-day ratio**: the percentage of successful check runs over the last 30 days
-4. **average**: average execution time across the last 24 hours
-5. **p95**: the [95th percentile](https://www.manageengine.com/network-monitoring/faq/95th-percentile-calculation.html) response time across the last 24 hours
-6. **p99**: the [99th percentile](https://en.wikipedia.org/wiki/Percentile) response time across the last 24 hours
+Single check runs can be accessed by selecting them on the timeline and clicking `View Details`. A preview of the selected check run also appears just below the timeline.
 
-You also have access to a graph showing status and response times per location across a timeframe of your choice. 
+<img class="screenshot-partial" alt="check results overview top" src="/docs/images/monitoring/result-overview1.png"/>
 
 {{< info >}}
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
 {{< /info >}}
 
-![check results graph](/docs/images/monitoring/check-results-graph.png)
-
-Single check runs can be accessed either by selecting a recent (less than 30 days old) execution either on the graph or just below.
-
-![check results list](/docs/images/monitoring/check-results-results.png)
-
 Note that you can access two separate tabs, one for scheduled and one for triggered executions.
+
+## Browser check results
+
+Browser check results contain:
+
+1. A short check summary, including errors broken down by category.
+<img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
+2. A timeline showing how much time was spent on each page.
+<img class="screenshot-partial" alt="check results browser timeline" src="/docs/images/monitoring/check-results-browser-timeline.png"/>
+3. An error log, only if your script failed.
+<img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>
+4. Expandable tabs on page your script navigated to.
+<img class="screenshot-partial" alt="check results browser page navigation" src="/docs/images/monitoring/check-results-browser-page-navigations.png"/>
+When expanded, each tab shows its own navigation/loading timeline and web vitals...
+<img class="screenshot-partial" alt="check results browser navigation top" src="/docs/images/monitoring/check-results-browser-navigation-top.png"/>
+...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
+<img class="screenshot-partial" alt="check results browser navigation bottom" src="/docs/images/monitoring/check-results-browser-navigation-bottom.png"/>
+5. A job log for the check.
+<img class="screenshot-partial" alt="check results browser job log" src="/docs/images/monitoring/check-results-browser-job-log.png"/>
 
 ## API check results
 
-API check results expose:
+API check results will expose key performance and correctness data about the HTTP response received from the target endpoint.
+
+![api check results detail page](/docs/images/monitoring/check-results-api.png)
+
+These include:
 
 1. The request performed
 2. Any assertions that were included in the check
@@ -62,31 +74,3 @@ API check results expose:
     d. First Byte
 
     e. Download
-
-![api check results detail page](/docs/images/monitoring/check-results-api.png)
-
-## Browser check results
-
-Browser check results contain:
-
-1. A short check summary, including errors broken down by category.
-![check results browser summary](/docs/images/monitoring/check-results-browser-summary.png)
-2. A timeline showing how much time was spent on each page.
-![check results browser timeline](/docs/images/monitoring/check-results-browser-timeline.png)
-3. An error log, only if your script failed.
-![check results browser error log](/docs/images/monitoring/check-results-browser-error-log.png)
-4. Expandable tabs on page your script navigated to.
-![check results browser page navigation](/docs/images/monitoring/check-results-browser-page-navigations.png)
-When expanded, each tab shows its own navigation/loading timeline and web vitals...
-![check results browser navigation top](/docs/images/monitoring/check-results-browser-navigation-top.png)
-...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
-![check results browser navigation bottom](/docs/images/monitoring/check-results-browser-navigation-bottom.png)
-5. A job log for the check
-![check results browser job log](/docs/images/monitoring/check-results-browser-job-log.png)
-
-
-## Events
-
-The Events tab shows you alerts, deployments and other key events that have taken place during the execution timeframe of the check.
-
-![check results events tab](/docs/images/monitoring/check-results-events.png)
