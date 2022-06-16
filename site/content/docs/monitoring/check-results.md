@@ -8,7 +8,7 @@ menu:
 
 If you have checks running, you can select them on the main Checkly dashboard and get an overview of the results they have produced so far. 
 
-## Check overview
+## Check results overview
 
 Select a check and you will see a breakdown of its recent runs, together with key availability and performance metrics.
 
@@ -18,15 +18,15 @@ Select a check and you will see a breakdown of its recent runs, together with ke
 
 The summary at the top of the page allows for filtering based all of the page's data points based on the selected timeframe and locations. 
 
-<img class="screenshot-partial" alt="check results overview bar" src="/docs/images/monitoring/check-overview-bar.png"/>
+<img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-bar.png"/>
 
 Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance. Single tabs in the summary can be clicked to skip to the related section of the page showing a more detailed breakdown of the relevant information.
 
 ### Timeline
 
-Single check runs can be accessed by selecting them on the timeline and clicking `View Details`. A preview of the selected check run also appears just below the timeline.
+Single check runs can be accessed by selecting them on the timeline and clicking View Details. A preview of the selected check run also appears just below the timeline.
 
-<img class="screenshot-partial" alt="check results overview top" src="/docs/images/monitoring/result-overview1.png"/>
+<img class="screenshot-partial" alt="check results overview timeline" src="/docs/images/monitoring/check-overview-timeline.png"/>
 
 Selecting a check execution will take you to the dedicate check result page for it, which will look different based on whether you had been running a [Browser](#browser-check-results) or an [API check](#api-check-results).
 
@@ -40,31 +40,30 @@ Depending on the type of check, different performance metrics will be shown in t
 
 For Browser checks, different performance metrics are shown in separate charts:
 
-1. The total duration of the browser session:
+1. The total duration of the browser session
 <img class="screenshot-partial" alt="check overview browser session duration graph" src="/docs/images/monitoring/check-overview-performance-browser.png"/>
 
-2. Load timings for the first page navigation:
+2. [Load timings](/docs/browser-checks/tracing-web-vitals/#first-contentful-paint) for the first page navigation
 <img class="screenshot-partial" alt="check overview load timings graph" src="/docs/images/monitoring/check-overview-performance-loading.png"/>
 
-3. A breakdown of different error types:
+3. A breakdown of different error types
 <img class="screenshot-partial" alt="check overview errors graph" src="/docs/images/monitoring/check-overview-errors.png"/>
 
-4. An interactivity summary:
+4. An [interactivity](/docs/browser-checks/tracing-web-vitals/#total-blocking-time) summary
 <img class="screenshot-partial" alt="check overview interactivity graph" src="/docs/images/monitoring/check-overview-interactivity.png"/>
 
-5. A visual stability breakdown:
+5. A [visual stability](/docs/browser-checks/tracing-web-vitals/#cumulative-layout-shift) breakdown
 <img class="screenshot-partial" alt="check overview visual stability graph" src="/docs/images/monitoring/check-overview-visual-stability.png"/>
 
 For API checks, a detailed response time breakdown is shown:
 <img class="screenshot-partial" alt="check overview api performance graph" src="/docs/images/monitoring/check-overview-performance-api.png"/>
 
 A performance comparison by location will also be included for both types of check:
-
 <img class="screenshot-partial" alt="check overview location performance graph" src="/docs/images/monitoring/check-overview-locations.png"/>
 
 ## Browser check results
 
-Browser check results contain:
+Individual browser check results contain:
 
 1. A short check summary, including errors broken down by category.
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
