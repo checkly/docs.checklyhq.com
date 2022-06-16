@@ -22,13 +22,13 @@ The summary at the top of the page allows for filtering based all of the page's 
 
 Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance. Single tabs in the summary can be clicked to skip to the related section of the page showing a more detailed breakdown of the relevant information.
 
-### Timeline
+### Time ribbon
 
-Single check runs can be accessed by selecting them on the timeline and clicking View Details. A preview of the selected check run also appears just below the timeline.
+Single check runs can be accessed by selecting them on the time ribbon or by hovering dots and clicking View Details. View Details will open the selected check run in a new browser tab; a simple click on a time ribbon dot will show a preview of the selected check run below it.
 
-<img class="screenshot-partial" alt="check results overview timeline" src="/docs/images/monitoring/check-overview-timeline.png"/>
+<img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-time-ribbon.png"/>
 
-Selecting a check execution will take you to the dedicate check result page for it, which will look different based on whether you had been running a [Browser](#browser-check-results) or an [API check](#api-check-results).
+Selecting a check execution will take you to the dedicated check result page for it, which will look different based on whether you had been running a [Browser](#browser-check-results) or an [API check](#api-check-results).
 
 {{< info >}}
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
@@ -38,7 +38,7 @@ For self-service plans check results will only be [available in aggregate format
 
 Depending on the type of check, different performance metrics will be shown in the Performance section.
 
-For Browser checks, different performance metrics are shown in separate charts:
+For Browser checks, several performance metrics are shown in separate charts:
 
 1. The total duration of the browser session
 <img class="screenshot-partial" alt="check overview browser session duration graph" src="/docs/images/monitoring/check-overview-performance-browser.png"/>
@@ -67,13 +67,13 @@ Individual browser check results contain:
 
 1. A short check summary, including errors broken down by category.
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
-2. A timeline showing how much time was spent on each page.
-<img class="screenshot-partial" alt="check results browser timeline" src="/docs/images/monitoring/check-results-browser-timeline.png"/>
+2. A time ribbon showing how much time was spent on each page.
+<img class="screenshot-partial" alt="check results browser time ribbon" src="/docs/images/monitoring/check-results-browser-time-ribbon.png"/>
 3. An error log, only if your script failed.
 <img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>
 4. Expandable tabs on page your script navigated to.
 <img class="screenshot-partial" alt="check results browser page navigation" src="/docs/images/monitoring/check-results-browser-page-navigations.png"/>
-When expanded, each tab shows its own navigation/loading timeline and web vitals...
+When expanded, each tab shows its own navigation/loading time ribbon and web vitals...
 <img class="screenshot-partial" alt="check results browser navigation top" src="/docs/images/monitoring/check-results-browser-navigation-top.png"/>
 ...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
 <img class="screenshot-partial" alt="check results browser navigation bottom" src="/docs/images/monitoring/check-results-browser-navigation-bottom.png"/>
