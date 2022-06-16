@@ -155,6 +155,13 @@ infrastructure:
     ctaLink: "/docs/integrations/terraform/"
     description: >-
       Manage your monitoring setup, at scale, from your codebase using our Terraform provider.
+  - service: Pulumi
+    icon: "/integrations/infrastructure/pulumi@2x.png"
+    iconWidth: 40
+    iconHeight: 40
+    ctaLink: "/docs/integrations/pulumi/"
+    description: >-
+      Use JS/TS to manage your monitoring setup, at scale, from your codebase using our Pulumi provider.
   - service: Prometheus
     icon: "/integrations/infrastructure/prometheus@2x.png"
     iconWidth: 40
