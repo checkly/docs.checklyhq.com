@@ -6,7 +6,7 @@
 * [ ] Other
 
 ## Pre-Requisites
-* [ ] Code is linted (`npm run lin`)
+* [ ] Code is linted (`npm run lint`)
 
 <!-- You can erase any parts of this template not applicable to your Pull Request. -->
 ## Notes for the Reviewer
