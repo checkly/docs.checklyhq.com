@@ -15,6 +15,8 @@ header:
     src: 
       default: /private-locations/private-locations-terminal.png
       retina: /private-locations/private-locations-terminal@2x.png
+    width: 610
+    height: 157
     alt: docker run -e API_KEY="pl_..." -d ghcr.io/checly/agent:latest
 
 intro:
@@ -24,6 +26,8 @@ intro:
       src: 
         default: /private-locations/features-01.png
         retina: /private-locations/features-01@2x.png
+      width: 464
+      height: 220
       alt: ""
     headline: Works with your on-prem locations
     text: Run checks from our infrastructure in Ireland, the US or São Paulo, or your own one like your private data center.
@@ -32,6 +36,8 @@ intro:
       src: 
         default: /private-locations/features-02.png
         retina: /private-locations/features-02@2x.png
+      width: 450
+      height: 220
       alt: ""
     headline: Manage your monitoring parameters
     text: Define appropriate check intervals, store check results over time, and get alerts when things go wrong.
@@ -40,6 +46,8 @@ intro:
       src: 
         default: /private-locations/features-03.png
         retina: /private-locations/features-03@2x.png
+      width: 450
+      height: 220
       alt: ""
     headline: One setup for local and cloud
     text: Use the same monitoring and alerting infrastructure for both public and internal applications and APIs.
@@ -67,6 +75,8 @@ getStarted:
       src: 
         default: /private-locations/get-started-01.png
         retina: /private-locations/get-started-01@2x.png
+      width: 602
+      height: 412
       alt: ""
   item2:
     headline: Install the container
@@ -75,6 +85,8 @@ getStarted:
       src: 
         default: /private-locations/get-started-02.png
         retina: /private-locations/get-started-02@2x.png
+      width: 570
+      height: 54
       alt: ""
   item3:
     headline: Create checks
@@ -83,5 +95,7 @@ getStarted:
       src: 
         default: /private-locations/get-started-03.png
         retina: /private-locations/get-started-03@2x.png
+      width: 374
+      height: 301
       alt: ""
 ---
