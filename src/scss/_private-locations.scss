@@ -49,6 +49,10 @@
   padding-top: 2rem;
   background-color: $gray-lightest;
   border-bottom: 1px solid $gray-light;
+
+  @media (min-width: 992px) {
+    padding-top: 5rem;
+  }
 }
 
 .private-locations__headerContent {
@@ -66,11 +70,24 @@
   p {
     margin-bottom: 2rem;
   }
+
+  @media (min-width: 992px) {
+    h1 {
+      margin-bottom: 2rem;
+    }
+    p {
+      margin-bottom: 3rem;
+    }
+  }
 }
 
 .private-locations__header-image {
   margin-top: 1rem;
   margin-bottom: -4rem;
+
+  @media (min-width: 992px) {
+    margin-top: 3rem;
+  }
 }
 
 .private-locations__intro {
