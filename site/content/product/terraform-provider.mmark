@@ -15,7 +15,7 @@ description: There’s a better way to monitor your assets. Defining your checks
       <p class="text-center text-md-left terraform-sub">Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <a href="#get-started"><button type="button" class="btn btn-primary b-cta">Get Started</button></a>
-        <a class="text-center text-decoration-none btn landing-link read-docs" href="/docs/terraform-provider/getting-started/">Read Documentation</a>
+        <a class="text-center text-decoration-none btn landing-link read-docs" href="/docs/terraform-provider/">Read Documentation</a>
       </div>
     </div>
     <div class="col-12 col-lg-6 pb-0 right-header">
