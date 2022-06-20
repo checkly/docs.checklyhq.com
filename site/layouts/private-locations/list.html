@@ -132,7 +132,7 @@
               })
 
               howItems.forEach((item, key) => {
-                // hide all items
+                // disable all items
                 item.classList.remove('is-active')
 
                 if (key === currentvideo - 1) {
@@ -157,7 +157,6 @@
               clearInterval(interval)
 
               currentvideo = next
-              console.log(currentvideo)
               updateDom()
 
               interval = setInterval(moveToNextVideo, 1000 * 24) // 24s
