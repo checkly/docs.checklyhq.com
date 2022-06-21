@@ -5,16 +5,21 @@ const { chromium } = require('playwright')
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com')
 
-  const performanceTimingJson = await page.evaluate(() =>
-    JSON.stringify(window.performance.timing)
+  const navigationTimingJson = await page.evaluate(() =>
+    JSON.stringify(performance.getEntriesByType('navigation'))
   )
-  const performanceTiming = JSON.parse(performanceTimingJson)
+  const navigationTiming = JSON.parse(navigationTimingJson)
 
-  console.log(performanceTiming)
-
-  const startToInteractive =
-    performanceTiming.domInteractive - performanceTiming.navigationStart
-  console.log(`Navigation start to DOM interactive: ${startToInteractive}ms`)
+  console.log(navigationTiming)
+  // [{
+  //   name: 'https://danube-webshop.herokuapp.com/',
+  //   entryType: 'navigation',
+  //   startTime: 0,
+  //   duration: 1243.7999999998137,
+  //   initiatorType: 'navigation',
+  //   nextHopProtocol: 'http/1.1',
+  //   ...
+  // }]
 
   await browser.close()
 })()
