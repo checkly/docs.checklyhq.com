@@ -4,9 +4,9 @@ addAssignees: author
 reviewers:
   - pilimartinez
   - ianaya89
-  - orcunilbeyli
+  - checklyalex
 
 skipKeywords:
   - wip
 
-numberOfReviewers: 3
+numberOfReviewers: 2

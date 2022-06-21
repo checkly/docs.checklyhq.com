@@ -3,6 +3,10 @@
   <h1>checklyhq.com</h1>
 </p>
 
+![https://app.checklyhq.com/groups/8411/edit](https://api.checklyhq.com/v1/badges/groups/8411)
+![https://app.checklyhq.com/groups/247124/edit](https://api.checklyhq.com/v1/badges/groups/247124)
+![https://app.checklyhq.com/groups/170797/edit](https://api.checklyhq.com/v1/badges/groups/170797)
+
 > 🦝 Checkly public site, docs and guides
 
 <img width="1676" alt="hero" src="https://user-images.githubusercontent.com/3258966/126023413-a69448d5-00ec-4161-aad6-99047b0aea97.png">

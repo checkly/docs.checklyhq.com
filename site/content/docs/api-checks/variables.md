@@ -13,17 +13,24 @@ like an authentication token, a specific user name or even just some specific pa
 
 ## Managing variables
 
-You can add variables on the **Environment variables** tab. The variables stored here are globally accessible
-throughout Checkly, hence the "Global environment variables" title*.  
+You can manage environment variables for API checks at two different levels:
 
-All variables are stored as string values. You can click the lock icon to encrypt the values and hide the value from all users
-that do not have write access.
+* Group level
+* Global level
+ 
+Group variables are added on the Variables tab in a group. The variables stored here are accessible only in the group context.
 
-![adding variables](/docs/images/api-checks/add-variables.png)
+![set group environment variable](/docs/images/api-checks/add-group-variable.png)
+
+Global variables are added on the Variables tab. The variables stored here are globally accessible throughout Checkly, hence the “Global environment variables” title.
+
+![set global environment variable](/docs/images/api-checks/add-global-variable.png)
+
+All variables are stored as string values. You can click the lock icon to encrypt the values and hide the value from all users that do not have write access. Any data you “lock” is encrypted at rest and in flight on our back end and is only decrypted when needed.
 
 ## Accessing variables in API checks
 
-Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{BASIC_PWD}}`.
+Environment variables are exposed to your API checks using the common Handlebars/Moustache templating delimiters, i.e. `{{USER_API_KEY}}`. Note that Handlebars (double brackets) variables will be URI encoded. To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{USER_API_KEY}}}`.
 Variables can be used in the following API checks fields:
 
 - URL

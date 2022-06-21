@@ -316,3 +316,24 @@ certificate expires.
   "link": "http://app-test.checklyhq.com/checks/08437f9c-df8c-45ed-975a-a3f9e24d626d"
 }
 ```
+## Twilio
+
+You can configure a webhook to POST to a JavaScript snippet running in a [Twilio Function](https://www.twilio.com/docs/runtime/functions). This code receives the Checkly webhook JSON, then triggers a Twilio "Flow execution":
+
+```js
+//"From" is the sender phone number
+//"To" is the receiver phone number
+exports.handler = async function (context, event, callback) {
+  const { From, To, Event, Link } = event;
+  const client = context.getTwilioClient();
+  try {
+    const execution = await client.studio.flows(FLOW_SID)
+      .executions
+      .create({ to: To, from: From, parameters: { Event, Link } })
+    console.log(`Created execution ${execution.sid}`);
+    return callback(null, "OK");
+  } catch (error) {
+    return callback(error);
+  }
+};
+```
