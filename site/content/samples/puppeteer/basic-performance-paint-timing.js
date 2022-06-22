@@ -11,10 +11,6 @@ const puppeteer = require('puppeteer')
   const paintTiming = JSON.parse(paintTimingJson)
 
   console.log(paintTiming)
-  // [
-  //   { name: 'first-paint', entryType: 'paint', startTime: 1149.5, duration: 0 },
-  //   { name: 'first-contentful-paint', entryType: 'paint', startTime: 1149.5, duration: 0 }
-  // ]
 
   await browser.close()
 })()

@@ -74,7 +74,7 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 
 > Navigation timings are metrics measuring a browser's document navigation events. Resource timings are detailed network timing measurements regarding the loading of an application's resources. Both provide the same read-only properties, but navigation timing measures the main document's timings whereas the resource timing provides the times for all the assets or resources called in by that main document and the resources' requested resources.
 
-[The Navigation Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API) allows us to retrieve timestamps of key events in the page load timeline. A Navigation Timing entry includes metrics such as the navigation response time, DOM ready and document load time.
+[The Navigation Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API) allows us to retrieve timestamps of key events in the page load timeline. A Navigation Timing entry includes metrics such as the navigation response time, the used protocol and document load time.
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
@@ -90,6 +90,45 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 {{< run-in-checkly "/samples/puppeteer/basic-performance-navigation.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
+
+<details class="console-output">
+  <summary>Console output</summary>
+  <pre><code>[{
+  name: 'https://danube-webshop.herokuapp.com/',
+  entryType: 'navigation',
+  startTime: 0,
+  duration: 1243.7999999998137,
+  initiatorType: 'navigation',
+  nextHopProtocol: 'http/1.1',
+  workerStart: 0,
+  redirectStart: 0,
+  redirectEnd: 0,
+  fetchStart: 0.10000000009313226,
+  domainLookupStart: 1.2000000001862645,
+  domainLookupEnd: 11.100000000093132,
+  connectStart: 11.100000000093132,
+  connectEnd: 336.8000000002794,
+  secureConnectionStart: 102.89999999990687,
+  requestStart: 336.89999999990687,
+  responseStart: 432.39999999990687,
+  responseEnd: 433.70000000018626,
+  transferSize: 971,
+  encodedBodySize: 671,
+  decodedBodySize: 671,
+  serverTiming: [],
+  workerTiming: [],
+  unloadEventStart: 0,
+  unloadEventEnd: 0,
+  domInteractive: 1128.8999999999069,
+  domContentLoadedEventStart: 1128.8999999999069,
+  domContentLoadedEventEnd: 1130.8999999999069,
+  domComplete: 1235.3999999999069,
+  loadEventStart: 1235.3999999999069,
+  loadEventEnd: 1235.3999999999069,
+  type: 'navigate',
+  redirectCount: 0
+}]</pre></code>
+</details>
 
 [The Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) allows us to zoom in on single resources and get accurate information about how quickly they loaded. For example, we could specifically look at our website's logo:
 
@@ -107,6 +146,35 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 {{< run-in-checkly "/samples/puppeteer/basic-performance-resource.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
+
+<details class="console-output">
+  <summary>Console output</summary>
+  <pre><code>{
+  name: 'https://danube-webshop.herokuapp.com/static/logo-horizontal.svg',
+  entryType: 'resource',
+  startTime: 1149.1000000000931,
+  duration: 96.89999999990687,
+  initiatorType: 'img',
+  nextHopProtocol: 'http/1.1',
+  workerStart: 0,
+  redirectStart: 0,
+  redirectEnd: 0,
+  fetchStart: 1149.1000000000931,
+  domainLookupStart: 1149.1000000000931,
+  domainLookupEnd: 1149.1000000000931,
+  connectStart: 1149.1000000000931,
+  connectEnd: 1149.1000000000931,
+  secureConnectionStart: 1149.1000000000931,
+  requestStart: 1149.6000000000931,
+  responseStart: 1244.3000000002794,
+  responseEnd: 1246,
+  transferSize: 21049,
+  encodedBodySize: 20749,
+  decodedBodySize: 20749,
+  serverTiming: [],
+  workerTiming: []
+}</pre></code>
+</details>
 
 #### Paint Timing API (`first-paint` and `first-contentful-paint`)
 
@@ -126,6 +194,14 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 {{< run-in-checkly "/samples/puppeteer/basic-performance-paint-timing.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
+
+<details class="console-output">
+  <summary>Console output</summary>
+  <pre><code>[
+  { name: 'first-paint', entryType: 'paint', startTime: 1149.5, duration: 0 },
+  { name: 'first-contentful-paint', entryType: 'paint', startTime: 1149.5, duration: 0 }
+]</pre></code>
+</details>
 
 #### Largest Contentful Paint API (`largest-contentful-paint`)
 

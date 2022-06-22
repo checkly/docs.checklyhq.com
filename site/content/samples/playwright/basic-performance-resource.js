@@ -15,12 +15,6 @@ const { chromium } = require('playwright')
   )
 
   console.log(logoResourceTiming)
-  // {
-  //   name: 'https://danube-webshop.herokuapp.com/static/logo-horizontal.svg',
-  //   entryType: 'resource',
-  //   startTime: 1126.300000000745,
-  //   ...
-  // }
 
   await browser.close()
 })()

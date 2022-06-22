@@ -393,6 +393,25 @@
         color: $red;
         border-bottom-color: $red;
       }
+
+      & + .console-output {
+        margin-top: -2rem;
+      }
+    }
+
+    .console-output {
+      margin: 2rem 1rem;
+      border-radius: 0.25rem;
+      color: white;
+      background-color: #272822;
+
+      summary {
+        padding: 1rem;
+      }
+
+      pre {
+        margin: 0;
+      }
     }
   }
 

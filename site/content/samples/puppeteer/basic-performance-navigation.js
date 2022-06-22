@@ -11,15 +11,6 @@ const puppeteer = require('puppeteer')
   const navigationTiming = JSON.parse(navigationTimingJson)
 
   console.log(navigationTiming)
-  // [{
-  //   name: 'https://danube-webshop.herokuapp.com/',
-  //   entryType: 'navigation',
-  //   startTime: 0,
-  //   duration: 1243.7999999998137,
-  //   initiatorType: 'navigation',
-  //   nextHopProtocol: 'http/1.1',
-  //   ...
-  // }]
 
   await browser.close()
 })()
