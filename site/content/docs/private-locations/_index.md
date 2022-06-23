@@ -10,10 +10,6 @@ aliases:
 - "/docs/private-locations/"
 ---
 
-{{<info>}}
-Note: The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
-{{</info>}}
-
 ## About Private Locations
 
 **You must have the Owner or Admin role on your Checkly account to create private locations.**
@@ -68,3 +64,8 @@ A private location is similar to our existing public locations, but you have con
 12) You can now see the results in the check results page.
 
 ![private location results](/docs/images/private-locations/private_location_results.png)
+
+## Known limitations
+
+- Private Locations and the Checkly Agent currently do not support [CI/CD triggers](/docs/cicd/) such as Command Line Triggers or the Vercel and GitHub integration.
+- The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
