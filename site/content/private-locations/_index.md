@@ -1,5 +1,6 @@
 ---
 title: Run Checks in Private Locations
+description: You can already test your public apps from various locations using Checkly, but what if you want to monitor and test on-prem? Now Checkly has this ability, too.
 
 header: 
   tag: Terraform
@@ -7,17 +8,17 @@ header:
   description: Your internal applications and APIs deserve the same care as the public ones. With our Checkly Agent, you can test your private APIs and applications using Checkly, too.
   button1: 
     text: Get started
-    href: '#'
+    href: 'https://app.checklyhq.com/signup'
   button2: 
     text: Read documentation
-    href: '#'
+    href: '/docs/private-locations/'
   image: 
     src: 
       default: /private-locations/private-locations-terminal.png
       retina: /private-locations/private-locations-terminal@2x.png
     width: 610
     height: 157
-    alt: docker run -e API_KEY="pl_..." -d ghcr.io/checly/agent:latest
+    alt: Checkly Agent terminal screenshot
 
 intro:
   headline1: Countless new check locations running in your infrastructure
@@ -28,7 +29,7 @@ intro:
         retina: /private-locations/features-01@2x.png
       width: 464
       height: 220
-      alt: ""
+      alt: "on-prem locations icon 1/2/3/4/5"
     headline: Works with your on-prem locations
     text: Run checks from our infrastructure in Ireland, the US or São Paulo, or your own one like your private data center.
   feat2:
@@ -38,7 +39,7 @@ intro:
         retina: /private-locations/features-02@2x.png
       width: 450
       height: 220
-      alt: ""
+      alt: "Monitoring parameters timeline"
     headline: Manage your monitoring parameters
     text: Define appropriate check intervals, store check results over time, and get alerts when things go wrong.
   feat3:
@@ -48,7 +49,7 @@ intro:
         retina: /private-locations/features-03@2x.png
       width: 450
       height: 220
-      alt: ""
+      alt: "cloud and local setup screenshot"
     headline: One setup for local and cloud
     text: Use the same monitoring and alerting infrastructure for both public and internal applications and APIs.
 
@@ -77,7 +78,7 @@ getStarted:
         retina: /private-locations/get-started-01@2x.png
       width: 602
       height: 412
-      alt: ""
+      alt: "creating private location in Checkly"
   item2:
     headline: Install the container
     text: Install and run the container in your infrastructure using this API key to retrieve, run and store checks and their results.
@@ -87,7 +88,7 @@ getStarted:
         retina: /private-locations/get-started-02@2x.png
       width: 570
       height: 54
-      alt: ""
+      alt: "installing the contrainer in your infrastructure"
   item3:
     headline: Create checks
     text: Write your checks in the Checkly UI and get your internal application testing rollin’.
@@ -97,5 +98,5 @@ getStarted:
         retina: /private-locations/get-started-03@2x.png
       width: 374
       height: 301
-      alt: ""
+      alt: "creating on-prem checks in Checkly UI"
 ---
