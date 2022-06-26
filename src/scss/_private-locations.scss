@@ -202,3 +202,13 @@
     margin-bottom: 3rem;
   }
 }
+
+.getStarted-text {
+  padding-bottom: 1rem;
+
+  &--opticallyAligned {
+    @media (min-width: 992px) {
+      padding-bottom: 7rem;
+    }
+  }
+}
