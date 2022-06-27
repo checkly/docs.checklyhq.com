@@ -27,7 +27,7 @@ A private location is similar to our existing public locations, but you have con
 in your own segregated network,  on-premises or cloud-based. You need one or more Checkly Agents installed in that location/network 
 with access to your applications. 
 
-Checkly checks are configured and scheduled in the Checkly cloud-based web UI as usual, but selecting a private location 
+Checkly checks are configured and scheduled in the Checkly cloud-based web UI as usual, but selecting a Private Location 
 runs the check on the agent(s) in your infrastructure. **Agents are stateless and ephemeral**. As long as you have at 
 least one operational agent, checks will run in your private location. Adding more agents will distribute the load and 
 improve resilience automatically.
