@@ -1,5 +1,5 @@
 ---
-title: Installing Checkly Agent
+title: Installing & Running the Checkly Agent
 weight: 52
 menu:
   docs:
@@ -23,12 +23,22 @@ Here are the requirements before you get started:
 
 ## Redundancy and scaling
 
-We recommend at least two agents per private location for redundancy. When considering scaling, you should use at least N+1 agents per private location to ensure checks will be processed even if an agent fails. Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them as necessary. If an agent fails, the other agents in the same private location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period (140s). There are two cases where checks assigned to a location could fail to run:
+We recommend at least two agents per private location for redundancy. When considering scaling, you should use at 
+least N+1 agents per private location to ensure checks will be processed even if an agent fails. 
+Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them 
+as necessary. 
 
-* All of the agents in the private location have failed
+If an agent fails, the other agents in the same private location will continue to run the checks assigned 
+to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after 
+a timeout period (140s). 
+
+There are two cases where checks assigned to a location could fail to run:
+
+* All the agents in the private location have failed
 * There is insufficient agent capacity in the private location
 
-Checks will stay queued for 6 minutes waiting for an available agent. If there are no agents available or the available agents are so busy that they cannot process all of the pending checks, the pending checks older than 6 minutes will be lost.
+**Checks will stay queued for 6 minutes** waiting for an available agent. If there are no agents available or the available 
+agents are so busy that they cannot process all of the pending checks, the pending checks older than 6 minutes will be lost.
 
 Agents can be scaled up and scaled out. Scaling up means adding additional CPU and memory allocations to existing agent containers. Scaling out means adding additional agent containers.
 
