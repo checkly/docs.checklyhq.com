@@ -2,9 +2,14 @@
 
 .private-locations {
   .tag {
+    padding: .25em .75em;
     color: $blue;
     font-size: 14px;
     font-weight: 600;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   img,
@@ -15,15 +20,17 @@
 
   pre {
     user-select: all;
+    overflow: visible;
   }
 
   .display-1 {
     font-size: 24px;
     font-weight: 700;
     line-height: 1.2;
+    letter-spacing: -0.04em;
 
     @media (min-width: 768px) {
-      font-size: 42px;
+      font-size: 52px;
     }
   }
 
@@ -46,17 +53,15 @@
       font-size: 20px;
     }
   }
+
+
 }
 
 .private-locations__header {
   margin-bottom: 6rem;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   background-color: $gray-lightest;
   border-bottom: 1px solid $gray-light;
-
-  @media (min-width: 992px) {
-    padding-top: 5rem;
-  }
 }
 
 .private-locations__headerCol {
@@ -75,15 +80,27 @@
 
   .tag,
   .btn {
-    margin-bottom: 1em;
+    margin-bottom: .5rem;
   }
+
   p {
     margin-bottom: 2rem;
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 0.55em 1.55em;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .btn.btn-primary {
+    font-size: 20px;
   }
 
   @media (min-width: 992px) {
     h1 {
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
     p {
       margin-bottom: 3rem;
@@ -153,7 +170,7 @@
 
   @media (min-width: 992px) {
     padding-top: 6.25rem;
-    padding-bottom: 6.25rem;
+    padding-bottom: 5rem;
   }
 }
 

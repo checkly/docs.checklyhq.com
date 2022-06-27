@@ -4,7 +4,7 @@ description: You can already test your public apps from various locations using 
 navIsGray: true
 
 header: 
-  tag: Terraform
+  tag: Private locations
   headline1: Run Checks in Private Locations
   description: Your internal applications and APIs deserve the same care as the public ones. With our Checkly Agent, you can test your private APIs and applications using Checkly, too.
   button1: 
