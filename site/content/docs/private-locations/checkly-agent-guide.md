@@ -1,5 +1,5 @@
 ---
-title: Installing & Running the Checkly Agent
+title: Installing & running the Checkly Agent
 weight: 52
 menu:
   docs:
