@@ -16,3 +16,15 @@ Setting up Slack as an alerting channel is simple:
 You have the option to customize the default channel you've set in Slack by setting a channel name while creating your Alert Channel. You can use a **#public-channel-name**, **@username** for Direct Messages or a channel ID. If you omit this field, the message will arrive in the default channel you've picked while creating the Incoming WebHook URL in Slack.
 
 By customizing the channel name, alerting options & checks for that alert channel, you can use a single Incoming WebHook URL for multiple scenarios.
+
+## Example Failed Slack Alert
+
+We provide a lot of information in the initial Slack message including links to the check and check result as well as the whole response body.
+
+![A slack message showing a failed alert](/docs/images/alerting/slack-failed-check.png)
+
+## Example Recovered Slack Alert
+
+From the recovered Slack message, you can see the timestamp as well as a link to the check itself.
+
+![A slack message showing a recovered alert](/docs/images/alerting/slack-recovered-check.png)
