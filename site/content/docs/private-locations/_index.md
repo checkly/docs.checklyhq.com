@@ -23,7 +23,7 @@ Here are the requirements/questions before you get started:
 
 Here's how private locations work:
 
-A private location is similar to our existing public locations, but you have control over it. A private location can be 
+A Private Location is similar to our existing public locations, but you have control over it. A Private Location can be 
 in your own segregated network,  on-premises or cloud-based. You need one or more Checkly Agents installed in that location/network 
 with access to your applications. 
 
