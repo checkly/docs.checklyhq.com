@@ -23,7 +23,7 @@ Here are the requirements before you get started:
 
 ## Redundancy and scaling
 
-We recommend at least two agents per private location for redundancy. When considering scaling, you should use at 
+At least two agents per private location are recommended for redundancy. When considering scaling, you should use at 
 least N+1 agents per private location to ensure checks will be processed even if an agent fails. 
 Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them 
 as necessary. 
