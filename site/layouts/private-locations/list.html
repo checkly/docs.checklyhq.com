@@ -104,10 +104,8 @@
         </div>
 
         <div class="how-videosCol col-sm-12 col-md-7 align-self-center">
-          <div class="how-videos">
-            <video class="how-video how-video--1" src="{{.Params.how.how1.video}}" muted autoplay loop></video>
-            <video class="how-video how-video--2 d-none" src="{{.Params.how.how2.video}}" muted autoplay loop></video>
-            <video class="how-video how-video--3 d-none" src="{{.Params.how.how3.video}}" muted autoplay loop></video>
+          <div class="how-videoWrapper">
+            <video class="how-video" src="{{.Params.how.how1.video}}" muted autoplay loop></video>
           </div>
         </div>
 
@@ -121,18 +119,18 @@
           (function () {
             const numberOfItems = 3
             let currentvideo = 1
-            const videos = document.querySelectorAll('.how-video')
+
+            const videosSrc = [
+              '{{.Params.how.how1.video}}',
+              '{{.Params.how.how2.video}}',
+              '{{.Params.how.how3.video}}'
+            ]
+
+            const video = document.querySelector('.how-video')
             const howItems = document.querySelectorAll('.how-listItem')
 
             const updateDom = () => {
-              videos.forEach((video, key) => {
-                // hide all videos
-                video.classList.add('d-none')
-
-                if (key === currentvideo - 1) {
-                  video.classList.remove('d-none')
-                }
-              })
+              video.setAttribute('src', videosSrc[currentvideo - 1])
 
               howItems.forEach((item, key) => {
                 // disable all items
