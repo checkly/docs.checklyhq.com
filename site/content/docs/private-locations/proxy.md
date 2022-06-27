@@ -26,7 +26,7 @@ After this, you can reference this variable using `{{PROXY_URL}}` in the Private
 
 ## Using an HTTP proxy with API checks
 
-After setting up the proxy, you can just assign API checks to your Private Location and the API check will start using it
+With the setup complete, any API check which uses that Private Location will automatically inherit the proxy configuration
 for outgoing traffic.
 
 ## Using an HTTP proxy with Browser checks
