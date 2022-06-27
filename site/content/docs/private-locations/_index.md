@@ -73,7 +73,7 @@ improve resilience automatically.
 
 12) Finish configuring your check and save it.
 
-13) You can now see the results in the check results page.
+13) Your results are now visible on the check results page.
 
 ![private location results](/docs/images/private-locations/private_location_results.png)
 
