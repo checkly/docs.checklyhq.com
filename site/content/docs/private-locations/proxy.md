@@ -32,7 +32,7 @@ for outgoing traffic.
 ## Using an HTTP proxy with Browser checks
 
 You can enable your proxy directly in your browser checks via a few extra lines of code, using the `process.env.PROXY_URL` 
-notation. For Playwright you can use the `proxy` option when launching a new browser instance. With Puppeteer, you can pass
+notation. For Playwright, you can use the `proxy` option when launching a new browser instance. With Puppeteer, you can pass
 the URL as a CLI option, but you will have to supply the username and password separately if your proxy is authenticated.
 
 {{< tabs "Proxy Settings" >}}
