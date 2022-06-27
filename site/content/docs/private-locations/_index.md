@@ -29,7 +29,7 @@ with access to your applications.
 
 Checkly checks are configured and scheduled in the Checkly cloud-based web UI as usual, but selecting a Private Location 
 runs the check on the agent(s) in your infrastructure. **Agents are stateless and ephemeral**. As long as you have at 
-least one operational agent, checks will run in your private location. Adding more agents will distribute the load and 
+least one operational Checkly Agent, checks will run in your Private Location. Adding more agents will distribute the load and 
 improve resilience automatically.
 
 ## Configuring a Private Location:
