@@ -57,7 +57,7 @@ improve resilience automatically.
 
 ![private location key](/docs/images/private-locations/private_location_key.png)
 
-8) You now see your new private location in the list with no agents installed.
+8) You now see your new Private Location in the list with no Checkly Agents installed.
 
 ![private location added](/docs/images/private-locations/private_location_added.png)
 
