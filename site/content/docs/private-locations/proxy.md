@@ -1,5 +1,5 @@
 ---
-title: Using HTTP Proxies
+title: Using HTTP proxies
 weight: 53
 menu:
   docs:
