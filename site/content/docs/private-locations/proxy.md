@@ -72,6 +72,6 @@ const puppeteer = require('puppeteer')
 {{< /tabs >}}
 
 This is all that is required for a browser check to proxy all outbound network connections via your designated HTTP proxy. 
-For more information, please check out
+Check out both the Playwright [networking docs](https://playwright.dev/docs/network#http-proxy) and the Chromium [network settings docs](https://www.chromium.org/developers/design-documents/network-settings/) for some more information.
 - The Playwright [networking docs](https://playwright.dev/docs/network#http-proxy) and 
 - The Chromium [network settings docs](https://www.chromium.org/developers/design-documents/network-settings/).
