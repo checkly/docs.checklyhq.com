@@ -21,7 +21,7 @@ Here are the requirements/questions before you get started:
 - Access to your internal API- or browser-based application
 - A Checkly account that you will use for testing Private Locations
 
-Here's how private locations work:
+Here's how Private Locations work:
 
 A Private Location is similar to our existing public locations, but you have control over it. A Private Location can be 
 in your own segregated network,  on-premises or cloud-based. You need one or more Checkly Agents installed in that location/network 
