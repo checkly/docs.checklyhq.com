@@ -1,6 +1,7 @@
 ---
 title: Run Checks in Private Locations
 description: You can already test your public apps from various locations using Checkly, but what if you want to monitor and test on-prem? Now Checkly has this ability, too.
+navIsGray: true
 
 header: 
   tag: Terraform
