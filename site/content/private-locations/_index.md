@@ -82,13 +82,6 @@ getStarted:
   item2:
     headline: Install the container
     text: Install and run the container in your infrastructure using this API key to retrieve, run and store checks and their results.
-    image:
-      src: 
-        default: /private-locations/get-started-02.png
-        retina: /private-locations/get-started-02@2x.png
-      width: 570
-      height: 54
-      alt: "installing the contrainer in your infrastructure"
   item3:
     headline: Create checks
     text: Write your checks in the Checkly UI and get your internal application testing rollin’.

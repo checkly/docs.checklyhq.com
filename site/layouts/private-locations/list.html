@@ -5,7 +5,7 @@
   <div class="private-locations__header">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-10 justify-content-center">
+        <div class="private-locations__headerCol col-sm-12 col-md-10 justify-content-center">
           <div class="private-locations__headerContent">
             <div class="tag text-uppercase">{{.Params.header.tag}}</div>
 
@@ -22,14 +22,17 @@
             </a>
           </div>
 
-          <div class="col-sm-12 text-center">
-            <img
-              class="private-locations__header-image"
-              srcset="{{.Params.header.image.src.default}} 1x, {{.Params.header.image.src.retina}} 2x"
-              src="{{.Params.header.image.src.default}}"
-              width="{{.Params.header.image.width}}"
-              height="{{.Params.header.image.height}}"
-              alt="{{.Params.header.image.alt}}" />
+          <div class="private-locations__codeWrapper text-center">
+            <div class="private-locations__code-block">
+              <img
+                class="private-locations__header-image"
+                srcset="{{.Params.header.image.src.default}} 1x, {{.Params.header.image.src.retina}} 2x"
+                src="{{.Params.header.image.src.default}}"
+                width="{{.Params.header.image.width}}"
+                height="{{.Params.header.image.height}}"
+                alt="{{.Params.header.image.alt}}" />
+              <pre class="private-locations__header-code">docker run -e API_KEY="<span>pl_...</span>" -d ghcr.io/checkly/agent:latest</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -175,14 +178,14 @@
   <!-- GET STARTED -->
   <div class="container private-locations__getStarted">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-10 text-center">
+      <div class="col-sm-12 col-xl-10 text-center">
         <div class="tagline">{{.Params.getStarted.tag}}</div>
         <h2 class="display-2">{{.Params.getStarted.headline}}</h2>
       </div>
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-5 align-self-center d-flex getStarted-text getStarted-text--opticallyAligned">
+      <div class="col-sm-12 col-xl-5 align-self-center d-flex getStarted-text getStarted-text--opticallyAligned">
         <div class="tag">1</div>
         <div>
           <h3 class="display-4">{{.Params.getStarted.item1.headline}}</h3>
@@ -190,7 +193,7 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-lg-6 offset-lg-1 align-self-center text-center">
+      <div class="col-sm-12 col-xl-6 offset-xl-1 align-self-center text-center">
         <img
           srcset="{{.Params.getStarted.item1.image.src.default}} 1x, {{.Params.getStarted.item1.image.src.retina}} 2x"
           src="{{.Params.getStarted.item1.image.src.default}}"
@@ -199,7 +202,7 @@
           alt="{{.Params.getStarted.item1.image.alt}}" />
       </div>
 
-      <div class="col-sm-12 col-lg-5 align-self-center d-flex getStarted-text">
+      <div class="col-sm-12 col-xl-5 align-self-center d-flex getStarted-text">
         <div class="tag">2</div>
         <div>
           <h3 class="display-4">{{.Params.getStarted.item2.headline}}</h3>
@@ -207,16 +210,11 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-lg-6 offset-lg-1 align-self-center text-center">
-        <img
-          srcset="{{.Params.getStarted.item2.image.src.default}} 1x, {{.Params.getStarted.item2.image.src.retina}} 2x"
-          src="{{.Params.getStarted.item2.image.src.default}}"
-          width="{{.Params.getStarted.item2.image.width}}"
-          height="{{.Params.getStarted.item2.image.height}}"
-          alt="{{.Params.getStarted.item2.image.alt}}" />
+      <div class="col-sm-12 col-xl-6 offset-xl-1 align-self-center text-center">
+        <pre class="getStarted-code">docker run -e API_KEY="<span>pl_...</span>" -d ghcr.io/checkly/agent:latest</pre>
       </div>
 
-      <div class="col-sm-12 col-lg-5 align-self-center d-flex getStarted-text">
+      <div class="col-sm-12 col-xl-5 align-self-center d-flex getStarted-text">
         <div class="tag">3</div>
         <div>
           <h3 class="display-4">{{.Params.getStarted.item3.headline}}</h3>
@@ -224,7 +222,7 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-lg-6 offset-lg-1 align-self-center text-center">
+      <div class="col-sm-12 col-xl-6 offset-xl-1 align-self-center text-center">
         <img
           srcset="{{.Params.getStarted.item3.image.src.default}} 1x, {{.Params.getStarted.item3.image.src.retina}} 2x"
           src="{{.Params.getStarted.item3.image.src.default}}"
