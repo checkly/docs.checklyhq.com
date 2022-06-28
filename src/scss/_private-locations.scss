@@ -218,8 +218,11 @@
 }
 
 .how-video {
+  width: 100%;
+  aspect-ratio: 471 / 216;
   border: 1px solid $gray-light;
   border-radius: 4px;
+  background: $white;
 }
 
 .how-list {

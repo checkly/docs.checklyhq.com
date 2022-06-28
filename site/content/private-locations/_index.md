@@ -3,18 +3,18 @@ title: Run Checks in Private Locations
 description: You can already test your public apps from various locations using Checkly, but what if you want to monitor and test on-prem? Now Checkly has this ability, too.
 navIsGray: true
 
-header: 
+header:
   tag: Private locations
   headline1: Run Checks in Private Locations
   description: Your internal applications and APIs deserve the same care as the public ones. With our Checkly Agent, you can test your private APIs and applications using Checkly, too.
-  button1: 
+  button1:
     text: Get started
     href: 'https://app.checklyhq.com/signup'
-  button2: 
+  button2:
     text: Read documentation
     href: '/docs/private-locations/'
-  image: 
-    src: 
+  image:
+    src:
       default: /private-locations/private-locations-terminal.png
       retina: /private-locations/private-locations-terminal@2x.png
     width: 610
@@ -25,7 +25,7 @@ intro:
   headline1: Countless new check locations running in your infrastructure
   feat1:
     image:
-      src: 
+      src:
         default: /private-locations/features-01.png
         retina: /private-locations/features-01@2x.png
       width: 464
@@ -35,7 +35,7 @@ intro:
     text: Run checks from our infrastructure in Ireland, the US or São Paulo, or your own one like your private data center.
   feat2:
     image:
-      src: 
+      src:
         default: /private-locations/features-02.png
         retina: /private-locations/features-02@2x.png
       width: 450
@@ -45,7 +45,7 @@ intro:
     text: Define appropriate check intervals, store check results over time, and get alerts when things go wrong.
   feat3:
     image:
-      src: 
+      src:
         default: /private-locations/features-03.png
         retina: /private-locations/features-03@2x.png
       width: 450
@@ -74,7 +74,7 @@ getStarted:
     headline: Create private location
     text: Create a new private location and a new API key from settings.
     image:
-      src: 
+      src:
         default: /private-locations/get-started-01.png
         retina: /private-locations/get-started-01@2x.png
       width: 602
@@ -87,9 +87,9 @@ getStarted:
     headline: Create checks
     text: Write your checks in the Checkly UI and get your internal application testing rollin’.
     image:
-      src: 
-        default: /private-locations/get-started-03.png
-        retina: /private-locations/get-started-03@2x.png
+      src:
+        default: /private-locations/get-started-02.png
+        retina: /private-locations/get-started-02@2x.png
       width: 374
       height: 301
       alt: "creating on-prem checks in Checkly UI"
