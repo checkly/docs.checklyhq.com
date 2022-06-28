@@ -1,5 +1,5 @@
 ---
-title: Installing Checkly Agent
+title: Installing & running the Checkly Agent
 weight: 52
 menu:
   docs:
@@ -7,10 +7,6 @@ menu:
 aliases:
 - "/docs/private-locations/checkly-agent-guide/"
 ---
-
-{{<info>}}
-Note: The Checkly Agent currently only supports x86/AMD64 architecture and not ARM64. This means Apple Mac M1 systems are not currently supported.
-{{</info>}}
 
 ## About Checkly Agent
 
@@ -21,18 +17,28 @@ The Checkly Agent is a container-based tool that enables private locations in Ch
 Here are the requirements before you get started:
 
 - The API key received when creating a private location in the Checkly account settings page
-- Container runtime (we test using Docker, but other OCI-compliant runtimes should work)
+- A container runtime (we test using Docker, but other OCI-compliant runtimes should work)
 - Outbound internet access to https://agent.checklyhq.com (proxy configuration is supported)
 - Access to your internal API- or browser-based application
 
 ## Redundancy and scaling
 
-We recommend at least two agents per private location for redundancy. When considering scaling, you should use at least N+1 agents per private location to ensure checks will be processed even if an agent fails. Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them as necessary. If an agent fails, the other agents in the same private location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period (140s). There are two cases where checks assigned to a location could fail to run:
+At least two agents per private location are recommended for redundancy. When considering scaling, you should use at 
+least N+1 agents per private location to ensure checks will be processed even if an agent fails. 
+Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them 
+as necessary. 
 
-* All of the agents in the private location have failed
+If an agent fails, the other agents in the same private location will continue to run the checks assigned 
+to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after 
+a timeout period (140s). 
+
+There are two cases where checks assigned to a location could fail to run:
+
+* All the agents in the private location have failed
 * There is insufficient agent capacity in the private location
 
-Checks will stay queued for 6 minutes waiting for an available agent. If there are no agents available or the available agents are so busy that they cannot process all of the pending checks, the pending checks older than 6 minutes will be lost.
+**Checks will stay queued for 6 minutes** waiting for an available agent. If there are no agents available or the available 
+agents are so busy that they cannot process all of the pending checks, the pending checks older than 6 minutes will be lost.
 
 Agents can be scaled up and scaled out. Scaling up means adding additional CPU and memory allocations to existing agent containers. Scaling out means adding additional agent containers.
 
@@ -54,7 +60,7 @@ For example: if your container has 1GB of memory allocated, you should set `JOB_
 
 To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and browser checks as frequently as every 1 minute. Based on your configuration, you should be able to estimate how many checks will run per minute in your private location. Checks have a maximum running time of 30 seconds. This means that in the worst case scenario, a checkly agent with a `JOB_CONCURRENCY` of 1 can run two checks per minute. In an average configuration this will be higher and API checks are generally faster than browser checks.
 
-Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as `agents = (JOB_CONCURRENCY / Checks per minute / 2) + 1`. This should give you a safe amount of overhead to run your checks and the `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure. 
+Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as `agents = (JOB_CONCURRENCY / Checks per minute / 2) + 1`. This should give you a safe amount of overhead to run your checks and the `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure.
 
 ## Installing and configuring the Checkly agent:
 
@@ -162,3 +168,7 @@ Environment Variable|Description
 `HTTPS_PROXY`|HTTPS proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. `https://user:password@127.0.0.1:8080`
 `HTTP_PROXY`|HTTP proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. Used if the proxy server does not accept HTTPS connections. `http://user:password@127.0.0.1:8080`
 `JOB_CONCURRENCY`|(Default: 1, max: 10) Number of concurrent checks that are run by the agent.
+
+## Examples
+
+- [Kubernetes Manifests to run the Checkly Agent](https://github.com/checkly/checkly-k8s)

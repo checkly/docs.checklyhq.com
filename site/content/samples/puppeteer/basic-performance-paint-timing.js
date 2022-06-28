@@ -5,12 +5,12 @@ const puppeteer = require('puppeteer')
   const page = await browser.newPage()
   await page.goto('https://danube-webshop.herokuapp.com')
 
-  const navigationTimingJson = await page.evaluate(() =>
-    JSON.stringify(performance.getEntriesByType('navigation'))
+  const paintTimingJson = await page.evaluate(() =>
+    JSON.stringify(window.performance.getEntriesByType('paint'))
   )
-  const navigationTiming = JSON.parse(navigationTimingJson)
+  const paintTiming = JSON.parse(paintTimingJson)
 
-  console.log(navigationTiming)
+  console.log(paintTiming)
 
   await browser.close()
 })()

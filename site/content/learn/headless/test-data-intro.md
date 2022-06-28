@@ -13,15 +13,15 @@ menu:
     parent: "Best practices"
 ---
 
-We define _test data_ as any data we consistently use to verify a certain property, like functionality or performance, of a system. Another popular term for the same concept is _fixture_. We will use these interchangeably.
+We define _test data_ as any data we consistently use to verify properties such as a system's functionality or performance. Another popular term for the same concept is _fixture_. We will use these interchangeably.
 
 <!-- more -->
 
 ## Avoiding duplication
 
-It is oftentimes desirable to [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) up our scripts by factoring out test data. In the case of simpler tests, it is normally not an issue to embed test data directly inside our script. Complex end-to-end scenarios might require us to move this information elsewhere, like a dedicated file.
+It is often desirable to [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) up our scripts by factoring out test data. In the case of simple tests, it's usually not an issue to embed test data directly inside our script, but complex end-to-end scenarios might require moving this information elsewhere, like a dedicated file.
 
-Looking at our [test webshop](https://danube-store.herokuapp.com/), we might want to verify that a certain list of items is being loaded to the store's front page. As this list contains several tens of elements, each with different attributes, keeping our fixtures inside our script would be impractical. Let us add this to a JSON file instead:
+Looking at our [test webshop](https://danube-store.herokuapp.com/), we might want to verify that a specific item list is loaded on the store's front page. As this list contains several tens of elements, each with different attributes, keeping our fixtures inside our script would be impractical. Let's add this data to a JSON file instead:
 
 ```json
 [
@@ -65,17 +65,37 @@ const foundList = bookList
 
 ## Retrieving test data
 
-In case the platform you are testing exposes an API endpoint to pull up-to-date test data, you could fetch the file as part of the setup phase of your test and then utilise it:
+If the platform you are testing exposes an API endpoint to pull up-to-date test data, you could fetch the file as part of the setup phase of your test and then utilize it:
 
 ```js
-const axios = require('axios');
+const axios = require('axios')
 ...
 const { data } = await axios.get('https://danube-store.herokuapp.com/api/books')
 const bookList = JSON.parse(data)
 const foundList = bookList
 ```
 
+This approach enables testing with production data, so you don't have to maintain the test data yourself.
+
+## Generating test data
+
+If you test form submissions, relying on generated data might also make sense to avoid only testing the happy path. [Faker](https://fakerjs.dev/) is a library to create fake but realistic data sets.
+
+```js
+const { faker } = require("@faker-js/faker")
+...
+await page.type('#s-name', faker.name.firstName()) // Leif
+await page.type('#s-surname', faker.name.lastName()) // Kirlin
+await page.type('#s-address', faker.address.streetAddress(true)) // 2629 Ross Glens Suite 089
+await page.type('#s-zipcode', faker.address.zipCode()) // 03651
+await page.type('#s-city', faker.address.city()) // Rohanfort
+await page.type('#s-company', faker.company.companyName()) // Reynolds Group
+```
+
+Faker covers a wide range of data that includes names, addresses, products, images and much more.
+
 ## Takeaways
 
 1. Keep test data separate from your scripts.
-2. REST APIs can be useful to retrieve test data.
+2. REST APIs can be useful for retrieving test data.
+3. Libraries such as Faker can help generate test data.
