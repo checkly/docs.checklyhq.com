@@ -242,9 +242,33 @@
     cursor: pointer;
 
     &.is-active {
+      position: relative;
       background-color: #fff;
       border-color: $gray-light;
+      overflow: hidden;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4px;
+        background: #45C8F1;
+        width: 100%;
+        content: '';
+        animation: videoProgress 10s linear;
+        transform-origin: top left;
+      }
     }
+  }
+}
+
+@keyframes videoProgress {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
   }
 }
 
