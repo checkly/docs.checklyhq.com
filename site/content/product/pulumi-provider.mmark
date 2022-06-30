@@ -10,7 +10,7 @@ description: There’s a better way to monitor your assets. Defining your checks
         <span class="terraform-text">PULUMI</span>
       </div>
       <h1 class="terraform-title text-center text-md-left">
-        There’s a better way to monitor your assets
+        The smart way to monitor your assets
       </h1>
       <p class="text-center text-md-left terraform-sub">Defining your checks as code with Checkly’s Pulumi provider makes monitoring large, real-world websites and APIs a breeze.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
@@ -457,7 +457,8 @@ description: There’s a better way to monitor your assets. Defining your checks
               <p class="text-center text-md-left step-description mb-2"><a href="https://github.com/checkly/pulumi-checkly">The Provider includes detailed information</a> on how to get started.</p>
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
-              <a target="_blank" href="https://github.com/checkly/checkly-terraform-getting-started"><button type="button" class="btn btn-light d-inline-block landing-link mb-2 or-action" style="max-width: 300px;">Look at specific examples</button></a>
+              <a target="_blank" href="https://www.pulumi.com/registry/packages/checkly/api-docs/"><button type="button" class="btn btn-primary d-inline-block landing-link mb-2" style="max-width: 300px;">Check API docs</button></a>
+              <a target="_blank" href="https://github.com/checkly/pulumi-checkly#learn-more"><button type="button" class="btn btn-light d-inline-block landing-link mb-2 or-action" style="max-width: 300px;">Look at specific examples</button></a>
             </div>
           </div>
         </div>
