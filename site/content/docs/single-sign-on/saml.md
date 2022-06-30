@@ -48,3 +48,28 @@ Once that is taken care of, you should be able to log in to Checkly via SSO alre
 After submitting the Checkly login form, you should be redirected to your SSO login interface. Completing the login procedure will then lead you to your existing Checkly account, if you have one, or to the new account creation screen, in case you don't.
 
 > Note: once SAML SSO has been set up, you will still need to invite new users from your organization to your Checkly account, as they will not be added automatically.
+
+# JIT User Provisioning
+
+All accounts with SSO enabled come with Just-in-time (JIT) user provisioning.
+
+This allows all users from your SSO organisation to join your Checkly account by simply by logging in. You don’t need to invite anyone manually (although you still can).
+
+There are two ways your users can access Checkly:
+
+1. Go through your SSO provider and access Checkly from the list of your approved apps.
+2. Access the [Checkly Login Page](https://app.checklyhq.com/) directly. 
+    1. This requires a user to enter their email in the email field, and then click Continue.
+
+Both approaches seamlessly allow the user to be added to your Checkly account.
+
+## Default user roles
+
+By default, all users provisioned via SSO receive Read & Write permission within Checkly. You are able to modify this behaviour by going to the SSO Configuration and choosing a different role.
+
+## Removing users
+
+If you want to remove users provisioned through SSO, this is a two-step process:
+
+1. Remove their access within your SSO provider.
+2. Remove them from your Checkly Team.
