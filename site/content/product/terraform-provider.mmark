@@ -45,7 +45,7 @@ description: There’s a better way to monitor your assets. Defining your checks
   request {
     url        <span class="code-grey">=</span> <span class="code-blue">"https://api.stripe.com/v1charges"</span>
     follow_redirects <span class="code-grey">=</span> <span class="code-yellow">true</span>
-   assertion {
+    assertion {
       source     <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
       comparison <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
       target     <span class="code-grey">=</span> <span class="code-blue">"200"</span>

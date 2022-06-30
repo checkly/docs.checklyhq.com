@@ -14,7 +14,7 @@ highlights:
   - label: PULUMI
     title: Automate your monitoring setup
     description: >-
-      Our Pulumi provider enables monitoring as code to manage, scale and alter your checks through a powerful JavaScript-driven CLI workflow.
+      Our Pulumi provider enables monitoring as code to manage, scale and alter your checks through a powerful JavaScript/TypeScript-driven CLI workflow.
     image: "/integrations/highlight/pulumi-featured-image@2x.png"
     tabIcon: "/integrations/highlight/pulumi-logo.svg"
     ctaLink: "/docs/integrations/pulumi/"
