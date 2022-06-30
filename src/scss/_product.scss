@@ -141,11 +141,11 @@
         color: #1F2D3D;
       }
       .code-block {
-        &.light {
-          pre {
-            line-height: .7rem;
-          }
-        }
+        // &.light {
+        //   pre {
+        //     line-height: .7rem;
+        //   }
+        // }
         &.dark {
           pre {
             border-radius: 4px;
@@ -155,9 +155,6 @@
           margin-bottom: 0px;
           font-size: 1.125rem;
           padding: 1rem;
-          code {
-            white-space: normal;
-          }
         }
       }
       .and {
@@ -282,9 +279,6 @@
         }
       }
       .code-block {
-        code {
-          white-space: normal;
-        }
         pre {
           border-bottom-right-radius: 0;
           margin: 0;
@@ -565,6 +559,10 @@
         }
         .code-green {
           color: #10CE66;
+        }
+
+        .code-pink {
+          color: $pink;
         }
       }
       &.light {

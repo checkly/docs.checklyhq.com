@@ -13,6 +13,9 @@
             {{ range $index, $element:=.Params.highlights}}
             <div class="integration-tab" id="integration-tab-{{ $index }}">
               <img src={{.tabIcon}} alt={{.label}} width="68" />
+              {{ if eq .isNew true }}
+                <span class="integration-tab-new">New!</span>
+              {{ end }}
             </div>
             {{ end }}
           </div>

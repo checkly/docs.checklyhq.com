@@ -23,8 +23,11 @@
 		margin: 50px 0 130px;
 
 		&__tabs {
-			width: 480px;
+			display: flex;
+			flex-wrap: wrap;
+			max-width: 640px;
 			margin: auto;
+			justify-content: center;
 
 			.integration-tab {
 			  width: 160px;
@@ -33,11 +36,21 @@
 			  padding-bottom: 10px;
 			  border-bottom: 2px solid $gray;
 			  opacity: 0.3;
+				margin-top: 1em;
 
 			  &:hover {
 			    cursor: pointer;
 			  }
 			}
+
+			.integration-tab-new {
+				background: $blue-light;
+				color: $blue;
+				border-radius: 0.25rem;
+				font-size: 0.75rem;
+				padding: 0.25em .5em;
+			}
+
 			.active {
 			  opacity: 1;
 			  border-color: $blue;
@@ -63,7 +76,7 @@
 		    img {
 		      width: 100%;
 		      border: 1px solid $gray-light;
-		      border-radius: 3px; 
+		      border-radius: 3px;
 		    }
 		  }
 		  .text-wrap {
@@ -264,7 +277,8 @@
 				margin: auto;
 
 				.integration-tab {
-				  width: 107px;
+				  width: 50%;
+					margin-top: 2em;
 				}
 			}
 			&__contents {
