@@ -47,7 +47,7 @@ After submitting the Checkly login form, you should be redirected to your SSO lo
 
 > Note: once SAML SSO has been set up, you will still need to invite new users from your organisation to your Checkly account, as they will not be added automatically.
 
-# JIT User Provisioning
+## JIT User Provisioning
 
 All accounts with SSO enabled come with Just-in-time (JIT) user provisioning.
 
@@ -61,11 +61,11 @@ There are two ways your users can access Checkly:
 
 Both approaches seamlessly allow the user to be added to your Checkly account.
 
-## Default user roles
+### Default user roles
 
 By default, all users provisioned via SSO receive Read & Write permission within Checkly. You are able to modify this behaviour by going to the [SSO Configuration](https://app.checklyhq.com/settings/account/sso-saml) and choosing a different role.
 
-## Removing users
+### Removing users
 
 If you want to remove users that have been previously provisioned through SSO, there is a two-step process:
 
