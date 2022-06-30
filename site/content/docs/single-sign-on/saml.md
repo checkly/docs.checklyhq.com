@@ -63,7 +63,7 @@ Both approaches seamlessly allow the user to be added to your Checkly account.
 
 ## Default user roles
 
-By default, all users provisioned via SSO receive Read & Write permission within Checkly. You are able to modify this behaviour by going to the SSO Configuration and choosing a different role.
+By default, all users provisioned via SSO receive Read & Write permission within Checkly. You are able to modify this behaviour by going to the [SSO Configuration](https://app.checklyhq.com/settings/account/sso-saml) and choosing a different role.
 
 ## Removing users
 
