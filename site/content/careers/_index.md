@@ -11,10 +11,12 @@ aboutUs:
   title: About us
   description: >-
     We are a small team with a big impact and believe in a bright future where apps are built and shipped more reliably from to dev to production and further.<br /> Our mission is to create the best active monitoring platform for developers. A platform that makes reliability delightful!
+  teamPhoto: '/images/careers/team-photo@2x.png'
+  teamPhotoAlt: "30 Checkly Team members standing next to a pool."
 features:
   - number: "450+"
     text: HAPPY Customers
-  - number: "23"
+  - number: "30"
     text: EMPLOYEES
   - number: "$12M"
     text: RAISED
