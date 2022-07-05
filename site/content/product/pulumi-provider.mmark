@@ -12,7 +12,7 @@ description: There’s a better way to monitor your assets. Defining your checks
       <h1 class="terraform-title text-center text-md-left">
         The smart way to monitor your assets
       </h1>
-      <p class="text-center text-md-left terraform-sub">Defining your checks as code with Checkly’s Pulumi provider makes monitoring large, real-world websites and APIs a breeze.</p>
+      <p class="text-center text-md-left terraform-sub">Scale your monitoring-as-code in Checkly with our Pulumi provider to monitor large, real-world websites and APIs without a hitch.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <a href="#get-started"><button type="button" class="btn btn-primary b-cta">Get Started</button></a>
         <a class="text-center text-decoration-none btn landing-link read-docs" href="/docs/integrations/pulumi/">Read Documentation</a>
@@ -83,8 +83,8 @@ description: There’s a better way to monitor your assets. Defining your checks
                   <img class="img-fluid" src="/product/terraform/compatible_icon.svg" alt="checkly code"/>
                 </div>
                 <div class="col-12 col-md-11 text">
-                  <h3 class="feature-title">Compatible with your workflow</h3>
-                  <p>Already using Terraform for IaC? Great. Not using Terraform yet? Easily plug it into your existing pipeline.</p>
+                  <h3 class="feature-title">Goes with your workflow</h3>
+                  <p>Already using Pulumi for your Infrastructure as Code (IaC)? Just plug the Pulumi provider into your pipeline and automate your monitoring, too!</p>
                 </div>
               </div>
               <div class="feature-item row">
@@ -93,7 +93,7 @@ description: There’s a better way to monitor your assets. Defining your checks
                 </div>
                 <div class="col-12 col-md-11 text">
                   <h3 class="feature-title">Increased transparency</h3>
-                  <p>Declaring your checks as code aligns your monitoring with your releases and rollbacks, while also serving as documentation.</p>
+                  <p>Keep an eye on your releases and rollbacks by declaring your checks as code and aligning your monitoring with your favorite cloud resources provider.</p>
                 </div>
               </div>
               <div class="feature-item row">
@@ -102,7 +102,7 @@ description: There’s a better way to monitor your assets. Defining your checks
                 </div>
                 <div class="col-12 col-md-11 text">
                   <h3 class="feature-title">One setup for local and cloud</h3>
-                  <p>Seamlessly develop and test your checks locally, push to source control and apply automatically.</p>
+                  <p>Easily develop and test your checks locally, push to source control and apply changes automatically.</p>
                 </div>
               </div>
             </div>
@@ -112,8 +112,8 @@ description: There’s a better way to monitor your assets. Defining your checks
               <div class="container">
                 <div class="row text-section">
                   <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
-                    <h3 class="text-center sub-heading">Provision all you need in just seconds</h3>
-                    <p class="text-center provision-text">Managing your checks, groups, alert channels and other monitoring resources should never be the bottleneck for shipping more code or increasing visibility into the state of your systems.</p>
+                    <h3 class="text-center sub-heading">Provision your monitoring infrastructure in seconds</h3>
+                    <p class="text-center provision-text">Handling your checks, groups, alerts and other monitoring resources should never stop you from shipping mode code efficiently or having better visibility.</p>
                   </div>
                 </div>
                 <div class="row">
@@ -338,42 +338,7 @@ description: There’s a better way to monitor your assets. Defining your checks
             </div>
           </div>
     </div><!-- hear about start -->
-              <div class="gray-section" id="hear-about">
-                  <div class="container">
-                    <div class="row align-items-center">
-                      <div class="col-12 col-md-3 mb-4">
-                        <div class="d-flex justify-content-center">
-                          <img class="img-fluid d-block hear-about" src="/product/terraform/hearabout.svg" width="100%" height="auto" alt="checkly code"/>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-9">
-                        <div class="d-flex flex-column justify-content-center">
-                          <h3 class="section-header hear-about">Hear about it from our customers</h2>
-                          <div class="hear-about-text">
-                            <p>"Checkly integrated with Terraform enables us to quickly create, modify, and deploy API and browser checks for a broad and diverse audience of internal customers."</p>
-                            <p class="hear-about-author pt-4">Andreas Lehr</p>
-                            <p>Team Lead at Schwarz Group IT</p>
-                          </div>
-                          <div class="d-flex flex-column flex-md-row justify-content-start align-items-start pt-4">
-                            <a class="ps-0 text-center btn btn-link text-decoration-none pl-0 landing-link hear-link" href="https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly">
-                            Read Case Study
-                            <span class="pl-2">
-                                <img class="img-fluid" src="/product/terraform/iconlink.svg" width="15px" height="15px" alt="link"/>
-                            </span>
-                            </a>
-                            <a class="text-center btn btn-link text-decoration-none landing-link pl-0" href="https://www.hashicorp.com/events/webinars/monitoring-as-code-webinar-with-checkly">
-                                Watch Webinar Recording
-                                <span class="pl-2">
-                                  <img class="img-fluid" src="/product/terraform/iconlink.svg" width="15px" height="15px" alt="link"/>
-                                </span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- hear about end -->
+
 
 <!-- start get started -->
   <div class="py-5" id="get-started">
@@ -406,7 +371,7 @@ description: There’s a better way to monitor your assets. Defining your checks
           </div>
           <div class="content mb-3 mb-md-4 mb-lg-5">
             <div class="text">
-              <h3 class="text-center text-md-left title">Install the Checkly Pulumi provider via npm</h3>
+              <h3 class="text-center text-md-left title">Install the Pulumi provider</h3>
             </div>
           </div>
         </div>
@@ -458,7 +423,7 @@ description: There’s a better way to monitor your assets. Defining your checks
             </div>
             <div class="options d-flex flex-column flex-md-row flex-lg-column gap-3 align-items-center align-items-lg-start justify-content-center justify-content-md-start">
               <a target="_blank" href="https://www.pulumi.com/registry/packages/checkly/api-docs/"><button type="button" class="btn btn-primary d-inline-block landing-link mb-2" style="max-width: 300px;">Check API docs</button></a>
-              <a target="_blank" href="https://github.com/checkly/pulumi-checkly#learn-more"><button type="button" class="btn btn-light d-inline-block landing-link mb-2 or-action" style="max-width: 300px;">Look at specific examples</button></a>
+              <a target="_blank" href="https://github.com/checkly/pulumi-checkly#examples"><button type="button" class="btn btn-light d-inline-block landing-link mb-2 or-action" style="max-width: 300px;">Look at specific examples</button></a>
             </div>
           </div>
         </div>
