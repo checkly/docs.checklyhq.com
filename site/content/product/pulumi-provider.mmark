@@ -113,7 +113,7 @@ description: There’s a better way to monitor your assets. Defining your checks
                 <div class="row text-section">
                   <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
                     <h3 class="text-center sub-heading">Provision your monitoring infrastructure in seconds</h3>
-                    <p class="text-center provision-text">Handling your checks, groups, alerts and other monitoring resources should never stop you from shipping mode code efficiently or having better visibility.</p>
+                    <p class="text-center provision-text">Handling your checks, groups, alerts and other monitoring resources should never stop you from shipping code efficiently or having better visibility.</p>
                   </div>
                 </div>
                 <div class="row">
