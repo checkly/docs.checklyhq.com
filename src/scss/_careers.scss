@@ -10,7 +10,7 @@
 	    opacity: 0.8;
 	  }
 	}
-	
+
   .lead-text {
     max-width: 655px;
     margin: auto;
@@ -28,7 +28,7 @@
 
 	&__about {
 	  padding: 61px 0 131px;
-		.container {
+		.narrow-container {
 		  max-width: 900px;
 		}
 	  &__logo{
@@ -47,6 +47,11 @@
 	      margin-bottom: 20px;
 	    }
 	  }
+		&__team {
+			max-width: 100%;
+			height: auto;
+			margin: 8em auto 2em;
+		}
 	}
 	&__features{
 	  padding: 81px 0 79px;
