@@ -328,6 +328,8 @@ Once created, just select any snippets from the drop down menu in setup and tear
 
 ![setup and teardown script for http requests with snippets](/docs/images/api-checks/setup-teardown-snippet.png)
 
+It's also possible to import snippets from your setup or teardown script. For more information see the [documentation page on snippets](/docs/snippets). This can be particularly useful if setup and teardown scripts are similar across checks, but still require some customization.
+
 ## Built-in variables
 
 Inside each script, you have access to certain data structures of the API check lifecycle.
