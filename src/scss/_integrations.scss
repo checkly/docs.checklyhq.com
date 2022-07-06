@@ -34,8 +34,7 @@
 			  height: auto;
 			  text-align: center;
 			  padding-bottom: 10px;
-			  border-bottom: 2px solid $gray;
-			  opacity: 0.3;
+			  border-bottom: 2px solid transparent;
 				margin-top: 1em;
 
 			  &:hover {
@@ -47,8 +46,10 @@
 				background: $blue-light;
 				color: $blue;
 				border-radius: 0.25rem;
-				font-size: 0.75rem;
+				font-size: 0.675rem;
 				padding: 0.25em .5em;
+				text-transform: uppercase;
+				font-weight: 600;
 			}
 
 			.active {

@@ -339,8 +339,15 @@ description: There’s a better way to monitor your assets. Defining your checks
           </div>
     </div><!-- hear about start -->
 
-
-<!-- start get started -->
+  <div class="gray-section trusted-by-section mb-4">
+    <h3 class="section-super-header mb-3 mt-0">Trusted by engineering teams at</h3>
+    <picture>
+      <source type="image/webp" srcset="/images/testimonials/testimonial-logos@2x.webp">
+      <source type="image/png" srcset="/images/testimonials/testimonial-logos@2x.png">
+      <img  class="trusted-by-image" src="/images/testimonials/testimonial-logos@2x.png" alt="trusted by companies for api and browser transaction monitoring">
+    </picture>
+  </div>
+  <!-- start get started -->
   <div class="py-5" id="get-started">
     <div>
       <h3 class="d-md-block text-center sub-heading main-title">Get Started</h3>
