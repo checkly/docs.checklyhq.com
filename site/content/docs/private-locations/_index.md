@@ -36,9 +36,9 @@ improve resilience automatically.
 
 1) Log in to your Checkly account.
 
-2) Navigate to the Private Locations settings page.
+2) Navigate to the [Private Locations page](https://app.checklyhq.com/private-locations).
 
-![private locations settings](/docs/images/private-locations/private_locations_settings.png)
+![private locations sidebar](/docs/images/private-locations/private_locations_sidebar.png)
 
 3) Click the New Private Location button.
 
