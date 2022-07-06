@@ -6,135 +6,272 @@ menu:
     parent: "Integrations"
 ---
 
-You can use [Pulumi](https://www.pulumi.com/registry/packages/checkly/) to create and manage your checks. 
+The [Checkly Pulumi provider](https://www.pulumi.com/registry/packages/checkly/) enables declaring your monitoring setup as code using [Pulumi](https://www.pulumi.com/).
 
-> See our dedicated section on the [Checkly Pulumi provider](https://www.pulumi.com/registry/packages/checkly/) for more 
-> information on [installation](https://www.pulumi.com/registry/packages/checkly/installation-configuration/) and all the [supported resources](https://www.pulumi.com/registry/packages/checkly/api-docs/)
+## Getting started
 
-## Example: Creating checks, check group and alert channels
+Learn how to create, configure and sync your checks by following this getting started guide.
 
-Here is a short example of how to use Javascript and/or Typescript for creating checks, adding them to a group and configuring
-email and Slack alert channels. This should give you a good idea of what is possible with the Checkly Pulumi provider.
+### Pulumi CLI setup
 
+Before getting started and writing your monitoring setup in code, you have to set up the Pulumi. [Create a new Pulumi account](https://app.pulumi.com/signup) and [install the Pulumi CLI](https://www.pulumi.com/docs/get-started/install/).
 
-```ts
-import * as checkly from "@checkly/pulumi"
+The `pulumi` command should then be available in your environment.
 
-// Some variables we can reuse in checks and check groups
-const locations = ['eu-west-1', 'us-west-2']
-const tags = ['pulumi']
+```
+$ pulumi
+pulumi
+Pulumi - Modern Infrastructure as Code
 
-// Alert channels are defined up front so we can add them to checks and check groups later.
-const emailChannel = new checkly.AlertChannel("my-email-channel", {
-    email: {
-        address: 'your@email.com'
-    }
-})
+To begin working with Pulumi, run the `pulumi new` command:
+  $ pulumi new
 
-const slackChannel = new checkly.AlertChannel("my-slack-channel", {
-    slack: {
-        url: 'https://hooks.slack.com/services/<REPLACE_WITH_ACTUAL_SLACK_HOOK>',
-        channel: '#alerts',
-    }
-})
+This will prompt you to create a new project for your cloud and language of choice.
+...
+...
+```
 
-// We create a group, add the tags, locations and alert channels.
-const group = new checkly.CheckGroup("my-group", {
-    name: 'Check Group #1',
-    activated: true,
-    concurrency: 1,
-    apiCheckDefaults: {},
-    locations,
-    tags,
-    useGlobalAlertSettings: true,
-    alertChannelSubscriptions: [
-        {
-            activated: true,
-            channelId: slackChannel.id.apply((id: string) => parseInt(id)),
-        },
-        {
-            activated: true,
-            channelId: emailChannel.id.apply((id: string) => parseInt(id))
-        }
-    ]
-})
+Create and copy a new personal access token in your Pulumi account at [app.pulumi.com/account/tokens](https://app.pulumi.com/account/tokens).
 
-// Our first Browser check is added to group created above and uses the Playwright script.
-new checkly.Check("my-browser-check", {
-    name: "Google.com Playwright check",
-    activated: true,
-    frequency: 10,
-    type: "BROWSER",
-    groupId: group.id.apply((id: string) => parseInt(id)),
-    script: `const { chromium } = require('playwright')
-            async function run () {
-              const browser = await chromium.launch()
-              const page = await browser.newPage()
-            
-              const response = await page.goto('https://google.com')
-            
-              if (response.status() > 399) {
-                throw new Error('Failed with response code ${response.status()}')
-              }
-            
-              await page.screenshot({ path: 'screenshot.jpg' })
-            
-              await page.close()
-              await browser.close()
-            }
-            
-            run()`,
-    locations,
-    tags
-})
+![Pulumi access token configuration screen showing a newly created token](/docs/images/integrations/pulumi/pulumi-access-token.png)
 
-const setupSnippet = new checkly.Snippet('my-snippet', {
-    name: 'set-header',
-    script: `request.headers['X-Custom-Header'] = 'my custom value'`
-})
+Run `pulumi login` and provide the token.
 
-// Our first API check uses the setup script defined above and has two assertions.
-new checkly.Check("my-api-check", {
-    name: "Public SpaceX API",
-    activated: true,
-    frequency: 10,
-    type: "API",
-    locations,
-    tags,
-    setupSnippetId: setupSnippet.id.apply((id: string) => parseInt(id)),
-    degradedResponseTime: 5000,
-    maxResponseTime: 15000,
-    request: {
-        method: "GET",
-        url: "https://api.spacexdata.com/v3",
-        assertions: [
-            {
-                source: 'STATUS_CODE',
-                comparison: 'EQUALS',
-                target: '200'
-            },
-            {
-                source: 'JSON_BODY',
-                property: '$.project_name',
-                comparison: 'EQUALS',
-                target: 'SpaceX-API'
-            }
-        ]
-    },
-    useGlobalAlertSettings: true,
-    alertChannelSubscriptions: [
-        {
-            activated: true,
-            channelId: emailChannel.id.apply((id: string) => parseInt(id)),
-        }
-    ]
-})
+```
+$ pulumi login
+Manage your Pulumi stacks by logging in.
+Run `pulumi login --help` for alternative login options.
+Enter your access token from https://app.pulumi.com/account/tokens
+    or hit <ENTER> to log in using your browser:
+```
 
-// Environment variables can be used in API request URLs, headers, query parameters etc.
-// Use variables in API checks by using the {{MY_VAR}} notation.
-// Use variables in Browser checks with the process.env.MY_VAR notation
-new checkly.EnvironmentVariable('my-env-var', {
-    key: 'API_URL',
-    value: 'https://localhost:3000',
+The CLI's `whoiam` command should return your username after a successful login.
+
+```
+$ pulumi whoami
+YOUR_USER_NAME
+```
+
+Now you're ready to create a new Pulumi project and start setting up your Checkly infrastructure.
+
+### Create a new Pulumi project
+
+Create a new directory for your Pulumi project and navigate into it.
+
+```
+$ mkdir new-pulumi-checkly-project && cd $_
+```
+
+Initialize a new Pulumi project with `pulumi new` and choose the minimal JavaScript template (`javascript`).
+
+```
+$ pulumi new javascript
+This command will walk you through creating a new Pulumi project.
+
+Enter a value or leave blank to accept the (default), and press <ENTER>.
+Press ^C at any time to quit.
+
+project name: (new-pulumi-checkly-project)
+project description: (A minimal JavaScript Pulumi program)
+Created project 'new-pulumi-checkly-project'
+
+Please enter your desired stack name.
+To create a stack in an organization, use the format <org-name>/<stack-name> (e.g. `acmecorp/dev`).
+stack name: (dev)
+Created stack 'dev'
+
+Installing dependencies...
+added 96 packages, and audited 97 packages in 4s
+Finished installing dependencies
+
+Your new project is ready to go! ✨
+
+To perform an initial deployment, run 'pulumi up'
+```
+
+Inspect the created files by running `ls` and make sure that a `Pulumi.yaml`, `package.json` and `index.js` file are available.
+
+```
+$ ls
+Pulumi.yaml       node_modules      package.json
+index.js          package-lock.json
+```
+
+### Define your Checkly account ID and API key
+
+To interact with [the underlying Checkly API](https://developers.checklyhq.com/reference/authentication), provide your Checkly account ID and API key by defining those in your environment.
+
+Your account ID is accessible at [app.checklyhq.com/settings/account/general](https://app.checklyhq.com/settings/account/general).
+
+![Checkly account settings showing the account ID](/docs/images/integrations/pulumi/pulumi-account-id.png)
+
+```
+export CHECKLY_ACCOUNT_ID=xxx
+```
+
+Create a new API key at [app.checklyhq.com/settings/user/api-keys](https://app.checklyhq.com/settings/user/api-keys).
+
+![Checkly api key section showing a newly created API key](/docs/images/integrations/pulumi/pulumi-api-key.png)
+
+```
+export CHECKLY_API_KEY=cu_xxx
+```
+
+Test that both values are available in your environment.
+
+```
+$ echo $CHECKLY_ACCOUNT_ID
+xxx
+
+$ echo $CHECKLY_API_KEY
+cu_xxx
+```
+
+{{<info>}}
+If you prefer storing your configuration alongside your Pulumi stack for easy multi-user access, use `pulumi config set`.
+
+```
+$ pulumi config set checkly:apiKey cu_xxx --secret
+$ pulumi config set checkly:accountId xxx
+```
+{{</info>}}
+
+### Install the Checkly Pulumi Provider
+
+Install the Checkly Pulumi provider (`@checkly/pulumi`) with `yarn` or `npm` to integrate it in your new project.
+
+```
+$ npm install @checkly/pulumi
+$ yarn add @checkly/pulumi
+```
+
+Open `index.js` and require it on top of the file.
+
+```js
+const checkly = require('@checkly/pulumi')
+```
+
+The exported `checkly` object provides resources such as `AlertChannel`, `Check`, and `CheckGroup`, enabling you to define and configure your entire Checkly monitoring setup in code.
+
+Add the following Check definition examples to the `index.js`.
+
+### Examples
+
+#### How to create your first API check
+
+```js
+new checkly.Check('my-api-check', {
+  name: 'Public SpaceX API',
+  activated: true,
+  frequency: 10,
+  type: 'API',
+  locations: ['eu-west-1', 'us-west-2'],
+  tags: ['pulumi'],
+  degradedResponseTime: 5000,
+  maxResponseTime: 15000,
+  request: {
+    method: 'GET',
+    url: 'https://api.spacexdata.com/v3',
+    assertions: [
+      {
+        source: 'STATUS_CODE',
+        comparison: 'EQUALS',
+        target: '200',
+      },
+      {
+        source: 'JSON_BODY',
+        property: '$.project_name',
+        comparison: 'EQUALS',
+        target: 'SpaceX-API',
+      },
+    ],
+  },
+  useGlobalAlertSettings: true,
 })
 ```
+
+#### How to create your first Browser check
+
+```javascript
+new checkly.Check('my-browser-check-pulumi', {
+  name: 'Google.com Playwright check',
+  activated: true,
+  frequency: 10,
+  type: 'BROWSER',
+  script: `
+    const { chromium } = require('playwright')
+
+    async function run () {
+    const browser = await chromium.launch()
+    const page = await browser.newPage()
+
+    const response = await page.goto('https://google.com')
+
+    if (response.status() > 399) {
+        throw new Error('Failed with response code \${response.status()}')
+    }
+
+    await page.screenshot({ path: 'screenshot.jpg' })
+
+    await page.close()
+    await browser.close()
+    }
+
+    run()`,
+  locations: ['eu-west-1', 'us-west-2'],
+  tags: ['pulumi'],
+})
+```
+
+### Creating checks and applying changes
+
+Your `index.js` file should now include instructions to create one API and one Browser check.
+
+Initialize a deployment and apply your changes by running `pulumi up`.
+
+```
+$ pulumi up
+Previewing update (dev)
+
+View Live: https://app.pulumi.com/stefanjudis/new-pulumi-checkly-project/dev/previews/b30010eb-53a6-438a-864b-af29c2f1321f
+
+     Type                    Name                            Plan
+     pulumi:pulumi:Stack     new-pulumi-checkly-project-dev
+ +   ├─ checkly:index:Check  my-browser-check-pulumi         create
+ +   └─ checkly:index:Check  my-api-check-pulumi             create
+
+Resources:
+    + 2 to create
+    1 unchanged
+
+Do you want to perform this update? yes
+Updating (dev)
+
+View Live: https://app.pulumi.com/stefanjudis/new-pulumi-checkly-project/dev/updates/2
+
+     Type                    Name                            Status
+     pulumi:pulumi:Stack     new-pulumi-checkly-project-dev
+ +   ├─ checkly:index:Check  my-api-check-pulumi             created
+ +   └─ checkly:index:Check  my-browser-check-pulumi         created
+
+Resources:
+    + 2 created
+
+Duration: 2s
+```
+
+Congratulations! Head to the Checkly dashboard to see the newly created checks.
+
+![Checkly dashboard showing created checks](/docs/images/integrations/pulumi/pulumi-created-checks.png)
+
+{{<warning>}}
+Checkly resources should be managed _either_ through Pulumi _or_ the Checkly UI, not both. Modifying Pulumi-managed resources via the UI, and viceversa, is likely to cause issues.
+{{</warning>}}
+
+## Additional resources
+
+Find more documentation on how to create groups, alerts and snippets online.
+
+- [The official Pulumi Provider documentation](https://www.pulumi.com/registry/packages/checkly/)
+- [The Pulumi Provider on GitHub](https://github.com/checkly/pulumi-checkly)
+- [Detailed examples in JavaScript and TypeScript](https://github.com/checkly/pulumi-checkly#examples)
