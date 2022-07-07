@@ -49,7 +49,7 @@ After submitting the Checkly login form, you should be redirected to your SSO lo
 
 ## JIT User Provisioning
 
-All accounts with SSO enabled come with Just-in-time (JIT) user provisioning.
+Just-in-time user provisioning is now enabled for Enterprise customers using a single Checkly account.
 
 This allows all users from your SSO organisation to join your Checkly account by simply by logging in. You don’t need to invite anyone manually (although you still can).
 
