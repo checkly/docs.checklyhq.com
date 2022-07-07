@@ -93,6 +93,13 @@ benefits:
     - icon: '/images/careers/parental-leave.svg'
       title: Inclusive paid parental leave
 
+calculator:
+  title: Open pay calculator
+  description: >-
+    Fair, competetive, and transparent pay is very important for us. That's why we created an open pay calculator that anyone can use to find out what you make if you joined Checkly.
+  buttonText: See our pay calculator
+  buttonLink: "https://www.notion.so/checkly/Checkly-Hiring-Playbook-public-54bc05178d3b4118a15effe885f96d1a"
+
 howWehire:
   title: How we hire
   description: >-
