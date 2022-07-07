@@ -30,6 +30,10 @@ Each `checkly_check` metric has the following labels:
 - `check_type`, either `api` or `browser`.
 - `tags`, this check's tags.
 
+{{<info>}}
+You can set `key:value` tags in your checks/groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`
+{{</info>}}
+
 The `checkly_private_location` metrics contain the labels:
 
 - `private_location_name`, the name of the private location.
@@ -101,7 +105,7 @@ Here is an example
   metrics_path: '/accounts/993adb-8ac6-3432-9e80-cb43437bf263/prometheus/metrics'
   bearer_token: 'lSAYpOoLtdAa7ajasoNNS234'
   scheme: https
-  static_configs:  
+  static_configs:
   - targets: ['api.checklyhq.com']
 ```
 
