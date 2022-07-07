@@ -102,7 +102,7 @@ description: There’s a better way to monitor your assets. Defining your checks
                 </div>
                 <div class="col-12 col-md-11 text">
                   <h3 class="feature-title">One setup for local and cloud</h3>
-                  <p>Easily develop and test your checks locally, push to source control and apply changes automatically.</p>
+                  <p>Easily develop and test your checks locally, push to source control, and apply changes automatically.</p>
                 </div>
               </div>
             </div>
