@@ -11,6 +11,14 @@ highlights:
     image: "/integrations/highlight/terraform-featured-image@2x.png"
     tabIcon: "/integrations/highlight/terraform-logo@2x.png"
     ctaLink: "/docs/integrations/terraform/"
+  - label: PULUMI
+    title: Automate your monitoring setup
+    description: >-
+      Our Pulumi provider enables monitoring as code to manage, scale and alter your checks through a powerful JavaScript/TypeScript-driven CLI workflow.
+    image: "/integrations/highlight/pulumi-featured-image@2x.png"
+    tabIcon: "/integrations/highlight/pulumi-logo.svg"
+    ctaLink: "/docs/integrations/pulumi/"
+    isNew: true
   - label: VERCEL
     title: Run checks on every deploy
     description: >-
@@ -67,7 +75,7 @@ alerting:
     iconHeight: 32
     ctaLink: "/docs/integrations/firehydrant/"
     description: >-
-     Kick off and resolve incidents in FireHydrant.     
+     Kick off and resolve incidents in FireHydrant.
   - service: Discord
     icon: "/integrations/alerting/discord@2x.png"
     iconWidth: 35

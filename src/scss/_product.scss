@@ -82,6 +82,11 @@
       }
     }
 
+    .border-vertical {
+      border-top: 1px solid #E0E6ED;
+      border-bottom: 1px solid #E0E6ED;
+    }
+
     #code-lives {
       border-top: 1px solid #E0E6ED;
       border-bottom: 1px solid #E0E6ED;
@@ -141,11 +146,6 @@
         color: #1F2D3D;
       }
       .code-block {
-        &.light {
-          pre {
-            line-height: .7rem;
-          }
-        }
         &.dark {
           pre {
             border-radius: 4px;
@@ -155,9 +155,6 @@
           margin-bottom: 0px;
           font-size: 1.125rem;
           padding: 1rem;
-          code {
-            white-space: normal;
-          }
         }
       }
       .and {
@@ -282,9 +279,6 @@
         }
       }
       .code-block {
-        code {
-          white-space: normal;
-        }
         pre {
           border-bottom-right-radius: 0;
           margin: 0;
@@ -565,6 +559,10 @@
         }
         .code-green {
           color: #10CE66;
+        }
+
+        .code-pink {
+          color: $pink;
         }
       }
       &.light {
@@ -933,11 +931,6 @@
               font-size: 1.125rem;
             }
           }
-          &.light {
-            pre {
-              line-height: .7rem;
-            }
-          }
         }
       }
       .code-block {
@@ -968,7 +961,6 @@
         padding-left: 24px;
         padding-right: 24px;
         padding-top: $section-top-padding;
-        padding-bottom: 0px;
         &#code-lives {
           padding-top: 4 * $spacer;
           padding-bottom: 2rem;
@@ -1138,11 +1130,6 @@
         }
         .code-block {
           margin-left: 0px;
-          &.light {
-            pre {
-              line-height: .7rem;
-            }
-          }
           pre {
             white-space: normal;
             font-size: .875rem;

@@ -5,7 +5,7 @@
   left: -100px;
   padding: 15px 0;
   z-index: 2;
-  
+
   .d-flex {
     display: flex;
     .menu-icon {
@@ -59,16 +59,16 @@
 
   .right-side-item{
     width: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    height: 50%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    // height: 50%;
     .d-flex {
       justify-content: space-between;
       .menu-title {
         color: $pink;
       }
       .menu-icon {
-        margin-right: 12px;
+        margin-right: 15px;
       }
     }
   }
@@ -86,7 +86,7 @@
 }
 
 .dropdown-item {
-  padding: 15px 24px;
+  padding: 24px 24px;
   white-space: unset;
   &:hover {
     .menu-title {
