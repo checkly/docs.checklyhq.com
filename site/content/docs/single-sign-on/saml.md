@@ -26,7 +26,7 @@ After your configuration has been processed on Checkly's side, you'll receive th
 - a signout URL (normally `https://auth.checklyhq.com/logout`)
 - XML metadata (e.g. `https://auth.checklyhq.com/samlp/metadata?connection=<YOUR_CONNECTION_ID>`)
 
-Ensure Checkly is sent the correct email address back from your SSO Idp. Checkly can then map the existing user to your Idp user. The object returned should have an “email” field, e.g.:
+Ensure your SSO IdP is sending Checkly the correct email address. Checkly can then map the existing user to your IdP user. The object returned should have an “email” field, e.g.:
 
 ```json
 {
