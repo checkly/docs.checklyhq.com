@@ -14,7 +14,7 @@ Learn how to create, configure and sync your checks by following this getting st
 
 ### Pulumi CLI setup
 
-Before getting started and writing your monitoring setup in code, you have to set up the Pulumi. [Create a new Pulumi account](https://app.pulumi.com/signup) and [install the Pulumi CLI](https://www.pulumi.com/docs/get-started/install/).
+Before getting started and writing your monitoring setup in code, you have to set up Pulumi and its CLI. [Create a new Pulumi account](https://app.pulumi.com/signup) and [install the Pulumi CLI](https://www.pulumi.com/docs/get-started/install/).
 
 The `pulumi` command should then be available in your environment.
 
