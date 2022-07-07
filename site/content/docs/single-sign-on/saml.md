@@ -20,7 +20,7 @@ Setting up SSO for your organisation starts with providing [Checkly Support](mai
 
 ## IdP configuration
 
-After your configuration has been processed Checkly's side, you'll receive the following information to configure your IdP:
+After your configuration has been processed on Checkly's side, you'll receive the following information to configure your IdP:
 
 - a redirect URL (e.g. `https://auth.checklyhq.com/login/callback?connection=<YOUR_CONNECTION_ID>`)
 - a signout URL (normally `https://auth.checklyhq.com/logout`)
