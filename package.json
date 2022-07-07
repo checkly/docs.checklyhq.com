@@ -66,7 +66,7 @@
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
     "s3-deploy": "1.4.0",
-    "serve": "13.0.2",
+    "serve": "13.0.4",
     "shins": "2.6.0",
     "widdershins": "4.0.1"
   },
