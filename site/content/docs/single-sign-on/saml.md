@@ -45,8 +45,6 @@ Once that is taken care of, logging in to Checkly via SSO is ready. Entering an 
 
 After submitting the Checkly login form, you should be redirected to your SSO login interface. Completing the login procedure will then lead you to your existing Checkly account, if you have one, or to the new account creation screen, in case you don't.
 
-> Note: once SAML SSO has been set up, you will still need to invite new users from your organisation to your Checkly account, as they will not be added automatically.
-
 ## JIT User Provisioning
 
 Just-in-time user provisioning is now enabled for Enterprise customers using a single Checkly account.
