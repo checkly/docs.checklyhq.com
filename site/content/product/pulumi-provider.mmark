@@ -1,6 +1,6 @@
 ---
 title: Checkly's Pulumi Provider for Monitoring
-description: There’s a better way to monitor your assets. Defining your checks as code with Checkly’s Terraform provider makes monitoring large, real-world websites and APIs a breeze.
+description: There’s a better way to monitor your assets. Defining your checks as code with Checkly’s Terraform provider makes monitoring large websites and APIs a breeze.
 ---
 
 <div id="landing-header">
@@ -12,7 +12,7 @@ description: There’s a better way to monitor your assets. Defining your checks
       <h1 class="terraform-title text-center text-md-left">
         The smart way to monitor your assets
       </h1>
-      <p class="text-center text-md-left terraform-sub">Scale your monitoring-as-code in Checkly with our Pulumi provider to monitor large, real-world websites and APIs without a hitch.</p>
+      <p class="text-center text-md-left terraform-sub">Scale your monitoring-as-code in Checkly with our Pulumi provider to monitor large websites and APIs without a hitch.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <a href="#get-started"><button type="button" class="btn btn-primary b-cta">Get Started</button></a>
         <a class="text-center text-decoration-none btn landing-link read-docs" href="/docs/integrations/pulumi/">Read Documentation</a>

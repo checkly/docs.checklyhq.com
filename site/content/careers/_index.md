@@ -11,10 +11,12 @@ aboutUs:
   title: About us
   description: >-
     We are a small team with a big impact and believe in a bright future where apps are built and shipped more reliably from to dev to production and further.<br /> Our mission is to create the best active monitoring platform for developers. A platform that makes reliability delightful!
+  teamPhoto: '/images/careers/team-photo@2x.png'
+  teamPhotoAlt: "30 Checkly Team members standing next to a pool."
 features:
   - number: "450+"
     text: HAPPY Customers
-  - number: "23"
+  - number: "30"
     text: EMPLOYEES
   - number: "$12M"
     text: RAISED
@@ -90,6 +92,14 @@ benefits:
       title: Employment & contractor options
     - icon: '/images/careers/parental-leave.svg'
       title: Inclusive paid parental leave
+
+calculator:
+  title: Open pay calculator
+  description: >-
+    Fair, competetive, and transparent pay is very important for us. That's why we created an open pay calculator that anyone can use to find out what you make if you joined Checkly.
+  buttonText: See our pay calculator
+  buttonLink: "https://docs.google.com/spreadsheets/d/1h-6tcE4vCAic4zz24NA3xtEAeJpbw0ooQxYvl5yYrrI/copy"
+  howItWorksLink: https://www.notion.so/checkly/Our-Pay-Calculator-How-we-pay-our-team-f3c42feab82b444a9cbf8fed545cb727
 
 howWehire:
   title: How we hire

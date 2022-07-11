@@ -22,7 +22,7 @@ A test that does not reliably fulfill these criteria should be fixed, if possibl
 
 ## Keep tests short
 
-If they run against a real-world product with a UI that is evolving over time, scripts will need to be regularly updated. This brings up two important points:
+If they run against a product with a UI that is evolving over time, scripts will need to be regularly updated. This brings up two important points:
 1. Most scripts are not write-and-forget, so each script we write is one more script we will have to maintain.
 2. Like all cases where code and refactoring are involved, _how_ we write scripts can have a significant influence on how long this maintenance effort takes.
 
