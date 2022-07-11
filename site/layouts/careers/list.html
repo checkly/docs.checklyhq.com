@@ -107,6 +107,17 @@
       </div>
     </div>
   </section>
+  <section class="career__calculator" id="calculator">
+    <div class="container">
+      <h3 class="section-header">{{.Params.calculator.title}}</h3>
+      <p class="lead-text">{{.Params.calculator.description | safeHTML}} <a href="{{.Params.calculator.howItWorksLink}}">Learn how it works</a>.</p>
+      <div class="center">
+        <a class="btn btn-blue" href="{{.Params.calculator.buttonLink}}" rel="noopener" target="_blank">
+          {{ .Params.calculator.buttonText}}
+        </a>
+      </div>
+    </div>
+  </section>
   <section class="career__howhire">
     <div class="container">
       <div class="career__howhire__card">

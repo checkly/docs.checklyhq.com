@@ -98,7 +98,8 @@ calculator:
   description: >-
     Fair, competetive, and transparent pay is very important for us. That's why we created an open pay calculator that anyone can use to find out what you make if you joined Checkly.
   buttonText: See our pay calculator
-  buttonLink: "https://www.notion.so/checkly/Checkly-Hiring-Playbook-public-54bc05178d3b4118a15effe885f96d1a"
+  buttonLink: "https://docs.google.com/spreadsheets/d/1h-6tcE4vCAic4zz24NA3xtEAeJpbw0ooQxYvl5yYrrI/copy"
+  howItWorksLink: https://www.notion.so/checkly/Our-Pay-Calculator-How-we-pay-our-team-f3c42feab82b444a9cbf8fed545cb727
 
 howWehire:
   title: How we hire
