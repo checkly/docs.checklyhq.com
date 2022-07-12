@@ -6,8 +6,6 @@ menu:
     parent: "Single sign-on"
 ---
 
-This page illustrates the standard procedure to follow in order to get started with SAML SSO on Checkly.
-
 > SSO is only available for Checkly's [enterprise plans](/pricing).
 
 ## Initial SSO setup
@@ -22,13 +20,13 @@ Setting up SSO for your organisation starts with providing [Checkly Support](mai
 
 ## IdP configuration
 
-After configuration has taken place on Checkly's side, you will receive the following information to configure your IdP:
+After your configuration has been processed on Checkly's side, you'll receive the following information to configure your IdP:
 
 - a redirect URL (e.g. `https://auth.checklyhq.com/login/callback?connection=<YOUR_CONNECTION_ID>`)
 - a signout URL (normally `https://auth.checklyhq.com/logout`)
 - XML metadata (e.g. `https://auth.checklyhq.com/samlp/metadata?connection=<YOUR_CONNECTION_ID>`)
 
-Please make sure that Checkly is sent the email address back from your SSO Idp. This way Checkly can map the existing Checkly user to your Idp user. The object returned should have an “email” field, e.g.:
+Ensure your SSO IdP is sending Checkly the correct email address. Checkly can then map the existing user to your IdP user. The object returned should have an “email” field, e.g.:
 
 ```json
 {
@@ -41,10 +39,33 @@ Please make sure that Checkly is sent the email address back from your SSO Idp. 
 
 ## Testing the integration
 
-Once that is taken care of, you should be able to log in to Checkly via SSO already. Entering an email address associated with the domain you have provided in the login prompt should result in the password field disappearing:
+Once that is taken care of, logging in to Checkly via SSO is ready. Entering an email address associated with the domain you have provided in the login prompt should result in the password field disappearing:
 
 ![checkly login prompt without password screenshot](/docs/images/single-sign-on/checkly-login-prompt-sso.png)
 
 After submitting the Checkly login form, you should be redirected to your SSO login interface. Completing the login procedure will then lead you to your existing Checkly account, if you have one, or to the new account creation screen, in case you don't.
 
-> Note: once SAML SSO has been set up, you will still need to invite new users from your organization to your Checkly account, as they will not be added automatically.
+## JIT User Provisioning
+
+Just-in-time user provisioning is now enabled for Enterprise customers using a single Checkly account.
+
+This allows all users from your SSO organisation to join your Checkly account by simply by logging in. You don’t need to invite anyone manually (although you still can).
+
+There are two ways your users can access Checkly:
+
+- Go through your SSO provider and access Checkly from the list of your approved apps.
+- Access the [Checkly Login Page](https://app.checklyhq.com/) directly.
+  - This requires a user to enter their email in the email field, and then click Continue.
+
+Both approaches seamlessly allow the user to be added to your Checkly account.
+
+### Default user roles
+
+By default, all users provisioned via SSO receive Read & Write permission within Checkly. You are able to modify this behaviour by going to the [SSO Configuration](https://app.checklyhq.com/settings/account/sso-saml) and choosing a different role.
+
+### Removing users
+
+If you want to remove users that have been previously provisioned through SSO, there is a two-step process:
+
+1. Remove their access within your SSO provider.
+2. Remove them from your [Checkly Team](https://app.checklyhq.com/settings/account/team).

@@ -23,21 +23,35 @@
 		margin: 50px 0 130px;
 
 		&__tabs {
-			width: 480px;
+			display: flex;
+			flex-wrap: wrap;
+			max-width: 640px;
 			margin: auto;
+			justify-content: center;
 
 			.integration-tab {
 			  width: 160px;
 			  height: auto;
 			  text-align: center;
 			  padding-bottom: 10px;
-			  border-bottom: 2px solid $gray;
-			  opacity: 0.3;
+			  border-bottom: 2px solid transparent;
+				margin-top: 1em;
 
 			  &:hover {
 			    cursor: pointer;
 			  }
 			}
+
+			.integration-tab-new {
+				background: $blue-light;
+				color: $blue;
+				border-radius: 0.25rem;
+				font-size: 0.675rem;
+				padding: 0.25em .5em;
+				text-transform: uppercase;
+				font-weight: 600;
+			}
+
 			.active {
 			  opacity: 1;
 			  border-color: $blue;
@@ -63,7 +77,7 @@
 		    img {
 		      width: 100%;
 		      border: 1px solid $gray-light;
-		      border-radius: 3px; 
+		      border-radius: 3px;
 		    }
 		  }
 		  .text-wrap {
@@ -264,7 +278,8 @@
 				margin: auto;
 
 				.integration-tab {
-				  width: 107px;
+				  width: 50%;
+					margin-top: 2em;
 				}
 			}
 			&__contents {

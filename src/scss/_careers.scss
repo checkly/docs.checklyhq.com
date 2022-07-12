@@ -10,7 +10,7 @@
 	    opacity: 0.8;
 	  }
 	}
-	
+
   .lead-text {
     max-width: 655px;
     margin: auto;
@@ -26,9 +26,13 @@
     border: 1px solid $gray-lighter;
   }
 
+	.center {
+		text-align: center;
+	}
+
 	&__about {
 	  padding: 61px 0 131px;
-		.container {
+		.narrow-container {
 		  max-width: 900px;
 		}
 	  &__logo{
@@ -47,6 +51,11 @@
 	      margin-bottom: 20px;
 	    }
 	  }
+		&__team {
+			max-width: 100%;
+			height: auto;
+			margin: 8em auto 2em;
+		}
 	}
 	&__features{
 	  padding: 81px 0 79px;
@@ -211,7 +220,7 @@
 	    }
 	  }
 	}
-	&__join {
+	&__join, &__calculator {
 	  padding: 80px 0 120px;
 	  .section-header {
 	    max-width: 655px;
@@ -236,6 +245,12 @@
     	border: 1px solid $gray-lighter;
     	border-radius: 3px;
 	  }
+
+		.btn {
+			display: inline-block;
+			margin: 0 auto;
+		}
+
 	  #whr_embed_hook {
       max-width: 760px;
       margin: auto;
@@ -344,7 +359,7 @@
         }
       }
     }
-    &__join {
+    &__join, &__calculator {
       padding: 60px 0 68px;
     }
 	}
@@ -427,7 +442,7 @@
         padding: 30px;
       }
     }
-    &__join {
+    &__join, &__calculator {
       padding: 58px 0 54px;
     }
 	}
