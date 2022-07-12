@@ -19,7 +19,7 @@ description: There’s a better way to monitor your assets. Defining your checks
       </div>
     </div>
     <div class="col-12 col-lg-6 pb-0 right-header">
-      <img class="img-fluid d-block d-md-none code-block-header" src="/product/terraform/code-block-header.svg" alt="checkly code"/>
+      <img class="img-fluid d-block d-md-none code-block-header" src="/product/pulumi/code-block-header.png" alt="checkly code"/>
       <div class="d-flex justify-content-start align-bottom">
             <div>
               <div class="tab-code-wrapper">
