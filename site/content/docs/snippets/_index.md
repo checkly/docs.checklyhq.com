@@ -11,7 +11,7 @@ menu:
     parent: "Snippets"
 ---
 
-Snippets are Javascript files which can be reused across checks. Snippets can be used in [Browser checks](/docs/browser-checks/), as well as [setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/) for API checks. By reusing code with snippets, checks can be made more maintainable and easier to develop.
+Snippets are JavaScript files which can be reused across checks. Snippets can be used in [Browser checks](/docs/browser-checks/), as well as [setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/) for API checks. By reusing code with snippets, checks can be made more maintainable and easier to develop.
 
 Snippets can be useful for:
 
