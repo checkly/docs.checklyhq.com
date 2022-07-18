@@ -19,7 +19,7 @@ Snippets can be useful for:
 - a common navigation flow
 - a common setup or teardown procedure
 
-### How to use snippets
+## How to use snippets
 
 To create a snippet, access <a href="https://app.checklyhq.com/snippets" target="_blank">the snippets section on the left side of the UI</a>. 
 
@@ -37,7 +37,7 @@ Snippets can even import other snippets. Since snippets are stored in the same d
 const setupLibrary = require('./setup-library.js')
 ```
 
-### Example: GitHub login
+## Example: GitHub login
 
 Say we want to validate some parts of the GitHub website only available to logged in users. We want to have separate, small
 Browser checks to have granular feedback whether each part functions.

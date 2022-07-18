@@ -11,7 +11,7 @@ menu:
 
 Snippets may also be imported using the [Handlebars](https://handlebarsjs.com/guide/partials.html) partial notation `{{> my_code_snippet }}`. When using the partials notation, code snippets are copied inline.
 
-### Example: GitHub login
+## Example: GitHub login
 
 Say we want to validate some parts of the GitHub website only available to logged in users. We want to have separate, small
 browser checks to have granular feedback whether each part functions.
@@ -73,7 +73,7 @@ in partials / snippets, just like in "normal" browser check scripts. Your snippe
 {{< /tab >}}
 {{< /tabs >}}
 
-### Passing variables to partials
+## Passing variables to partials
 
 You might want to create a partials that has a generic login routine and then pass it different username / password combinations
 based on your script. Or you might want to pass other variables to your partials.
@@ -99,7 +99,7 @@ Notice three things:
 2. The environment variables `process.env.xxx` are evaluated to a string in the partial.
 3. A standard string like the `extra="text"` pair is passed as is. Notice the extra quotes in the partial.
 
-### Using Handlebars helpers
+## Using Handlebars helpers
 
 We've extended the [Handlebars](https://handlebarsjs.com/) templating system with some handy helpers to make our webhooks
 even more powerful.
