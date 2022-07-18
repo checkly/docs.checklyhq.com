@@ -14,22 +14,24 @@ knowledge of working with Javascript and/or Node.js.
 
 ## What is a Browser check?
 
-A Browser check is a Node.js script that controls a Chrome browser to mimic user behavior.
+A Browser check is a Node.js script that controls a headless Chromium browser to mimic user behavior.
 Load a web page, click a link, fill a form input – do everything your visitors might do and check if these interactions lead to the correct results.
 
 Your critical interactions might be:
 
-- That the shopping cart is visible.
-- That users can add products to the shopping cart.
 - That users can log into my app.
+- That users can add products to a shopping cart.
+- That users can edit their account details.
 
-Use Browser checks to guarantee that your site works as expected.
+The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
 Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
 frameworks to power your Browser checks. Use these frameworks to control the interactions you want to happen on a web page.
 
 {{< info >}}
 While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new  features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community.
+
+__We recommend using Playwright if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).__
 {{< /info >}}
 
 The following code is a valid Browser check.
@@ -66,7 +68,7 @@ await browser.close()
 {{< /tabs >}}
 
 {{< info >}}
-Checkly currently supports using only **Google Chrome** with both Playwright and Puppeteer.
+Checkly currently supports using only **Chromium** with Playwright and Puppeteer.
 {{< /info >}}
 
 {{< warning >}}
