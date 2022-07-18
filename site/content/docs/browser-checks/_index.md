@@ -9,14 +9,32 @@ aliases:
     - /docs/browser-checks/quickstart/
 ---
 
+This quick start gives you all the info to create your first Browser check with Checkly. You should have some prior
+knowledge of working with Javascript and/or Node.js.
 
+## What is a Browser check?
 
-This quick start should give you all the info to create your first browser check with Checkly. You should have some prior
-knowledge working with Javascript and/or Node.js.
+A Browser check is a Node.js script that controls a headless Chromium browser to mimic user behavior.
+Load a web page, click a link, fill a form input – do everything your visitors might do and check if these interactions lead to the correct results.
 
-## What is a browser check?
+Your critical interactions might be:
 
-The five lines of code below are already a valid browser check. Its usefulness might be not that great, but still...
+- That users can log into my app.
+- That users can add products to a shopping cart.
+- That users can edit their account details.
+
+The combination of automated interactions and assertions leads to confidence that your site works as expected.
+
+Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
+frameworks to power your Browser checks. Use these frameworks to control the interactions you want to happen on a web page.
+
+{{< info >}}
+While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new  features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community.
+
+__We recommend using Playwright if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).__
+{{< /info >}}
+
+The following code is a valid Browser check.
 
 {{< tabs "Basic example" >}}
 {{< tab "Playwright" >}}
@@ -24,7 +42,12 @@ The five lines of code below are already a valid browser check. Its usefulness m
 const playwright = require('playwright')
 const browser = await playwright.chromium.launch()
 const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
+const response = await page.goto('https://checklyhq.com/')
+
+if (response.status() > 399) {
+  throw new Error(`Failed with response code ${response.status()}`)
+}
+
 await browser.close()
  ```
 {{< /tab >}}
@@ -33,25 +56,19 @@ await browser.close()
 const puppeteer = require('puppeteer')
 const browser = await puppeteer.launch()
 const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
+const response = await page.goto('https://checklyhq.com/')
+
+if (response.status() > 399) {
+  throw new Error(`Failed with response code ${response.status()}`)
+}
+
 await browser.close()
  ```
 {{< /tab >}}
 {{< /tabs >}}
 
-In essence, a browser check is a Node.js script that starts up a Chrome browser, loads a web page and interacts with that web page.
-The script validates assumptions you have about that web page, for instance:
-
-- Is my shopping cart visible?
-- Can users add products to the shopping cart?
-- Can users log in to my app?
-
-Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
-frameworks to drive these actions. Playwright and Puppeteer are Javascript frameworks that "talk" to a real Google Chrome browser.
-You use these frameworks to control the interactions you want to happen on a web page.
-
 {{< info >}}
-Checkly currently supports using only **Google Chrome** with both Playwright and Puppeteer.
+Checkly currently supports using only **Chromium** with Playwright and Puppeteer.
 {{< /info >}}
 
 {{< warning >}}
@@ -59,7 +76,7 @@ Note: It is not possible to use both Playwright and Puppeteer in the same Browse
 {{< /warning >}}
 
 
-## Breaking down a browser check step-by-step
+## Breaking down a Browser check step-by-step
 
 Let's look at a more real life example and break down each step. The code below logs into Checkly, waits for the dashboard
 to fully load and then snaps a screenshot.
@@ -114,10 +131,10 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 by the correct loading of the `.status-table` element in the page. For a visual reference, we also take a screenshot.
 We then close the browser. Our check is done.
 
-## How do I create a browser check?
+## How do I create a Browser check?
 
 Every valid **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
-or **[Playwright](https://github.com/microsoft/playwright)** script is a valid browser check. You can create these
+or **[Playwright](https://github.com/microsoft/playwright)** script is a valid Browser check. You can create these
 scripts in two ways:
 
 1. By using [Headless Recorder](/headless-recorder/) (our Chrome browser extension) to record a set of actions and
@@ -133,7 +150,7 @@ to Checkly.
 
 
 {{< info >}}
-Every valid Playwright or Puppeteer script is a valid browser check. If the script passes, your check passes.
+Every valid Playwright or Puppeteer script is a valid Browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
