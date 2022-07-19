@@ -29,7 +29,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "browser-sync": "^2.27.10",
     "css-loader": "^5.2.7",
-    "del": "^6.1.1",
+    "del": "^7.0.0",
     "exports-loader": "^0.7.0",
     "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
@@ -57,7 +57,7 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-standard": "16.0.3",
-    "eslint-plugin-html": "6.2.0",
+    "eslint-plugin-html": "7.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "5.2.0",
