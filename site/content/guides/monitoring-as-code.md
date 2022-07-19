@@ -40,7 +40,7 @@ You can {{< newtabref  href="https://registry.terraform.io/providers/checkly/che
 
 ## Monitoring an e-commerce website - as code
 
-How does this all look like in practice? Let's find out by creating a small monitoring setup for our {{< newtabref  href="https://danube-webshop.herokuapp.com" title="demo e-commerce website" >}}.
+How does this all look like in practice? Let's find out by creating a small monitoring setup for our {{< newtabref  href="https://danube-web.shop/" title="demo e-commerce website" >}}.
 
 ### Setting up our Terraform project
 
@@ -58,7 +58,7 @@ const { chromium } = require("playwright");
   const page = await browser.newPage();
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop/");
 
   // click on the login button and go through the login procedure
   await page.click("#login");
@@ -93,7 +93,7 @@ const assert = require("chai").assert;
   ];
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop/");
 
   // search for keyword
   await page.click(".topbar > input");
@@ -139,7 +139,7 @@ const { chromium } = require("playwright");
   const navigationPromise = page.waitForNavigation();
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop/");
 
   // add the first item to the cart
   await page.click(`.preview:nth-child(1) > .preview-author`);
@@ -392,7 +392,7 @@ resource "checkly_check" "webstore-list-books" {
   ]
 
   request {
-    url              = "https://danube-webshop.herokuapp.com/api/books"
+    url              = "https://danube-web.shop/api/books"
     follow_redirects = true
     assertion {
       source     = "STATUS_CODE"

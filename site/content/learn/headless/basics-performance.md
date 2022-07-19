@@ -94,7 +94,7 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 <details class="console-output">
   <summary>Console output</summary>
   <pre><code>[{
-  name: 'https://danube-webshop.herokuapp.com/',
+  name: 'https://danube-web.shop/',
   entryType: 'navigation',
   startTime: 0,
   duration: 1243.7999999998137,
@@ -150,7 +150,7 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 <details class="console-output">
   <summary>Console output</summary>
   <pre><code>{
-  name: 'https://danube-webshop.herokuapp.com/static/logo-horizontal.svg',
+  name: 'https://danube-web.shop/static/logo-horizontal.svg',
   entryType: 'resource',
   startTime: 1149.1000000000931,
   duration: 96.89999999990687,

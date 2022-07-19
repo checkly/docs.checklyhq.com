@@ -25,7 +25,7 @@ resource "checkly_check" "e2e-login" {
   double_check              = true            // Whether the check should be run once more on failure
   ssl_check                 = true            // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true            // Whether to use account level alert setting instead of the alert setting defined on this check
-  
+
   locations = [                               // Which locations the check should run from (if not in a group)
     "us-west-1",
     "eu-central-1"
@@ -38,7 +38,7 @@ async function run() {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop/");
 
   await page.click("#login");
 
@@ -97,7 +97,7 @@ resource "checkly_check" "get-books" {
   ]
 
   request {                             // All the settings for the check's HTTP request
-    url              = "https://danube-webshop.herokuapp.com/api/books"   // The request URL
+    url              = "https://danube-web.shop/api/books"   // The request URL
     follow_redirects = true             // Whether the request should follow redirects
     skip_ssl         = false            // Whether to skip the SSL validation on the target server
     assertion {                         // One or more assertions to run against the HTTP response
@@ -156,7 +156,7 @@ resource "checkly_check" "get-books" {
   group_id = checkly_check_group.key-shop-flows.id
 
   request {
-    url              = "https://danube-webshop.herokuapp.com/api/books"
+    url              = "https://danube-web.shop/api/books"
     follow_redirects = true
     skip_ssl         = false
     assertion {

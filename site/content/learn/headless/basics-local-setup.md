@@ -33,7 +33,7 @@ $ npm i puppeteer
 
 {{< /tabs >}}
 
-Playwright and Puppeteer come bundled with their respective browsers, so we now have all we need to run our first script. Let's create a script to navigate to our [test website](https://danube-webshop.herokuapp.com):
+Playwright and Puppeteer come bundled with their respective browsers, so we now have all we need to run our first script. Let's create a script to navigate to our [test website](https://danube-web.shop/):
 
 {{< tabs "2" >}}
 

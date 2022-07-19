@@ -5,7 +5,7 @@ const fs = require('fs')
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
-  await page.goto('https://danube-webshop.herokuapp.com')
+  await page.goto('https://danube-web.shop/')
 
   const localStorage = fs.readFileSync('localstorage.json', 'utf8')
 

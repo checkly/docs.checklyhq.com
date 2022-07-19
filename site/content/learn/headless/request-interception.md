@@ -22,7 +22,7 @@ When we browse the web, a series of HTTP requests and responses are exchanged be
 
 ## Request interception
 
-Request interception enables us to observe which requests and responses are being exchanged as part of our script's execution. For example, this is how we could print them out when we load our [test website](https://danube-webshop.herokuapp.com):
+Request interception enables us to observe which requests and responses are being exchanged as part of our script's execution. For example, this is how we could print them out when we load our [test website](https://danube-web.shop/):
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}

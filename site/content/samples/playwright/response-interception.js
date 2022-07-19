@@ -16,14 +16,14 @@ const mockResponseObject = [
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
-  await page.route('https://danube-webshop.herokuapp.com/api/books', (route) =>
+  await page.route('https://danube-web.shop/api/books', (route) =>
     route.fulfill({
       contentType: 'application/json',
       body: JSON.stringify(mockResponseObject)
     })
   )
 
-  await page.goto('https://danube-webshop.herokuapp.com/')
+  await page.goto('https://danube-web.shop/')
 
   await page.screenshot({ path: 'screenshot.png' })
 

@@ -19,7 +19,7 @@ Websites might expose files for users to download and then access from their loc
 
 ## Steps
 
-This example runs against our [test webshop](https://danube-webshop.herokuapp.com/) and proceeds to download a receipt for a previous purchase. It includes the following steps:
+This example runs against our [test webshop](https://danube-web.shop/) and proceeds to download a receipt for a previous purchase. It includes the following steps:
 
 1. Logging in to the website
 2. Navigating to the account page

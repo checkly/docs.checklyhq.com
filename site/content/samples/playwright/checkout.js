@@ -7,7 +7,7 @@ const productsNumber = process.env.PRODUCTS_NUMBER || 3
 
   const navigationPromise = page.waitForNavigation()
 
-  await page.goto('https://danube-webshop.herokuapp.com/')
+  await page.goto('https://danube-web.shop/')
 
   for (let i = 1; i <= productsNumber; i++) {
     await page.click(`.preview:nth-child(${i}) > .preview-author`)
