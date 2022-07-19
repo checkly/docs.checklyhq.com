@@ -57,7 +57,7 @@ const { chromium } = require("playwright");
   const page = await browser.newPage();
 
   // navigate to our target web page
-  await page.goto("https://danube-web.shop//");
+  await page.goto("https://danube-web.shop/");
 
   // click on the login button and go through the login procedure
   await page.click("#login");
@@ -92,7 +92,7 @@ const assert = require("chai").assert;
   ];
 
   // navigate to our target web page
-  await page.goto("https://danube-web.shop//");
+  await page.goto("https://danube-web.shop/");
 
   // search for keyword
   await page.click(".topbar > input");
@@ -138,7 +138,7 @@ const { chromium } = require("playwright");
   const navigationPromise = page.waitForNavigation();
 
   // navigate to our target web page
-  await page.goto("https://danube-web.shop//");
+  await page.goto("https://danube-web.shop/");
 
   // add the first item to the cart
   await page.click(`.preview:nth-child(1) > .preview-author`);
@@ -209,7 +209,7 @@ const assert = require("chai").assert;
   const tFirstNavigationStarts = Date.now()
 
   // navigate to our target web page
-  await page.goto("https://danube-web.shop//");
+  await page.goto("https://danube-web.shop/");
 
   // get second timestamp
   const tFirstNavigationEnds = Date.now()

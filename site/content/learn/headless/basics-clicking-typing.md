@@ -34,7 +34,7 @@ const { chromium } = require('playwright')
 ;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.click('#login')
 
@@ -49,7 +49,7 @@ const puppeteer = require('puppeteer')
 ;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.waitForSelector('#login')
   await page.click('#login')
@@ -77,7 +77,7 @@ const { chromium } = require('playwright')
 ;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.hover('a')
 
@@ -92,7 +92,7 @@ const puppeteer = require('puppeteer')
 ;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.waitForSelector('a')
   await page.hover('a')
@@ -115,7 +115,7 @@ const { chromium } = require('playwright')
 ;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.focus('input')
 
@@ -130,7 +130,7 @@ const puppeteer = require('puppeteer')
 ;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.waitForSelector('input')
   await page.focus('input')
@@ -153,7 +153,7 @@ const { chromium } = require('playwright')
 ;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.fill('input', 'some search terms')
 
@@ -168,7 +168,7 @@ const puppeteer = require('puppeteer')
 ;(async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.waitForSelector('input')
   await page.type('input', 'some search terms')

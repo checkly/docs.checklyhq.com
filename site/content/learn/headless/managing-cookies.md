@@ -100,7 +100,7 @@ In case you need to clear cookies, you can use [`page.deleteCookie(...cookies)`]
 
 Cookies are sent with every request, potentially deteriorating [performance](/learn/headless/basics-performance/) if used for storing large amounts of data. The [localStorage and sessionStorage](https://javascript.info/localstorage) APIs can help us offload some of this data to the browser. Just like with cookies, Playwright and Puppeteer make accessing localStorage and sessionStorage straightforward.
 
-Our test site, [Danube](https://danube-web.shop//), actually uses localStorage to keep track of things such as the content of your cart. Let's see how we can access this state and then replicate it in a later session.
+Our test site, [Danube](https://danube-web.shop/), actually uses localStorage to keep track of things such as the content of your cart. Let's see how we can access this state and then replicate it in a later session.
 
 We will first fill the cart by adding three items, then we will copy the contents of localStorage to a file.
 

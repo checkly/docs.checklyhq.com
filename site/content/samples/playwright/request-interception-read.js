@@ -13,7 +13,7 @@ const { chromium } = require('playwright')
     console.log('<<', response.status(), response.url())
   )
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.screenshot({ path: 'screenshot.png' })
 

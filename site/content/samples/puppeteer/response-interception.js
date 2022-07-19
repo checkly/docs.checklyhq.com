@@ -19,7 +19,7 @@ const mockResponseObject = [
   await page.setRequestInterception(true)
 
   page.on('request', (request) => {
-    if (request.url() === 'https://danube-web.shop//api/books') {
+    if (request.url() === 'https://danube-web.shop/api/books') {
       request.respond({
         content: 'application/json',
         body: JSON.stringify(mockResponseObject)
@@ -29,7 +29,7 @@ const mockResponseObject = [
 
   await page.setViewport({ width: 1200, height: 800 })
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.screenshot({ path: 'screenshot.png' })
 

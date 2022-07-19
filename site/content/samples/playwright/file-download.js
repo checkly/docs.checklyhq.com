@@ -7,7 +7,7 @@ const assert = require('chai').assert
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.click('#login')
   await page.type('#n-email', process.env.USER_EMAIL)

@@ -13,7 +13,7 @@ const puppeteer = require('puppeteer')
     else request.continue()
   })
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.screenshot({ path: 'screenshot.png' })
 

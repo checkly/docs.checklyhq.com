@@ -12,7 +12,7 @@ const assert = require('chai').assert
     'Baiting for Robot'
   ]
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.click('.topbar > input')
   await page.type('.topbar > input', 'for')

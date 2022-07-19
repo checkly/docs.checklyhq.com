@@ -6,7 +6,7 @@ const productsNumber = process.env.PRODUCTS_NUMBER || 3
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   for (let i = 1; i <= productsNumber; i++) {
     await page.click(`.preview:nth-child(${i}) > .preview-author`)

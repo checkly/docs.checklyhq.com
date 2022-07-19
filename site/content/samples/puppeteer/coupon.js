@@ -6,7 +6,7 @@ const productsNumber = process.env.PRODUCTS_NUMBER || 3
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
-  await page.goto('https://danube-web.shop//')
+  await page.goto('https://danube-web.shop/')
 
   await page.setViewport({ width: 1792, height: 925 })
 
