@@ -1,6 +1,6 @@
 ---
 title: Emulating mobile devices
-subTitle: Basic page interactions
+subTitle: Learn how to emulate mobile devices
 date: 2022-07-19
 author:
   - Giovanni Rago
