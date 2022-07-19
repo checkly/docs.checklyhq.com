@@ -18,7 +18,11 @@ menu:
     parent: "Getting started"
 ---
 
-Puppeteer and Playwright control headless desktop browsers but can also emulate mobile devices. And while mobile device emulation can't replace testing on mobile devices, it's a practical and quick-to-setup approach to test your site in a mobile scenario.
+Puppeteer and Playwright control headless desktop browsers that can also emulate mobile devices. And while device emulation can't replace testing on mobile devices entirely, it's a practical and quick-to-setup approach to testing mobile scenarios.
+
+Device emulation is well suited to test if your site behaves correctly across multiple viewport sizes and correctly handles `user-agent` strings. But if your site relies on device-specific browser features, an iPhone emulation running in a Chromium browser might lead to false positives.
+
+This guide explains how to define viewport sizes, device pixel ratio and  `user-agent` strings using Playwright and Puppeteer.
 
 ## Defining the user agent string
 
@@ -67,7 +71,7 @@ const puppeteer = require("puppeteer")
 
 ## Defining viewport size and pixel density
 
-If your site follows responsive web design practices and renders elements depending on device viewport size, define a mobile viewport size using `viewport` and `deviceScaleFactor`.
+If your site follows responsive web design practices and renders elements depending on device viewport size, define a mobile viewport and pixel density.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
