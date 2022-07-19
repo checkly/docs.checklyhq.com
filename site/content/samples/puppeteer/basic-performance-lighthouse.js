@@ -16,7 +16,7 @@ const util = require('util')
   })
 
   const { lhr } = await lighthouse(
-    'https://danube-webshop.herokuapp.com',
+    'https://danube-web.shop/',
     { port: chrome.port },
     null
   )

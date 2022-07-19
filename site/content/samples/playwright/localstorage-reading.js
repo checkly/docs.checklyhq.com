@@ -5,7 +5,7 @@ const fs = require('fs')
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
-  await page.goto('https://danube-webshop.herokuapp.com')
+  await page.goto('https://danube-web.shop/')
 
   for (let i = 1; i <= 3; i++) {
     await page.click(`.preview:nth-child(${i}) > .preview-author`)

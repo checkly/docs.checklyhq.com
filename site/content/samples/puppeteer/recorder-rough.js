@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer')
 
   const navigationPromise = page.waitForNavigation()
 
-  await page.goto('https://danube-webshop.herokuapp.com/')
+  await page.goto('https://danube-web.shop//')
 
   await page.setViewport({ width: 1792, height: 934 })
 

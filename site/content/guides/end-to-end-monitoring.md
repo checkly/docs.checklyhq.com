@@ -8,11 +8,11 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 ## Headless browser testing
 
-Over the course of the last decade, especially thanks to tools such as {{< newtabref  href="https://www.selenium.dev/" title="Selenium" >}} and (more recently) {{< newtabref  href="https://www.cypress.io/" title="Cypress" >}}, **automated End-to-End testing (E2E testing) has become widespread across industries**. 
+Over the course of the last decade, especially thanks to tools such as {{< newtabref  href="https://www.selenium.dev/" title="Selenium" >}} and (more recently) {{< newtabref  href="https://www.cypress.io/" title="Cypress" >}}, **automated End-to-End testing (E2E testing) has become widespread across industries**.
 
 Broadly speaking, **E2E testing entails running fully automated test suites with the goal of catching bugs before they hit production** and, therefore, negatively affect the user experience. These test suites need to be carefully scripted using dedicated tools, as well as to be made stable and fast enough to test the most important end-user flows on every build, PR or commit, depending on the application under test and the organisation's automation maturity.
 
-The industry has learned to struggle with the challenges this approach presents: 
+The industry has learned to struggle with the challenges this approach presents:
 
 1. Long-running suites.
 2. Test flakiness.
@@ -37,7 +37,7 @@ A few key flows for an e-commerce websites could be:
 2. Finding a product through search
 3. Adding products to the basket and checking out
 
-Let's see how to set them up - for this example, we will do that on our {{< newtabref  href="https://danube-webshop.herokuapp.com" title="demo web shop" >}}.
+Let's see how to set them up - for this example, we will do that on our {{< newtabref  href="https://danube-web.shop/" title="demo web shop" >}}.
 
 {{< figure src="/guides/images/guides-danube.png" alt="demo website screenshot" title="Our demo website" >}}
 
@@ -57,7 +57,7 @@ const { chromium } = require("playwright");
   const page = await browser.newPage();
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop//");
 
   // click on the login button and go through the login procedure
   await page.click("#login");
@@ -92,7 +92,7 @@ const assert = require("chai").assert;
   ];
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop//");
 
   // search for keyword
   await page.click(".topbar > input");
@@ -138,7 +138,7 @@ const { chromium } = require("playwright");
   const navigationPromise = page.waitForNavigation();
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop//");
 
   // add the first item to the cart
   await page.click(`.preview:nth-child(1) > .preview-author`);
@@ -195,7 +195,7 @@ Oftentimes it pays to be more granular. For example, we might want to measure th
 ```js
 const { chromium } = require("playwright");
 // we add an assertion library
-const assert = require("chai").assert; 
+const assert = require("chai").assert;
 
 (async () => {
 
@@ -209,7 +209,7 @@ const assert = require("chai").assert;
   const tFirstNavigationStarts = Date.now()
 
   // navigate to our target web page
-  await page.goto("https://danube-webshop.herokuapp.com/");
+  await page.goto("https://danube-web.shop//");
 
   // get second timestamp
   const tFirstNavigationEnds = Date.now()

@@ -13,7 +13,7 @@ const { chromium } = require('playwright')
     latency: 20
   })
 
-  await page.goto('https://danube-webshop.herokuapp.com')
+  await page.goto('https://danube-web.shop/')
 
   // your flow and assertions
 

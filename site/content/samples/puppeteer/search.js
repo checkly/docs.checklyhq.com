@@ -12,7 +12,7 @@ const assert = require('chai').assert
     'Baiting for Robot'
   ]
 
-  await page.goto('https://danube-webshop.herokuapp.com/')
+  await page.goto('https://danube-web.shop//')
 
   await page.setViewport({ width: 1200, height: 800 })
 

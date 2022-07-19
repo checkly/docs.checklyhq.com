@@ -14,7 +14,7 @@ const util = require('util')
   const browser = await chromium.connect({ wsEndpoint: webSocketDebuggerUrl })
 
   const { lhr } = await lighthouse(
-    'https://danube-webshop.herokuapp.com',
+    'https://danube-web.shop/',
     { port: chrome.port },
     null
   )

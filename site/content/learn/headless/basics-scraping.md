@@ -25,7 +25,7 @@ We call the action of extracting data from web pages _web scraping_. Scraping is
 
 ## Scraping element attributes & properties
 
-Below is an example running against our [test site](https://danube-webshop.herokuapp.com), getting and printing out the `href` attribute of the first `a` element on the homepage. That just happens to be our logo, which links right back to our homepage, and therefore will have an `href` value equal to the URL we navigate to using `page.goto()`:
+Below is an example running against our [test site](https://danube-web.shop/), getting and printing out the `href` attribute of the first `a` element on the homepage. That just happens to be our logo, which links right back to our homepage, and therefore will have an `href` value equal to the URL we navigate to using `page.goto()`:
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}

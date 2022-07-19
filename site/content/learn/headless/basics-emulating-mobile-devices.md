@@ -36,7 +36,7 @@ const { chromium } = require("playwright")
     userAgent:
       "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/16.0 Mobile/14E304 Safari/602.1",
   })
-  await page.goto("https://danube-webshop.herokuapp.com")
+  await page.goto("https://danube-web.shop/")
 
   // perform your tests
 
@@ -55,7 +55,7 @@ const puppeteer = require("puppeteer")
   await page.setUserAgent(
     "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/16.0 Mobile/14E304 Safari/602.1"
   )
-  await page.goto("https://danube-webshop.herokuapp.com")
+  await page.goto("https://danube-web.shop/")
 
   // perform your tests
 
@@ -84,7 +84,7 @@ const { chromium } = require("playwright")
     },
     deviceScaleFactor: 2,
   })
-  await page.goto("https://danube-webshop.herokuapp.com")
+  await page.goto("https://danube-web.shop/")
 
   // perform your tests
 
@@ -105,7 +105,7 @@ const puppeteer = require("puppeteer")
     height: 568,
     deviceScaleFactor: 2,
   })
-  await page.goto("https://danube-webshop.herokuapp.com")
+  await page.goto("https://danube-web.shop/")
 
   // perform your tests
 
@@ -136,7 +136,7 @@ const iPhone = devices['iPhone SE'];
     // emulate the iPhone SE
     ...iPhone
   })
-  await page.goto("https://danube-webshop.herokuapp.com")
+  await page.goto("https://danube-web.shop/")
 
   // perform your tests
 
@@ -154,7 +154,7 @@ const iPhone = puppeteer.devices['iPhone SE'];
   const page = await browser.newPage()
   // emulate the iPhone SE
   await page.emulate(iPhone);
-  await page.goto("https://danube-webshop.herokuapp.com")
+  await page.goto("https://danube-web.shop/")
 
   // perform your tests
 

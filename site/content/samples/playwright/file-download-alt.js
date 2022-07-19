@@ -7,7 +7,7 @@ const assert = require('chai').assert
   const context = await browser.newContext({ acceptDownloads: true })
   const page = await context.newPage()
 
-  await page.goto('https://danube-webshop.herokuapp.com/')
+  await page.goto('https://danube-web.shop//')
 
   await page.click('#login')
   await page.type('#n-email', process.env.USER_EMAIL)
