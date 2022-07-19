@@ -388,6 +388,14 @@
     a {
       color: $red;
     }
+
+    .alert-info, .alert-warning, .alert-danger, .alert-white {
+      a {
+        color: currentColor;
+        text-decoration: underline;
+      }
+    }
+
     .markdown-tabs{
       input[type="radio"]:checked + label {
         color: $red;
