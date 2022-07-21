@@ -1,6 +1,6 @@
 ---
 title: Teardown script examples
-weight: 1
+weight: 2
 menu:
   docs:
     parent: "Setup & teardown scripts"
