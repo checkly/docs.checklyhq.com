@@ -21,6 +21,18 @@
             <a href="{{.URL}}">
               {{ partial "docs-title" . }}
             </a>
+
+            {{if .Children}}
+              <ul>
+              {{range .Children}} {{ $has := $currentPage.IsMenuCurrent "docs" . }}
+                <li class="docs-menu-sub-item {{if $has}}active{{end}}">
+                  <a href="{{.URL}}">
+                    {{ partial "docs-title" . }}
+                  </a>
+                </li>
+              {{end}}
+            </ul>
+            {{end}}
           </li>
           {{end}}
         </ul>
