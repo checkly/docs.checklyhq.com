@@ -239,11 +239,9 @@ const token = await getToken();
 request.headers['Authorization'] = `Bearer ${token}`
 ```
 
-### Parse and manipulate any data
+### Parse XML/SOAP data
 
-There might be situations in which you have to manually parse and create your setup data. Luckily, setup scripts are JavaScript functions that are able to fetch and process any data.
-
-Find an example fetching and parsing XML below.
+To parse XML and potentially prepare a SOAP API Check, fetch the API data, parse the XML and store the parsed value in an environment variable to make it accessible in an API Check request body.
 
 ```javascript
 const axios = require("axios").default
@@ -275,7 +273,7 @@ if (result.length > 1) {
   // Store it in an environment variable to access it in your API Check request body
   process.env.NUMBER_TO_WORD_RESULT = result[1]
 } else {
-  throw new Error("Could not parse token from XML")
+  throw new Error("Could not parse XML")
 }
 ```
 
