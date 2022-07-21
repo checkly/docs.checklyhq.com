@@ -8,10 +8,10 @@ menu:
 
 You can tailor each HTTP request made by an API check to your exact situation by using setup and/or teardown scripts.
 
-- **Setup scripts** give you access to properties like the URL, headers and query parameters of the HTTP request as well as 
+- **Setup scripts** give you access to properties like the URL, headers and query parameters of the HTTP request as well as
 all environment variables. Popular use cases are signing HMAC requests, requesting tokens and setting up test data.
 - **Teardown scripts** give you access to all the same data as the setup scripts plus the response
-object, allowing you to read and modify the response. Use cases are cleaning up test data and scrubbing sensitive 
+object, allowing you to read and modify the response. Use cases are cleaning up test data and scrubbing sensitive
 response data for regulatory reasons.
 
 ![setup and teardown script for http requests](/docs/images/api-checks/setup-teardown-inline.png)
@@ -19,34 +19,60 @@ response data for regulatory reasons.
 Both script types are written in JavaScript and have access to popular libraries like moment, axios and lodash. See the full list of available libraries [here](#included-libraries).
 
 {{<info >}}
-Both setup and teardown scrips have a **maximum execution time of 10 seconds**.
+Setup and teardown scrips have a **maximum execution time of 10 seconds**.
 {{</info >}}
+
 
 ## Setup scripts
 
-Setup scripts allow you to do last minute processing of test data and request options. The scripts execute before any
-requests are made. You have access to a set of [built-in variables](#built-in-variables) so you can tweak the HTTP request 
-and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs)
- 
+Setup scripts allow you to process test data and configure API Check requests.
+
+A setup script executes before any requests are made. You have access to a set of [built-in variables](#built-in-variables) to tweak the HTTP request
+and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs).
+
+{{<info >}}
 Note: any libraries need to be explicitly imported using a `require` statement.
+{{</info >}}
 
-## Setup script examples
+### Add custom request configuration
 
-### Add a custom header
+If your API Check's request configuration relies on setup script data, adjust the `request` object.
+
+Common examples are:
+
+- Setting a custom header
+- Updating the request URL
+- Defining of a cookie
 
 ```javascript
 // request.headers is a standard Javascript object
+
+// Set a custom header
 request.headers['X-Custom-Header'] = 'my value'
+
+// Append a value to the request url
+request.url = request.url + '/extra'
+
+// Define a cookie
+request.headers['Cookie'] = tokenString
 ```
 
-### Update the URL
+### Use environment variables to access values in your API Check request body
+
+If your API Check's request body relies on data evaluated in a setup script, use [environment variables](/docs/api-checks/variables/) to make it accessible.
 
 ```javascript
-// append a value to the request url
-request.url = request.url + '/extra'
+// define a variable that should be accessible in the API Check response body
+process.env.MY_VALUE = 'my value'
 ```
 
-### Fetch an external token 
+Access your defined environment variables in the API Check request body with `{{MY_VALUE}}` notation.
+
+![Checkly API check editor showing a JSON request body that uses the MY_VALUE environment variable.](/docs/images/api-checks/setup-env-variables.png)
+
+## Setup script examples
+
+### Fetch an external token
 
 ```javascript
 // explicitly import axios
@@ -118,9 +144,9 @@ const { data } = await axios.get(url, { headers: signature.headers })
 process.env.AWS_V4_RESULT = data
 ```
 
-### fetch an OAuth2 access token using the `client_credentials` grant
+### Fetch an OAuth2 access token using the `client_credentials` grant
 
-This example works great for OAuth2 providers like [Okta](https://www.okta.com/) and [Auth0](https://auth0.com/) that 
+This example works great for OAuth2 providers like [Okta](https://www.okta.com/) and [Auth0](https://auth0.com/) that
 provide the "client_credentials" grant type.
 
 ```javascript
@@ -131,7 +157,7 @@ const btoa = require('btoa')
 // grab the necessary credentials set up earlier in your environment variables.
 const { ISSUER, TEST_CLIENT_ID, TEST_CLIENT_SECRET, DEFAULT_SCOPE } = process.env
 
-// assemble a token 
+// assemble a token
 const token = btoa(`${TEST_CLIENT_ID}:${TEST_CLIENT_SECRET}`)
 
 // fetch an access token
@@ -152,10 +178,9 @@ const { access_token } = await requestPromise({
 request.headers['Authorization'] = `Bearer ${access_token}`
 ```
 
-### fetch an OAuth2 access token using the `password` grant
+### Fetch an OAuth2 access token using the `password` grant
 
-
-This example works great for OAuth2 providers like [Okta](https://www.okta.com/) and [Auth0](https://auth0.com/) that 
+This example works great for OAuth2 providers like [Okta](https://www.okta.com/) and [Auth0](https://auth0.com/) that
 provide the "password" grant type. We actually use this one ourselves for monitoring Checkly!
 
 ```javascript
@@ -164,7 +189,7 @@ const requestPromise = require('request-promise')
 
 // grab the necessary credentials set up earlier in your environment variables.
 const { ISSUER, USERNAME, PASSWORD, CLIENT_ID, CLIENT_SECRET, AUDIENCE } = process.env
- 
+
 
 // fetch an access token
 const { access_token } = await requestPromise({
@@ -184,7 +209,7 @@ const { access_token } = await requestPromise({
 // set the Authorization header
 request.headers['Authorization'] = `Bearer ${access_token}`
 ```
-### create a JWT token using the jsonwebtoken library
+### Create a JWT token using the jsonwebtoken library
 
 ```javascript
 // we use the jsonwebtoken library as it makes creating JTW's really easy
@@ -214,6 +239,46 @@ const token = await getToken();
 request.headers['Authorization'] = `Bearer ${token}`
 ```
 
+### Parse and manipulate any data
+
+There might be situations in which you have to manually parse and create your setup data. Luckily, setup scripts are JavaScript functions that are able to fetch and process any data.
+
+Find an example fetching and parsing XML below.
+
+```javascript
+const axios = require("axios").default
+
+// Make an XML request
+const { data } = await axios.post(
+  "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+  `<?xml version="1.0" encoding="utf-8"?>
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+          <NumberToWords xmlns="http://www.dataaccess.com/webservicesserver/">
+            <ubiNum>42</ubiNum>
+          </NumberToWords>
+        </soap:Body>
+    </soap:Envelope>
+  `,
+  {
+    headers: {
+      "content-type": "text/xml; charset=utf-8",
+    },
+  }
+)
+
+// Parse the value you're interested in
+const regExp = /<m:NumberToWordsResult>(.*?)<\/m:NumberToWordsResult>/g
+const result = regExp.exec(data)
+
+if (result.length > 1) {
+  // Store it in an environment variable to access it in your API Check request body
+  process.env.NUMBER_TO_WORD_RESULT = result[1]
+} else {
+  throw new Error("Could not parse token from XML")
+}
+```
+
 ### Dismiss password-protection prompt on Vercel deployment
 
 [Password-protected Vercel Deployments](https://vercel.com/blog/protecting-deployments) can be [bypassed programmatically](https://vercel.com/docs/platform/frequently-asked-questions#bypassing-password-protection-programmatically). The following script allows a check to run against both production and preview deployments while skipping the password prompt. Note that if only one of your deployments (e.g. the preview) is password-protected, you will want to skip the request via an _if_ statement to handle the other cases.
@@ -227,38 +292,38 @@ const vercelDeploymentPassword = process.env.PASSWORD_VERCEL
 const url = process.env.ENVIRONMENT_URL || productionUrl
 
 const options = {
-    uri: url,
-    simple: false,
-    resolveWithFullResponse: true
+  uri: url,
+  simple: false,
+  resolveWithFullResponse: true
 };
 try {
-    const response = await req.post(options).form({_vercel_password: vercelDeploymentPassword})
-    const token = response.headers['set-cookie']
-    const tokenString = token.toString().split(';')[0]
-    request.headers['Cookie'] = tokenString
+  const response = await req.post(options).form({_vercel_password: vercelDeploymentPassword})
+  const token = response.headers['set-cookie']
+  const tokenString = token.toString().split(';')[0]
+  request.headers['Cookie'] = tokenString
 } catch(error) {
-    console.log(error)
+  console.log(error)
 }
 ```
 
 ## Teardown scripts
 
-Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. Next to the [request](#request) 
+Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. Next to the [request](#request)
 and [environment](#environment) objects, teardown scripts also have access to the [response](#response) object. Use teardown scripts to clean up
-any created test data or clean up response data that might contain sensitive information you do not want to store on the 
+any created test data or clean up response data that might contain sensitive information you do not want to store on the
 Checkly backend.
 
 ## Teardown script examples
 
-### update response status
+### Update response status
 
 ```javascript
 response.statusCode = 201
 ```
 
-### perform additional assertions
+### Perform additional assertions
 
-In certain cases you might want to run additional assertion as part of your teardown script. 
+In certain cases you might want to run additional assertion as part of your teardown script.
 
 ```javascript
 const expect = require('expect')
@@ -277,7 +342,7 @@ const currentDate = moment().format('llll')
 expect(response.body.date).toBe(currentDate)
 ```
 
-### delete created test data based on response
+### Delete created test data based on response
 
 This is an actual script we use to monitor our own "create API check" API endpoint. It runs after a normal API check where
 we POST a JSON blob to the `/accounts/<uuid>/checks` endpoint, which returns the created resource with its ID.
@@ -304,7 +369,7 @@ const headers = {
 await axios.delete(host + path, { headers })
 ```
 
-### updating the JSON response body
+### Update the JSON response body
 
 ```javascript
 // Parse the body as JSON
@@ -340,7 +405,7 @@ You have access to all environment variables configured in the variables section
 
 You can create, read, update and delete any of the attributes in this object.
 
-The current data center location the script is running in is exposed as the AWS region code in the `REGION` constant, 
+The current data center location the script is running in is exposed as the AWS region code in the `REGION` constant,
 i.e. `eu-west-1` or `us-east-1`
 
 ```javascript
@@ -375,11 +440,11 @@ Request properties are exposed a standard Javascript object. This object is avai
 | `request.url`  | The request URL. Any separately defined query parameters are added at the end.  | String |
 | `request.body`  | The request body in string format.  | String  |
 | `request.headers`  | The request headers.  | Object |
-| `request.queryParameters`  | The request query parameters. | Object | 
+| `request.queryParameters`  | The request query parameters. | Object |
 
 ### Response
 
-Response properties are exposed a standard Javascript object. These are only available in teardown scripts. 
+Response properties are exposed a standard Javascript object. These are only available in teardown scripts.
 
 | property | description | type |
 | ------------- | ------------- | ---- |
@@ -392,7 +457,7 @@ Response properties are exposed a standard Javascript object. These are only ava
 
 ## Included libraries
 
-All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js standard library or to arbitrary NPM modules. 
+All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js standard library or to arbitrary NPM modules.
 
 Check out [our runtimes documentation](/docs/runtimes/specs) for a full specification of which modules are included.
 

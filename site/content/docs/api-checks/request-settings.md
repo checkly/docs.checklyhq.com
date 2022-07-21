@@ -59,7 +59,7 @@ query {
 }
 ```
 
-### FORM
+### Form parameters
 
 This option sets `Content-Type` request header to `application/x-www-form-urlencoded`. Format your input as a string of key/value pairs concatenated with ampersands, i.e:
 
@@ -68,9 +68,13 @@ key1=value1&key2=value2
 ```
 Form encodes bodies are commonly used "traditional" HTML form submissions.
 
-### RAW
+### Raw data
 
-Use this input if neither JSON nor form parameters work for you. No `Content-Type` request header is set. You can set this header explicitly in the "headers" section.
+If the predefined data types don't work for you, use `Raw data`. Make sure to define your `Content-Type` header explicitely then.
+
+{{<info >}}
+To monitor an XML-based API define `text/xml; charset=utf-8` as `Content-Type` header and send your XML as `Raw data` request body.
+{{</info >}}
 
 ## Headers
 
@@ -121,7 +125,7 @@ Response bodies are limited to a size of 25MB. Responses over this size will tri
 
 Additionally, if your API responds with a binary type body, i.e. a PDF or video file, we scrub the body and replace
 it with a short text saying that we scrubbed it. We determine the body content type by looking at the `Content-Type`
-response header. 
+response header.
 
 This list shows all content types that we scrub from the response data.
 
