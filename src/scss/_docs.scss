@@ -49,6 +49,10 @@
       ul {
         list-style: none;
         font-size: 14px;
+
+        ul {
+          list-style: disc;
+        }
       }
 
     }
@@ -109,15 +113,19 @@
       }
 
       &-item {
-        margin-bottom: 10px;
         margin-left: 6px;
 
+        & & {
+          margin-left: 16px;
+        }
+
         a {
+          display: block;
+          padding-block: 5px;
           color: $gray-darkish;
-          padding: 0;
         }
         &.active {
-          a {
+          > a {
             color: $gray-dark;
             font-weight: 500;
           }
@@ -230,12 +238,16 @@
         border-left: 2px solid $brand-primary;
         padding-left: .5rem;
 
-        li {
-          margin-bottom: 10px;
+        ul {
+          padding-left: 0.75rem;
         }
-      }
-      ul > li > ul {
-        display: none;
+
+        li {
+          a {
+            display: block;
+            padding-block: 5px;
+          }
+        }
       }
     }
 
