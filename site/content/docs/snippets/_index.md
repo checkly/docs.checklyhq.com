@@ -28,12 +28,14 @@ When creating a snippet, note that the snippet name will be used as its filename
 The snippet can then be imported in Browser checks as well as setup and teardown scripts using the Node.js `require` function. When a check is executed, snippets will be available in the `./snippets` directory. Snippets work like any Javascript file on your local disk in Node.js, making it possible to expose functions and properties on the `module.exports` object.
 
 To require a snippet named `setup-library`, a check would use:
-```
+
+```javascript
 const setupLibrary = require('./snippets/setup-library.js')
 ```
 
 Snippets can even import other snippets. Since snippets are stored in the same directory, it isn't necessary to include `./snippets` in the path when requiring. For example, to import a snippet named `setup-library` from another snippet:
-```
+
+```javascript
 const setupLibrary = require('./setup-library.js')
 ```
 
