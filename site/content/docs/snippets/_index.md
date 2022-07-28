@@ -27,12 +27,10 @@ When creating a snippet, note that the snippet name will be used as its filename
 
 A snippet can be imported in Browser checks as well as setup and teardown scripts using the Node.js `require` function. When a check or script runs, snippets will be available in the `./snippets` directory.
 
-A simplified file and directory structure for API and Browser checks looks as follows:
+Find simplified file and directory structures for API and Browser checks below.
 
 ```
-├── browser-check.js
-├── setup-script.js
-├── teardown-script.js
+├── script.js (the Browser check script or the API check setup / teardown script)
 └── snippets
     ├── snippet1.js
     └── snippet2.js
