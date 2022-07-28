@@ -53,7 +53,11 @@ const setupLibrary = require('./setup-library.js')
 ```
 
 {{<info >}}
-Note that if you run a snippet as a setup / teardown script, it moves up in the directory structure. Make sure to include the `snippets` directory in your `require` call to reuse other snippets then.
+Do you use [reusable code snippets for a setup or teardown script](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets)?
+
+In this case, the setup / teardown snippet will be executed as `script.js` rather than be placed in the snippets directory. To import other snippets, the setup / teardown snippet should include the `snippets` directory in the path.
+
+For example, import a snippet named `setup-library` using  `require('./snippets/helper.js')`.
 {{</info >}}
 
 ## Example: GitHub login
