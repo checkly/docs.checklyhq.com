@@ -21,23 +21,42 @@ Snippets can be useful for:
 
 ## How to use snippets
 
-To create a snippet, access <a href="https://app.checklyhq.com/snippets" target="_blank">the snippets section on the left side of the UI</a>. 
+To create a snippet, access <a href="https://app.checklyhq.com/snippets" target="_blank">the snippets section on the left side of the UI</a>.
 
-When creating a snippet, note that the snippet name will be used as its filename. It's not necessary to name the snippet with the `.js` file extension, though, since this will be added automatically.
+When creating a snippet, note that the snippet name will be used as its filename. It's not necessary to name the snippet with the `.js` file extension since this will be added automatically.
 
-The snippet can then be imported in Browser checks as well as setup and teardown scripts using the Node.js `require` function. When a check is executed, snippets will be available in the `./snippets` directory. Snippets work like any Javascript file on your local disk in Node.js, making it possible to expose functions and properties on the `module.exports` object.
+A snippet can be imported in Browser checks as well as setup and teardown scripts using the Node.js `require` function. When a check or script runs, snippets will be available in the `./snippets` directory.
 
-To require a snippet named `setup-library`, a check would use:
+A simplified file and directory structure for API and Browser checks looks as follows:
+
+```
+├── browser-check.js
+├── setup-script.js
+├── teardown-script.js
+└── snippets
+    ├── snippet1.js
+    └── snippet2.js
+```
+
+Snippets work like any Javascript file on your local disk in Node.js, making it possible to expose functions and properties on the `module.exports` object.
+
+Require a snippet named `setup-library` from within a Browser check, a setup or teardown script as follows:
 
 ```javascript
 const setupLibrary = require('./snippets/setup-library.js')
 ```
 
-Snippets can even import other snippets. Since snippets are stored in the same directory, it isn't necessary to include `./snippets` in the path when requiring. For example, to import a snippet named `setup-library` from another snippet:
+Snippets can also import other snippets. Since snippets are stored in the same directory, it isn't necessary to include `./snippets` in the path when requiring.
+
+For example, to import a snippet named `setup-library` from another snippet:
 
 ```javascript
 const setupLibrary = require('./setup-library.js')
 ```
+
+{{<info >}}
+Note that if you run a snippet as a setup / teardown script, it moves up in the directory structure. Make sure to include the `snippets` directory in your `require` call to reuse other snippets then.
+{{</info >}}
 
 ## Example: GitHub login
 
