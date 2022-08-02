@@ -91,7 +91,7 @@ const { chromium } = require('playwright')
   
   await page.close()
   await browser.close()
-})
+})()
 ```
 
 This way we are setting set the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL. 
