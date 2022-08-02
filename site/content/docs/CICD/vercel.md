@@ -75,7 +75,7 @@ Here is a full example that we use ourselves to monitor checklyhq.com which is a
 ```js {hl_lines=[7]}
 const { chromium } = require('playwright')
 
-(async () => {
+;(async () => {
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
