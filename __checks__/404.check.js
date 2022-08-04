@@ -1,4 +1,4 @@
-const { default: expect } = require('expect')
+const expect = require('expect')
 const { goToPage, screenshot, cleanUp } = require('./_helpers')
 
 async function run () {
