@@ -18,7 +18,6 @@ highlights:
     image: "/integrations/highlight/pulumi-featured-image@2x.png"
     tabIcon: "/integrations/highlight/pulumi-logo.svg"
     ctaLink: "/docs/integrations/pulumi/"
-    isNew: true
   - label: VERCEL
     title: Run checks on every deploy
     description: >-
