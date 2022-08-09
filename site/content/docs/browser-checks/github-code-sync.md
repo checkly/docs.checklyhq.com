@@ -6,121 +6,127 @@ menu:
     parent: "Browser checks"
 ---
 
-Your Playwright and Puppeteer scripts should live in your code repository, to not only use your familiar development environment, but also to keep Browser check code in sync with your application code.
+Having your Playwright and Puppeteer scripts live in your code repository allows you to use your familiar development environment and keep Browser check code in version control and sync it your application code.
 
-GitHub sync enables you to sync your Browser checks with files in a GitHub repository.
+GitHub Sync enables you to synchronize your Browser checks with JavaScript files in a GitHub repository.
 
 {{<info >}}
 
-GitHub Sync is currently in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
+GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
 
 {{</info >}}
 
-## Getting started
+## Prerequisites
 
-To sync a Browser check with a GitHub file, install the [Checkly GitHub App installed](https://app.checklyhq.com/settings/account/integrations)
-and allow access to the repositories you want to sync.
+To sync a Browser check with a GitHub file, Checkly needs access to your GitHub code. Install the [Checkly GitHub App](https://app.checklyhq.com/settings/account/integrations) and allow access to the repositories you want to sync with Checkly.
 
-For every synced Browser check two main configurations are necessary:
+![Checkly integrations showing the GitHub integration section](/docs/images/browser-checks/gh-sync-add-github-integration.png)
 
-1. The GitHub repository file location.
-2. The moment when a file should be synced to your Browser check.
+## Get started with GitHub Sync
 
-![GitHub Sync main configuration](/docs/images/browser-checks/github-sync-overview.png)
+GitHub Sync works for existing and new Browser checks. Click the "Sync from GitHub" button close to the Browser check editor to open the synchronization settings.
 
+!["Sync from GitHub" button in the Checkly UI](/docs/images/browser-checks/gh-sync-editor-enable.png)
 
-## Syncing file(s) from a GitHub repository
+Find the GitHub Sync settings in the GitHub Integration drawer.
 
-Create a new Browser check or navigate to an existing one and click the "Sync from GitHub" button.
+![GitHub Sync main configuration](/docs/images/browser-checks/gh-sync-overview.png)
 
-After installing the Checkly GitHub App, pick a repository and link an entry file to a Browser check.
+To sync a Browser check with your GitHub code, two configurations are necessary:
 
-In the GitHub integration section...
+1. The sync target – which file should be synced?
+2. The sync strategy – when should it be synced?
 
-1. Toggle **Sync from GitHub**.
-2. Pick a repository with the file you want to sync.
-3. You will now choose your entry file and syncing strategy.
+## Choose the GitHub Sync target
 
-> Note that your **entry file** can `require` other local file dependencies. Checkly will fetch them recursively.
+To start syncing a Browser check with a GitHub file enable "Sync from GitHub".
+
+![Enable GitHub Sync](/docs/images/browser-checks/gh-sync-enable-sync.png)
+
+Pick a repository with your Browser checks to sync.
+
+![Choose a GitHub repository to sync](/docs/images/browser-checks/gh-sync-pick-a-repo.png)
+
+Choose your entry file.
+
+![Choose a file to sync](/docs/images/browser-checks/gh-sync-choose-a-file.png)
+
+{{<info >}}
+
+Pro tip: Synced **entry files** can `require` other local file dependencies. Checkly will fetch them recursively.
 See [Working with local dependencies](#working-with-local-dependencies) below for more details.
+
+{{</info >}}
 
 ## GitHub Sync strategies
 
-### Sync a branch
+The ideal syncing strategy depends on your monitoring and deployment setup. Checkly GitHub Sync supports two syncing strategies.
 
-The default syncing strategy is to sync your code when committing to a specific branch you select, i.e. `main`. This can
-be a direct `git push` to `main` or when merging a Pull Request from a development branch into `main`. To use this strategy:
+### Sync on commit
 
-1. Pick the target branch. Commits to this branch will trigger the sync.
-2. Type out the path to the entry file you want to sync.
-
-__insert image here__
-
-What are the pro's and cons of this strategy?
-
-- **Pros:** Simplicity. Just push or merge and Checkly syncs and persists your code.
-- **Cons:** A commit to `main` normally does not coincide with a deployment being done and live. This means you could update
-your check code, before or potentially after any changes you made to your app are live: the check code is out of sync for a
-period with your application.
-
-### Sync on deployment
-
-The "Sync on Deployment" strategy allows you to sync your checks' code when Checkly receives a "deployment done" event from
-one of the deployment providers we support, currently [Vercel](/docs/cicd/vercel/), [GitHub Deployments](/docs/cicd/github/)
-and [Command Line Triggers](/docs/cicd/triggers/).
-
-But it's a bit smarter than just that. With this strategy you can:
-
-1. Trigger checks against Preview or staging environments, using your checks' code from any branch.
-2. Sync your checks' code *only* when your Production deployment passes, so you never have outdated check running against a fresh deployment.
+"Sync on commit" is the default syncing strategy. Every pushed commit or merged pull request will trigger a sync and update your Browser check. This approach works well for seperated repositories that primarily include your Browser checks.
 
 To use this strategy:
 
-1. Pick the **target environment name**, e.g. `Production`. This name determines when Checkly should sync and persist your code,
-in contrast to syncing ephemerally. More on that below.
-2. Type out the path to the entry file you want to sync, just like the "Sync on Commit" strategy.
+1. Pick the target branch.
+2. Enter the entry file path you want to sync.
 
-Now you need to make sure you have integrated one of our supported integrations that can tell Checkly a deployment is done.
-Let's use the [Vercel](/docs/cicd/vercel/) integration as an example.
+![GitHub Sync with "Sync on commit" strategy and a defined branch "main"](/docs/images/browser-checks/gh-sync-sync-on-commit.png)
 
-After setting up the Vercel integration, two workflows open up.
+What are the pros and cons of this strategy?
 
-**1. Working on Preview branches**
+- **Pros:** Simplicity. Push or merge and Checkly syncs your code.
+- **Cons:** Your deployed code and Browser checks could go out of sync.
 
-You push an updated app to a development branch. Vercel proceeds to deploy a `Preview` environment and Checkly triggers
-the checks (or check groups) after syncing your code. Your checks pass, or fail. We do not store the synced check code yet,
-as you marked `Production` as your target environment: we only use the synced check code for checks triggered by the deployment to `Preview`.
+{{<info >}}
 
-We call this an **ephemeral sync**. It's essentially E2E testing / smoke testing against live environments.
+If a `git push` to `main` triggers **a 10 minute long production deployment**, but your checks run against your site **every minute**, there'll be a 10-minute-long window in which your checks and the deployed application are out of sync. Your checks are updated before your code is deployed.
 
-**2. Deploying to `Production`**
+We recommend the "Sync on deployment" strategy to avoid unneccesary alerts in these cases.
 
-After some iteration, you merge your code to `main` and Vercel proceeds to deploy your `Production` environment and Checkly
-again triggers your checks / check groups against this production environment, after syncing your code. Two scenarios unfold:
+{{</info >}}
 
-1. Your checks pass. Checkly now persists your synced code. Your checks are now fully synced and updated and running against production.
-2. One or more checks fail. Depending on your Vercel integration settings, Checkly blocks the promotion of the production deploy and does
-not persist your checks. The "old" production environment is still live, and we do not want new check code running against it.
+### Sync on deployment
 
-We call this a **persistent sync**. It persists your synced code, so your monitoring checks running on a schedule (e.g. every 5 minutes)
-are now in sync with your Production deploy.
+The "Sync on deployment" strategy allows you to sync your checks' after receiving [a successful `deployment_status` event from GitHub](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status). These events are triggered by GitHub integrations such as Vercel, Heroku and Deno Deploy, [but they can be triggered via the GitHub API](/docs/browser-checks/github-code-sync-api/), too.
 
-This allows you to:
-1. Run updated checks against any preview, staging or non-production environment on deployment.
-2. Persist the updated checks when the deployment to your target
+Find the available environment on your project's repository page.
+
+![GitHub repository listing a Production and Preview environment](/docs/images/browser-checks/gh-sync-gh-environments.png)
+
+The "Sync on deployment" strategy allows to sync your checks' code when your Production (or Preview) deployments pass, so you never have outdated checks running against a fresh deployment.
+
+To use this strategy:
+
+1. Pick the **target environment name**, e.g. `production`.
+2. Type out the path to the entry file you want to sync.
+
+![Choose an environment syncing target.](/docs/images/browser-checks/gh-sync-sync-on-deploy.png)
+
+{{<info >}}
+
+If you also use the Vercel integration [find more information on how to check and sync your deployments in the integration docs](/docs/cicd/vercel/).
+
+{{</info >}}
 
 ## Working with local dependencies
 
-When using GitHub Sync, we automatically also sync any local file dependencies your entry file might have. For example:
+GitHub Sync also supports local dependencies to introduce helper and configuration files shared across multiple Browser checks.
 
-1. You have a folder `__checks__` with two `.check.js` files in there. One contains a check that visits your homepage (`home.check.js`),
-the other perform a login into your app (`login.check.js`).
-2. Both checks will share some common settings, like the base URL, default viewport sizes or essentially any setup and properties
-you want to reuse in your checks.
-3.
+For example:
+
+1. You have a `__checks__` directory with `*.spec.js` files that visit your homepage (`home.spec.js`) and
+pricing page (`pricing.spec.js`).
+2. All checks `require` a `checkly.config.js` and other helper files to access common configuration such as the base URL, default viewport sizes or other reusable configuration.
+
+{{<info >}}
+
+[Check our checklyhq.com repository](https://github.com/checkly/checklyhq.com/tree/main/__checks__) to see this approach in practice.
+
+{{</info >}}
 
 ## Working with external NPM package dependencies
 
-Be aware that the Checkly runtime does not support any arbitrary NPM package, as we do not `npm install` your code for each check run.
-In the **Runtimes** section, you can find a full [list of the currently supported packages](/docs/runtimes/specs/#npm-packages).
+The Checkly runtime does not support arbitrary NPM packages, as we do not `npm install` your code for each check run.
+Find a full [list of the currently supported packages in the **Runtime** section](/docs/runtimes/specs/#npm-packages).
 
