@@ -1,6 +1,6 @@
 ---
 title: Environment variables
-weight: 18
+weight: 21
 menu:
   docs:
     parent: "Browser checks"
