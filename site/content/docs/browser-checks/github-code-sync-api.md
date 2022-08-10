@@ -22,7 +22,7 @@ Configure your Browser check to listen for `production` deployments.
 
 ![Choose an environment syncing target.](/docs/images/browser-checks/gh-sync-sync-on-deploy.png)
 
-Checkly synchronizes your Browser checks after receiving a successful `deployment_status`.
+Checkly synchronizes your Browser checks after receiving [a successful `deployment_status` event](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status).
 
 To trigger this event, perform two steps via the GitHub API:
 
@@ -75,4 +75,4 @@ $ gh api \
   -f description='Deployment finished successfully.'
 ```
 
-If your browser checks are waiting for `production` deployments they will now be refetched and synced.
+If your Browser checks are configured to wait for `production` deployments they will now be refetched and synced.

@@ -7,6 +7,7 @@ async function goToPage (path) {
   const page = await context.newPage()
   await page.setViewportSize(checklyConfig.defaultViewPortSize)
   await page.goto(checklyConfig.baseURL + path)
+  console.log(`Visiting: ${checklyConfig.baseURL + path}`)
 
   return { page, browser }
 }

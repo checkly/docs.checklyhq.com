@@ -9,7 +9,7 @@ Notice we use two sets of URLs:
   with the Preview URL when a Vercel deploy happens.
 */
 
-const LOCAL_DEV_URL = 'http://lo' + 'cal' + 'host:3000' // this is a temporary hack
+const LOCAL_DEV_URL = 'http://localhost:3000'
 const PREVIEW_URL = process.env.ENVIRONMENT_URL
 const PROD_URL = 'https://www.checklyhq.com'
 

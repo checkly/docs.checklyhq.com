@@ -88,7 +88,7 @@ We recommend the "Sync on deployment" strategy to avoid unneccesary alerts in th
 
 ### Sync on deployment
 
-The "Sync on deployment" strategy allows you to sync your checks' after receiving [a successful `deployment_status` event from GitHub](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status). These events are triggered by GitHub integrations such as Vercel, Heroku and Deno Deploy, [but they can be triggered via the GitHub API](/docs/browser-checks/github-code-sync-api/), too.
+The "Sync on deployment" strategy allows you to sync your Browser checks code after receiving [a successful `deployment_status` event from GitHub](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status). These events are triggered by GitHub integrations such as Vercel, Heroku and Deno Deploy, [but they can be triggered via the GitHub API](/docs/browser-checks/github-code-sync-api/), too.
 
 Find the available environment on your project's repository page.
 
@@ -98,7 +98,7 @@ The "Sync on deployment" strategy allows to sync your checks' code when your Pro
 
 To use this strategy:
 
-1. Pick the **target environment name**, e.g. `production`.
+1. Pick the **target environment name**, e.g. `Production`.
 2. Type out the path to the entry file you want to sync.
 
 ![Choose an environment syncing target.](/docs/images/browser-checks/gh-sync-sync-on-deploy.png)
@@ -113,11 +113,11 @@ If you also use the Vercel integration [find more information on how to check an
 
 GitHub Sync also supports local dependencies to introduce helper and configuration files shared across multiple Browser checks.
 
-For example:
+An example setup could look as follows:
 
-1. You have a `__checks__` directory with `*.spec.js` files that visit your homepage (`home.spec.js`) and
-pricing page (`pricing.spec.js`).
-2. All checks `require` a `checkly.config.js` and other helper files to access common configuration such as the base URL, default viewport sizes or other reusable configuration.
+1. Create a `__checks__` directory with `*.check.js` files that visit your homepage (`home.check.js`) and
+pricing page (`pricing.check.js`). Test the expected behavior.
+2. Use a `checkly.config.js` and other helper files to reuse common configuration such as the base URL, default viewport sizes or other configuration acrros your Browser checks.
 
 {{<info >}}
 
