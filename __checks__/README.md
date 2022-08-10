@@ -1,7 +1,8 @@
 ## Welcome to Checkly's example setup! 👋
 
 > **Note**
-> The described Checkly setup uses [GitHub Sync](https://www.checklyhq.com/docs/browser-checks/github-code-sync/). It's is under active development and in a public beta. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
+> The described Checkly setup uses [GitHub Sync](https://www.checklyhq.com/docs/browser-checks/github-code-sync/). It's is under active development and in a public beta.
+> [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
 
 ![Checkly dashboard showing synced checks](./screenshot.png)
 
