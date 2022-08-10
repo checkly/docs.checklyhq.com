@@ -98,7 +98,7 @@ The "Sync on deployment" strategy allows to sync your checks' code when your Pro
 
 To use this strategy:
 
-1. Pick the **target environment name**, e.g. `production`.
+1. Pick the **target environment name**, e.g. `Production`.
 2. Type out the path to the entry file you want to sync.
 
 ![Choose an environment syncing target.](/docs/images/browser-checks/gh-sync-sync-on-deploy.png)
