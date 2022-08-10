@@ -12,7 +12,7 @@ GitHub Sync enables you to synchronize your Browser checks with JavaScript files
 
 {{<info >}}
 
-GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
+GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/3).
 
 {{</info >}}
 
