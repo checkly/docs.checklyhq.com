@@ -6,11 +6,9 @@ async function run () {
 
   expect(await page.title()).toEqual('Pricing | Checkly')
   await Promise.all([
-    page.waitForNavigation(),
+    page.waitForNavigation({ url: 'https://auth.checklyhq.com/**' }),
     page.locator('[data-test="pricing-free-signup"]').click()
   ])
-
-  expect(page.url()).toContain('https://auth.checklyhq.com/login')
 
   await cleanUp(page, browser)
 }
