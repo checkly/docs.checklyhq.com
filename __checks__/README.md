@@ -3,7 +3,7 @@
 > **Note**
 > The described Checkly setup uses [GitHub Sync](https://www.checklyhq.com/docs/browser-checks/github-code-sync/). The feature's in a public beta and under active development.
 
-[Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
+[Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/3).
 
 ![Checkly dashboard showing synced checks](./screenshot.png)
 

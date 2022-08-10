@@ -12,7 +12,7 @@ Before moving on [guarantee to follow the GitHub Sync setup steps](/docs/browser
 
 {{<info >}}
 
-GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/2).
+GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/3).
 
 {{</info >}}
 
