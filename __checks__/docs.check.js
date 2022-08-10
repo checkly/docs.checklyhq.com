@@ -6,6 +6,8 @@ async function run () {
 
   expect(await page.title()).toEqual('Checkly documentation | Checkly')
 
+  // hello world!
+
   await screenshot(page, 'docs')
   await cleanUp(page, browser)
 }
