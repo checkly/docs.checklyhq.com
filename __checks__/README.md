@@ -18,6 +18,12 @@ This project includes:
 - [a `checkly.config.js` root file](https://github.com/checkly/checklyhq.com/blob/main/checkly.config.js) for shared config and defaults
 - `*.check.js` files and utilities in the __checks__ directory to DRY up some common boilerplate
 
+### Explainer video
+
+Do you want to see the GitHub Sync feature in action? [Watch a quick explainer on YouTube](https://youtu.be/rppPOBytjTg).
+
+![Preview of YouTube video with Stefan explaining GitHub Sync.](./youtube.png)
+
 ### Local development
 
 To develop and test the Browser checks locally, this project includes the `playwright` and `expect` dependencies to match [the Checkly runtime dependencies](https://www.checklyhq.com/docs/runtimes/specs/).
