@@ -117,7 +117,7 @@ An example setup could look as follows:
 
 1. Create a `__checks__` directory with `*.check.js` files that visit your homepage (`home.check.js`) and
 pricing page (`pricing.check.js`). Test the expected behavior.
-2. Use a `checkly.config.js` and other helper files to reuse common configuration such as the base URL, default viewport sizes or other configuration acrros your Browser checks.
+2. Use a `checkly.config.js` and other helper files to reuse common configuration such as the base URL, default viewport sizes or other configuration across your Browser checks.
 
 {{<info >}}
 
