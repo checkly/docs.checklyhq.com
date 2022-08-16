@@ -26,7 +26,7 @@ activities may take place in the United States.
 - We use Intercom to chat with you and help you with support and sales related questions.
 - We use Google Analytics and Plausible to see how you interact with website. You can opt out of both Google Analytics,
   Plausible does not collect any personal information.
-- We use Segment and Mixpanel so analyse how you use our product after signing up.
+- We use Segment, Mixpanel and Hotjar to analyse how you use our product after signing up.
 - We use 3rd party providers like AWS and Heroku to process and store our data.
 
 ## 1. Information Collection and Use
@@ -111,6 +111,8 @@ We use Segment to collect basic information on how our product is used and where
 We use Mixpanel as the destination for our Segment integration. It helps us see what features are doing well and where
 we can make the product better.
 
+### Hotjar
+We use Hotjar to capture recordings of how users interact with our product. This helps us to understand how our product is used and identify usability issues and bugs.
 
 ## 7. Third Parties
 
