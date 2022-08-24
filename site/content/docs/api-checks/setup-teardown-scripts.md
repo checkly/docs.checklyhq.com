@@ -156,8 +156,8 @@ Response properties are exposed a standard Javascript object. These are only ava
 
 ### General runtime variables
 
-The setup and teardown runtime also exposes a set of generic variables you can use to figure out what 
-check, check type etc. you are running. Again, these are accessible by using `process.env.CHECK_NAME` for example.
+[The setup and teardown runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. process.env.CHECK_NAME)
+to figure out what check, check type etc. you are running.
 
 | property                  | description                                                | type   |
 |---------------------------|------------------------------------------------------------|--------|
