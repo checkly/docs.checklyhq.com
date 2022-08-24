@@ -154,6 +154,18 @@ Response properties are exposed a standard Javascript object. These are only ava
 | `response.timings`  | Various timestamps for the request stage relative to the starting time.  | Object |
 | `response.timingPhases`  | Time durations for each request phase. | Object |
 
+### General runtime variables
+
+The setup and teardown runtime also exposes a set of generic variables you can use to figure out what 
+check, check type etc. you are running. Again, these are accessible by using `process.env.CHECK_NAME` for example.
+
+| property                  | description                                                | type   |
+|---------------------------|------------------------------------------------------------|--------|
+| `CHECK_NAME`              | The name of the check being executed.                      | String |
+| `CHECK_ID`                | The UUID of the check being executed.                      | String |
+| `CHECK_TYPE`              | The type of the check being executed.                      | String |
+| `CHECK_RESULT_ID`         | The UUID of the result where the run result will be saved. | String |
+
 ## Included libraries
 
 All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js standard library or to arbitrary NPM modules.

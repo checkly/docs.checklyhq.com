@@ -91,3 +91,14 @@ You can make use of this by providing a default value for a specific variable at
 be overridden at the check level.
 
 
+## General built-in runtime variables
+
+The Browser Check runtime also exposes a set of generic variables you can use to figure out what
+check, check type etc. you are running. Again, these are accessible by using `process.env.CHECK_NAME` for example.
+
+| property                  | description                                                | type   |
+|---------------------------|------------------------------------------------------------|--------|
+| `CHECK_NAME`              | The name of the check being executed.                      | String |
+| `CHECK_ID`                | The UUID of the check being executed.                      | String |
+| `CHECK_TYPE`              | The type of the check being executed.                      | String |
+| `CHECK_RESULT_ID`         | The UUID of the result where the run result will be saved. | String |
