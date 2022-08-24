@@ -31,7 +31,7 @@ Each `checkly_check` metric has the following labels:
 - `tags`, this check's tags.
 
 {{<info>}}
-You can set `key:value` tags in your checks/groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `useRawTags=true`.
+You can set `key:value` tags in your checks/groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`.
 {{</info>}}
 
 The `checkly_private_location` metrics contain the labels:
