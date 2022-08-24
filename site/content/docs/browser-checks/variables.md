@@ -100,5 +100,5 @@ check, check type etc. you are running. Again, these are accessible by using `pr
 |---------------------------|------------------------------------------------------------|--------|
 | `CHECK_NAME`              | The name of the check being executed.                      | String |
 | `CHECK_ID`                | The UUID of the check being executed.                      | String |
-| `CHECK_TYPE`              | The type of the check being executed.                      | String |
+| `CHECK_TYPE`              | The type of the check being executed, (`BROWSER`)          | String |
 | `CHECK_RESULT_ID`         | The UUID of the result where the run result will be saved. | String |
