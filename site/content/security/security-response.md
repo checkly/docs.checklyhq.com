@@ -20,6 +20,10 @@ security flaw that might impact our customer and / or our products, please let u
 - We’ll investigate the issue and determine its impact. We won’t disclose issues until our investigation is finished.
 - Once the issue is resolved, we’ll post a security update along with thanks and credit for the discovery.
 
+## SOC 2 Compliance
+
+Checkly is SOC 2 compliant showing we cover security, availability, confidentiality, privacy, and processing integrity. But we aren’t stopping there. We are now in the process of completing SOC 2, Type 2 compliance. As we continue to innovate new features and capabilities for users, Checkly is committed to ensuring and protecting the privacy of our clients and their data.
+
 ## Thanks for helping small companies stay secure
 
 - [Faizan Ahmed Kahn](https://www.facebook.com/fizan.ahmed.3998)
