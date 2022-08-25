@@ -14,7 +14,7 @@ menu:
 
 Puppeteer and Playwright enable us to access and interact with iframes.
 
-## Locate the iframe and its elements
+## Locate an iframe and its elements
 
 To access iframe elements, locate the iframe and query the DOM elements as if you're in the page context.
 
