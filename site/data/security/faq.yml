@@ -70,3 +70,7 @@ Additionally:
     a: The infrastructure provider tracks access to core infrastructure. Any key changes to our codebase and infrastructure follow a code review process to enforce the four-eyes principle.
   - q: Which authentication options does Checkly provide?
     a: By default, the user authenticates via user name and password. We support single sign-on via social logins (Google, Github). SAML 2.0 and integrations like Microsoft AD are available for Enterprise users.
+  - q: Is Checkly SOC 2 Compliant?
+    a: Yes, Checkly is SOC 2 compliant showing we cover security, availability, confidentiality, privacy, and processing integrity. We are now in the process of completing SOC 2, Type 2 compliance. As we continue to innovate new features and capabilities for users, Checkly is committed to ensuring and protecting the privacy of our clients and their data.
+  - q: Does Checkly authentication and infrastructure providers hold certifications?
+    a: Our authentication provider [Auth0](https://assets.ctfassets.net/kbkgmx9upatd/2KxmM5BICQ4GKgeIwA0sKu/d4f59bd579803593edcd571f1aa92ef0/Auth0_Platform_Operations.pdf) is SOC 2 Type 2, ISO 27001, and 27018 certified. Our infrastructure providers [Heroku](https://www.heroku.com/compliance) and [AWS](https://aws.amazon.com/de/compliance/programs/) maintain numerous certifications, including PCI, HIPAA, ISO, and SOC compliance.
