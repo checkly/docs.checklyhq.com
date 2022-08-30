@@ -204,5 +204,5 @@ const puppeteer = require("puppeteer");
 
 # More resources
 
-- [Microsoft Live Login](/learn/headless/microsoft-live-login/)
-- [Login with Google](/learn/headless/google-login/)
+- [Microsoft Live Login](/learn/headless/e2e-microsoft-live-login/)
+- [Login with Google](/learn/headless/e2e-google-login/)
