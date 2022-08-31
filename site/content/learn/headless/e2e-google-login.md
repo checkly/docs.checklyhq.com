@@ -43,7 +43,7 @@ Run this example as follows. Replace the username and password placeholder with 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-GOOGLE_USER=username GOOGLE_PWD=password node mslive-login.js
+GOOGLE_USER=username GOOGLE_PWD=password node google-login.js
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
