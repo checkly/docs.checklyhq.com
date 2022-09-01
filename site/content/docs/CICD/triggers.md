@@ -59,7 +59,7 @@ The total run time of all checks cannot exceed **30 seconds** or you will receiv
 {{< /warning >}}
 
 {{< warning >}}
-Triggers are rate limited to **10 requests / minute / trigger** and are only run from the **Ireland region**.
+Triggers are rate limited to **10 requests / minute / trigger**.
 {{< /warning >}}
 
 
@@ -75,7 +75,9 @@ event timeline, in turn enabling you to track application performance across dep
 | `repository`      | String  | false    | Repository name, i.e. "checkly/backend-api"                                                            |
 | `sha`             | String  | false    | Git hash, tag, version "v1.0.1" or other identifier making this deploy unique                          |
 | `environmentUrl`  | String  | false    | A staging or preview URL injected as ENVIRONMENT_URL in browser checks and auto-replaced in API checks |
-| `environmentName` | String  | false    | The environment name of your triggered check, i.e. "production".                                       |                                
+| `runLocation`     | String  | false    | An optional data center location where to run your triggered check. Use the shorter names here, like `eu-west-1` or `us-west-1`. Defaults to `us-east-1`. |
+| `environmentName` | String  | false    | The environment name of your triggered check, i.e. "production".                                       |
+| `deploymentId`    | String  | false    | The deployment id of your triggered check, i.e. "deployment-1".                                        |                                
 
 
 ## Example 1: Recording deployments
