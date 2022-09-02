@@ -20,4 +20,4 @@ Dashboards have a lot of tweakable options to make them work for you in your sit
 - **logo:** Display your company logo (or any image) on the top left side of your dashboard.
 - **logo link:** Direct visitors to your company website when they click the logo.
 - **favicon:** Put the cherry on top with a custom favicon.
-- **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview
+- **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview.
