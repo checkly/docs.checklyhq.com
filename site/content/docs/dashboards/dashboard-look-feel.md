@@ -20,6 +20,4 @@ Dashboards have a lot of tweakable options to make them work for you in your sit
 - **logo:** Display your company logo (or any image) on the top left side of your dashboard.
 - **logo link:** Direct visitors to your company website when they click the logo.
 - **favicon:** Put the cherry on top with a custom favicon.
-- **screen width:** Some screens are bigger than others, pick whether we should center the content or use the whole width.
-- **refresh rate:** Choose how often we should poll for new results and statuses.
-
+- **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview
