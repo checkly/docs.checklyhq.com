@@ -1,6 +1,6 @@
 ---
 title: About
-hero: 
+hero:
   title: Create the best active monitoring platform.
   description: >-
     Open Source powered automation - made fast, reliable and easy-to-use.
@@ -9,15 +9,15 @@ about:
   description: >-
     Checkly was founded in Berlin to enable developers to monitor their critical APIs and UIs easily.<br />
     Synthetic monitoring and end-to-end testing technologies have been sleepy during the last decade; in contrast, the DevOps-space, CI/CD-workflows, and Developer-tools evolved. Modern automation needs to become faster, easy to implement, open, integrated, and reliable. That's what we are working on every day.<br />
-    We believe in a bright future where apps are built and shipped more reliably from dev to production and further. Our vision is to create the best active monitoring platform for developers using modern stacks. A platform with a 
+    We believe in a bright future where apps are built and shipped more reliably from dev to production and further. Our vision is to create the best active monitoring platform for developers using modern stacks. A platform with a
     world-class developer experience!
 team:
   title: Leadership team
-  list: 
+  list:
     - name: Tim Nolet
       avatar: "/about/images/tim_avatar@2x.png"
       role: CTO
-      socials: 
+      socials:
         - name: Github
           link: https://github.com/tnolet
         - name: Twitter
@@ -35,9 +35,17 @@ team:
     - name: Timo Euteneuer
       avatar: "/about/images/timo_avatar@2x.png"
       role: CCO
-      socials: 
+      socials:
         - name: LinkedIn
           link: https://www.linkedin.com/in/timo-euteneuer/
+    - name: Cinthia Portugal
+      avatar: "/about/images/cinthia_portugal@2x.png"
+      role: CMO
+      socials:
+        - name: LinkedIn
+          link: https://www.linkedin.com/in/portugalcinthia/
+        - name: Twitter
+          link: https://twitter.com/CinthiaP
 investors:
   companies:
     - logo: "/about/svgs/accel_logo.svg"
@@ -94,9 +102,9 @@ investors:
       role: Early Engineer @ Github
     - name: Arseniy Vershinin
       role: CTO @ Personio
-contact: 
+contact:
   email: info@checklyhq.com
-  address: 
+  address:
     - country: United States
       address: One Boston Place Suite 2600 Boston, MA 02108
       image: "/about/svgs/us-svg.svg"

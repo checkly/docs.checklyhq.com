@@ -26,7 +26,7 @@
       <h2>{{.Params.team.title}}</h2>
       <div class="row">
         {{ range .Params.team.list }}
-        <div class="col-md-4 member">
+        <div class="col-md-3 member">
           <picture>
             <source type="image/webp" srcset="{{ substr .avatar 0 -4 | safeURL }}.webp">
             <source type="image/png" srcset="{{.avatar}}">
