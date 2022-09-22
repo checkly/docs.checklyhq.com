@@ -9,6 +9,8 @@
   background-size: 8rem;
   padding: 1rem;
   min-height: 100vh;
+  display: grid;
+  place-items: center;
 
   @media (min-width: 40em) {
     background-size: 15rem;
@@ -17,7 +19,7 @@
   .logo {
     width: 7rem;
     height: auto;
-    margin: 3rem auto 1rem;
+    margin: 1rem auto;
   }
 
   h1 {
