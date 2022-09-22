@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head" . }}
+
+<body>
+  <div class="slack-invite">
+    <img class="logo" src="/images/racoon_logo.svg" alt="Checkly Raccoon logo" width="400" height="400">
+    <div class="initial">
+      <h1>
+        {{ .Params.headline }}
+      </h1>
+      <h2>
+        {{ .Params.subHeadline }}
+      </h2>
+      <a href="https://join.slack.com/t/checklycommunity/shared_invite/zt-1gk7uwnht-OEh4SVoTHPpwHHo2QBzbBA"
+        class="btn btn-primary" target="_blank">Join our Slack community</a>
+      <div class="team">
+        <ul>
+          <li><img src="/images/slack-invite/team/stefan.jpg" alt="Photo of Stefan" width="40" height="40"></li>
+          <li><img src="/images/slack-invite/team/lisa.jpg" alt="Photo of Lisa" width="40" height="40"></li>
+          <li><img src="/images/slack-invite/team/gio.jpg" alt="Photo of Gio" width="40" height="40"></li>
+          <li><img src="/images/slack-invite/team/jenya.jpg" alt="Photo of Jenya" width="40" height="40"></li>
+          <li><img src="/images/slack-invite/team/orcun.jpg" alt="Photo of Orcun" width="40" height="40"></li>
+        </ul>
+        <span>People who work at Checkly are already here</span>
+      </div>
+    </div>
+    <!-- <div class="thanks">
+      <h1>
+        {{ .Params.thankYouHeadline }}
+      </h1>
+      <h2>
+        {{ .Params.thankYouSubHeadline }}
+      </h2>
+    </div> -->
+
+    <footer>
+      <a href="/">Checkly's</a> official <img src="/images/slack-invite/slack-logo.png" alt="Slack"> community
+    </footer>
+  </div>
+  <script>
+    document.querySelector('form').addEventListener('submit', (event) => {
+      const form = event.target;
+      const email = form.email.value;
+
+      form.querySelector('fieldset').disabled = true;
+      form.classList.add('pending')
+
+      fetch('/api/slack-subscribe', {
+        method: "POST",
+        body: JSON.stringify({ email })
+      }).then(() => {
+        document.querySelector('.slack-invite').classList.add('success')
+      }).catch((e) => {
+        console.log('shit')
+        console.log(e)
+      })
+
+      event.preventDefault();
+    })
+  </script>
+</body>
+
+</html>
