@@ -8,3 +8,4 @@ public/
 .eslintcache
 .hugo_build.lock
 __checks__/screenshots
+.vercel

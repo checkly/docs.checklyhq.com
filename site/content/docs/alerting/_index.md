@@ -12,7 +12,7 @@ aliases:
 ---
 
 Alerting in Checkly is pretty flexible and should address most common needs. You can tweak exactly when and how you should
-be alerted, on what channels like email, [SMS]({{< ref "sms-delivery.md" >}}), [Slack]({{< ref "slack.md" >}}) etc.
+be alerted, on what channels like email, [SMS]({{< ref "sms-delivery.md" >}}), [Slack]({{< ref "../integrations/slack.md" >}}) etc.
 If you need more, you can integrate with [Pagerduty]({{< ref "../integrations/pagerduty.md" >}}),
 [Opsgenie]({{< ref "../integrations/opsgenie.md" >}}) and many more! See [our integrations page]({{< ref "../integrations/" >}})
 for all options.
