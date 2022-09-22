@@ -30,27 +30,6 @@
       <a href="/">Checkly's</a> official <img src="/images/slack-invite/slack-logo.png" alt="Slack"> community
     </footer>
   </div>
-  <script>
-    document.querySelector('form').addEventListener('submit', (event) => {
-      const form = event.target;
-      const email = form.email.value;
-
-      form.querySelector('fieldset').disabled = true;
-      form.classList.add('pending')
-
-      fetch('/api/slack-subscribe', {
-        method: "POST",
-        body: JSON.stringify({ email })
-      }).then(() => {
-        document.querySelector('.slack-invite').classList.add('success')
-      }).catch((e) => {
-        console.log('shit')
-        console.log(e)
-      })
-
-      event.preventDefault();
-    })
-  </script>
 </body>
 
 </html>
