@@ -89,6 +89,13 @@ alerting:
     ctaLink: "/docs/integrations/msteams/"
     description: >-
         Get alerts in MS Teams when a check fails, degrades or recovers.
+  - service: Telegram
+    icon: "/integrations/alerting/telegram@2x.png"
+    iconWidth: 40
+    iconHeight: 40
+    ctaLink: "/docs/integrations/telegram/"
+    description: >-
+         Get alerts in your Telegram chats when a check fails, degrades or recovers.
   - service: Splunk On-Call
     icon: "/integrations/alerting/splunk@2x.png"
     iconWidth: 40

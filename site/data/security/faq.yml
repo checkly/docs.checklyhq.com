@@ -1,8 +1,10 @@
 questions:
   - q: Is Checkly GDPR compliant?
     a: Yes, Checkly is fully compliant with GDPR.
-  - q: Does Checkly hold certifications?
-    a: "While following security and data protection industry best practices, Checkly itself is not certified as of now. Our authentication provider [Auth0](https://assets.ctfassets.net/kbkgmx9upatd/2KxmM5BICQ4GKgeIwA0sKu/d4f59bd579803593edcd571f1aa92ef0/Auth0_Platform_Operations.pdf) is Soc2 Typ 2, ISO 27001, and 27018 certified. Our infrastructure providers [Heroku](https://www.heroku.com/compliance)  and [AWS](https://aws.amazon.com/de/compliance/programs/)  maintain numerous certifications, including PCI, HIPAA, ISO, and SOC compliance."
+  - q: Is Checkly SOC 2 Compliant?
+    a: Yes, Checkly is SOC 2 compliant showing we cover security, availability, confidentiality, privacy, and processing integrity. We are now in the process of completing SOC 2, Type 2 compliance. As we continue to innovate new features and capabilities for users, Checkly is committed to ensuring and protecting the privacy of our clients and their data.
+  - q: Does Checkly authentication and infrastructure providers hold certifications?
+    a: Our authentication provider [Auth0](https://assets.ctfassets.net/kbkgmx9upatd/2KxmM5BICQ4GKgeIwA0sKu/d4f59bd579803593edcd571f1aa92ef0/Auth0_Platform_Operations.pdf) is SOC 2 Type 2, ISO 27001, and 27018 certified. Our infrastructure providers [Heroku](https://www.heroku.com/compliance) and [AWS](https://aws.amazon.com/de/compliance/programs/) maintain numerous certifications, including PCI, HIPAA, ISO, and SOC compliance.
   - q: Does Checkly have a Security Response Program?
     a: "Yes, Checkly operates a security response program that encourages developers to investigate and collaborate with Checkly on security vulnerabilities. Please find more here: https://www.checklyhq.com/security/security-response/."
   - q: How do you protect Checkly against DDoS attacks?

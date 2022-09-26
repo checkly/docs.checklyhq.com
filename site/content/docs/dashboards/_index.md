@@ -38,4 +38,4 @@ You'll need to press Enter to save the tag before you save your updated check!
 
 ![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
 
-Also in this step, remember to hit Enter to save the tag before you hit "Save settings".
+Also in this step, remember to hit Enter to save the tag before you hit "Save dashboard".
