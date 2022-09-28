@@ -22,7 +22,7 @@ What do we see here?
 1. SMS and Email were correctly delivered.
 2. The OpsGenie notification failed though. The notification result shows we got a `422` status code back and the error 
 message states our API key was invalid.
-3. We also see the configuration we used to instrument our call to the OpsGenie API.
+3. We also see the configuration used to instrument our call to the OpsGenie API.
 4. We see some extra meta data about the notification: What channel was used, what check triggered the alert, when it was 
 sent etc.
 
