@@ -6,7 +6,7 @@ menu:
     parent: "Alerting"
 ---
  
-Checkly tries to deliver all your failures, degradation and recovery notifications as reliably as possible, but sometimes
+Checkly tries to deliver all your failure, degradation and recovery notifications as reliably as possible, but sometimes
 life happens. A token expires, a URL has a typo or some other unforeseen issue causes a notification to get lost.
 
 To give you insight and troubleshoot any delivery issues, you can browse and filter the 
