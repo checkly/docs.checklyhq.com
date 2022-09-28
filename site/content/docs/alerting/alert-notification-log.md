@@ -9,7 +9,7 @@ menu:
 Checkly tries to deliver all your failure, degradation and recovery notifications as reliably as possible, but sometimes
 life happens. A token expires, a URL has a typo or some other unforeseen issue causes a notification to get lost.
 
-To give you insight and troubleshoot any delivery issues, you can browse and filter the 
+To troubleshoot any delivery issues, browse and filter the 
 **[Alert Notification Log](https://app.checklyhq.com/alerts/notifications)** for any failed messages. You can also directly
 access the notifications for a specific channel by clicking the small "log" icon next to the configured channel name.
 
