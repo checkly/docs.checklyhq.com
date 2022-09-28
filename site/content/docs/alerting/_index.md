@@ -19,7 +19,7 @@ for all options.
 
 ## Alert settings
 
-The [alert settings screen](https://app.checklyhq.com/alerts/settings) gives you a lot of options to tailor when, how and how 
+The [alert settings screen](https://app.checklyhq.com/alerts/settings) gives you the options to tailor when, how and how 
 often you want to be alerted when a check fails. This is also sometimes referred to as **threshold alerting**. For example:
 
 - Get an alert on the second or third failure.
