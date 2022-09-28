@@ -26,7 +26,7 @@ often you want to be alerted when a check fails. This is also sometimes referred
 - Get an alert after 5 minutes of failures.
 - Get one or more reminders after a failure is triggered.
 
-Configuration is really simple. Just remember that you can configure your alert settings at three levels:
+Your alert notifications can be configured at three levels:
 
 1. **Account** level: This is the default level and applies to all of your check unless you override these settings at the check level.
 
