@@ -52,16 +52,16 @@ This is the list of Playwright Test Runner features that are currently supported
 
 | Feature                  | Supported?              |
 |--------------------------|-------------------------|
-| Trace files              | Supported               |
-| Video recordings         | Supported               |
-| API testing              | Supported               |
-| Custom fixtures          | Supported               |
+| Trace files              | Yes               |
+| Video recordings         | Yes               |
+| API testing              | Yes               |
+| Custom fixtures          | Yes               |
 | Reporters                | Only JSON, more to come |
 | Typescript               | Coming soon             |
-| Global configuration     | Not supported           |
-| Visual comparisons       | Not supported           |
-| Test retry               | Not supported           |
-| Parallelism and sharding | Not supported           |
+| Global configuration     | No           |
+| Visual comparisons       | No           |
+| Test retry               | No           |
+| Parallelism and sharding | No           |
 
 ### Viewing trace files
 When a browser check that uses Playwright Test fails, it will record and make its trace files available via UI. This makes it very easy to inspect individual traces and debug tests.
@@ -74,5 +74,3 @@ Note: At the moment, traces are only recorded for failing checks.
 
 ### Video recordings
 When a browser check that uses Playwright Test fails, it will record a video for each page navigation and make it available in the UI.
-
-### Configuration
