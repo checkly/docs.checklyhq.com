@@ -104,6 +104,29 @@
     </div>
   </div>
 
+  <div class="developer_portal_opensource">
+    <div class="container">
+      <div class="tagline">{{.Params.opensource.tagline}}</div>
+      <h2 class="display-2 section_title">{{.Params.opensource.headline}}</h2>
+    </div>
+    <div class="opensource_grid">
+      {{ range shuffle (.Params.opensource.people) }}
+        <div class="opensource_grid-card">
+          <img
+            class="opensource_grid-cardImg"
+            src="{{.src}}"
+            width="64"
+            height="64"
+            alt="{{.username}}" />
+          <div class="opensource_grid-cardContent">
+            <div class="opensource_grid-cardName">{{.name}}</div>
+            <div class="opensource_grid-cardUsername">{{.username}}</div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
   {{ partial "start-for-free-row" . }}
 
 </div>
