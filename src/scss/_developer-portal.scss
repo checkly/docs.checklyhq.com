@@ -499,6 +499,14 @@
     text-align: center;
   }
 
+  .yt-player {
+    display: none;
+
+    @media (min-width: 600px) {
+      display: block;
+    }
+  }
+
   .yt-title {
     margin-top: 0.5em;
     font-size: 16px;
@@ -541,11 +549,13 @@
     }
   }
 
-  &[data-current="0"] .yt-item[data-index="0"],
-  &[data-current="1"] .yt-item[data-index="1"],
-  &[data-current="2"] .yt-item[data-index="2"],
-  &[data-current="3"] .yt-item[data-index="3"] {
-    display: none;
+  @media (min-width: 600px) {
+    &[data-current="0"] .yt-item[data-index="0"],
+    &[data-current="1"] .yt-item[data-index="1"],
+    &[data-current="2"] .yt-item[data-index="2"],
+    &[data-current="3"] .yt-item[data-index="3"] {
+      display: none;
+    }
   }
 
   .yt-thumbnail {

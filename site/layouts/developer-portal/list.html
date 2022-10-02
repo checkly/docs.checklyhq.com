@@ -173,13 +173,15 @@
       </div>
 
       {{ range first 1 .Params.playwright.videos }}
-        <lite-youtube
-          id="lite-youtube"
-          videoid="{{.id}}"
-          style="background-image: url('https://i.ytimg.com/vi/{{.id}}/sddefault.jpg');"
-          params="rel=0"
-        ></lite-youtube>
-        <div class="yt-title">{{.title}}</div>
+        <div class="yt-player">
+          <lite-youtube
+            id="lite-youtube"
+            videoid="{{.id}}"
+            style="background-image: url('https://i.ytimg.com/vi/{{.id}}/sddefault.jpg');"
+            params="rel=0"
+          ></lite-youtube>
+          <div class="yt-title">{{.title}}</div>
+        </div>
       {{ end }}
 
       <div class="yt-thumbnails">
