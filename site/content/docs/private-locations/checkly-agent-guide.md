@@ -116,6 +116,15 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 
 ![agent running](/docs/images/private-locations/agent_running.png)
 
+## Local Docker workflow
+
+You can easily install the Checkly Agent on your Macbook, Windows or Linux machine for local debugging using [Docker Desktop](https://docs.docker.com/desktop/).
+The installation procedure is the same as described above.
+
+To resolve locally running webapps or APIs, e.g. some project running on `http://localhost:3000` you need to use the [internal
+Docker host](https://docs.docker.com/desktop/networking/) `http://host.docker.internal:3000` to bridge to your `localhost` address.
+
+
 ## Updating the agent container
 
 Since the agents are stateless, they can be updated by replacing them or updating the image in place. If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
