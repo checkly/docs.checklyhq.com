@@ -23,7 +23,7 @@
       <div class="developer_portal__headerCards">
         <div class="cards">
           {{ range .Params.header.cards }}
-            <a class="card" href="{{.linkTarget}}" target="{{.target}}">
+            <a class="card card--simple" href="{{.linkTarget}}" target="{{.target}}">
               <div class="card__img">
                 <img src="{{.icon}}" alt="" width="40" height="40">
               </div>
@@ -45,7 +45,7 @@
 
     <div class="developer_portal__essentialsCards">
       {{ range .Params.essentials.cards }}
-        <div class="card">
+        <div class="card card--simple">
           <div class="card__img">
             <img src="{{.icon}}" alt="" width="40" height="40">
           </div>
@@ -67,7 +67,7 @@
     <h2 class="display-2 section_title">{{.Params.posts.headline}}</h2>
 
     <div class="posts">
-      <a class="card" href="{{.Params.posts.card1.linkTarget}}" target="_blank">
+      <a class="card card--simple" href="{{.Params.posts.card1.linkTarget}}" target="_blank">
         <div class="card__img">
           <img
             src="{{.Params.posts.card1.image.src}}"
@@ -84,7 +84,7 @@
       </a>
 
       {{ range .Params.posts.cards }}
-        <a class="card" href="{{.linkTarget}}" target="_blank">
+        <a class="card card--simple" href="{{.linkTarget}}" target="_blank">
           <div class="card__img">
             <img
               src="{{.image.src}}"
@@ -104,26 +104,108 @@
     </div>
   </div>
 
-  <div class="developer_portal_opensource">
-    <div class="container">
-      <div class="tagline">{{.Params.opensource.tagline}}</div>
-      <h2 class="display-2 section_title">{{.Params.opensource.headline}}</h2>
-    </div>
-    <div class="opensource_grid">
-      {{ range shuffle (.Params.opensource.people) }}
-        <div class="opensource_grid-card">
-          <img
-            class="opensource_grid-cardImg"
-            src="{{.src}}"
-            width="64"
-            height="64"
-            alt="{{.username}}" />
-          <div class="opensource_grid-cardContent">
-            <div class="opensource_grid-cardName">{{.name}}</div>
-            <div class="opensource_grid-cardUsername">{{.username}}</div>
+  <div class="developer_portal_opensourceWrapper">
+    <div class="developer_portal_opensource">
+      <div class="container">
+        <div class="tagline">{{.Params.opensource.tagline}}</div>
+        <h2 class="display-2 section_title">{{.Params.opensource.headline}}</h2>
+      </div>
+      <div class="opensource_grid">
+        {{ range shuffle (.Params.opensource.people) }}
+          <div class="opensource_grid-card">
+            <img
+              class="opensource_grid-cardImg"
+              src="{{.src}}"
+              width="64"
+              height="64"
+              alt="{{.username}}" />
+            <div class="opensource_grid-cardContent">
+              <div class="opensource_grid-cardName">{{.name}}</div>
+              <div class="opensource_grid-cardUsername">{{.username}}</div>
+            </div>
           </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Guildes -->
+  <div class="developer_portal__guides">
+    <div class="container">
+      <div class="tagline">{{.Params.guides.tagline}}</div>
+      <h2 class="display-2 section_title">{{.Params.guides.headline}}</h2>
+
+      <div class="developer_portal__guidesCards">
+        {{ range .Params.guides.posts }}
+          <div class="card">
+            <div class="card__content">
+              <h4 class="card__title">{{.title}}</h4>
+              <p class="card__description">{{.description}}</p>
+              <a class="cta-link" href="{{.link}}">
+                Read the guide
+              </a>
+            </div>
+            <div class="card__footer">
+              <div class="card__meta">
+                <img class="card__img" src="{{.author.avatar}}" alt="" width="24" height="24">
+                <div class="card__author">{{.author.name}}</div>
+                <span>-</span>
+                <span>Last updated <time>{{.date}}</time></span>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+
+      <div class="developer_portal__guidesButton">
+        <a class="btn btn--primary" href="/guides/">Visit Checkly Guides for more</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="developer_portal__playwright" data-current="0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8 text-center">
+          <div class="tagline">{{.Params.playwright.tagline}}</div>
+          <h2 class="display-2 section_title">{{.Params.playwright.headline}}</h2>
         </div>
+      </div>
+
+      {{ range first 1 .Params.playwright.videos }}
+        <lite-youtube
+          id="lite-youtube"
+          videoid="{{.id}}"
+          style="background-image: url('https://i.ytimg.com/vi/{{.id}}/sddefault.jpg');"
+          params="rel=0"
+        ></lite-youtube>
+        <div class="yt-title">{{.title}}</div>
       {{ end }}
+
+      <div class="yt-thumbnails">
+        {{ range $index, $element := .Params.playwright.videos }}
+          <a
+            class="yt-item"
+            data-index="{{$index}}"
+            data-id="{{$element.id}}"
+            href="https://www.youtube.com/watch?v={{$element.id}}&list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc"
+            target="_blank"
+          >
+            <div class="yt-thumbnail" style="--bg: url('https://i.ytimg.com/vi/{{$element.id}}/hqdefault.jpg')"></div>
+            <div class="yt-title">{{$element.title}}</div>
+          </a>
+        {{ end }}
+      </div>
+
+      <div class="developer_portal__playwrightButton">
+        <a
+          class="btn btn--primary"
+          href="https://www.youtube.com/playlist?list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc"
+          target="_blank"
+        >
+          Go to playlist
+        </a>
+      </div>
     </div>
   </div>
 

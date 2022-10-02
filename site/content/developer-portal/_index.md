@@ -187,45 +187,53 @@ guides:
   posts:
     -
       title: Setup scripts for API monitoring
-      text: Setup scripts are a fundamental tool to tailor API checks to your own target endpoints. Their power and flexibility can intimidate beginners, who might struggle to understand how the different parts fit together. This guide will present and break down different real-world examples to help you master this game-changing tool.
+      description: Setup scripts are a fundamental tool to tailor API checks to your own target endpoints. Their power and flexibility can intimidate beginners, who might struggle to understand how the different parts fit together. This guide will present and break down different real-world examples to help you master this game-changing tool.
       author: 
         name: Giovanni Rago
-        avatar: /images/avatars/giovanni-rago.21d18d14.png
+        avatar: /images/avatars/giovanni-rago.png
       link: /guides/setup-scripts/
       date: 1 Sep 2022
     -
       title: OpenAPI/Swagger Monitoring
-      text: OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring? After a brief first look at OpenAPI and Swagger, this article will show how we can quickly use them to monitor a new or existing API.
+      description: OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring? After a brief first look at OpenAPI and Swagger, this article will show how we can quickly use them to monitor a new or existing API.
       author: 
         name: Giovanni Rago
-        avatar: /images/avatars/giovanni-rago.21d18d14.png
+        avatar: /images/avatars/giovanni-rago.png
       link: /guides/openapi-swagger/
       date: 1 Sep 2022
     -
       title: Monitoring-as-Code
-      text: The trend of declaring infrastructure as code has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of Monitoring-as-Code on Checkly.
+      description: The trend of declaring infrastructure as code has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of Monitoring-as-Code on Checkly.
       author: 
         name: Giovanni Rago
-        avatar: /images/avatars/giovanni-rago.21d18d14.png
+        avatar: /images/avatars/giovanni-rago.png
       link: /guides/monitoring-as-code/
       date: 1 Sep 2022
     -
       title: Migrating from Puppeteer to Playwright
-      text: The switch from Puppeteer to Playwright is easy. But is it worth it? And how exactly does one migrate existing scripts from one tool to another? What are the required code-level changes, and what new features and approaches does the switch enable?
+      description: The switch from Puppeteer to Playwright is easy. But is it worth it? And how exactly does one migrate existing scripts from one tool to another? What are the required code-level changes, and what new features and approaches does the switch enable?
       author: 
         name: Giovanni Rago
-        avatar: /images/avatars/giovanni-rago.21d18d14.png
+        avatar: /images/avatars/giovanni-rago.png
       link: /guides/puppeteer-to-playwright/
       date: 1 Sep 2022
 
-tips:
+playwright:
   tagline: Quick playwright tips
   headline: CHANGE ME! bli bla blub... playwright schnitzel..blurp schnitzel
   videos:
-    - Y1eTK-j66PU
-    - j-QLpb6Tmg0
-    - hk6ND5gVdyc
-    - N8YKZIgiJHY
+    - 
+      id: Y1eTK-j66PU
+      title: How to do visual regression testing using Playwright
+    - 
+      id: j-QLpb6Tmg0
+      title: How to avoid delays and "waitFor" statements using Playwright auto-waiting
+    - 
+      id: hk6ND5gVdyc
+      title: How to speed up your Playwright scripts with request interception
+    - 
+      id: N8YKZIgiJHY
+      title: How to access device configuration in Playwright
   button:
     text: Watch more
     link: https://www.youtube.com/playlist?list=PLMZDRUOi3a8NtMq3PUS5iJc2pee38rurc
