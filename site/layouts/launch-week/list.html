@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="main launch-week">
+  <div class="container">
+    <div class="text-center">
+      <div class="tag">{{.Params.header.tag}}</div>
+      <h1>{{.Params.header.headline}}</h1>
+      <div class="subline">{{.Params.header.subline}}</div>
+    </div>
+
+    <div class="hbsp-container">
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          region: "na1",
+          portalId: "7651213",
+          formId: "6f151543-8b05-440b-b2a1-2168a465818b",
+          version: "V2_PRERELEASE"
+        });
+      </script>
+    </div>
+
+    <ul class="releases">
+      {{ range .Params.releases }}
+          <li>
+            <div class="releases__grid">
+              <div>
+                <div class="releases__date">{{ .date | time.Format ":date_long"  }}</div>
+                <img src="{{ .video_image }}" alt="TODO">
+              </div>
+              <div>
+                <h2>{{ .headline }}</h2>
+                <p>{{ .description }}</p>
+                {{ if .links }}
+                  <h3>Related links</h3>
+                  <ul class="releases__related">
+                    {{ range .links }}
+                      <li><a href="{{ .url }}">{{ .label }}</a></li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+              </div>
+            </div>
+          </li>
+      {{ end }}
+    </ul>
+
+    {{ partial "start-for-free-row" . }}
+  </div>
+</div>
+{{ end }}
