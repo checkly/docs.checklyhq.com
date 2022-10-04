@@ -4,7 +4,7 @@ description: Stay up-to-date with all Launch week releases.
 
 header:
   tag: Launchweek
-  headline: New Checkly Features Shipping this Week
+  headline: New Checkly Features Shipping During Launch Week - Oct 11-14
   subline: Get notified on new features when they go live!
 releases:
   - id: lw-1-day-1
@@ -19,7 +19,7 @@ releases:
     #     url: https://www.checklyhq.com/slack/
   - id: lw-1-day-2
     date: 2022-10-12
-    headline: SOC2!
+    headline: SOC2
     description: We’re breaking some exciting news on the security front for Checkly, focused on SOC II Type 1 certification.
 
     video_image: /images/launch-week/week-1/lw1-d2.jpg
