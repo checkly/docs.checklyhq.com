@@ -76,6 +76,10 @@ resource "checkly_check" "e2e-login" {
 }
 ```
 
+{{<info>}}
+You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
+{{</info>}}
+
 ### API checks
 
 On the other hand, an API check shares some part of the initial configuration, but is organized around the `request` argument instead of the `script` argument:
@@ -109,7 +113,9 @@ resource "checkly_check" "get-books" {
 }
 ```
 
-You can see all the configuration options for checks, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_check).
+{{<info>}}
+You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
+{{</info>}}
 
 ## Groups
 
