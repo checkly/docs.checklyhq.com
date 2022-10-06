@@ -59,14 +59,14 @@ This is the list of Playwright Test Runner features that are currently supported
 | Reporters                | Only JSON, more to come |
 | Typescript               | Coming soon             |
 | Global configuration     | No           |
-| Visual comparisons       | No           |
+| Visual comparisons       | No ([issue](https://github.com/checkly/public-roadmap/issues/179))          |
 | Test retry               | No           |
 | Parallelism and sharding | No           |
 
 ### Viewing trace files
 When a browser check that uses Playwright Test fails, it will record and make its trace files available via UI. This makes it very easy to inspect individual traces and debug tests.
 
-You can download the trace files for manual inspection or view them directly with trace.playwright.dev.
+You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
 
 [ Screenshot or GIF or video of a check failing, traces showing in the output or check run results, clicking on the link and viewing traces ]
 
