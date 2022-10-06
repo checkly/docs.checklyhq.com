@@ -167,6 +167,16 @@ If you lose track of which agent containers are using the old API key, you can u
 
 9) Click Save to close the dialog. You will now only see the new API key listed for the private location.
 
+## Trusing Enterprise TLS Certificates
+
+Some enterprise environments may use internal certificates for TLS connections. These certificates need to be trusted by the agent; otherwise, the agent's TLS connection to the Checkly platform will fail. 
+
+To configure the agent to trust the certificate, first copy the certificate as a PEM file onto the host. The Docker run command should then be updated to mount the certificate as a volume and pass the path to the certificate in the `NODE_EXTRA_CA_CERTS` environment variable. For a certificate stored at the path `~/certificate.pem`, the Docker run command will be:
+
+```
+docker run -v ~/certificate.pem:/checkly/certificate.pem -e NODE_EXTRA_CA_CERTS=/checkly/certificate.pem -e API_KEY="pl_...." -d ghcr.io/checkly/agent:latest
+```
+
 ## Checkly Agent environment variables
 
 Checkly agent has several environment variables that can be configured:
