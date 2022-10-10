@@ -68,7 +68,7 @@ When a browser check that uses Playwright Test fails, it will record and make it
 
 You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
 
-[ Screenshot or GIF or video of a check failing, traces showing in the output or check run results, clicking on the link and viewing traces ]
+![checkly-pw-traces](https://user-images.githubusercontent.com/3121310/194862081-4c5ef0db-84fa-4ac5-b63c-90853ba748a6.gif)
 
 Note: At the moment, traces are only recorded for failing checks.
 
