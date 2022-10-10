@@ -74,3 +74,7 @@ Note: At the moment, traces are only recorded for failing checks.
 
 ### Video recordings
 When a browser check that uses Playwright Test fails, it will record a video for each page navigation and make it available in the UI.
+
+Here's an example of a Playwright test script that fails, and provides a video of the test sequence.
+
+![checkly-pw-video](https://user-images.githubusercontent.com/3121310/194890198-889f6655-5d92-49de-b836-94899d0804d8.gif)
