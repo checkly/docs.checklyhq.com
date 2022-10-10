@@ -24,11 +24,15 @@
           <li>
             <div class="releases__grid">
               <div>
-                <div class="releases__date">{{ .date | time.Format ":date_long"  }}</div>
-                <img src="{{ .video_image }}" alt="TODO">
+                <div class="releases__date">{{ .date | time.Format ":date_long"  }} &ndash; 9AM PT / 12PM EST / 6PM CET</div>
+                <div class="releases__imgContainer">
+                  <a href="{{ .video_url }}" target="_blank">
+                    <img src="{{ .video_image }}" alt="Watch on YouTube: {{ .headline }}">
+                  </a>
+                </div>
               </div>
               <div>
-                <h2>{{ .headline }}</h2>
+                <h2 id="{{ .id }}">{{ .headline }}</h2>
                 <p>{{ .description }}</p>
                 {{ if .links }}
                   <h3>Related links</h3>
