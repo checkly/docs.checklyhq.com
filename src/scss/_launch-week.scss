@@ -113,7 +113,7 @@
 
     &__date {
       position: absolute;
-      top: -0.75rem;
+      bottom: calc(100% - 1em);
       left: 3rem;
       font-size: 0.875rem;
       padding: 0.125rem 0.5rem;
