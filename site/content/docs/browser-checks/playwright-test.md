@@ -68,7 +68,7 @@ When a browser check that uses Playwright Test fails, it will record and make it
 
 You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
 
-![checkly-pw-traces](https://user-images.githubusercontent.com/3121310/194862081-4c5ef0db-84fa-4ac5-b63c-90853ba748a6.gif)
+![checkly-pw-traces](https://user-images.githubusercontent.com/3121310/195104010-51f856c1-d2b5-46db-a45c-7411eea2eb1b.gif)
 
 Note: At the moment, traces are only recorded for failing checks.
 
@@ -77,4 +77,4 @@ When a browser check that uses Playwright Test fails, it will record a video for
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
-![checkly-pw-video](https://user-images.githubusercontent.com/3121310/194890198-889f6655-5d92-49de-b836-94899d0804d8.gif)
+![checkly-pw-videos](https://user-images.githubusercontent.com/3121310/195104104-79f1abd8-ac85-4453-968f-e9afa3d8f314.gif)
