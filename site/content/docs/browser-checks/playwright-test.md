@@ -18,7 +18,7 @@ Support for Playwright Test is currently in Public Beta. If you experience an is
 ## Getting started
 Playwright test is currently only available on the latest runtime, 2022.02.
 
-All it takes from there is to create a new browser check and write a Playwright Test script:
+A simple Playwright Test script would look like this:
 
 ```js
 const { test, expect } = require('@playwright/test');
