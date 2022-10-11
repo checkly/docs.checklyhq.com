@@ -59,7 +59,7 @@ This is the list of Playwright Test Runner features that are currently supported
 | Reporters                | Only JSON, more to come |
 | Typescript               | Coming soon             |
 | Global configuration     | No           |
-| Visual comparisons       | No ([issue](https://github.com/checkly/public-roadmap/issues/179))          |
+| Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179))          |
 | Test retry               | No           |
 | Parallelism and sharding | No           |
 
