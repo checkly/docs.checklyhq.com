@@ -16,7 +16,7 @@ Support for Playwright Test is currently in Public Beta. If you experience an is
 {{</info >}}
 
 ## Getting started
-Playwright test is currently only available on the latest runtime, 2022.02.
+Playwright Test is currently only available on the latest runtime, 2022.02.
 
 A simple Playwright Test script would look like this:
 
