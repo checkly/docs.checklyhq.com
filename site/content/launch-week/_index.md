@@ -14,12 +14,12 @@ releases:
     video_image: /images/launch-week/week-1/lw1-d1.jpg
     video_url: https://www.youtube.com/watch?v=GEHENduqgrg
     links:
+      - label: Notification log documentation
+        url: /docs/alerting/alert-notification-log/
+      - label: Slack community
+        url: https://www.checklyhq.com/slack/
       - label: Watch stream
         url: https://www.youtube.com/watch?v=GEHENduqgrg
-    #   - label: Notification log documentation
-    #     url: /docs/alerting/alert-notification-log/
-    #   - label: Slack community
-    #     url: https://www.checklyhq.com/slack/
   - id: lw-1-day-2
     date: 2022-10-12
     headline: SOC2
