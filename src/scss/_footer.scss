@@ -45,13 +45,27 @@
     .flex-wrap {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: end;
     }
     .logo {
       margin-bottom: 22px;
     }
-    .github {
-      margin-right: 15px;
+
+    .soc2 {
+      img {
+        display: block;
+        width: 4em;
+        height: 4em;
+        margin: 0 0 1em auto;
+      }
+    }
+
+    .social img {
+      height: 1.25em;
+      width: auto;
+    }
+    .social + .social {
+      margin-left: .75em;
     }
   }
 
@@ -101,7 +115,7 @@
       .mb-4 {
         margin-bottom: 0 !important;
       }
-      
+
       h6 {
         margin-bottom: $spacer;
         &:before {
@@ -150,9 +164,15 @@
 
         .float-right {
           width: 100%;
-          max-width: 70px;
+          text-align: center;
           margin: auto;
           margin-bottom: 10px;
+
+          .soc2 {
+            img {
+              margin: 0 auto 1em;
+            }
+          }
         }
 
         .float-left {
