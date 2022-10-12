@@ -28,6 +28,10 @@ releases:
     video_image: /images/launch-week/week-1/lw1-d2.jpg
     video_url: https://www.youtube.com/watch?v=2ZUZ2Yez3TE
     links:
+      - label: SOC2 announcement
+        url: https://blog.checklyhq.com/checkly-completes-soc-2-type-1-audit/
+      - label: Checkly Security
+        url: https://www.checklyhq.com/security/
       - label: Watch stream
         url: https://www.youtube.com/watch?v=2ZUZ2Yez3TE
   - id: lw-1-day-3
