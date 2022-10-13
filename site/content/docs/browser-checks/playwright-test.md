@@ -11,7 +11,7 @@ Checkly natively supports running browser checks using Playwright Test Runner, a
 
 {{<info >}}
 
-Support for Playwright Test is currently in Public Beta. If you experience an issue or have suggestions, write to us at support@checklyhq.com or post to our Public Roadmap.
+Support for Playwright Test is currently in Public Beta. If you experience an issue or have suggestions, write to us at support@checklyhq.com or post to [our Public Roadmap](https://github.com/checkly/public-roadmap).
 
 {{</info >}}
 
