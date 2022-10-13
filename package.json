@@ -75,7 +75,9 @@
   "hugo-bin": {
     "buildTags": "extended"
   },
-  "engines": { "node": "14.x" },
+  "engines": {
+    "node": "14.x"
+  },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
   }
