@@ -70,7 +70,7 @@ and group them using the `test.describe` function.
 > **Your Checkly check will fail if at least one of the test cases fails.**
 
 ### Viewing trace files
-When a `@playwright/test` test case fails, Checkly will record and make its trace files available via UI. 
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. 
 This makes it very easy to inspect individual traces and debug failing tests.
 
 You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
