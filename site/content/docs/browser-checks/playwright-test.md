@@ -16,7 +16,7 @@ Support for Playwright Test is currently in Public Beta. If you experience an is
 {{</info >}}
 
 ## Getting started
-Playwright Test is currently only available on the latest runtime, 2022.02.
+> Playwright Test is currently only available on the latest runtime, **2022.02.**
 
 A simple Playwright Test script would look like this:
 
@@ -63,18 +63,29 @@ This is the list of Playwright Test Runner features that are currently supported
 | Test retry               | No           |
 | Parallelism and sharding | No           |
 
+### Success criteria of you Check
+One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases,
+and group them using the `test.describe` function. 
+
+> **Your Checkly check will fail if at least one of the test cases fails.**
+
 ### Viewing trace files
-When a browser check that uses Playwright Test fails, it will record and make its trace files available via UI. This makes it very easy to inspect individual traces and debug tests.
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via UI. 
+This makes it very easy to inspect individual traces and debug failing tests.
 
 You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
 
 ![checkly-pw-traces](https://user-images.githubusercontent.com/3121310/195104010-51f856c1-d2b5-46db-a45c-7411eea2eb1b.gif)
 
-Note: At the moment, traces are only recorded for failing checks.
+> Note: When you use the editor page, for your convenience, 
+> we will always make the trace files available for download and preview, also for passing tests.
 
 ### Video recordings
-When a browser check that uses Playwright Test fails, it will record a video for each page navigation and make it available in the UI.
+When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI.
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
 ![checkly-pw-videos](https://user-images.githubusercontent.com/3121310/195104104-79f1abd8-ac85-4453-968f-e9afa3d8f314.gif)
+
+> Note: When you use the editor page, for your convenience, 
+> we will always make the videos available for download and preview, also for passing tests.
