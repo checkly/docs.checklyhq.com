@@ -63,7 +63,7 @@ This is the list of Playwright Test Runner features that are currently supported
 | Test retry               | No           |
 | Parallelism and sharding | No           |
 
-### Success criteria of you Check
+### Success criteria of your check
 One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases,
 and group them using the `test.describe` function. 
 
