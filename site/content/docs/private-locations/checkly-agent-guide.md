@@ -116,6 +116,15 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 
 ![agent running](/docs/images/private-locations/agent_running.png)
 
+## Local Docker workflow
+
+You can easily install the Checkly Agent on your Macbook, Windows or Linux machine for local debugging using [Docker Desktop](https://docs.docker.com/desktop/).
+The installation procedure is the same as described above.
+
+To resolve locally running webapps or APIs, e.g. some project running on `http://localhost:3000` you need to use the [internal
+Docker host](https://docs.docker.com/desktop/networking/) `http://host.docker.internal:3000` to bridge to your `localhost` address.
+
+
 ## Updating the agent container
 
 Since the agents are stateless, they can be updated by replacing them or updating the image in place. If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
@@ -157,6 +166,16 @@ If you lose track of which agent containers are using the old API key, you can u
 8) Click the delete icon next to the old API key (verified by the shown trailing characters) then click the confirmation.
 
 9) Click Save to close the dialog. You will now only see the new API key listed for the private location.
+
+## Trusing Enterprise TLS Certificates
+
+Some enterprise environments may use internal certificates for TLS connections. These certificates need to be trusted by the agent; otherwise, the agent's TLS connection to the Checkly platform will fail. 
+
+To configure the agent to trust the certificate, first copy the certificate as a PEM file onto the host. The Docker run command should then be updated to mount the certificate as a volume and pass the path to the certificate in the `NODE_EXTRA_CA_CERTS` environment variable. For a certificate stored at the path `~/certificate.pem`, the Docker run command will be:
+
+```
+docker run -v ~/certificate.pem:/checkly/certificate.pem -e NODE_EXTRA_CA_CERTS=/checkly/certificate.pem -e API_KEY="pl_...." -d ghcr.io/checkly/agent:latest
+```
 
 ## Checkly Agent environment variables
 
