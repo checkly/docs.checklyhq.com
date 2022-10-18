@@ -62,9 +62,9 @@
             custom_launcher_selector: '.open-intercom-link'
           })
 
-        	window.removeEventListener('scroll', intercomLoader)
+        	window.removeEventListener('DOMContentLoaded', intercomLoader)
       }
-  	window.addEventListener('scroll', intercomLoader)
+  	window.addEventListener('DOMContentLoaded', intercomLoader)
   </script>
 
   <!-- Google Tag Manager -->
