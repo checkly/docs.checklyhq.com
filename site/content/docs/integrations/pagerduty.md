@@ -16,7 +16,7 @@ to your Pagerduty account. After setting up the integration, Checkly will:
 
 {{<info >}}
 
-Checkly currently on supports the US instance of Pagerduty
+Checkly currently only supports the US instance of Pagerduty
 
 {{</info >}}
 
