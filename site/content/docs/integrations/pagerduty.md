@@ -14,6 +14,12 @@ to your Pagerduty account. After setting up the integration, Checkly will:
 1. Trigger alerts in Pagerduty when a check fails.
 2. Resolve alerts when a check recovers.
 
+{{<info >}}
+
+Checkly currently only supports the US instance of Pagerduty
+
+{{</info >}}
+
 Setup is as simple as following the three-step Pagerduty connect process. You can add as many Pagerduty channels as
 you wish.
 

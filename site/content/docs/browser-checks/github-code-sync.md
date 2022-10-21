@@ -10,12 +10,6 @@ Having your Playwright and Puppeteer scripts live in your code repository allows
 
 GitHub Sync enables you to synchronize your Browser checks with JavaScript files in a GitHub repository.
 
-{{<info >}}
-
-GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/3).
-
-{{</info >}}
-
 ## Prerequisites
 
 To sync a Browser check with a GitHub file, Checkly needs access to your GitHub code. Install the [Checkly GitHub App](https://app.checklyhq.com/settings/account/integrations) and allow access to the repositories you want to sync with Checkly.

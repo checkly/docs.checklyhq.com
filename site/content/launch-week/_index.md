@@ -18,7 +18,9 @@ releases:
         url: /docs/alerting/alert-notification-log/
       - label: Slack community
         url: https://www.checklyhq.com/slack/
-      - label: Watch stream
+      - label: Announcement blog post
+        url: https://blog.checklyhq.com/checkly-alerting-improvements-and-our-new-slack-community/
+      - label: Live stream
         url: https://www.youtube.com/watch?v=GEHENduqgrg
   - id: lw-1-day-2
     date: 2022-10-12
@@ -32,7 +34,7 @@ releases:
         url: https://blog.checklyhq.com/checkly-completes-soc-2-type-1-audit/
       - label: Checkly Security
         url: https://www.checklyhq.com/security/
-      - label: Watch stream
+      - label: Live stream
         url: https://www.youtube.com/watch?v=2ZUZ2Yez3TE
   - id: lw-1-day-3
     date: 2022-10-13
@@ -42,7 +44,11 @@ releases:
     video_image: /images/launch-week/week-1/lw1-d3.jpg
     video_url: https://www.youtube.com/watch?v=JR_sIaHQ4fE
     links:
-      - label: Watch stream
+      - label: Playwright Test documentation
+        url: /docs/browser-checks/playwright-test/
+      - label: Playwright Test announcement
+        url: https://blog.checklyhq.com/unleash-the-full-power-of-playwright-with-playwright-test/
+      - label: Live stream
         url: https://www.youtube.com/watch?v=JR_sIaHQ4fE
   - id: lw-1-day-4
     date: 2022-10-14
@@ -51,6 +57,8 @@ releases:
     video_image: /images/launch-week/week-1/lw1-d4.jpg
     video_url: https://www.youtube.com/watch?v=tRWYRFJaEo8
     links:
-      - label: Watch stream
+      - label: GitHub Sync documentation
+        url: /docs/browser-checks/github-code-sync/
+      - label: Live stream
         url: https://www.youtube.com/watch?v=tRWYRFJaEo8
 ---
