@@ -3,14 +3,14 @@ title: 'Overview'
 weight: 53
 slug: /
 menu:
-    docs: 
+    docs:
         parent: "Integrations"
         identifier: overview-integration
 aliases:
 - /integrations/
 ---
 
-Checkly integrates with the services and tool stack you use. Missing an integration? Let us know via 
+Checkly integrates with the services and tool stack you use. Missing an integration? Let us know via
 <a class="open-intercom-link" href="mailto:support@checklyhq.com">support</a>.
 
 * [Vercel](/docs/integrations/vercel)
@@ -26,4 +26,6 @@ Checkly integrates with the services and tool stack you use. Missing an integrat
 * [StatusPage](/docs/integrations/statuspage)
 * [Prometheus](/docs/integrations/prometheus)
 * [Terraform](/docs/integrations/terraform)
+* [Pulumi](/docs/integrations/pulumi)
 * [FireHydrant](/docs/integrations/firehydrant)
+* [Telegram](/docs/integrations/telegram)
