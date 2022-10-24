@@ -36,4 +36,5 @@ updates:
       versions:
       - 2.6.9
     - dependency-name: hugo
+    - dependency-name: hugo-bin
 
