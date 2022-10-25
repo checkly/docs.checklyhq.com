@@ -16,7 +16,7 @@ aboutUs:
 features:
   - number: "450+"
     text: HAPPY Customers
-  - number: "30"
+  - number: "31"
     text: EMPLOYEES
   - number: "$12M"
     text: RAISED
@@ -67,7 +67,7 @@ trusted:
 location:
   title: Fully remote
   description: >-
-    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 11+ countries. As part of our team, you can work from wherever you're happiest and most productive.
+    We are a fully remote team who love transparency, ownership and open collaboration. We've got teammates in 13+ countries. As part of our team, you can work from wherever you're happiest and most productive.
   map: '/images/careers/remote_map@2x.png'
 benefits:
   title: Perks and benefits
