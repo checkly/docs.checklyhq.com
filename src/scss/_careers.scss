@@ -26,6 +26,13 @@
     border: 1px solid $gray-lighter;
   }
 
+  .team-pictures {
+    display: flex;
+    .spacing {
+      margin-right: 10px;
+    }
+  }
+
 	.center {
 		text-align: center;
 	}

@@ -32,11 +32,15 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <picture >
+    <div class="container team-pictures">
+      <picture class="spacing">
         <source type="image/webp" srcset="{{ substr .Params.aboutUs.teamPhoto 0 -4 | safeURL }}.webp">
         <source type="image/png" srcset="{{ .Params.aboutUs.teamPhoto }}">
         <img class="career__about__team" src="{{ .Params.aboutUs.teamPhoto }}" alt="{{ .Params.aboutUs.teamPhotoAlt }}" loading="lazy" width="1200" height="681" />
+      </picture>
+      <picture >
+        <source type="image/png" srcset="/images/careers/catalonia@2x.jpg">
+        <img class="career__about__team" src="/images/careers/catalonia@2x.jpg" alt="{{ .Params.aboutUs.cataloniaPhotoAlt }}" loading="lazy" width="1200" height="681" />
       </picture>
     </div>
   </section>

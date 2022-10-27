@@ -13,6 +13,8 @@ aboutUs:
     We are a small team with a big impact and believe in a bright future where apps are built and shipped more reliably from to dev to production and further.<br /> Our mission is to create the best active monitoring platform for developers. A platform that makes reliability delightful!
   teamPhoto: '/images/careers/team-photo@2x.png'
   teamPhotoAlt: "30 Checkly Team members standing next to a pool."
+  cataloniaPhotoAlt: "31 Checkly Team members in Catalonia."
+
 features:
   - number: "450+"
     text: HAPPY Customers
