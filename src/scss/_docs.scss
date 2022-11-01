@@ -147,24 +147,48 @@
     }
 
     .api-reference-link {
-      margin-bottom: 10px;
       display: inline-block;
       font-size: 14px;
       line-height: 16.94px;
       color: $gray-dark;
-      padding-bottom: 1rem;
       width: calc(100% - 20px);
+      padding-bottom: 1rem;
       border-bottom: 1px solid $gray-light;
+      margin-bottom: 10px;
 
       &:hover {
         text-decoration: none;
         color: $brand-primary
       }
+
       &:after {
         margin-left: 1rem;
         color: $gray;
         font-family: Ionicons;
         content: '\f39c'
+      }
+    }
+
+    .slack-link {
+      padding-top: 1rem;
+      margin-top: 1em;
+      border-top: 1px solid $gray-light;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: $gray-darkish;
+      width: calc(100% - 20px);
+      margin-top: 10px;
+
+      &::before {
+        width: 18px;
+        height: 18px;
+        background: url(/images/slack/slack-logo-small.png);
+        background-size: 100%;
+        margin: 0 8px 0 0;
+        content: '';
+        display: inline-block;
       }
     }
   }
