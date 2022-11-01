@@ -17,6 +17,10 @@ export default {
         use: ['css-loader', 'sass-loader']
       },
       {
+        test: /\.(woff)|(woff2)|(ttf))(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader?name=/.[ext]'
+      },
+      {
         test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader?name=/[hash].[ext]'
       },
