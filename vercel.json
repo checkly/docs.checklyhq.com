@@ -23,7 +23,7 @@
       ]
     },
     {
-      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp|svg)",
+      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp|svg|woff|woff2)",
       "headers": [
         {
           "key": "cache-control",
