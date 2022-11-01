@@ -18,7 +18,7 @@ export default {
       },
       {
         test: /\.((woff)|(woff2)|(ttf))(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=/.[ext]'
+        loader: 'file-loader'
       },
       {
         test: /\.((png)|(eot)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
