@@ -21,7 +21,7 @@ export default {
         loader: 'file-loader?name=/.[ext]'
       },
       {
-        test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.((png)|(eot)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader?name=/[hash].[ext]'
       },
       {
