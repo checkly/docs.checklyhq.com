@@ -13,7 +13,7 @@
     "lint": "eslint src",
     "start": "gulp api-docs && gulp server",
     "start:api": "serve -d src/api-docs",
-    "prepare": "husky install",
+    "prepare": "npx simple-git-hooks",
     "test": "playwright test"
   },
   "license": "MIT",
@@ -66,11 +66,11 @@
     "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-standard": "5.0.0",
     "gulp-cli": "2.3.0",
-    "husky": "8.0.1",
     "lint-staged": "13.0.3",
     "s3-deploy": "1.4.0",
     "serve": "13.0.4",
     "shins": "2.6.0",
+    "simple-git-hooks": "2.8.1",
     "widdershins": "4.0.1"
   },
   "hugo-bin": {
@@ -81,5 +81,8 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }
