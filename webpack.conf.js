@@ -17,7 +17,7 @@ export default {
         use: ['css-loader', 'sass-loader']
       },
       {
-        test: /\.(woff)|(woff2)|(ttf))(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.((woff)|(woff2)|(ttf))(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader?name=/.[ext]'
       },
       {
