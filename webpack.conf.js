@@ -9,7 +9,7 @@ export default {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/img/[name].[hash:7].[ext]'
+          name: 'static/img/[name].[contenthash:7].[ext]'
         }
       },
       {
@@ -22,7 +22,7 @@ export default {
       },
       {
         test: /\.((png)|(eot)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=/[hash].[ext]'
+        loader: 'file-loader?name=/[contenthash:7].[ext]'
       },
       {
         test: /\.json$/, loader: 'json-loader'
