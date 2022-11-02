@@ -56,6 +56,10 @@
     {
       "source": "/docs/api",
       "destination": "https://developers.checklyhq.com"
+    },
+    {
+      "source": "/whats-new",
+      "destination": "https://www.checklyhq.com"
     }
   ]
 }
