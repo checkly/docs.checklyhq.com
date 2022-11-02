@@ -44,7 +44,7 @@ Agents can be scaled up and scaled out. Scaling up means adding additional CPU a
 
 ### Scale up
 
-Scaling up of individual agents is generally memory-constrained. For reference, a browser check requires about 1.5GB of RAM and an API check requires about 150MB. The number of concurrent checks allowed to run on a single agent is controlled by the `JOB_CONCURRENCY` environment variable which defaults to 1 and can be increased to 10. We do not automatically separate browser and API checks on an agent. If you are running only browser checks or a combination of browser and API checks in a private location, the formula (rounded down) is:
+Scaling up of individual agents is generally memory-constrained. For reference, a Browser check requires about 1.5GB of RAM and an API check requires about 150MB. The number of concurrent checks allowed to run on a single agent is controlled by the `JOB_CONCURRENCY` environment variable which defaults to 1 and can be increased to 10. We do not automatically separate browser and API checks on an agent. If you are running only Browser checks or a combination of browser and API checks in a private location, the formula (rounded down) is:
 
 `JOB_CONCURRENCY = Container memory allocation (GB) / 1.5`
 
@@ -58,9 +58,20 @@ For example: if your container has 1GB of memory allocated, you should set `JOB_
 
  ### Scale out
 
-To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and browser checks as frequently as every 1 minute. Based on your configuration, you should be able to estimate how many checks will run per minute in your private location. Checks have a maximum running time of 30 seconds. This means that in the worst case scenario, a checkly agent with a `JOB_CONCURRENCY` of 1 can run two checks per minute. In an average configuration this will be higher and API checks are generally faster than browser checks.
+To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and Browser checks as frequently as every 1 minute.
 
-Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as `agents = (JOB_CONCURRENCY / Checks per minute / 2) + 1`. This should give you a safe amount of overhead to run your checks and the `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure.
+Based on your configuration, you should be able to estimate how many checks will run per minute in your private location. 
+API checks have a maximum running time of 30 seconds, Browser checks 2 minutes. This means that in the worst case scenario, a checkly agent with a `JOB_CONCURRENCY` of 1 can run two API checks per minute, or 1 Browser checks per 2 minutes. 
+In an average configuration this will be higher and API checks are generally faster than Browser checks.
+
+Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as
+
+`agents = (1 / (JOB_CONCURRENCY / Checks per minute / 2)) + 1`. 
+
+- Lower `JOB_CONCURRENCY`, more agents.
+- More checks per minute, more agents.
+- The extra factor `2` indicates an average runtime of 30 seconds for a check, e.g. `1 min / 2 = 30 sec`. You can increase or decrease that number based on check duration estimates.
+- The `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure.
 
 ## Installing and configuring the Checkly agent:
 
