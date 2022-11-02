@@ -82,9 +82,9 @@ scale:
   first:
     title: From small to large teams
     features:
-      - header: "Free plan"
+      - header: "Hobby plan"
         description: >-
-          We support solo developers and small projects with a powerful forever free plan.
+          We support solo developers and small projects with a powerful forever free hobby plan.
       - header: "Fair and flexible pricing"
         description: >-
           You can easily configure paid plans precisely to your needs, so you only pay for what you use.
