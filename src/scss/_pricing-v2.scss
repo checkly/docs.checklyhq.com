@@ -126,6 +126,9 @@
       .pricing-muted {
         color: $gray-darkish;
       }
+      .pricing-muted-subtitle {
+        color: $gray;
+      }
       @include media-breakpoint-down(sm) {
         height: auto;
       }
