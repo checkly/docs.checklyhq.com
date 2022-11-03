@@ -10,12 +10,6 @@ Some projects use custom deployment scripts and processes. If you want to follow
 
 Before moving on [guarantee to follow the GitHub Sync setup steps](/docs/browser-checks/github-code-sync/#prerequisites).
 
-{{<info >}}
-
-GitHub Sync is under active development and in **a public beta**. [Please provide feedback on GitHub](https://github.com/orgs/checkly/discussions/3).
-
-{{</info >}}
-
 ## Trigger a GitHub Sync via the GitHub API
 
 Configure your Browser check to listen for `production` deployments.

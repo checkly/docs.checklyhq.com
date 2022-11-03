@@ -6,17 +6,17 @@
   "main": "index.js",
   "scripts": {
     "hugo": "gulp hugo",
-    "build": "gulp build && npm run copy-api-docs",
+    "build": "gulp build",
     "build-preview": "gulp build-preview",
-    "copy-api-docs": "gulp api-docs",
     "deploy": "vercel --prod",
     "lint": "eslint src",
-    "start": "gulp api-docs && gulp server",
-    "start:api": "serve -d src/api-docs",
-    "prepare": "husky install"
+    "start": "gulp server",
+    "prepare": "npx simple-git-hooks",
+    "test": "playwright test"
   },
   "license": "MIT",
   "dependencies": {
+    "@playwright/test": "1.27.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^7.1.5",
@@ -30,29 +30,26 @@
     "browser-sync": "^2.27.10",
     "css-loader": "^5.2.7",
     "del": "^6.1.1",
-    "expect": "29.0.3",
     "exports-loader": "^0.7.0",
     "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-flatten": "^0.4.0",
     "gulp-inline-css": "4.0.0",
     "gulp-postcss": "^9.0.1",
-    "gulp-purgecss": "^4.1.3",
+    "gulp-purgecss": "^5.0.0",
     "gulp-rev-all": "^3.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-watch": "^5.0.1",
     "html-loader": "^1.3.2",
     "hugo-bin": "0.77.4",
     "imports-loader": "^0.7.1",
-    "playwright": "1.24.2",
     "postcss-cssnext": "3.1.1",
-    "postcss-import": "^14.1.0",
+    "postcss-import": "^15.0.0",
     "run-sequence": "^2.2.1",
     "sass-loader": "^8.0.0",
     "url-loader": "^0.6.2",
-    "uuid": "^8.3.2",
     "webpack": "4.46.0",
     "whatwg-fetch": "^2.0.4"
   },
@@ -65,20 +62,19 @@
     "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-standard": "5.0.0",
     "gulp-cli": "2.3.0",
-    "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "s3-deploy": "1.4.0",
-    "serve": "13.0.4",
-    "shins": "2.6.0",
-    "widdershins": "4.0.1"
+    "simple-git-hooks": "2.8.1"
   },
   "hugo-bin": {
     "buildTags": "extended"
   },
   "engines": {
-    "node": ">=12.0.0 <14.0.0"
+    "node": "14.x"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }

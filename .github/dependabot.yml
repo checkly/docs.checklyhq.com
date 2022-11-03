@@ -8,32 +8,33 @@ updates:
     timezone: Europe/Berlin
   open-pull-requests-limit: 2
   ignore:
-  - dependency-name: minimist
-    versions:
-    - 1.2.5
-  - dependency-name: stringstream
-    versions:
-    - 0.0.6
-  - dependency-name: macaddress
-    versions:
-    - 0.2.9
-  - dependency-name: lodash.template
-    versions:
-    - 4.5.0
-  - dependency-name: fstream
-    versions:
-    - 1.0.12
-  - dependency-name: mime
-    versions:
-    - 1.4.1
-  - dependency-name: fresh
-    versions:
-    - 0.5.2
-  - dependency-name: decompress
-    versions:
-    - 4.2.1
-  - dependency-name: debug
-    versions:
-    - 2.6.9
-  - dependency-name: hugo
-  
+    - dependency-name: minimist
+      versions:
+      - 1.2.5
+    - dependency-name: stringstream
+      versions:
+      - 0.0.6
+    - dependency-name: macaddress
+      versions:
+      - 0.2.9
+    - dependency-name: lodash.template
+      versions:
+      - 4.5.0
+    - dependency-name: fstream
+      versions:
+      - 1.0.12
+    - dependency-name: mime
+      versions:
+      - 1.4.1
+    - dependency-name: fresh
+      versions:
+      - 0.5.2
+    - dependency-name: decompress
+      versions:
+      - 4.2.1
+    - dependency-name: debug
+      versions:
+      - 2.6.9
+    - dependency-name: hugo
+    - dependency-name: hugo-bin
+
