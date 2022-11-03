@@ -73,7 +73,7 @@ Once you have an idea of how many checks will be running and you know the per-ag
 - Longer average check duration in minutes, more agents. I.e. if your estimate is checks run on average for 30 seconds, you plug in `0.5`.
 - The `+ 1` is to ensure redundant capacity in case of rolling upgrades or an agent failure.
 
-Lets' look at an example:
+Let's look at an example:
 
 1. `JOB_CONCURRENCY = 4`
 2. I expected `35` checks per minute
