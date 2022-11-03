@@ -51,11 +51,9 @@
           </div>
           <h4 class="card__title">{{.title}}</h4>
           <p class="card__description">{{.description}}</p>
-          <div class="card__cta">
-            <a class="cta-link" href="{{.linkTarget}}" target="{{.target}}">
-              {{.linkText}}
-            </a>
-          </div>
+          <a class="cta-link" href="{{.linkTarget}}" target="{{.target}}">
+            {{.linkText}}
+          </a>
         </div>
       {{ end }}
     </div>
@@ -190,6 +188,7 @@
           <div class="yt-player">
             <lite-youtube
               id="lite-youtube"
+              class="card"
               videoid="{{.snippet.resourceId.videoId}}"
               style="background-image: url('https://i.ytimg.com/vi/{{.snippet.resourceId.videoId}}/sddefault.jpg');"
               params="rel=0"
@@ -207,7 +206,7 @@
               href="https://www.youtube.com/watch?v={{$element.snippet.resourceId.videoId}}&list={{$element.snippet.playlistId}}"
               target="_blank"
             >
-              <div class="yt-thumbnail" style="--bg: url('https://i.ytimg.com/vi/{{$element.snippet.resourceId.videoId}}/hqdefault.jpg')"></div>
+              <div class="yt-thumbnail card" style="--bg: url('https://i.ytimg.com/vi/{{$element.snippet.resourceId.videoId}}/hqdefault.jpg')"></div>
               <div class="yt-title">{{$element.snippet.title}}</div>
             </a>
           {{ end }}

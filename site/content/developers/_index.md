@@ -11,12 +11,12 @@ header:
     -
       icon: /images/icons/svg/file-code.svg
       title: Docs
-      description: Start monitoring your frontend and backend API’s with Checkly.
+      description: Start monitoring your frontend apps and backend API’s.
       linkTarget: /docs
     -
       icon: /images/icons/svg/megaphone.svg
       title: Public roadmap
-      description: Find out what will be released soon.
+      description: Find out more about features we're working on.
       linkTarget: https://github.com/checkly/public-roadmap
       target: _blank
     -
@@ -33,27 +33,27 @@ essentials:
     -
       icon: /images/icons/svg/browser.svg
       title: What’s a Browser Check?
-      description: A Browser Check is a Node.js script that controls a headless Chromium browser to mimic user behavior.
+      description: Control a headless Chromium browser to mimic and test user behavior.
       linkText: Read more
       linkTarget: /docs/browser-checks/
     -
       icon: /images/icons/svg/api.svg
       title: What’s an API Check?
-      description: CHANGE ME!! Lorem Ipsum Dolor Sit Amet
+      description: Monitor your APIs for performance, uptime and correctness.
       linkText: Read more
       linkTarget: /docs/api-checks/
     -
+      icon: /images/icons/svg/file-directory-fill.svg
+      title: What are private locations?
+      description: Use the Checkly Agent to test your private APIs and applications.
+      linkText: Read more
+      linkTarget: /docs/private-locations/
+    -
       icon: /images/icons/svg/bell.svg
-      title: How should I configure my alert?
-      description: CHANGE ME!! Lorem Ipsum Dolor Sit Amet
+      title: How should I configure my alerts?
+      description: Get quick and contextful alerts to know when your service fails before your customers do.
       linkText: Read more
       linkTarget: /docs/alerting/
-    -
-      icon: /images/icons/svg/file-directory-fill.svg
-      title: What’s a Group?
-      description: CHANGE ME!! Lorem Ipsum Dolor Sit Amet
-      linkText: Read more
-      linkTarget: /docs/groups/
 
 posts:
   tagline: Stories and ideas
@@ -140,7 +140,7 @@ guides:
   tagline: Checkly guides
   headline: Advanced guides on API and synthetic monitoring
   button:
-    text: Visit Checkly Guides for more
+    text: Visit Checkly guides
     link: /guides/
 
 playwright:
