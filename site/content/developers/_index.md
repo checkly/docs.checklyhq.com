@@ -43,7 +43,7 @@ essentials:
       linkText: Read more
       linkTarget: /docs/api-checks/
     -
-      icon: /images/icons/svg/file-directory-fill.svg
+      icon: /images/icons/svg/private-locations.svg
       title: What are private locations?
       description: Use the Checkly Agent to test your private APIs and applications.
       linkText: Read more
@@ -138,7 +138,7 @@ opensource:
 
 guides:
   tagline: Checkly guides
-  headline: Advanced guides on API and synthetic monitoring
+  headline: Advanced API and synthetic monitoring guides
   button:
     text: Visit Checkly guides
     link: /guides/
