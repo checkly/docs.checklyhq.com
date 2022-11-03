@@ -111,12 +111,20 @@
     &--hidden {
       display: none;
     }
+    &--pricing-details {
+      flex-grow: 1;
+    }
     &--small {
       position: relative;
       width: 350px;
       height: 500px;
       padding: 40px 25px;
       border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: stretch;
+
       h3 {
         color: #161616;
       }
