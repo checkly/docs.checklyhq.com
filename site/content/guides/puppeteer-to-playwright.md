@@ -256,7 +256,7 @@ This is particularly helpful if you are structuring your setup according to the 
 
 ### Playwright Inspector
 
-The {{< newtabref href="https://playwright.dev/docs/inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more esily identify the cause of a failure.
+The {{< newtabref href="https://playwright.dev/docs/inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more easily identify the cause of a failure.
 
 {{< figure src="/guides/images/guides-migration-playwright-inspector.png" alt="playwright inspector" title="Playwright Inspector" >}}
 
