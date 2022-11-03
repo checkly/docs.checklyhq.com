@@ -66,12 +66,20 @@ In an average configuration this will be higher and API checks are generally fas
 
 Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as
 
-`agents = (1 / (JOB_CONCURRENCY / Checks per minute / 2)) + 1`. 
+`agents = ((Checks per minute * average check duration in minutes) / JOB_CONCURRENCY) + 1` 
 
 - Lower `JOB_CONCURRENCY`, more agents.
 - More checks per minute, more agents.
-- The extra factor `2` indicates an average runtime of 30 seconds for a check, e.g. `1 min / 2 = 30 sec`. You can increase or decrease that number based on check duration estimates.
-- The `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure.
+- Longer average check duration in minutes, more agents. I.e. if your estimate is checks run on average for 30 seconds, you plug in `0.5`.
+- The `+ 1` is to ensure redundant capacity in case of rolling upgrades or an agent failure.
+
+Lets' look at an example:
+
+1. `JOB_CONCURRENCY = 4`
+2. I expected `35` checks per minute
+3. Checks will take on average 25 seconds. This is ~`0,42` minutes.
+
+This means my estimated number of agents is `((35 * 0,42) / 4) + 1 = 4,675` or rounded up 5 agents.
 
 ## Installing and configuring the Checkly agent:
 
