@@ -113,6 +113,7 @@
     }
     &--pricing-details {
       flex-grow: 1;
+      gap: 3rem;
     }
     &--small {
       position: relative;
@@ -401,6 +402,14 @@
     flex-direction: row;
     align-items: baseline;
     flex: 0 0 auto;
+
+    &--yearly-price {
+      text-decoration: line-through;
+    }
+    &--yearly-discount {
+      font-size: 0.9rem;
+      background-color: $pink;
+    }
 
     &__dollar-sign {
       font-size: 18px;
