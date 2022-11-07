@@ -1,4 +1,4 @@
-<nav class="navbar {{ if .IsHome }}navbar-gray {{ end }}{{ if .Params.navIsGray }}navbar-gray {{ end }} navbar-toggleable-lg">
+<nav class="navbar {{ if .IsHome }}navbar-gray {{ end }}{{ if .Params.navIsGray }}navbar-gray {{ end }} navbar-toggleable-md">
   <div class="container">
     <button
       class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -9,7 +9,7 @@
     </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown" id="dropdown-li">
+        <li class="nav-item dropdown dropdown-li">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#">Product</a>
           <div class="dropdown-menu big-drop-shadow product-dropdown" id="dropdown-menu">
             <div class="dropmenu-triangle"></div>
@@ -99,45 +99,104 @@
           </div>
         </li>
         <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="/developers">Developers</a></li>
-        <li class="nav-item"><a class="nav-link" href="/docs">Docs</a></li>
-        <li class="nav-item dropdown" id="dropdown-li-learn">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#">Learn</a>
-          <div class="dropdown-menu big-drop-shadow" id="dropdown-menu">
+        <li class="nav-item dropdown dropdown-li">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink" href="#">Developers</a>
+          <div class="dropdown-menu big-drop-shadow developer-dropdown" id="dropdown-menu">
             <div class="dropmenu-triangle"></div>
-            <a class="dropdown-item" href="/learn/headless/">
-              <div class="d-flex">
-                <div class="menu-icon">
-                  <img src="/images/icons/learn-puppeteer-playwright.svg" alt="Api monitoring" width="32" height="32" />
-                </div>
-                <div>
-                  <div class="menu-title">Playwright & Puppeteer</div>
-                  <div class="menu-text">Tips, tricks, and in-depth guides for headless browser automation.</div>
-                </div>
+            <div class="d-flex">
+              <div class="left-side">
+                <a class="dropdown-item" href="/developers/">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/learn-puppeteer-playwright.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Developer Hub</div>
+                      <div class="menu-text">All latest developer resources in a single place!</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item" href="/docs/">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/guides.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Documentation</div>
+                      <div class="menu-text">Technical docs for all Checkly features.</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item" href="https://github.com/orgs/checkly/projects/4">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/list_icon_circle.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Public roadmap</div>
+                      <div class="menu-text">All new features at a glance on GitHub.</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item" href="https://changelog.checklyhq.com/">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/rocket_icon_circle.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Changelog</div>
+                      <div class="menu-text">Recent feature releases and announcements.</div>
+                    </div>
+                  </div>
+                </a>
               </div>
-            </a>
-            <a class="dropdown-item" href="/guides/">
-              <div class="d-flex">
-                <div class="menu-icon">
-                  <img src="/images/icons/guides.svg" alt="Guides" width="32" height="32" />
-                </div>
-                <div>
-                  <div class="menu-title">Guides</div>
-                  <div class="menu-text">Learn about API & E2E monitoring and testing.</div>
-                </div>
+              <div class="right-side">
+                <a class="dropdown-item right-side-item monitoring" href="/guides/">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/bulb.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Guides</div>
+                      <div class="menu-text">Key concepts about API and e2e monitoring.</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item right-side-item" href="/learn/headless/">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/playwright.png" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Playwright tips</div>
+                      <div class="menu-text">Tips, tricks and in-depth guides for headless browser automation.</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item right-side-item" href="https://blog.checklyhq.com">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/star.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Blog</div>
+                      <div class="menu-text">Thoughts, ideas and tutorials from Checkly Raccoons.</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item right-side-item" href="https://www.checklyhq.com/slack/">
+                  <div class="d-flex">
+                    <div class="menu-icon">
+                      <img src="/images/icons/slack-icon.svg" alt="" width="32" height="32" />
+                    </div>
+                    <div>
+                      <div class="menu-title">Slack Community</div>
+                      <div class="menu-text">Connect with the Checkly community.</div>
+                    </div>
+                  </div>
+                </a>
               </div>
-            </a>
-            <a class="dropdown-item" href="https://blog.checklyhq.com">
-              <div class="d-flex">
-                <div class="menu-icon">
-                  <img src="/images/icons/blog-icon.svg" alt="Alerting" width="32" height="32" />
-                </div>
-                <div>
-                  <div class="menu-title">Blog</div>
-                  <div class="menu-text">Product updates and long content on engineering, DevOps, and SaaS.</div>
-                </div>
-              </div>
-            </a>
+            </div>
           </div>
         </li>
         <form class="form-inline my-2 my-lg-0 ml-md-3">

@@ -140,7 +140,7 @@
 
         {{ with .Site.GetPage "/guides" }}
           <div class="developer_portal__guidesCards">
-            {{ $guides := first 4 .RegularPages}}
+            {{ $guides := first 4 .RegularPages.ByLastmod.Reverse }}
             {{ range where $guides "Section" "guides" }}
               <div class="card">
                 <div class="card__content">
