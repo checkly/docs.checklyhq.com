@@ -4,8 +4,8 @@ description: The Checkly Developer Hub is a one-stop shop for the best content a
 navIsGray: true
 
 header:
-  headline: Welcome to Checkly's developers hub
-  description: The Checkly Developer Hub is the one-stop shop for the best content and docs available for E2E content
+  headline: Welcome to the Checkly Developers Hub
+  description: The Checkly Developer Hub is your one-stop resource for the best content and docs available for E2E web app and API monitoring
   searchPlaceholder: 'Search docs...'
   cards:
     -
@@ -22,13 +22,13 @@ header:
     -
       icon: /images/icons/svg/list-unordered.svg
       title: Changelog
-      description: Learn more about recent features releases.
+      description: Learn more about recent feature releases.
       linkTarget: https://changelog.checklyhq.com/
       target: _blank
 
 essentials:
   tagline: From docs with love
-  headline: Essentials to get you rolling
+  headline: Essentials to get you started
   cards:
     -
       icon: /images/icons/svg/browser.svg
@@ -51,7 +51,7 @@ essentials:
     -
       icon: /images/icons/svg/bell.svg
       title: How should I configure my alerts?
-      description: Get quick and contextful alerts to know when your service fails before your customers do.
+      description: Get quick, contextual alerts to know when your service fails—before your customers do.
       linkText: Read more
       linkTarget: /docs/alerting/
 
