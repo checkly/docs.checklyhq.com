@@ -29,10 +29,6 @@
   padding-bottom: 0;
   width: 614px;
 
-  .dropmenu-triangle {
-    left: 145px;
-  }
-
   .d-flex {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -73,6 +69,10 @@
 }
 
 .product-dropdown {
+  .dropmenu-triangle {
+    left: 135px;
+  }
+
   .right-side-item{
     padding-top: 25px;
     padding-bottom: 25px;
@@ -80,6 +80,12 @@
 }
 
 .developer-dropdown {
+  left: -150px;
+
+  .dropmenu-triangle {
+    left: 200px;
+  }
+
   .right-side-item{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -89,7 +95,6 @@
 .dropmenu-triangle {
   position: absolute;
   top: -8px;
-  left: calc(50% - 15px);
   width: 20px;
   height: 20px;
   transform: rotate(45deg);
