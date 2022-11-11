@@ -381,19 +381,19 @@
       .full-width-card {
         width: 100%;
         display: flex;
-        justify-content-space: space-between;
+        justify-content: space-between;
         margin-bottom: 2rem;
       }
 
       .two-column-card {
         width: 47%;
         display: flex;
-        justify-content-space: space-between;
+        justify-content: space-between;
       }
       .three-column-card {
         width: calc((100% - 50px)/3);
         display: flex;
-        justify-content-space: space-between;
+        justify-content: space-between;
         padding: 20px;
         background: url(/docs/images/icons/pattern@2x.png);
         border-radius: 6px;
