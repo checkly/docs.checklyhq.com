@@ -19,8 +19,7 @@ For browser checks, you can create environment variables at three hierarchical l
 - **Group** level
 - **Global** level
 
-Check variables are added on the **Variables** tab for each browser check. Any data you "lock" is
-encrypted at rest and in flight on our back end and is only decrypted when needed.
+Check variables are added on the **Variables** tab for each browser check. 
 
 ![add local variables](/docs/images/browser-checks/add-local-variable.png)
 
@@ -37,6 +36,12 @@ throughout Checkly, hence the "Global environment variables" title.
 {{<info >}}
 Whenever possible, store variables at the global level. This DRY's up your code.
 {{</info>}}
+
+Any data you "lock" is encrypted at rest and in flight on our back end and is only decrypted when needed. 
+Locked environment variables can only be accessed by team members with [Read & Write access](/docs/accounts-and-users/) or above.
+
+Keep in mind, though, that Read Only team members will still have access to information on the [check results page](/docs/monitoring/check-results/#browser-check-results).
+If you want to avoid team members with Read Only access from viewing environment variables, avoid logging secrets during your check.
 
 ## Accessing variables
 
