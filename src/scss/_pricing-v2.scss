@@ -113,7 +113,8 @@
     }
     &--pricing-details {
       flex-grow: 1;
-      gap: 3rem;
+      align-items: center;
+      align-content: space-evenly;
     }
     &--small {
       position: relative;
