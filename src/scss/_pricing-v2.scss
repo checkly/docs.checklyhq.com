@@ -37,7 +37,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
 
     &--label {
@@ -120,7 +120,6 @@
     &--small {
       position: relative;
       width: 350px;
-      height: 500px;
       padding: 40px 25px;
       border-radius: 5px;
       display: flex;
@@ -256,6 +255,12 @@
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
       bottom: -20px;
+      font-size: 0.9rem;
+      color: black;
+
+      &:hover {
+        color: black;
+      }
     }
   }
 
@@ -461,6 +466,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        text-align: left;
         margin-bottom: 1rem;
       }
     }
