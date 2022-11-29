@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@playwright/test": "1.28.0",
+    "@playwright/test": "1.28.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^7.1.5",
@@ -62,7 +62,7 @@
     "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-standard": "5.0.0",
     "gulp-cli": "2.3.0",
-    "lint-staged": "13.0.3",
+    "lint-staged": "13.0.4",
     "simple-git-hooks": "2.8.1"
   },
   "hugo-bin": {
