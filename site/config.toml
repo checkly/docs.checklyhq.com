@@ -73,6 +73,12 @@ disqusShortname = "checkly"
 	weight = 80
 
 [[menu.docs]]
+    name = "Dashboards V2"
+    url = "/docs/dashboards-v2/"
+    pre="/docs/images/icons/dashboards.svg"
+    weight = 81
+
+[[menu.docs]]
 	name = "Accounts & Users"
 	url = "/docs/accounts-users/"
 	pre="/docs/images/icons/teams.svg"
@@ -103,10 +109,10 @@ disqusShortname = "checkly"
     weight = 120
 
 [[menu.docs]]
-        name = "Snippets"
-        url = "/docs/snippets/"
-        pre="/docs/images/icons/snippets.svg"
-        weight = 130
+    name = "Snippets"
+    url = "/docs/snippets/"
+    pre="/docs/images/icons/snippets.svg"
+    weight = 130
 
 [[menu.docs]]
 	name = "Single sign-on"

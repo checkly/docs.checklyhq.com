@@ -12,10 +12,10 @@ aliases:
 - "/docs/dashboards/"
 ---
 
-Checkly dashboards are public dashboards available on every plan. Use them on your wall mounted TVs, on
-shared monitors around the office or as a status page on your site.
+> We have updated our Dashboards with a new design and Incident management. [Check out the new docs](/docs/dashboards-v2/).
 
-> Dashboards can be **embedded in iframes**.
+Checkly dashboards are public dashboards available on every plan. Use them as a status page for your app or service  or as
+a dashboard on a wall mounted TV in the office.
 
 You can create multiple, distinct dashboards based on your plan. Edit your dashboard by clicking on
 the **Dashboards** button on the Checkly default dashboard page.
@@ -39,3 +39,5 @@ You'll need to press Enter to save the tag before you save your updated check!
 ![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
 
 Also in this step, remember to hit Enter to save the tag before you hit "Save dashboard".
+
+> Dashboards can be **embedded in iframes**.
