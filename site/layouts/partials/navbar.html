@@ -213,9 +213,37 @@
         <form class="form-inline my-2 my-lg-0 ml-md-3">
           <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="login-button" href="https://app.checklyhq.com/" rel="noopener">Log in</a>
           <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="dashboard-button" style="display: none;" href="https://app.checklyhq.com/" rel="noopener">Dashboard<div class="ion-arrow-right-c d-inline ml-2"></div></a>
-          <a class="signup-button btn btn-success my-2 my-sm-0" data-signup="data-signup" target="_blank" href="https://app.checklyhq.com/signup" rel="noopener">Start for free</a>
+          <a class="signup-button btn btn-success my-2 my-sm-0" id="signup-button" data-signup="data-signup" target="_blank" href="https://app.checklyhq.com/signup" rel="noopener">Start for free</a>
         </form>
       </ul>
     </div>
   </div>
 </nav>
+<script>
+if (window.location.search) {
+  const params = new URLSearchParams(window.location.search)
+  const newParams = new URLSearchParams()
+
+  const utmCampaign = params.get('utm_campaign')
+  if (utmCampaign) newParams.set('utm_campaign', utmCampaign)
+
+  const utmMedium = params.get('utm_medium')
+  if (utmMedium) newParams.set('utm_medium', utmMedium)
+
+  const utmSource = params.get('utm_source')
+  if (utmSource) newParams.set('utm_source', utmSource)
+
+  const utmTerm = params.get('utm_term')
+  if (utmTerm) newParams.set('utm_term', utmTerm)
+
+  const utmContent = params.get('utm_content')
+  if (utmContent) newParams.set('utm_content', utmContent)
+
+  const loginButton = document.querySelector('#login-button')
+  loginButton.href = `https:\/\/app.checklyhq.com/?${newParams.toString()}`
+  const dashboardButton = document.querySelector('#dashboard-button')
+  dashboardButton.href = `https:\/\/app.checklyhq.com/?${newParams.toString()}`
+  const signupButton = document.querySelector('#signup-button')
+  signupButton.href = `https:\/\/app.checklyhq.com/signup?${newParams.toString()}`
+}
+</script>
