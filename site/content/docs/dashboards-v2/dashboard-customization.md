@@ -8,7 +8,7 @@ menu:
 
 ## Checkly URL
 
-Every public dashboard comes with a configurable custom subdomain under the `*.checkly-dashboards.com` domain. By default, 
+Every public dashboard comes with a configurable custom subdomain under the `checkly-dashboards.com` domain. By default, 
 we generate a random ID. You can change this subdomain to anything you like as long as it is unique among all Checkly users.
 Typically, a company name works best, e.g. `acme.checkly-dashboards.com`
 
@@ -43,7 +43,7 @@ You can tweak the following parts of your public dashboard:
 
 ![config public monitoring dashboard 1](/docs/images/dashboards/look_feel1.png)
 
-- **title:** Add a title like "ACME status dash". This is separate from your custom URL or domain.
+- **title:** Add a title like "ACME status dash". This is separate from your Checkly URL or custom domain.
 - **description:** Add a clarifying text to explain visitors what they are looking at.
 - **checks:** Specify the tags of the checks you want to show on the dashboard. By default we show all checks.
   You can also choose to hide the tags from the dashboard.

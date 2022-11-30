@@ -30,10 +30,10 @@ publish it to your dashboard in seconds. Things might be on fire. You want to be
 You can create three types of incidents:
 
 - **Major impact**: use this for breaking outages that have a major impact. Things are on fire.
-- **Minor impact**: use this to indicate performance degradation, partial failures etc.
+- **Minor impact**: use this to indicate performance degradation, partial failures, etc.
 - **Maintenance**: use this for typical planned maintenance. Nothing on fire, just letting you know.
 
-Each type of incident will render a differently on your dashboard, indicating a different level of severity. 
+Each type of incident will render differently on your dashboard, indicating a different level of severity. 
 Here is an example:
 
 ![incident types major, minor, maintenance](/docs/images/dashboards-v2/incidents_types.png)
