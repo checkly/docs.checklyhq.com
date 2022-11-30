@@ -16,7 +16,6 @@ disqusShortname = "checkly"
 
 [params]
     description = "Checkly is the API & E2E monitoring platform for the modern stack: programmable, flexible and loving JavaScript."
-    workableJobsToken='476826'
 
 [[menu.docs]]
 	name = "Monitoring"

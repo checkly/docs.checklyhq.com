@@ -8,7 +8,7 @@
           {{ .Params.hero.description}}
         </p>
         <div>
-          <a class="btn btn-blue" href="#open-position" rel="noopener">
+          <a class="btn btn-blue" href="https://jobs.ashbyhq.com/checkly" target="_blank">
             {{ .Params.hero.buttonTxt}}
           </a>
         </div>
@@ -133,13 +133,6 @@
         </a>
       </div>
       </div>
-    </div>
-  </section>
-  <section class="career__join" id="open-position">
-    <div class="container">
-      <h3 class="section-header">{{.Params.join.title}}</h3>
-      <p class="lead-text">{{.Params.join.description | safeHTML}}</p>
-      {{ partial "jobs-embeded" . }}
     </div>
   </section>
 </div>
