@@ -1,5 +1,6 @@
 ## Affected Components
 * [ ] Content & Marketing
+* [ ] Pricing
 * [ ] Test
 * [ ] Docs
 * [ ] Learn
@@ -12,7 +13,8 @@
 ## Notes for the Reviewer
 <!-- Anything the reviewer should pay extra attention to. -->
 
-> Resolves #[issue-number]
-
 ## New Dependency Submission
 <!-- Please explain here why we need the new dependency. -->
+
+## Screenshots
+<!-- Screenshot of any visual changes -->

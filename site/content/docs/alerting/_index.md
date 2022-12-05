@@ -12,29 +12,34 @@ aliases:
 ---
 
 Alerting in Checkly is pretty flexible and should address most common needs. You can tweak exactly when and how you should
-be alerted, on what channels like email, [SMS]({{< ref "sms-delivery.md" >}}), [Slack]({{< ref "slack.md" >}}) etc.
+be alerted, on what channels like email, [SMS]({{< ref "sms-delivery.md" >}}), [Slack]({{< ref "../integrations/slack.md" >}}) etc.
 If you need more, you can integrate with [Pagerduty]({{< ref "../integrations/pagerduty.md" >}}),
 [Opsgenie]({{< ref "../integrations/opsgenie.md" >}}) and many more! See [our integrations page]({{< ref "../integrations/" >}})
 for all options.
 
 ## Alert settings
 
-The alert settings tab gives you a lot of options to tailor when, how and how often you want to be alerted when
-a check fails. This is also sometimes referred to as **threshold alerting**. For example:
+The [alert settings screen](https://app.checklyhq.com/alerts/settings) gives you the options to tailor when, how and how 
+often you want to be alerted when a check fails. This is also sometimes referred to as **threshold alerting**. For example:
 
 - Get an alert on the second or third failure.
 - Get an alert after 5 minutes of failures.
 - Get one or more reminders after a failure is triggered.
 
-Configuration is really simple. Just remember that you can configure your alert settings at two levels:
+Your alert notifications can be configured at three levels:
 
-- **Account** level: This is the default level and applies to all of your check unless you override these settings at the check level.
+1. **Account** level: This is the default level and applies to all of your check unless you override these settings at the check level.
 
 ![alert settings account / threshold alerting](/docs/images/alerting/alert-settings.png)
 
-- **Check** level: You can explicitly override the alert settings per check. Very handy for debugging or other one-off cases.
+2. **Group** level: You can explicitly override the alert settings at the group level.
+
+![alert settings group / threshold alerting](/docs/images/alerting/alert-settings-group.png)
+
+3. **Check** level: You can explicitly override the alert settings per check. Very handy for debugging or other one-off cases.
 
 ![alert settings check / threshold alerting](/docs/images/alerting/alert-settings-check.png)
+
 
 {{<info >}}
 If you are using Groups, all the checks in the same Group will share Group-level alert settings.

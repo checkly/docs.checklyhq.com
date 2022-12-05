@@ -4,8 +4,6 @@
   <meta name="description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
   <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" />
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-
   <link rel="preload" href="/fonts/Inter/Inter.var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
   <link rel="preload" href="/fonts/ionicons.ttf?v=2.0.1" as="font" type="font/ttf" crossorigin="anonymous" />
   <link rel="preload" href="/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
@@ -62,9 +60,9 @@
             custom_launcher_selector: '.open-intercom-link'
           })
 
-        	window.removeEventListener('scroll', intercomLoader)
+        	window.removeEventListener('DOMContentLoaded', intercomLoader)
       }
-  	window.addEventListener('scroll', intercomLoader)
+  	window.addEventListener('DOMContentLoaded', intercomLoader)
   </script>
 
   <!-- Google Tag Manager -->
@@ -88,5 +86,17 @@
   b.type = "text/javascript";b.async = true;
   b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
   s.parentNode.insertBefore(b, s);})(window.lintrk);
+  </script>
+
+  <!-- Hotjar Tracking Code for https://checklyhq.com -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:717179,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
 </head>

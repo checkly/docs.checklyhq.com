@@ -44,7 +44,7 @@ Agents can be scaled up and scaled out. Scaling up means adding additional CPU a
 
 ### Scale up
 
-Scaling up of individual agents is generally memory-constrained. For reference, a browser check requires about 1.5GB of RAM and an API check requires about 150MB. The number of concurrent checks allowed to run on a single agent is controlled by the `JOB_CONCURRENCY` environment variable which defaults to 1 and can be increased to 10. We do not automatically separate browser and API checks on an agent. If you are running only browser checks or a combination of browser and API checks in a private location, the formula (rounded down) is:
+Scaling up of individual agents is generally memory-constrained. For reference, a Browser check requires about 1.5GB of RAM and an API check requires about 150MB. The number of concurrent checks allowed to run on a single agent is controlled by the `JOB_CONCURRENCY` environment variable which defaults to 1 and can be increased to 10. We do not automatically separate browser and API checks on an agent. If you are running only Browser checks or a combination of browser and API checks in a private location, the formula (rounded down) is:
 
 `JOB_CONCURRENCY = Container memory allocation (GB) / 1.5`
 
@@ -58,9 +58,28 @@ For example: if your container has 1GB of memory allocated, you should set `JOB_
 
  ### Scale out
 
-To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and browser checks as frequently as every 1 minute. Based on your configuration, you should be able to estimate how many checks will run per minute in your private location. Checks have a maximum running time of 30 seconds. This means that in the worst case scenario, a checkly agent with a `JOB_CONCURRENCY` of 1 can run two checks per minute. In an average configuration this will be higher and API checks are generally faster than browser checks.
+To determine the number of agents you need in a private location you first need to know the number of checks assigned to the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and Browser checks as frequently as every 1 minute.
 
-Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as `agents = (JOB_CONCURRENCY / Checks per minute / 2) + 1`. This should give you a safe amount of overhead to run your checks and the `+ 1` is to ensure redundant capactity in case of rolling upgrades or an agent failure.
+Based on your configuration, you should be able to estimate how many checks will run per minute in your private location. 
+API checks have a maximum running time of 30 seconds, Browser checks 2 minutes. This means that in the worst case scenario, a checkly agent with a `JOB_CONCURRENCY` of 1 can run two API checks per minute, or 1 Browser checks per 2 minutes. 
+In an average configuration this will be higher and API checks are generally faster than Browser checks.
+
+Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the agent container memory allocation, you can estimate the number of agents required as
+
+`agents = ((Checks per minute * average check duration in minutes) / JOB_CONCURRENCY) + 1` 
+
+- Lower `JOB_CONCURRENCY`, more agents.
+- More checks per minute, more agents.
+- Longer average check duration in minutes, more agents. I.e. if your estimate is checks run on average for 30 seconds, you plug in `0.5`.
+- The `+ 1` is to ensure redundant capacity in case of rolling upgrades or an agent failure.
+
+Let's look at an example:
+
+1. `JOB_CONCURRENCY = 4`
+2. I expected `35` checks per minute
+3. Checks will take on average 25 seconds. This is ~`0,42` minutes.
+
+This means my estimated number of agents is `((35 * 0,42) / 4) + 1 = 4,675` or rounded up 5 agents.
 
 ## Installing and configuring the Checkly agent:
 
@@ -116,6 +135,15 @@ CONTAINER ID  IMAGE                         COMMAND        CREATED        STATUS
 
 ![agent running](/docs/images/private-locations/agent_running.png)
 
+## Local Docker workflow
+
+You can easily install the Checkly Agent on your Macbook, Windows or Linux machine for local debugging using [Docker Desktop](https://docs.docker.com/desktop/).
+The installation procedure is the same as described above.
+
+To resolve locally running webapps or APIs, e.g. some project running on `http://localhost:3000` you need to use the [internal
+Docker host](https://docs.docker.com/desktop/networking/) `http://host.docker.internal:3000` to bridge to your `localhost` address.
+
+
 ## Updating the agent container
 
 Since the agents are stateless, they can be updated by replacing them or updating the image in place. If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
@@ -157,6 +185,16 @@ If you lose track of which agent containers are using the old API key, you can u
 8) Click the delete icon next to the old API key (verified by the shown trailing characters) then click the confirmation.
 
 9) Click Save to close the dialog. You will now only see the new API key listed for the private location.
+
+## Trusing Enterprise TLS Certificates
+
+Some enterprise environments may use internal certificates for TLS connections. These certificates need to be trusted by the agent; otherwise, the agent's TLS connection to the Checkly platform will fail. 
+
+To configure the agent to trust the certificate, first copy the certificate as a PEM file onto the host. The Docker run command should then be updated to mount the certificate as a volume and pass the path to the certificate in the `NODE_EXTRA_CA_CERTS` environment variable. For a certificate stored at the path `~/certificate.pem`, the Docker run command will be:
+
+```
+docker run -v ~/certificate.pem:/checkly/certificate.pem -e NODE_EXTRA_CA_CERTS=/checkly/certificate.pem -e API_KEY="pl_...." -d ghcr.io/checkly/agent:latest
+```
 
 ## Checkly Agent environment variables
 

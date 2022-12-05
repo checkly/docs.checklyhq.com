@@ -23,11 +23,11 @@
       ]
     },
     {
-      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp|svg)",
+      "source": "/(.*).(bmp|ico|icns|jpeg|pct|png|tiff|webp|svg|woff|woff2)",
       "headers": [
         {
           "key": "cache-control",
-          "value": "max-age=86400, s-maxage=86400"
+          "value": "max-age=604800, s-maxage=604800"
         }
       ]
     }
@@ -56,6 +56,10 @@
     {
       "source": "/docs/api",
       "destination": "https://developers.checklyhq.com"
+    },
+    {
+      "source": "/whats-new",
+      "destination": "https://www.checklyhq.com"
     }
   ]
 }

@@ -1,0 +1,238 @@
+{{ define "main" }}
+<div class="main private-locations">
+
+  <!-- HEADER-->
+  <div class="private-locations__header">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="private-locations__headerCol col-sm-12 col-md-10 justify-content-center">
+          <div class="private-locations__headerContent">
+            <div class="tag text-uppercase">{{.Params.header.tag}}</div>
+
+            <h1 class="display-1">{{.Params.header.headline1}}</h1>
+
+            <p>{{.Params.header.description}}</p>
+
+            <a href="{{.Params.header.button1.href}}" class="btn btn-primary">
+              {{.Params.header.button1.text}}
+            </a>
+
+            <a href="{{.Params.header.button2.href}}" class="btn">
+              {{.Params.header.button2.text}}
+            </a>
+          </div>
+
+          <div class="private-locations__codeWrapper text-center">
+            <div class="private-locations__code-block">
+              <img
+                class="private-locations__header-image"
+                srcset="{{.Params.header.image.src.default}} 1x, {{.Params.header.image.src.retina}} 2x"
+                src="{{.Params.header.image.src.default}}"
+                width="{{.Params.header.image.width}}"
+                height="{{.Params.header.image.height}}"
+                alt="{{.Params.header.image.alt}}" />
+              <pre class="private-locations__header-code">docker run -e API_KEY="<span>pl_...</span>" -d ghcr.io/checkly/agent:latest</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="container private-locations__intro">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-8">
+        <h2 class="display-2 text-center">{{.Params.intro.headline1}}</h2>
+      </div>
+    </div>
+
+    <div class="row flex-lg-row-reverse justify-content-center">
+      <div class="col-sm-12 col-lg-6 align-self-center">
+        <img
+          class="private-locations__introImg"
+          srcset="{{.Params.intro.feat1.image.src.default}} 1x, {{.Params.intro.feat1.image.src.retina}} 2x"
+          src="{{.Params.intro.feat1.image.src.default}}"
+          width="{{.Params.intro.feat1.image.width}}"
+          height="{{.Params.intro.feat1.image.height}}"
+          alt="{{.Params.intro.feat1.image.alt}}" />
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-1 align-self-center">
+        <h3 class="display-4">{{.Params.intro.feat1.headline}}</h3>
+        <p>{{.Params.intro.feat1.text}}</p>
+      </div>
+
+      <div class="col-sm-12 col-lg-6 align-self-center">
+        <img
+          class="private-locations__introImg"
+          srcset="{{.Params.intro.feat2.image.src.default}} 1x, {{.Params.intro.feat2.image.src.retina}} 2x"
+          src="{{.Params.intro.feat2.image.src.default}}"
+          width="{{.Params.intro.feat2.image.width}}"
+          height="{{.Params.intro.feat2.image.height}}"
+          alt="{{.Params.intro.feat2.image.alt}}" />
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-1 align-self-center">
+        <h3 class="display-4">{{.Params.intro.feat2.headline}}</h3>
+        <p>{{.Params.intro.feat2.text}}</p>
+      </div>
+
+      <div class="col-sm-12 col-lg-6 align-self-center">
+        <img
+          class="private-locations__introImg"
+          srcset="{{.Params.intro.feat3.image.src.default}} 1x, {{.Params.intro.feat3.image.src.retina}} 2x"
+          src="{{.Params.intro.feat3.image.src.default}}"
+          width="{{.Params.intro.feat3.image.width}}"
+          height="{{.Params.intro.feat3.image.height}}"
+          alt="{{.Params.intro.feat3.image.alt}}" />
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-1 align-self-center">
+        <h3 class="display-4">{{.Params.intro.feat3.headline}}</h3>
+        <p>{{.Params.intro.feat3.text}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="private-locations__how">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8 text-center mb-4">
+          <h2 class="display-2">{{.Params.how.headline}}</h2>
+          <p>{{.Params.how.paragraph}}</p>
+        </div>
+
+        <div class="how-videosCol col-sm-12 col-md-7 align-self-center">
+          <div class="how-videoWrapper">
+            <video class="how-video" src="{{.Params.how.how1.video}}" muted autoplay loop></video>
+          </div>
+        </div>
+
+        <div class="how-list col-sm-12 col-md-5 align-self-center">
+          <p class="how-listItem how-listItem--1 is-active">{{.Params.how.how1.text}}</p>
+          <p class="how-listItem how-listItem--2 ">{{.Params.how.how2.text}}</p>
+          <p class="how-listItem how-listItem--3 ">{{.Params.how.how3.text}}</p>
+        </div>
+
+        <script>
+          (function () {
+            const changeIntervaltime = 10 * 1000 // in seconds
+            const numberOfItems = 3
+            let currentvideo = 1
+
+            const videosSrc = [
+              '{{.Params.how.how1.video}}',
+              '{{.Params.how.how2.video}}',
+              '{{.Params.how.how3.video}}'
+            ]
+
+            const video = document.querySelector('.how-video')
+            const howItems = document.querySelectorAll('.how-listItem')
+
+            const updateDom = () => {
+              video.setAttribute('src', videosSrc[currentvideo - 1])
+
+              howItems.forEach((item, key) => {
+                // disable all items
+                item.classList.remove('is-active')
+
+                if (key === currentvideo - 1) {
+                  item.classList.add('is-active')
+                }
+              })
+            }
+
+            const moveToNextVideo = () => {
+              if (currentvideo >= numberOfItems) {
+                currentvideo = 1
+              } else {
+                currentvideo += 1
+              }
+
+              updateDom()
+            }
+
+            let interval = setInterval(moveToNextVideo, changeIntervaltime)
+
+            const reset = (next) => {
+              clearInterval(interval)
+
+              currentvideo = next
+              updateDom()
+
+              interval = setInterval(moveToNextVideo, changeIntervaltime)
+            }
+
+            howItems.forEach((item, key) => {
+              item.addEventListener('click', () => reset(key + 1))
+            })
+          })()
+        </script>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- GET STARTED -->
+  <div class="container private-locations__getStarted">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-xl-10 text-center">
+        <div class="tagline">{{.Params.getStarted.tag}}</div>
+        <h2 class="display-2">{{.Params.getStarted.headline}}</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-xl-5 align-self-center d-flex getStarted-text getStarted-text--opticallyAligned">
+        <div class="tag">1</div>
+        <div>
+          <h3 class="display-4">{{.Params.getStarted.item1.headline}}</h3>
+          <p>{{.Params.getStarted.item1.text}}</p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xl-6 offset-xl-1 align-self-center text-center">
+        <img
+          srcset="{{.Params.getStarted.item1.image.src.default}} 1x, {{.Params.getStarted.item1.image.src.retina}} 2x"
+          src="{{.Params.getStarted.item1.image.src.default}}"
+          width="{{.Params.getStarted.item1.image.width}}"
+          height="{{.Params.getStarted.item1.image.height}}"
+          alt="{{.Params.getStarted.item1.image.alt}}" />
+      </div>
+
+      <div class="col-sm-12 col-xl-5 align-self-center d-flex getStarted-text">
+        <div class="tag">2</div>
+        <div>
+          <h3 class="display-4">{{.Params.getStarted.item2.headline}}</h3>
+          <p>{{.Params.getStarted.item2.text}}</p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xl-6 offset-xl-1 align-self-center text-center">
+        <pre class="getStarted-code">docker run -e API_KEY="<span>pl_...</span>" -d ghcr.io/checkly/agent:latest</pre>
+      </div>
+
+      <div class="col-sm-12 col-xl-5 align-self-center d-flex getStarted-text">
+        <div class="tag">3</div>
+        <div>
+          <h3 class="display-4">{{.Params.getStarted.item3.headline}}</h3>
+          <p>{{.Params.getStarted.item3.text}}</p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xl-6 offset-xl-1 align-self-center text-center">
+        <img
+          srcset="{{.Params.getStarted.item3.image.src.default}} 1x, {{.Params.getStarted.item3.image.src.retina}} 2x"
+          src="{{.Params.getStarted.item3.image.src.default}}"
+          width="{{.Params.getStarted.item3.image.width}}"
+          height="{{.Params.getStarted.item3.image.height}}"
+          alt="{{.Params.getStarted.item3.image.alt}}" />
+      </div>
+    </div>
+  </div>
+
+  {{ partial "start-for-free-row" . }}
+
+</div>
+{{end}}

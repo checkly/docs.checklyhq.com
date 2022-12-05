@@ -8,35 +8,23 @@ questions:
       and Playwright. Each browser check uses an actual Chrome browser to execute clicks, fill out forms and validate if
       these interactions have the correct results. This is also commonly called “synthetic monitoring”. For billing we count
       every executed script as a check run. Browser check runs have a timeout threshold of 60 seconds.
-  - q: How does the free plan work?
-    a: By signing up for the free plan, you get access to almost all of Checkly's features. You do not need a credit card
+  - q: How does the hobby plan work?
+    a: By signing up for the hobby plan, you get access to almost all of Checkly's features. You do not need a credit card
       to get started. You can execute up to 50,000 API and 5,000 browser check runs.
-  - q: What is Pay-as-you-go pricing?
-    a: With a Pay-as-you-go plan, you have maximum flexibility! It is not a subscription model. You can just run your API
-      and browser checks, and we will charge you at the end of the 30-day billing cycle for the check runs you have executed.
-      The unit price per check run is higher than the unit price of Prepaid Plans.
-  - q: What is a Prepaid plan?
-    a: Prepaid Plans are monthly or annual subscriptions that will automatically renew until you cancel your subscription.
-      You can tailor your plan exactly to your needs and freely set the amount of API- and browser check runs. The Prepaid plan
-      comes at a lower unit price than the Pay-as-you-go plan. We continue running your checks when you have exceeded the prepaid
-      volume. These so-called overages will be charged at the Pay-as-you-go unit price. Please note that unused Prepaid check runs
-      won't roll over to the next billing cycle and will not be credited.
   - q: What does fair use mean?
     a: Fair use limits are soft boundaries that apply to certain features. The limits are set in a way that most customers
-      should not encounter any limitations. On a Prepaid or Pay-as-you-go plan, you can invite up to 99 users, have
+      should not encounter any limitations. On a Team plan, you can invite up to 99 users, have
       25 public dashboards, and 200 SMS alerts per month. If you exceed the thresholds, we will reach out and discuss options with you.
   - q: Can I upgrade or downgrade my plan?
-    a: "For the **Free plan or Pay-as-you-go plan** upgrades and downgrades don't apply.<br><br>
-      **Upgrade Prepaid plan:** You can increase the number of committed checks at any time. The changes will apply immediately.
-      The effect will be that the current billing cycle will end, and a new cycle with the higher amount of prepaid runs will start.<br><br>
-      **Downgrade Prepaid plan**: You can reduce the number of Prepaid checks from account settings. The changes will apply after
+    a: "For the **Hobby plan** upgrades and downgrades don't apply.<br><br>
+      **Downgrade Team plan**: You can reduce the number of prepaid checks from account settings. The changes will apply after
       your current subscription cycle automatically."
   - q: Can I change plans?
-    a: When you are on a Free plan or Pay-as-you-go plan, you can switch to all plans anytime, and the changes will apply
-      immediately. When you are on a Prepaid plan, you can only change the plan type after the current billing cycle has ended.
+    a: When you are on a Hobby plan or Team plan, you can switch to all plans anytime, and the changes will apply
+      immediately.
   - q: How do you bill?
-    a: Prepaid plans are paid upfront at the beginning of the subscription cycle. Overages will be added to the invoice
-      of the next subscription cycle. Pay-as-you-go check runs will be charged at the end of the billing cycle.
+    a: Prepaid plans, like the Team plan, are paid upfront at the beginning of the subscription cycle. Overages will be added to the invoice
+      of the next subscription cycle.
   - q: What payment types do you accept?
     a: We accept Visa, Mastercard, and American Express credit card payments. Stripe handles all payments. For custom plans, we also accept invoice payments.
   - q: Do you support early startups or nonprofits?

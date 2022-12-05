@@ -8,7 +8,7 @@
           {{ .Params.hero.description}}
         </p>
         <div>
-          <a class="btn btn-blue" href="#open-position" rel="noopener">
+          <a class="btn btn-blue" href="https://jobs.ashbyhq.com/checkly" target="_blank">
             {{ .Params.hero.buttonTxt}}
           </a>
         </div>
@@ -32,11 +32,15 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <picture >
+    <div class="container team-pictures">
+      <picture class="spacing">
         <source type="image/webp" srcset="{{ substr .Params.aboutUs.teamPhoto 0 -4 | safeURL }}.webp">
         <source type="image/png" srcset="{{ .Params.aboutUs.teamPhoto }}">
         <img class="career__about__team" src="{{ .Params.aboutUs.teamPhoto }}" alt="{{ .Params.aboutUs.teamPhotoAlt }}" loading="lazy" width="1200" height="681" />
+      </picture>
+      <picture >
+        <source type="image/png" srcset="/images/careers/catalonia@2x.jpg">
+        <img class="career__about__team" src="/images/careers/catalonia@2x.jpg" alt="{{ .Params.aboutUs.cataloniaPhotoAlt }}" loading="lazy" width="1200" height="681" />
       </picture>
     </div>
   </section>
@@ -66,7 +70,7 @@
         {{ end }}
       </div>
       <div>
-        <a class="btn btn-blue" href="#open-position" rel="noopener">
+        <a class="btn btn-blue" href="https://jobs.ashbyhq.com/checkly" target="_blank">
           {{ .Params.values.buttonTxt}}
         </a>
       </div>
@@ -128,14 +132,11 @@
           {{ .Params.howWeHire.buttonText}}
         </a>
       </div>
-      </div>
     </div>
-  </section>
-  <section class="career__join" id="open-position">
-    <div class="container">
-      <h3 class="section-header">{{.Params.join.title}}</h3>
-      <p class="lead-text">{{.Params.join.description | safeHTML}}</p>
-      {{ partial "jobs-embeded" . }}
+    <div class="hire-btn center">
+      <a class="btn btn-blue" href="https://jobs.ashbyhq.com/checkly" target="_blank">
+        {{ .Params.hero.buttonTxt}}
+      </a>
     </div>
   </section>
 </div>

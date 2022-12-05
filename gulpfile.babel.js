@@ -84,18 +84,11 @@ gulp.task('assets', () => (
     .pipe(browserSync.stream())
 ))
 
-// copy all rendered API docs
-gulp.task('api-docs', () => (
-  gulp.src(['./src/api-docs/**/*'])
-    .pipe(gulp.dest('./public/docs/api'))
-    .pipe(browserSync.stream())
-))
-
 gulp.task('hash', () => {
   return gulp.src('./public/**')
     .pipe(revall.revision({
-      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf'],
-      dontUpdateReference: ['.woff', '.eot', '.ttf']
+      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2'],
+      dontUpdateReference: ['.woff', '.eot', '.ttf', '.woff2']
     }))
     .pipe(gulp.dest('./public'))
 })

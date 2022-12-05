@@ -6,10 +6,10 @@ menu:
     parent: "Alerting"
 ---
 
-You can add as many of the following alert channels as you want: 
+You can add as many of the following alert channels as you want:
 
 - Email
-- [Slack]({{< ref "slack.md" >}})
+- [Slack]({{< ref "../integrations/slack.md" >}})
 - [Webhook]({{< ref "webhooks.md" >}})
 - [SMS]({{< ref "sms-delivery.md" >}})
 - [Pagerduty]({{< ref "docs/integrations/pagerduty.md" >}})

@@ -1,0 +1,161 @@
+.launch-week {
+  padding-top: 3rem;
+
+  h1 {
+    font-weight: 800;
+    font-size: 3.25rem;
+    line-height: 1.125;
+    margin: 0 auto 0.5rem auto;
+    max-width: 55rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    color: $gray-dark;
+  }
+
+  h3 {
+    font-size: 0.75rem;
+    color: $gray-dark;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 .5rem;
+  }
+
+  .racoon-container {
+    text-style: center;
+
+    .party-racoon {
+      width: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .free-trial-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .subline {
+    font-size: 1.25rem;
+  }
+
+  .tag {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: .75rem;
+  }
+
+  .hbsp-container {
+    max-width: 30rem;
+    margin: 2rem auto 4rem;
+    min-height: 10rem;
+
+    .party-racoon {
+      position: absolt
+    }
+  }
+
+  .releases {
+    list-style: none;
+    margin: 0 3rem;
+    padding: 0;
+
+    border-left: 2px solid $gray-light;
+
+    > li {
+      position: relative;
+
+      padding: 2rem 1rem 5rem 3rem;
+
+      img {
+        max-width: 100%;
+      }
+
+      &::before {
+        position: absolute;
+        top: -0.5rem;
+        left: -0.5rem;
+        width: 1rem;
+        height: 1rem;
+        content: '';
+        background: $gray-light;
+        border-radius: 50%;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0rem;
+        left: 0rem;
+        width: 3rem;
+        height: 2px;
+        content: '';
+        background: $gray-light;
+      }
+    }
+
+    &__closing {
+      position: relative;
+      margin: 0 0 5rem 0;
+
+      img {
+        width: 7rem;
+      }
+
+      .stay-tuned {
+        position: absolute;
+        left: 8rem;
+        width: 10rem;
+      }
+    }
+
+    &__date {
+      position: absolute;
+      bottom: calc(100% - 1em);
+      left: 3rem;
+      font-size: 0.875rem;
+      padding: 0.125rem 0.5rem;
+      background: $gray-light;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      color: $gray-dark;
+    }
+
+    &__grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+
+      @media (min-width: 50em) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    &__related {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      > li {
+        > a {
+          display: block;
+          background: $gray-lightest;
+          padding: .5rem 1rem;
+          border-radius: 0.5rem;
+          color: $gray-dark;
+          font-weight: 600;
+
+          &:hover {
+            background: $gray-lighter;
+          }
+        }
+      }
+
+      > li + li {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
