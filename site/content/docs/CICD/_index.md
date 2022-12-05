@@ -29,3 +29,7 @@ You can also integrate with your CI/CD using our API directly:
 For any other platform, check out how to use our command line trigger API:
 
 - [Command Line triggers](/docs/cicd/triggers/)
+
+{{<info >}}
+Note that failed checks triggered by CI/CD integrations won't send alert notifications, because their purpose is to block and monitor pre-production environments.
+{{</info >}}
