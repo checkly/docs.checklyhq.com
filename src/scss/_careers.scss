@@ -200,7 +200,7 @@
 		}
 	}
 	&__howhire {
-	  margin: 62px 0 40px;
+	  margin: 62px 0 120px;
 
 	  &__card {
 	    width: 100%;
@@ -226,8 +226,12 @@
 	      }
 	    }
 	  }
+
+		.hire-btn {
+			margin-top: 120px;
+		}
 	}
-	&__join, &__calculator {
+	&__calculator {
 	  padding: 80px 0 120px;
 	  .section-header {
 	    max-width: 655px;
@@ -243,14 +247,6 @@
 		    padding: 10px 0;
 		    content: "";
 	    }
-	  }
-	  .job-card {
-	    width: 720px;
-	    margin: 0 auto 30px;
-	    padding: 18px 24px;
-	    background: $gray-lightest;
-    	border: 1px solid $gray-lighter;
-    	border-radius: 3px;
 	  }
 
 		.btn {
@@ -366,7 +362,7 @@
         }
       }
     }
-    &__join, &__calculator {
+    &__calculator {
       padding: 60px 0 68px;
     }
 	}
@@ -449,7 +445,7 @@
         padding: 30px;
       }
     }
-    &__join, &__calculator {
+    &__calculator {
       padding: 58px 0 54px;
     }
 	}
