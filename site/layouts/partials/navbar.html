@@ -239,11 +239,9 @@ if (window.location.search) {
   const utmContent = params.get('utm_content')
   if (utmContent) newParams.set('utm_content', utmContent)
 
-  const loginButton = document.querySelector('#login-button')
-  loginButton.href = `https:\/\/app.checklyhq.com/?${newParams.toString()}`
-  const dashboardButton = document.querySelector('#dashboard-button')
-  dashboardButton.href = `https:\/\/app.checklyhq.com/?${newParams.toString()}`
-  const signupButton = document.querySelector('#nav-signup-button')
-  signupButton.href = `https:\/\/app.checklyhq.com/signup?${newParams.toString()}`
+  const signupLinks = document.querySelectorAll('a[href*="app.checklyhq.com/signup"]')
+  signupLinks.forEach(link => {
+    link.href += `?${newParams.toString()}`
+  })
 }
 </script>
