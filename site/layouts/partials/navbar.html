@@ -239,7 +239,7 @@ if (window.location.search) {
   const utmContent = params.get('utm_content')
   if (utmContent) newParams.set('utm_content', utmContent)
 
-  const signupLinks = document.querySelectorAll('a[href*="app.checklyhq.com/signup"]')
+  const signupLinks = document.querySelectorAll('a[href*="app.checklyhq.com"]')
   signupLinks.forEach(link => {
     link.href += `?${newParams.toString()}`
   })
