@@ -245,6 +245,9 @@ if (window.location.search || utmTags) {
   const signupLinks = document.querySelectorAll('a[href*="app.checklyhq.com"]')
   signupLinks.forEach(link => {
     link.href += `?${newParams.toString()}`
+    link.addEventListener("click", (e) => {
+      window.localStorage.removeItem('checkly.utm_tags')
+    });
   })
 }
 </script>
