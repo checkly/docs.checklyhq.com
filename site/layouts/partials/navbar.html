@@ -220,28 +220,39 @@
   </div>
 </nav>
 <script>
+const utmParams = [
+  'utm_campaign',
+  'utm_medium',
+  'utm_source',
+  'utm_term',
+  'utm_content',
+]
 const utmTags = localStorage.getItem('checkly.utm_tags');
+
 if (window.location.search || utmTags) {
   const newParams = new URLSearchParams()
-  let params = new URLSearchParams(window.location.search || utmTags)
 
-  const utmCampaign = params.get('utm_campaign')
-  if (utmCampaign) newParams.set('utm_campaign', utmCampaign)
+  // Set params from location.search or the saved utm tags
+  let params
+  console.log('some', utmParams.some(param => window.location.search.includes(param)))
+  if (utmParams.some(param => window.location.search.includes(param))) {
+    params = new URLSearchParams(window.location.search)
+  } else {
+    params = new URLSearchParams(utmTags)
+  }
 
-  const utmMedium = params.get('utm_medium')
-  if (utmMedium) newParams.set('utm_medium', utmMedium)
+  // Build new URLSearchParams from utm tags that we have
+  console.log('paramz', params.toString())
+  utmParams.forEach(paramName => {
+    const utmParamValue = params.get(paramName)
+    if (utmParamValue) newParams.set(paramName, utmParamValue)
+  })
 
-  const utmSource = params.get('utm_source')
-  if (utmSource) newParams.set('utm_source', utmSource)
-
-  const utmTerm = params.get('utm_term')
-  if (utmTerm) newParams.set('utm_term', utmTerm)
-
-  const utmContent = params.get('utm_content')
-  if (utmContent) newParams.set('utm_content', utmContent)
-
+  // Persist new params to localstorage
   window.localStorage.setItem('checkly.utm_tags', newParams.toString())
 
+  // Append new params to all app.checklyhq.com links and add onClick handler to clear
+  // the localstorage of our utm tags for future visits
   const signupLinks = document.querySelectorAll('a[href*="app.checklyhq.com"]')
   signupLinks.forEach(link => {
     link.href += `?${newParams.toString()}`
