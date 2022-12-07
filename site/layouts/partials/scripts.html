@@ -27,6 +27,7 @@ const utmParams = [
   'utm_content',
 ]
 const utmTags = localStorage.getItem('checkly.utm_tags');
+const utmTagEntry = localStorage.getItem('checkly.utm_tags_entry');
 
 if (window.location.search || utmTags) {
   const newParams = new URLSearchParams()
@@ -47,13 +48,15 @@ if (window.location.search || utmTags) {
 
   // Persist new params to localstorage
   window.localStorage.setItem('checkly.utm_tags', newParams.toString())
+  window.localStorage.setItem('checkly.utm_tags_entry', new Date().toISOString())
 
   // Append new params to all app.checklyhq.com links and add onClick handler to clear
   // the localstorage of our utm tags for future visits
   document.querySelectorAll('a[href*="app.checklyhq.com"]').forEach(link => {
-    link.href += `?${newParams.toString()}`
+    link.href += `?${newParams.toString()}&utm_entrydate=${encodeURIComponent(utmTagEntry || new Date().toISOString())}`
     link.addEventListener('click', (e) => {
       window.localStorage.removeItem('checkly.utm_tags')
+      window.localStorage.removeItem('checkly.utm_tags_entry')
     });
   })
 }
