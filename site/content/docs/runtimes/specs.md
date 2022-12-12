@@ -30,6 +30,7 @@ By default, all our runners have their timezone set to UTC, regardless of their 
 
 See the built-in module documentation on the official Node.js site:
 
+- [16.x](https://nodejs.org/dist/latest-v16.x/docs/api/)
 - [14.x](https://nodejs.org/dist/latest-v14.x/docs/api/)
 - [12.x](https://nodejs.org/dist/latest-v12.x/docs/api/) (deprecated)
 
