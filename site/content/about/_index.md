@@ -114,7 +114,7 @@ contact:
 joinUs:
   title: Join us
   description: >-
-    Checkly is growing! Join us and help us empower development teams to build, deploy and run better software. You will be working on our SaaS app and our open source projects Headless Recorder and Terraform Provider
+    Checkly is growing! Join us and help us empower development teams to build, deploy and run better software. You will be working on our SaaS app and our open source projects
   image: "/about/svgs/join_us_raccoon.svg"
   buttonTxt: View open positions
   buttonLink: "/jobs"

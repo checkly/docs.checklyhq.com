@@ -61,14 +61,6 @@ Checkly offers a lot of power and perks to modern developers and DevOps teams. M
 	description="Catch bugs and breakage early by triggering your checks from your deployment platforms and CI/CD pipelines. Integrates with GitHub, Vercel, Heroku and basically all CI providers."
 	link="/docs/cicd/"
 >}}
-{{< doc-card
-	class="full-width-card"
-	headerTag="h3"
-	title="Headless Recorder"
-	img="/docs/images/icons/headless-recorder@2x.png"
-	description="Create Puppeteer and Playwright E2E testing scripts super fast with our open source Headless Recorder Chrome extension. Click record, navigate your site and export."
-	link="/docs/headless-recorder/"
->}}
 </div>
 
 ## Additional resources

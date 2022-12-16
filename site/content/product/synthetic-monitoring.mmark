@@ -110,38 +110,3 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
   </div>
 </div>
 
-<div class="mt-4 two-grid">
-  <div class="row justify-content-center header-part">
-    <div class="col-sm-12 col-md-8">
-      <h2 class="section-header mt-1">Learn from the community</h3>
-      <p class="lead-text">
-      Checkly helps you create scripts every step of the way. With our <strong>free & open source</strong> Chrome Extension you can get started without writing any code. Want to dive deeper? Dive into our open source knowledge base with practical coding tips and examples.
-      </p>
-    </div>
-  </div>
-
-<div class="row mt-7">
-
-<div class="col-md-6">
-  <div class="flex-wrap">
-    <h3 class="section-header" style="margin-right: 1rem;">Headless Recorder</h3>
-    <a class="github-button" href="https://github.com/checkly/headless-recorder" data-show-count="true" aria-label="Star checkly/headless-recorder on GitHub" rel="noopener">Star</a>
-  </div>
-  <p>Install the Headless Recorder browser extension in your Chrome browser and start recording scripts in under a minute. This extension has a ton of options for tweaking your scripts as you click through your site and fill out web forms. </p>
-  <div class="cta">
-    {{% cta-link "Learn more" "/docs/headless-recorder/basic-usage/" %}}
-  </div>
-  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/puppeteer@2x.png" alt="puppeteer screenshot" width="440" height="270" >}}
-</div>
-<div class="col-md-6">
-  <div>
-    <h3 class="section-header">Headless Automation Guides</h3>
-  </div>
-  <p>Learning headless automation for testing or monitoring from scratch, or improving on existing expertise? The Headless Automation Guides</p>
-  <div class="cta">
-    {{% cta-link "Learn more" "/learn/headless" %}}
-  </div>
-  {{< alternative-picture class="img-440 big-drop-shadow" img="/product/transaction-monitoring/thehd@2x.png" alt="thehd screenshot" width="440" height="270" >}}
-</div>
-</div>
-</div>

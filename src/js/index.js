@@ -105,7 +105,7 @@ $(document).ready(() => {
     xhr.responseType = 'document'
     xhr.send()
 
-    fetch('https://api.github.com/repos/checkly/headless-recorder')
+    fetch('https://api.github.com/repos/checkly/pulumi-checkly')
       .then(function (response) {
         return response.json()
       })
@@ -116,20 +116,7 @@ $(document).ready(() => {
         } else {
           stars = res.stargazers_count
         }
-        $('#headless-recorder').text(stars)
-      })
-    fetch('https://api.github.com/repos/checkly/theheadless.dev')
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (res) {
-        let stars = ''
-        if (res.stargazers_count > 1000) {
-          stars = (res.stargazers_count / 1000).toFixed(1) + 'k'
-        } else {
-          stars = res.stargazers_count
-        }
-        $('#theheadless-dev').text(stars)
+        $('#pulumi-provider').text(stars)
       })
     fetch('https://api.github.com/repos/checkly/terraform-provider-checkly')
       .then(function (response) {
