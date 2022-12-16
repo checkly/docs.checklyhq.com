@@ -46,7 +46,6 @@ Checkly enables you to create flexible HTTP Checks tailored to your needs.
 {{% alternative-feature-row header="E2E checks with real browsers" img="/alternative/script.png" %}}
 Code your checks and control exactly how they interact with a real browser.
 - Use real and worldwide distributed browsers to validate what you need using Puppeteer or Playwright
-- We support you with examples and our Headless Recorder — coding is optional
 - Run your tests constantly or via our CI/CD integrations
 
 {{% cta-link "More on synthetic monitoring" "/product/synthetic-monitoring/" %}}

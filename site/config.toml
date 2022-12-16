@@ -120,12 +120,6 @@ disqusShortname = "checkly"
 	pre="/docs/images/icons/key.svg"
 	weight = 140
 
-[[menu.docs]]
-	name = "Headless Recorder"
-	url = "/docs/headless-recorder/"
-	pre="/docs/images/icons/headless-recorder.svg"
-	weight = 9999
-
 [[menu.learn]]
 	name = "Getting started"
 	pre = "/learn/icons/getting-started.svg"

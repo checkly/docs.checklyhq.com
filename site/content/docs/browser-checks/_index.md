@@ -137,12 +137,10 @@ Every valid **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
 or **[Playwright](https://github.com/microsoft/playwright)** script is a valid Browser check. You can create these
 scripts in two ways:
 
-1. By using [Headless Recorder](/headless-recorder/) (our Chrome browser extension) to record a set of actions and
-generate the Playwright or Puppeteer script automatically.
+1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright or Puppeteer script automatically.
 2. By writing the Node.js by hand.
 
-A combination of both is also very common, i.e. you record the basic interactions with Headless Recorder and then tweak
-the generated code with extra things like passwords, extra wait conditions and content checks.
+A combination of both is also very common, i.e. you record the basic interactions with Codegen and then tweak the generated code with extra things like passwords, extra wait conditions and content checks.
 
 In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before
 uploading it
@@ -227,7 +225,7 @@ alerting channels will be triggered, notifying your team that something is up.
 ## Next Steps
 
 - Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-and-secrets/).
-- Install and use [Headless Recorder](/docs/headless-recorder/) to record scripts without coding.
+- Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [creating reusable code snippets](/docs/browser-checks/partials-code-snippets/).
 - Run checks behind an [HTTP proxy](/docs/private-locations/proxy).
