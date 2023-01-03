@@ -26,7 +26,7 @@ Playwright Test Runner elevates your monitoring and debugging experience by prov
 - independent nested test cases that make your Checkly check even more powerful
 
 ## Getting started
-> Playwright Test is available from runtime **2022.02** onwards.
+> Playwright Test is available from runtime [**2022.02**](/docs/runtimes/specs/) onwards.
 
 A simple Playwright Test script would look like this:
 
