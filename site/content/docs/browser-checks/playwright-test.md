@@ -8,7 +8,7 @@ menu:
 ---
 
 Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. 
-Read more on how to usitilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
+Read more on how to utilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
 
 {{<info >}}
 
