@@ -7,7 +7,8 @@ menu:
     parent: "Browser checks"
 ---
 
-Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. Read more on how to usitilise Playwright Test best [in their official documentation](https://playwright.dev/docs/writing-tests).
+Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. 
+Read more on how to usitilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
 
 {{<info >}}
 
@@ -96,7 +97,7 @@ This is the list of Playwright Test Runner features that are currently supported
 > Playwright Test Runner is currently not available for code sync via GitHub using TypeScript.
 
 ### Browser check with multiple test cases
-One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases,
+One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases, 
 and group them using the `test.describe` function.
 
 > Your Checkly check will fail if **at least one** of the test cases fails.
@@ -135,12 +136,12 @@ test.describe('two tests', () => {
 {{< /tabs >}}
 
 ### Hooks
-Playwright Test Runner offers hook functions such as `test.afterEach` and `test.beforeEach` that run before or after individual test cases or  `test.afterAll` and `test.beforeAll` that run before or after all tests have started/finished.
+Playwright Test Runner offers hook functions such as `test.afterEach` and `test.beforeEach` that run before or after individual test cases or `test.afterAll` and `test.beforeAll` that run before or after all tests have started/finished.
 
 You can find more information on available methods in the [official documentation](https://playwright.dev/docs/api/class-test).
 
 ### Viewing trace files
-When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI.
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. 
 This makes it very easy to inspect individual traces and debug failing tests.
 
 You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
