@@ -88,7 +88,7 @@ This is the list of Playwright Test Runner features that are currently supported
 | API testing              | Yes               |
 | Custom fixtures          | Yes               |
 | Reporters                | Only JSON, more to come |
-| Typescript               | Coming soon             |
+| Typescript               | Opt-in (Currently in beta - enable it via [Labs](https://app.checklyhq.com/settings/account/labs)) <br> **Not compatible with code sync via GitHub yet.**             |
 | Global configuration     | No           |
 | Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179))          |
 | Test retry               | No           |
@@ -149,7 +149,7 @@ You can download the trace files for manual inspection or view them directly wit
 ![checkly-pw-traces](/docs/images/browser-checks/pwt_traces.gif)
 
 > **Note:** When running tests from the editor page, trace files are always available for download and preview, 
-> regardless of whether the check is passing or failing. For scheduled checks files are only preserved when the check failed.
+> regardless of whether the check is passing or failing. For scheduled check runs videos and traces are only preserved when the check failed.
 
 ### Video recordings
 When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI.
@@ -159,4 +159,4 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 ![checkly-pw-videos](/docs/images/browser-checks/pwt_videos.gif)
 
 > **Note:** When running tests from the editor page, video files are always available for download and preview, 
-> regardless of whether the check is passing or failing. For scheduled checks files are only preserved when the check failed.
+> regardless of whether the check is passing or failing. For scheduled check runs videos and traces are only preserved when the check failed.
