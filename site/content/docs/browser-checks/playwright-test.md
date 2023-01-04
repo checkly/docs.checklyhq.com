@@ -149,7 +149,7 @@ You can download the trace files for manual inspection or view them directly wit
 ![checkly-pw-traces](/docs/images/browser-checks/pwt_traces.gif)
 
 > **Note:** When running tests from the editor page, trace files are always available for download and preview, 
-> regardless of whether the check is passing or failing. For scheduled check runs videos and traces are only preserved when the check failed.
+> regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
 
 ### Video recordings
 When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI.
@@ -159,4 +159,4 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 ![checkly-pw-videos](/docs/images/browser-checks/pwt_videos.gif)
 
 > **Note:** When running tests from the editor page, video files are always available for download and preview, 
-> regardless of whether the check is passing or failing. For scheduled check runs videos and traces are only preserved when the check failed.
+> regardless of whether the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.
