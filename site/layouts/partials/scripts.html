@@ -42,7 +42,7 @@ if (window.location.search || utmTags) {
     params = new URLSearchParams(utmTags)
   }
 
-  // Build new URLSearchParams from utm tags that we have
+  // Build new URLSearchParams from utm tags that we have on window.location.search currently
   utmParams.forEach(paramName => {
     const utmParamValue = params.get(paramName)
     if (utmParamValue) newParams.set(paramName, utmParamValue)
@@ -51,8 +51,11 @@ if (window.location.search || utmTags) {
   // Persist new params to localstorage
   window.localStorage.setItem('checkly.utm_tags', newParams.toString())
   window.localStorage.setItem('checkly.utm_tags_entry', new Date().toISOString())
-  window.localStorage.setItem('checkly.utm_tags_original_source', params.utm_source)
+  if (localStorage.getItem('checkly.utm_tags_original_source') === null) {
+    window.localStorage.setItem('checkly.utm_tags_original_source', params.get('utm_source'))
+  }
 
+  console.log(newParams.toString())
   // Append new params to all app.checklyhq.com links and add onClick handler to clear
   // the localstorage of our utm tags for future visits
   document.querySelectorAll('a[href*="app.checklyhq.com"]').forEach(link => {
