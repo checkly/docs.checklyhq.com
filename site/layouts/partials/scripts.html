@@ -53,6 +53,7 @@ if (window.location.search || utmTags) {
   window.localStorage.setItem('checkly.utm_tags_entry', new Date().toISOString())
   if (localStorage.getItem('checkly.utm_tags_original_source') === null) {
     window.localStorage.setItem('checkly.utm_tags_original_source', params.get('utm_source'))
+    newParams.set('utm_originalsource', params.get('utm_source'))
   }
 
   // Append new params to all app.checklyhq.com links and add onClick handler to clear
