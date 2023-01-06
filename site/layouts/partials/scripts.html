@@ -55,7 +55,6 @@ if (window.location.search || utmTags) {
     window.localStorage.setItem('checkly.utm_tags_original_source', params.get('utm_source'))
   }
 
-  console.log(newParams.toString())
   // Append new params to all app.checklyhq.com links and add onClick handler to clear
   // the localstorage of our utm tags for future visits
   document.querySelectorAll('a[href*="app.checklyhq.com"]').forEach(link => {
