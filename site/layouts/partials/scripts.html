@@ -19,57 +19,57 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- UTM Param Manager -->
 <script>
-const utmParams = [
+const utmParamKeys = [
   'utm_campaign',
   'utm_medium',
   'utm_source',
   'utm_term',
   'utm_content',
 ]
-const utmTags = localStorage.getItem('checkly.utm_tags');
 const utmTagEntry = localStorage.getItem('checkly.utm_tags_entry');
 const utmOriginalSource = localStorage.getItem('checkly.utm_tags_original_source');
 const utmOriginalMedium = localStorage.getItem('checkly.utm_tags_original_medium');
+const restoredUtmTags = localStorage.getItem('checkly.utm_tags');
 
-if (window.location.search || utmTags) {
-  const newParams = new URLSearchParams()
-  if (utmOriginalSource) newParams.set('utm_originalsource', utmOriginalSource)
-  if (utmOriginalMedium) newParams.set('utm_originalmedium', utmOriginalMedium)
+if (window.location.search || restoredUtmTags) {
+  const nextParams = new URLSearchParams()
+  if (utmOriginalSource) nextParams.set('utm_originalsource', utmOriginalSource)
+  if (utmOriginalMedium) nextParams.set('utm_originalmedium', utmOriginalMedium)
 
-  // Set params from location.search or the saved utm tags
-  let params
-  if (utmParams.some(param => window.location.search.includes(param))) {
-    params = new URLSearchParams(window.location.search)
+  // Set current params from location.search or the restored utm tags
+  let currentParams
+  if (utmParamKeys.some(param => window.location.search.includes(param))) {
+    currentParams = new URLSearchParams(window.location.search)
   } else {
-    params = new URLSearchParams(utmTags)
+    currentParams = new URLSearchParams(restoredUtmTags)
   }
 
-  // Build new URLSearchParams from utm tags that we have on window.location.search currently
-  utmParams.forEach(paramName => {
-    const utmParamValue = params.get(paramName)
-    if (utmParamValue) newParams.set(paramName, utmParamValue)
+  // Build new URLSearchParams from current utm tags that we have on window.location.search
+  utmParamKeys.forEach(paramName => {
+    const utmParamValue = currentParams.get(paramName)
+    if (utmParamValue) nextParams.set(paramName, utmParamValue)
   })
 
-  // Persist new params to localstorage
-  window.localStorage.setItem('checkly.utm_tags', newParams.toString())
+  // Persist next params to localstorage
+  window.localStorage.setItem('checkly.utm_tags', nextParams.toString())
   window.localStorage.setItem('checkly.utm_tags_entry', new Date().toISOString())
 
   // Save `utm_originalsource` to localStorage
-  if (localStorage.getItem('checkly.utm_tags_original_source') === null) {
-    window.localStorage.setItem('checkly.utm_tags_original_source', params.get('utm_source'))
-    newParams.set('utm_originalsource', params.get('utm_source'))
+  if (!utmOriginalSource && currentParams.get('utm_source')) {
+    window.localStorage.setItem('checkly.utm_tags_original_source', currentParams.get('utm_source'))
+    nextParams.set('utm_originalsource', currentParams.get('utm_source'))
   }
 
   // Save `utm_originalmedium` to localStorage
-  if (localStorage.getItem('checkly.utm_tags_original_medium') === null) {
-    window.localStorage.setItem('checkly.utm_tags_original_medium', params.get('utm_medium'))
-    newParams.set('utm_originalmedium', params.get('utm_medium'))
+  if (utmOriginalMedium && currentParams.get('utm_medium')) {
+    window.localStorage.setItem('checkly.utm_tags_original_medium', currentParams.get('utm_medium'))
+    nextParams.set('utm_originalmedium', currentParams.get('utm_medium'))
   }
 
   // Append new params to all app.checklyhq.com links and add onClick handler to clear
   // the localstorage of our utm tags for future visits
   document.querySelectorAll('a[href*="app.checklyhq.com"]').forEach(link => {
-    link.href += `?${newParams.toString()}&utm_entrydate=${encodeURIComponent(utmTagEntry || new Date().toISOString())}`
+    link.href += `?${nextParams.toString()}&utm_entrydate=${encodeURIComponent(utmTagEntry || new Date().toISOString())}`
     link.addEventListener('click', (e) => {
       window.localStorage.removeItem('checkly.utm_tags')
       window.localStorage.removeItem('checkly.utm_tags_entry')
