@@ -5,114 +5,82 @@
             <div class="container text-center">
                 <h1 class="display-3 cases">Hear it from our users, not from us!</h1>
                 <p class="case-studies__hero__lead">
-                    Developers around the world are using Checkly to increase their reliability with less effort!</p>
-                <p class="case-studies__hero__lead">
-                    Read their stories here </p>
+                    Learn from customers globally how Checkly’s advanced synthetic monitoring is delivering reliability and speed at any scale.</p>
             </div>
         </section>
-        <section class="case-studies__initiatives">
-            <div class="container">
-                <div class="row main-client">
-                    <div class="card col-lg-4 col-md-4 d-none d-lg-block case-studies__detail">
-                        <a href="https://www.checklyhq.com/case-studies/finn-auto" rel="noopener">
-                            <div class="cardbg finn">
-                                <div class="opacity-filter"></div>
-                                <img src="/case-studies/finnlogo.png" alt="finn.auto logo" width="90" height="25" />
-                            </div>
-                            <div class="main-text">
-                                <h5>finn.auto</h5>
-                                <p>finn.auto uses Checkly to ensure booking processes work all the time, everywhere!</p>
-                                <div class="cta-wraps">
-                                    <p class="cta-p">
-                                        Read Case Study
-                                        <img class="ml-2" src="/case-studies/arrow.png" alt="arrow" width="13"
-                                            height="13" />
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card col-lg-7 col-md-10 case-studies__aligning">
-                        <div class="cardbg schwarz">
-                            <div class="opacity-filter"></div>
-                            <img class="schwarz-logo" src="/case-studies/schwarzlogo.png" alt="schwarz logo" width="122"
-                                height="150" />
+        <section class="case-studies__initiatives justify-content-center d-flex">
+            <div class="row main-client justify-content-center">
+                {{ range .Params.customers.cases }}
+                <div class="card col-lg-3 col-md-5 case-studies__detail">
+                    <a class="study-link" href={{.link}} rel="noopener">
+                        <div class="cardbg">
+                            <img src={{.icon}} alt={{.alt}} width="50%"/>
                         </div>
                         <div class="main-text">
-                            <h5>SchwarzIT - Monitoring-as-Code</h5>
-                            <p>Learn how one of the largest retailer worldwide uses Checkly and Terraform to make
-                                complex infrastructure more resilient and delivering a better end-user
-                                experience.</p>
+                            <p>"{{.description}}"</p>
+                            <p class="author">{{.author}}</p>
                             <div class="cta-wraps">
-                                <a class="cta-link"
-                                    href="https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly"
-                                    target="_blank" rel="noopener">
+                                <p class="cta-p">
                                     Read Case Study
-                                    <img class="ml-2" src="/images/arrow-visit.svg" alt="arrow visit" width="13"
+                                        <img class="ml-2" src="/case-studies/arrow.png" alt="arrow" width="13"
                                         height="13" />
-                                </a>
-                                <a class="cta-link" href="https://www.youtube.com/watch?v=KPdCxMqprdc&t=2s"
-                                    target="_blank" rel="noopener">
-                                    Watch Webinar Recording
-                                    <img class="ml-2" src="/images/arrow-visit.svg" alt="arrow visit" width="13"
-                                        height="13" />
-                                </a>
+                                </p>
                             </div>
+                        </div>
+                    </a>
+                </div>
+                {{ end }}
+                <div class="col-lg-3 col-md-5 case-studies__detail p-0">
+                    <div class="soon-card">
+                        <div class="cardbg">
+                            <img src="/case-studies/action.png" alt="action logo" width="50%" />
+                        </div>
+                    </div>
+                    <div class="soon-card">
+                        <div class="cardbg">
+                            <img src="/case-studies/airbus.png" alt="airbus logo" width="50%" />
                         </div>
                     </div>
                 </div>
-                <div class="row card-set">
-                    <div class="card col-lg-4 col-md-5 d-block d-lg-none case-studies__detail">
-                        <a href="https://www.checklyhq.com/case-studies/finn-auto" rel="noopener">
-                            <div class="cardbg finn">
-                                <div class="opacity-filter"></div>
-                                <img src="/case-studies/finnlogo.png" alt="finn.auto logo" width="90" height="25" />
-                            </div>
-                            <div class="main-text">
-                                <h5>finn.auto</h5>
-                                <p>finn.auto uses Checkly to ensure booking processes work all the time, everywhere!</p>
-                                <div class="cta-wraps">
-                                    <p class="cta-p">
-                                        Read Case Study
-                                        <img class="ml-2" src="/case-studies/arrow.png" alt="arrow visit" width="13"
-                                            height="13" />
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card col-lg-4 col-md-5 case-studies__detail">
-                        <a href="https://blog.1password.com/securely-monitoring-scim-bridges/"
-                            target="_blank" rel="noopener">
-                            <div class="cardbg password">
-                                <div class="opacity-filter"></div>
-                                <img src="/case-studies/1passlogo.png" alt="1password logo" width="125" height="25" />
-                            </div>
-                            <div class="main-text">
-                                <h5>1Password</h5>
-                                <p>Secure health monitoring for 1Passwords SCIM bridges.</p>
-                                <div class="cta-wraps">
-                                    <p class="cta-p">
-                                        Read Case Study
-                                        <img class="ml-2" src="/images/arrow-visit.svg" alt="arrow visit" width="13"
-                                            height="13" />
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card col-lg-4 col-md-5 case-studies__aligning soon-card">
-                        <div class="cardbg locus">
-                            <div class="opacity-filter"></div>
-                            <img src="/case-studies/locuslogo.png" alt="locus logo" width="115" height="25" />
+                <div class="card col-lg-3 col-md-5 case-studies__detail">
+                    <a class="study-link" href="https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly" rel="noopener">
+                        <div class="cardbg">
+                            <img src="/case-studies/schwarz.png" alt="schwarz logo" width="50%"/>
                         </div>
                         <div class="main-text">
-                            <h5>locus.sh</h5>
-                            <p>Locus uses Checkly to stay ahead of issues in production</p>
-                            <p class="coming-soon">Coming soon</p>
+                            <p>"Checkly enables us to quickly create, modify, and deploy API and browser checks."</p>
+                            <p class="author">— Andreas Lehr, IT Team Lead</p>
+                            <div class="cta-wraps">
+                                <p class="cta-p">
+                                    Read Case Study
+                                        <img class="ml-2" src="/case-studies/arrow.png" alt="arrow" width="13"
+                                        height="13" />
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-5 case-studies__detail p-0">
+                    <div class="soon-card">
+                        <div class="cardbg">
+                            <img src="/case-studies/cathay.png" alt="cathay pacific airways logo" width="50%" />
+                        </div>
+                    </div>
+                    <div class="soon-card">
+                        <div class="cardbg">
+                            <img src="/case-studies/autodesk.png" alt="autodesk logo" width="50%" />
                         </div>
                     </div>
                 </div>
+                {{ range .Params.customers.logos }}
+                <div class="col-lg-3 col-md-5 case-studies__detail p-0">
+                    <div class="soon-card">
+                        <div class="cardbg">
+                            <img src={{.icon}} width="50%"/>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
             </div>
         </section>
     </div>
