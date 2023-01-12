@@ -15,7 +15,7 @@ customers:
       author: — De Ville Weppenaar, Senior Developer
     - icon: '/case-studies/finnlogo.png'
       alt: 'finn.auto logo'
-      link: https://www.checklyhq.com/case-studies/finn-auto
+      link: https://www.checklyhq.com/customers/finn-auto
       description: Checkly is super easy to use and fits perfectly in our toolchain.
       author: — Andreas Wixler, CTO & Co-Founder
   logos:
