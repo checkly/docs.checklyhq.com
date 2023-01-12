@@ -24,7 +24,13 @@
             </div>
             <div class="pricing-muted">forever</div>
           </div>
-          <div class="pricing__list">
+
+          <div class="pricing__btn__wrapper">
+            <a class="btn btn-secondary pricing__btn__secondary pricing__btn mb-3" href="https://app.checklyhq.com/signup" rel="noopener" data-test="pricing-free-signup">Start for free</a>
+            <small class="text-muted text-left align-self-start ml-3 mb-2">* Hobby plan comes with access to Team plan features for 14 days. No credit card required.</small>
+          </div> 
+          
+          <div class="pricing__list pricing__list--hobby">
             <ul class="pt-3">
               <li>
                 <i class="ion-ios-checkmark text-secondary mr-2"></i>
@@ -44,7 +50,6 @@
               </li>
             </ul>
           </div>
-          <a class="btn btn-secondary pricing__card-right__btn" href="https://app.checklyhq.com/signup" rel="noopener" data-test="pricing-free-signup">Start for free</a>
         </div>
 
         <!-- TEAMS CARD -->
@@ -58,10 +63,14 @@
                   <div class="pricing__fancy-price__dollar-sign pricing__fancy-price__dollar-sign--big">$</div>
                   <div class="pricing__fancy-price__price--big">30</div>
                 </div>
-                <div class="pricing-muted">per month</div>
+                <div class="pricing-muted text-medium">per month</div>
               </div>
             </div>
-            <div class="pricing__list">
+            <div class="pricing__btn__wrapper">
+              <a class="btn btn-success pricing__btn mb-3" href="https://app.checklyhq.com/signup" rel="noopener">Try for free</a>
+              <small class="text-muted text-left align-self-start mb-5"> * No credit card required.</small>
+            </div>  
+            <div class="pricing__list pricing__list--team">
               <ul class="pt-3">
                 <li class="font-weight-bold">
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
@@ -97,9 +106,7 @@
                 </li>
               </ul>
             </div>
-            <a class="btn btn-success pricing__card-right__btn" href="https://app.checklyhq.com/signup?startOnTrial" rel="noopener">Start free trial</a>
           </div>
-          <small>* No credit card required</small>
         </div>
 
         <!-- ENTERPRISE CARD -->
@@ -113,8 +120,14 @@
             </div>
             <div>per month</div>
           </div>
+          <div class="pricing__btn__wrapper">
+
+            <button type="button" class="btn btn-secondary pricing__btn__secondary pricing__btn mb-5" data-toggle="modal" data-target="#contact-sales-modal">
+              Contact sales
+            </button>
+          </div>
           <div class="pricing__list">
-            <ul class="pt-3">
+            <ul class="pt-2 mt-5">
               <li class="font-weight-bold">
                 <i class="ion-ios-checkmark text-primary mr-2"></i>
                 Everything on the Team plan
@@ -149,9 +162,6 @@
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-secondary pricing__card-right__btn" data-toggle="modal" data-target="#contact-sales-modal">
-            Contact sales
-          </button>
         </div>
 
         <div class="pricing__plans--toggle">
