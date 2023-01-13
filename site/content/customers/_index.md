@@ -1,5 +1,5 @@
 ---
-title: Case Studies
+title: Customers
 description: Learn from customers globally how Checkly’s advanced synthetic monitoring is delivering reliability and speed at any scale.
 customers:
   cases:
