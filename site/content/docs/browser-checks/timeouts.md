@@ -6,16 +6,29 @@ menu:
     parent: "Browser checks"
 ---
 
-All browser checks are capped at **120 seconds**. This means everything in your script needs to happen within those 120 seconds.  
+There are different kinds of timeouts you will encounter while working with Browser checks:
 
-## Dealing with timeouts
+| Timeout name          | Timeout origin | Default value | Can it be changed? |
+|-----------------------|----------------|---------------|--------------------|
+| Browser check timeout | Checkly        | 120 seconds   | No                 |
+| Test timeout          | Playwright     | 30 seconds    | Yes                |
+| Navigation timeout	  | Playwright     | 30 seconds    | Yes                |
+| Action timeout        | Playwright     | no timeout    | Yes                |
 
-Setting correct timeout values can mean the difference between a good night's sleep or alerts bugging
-you because your site or apps performance dropped by 500 milliseconds.
+Checkly's general Browser check timeout means that all browser checks are capped at **120 seconds**. This timeout overrides all other timeouts listed: Everything in your script needs to happen within those 120 seconds, no matter what. 
+
+Playwright does offer multiple [configurable timeouts](https://playwright.dev/docs/test-timeouts). Make sure you configure these in a way that prevents your check from hitting the general 120 seconds timeout.
+
+## Timeouts and waiting
+
+In the case of many actions, Playwright automatically waits by default, eliminating the need for lots of explicit waiting. Still, 
+
+
+Setting correct timeout values can mean the difference between a good night's sleep or alerts bugging you because your site or apps performance dropped by 500 milliseconds.
 
 You can deal with timeouts at two levels, and we recommend you study them in the order below:
 
-1. Use the timeout options in Playwright/Puppeteer.
+1. Use the timeout options in Playwright.
 2. Set global timeouts on the Mocha suite and test level.
 
 > Tip: Good use of the `page.waitForSelector()` can save you a lot of headaches.
@@ -167,17 +180,10 @@ Options are set as follows:
 page.waitForNavigation({ waitUntil: 'networkidle' })
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-page.waitForNavigation({ waitUntil: 'networkidle2' })
-```
-
-{{< /tab >}}
 {{< /tabs >}} 
 
 You can also specify an array of `waitUntil` options. Read more in the 
-[Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitfornavigationoptions) or 
-[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitfornavigationoptions) API docs.
+[Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitfornavigationoptions)API docs.
 
 ### page.setDefaultNavigationTimeout(timeout)
 
