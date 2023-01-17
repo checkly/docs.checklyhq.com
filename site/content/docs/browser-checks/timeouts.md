@@ -25,7 +25,7 @@ Timeout-related errors are often a sticking point for many beginners. Understand
 
 ### Test timeout of 30000ms exceeded.
 
-This refers to Playwright's own 30s default timeout for a single `test` fixture. While it is best to [keep your checks as short as possible](/learn/valuable-tests), you can increase a test's timeout using `test.setTimeout(milliseconds)`. For example:
+This refers to Playwright's own 30s default timeout for a single `test` fixture. While it is best to [keep your checks as short as possible](/learn/headless/valuable-tests), you can increase a test's timeout using `test.setTimeout(milliseconds)`. For example:
 
 ```js
 test('add item to wishlist', async ({ page }) => {
@@ -38,8 +38,8 @@ test('add item to wishlist', async ({ page }) => {
 
 ### Your check run has reached the maximum run time of 120000 ms.
 
-In this case, your script is hitting Checkly's 120s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. Try to make your check shorter by following [best practices](/learn/valuable-tests).
+In this case, your script is hitting Checkly's 120s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. Try to make your check shorter by following [best practices](/learn/headless/valuable-tests).
 
 ### Timeout 20000ms exceeded
 
-normally the culprit right before, e.g. page.waitForLoadState: 
+Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. In case you have more than one, remember you can use Playwright Traces to help you understand exactly where in your script the error was raised.
