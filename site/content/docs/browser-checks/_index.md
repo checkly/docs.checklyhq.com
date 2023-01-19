@@ -29,7 +29,7 @@ The combination of automated interactions and assertions leads to confidence tha
 To power your Browser checks, Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** framework as well as **[Playwright Test](https://playwright.dev/docs/intro)**, a test-runner utilising Playwright to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
 
 {{< info >}}
-We have stopped support for Puppeeteer with runtime 2022.10. [Read more about why](/docs/browser-checks/#what-about-puppeteer).
+We have stopped support for Puppeeteer with runtime 2022.10. [Read more about our reasons](/docs/browser-checks/#what-about-puppeteer).
 {{< /info >}}
 
 The following code is a valid Browser check.
@@ -65,9 +65,7 @@ await browser.close()
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< info >}}
-While you can use plain Playwright to write your checks, we highly recommned using the Playwright Test Runner. The test-runner gives you powerful additional features such as traces and videos of your tests, built-in `expect()` function and web-first assertions. [Learn more](/docs/browser-checks/playwright-test/).
-{{< /info >}}
+While you can use plain Playwright to write your checks, we highly recommend using **Playwright Test Runner**. The test-runner gives you powerful additional features such as traces and videos of your tests, built-in `expect()` function and web-first assertions. [Learn more](/docs/browser-checks/playwright-test/).
 
 {{< info >}}
 Checkly currently supports only using **Chromium** with Playwright Test and Playwright.
