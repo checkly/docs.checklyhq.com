@@ -1,6 +1,6 @@
 ---
-title: Playwright Test Runner (Public Beta)
-description: How to use Playwright Test Runner (Public Beta) natively within browser checks at Checkly
+title: Using Playwright Test
+description: How to use Playwright Test Runner natively within browser checks at Checkly
 weight: 15
 menu:
   docs:
@@ -9,12 +9,6 @@ menu:
 
 Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. 
 Read more on how to utilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
-
-{{<info >}}
-
-Support for Playwright Test is currently in Public Beta. If you experience an issue or have suggestions, write to us at support@checklyhq.com or post to [our Public Roadmap](https://github.com/checkly/public-roadmap).
-
-{{</info >}}
 
 Playwright Test Runner elevates your monitoring and debugging experience by providing a number of neat functionalities:
 
