@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Getting started
 weight: 14
 slug: /
 menu:
@@ -10,7 +10,7 @@ aliases:
     - /docs/browser-checks/getting-started/
 ---
 
-This quick start gives you all the info to create your first Browser check with Checkly. You should have some prior
+This guide gives you all the info to create your first Browser check with Checkly. You should have some prior
 knowledge of working with Javascript and/or Node.js.
 
 ## What is a Browser check?
@@ -26,7 +26,11 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
-Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** framework to power your Browser checks. Use this framework to control the interactions you want to happen on a web page.
+To power your Browser checks, Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** framework as well as **[Playwright Test](https://playwright.dev/docs/intro)**, a test-runner utilising Playwright to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+
+{{< info >}}
+While you can use plain Playwright to write your checks, we highly recommned using the Playwright Test Runner. The test-runner gives you powerful additional features such as traces and videos of your tests, built-in `expect()` function and web-first assertions. [Learn more](/docs/browser-checks/playwright-test/).
+{{< /info >}}
 
 The following code is a valid Browser check.
 
@@ -62,7 +66,7 @@ await browser.close()
 {{< /tabs >}}
 
 {{< info >}}
-Checkly currently supports using only **Chromium** with Playwright.
+Checkly currently supports only using **Chromium** with Playwright Test and Playwright.
 {{< /info >}}
 
 ## Breaking down a Browser check step-by-step
@@ -107,7 +111,7 @@ await browser.close()
 {{< /tab >}}
 {{< /tabs >}}
 
-**1. Initial declarations:** We first import a framework (Puppeteer or Playwright) to control a browser.
+**1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control a browser.
 We also declare a `browser` and a `page` variable.
 
 **2. Initial navigation:** We use the `page.goto()` method to load the first page.
@@ -122,22 +126,18 @@ We then close the browser. Our check is done.
 
 ## How do I create a Browser check?
 
-Every valid **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
-or **[Playwright](https://github.com/microsoft/playwright)** script is a valid Browser check. You can create these
-scripts in two ways:
+Every valid **[Playwright Test](https://playwright.dev/docs/intro)** or **[Playwright](https://github.com/microsoft/playwright)** script is a valid Browser check. You can create these scripts in two ways:
 
-1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright or Puppeteer script automatically.
+1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright Test or Playwright script automatically.
 2. By writing the Node.js by hand.
 
 A combination of both is also very common, i.e. you record the basic interactions with Codegen and then tweak the generated code with extra things like passwords, extra wait conditions and content checks.
 
-In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before
-uploading it
-to Checkly.
+In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before uploading it to Checkly.
 
 
 {{< info >}}
-Every valid Playwright or Puppeteer script is a valid Browser check. If the script passes, your check passes.
+Every valid Playwright or Playwright Test script is a valid Browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
@@ -153,7 +153,7 @@ However, many times you want to assert specific values on a page.
 
 To do this, you can:
 
-1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (Recommended).
+1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (Recommended). If you use Playwright Test it is directly available.
 2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
 3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
@@ -210,22 +210,21 @@ alerting channels will be triggered, notifying your team that something is up.
 
 ![failed api monitoring assertion](/docs/images/browser-checks/failed_assertion.png)
 
+## What about Puppeteer?
+Checkly previously supported Puppeteer as a testing framework. However, with the advancement of Playwright Test which offers superior tools for E2E testing, we have stopped support for Puppeeteer and the last available runtime is [2022.02](/docs/runtimes/specs/).
 
 ## Next Steps
-
+- Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
 - Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-and-secrets/).
 - Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [creating reusable code snippets](/docs/browser-checks/partials-code-snippets/).
 - Run checks behind an [HTTP proxy](/docs/private-locations/proxy).
 
-## More Playwright and Puppeteer resources
+## More Playwright resources
 
 - [Headless Automation guides](/learn/headless), a free & open source knowledge base for Playwright and Puppeteer
 (maintained by Checkly).
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
 - [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
 Playwright-related libraries, tips and resources.
-- [pptr.dev](https://pptr.dev/) is the official API documentation site for the Puppeteer framework.
-- [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) is a great GitHub repo full of
-Puppeteer-related libraries, tips and resources.
