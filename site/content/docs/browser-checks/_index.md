@@ -1,5 +1,5 @@
 ---
-title: Quickstart
+title: Getting Started
 weight: 14
 slug: /
 menu:
@@ -7,6 +7,7 @@ menu:
     parent: "Browser checks"
 aliases:
     - /docs/browser-checks/quickstart/
+    - /docs/browser-checks/getting-started/
 ---
 
 This quick start gives you all the info to create your first Browser check with Checkly. You should have some prior
@@ -25,14 +26,7 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
-Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
-frameworks to power your Browser checks. Use these frameworks to control the interactions you want to happen on a web page.
-
-{{< info >}}
-While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new  features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community.
-
-__We recommend using Playwright if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).__
-{{< /info >}}
+Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** framework to power your Browser checks. Use this framework to control the interactions you want to happen on a web page.
 
 The following code is a valid Browser check.
 
@@ -68,13 +62,8 @@ await browser.close()
 {{< /tabs >}}
 
 {{< info >}}
-Checkly currently supports using only **Chromium** with Playwright and Puppeteer.
+Checkly currently supports using only **Chromium** with Playwright.
 {{< /info >}}
-
-{{< warning >}}
-Note: It is not possible to use both Playwright and Puppeteer in the same Browser Check script.
-{{< /warning >}}
-
 
 ## Breaking down a Browser check step-by-step
 
