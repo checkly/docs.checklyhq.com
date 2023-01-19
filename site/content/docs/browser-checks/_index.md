@@ -214,7 +214,7 @@ alerting channels will be triggered, notifying your team that something is up.
 ![failed api monitoring assertion](/docs/images/browser-checks/failed_assertion.png)
 
 ## What about Puppeteer?
-While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer. The last available runtime is [2022.02](/docs/runtimes/specs/).
+While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer. The last available runtime is [2022.02](/docs/runtimes/specs/).
 
 We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
 
