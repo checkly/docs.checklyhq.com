@@ -26,13 +26,16 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
-To power your Browser checks, Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** framework as well as **[Playwright Test](https://playwright.dev/docs/intro)**, a test-runner utilising Playwright to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+To power your Browser checks, Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** library as well as **[Playwright Test](https://playwright.dev/docs/intro)**, a test-runner utilising Playwright to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+
+While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues. [Learn more](/docs/browser-checks/playwright-test/).
+
 
 {{< info >}}
 We have stopped support for Puppeeteer with runtime 2022.10. [Read more about our reasons](/docs/browser-checks/#what-about-puppeteer).
 {{< /info >}}
 
-The following code is a valid Browser check.
+The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
 {{< tab "Playwright" >}}
@@ -65,10 +68,8 @@ await browser.close()
 {{< /tab >}}
 {{< /tabs >}}
 
-While you can use plain Playwright to write your checks, we highly recommend using **Playwright Test Runner**. The test-runner gives you powerful additional features such as traces and videos of your tests, built-in `expect()` function and web-first assertions. [Learn more](/docs/browser-checks/playwright-test/).
-
 {{< info >}}
-Checkly currently supports only using **Chromium** with Playwright Test and Playwright.
+Checkly currently supports only using **Chromium** with Playwright Test and Playwright library.
 {{< /info >}}
 
 ## Breaking down a Browser check step-by-step
@@ -213,9 +214,9 @@ alerting channels will be triggered, notifying your team that something is up.
 ![failed api monitoring assertion](/docs/images/browser-checks/failed_assertion.png)
 
 ## What about Puppeteer?
-While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeeteer. The last available runtime is [2022.02](/docs/runtimes/specs/).
+While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer. The last available runtime is [2022.02](/docs/runtimes/specs/).
 
-We recommend using Playwright Test Runner if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
+We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
 
 ## Next Steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
