@@ -38,32 +38,32 @@ We have stopped support for Puppeeteer with runtime 2022.10. [Read more about ou
 The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
-{{< tab "Playwright" >}}
+{{< tab "JavaScript" >}}
  ```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-const response = await page.goto('https://checklyhq.com/')
+const { test } = require('@playwright/test')
 
-if (response.status() > 399) {
-  throw new Error(`Failed with response code ${response.status()}`)
-}
+test('Visit Checkly HQ page', async ({ page }) => {
+  const response = await page.goto('https://checklyhq.com')
 
-await browser.close()
+  // Test that the response did not fail
+  if (response.status() > 399) {
+    throw new Error(`Failed with response code ${response.status()}`)
+  }
+})
  ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-const response = await page.goto('https://checklyhq.com/')
+{{< tab "TypeScript" >}}
+ ```ts
+import { test } from '@playwright/test'
 
-if (response.status() > 399) {
-  throw new Error(`Failed with response code ${response.status()}`)
-}
+test('Visit Checkly HQ page', async ({ page }) => {
+  const response = await page.goto('https://checklyhq.com')
 
-await browser.close()
+  // Test that the response did not fail
+  if (response.status() > 399) {
+    throw new Error(`Failed with response code ${response.status()}`)
+  }
+})
  ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -74,58 +74,53 @@ Checkly currently supports only using **Chromium** with Playwright Test and Play
 
 ## Breaking down a Browser check step-by-step
 
-Let's look at a more real life example and break down each step. The code below logs into Checkly, waits for the dashboard
-to fully load and then snaps a screenshot.
+Let's look at a breakdown of a real-life scenario. The code below logs into Checkly, and waits for the dashboard to fully load.
 
 {{< tabs "Breakdown example" >}}
-{{< tab "Playwright" >}}
+{{< tab "JavaScript" >}}
 ```js
-const playwright = require('playwright') // 1
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+const { test } = require('@playwright/test') // 1
 
-await page.goto('https://app.checklyhq.com/login') // 2
+test('Login to Checkly', async ({ page }) => {
+  await page.goto('https://app.checklyhq.com/login') // 2
 
-await page.type('input[type="email"]', 'john@example.com') // 3
-await page.type('input[type="password"]','mypassword')
-await page.click('.btn.btn-success.btn-block')
+  await page.fill('input[type="email"]', 'john@example.com') // 3
+  await page.fill('input[type="password"]', 'mypassword')
+  await page.getByRole('button', { name: 'Log In' }).click() // 4
 
-await page.waitForSelector('.status-table') // 4
-await page.screenshot({ path: 'checkly_dashboard.png' })
-await browser.close()
+  await page.getByTestId('home-dashboard-table').isVisible() // 5
+})
  ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer') // 1
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test' // 1
 
-await page.goto('https://app.checklyhq.com/login') // 2
+test('Login to Checkly', async ({ page }) => {
+  await page.goto('https://app.checklyhq.com/login') // 2
 
-await page.type('input[type="email"]', 'john@example.com') // 3
-await page.type('input[type="password"]','mypassword')
-await page.click('.btn.btn-success.btn-block')
+  await page.fill('input[type="email"]', 'john@example.com') // 3
+  await page.fill('input[type="password"]', 'mypassword')
+  await page.getByRole('button', { name: 'Log In' }).click() // 4
 
-await page.waitForSelector('.status-table') // 4
-await page.screenshot({ path: 'checkly_dashboard.png' })
-await browser.close()
+  await page.getByTestId('home-dashboard-table').isVisible() // 5
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-**1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control a browser.
-We also declare a `browser` and a `page` variable.
+**1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control the browser.
 
 **2. Initial navigation:** We use the `page.goto()` method to load the first page.
 
-**3. Fill out input fields and submit:** Using the `page.type()` and `page.click()` methods we enter our email address and
-password and click the login button. You would normally use environment variables here to keep sensitive data
+**3. Fill out input fields and submit:** Using the `page.fill()` method we enter our email address and
+password. You would normally use environment variables here to keep sensitive data
 out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-and-secrets/) for more info.
 
-**4. Wait for dashboard and close:** The expected behaviour is that the dashboard loads. In our case we can recognise this
-by the correct loading of the `.status-table` element in the page. For a visual reference, we also take a screenshot.
-We then close the browser. Our check is done.
+**4. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away. 
+
+
+**5. Wait for the dashboard and close:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
 
 ## How do I create a Browser check?
 
@@ -145,7 +140,7 @@ If the script fails, your check fails.
 {{< /info >}}
 
 
-## How do I assert assumptions?
+## How do I make assertions?
 
 Navigating around your app or site can already give you a lot of confidence your critical business processes are working correctly.
 However, many times you want to assert specific values on a page.
@@ -160,53 +155,43 @@ To do this, you can:
 2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
 3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
-You can use as many assertions in your code as you want. For example, in the code below we scrape the text from the
-large button on the Checkly homepage and assert it in two ways.
+You can use as many assertions in your code as you want. For example, in the code below we verify that the signup button on Checkly homepage has the right text.
 
 
 {{< tabs "Assertions example" >}}
-{{< tab "Playwright" >}}
+{{< tab "JavaScript" >}}
 ```js
-const playwright = require('playwright')
-const expect = require('expect')
+const { expect, test } = require('@playwright/test')
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
+test('CTA button has "Start for free" text', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
 
-// get the text of the button
-const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
+  // CTA button locator
+  const button = page.locator('#nav-signup-button')
 
-// assert using Jest's expect function
-expect(buttonText).toEqual('Start for free')
-
-await browser.close()
+  // Assert that the button has the correct text
+  await expect(button).toHaveText('Start for free')
+})
  ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer')
-const expect = require('expect')
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
+test('CTA button has "Start for free" text', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
 
-// get the text of the button
-const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
+  // CTA button locator
+  const button = page.locator('#nav-signup-button')
 
-// assert using Jest's expect function
-expect(buttonText).toEqual('Start for free')
-
-await browser.close()
+  // Assert that the button has the correct text
+  await expect(button).toHaveText('Start for free')
+})
  ```
 {{< /tab >}}
 {{< /tabs >}}
 
-Note the following:
-
-- We use the `page.$eval()` method to grab the button element and get its innerText property.
-- We use a basic Jest `expect().toEqual()` statement to verify the text is correct.
+Note that we are using Playwright's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text. 
 
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
