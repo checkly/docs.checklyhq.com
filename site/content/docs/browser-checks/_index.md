@@ -119,7 +119,6 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 **4. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away. 
 
-
 **5. Wait for the dashboard and close:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
 
 ## How do I create a Browser check?
@@ -138,7 +137,6 @@ In both cases, you can always **run and debug the script on your local machine**
 Every valid Playwright or Playwright Test script is a valid Browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
-
 
 ## How do I make assertions?
 
