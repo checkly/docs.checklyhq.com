@@ -26,9 +26,9 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
-To power your Browser checks, Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** library as well as **[Playwright Test](https://playwright.dev/docs/intro)**, a test-runner utilising Playwright to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+To power your Browser checks, Checkly uses **[Playwright Test](https://playwright.dev/docs/intro)** - a robust open-source test-runner backed by **[Playwright](https://github.com/microsoft/playwright)**.  Playwright test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
 
-While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues. [Learn more](/docs/browser-checks/playwright-test/).
+While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues, [learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
 
 
 {{< info >}}
@@ -197,7 +197,7 @@ alerting channels will be triggered, notifying your team that something is up.
 ![failed api monitoring assertion](/docs/images/browser-checks/failed_assertion.png)
 
 ## What about Puppeteer?
-While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer. The last available runtime is [2022.02](/docs/runtimes/specs/).
+While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer in newer [runtimes](/docs/runtimes/). The newest runtime that supports Puppeteer is [2022.02](/docs/runtimes/specs/).
 
 We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
 
