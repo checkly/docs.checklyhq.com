@@ -134,7 +134,7 @@ In both cases, you can always **run and debug the script on your local machine**
 
 
 {{< info >}}
-Every valid Playwright or Playwright Test script is a valid Browser check. If the script passes, your check passes.
+Every valid Playwright Test or Playwright script is a valid Browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
@@ -189,15 +189,15 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-Note that we are using Playwright's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text. 
+Note that we are using Playwright Tests's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text.
 
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
 
-![failed api monitoring assertion](/docs/images/browser-checks/failed_assertion.png)
+![failed PWT assertion](/docs/images/browser-checks/getting-started_pwt.gif)
 
 ## What about Puppeteer?
-While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer in newer [runtimes](/docs/runtimes/). The newest runtime that supports Puppeteer is [2022.02](/docs/runtimes/specs/).
+While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer in newer [runtimes](/docs/runtimes/). The latest runtime that supports Puppeteer is [2022.02](/docs/runtimes/specs/).
 
 We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
 
