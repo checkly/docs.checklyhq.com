@@ -111,7 +111,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 
 **1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control the browser.
 
-**2. Establish environment:** We use the `page` fixture to create a page instance without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
+**2. Establish environment:** We use the `page` fixture without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
 
 **3. Initial navigation:** We use the `page.goto()` method to load the first page.
 
