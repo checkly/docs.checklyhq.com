@@ -21,7 +21,8 @@ customers:
   logos:
     - icon: '/case-studies/kizen.png'
     - icon: '/case-studies/joyn.svg'
-    - icon: '/case-studies/solutia.png'
+    - icon: '/case-studies/cathay.png'
+    - icon: '/case-studies/autodesk.png'
     - icon: '/case-studies/commercetools.png'
     - icon: '/case-studies/crowdstrike.png'
     - icon: '/case-studies/deno.png'

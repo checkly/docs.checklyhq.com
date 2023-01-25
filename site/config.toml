@@ -1,7 +1,7 @@
 baseurl = "https://www.checklyhq.com"
 languageCode = "en-us"
 languageLang = "en"
-title = "Delightful Active Monitoring for Developers"
+title = "Build and Run Synthetics That Scale"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 enableGitInfo = true
 enableRobotsTXT = true
@@ -15,7 +15,7 @@ disqusShortname = "checkly"
   blog = "/blog/:year/:month/:title/"
 
 [params]
-    description = "Checkly is the API & E2E monitoring platform for the modern stack: programmable, flexible and loving JavaScript."
+    description = "Monitoring as Code workflow for developers: programmable, fast, reliable."
 
 [[menu.docs]]
 	name = "Monitoring"

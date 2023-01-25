@@ -65,7 +65,7 @@ Do you want to share your use case and experience using Checkly with your produc
   <img width="100px" src="https://www.checklyhq.com/images/text_racoon_logo.svg" alt="Checkly" />
   </a>
   <br />
-  <i><sub>Delightful Active Monitoring for Developers</sub></i>
+  <i><sub>Build and Run Synthetics That Scale</sub></i>
   <br>
   <b><sub>From Checkly with ♥️</sub></b>
 <p>
