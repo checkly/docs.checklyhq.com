@@ -81,14 +81,14 @@ Let's look at a breakdown of a real-life scenario. The code below logs into Chec
 ```js
 const { test } = require('@playwright/test') // 1
 
-test('Login to Checkly', async ({ page }) => {
-  await page.goto('https://app.checklyhq.com/login') // 2
+test('Login to Checkly', async ({ page }) => { // 2
+  await page.goto('https://app.checklyhq.com/login') // 3
 
-  await page.fill('input[type="email"]', 'john@example.com') // 3
-  await page.fill('input[type="password"]', 'mypassword')
-  await page.getByRole('button', { name: 'Log In' }).click() // 4
+  await page.locator('input[type="email"]').type('john@example.com') // 4
+  await page.locator('input[type="password"]').type('mypassword') // 5
+  await page.getByRole('button', { name: 'Log In' }).click() // 5
 
-  await page.getByTestId('home-dashboard-table').isVisible() // 5
+  await page.getByTestId('home-dashboard-table').isVisible() // 6
 })
  ```
 {{< /tab >}}
@@ -96,14 +96,14 @@ test('Login to Checkly', async ({ page }) => {
 ```ts
 import { test } from '@playwright/test' // 1
 
-test('Login to Checkly', async ({ page }) => {
-  await page.goto('https://app.checklyhq.com/login') // 2
+test('Login to Checkly', async ({ page }) => { // 2
+  await page.goto('https://app.checklyhq.com/login') // 3
 
-  await page.fill('input[type="email"]', 'john@example.com') // 3
-  await page.fill('input[type="password"]', 'mypassword')
-  await page.getByRole('button', { name: 'Log In' }).click() // 4
+  await page.locator('input[type="email"]').type('john@example.com') // 4
+  await page.locator('input[type="password"]').type('mypassword') // 5
+  await page.getByRole('button', { name: 'Log In' }).click() // 5
 
-  await page.getByTestId('home-dashboard-table').isVisible() // 5
+  await page.getByTestId('home-dashboard-table').isVisible() // 6
 })
 ```
 {{< /tab >}}
@@ -111,15 +111,17 @@ test('Login to Checkly', async ({ page }) => {
 
 **1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control the browser.
 
-**2. Initial navigation:** We use the `page.goto()` method to load the first page.
+**2. Establish environment:** We use the `page` fixture to create a page instance without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures#fixtures-page) to learn more.
 
-**3. Fill out input fields and submit:** Using the `page.fill()` method we enter our email address and
+**3. Initial navigation:** We use the `page.goto()` method to load the first page.
+
+**4. Fill out input fields and submit:** Using the `page.type()` method we enter our email address and
 password. You would normally use environment variables here to keep sensitive data
 out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-and-secrets/) for more info.
 
-**4. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away. 
+**5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
-**5. Wait for the dashboard and close:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
+**6. Wait for the dashboard and close:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
 
 ## How do I create a Browser check?
 
