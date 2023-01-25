@@ -52,3 +52,5 @@ You can tweak the following parts of your public dashboard:
 - **logo link:** Direct visitors to your company website when they click the logo.
 - **favicon:** Put the cherry on top with a custom favicon.
 - **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview.
+
+Next to the preset tweaks you can do to your dashboard, you can also apply custom CSS styles.
