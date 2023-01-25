@@ -111,7 +111,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 
 **1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control the browser.
 
-**2. Establish environment:** We use the `page` fixture to create a page instance without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures#fixtures-page) to learn more.
+**2. Establish environment:** We use the `page` fixture to create a page instance without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
 
 **3. Initial navigation:** We use the `page.goto()` method to load the first page.
 
@@ -121,7 +121,7 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 **5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
-**6. Wait for the dashboard and close:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
+**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright Test will automatically tear down the `page` fixture after the test has finished.
 
 ## How do I create a Browser check?
 
