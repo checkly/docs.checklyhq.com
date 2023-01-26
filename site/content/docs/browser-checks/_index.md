@@ -125,7 +125,8 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 ## How do I create a Browser check?
 
-Every valid **[Playwright Test](https://playwright.dev/docs/intro)** or **[Playwright](https://github.com/microsoft/playwright)** script is a valid Browser check. You can create these scripts in two ways:
+A valid Browser check is based on a valid **[Playwright Test](https://playwright.dev/docs/intro)** or **[Playwright](https://github.com/microsoft/playwright)** script. We are constantly updating Checkly to integrate their newest features ([view currently supported features](/docs/browser-checks/playwright-test/#features])).
+You can create these scripts in two ways:
 
 1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright Test or Playwright script automatically.
 2. By writing the Node.js by hand.
@@ -136,7 +137,7 @@ In both cases, you can always **run and debug the script on your local machine**
 
 
 {{< info >}}
-Every valid Playwright Test or Playwright script is a valid Browser check. If the script passes, your check passes.
+Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
