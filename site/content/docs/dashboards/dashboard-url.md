@@ -3,7 +3,7 @@ title: Url and Custom Domain
 weight: 48
 menu:
   docs:
-    parent: "Dashboards"
+    parent: "Dashboards (Legacy)"
 aliases:
 - "/dashboards/dashboard-url/"
 - "/docs/dashboards/dashboard-url/"
