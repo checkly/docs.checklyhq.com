@@ -26,7 +26,7 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
-To power your Browser checks, Checkly uses **[Playwright Test](https://playwright.dev/docs/intro)** - a robust open-source test-runner backed by **[Playwright](https://github.com/microsoft/playwright)**.  Playwright test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+To power your Browser checks, Checkly uses **[Playwright Test](https://playwright.dev/docs/intro)** - a robust open-source test-runner build around **[Playwright](https://github.com/microsoft/playwright)**. Playwright test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
 
 While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues, [learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
 
@@ -85,7 +85,7 @@ test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
 
   await page.locator('input[type="email"]').type('john@example.com') // 4
-  await page.locator('input[type="password"]').type('mypassword') // 5
+  await page.locator('input[type="password"]').type('mypassword') // 4
   await page.getByRole('button', { name: 'Log In' }).click() // 5
 
   await page.getByTestId('home-dashboard-table').isVisible() // 6
@@ -100,7 +100,7 @@ test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
 
   await page.locator('input[type="email"]').type('john@example.com') // 4
-  await page.locator('input[type="password"]').type('mypassword') // 5
+  await page.locator('input[type="password"]').type('mypassword') // 4
   await page.getByRole('button', { name: 'Log In' }).click() // 5
 
   await page.getByTestId('home-dashboard-table').isVisible() // 6
@@ -109,7 +109,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 {{< /tab >}}
 {{< /tabs >}}
 
-**1. Initial declarations:** We first import a framework (Playwright Test Runner or Playwright) to control the browser.
+**1. Initial declarations:** We first import the Playwright Test framework to control the browser.
 
 **2. Establish environment:** We use the `page` fixture without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
 
@@ -215,6 +215,7 @@ We recommend using Playwright Test if you are just starting out or [migrating fr
 
 - [Headless Automation guides](/learn/headless), a free & open source knowledge base for Playwright and Puppeteer
 (maintained by Checkly).
+- [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
 - [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
 Playwright-related libraries, tips and resources.
