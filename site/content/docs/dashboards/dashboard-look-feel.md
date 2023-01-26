@@ -3,7 +3,7 @@ title: Look & feel
 weight: 49
 menu:
   docs:
-    parent: "Dashboards"
+    parent: "Dashboards (Legacy)"
 ---
 
 Dashboards have a lot of tweakable options to make them work for you in your situation.
