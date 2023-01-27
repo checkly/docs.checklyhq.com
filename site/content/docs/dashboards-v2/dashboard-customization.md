@@ -29,7 +29,11 @@ Any DNS provider will have the option to easily add CNAME records. For example, 
 
 ![add cname to DNS provider](/docs/images/dashboards-v2/aws_cname.png)
 
-> If you have any issues setting up your coustom domain, please reach out to support on support@checklyhq.com with your domain name (e.g. status.acme.com).
+In some cases, our provider will ask you to verify you are the owner of the domain by adding another `TXT` record to you
+your DNS. You will see a notice similar to the one below.
+
+![verify domain via txt recrod](/docs/images/dashboards-v2/dashboards_txt_record.png)
+
 
 ## Incidents
 
