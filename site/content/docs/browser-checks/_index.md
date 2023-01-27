@@ -46,9 +46,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
 
   // Test that the response did not fail
-  if (response.status() > 399) {
-    throw new Error(`Failed with response code ${response.status()}`)
-  }
+  expect(response.status()).toBeLessThan(400)
 })
  ```
 {{< /tab >}}
@@ -60,9 +58,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
 
   // Test that the response did not fail
-  if (response.status() > 399) {
-    throw new Error(`Failed with response code ${response.status()}`)
-  }
+  expect(response.status()).toBeLessThan(400)
 })
  ```
 {{< /tab >}}
@@ -88,7 +84,8 @@ test('Login to Checkly', async ({ page }) => { // 2
   await page.locator('input[type="password"]').type('mypassword') // 4
   await page.getByRole('button', { name: 'Log In' }).click() // 5
 
-  await page.getByTestId('home-dashboard-table').isVisible() // 6
+  const homeDashboardTable = page.getByTestId('home-dashboard-table')
+  await expect(homeDashboardTable).toBeVisible() // 6
 })
  ```
 {{< /tab >}}
@@ -103,7 +100,8 @@ test('Login to Checkly', async ({ page }) => { // 2
   await page.locator('input[type="password"]').type('mypassword') // 4
   await page.getByRole('button', { name: 'Log In' }).click() // 5
 
-  await page.getByTestId('home-dashboard-table').isVisible() // 6
+  const homeDashboardTable = page.getByTestId('home-dashboard-table')
+  await expect(homeDashboardTable).toBeVisible() // 6
 })
 ```
 {{< /tab >}}
@@ -121,7 +119,8 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 **5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
-**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright Test will automatically tear down the `page` fixture after the test has finished.
+**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
+Playwright Test will automatically retry assertions until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright Test will automatically tear down the `page` fixture and clean up.
 
 ## How do I create a Browser check?
 
