@@ -103,6 +103,12 @@ disqusShortname = "checkly"
 	weight = 110
 
 [[menu.docs]]
+	name = "Analytics"
+	url = "/docs/anlytics/"
+	pre="/docs/images/icons/reporting.svg"
+	weight = 105
+
+[[menu.docs]]
     name = "Runtimes"
     url = "/docs/runtimes/"
     pre="/docs/images/icons/runtimes.svg"
