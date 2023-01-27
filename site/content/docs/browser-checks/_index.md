@@ -119,8 +119,7 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 **5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
-**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value.
-Playwright Test will automatically retry assertions until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright Test will automatically tear down the `page` fixture and clean up.
+**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright Test will automatically retry the assertion until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright Test will automatically tear down the `page` fixture and clean up.
 
 ## How do I create a Browser check?
 
