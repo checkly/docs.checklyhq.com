@@ -8,7 +8,7 @@ menu:
 
 ## Checkly URL
 
-Every public dashboard comes with a configurable custom subdomain under the `checkly-dashboards.com` domain. By default, 
+Every public dashboard comes with a configurable custom subdomain under the `checkly-dashboards.com` domain. By default,
 we generate a random ID. You can change this subdomain to anything you like as long as it is unique among all Checkly users.
 Typically, a company name works best, e.g. `acme.checkly-dashboards.com`
 
@@ -29,9 +29,11 @@ Any DNS provider will have the option to easily add CNAME records. For example, 
 
 ![add cname to DNS provider](/docs/images/dashboards-v2/aws_cname.png)
 
-> 29-11-2022: We are migrating to a new hosting provider to enable faster load times for all dashboards. This means we
-> will have to set up your custom domain and accompanying SSL / TLS certificate manually for a couple days. Please reach out
-> to support on support@checklyhq.com with your domain name (e.g. status.acme.com) and we will make it happen.
+In some cases, our provider will ask you to verify you are the owner of the domain by adding another `TXT` record to you
+your DNS. You will see a notice similar to the one below.
+
+![verify domain via txt recrod](/docs/images/dashboards-v2/dashboards_txt_record.png)
+
 
 ## Incidents
 
@@ -54,3 +56,5 @@ You can tweak the following parts of your public dashboard:
 - **logo link:** Direct visitors to your company website when they click the logo.
 - **favicon:** Put the cherry on top with a custom favicon.
 - **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview.
+
+Next to the preset tweaks you can do to your dashboard, you can also apply custom CSS styles.

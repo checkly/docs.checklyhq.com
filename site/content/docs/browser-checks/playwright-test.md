@@ -7,7 +7,8 @@ menu:
     parent: "Browser checks"
 ---
 
-Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework.
+Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. 
+Read more on how to utilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
 
 {{<info >}}
 
@@ -15,20 +16,44 @@ Support for Playwright Test is currently in Public Beta. If you experience an is
 
 {{</info >}}
 
+Playwright Test Runner elevates your monitoring and debugging experience by providing a number of neat functionalities:
+
+- detailed trace files with step-by-step information on your test cases
+- video recordings of browser sessions
+- the `expect()` function comes with built-in awaiting
+- lots of web-first assertions like `toContainText`, `toHaveURL`
+- high-level locators like `getByTitle`, `getByRole`
+- independent nested test cases that make your Checkly check even more powerful
+
 ## Getting started
-> Playwright Test is currently only available on the latest runtime, **2022.02.**
+> Playwright Test is available from runtime [**2022.02**](/docs/runtimes/specs/) onwards.
 
 A simple Playwright Test script would look like this:
 
-```js
-const { test, expect } = require('@playwright/test');
+{{< tabs "Basic test" >}}
+{{< tab "TypeScript" >}}
+ ```ts
+import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-  const name = await page.innerText('.navbar__title');
-  expect(name).toBe('Playwright');
-});
+  await page.goto('https://playwright.dev/')
+  const name = await page.innerText('.navbar__title')
+  expect(name).toBe('Playwright')
+})
 ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+ ```js
+const { test, expect } = require('@playwright/test')
+
+test('basic test', async ({ page }) => {
+  await page.goto('https://playwright.dev/')
+  const name = await page.innerText('.navbar__title')
+  expect(name).toBe('Playwright')
+})
+ ```
+{{< /tab >}}
+{{< /tabs >}}
 
 Which renders the logs:
 ```
@@ -46,6 +71,12 @@ Sep 29 13:47:35 - DEBUG - Run finished
 Sep 29 13:47:36 - DEBUG - Uploading log file
 ```
 
+### Browser check templates
+
+We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
+
+![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
+
 ## Features
 
 This is the list of Playwright Test Runner features that are currently supported. We will update it as more features become supported.
@@ -57,17 +88,57 @@ This is the list of Playwright Test Runner features that are currently supported
 | API testing              | Yes               |
 | Custom fixtures          | Yes               |
 | Reporters                | Only JSON, more to come |
-| Typescript               | Coming soon             |
+| Typescript               | Opt-in (Currently in beta - enable it via [Labs](https://app.checklyhq.com/settings/account/labs)) <br> **Not compatible with code sync via GitHub yet.**             |
 | Global configuration     | No           |
 | Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179))          |
 | Test retry               | No           |
 | Parallelism and sharding | No           |
 
-### Success criteria of your check
-One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases,
-and group them using the `test.describe` function. 
+> Playwright Test Runner is currently not available for code sync via GitHub using TypeScript.
 
-> **Your Checkly check will fail if at least one of the test cases fails.**
+### Browser check with multiple test cases
+One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases, 
+and group them using the `test.describe` function.
+
+> Your Checkly check will fail if **at least one** of the test cases fails.
+
+{{< tabs "describe" >}}
+{{< tab "TypeScript" >}}
+ ```ts
+import { test } from '@playwright/test';
+
+test.describe('two tests', () => {
+  test('one', async ({ page }) => {
+    // ...
+  })
+
+  test('two', async ({ page }) => {
+    // ...
+  })
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+ ```js
+const { test } = require('@playwright/test')
+
+test.describe('two tests', () => {
+  test('one', async ({ page }) => {
+    // ...
+  })
+
+  test('two', async ({ page }) => {
+    // ...
+  })
+})
+ ```
+{{< /tab >}}
+{{< /tabs >}}
+
+### Hooks
+Playwright Test Runner offers hook functions such as `test.afterEach` and `test.beforeEach` that run before or after individual test cases or `test.afterAll` and `test.beforeAll` that run before or after all tests have started/finished.
+
+You can find more information on available methods in the [official documentation](https://playwright.dev/docs/api/class-test).
 
 ### Viewing trace files
 When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. 
@@ -75,17 +146,17 @@ This makes it very easy to inspect individual traces and debug failing tests.
 
 You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
 
-![checkly-pw-traces](https://user-images.githubusercontent.com/3121310/195104010-51f856c1-d2b5-46db-a45c-7411eea2eb1b.gif)
+![checkly-pw-traces](/docs/images/browser-checks/pwt_traces.gif)
 
-> Note: When you use the editor page, for your convenience, 
-> we will always make the trace files available for download and preview, also for passing tests.
+> **Note:** When running tests from the editor page, trace files are always available for download and preview, 
+> regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
 
 ### Video recordings
 When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI.
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
-![checkly-pw-videos](https://user-images.githubusercontent.com/3121310/195104104-79f1abd8-ac85-4453-968f-e9afa3d8f314.gif)
+![checkly-pw-videos](/docs/images/browser-checks/pwt_videos.gif)
 
-> Note: When you use the editor page, for your convenience, 
-> we will always make the videos available for download and preview, also for passing tests.
+> **Note:** When running tests from the editor page, video files are always available for download and preview, 
+> regardless of whether the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.

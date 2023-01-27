@@ -15,10 +15,7 @@
       <div class="pricing__plans">
 
         <!-- HOBBY CARD -->
-        <div class="pricing__card pricing__card--small pricing__card pricing__card--light-gray ">
-          <div class="pricing__love-devs">
-            <img src="/images/love-devs.svg" alt="Checkly" />
-          </div>
+        <div class="pricing__card pricing__card--small pricing__card--light-gray ">
           <h3 class="">Hobby</h3>
           <div class="d-flex flex-column pricing__card--pricing-details">
             <div class="pricing__fancy-price justify-content-center mt-4">
@@ -27,48 +24,53 @@
             </div>
             <div class="pricing-muted">forever</div>
           </div>
-          <div class="pricing__list">
+
+          <div class="pricing__btn__wrapper">
+            <a class="btn btn-secondary pricing__btn__secondary pricing__btn mb-3" href="https://app.checklyhq.com/signup" rel="noopener" data-test="pricing-free-signup">Start for free</a>
+            <small class="text-muted text-left align-self-start ml-3 mb-2">* Hobby plan comes with access to Team plan features for 14 days. No credit card required.</small>
+          </div> 
+          
+          <div class="pricing__list pricing__list--hobby">
             <ul class="pt-3">
               <li>
                 <i class="ion-ios-checkmark text-secondary mr-2"></i>
-                10 API checks
+                10 API & 5 Browser checks
               </li>
               <li>
                 <i class="ion-ios-checkmark text-secondary mr-2"></i>
-                5 Browser checks
+                30 days of aggregated data retention
               </li>
               <li>
                 <i class="ion-ios-checkmark text-secondary mr-2"></i>
-                7 days of raw / 30 days of aggregated data retention
+                Single-user account
               </li>
               <li>
                 <i class="ion-ios-checkmark text-secondary mr-2"></i>
-                1 user only
-              </li>
-              <li>
-                <i class="ion-ios-checkmark text-secondary mr-2"></i>
-                Limited alert channels
+                Email, Slack, Webhook alerts
               </li>
             </ul>
           </div>
-          <a class="btn btn-secondary pricing__card-right__btn" href="https://app.checklyhq.com/signup" rel="noopener" data-test="pricing-free-signup">Start for free</a>
         </div>
 
         <!-- TEAMS CARD -->
         <div class="pricing__team-box">
-          <div class="pricing__card pricing__card--small pricing__card pricing__card--medium-gray pricing__card--team">
+          <div class="pricing__card pricing__card--small pricing__card--medium-gray pricing__card--team">
             <h3 class="">Team</h3>
             <div class="d-flex pricing__card--pricing-details align-items-end">
               <div class="d-flex align-items-baseline flex-column">
               <div class="font-weight-bold">Starting at</div>
                 <div class="pricing__fancy-price justify-content-center">
                   <div class="pricing__fancy-price__dollar-sign pricing__fancy-price__dollar-sign--big">$</div>
-                  <div class="pricing__fancy-price__price--big">70</div>
+                  <div class="pricing__fancy-price__price--big">30</div>
                 </div>
-                <div class="pricing-muted">per month</div>
+                <div class="pricing-muted text-medium">per month</div>
               </div>
             </div>
-            <div class="pricing__list">
+            <div class="pricing__btn__wrapper">
+              <a class="btn btn-success pricing__btn mb-3" href="https://app.checklyhq.com/signup" rel="noopener">Try for free</a>
+              <small class="text-muted text-left align-self-start mb-5"> * No credit card required.</small>
+            </div>  
+            <div class="pricing__list pricing__list--team">
               <ul class="pt-3">
                 <li class="font-weight-bold">
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
@@ -76,7 +78,7 @@
                 </li>
                 <li>
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
-                  Includes check runs worth $70
+                  Includes check runs worth $30
                 </li>
                 <li>
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
@@ -84,23 +86,11 @@
                 </li>
                 <li>
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
-                  $2.00 per 10K additional API check runs
-                </li>
-                <li>
-                  <i class="ion-ios-checkmark text-primary mr-2"></i>
-                  $5.00 per 1K additional Browser check runs
-                </li>
-                <li>
-                  <i class="ion-ios-checkmark text-primary mr-2"></i>
                   Unlimited Browser and API checks
                 </li>
                 <li>
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
-                  30 days of raw / 1 year of aggregated data retention
-                </li>
-                <li>
-                  <i class="ion-ios-checkmark text-primary mr-2"></i>
-                  Maintenance windows
+                  1 year of aggregated data retention
                 </li>
                 <li>
                   <i class="ion-ios-checkmark text-primary mr-2"></i>
@@ -116,13 +106,11 @@
                 </li>
               </ul>
             </div>
-            <a class="btn btn-success pricing__card-right__btn" href="https://app.checklyhq.com/signup?startOnTrial" rel="noopener">Start free trial</a>
           </div>
-          <small>* No credit card required</small>
         </div>
 
         <!-- ENTERPRISE CARD -->
-        <div class="pricing__card pricing__card--small pricing__card pricing__card--black">
+        <div class="pricing__card pricing__card--small pricing__card--black">
           <h3 class="">Enterprise</h3>
           <div class="d-flex flex-column pricing__card--pricing-details">
             <div class="font-weight-bold">Starting at</div>
@@ -132,8 +120,14 @@
             </div>
             <div>per month</div>
           </div>
+          <div class="pricing__btn__wrapper">
+
+            <button type="button" class="btn btn-secondary pricing__btn__secondary pricing__btn mb-5" data-toggle="modal" data-target="#contact-sales-modal">
+              Contact sales
+            </button>
+          </div>
           <div class="pricing__list">
-            <ul class="pt-3">
+            <ul class="pt-2 mt-5">
               <li class="font-weight-bold">
                 <i class="ion-ios-checkmark text-primary mr-2"></i>
                 Everything on the Team plan
@@ -164,13 +158,10 @@
               </li>
               <li>
                 <i class="ion-ios-checkmark text-primary mr-2"></i>
-                180 days of raw / 25 months of aggregated data retention
+                25 months of aggregated data retention
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-secondary pricing__card-right__btn" data-toggle="modal" data-target="#contact-sales-modal">
-            Contact sales
-          </button>
         </div>
 
         <div class="pricing__plans--toggle">
@@ -402,33 +393,14 @@
             <th>
               Aggregated data retention
             </th>
-            <td>7 days</td>
+            <td>30 days</td>
             <td>1 year</td>
             <td>25 months</td>
-          </tr>
-          <tr>
-            <th>SMS credits</th>
-            <td><i class="ion-close-circled text-muted"></i></td>
-            <td>200*</td>
-            <td>Custom</td>
           </tr>
           <tr>
             <th>SSL monitoring</th>
             <td><i class="ion-ios-checkmark text-success"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-          </tr>
-          <tr>
-            <th>
-              <div class="pricing__tooltip">
-                Private locations
-                <div class="pricing__tooltip--body">
-                  Get full visibility of private applications and APIs across your infrastructure, on-prem and in your private or hybrid cloud.
-                </div>
-              </div>
-            </th>
-            <td><i class="ion-close-circled text-muted"></i></td>
-            <td><i class="ion-close-circled text-muted"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
           </tr>
           <tr>
@@ -472,12 +444,6 @@
             <td><i class="ion-ios-checkmark text-success"></i></td>
           </tr>
           <tr>
-            <th>Maintenance windows </th>
-            <td><i class="ion-close-circled text-muted"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-          </tr>
-          <tr>
             <th>API access</th>
             <td><i class="ion-ios-checkmark text-success"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
@@ -511,6 +477,31 @@
           <tr>
             <th>
               <div class="pricing__tooltip">
+                Reporting
+                <div class="pricing__tooltip--body">
+                  Get a longer term, aggregated overview on uptime and performance. Exports to CSV for further processing.
+                </div>
+              </div>
+            </th>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+          </tr>
+          <tr>
+            <th>SMS credits</th>
+            <td><i class="ion-close-circled text-muted"></i></td>
+            <td>200*</td>
+            <td>Custom</td>
+          </tr>
+          <tr>
+            <th>Maintenance windows</th>
+            <td><i class="ion-close-circled text-muted"></i></td>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+            <td><i class="ion-ios-checkmark text-success"></i></td>
+          </tr>
+          <tr>
+            <th>
+              <div class="pricing__tooltip">
                 Prometheus endpoint
                 <div class="pricing__tooltip--body">
                   We provision a custom, secured endpoint that exposes checks statuses and response times in Prometheus format.
@@ -524,14 +515,14 @@
           <tr>
             <th>
               <div class="pricing__tooltip">
-                Reporting
+                Private locations
                 <div class="pricing__tooltip--body">
-                  Get a longer term, aggregated overview on uptime and performance. Exports to CSV for further processing.
+                  Get full visibility of private applications and APIs across your infrastructure, on-prem and in your private or hybrid cloud.
                 </div>
               </div>
             </th>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
+            <td><i class="ion-close-circled text-muted"></i></td>
+            <td><i class="ion-close-circled text-muted"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
           </tr>
           <tr>
@@ -578,12 +569,6 @@
           </tr>
           <tr>
             <th>Custom contracts & invoicing</th>
-            <td><i class="ion-close-circled text-muted"></i></td>
-            <td><i class="ion-close-circled text-muted"></i></td>
-            <td><i class="ion-ios-checkmark text-success"></i></td>
-          </tr>
-          <tr>
-            <th>Client Certificates</th>
             <td><i class="ion-close-circled text-muted"></i></td>
             <td><i class="ion-close-circled text-muted"></i></td>
             <td><i class="ion-ios-checkmark text-success"></i></td>
