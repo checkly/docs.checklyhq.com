@@ -8,17 +8,10 @@
     margin-top: 55px !important;
     width: 278px;
     font-size: 14px;
-    &__wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%; 
-    }
     &__secondary {
       color: black;
       background-color: #E0E6EB;
-      border: #E0E6EB;
+      border: #E0E6EB 1px solid;
     }
 
     &:focus {
@@ -38,8 +31,19 @@
     }
   }
 
-  &__team-box {
-    margin-bottom: 40px;
+  &__description {
+    font-size: 14px;
+    text-align: start;
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 20px 40px 20px;
+    }
+  }
+
+  .pricing__list {
+    font-size: 14px;
   }
 
   &__trusted-by {
@@ -125,10 +129,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 60px;
-    &--team {
-      margin-bottom: 30px;
-    }
     h4 {
       font-weight: 600;
     }
@@ -140,20 +140,19 @@
       display: none;
     }
     &--pricing-details {
-      flex-grow: 1;
-      align-items: center;
-      align-content: space-around;
-      justify-content: center;
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
     &--small {
-      position: relative;
       width: 350px;
-      padding: 40px 20px;
+      position: relative;
+      padding: 35px 20px;
       border-radius: 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: stretch;
 
       h3 {
         color: #161616;
@@ -454,7 +453,7 @@
         color: $white;
       }
       &--big {
-        font-size: 24px;
+        font-size: 32px;
       }
     }
 
@@ -492,16 +491,10 @@
       li {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         text-align: left;
         margin-bottom: 1rem;
       }
-    }
-    &--hobby {
-      margin-bottom: 196px;;
-    }
-    &--team {
-      margin-bottom: 19px;;
     }
   }
 
