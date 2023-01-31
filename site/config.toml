@@ -67,14 +67,14 @@ disqusShortname = "checkly"
 	weight = 70
 
 [[menu.docs]]
-	name = "Dashboards"
-	url = "/docs/dashboards/"
-	pre="/docs/images/icons/dashboards.svg"
-	weight = 80
-
-[[menu.docs]]
     name = "Dashboards V2"
     url = "/docs/dashboards-v2/"
+    pre="/docs/images/icons/dashboards.svg"
+    weight = 80
+
+[[menu.docs]]
+    name = "Dashboards (Legacy)"
+    url = "/docs/dashboards/"
     pre="/docs/images/icons/dashboards.svg"
     weight = 81
 
@@ -101,6 +101,12 @@ disqusShortname = "checkly"
 	url = "/docs/reporting/"
 	pre="/docs/images/icons/reporting.svg"
 	weight = 110
+
+[[menu.docs]]
+	name = "Analytics"
+	url = "/docs/anlytics/"
+	pre="/docs/images/icons/reporting.svg"
+	weight = 105
 
 [[menu.docs]]
     name = "Runtimes"
