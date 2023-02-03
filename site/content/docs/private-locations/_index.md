@@ -1,5 +1,5 @@
 ---
-title: Getting started with private locations
+title: Getting started with Private Locations
 weight: 51
 slug: /
 menu:
@@ -12,7 +12,9 @@ aliases:
 
 ## About Private Locations
 
-**You must have the Owner or Admin role on your Checkly account to create private locations.**
+> Private Locations are available on the [**Enterprise** plan](/pricing) only
+
+**You must have the Owner or Admin role on your Checkly account to create Private Locations.**
 
 Here are the requirements/questions before you get started:
 
@@ -24,7 +26,7 @@ Here are the requirements/questions before you get started:
 Here's how Private Locations work:
 
 A Private Location is similar to our existing public locations, but you have control over it. A Private Location can be 
-in your own segregated network,  on-premises or cloud-based. You need one or more Checkly Agents installed in that location/network 
+in your own segregated network, on-premises or cloud-based. You need one or more Checkly Agents installed in that location/network 
 with access to your applications. 
 
 Checkly checks are configured and scheduled in the Checkly cloud-based web UI as usual, but selecting a Private Location 
@@ -63,7 +65,7 @@ improve resilience automatically.
 
 9) Follow the detailed instructions in the [installing Checkly agent guide](/docs/private-locations/checkly-agent-guide/) to install one or more Checkly agents for the private location.
 
-10) Refresh the private locations page in the Checkly app and you will see a count of the number of running agents.
+10) Refresh the Private Locations page in the Checkly app and you will see a count of the number of running agents.
 
 ![agent running](/docs/images/private-locations/agent_running.png)
 
