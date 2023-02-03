@@ -12,6 +12,8 @@ aliases:
 
 ## About Private Locations
 
+> Client certificates are available on the [**Enterprise** plan](/pricing) only
+
 **You must have the Owner or Admin role on your Checkly account to create private locations.**
 
 Here are the requirements/questions before you get started:
