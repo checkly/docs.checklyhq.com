@@ -12,7 +12,7 @@ aliases:
 
 ## About Private Locations
 
-> Client certificates are available on the [**Enterprise** plan](/pricing) only
+> Private Locations are available on the [**Enterprise** plan](/pricing) only
 
 **You must have the Owner or Admin role on your Checkly account to create private locations.**
 
