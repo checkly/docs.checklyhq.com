@@ -10,7 +10,7 @@ customers:
       author: — Aliasger Kiranawala, Lead SDET
     - icon: '/case-studies/1passlogo.png'
       alt: '1password logo'
-      link: https://blog.1password.com/securely-monitoring-scim-bridges/
+      link: https://blog.checklyhq.com/how-1password-relies-on-checkly-for-secure-system-health-monitoring-for-thousands-of-business-customers/
       description: The team at Checkly was very quick to respond to any questions we had.
       author: — De Ville Weppenaar, Senior Developer
     - icon: '/case-studies/finnlogo.png'
@@ -21,7 +21,8 @@ customers:
   logos:
     - icon: '/case-studies/kizen.png'
     - icon: '/case-studies/joyn.svg'
-    - icon: '/case-studies/solutia.png'
+    - icon: '/case-studies/cathay.png'
+    - icon: '/case-studies/autodesk.png'
     - icon: '/case-studies/commercetools.png'
     - icon: '/case-studies/crowdstrike.png'
     - icon: '/case-studies/deno.png'
@@ -29,7 +30,6 @@ customers:
     - icon: '/case-studies/hays.png'
     - icon: '/case-studies/heriot.png'
     - icon: '/case-studies/codewise.svg'
-    - icon: '/case-studies/lidl.png'
     - icon: '/case-studies/medwing.png'
     - icon: '/case-studies/nzz.png'
     - icon: '/case-studies/oanda.png'
@@ -101,7 +101,6 @@ customers:
     - icon: '/case-studies/rightcapital.png'
     - icon: '/case-studies/rms.png'
     - icon: '/case-studies/safegraph.png'
-    - icon: '/case-studies/scrm.png'
     - icon: '/case-studies/sendcloud.png'
     - icon: '/case-studies/seniorlink.png'
     - icon: '/case-studies/sinch.png'

@@ -8,15 +8,10 @@ menu:
     identifier: overview-dashboards-v2
 ---
 
-> These are the docs for the ✨ **new Checkly Public Dashboards** ✨, available for all users by enabling them in the [Labs section under account settings](https://app.checklyhq.com/settings/account/labs).
-> Docs for the "old" dashboards can be found [here](/docs/dashboards/)
-
-## Overview
+Checkly Public Dashboards are dashboards you can use to communicate check status and incidents to non-Checkly users. Use
+them as a status page for your app, service or as a dashboard on a wall mounted TV in the office.
 
 ![Dashboard example](/docs/images/dashboards-v2/public-dashboard-1.png)
-
-Checkly Public Dashboards are dashboards you can use to communicate check status and incidents to non-Checkly users. Use 
-them as a status page for your app, service or as a dashboard on a wall mounted TV in the office. 
 
 Public Dashboards allow you to do the following:
 
