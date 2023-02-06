@@ -8,14 +8,14 @@ menu:
 
 There are different kinds of timeouts you will encounter while working with Browser checks:
 
-| Timeout name          | Timeout origin | Default value | Can it be changed? |
-|-----------------------|----------------|---------------|--------------------|
-| Browser check timeout | Checkly        | 120 seconds   | No                 |
-| Test timeout          | Playwright     | 30 seconds    | Yes                |
-| Navigation timeout	  | Playwright     | 30 seconds    | Yes                |
-| Action timeout        | Playwright     | no timeout    | Yes                |
+| Timeout name                    | Timeout origin | Default value | Can it be changed? |
+|---------------------------------|----------------|---------------|--------------------|
+| Browser check execution timeout | Checkly        | 120 seconds   | No                 |
+| Playwright test timeout         | Playwright     | 30 seconds    | Yes                |
+| Playwright navigation timeout	  | Playwright     | 30 seconds    | Yes                |
+| Playwright action timeout       | Playwright     | no timeout    | Yes                |
 
-Checkly's general Browser check timeout means that all browser checks are capped at **120 seconds**. This timeout overrides all other timeouts listed: Everything in your script needs to happen within those 120 seconds, no matter what. 
+Checkly runs your Browser check code for a maximum of **120 seconds**. Tests that exceed this time will be capped and time out. Everything in your Browser Check needs to happen within those 120 seconds, no matter what. 
 
 Playwright does offer multiple [configurable timeouts](https://playwright.dev/docs/test-timeouts). Make sure you configure these in a way that prevents your check from hitting the general 120 seconds timeout.
 
@@ -42,4 +42,8 @@ In this case, your script is hitting Checkly's 120s total Browser check timeout.
 
 ### Timeout 20000ms exceeded
 
-Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. In case you have more than one, remember you can use Playwright Traces to help you understand exactly where in your script the error was raised.
+Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. 
+
+{{<info >}}
+Remember that you can use Playwright Traces to help you understand exactly where in your script the error was raised. Traces are populated automatically for failed Browser checks in your check results.
+{{</info >}}
