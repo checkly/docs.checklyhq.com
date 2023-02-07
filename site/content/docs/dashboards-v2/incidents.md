@@ -1,6 +1,6 @@
 ---
 title: Incident & Maintenance messages
-weight: 49
+weight: 50
 menu:
   docs:
     parent: "Dashboards V2"
