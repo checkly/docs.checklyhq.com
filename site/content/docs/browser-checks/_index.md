@@ -38,9 +38,9 @@ We have stopped support for Puppeeteer with runtime 2022.10. [Read more about ou
 The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
-{{< tab "JavaScript" >}}
- ```js
-const { test } = require('@playwright/test')
+{{< tab "TypeScript" >}}
+ ```ts
+import { test } from '@playwright/test'
 
 test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
@@ -50,9 +50,9 @@ test('Visit Checkly HQ page', async ({ page }) => {
 })
  ```
 {{< /tab >}}
-{{< tab "TypeScript" >}}
- ```ts
-import { test } from '@playwright/test'
+{{< tab "JavaScript" >}}
+ ```js
+const { test } = require('@playwright/test')
 
 test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
@@ -73,22 +73,6 @@ Checkly currently supports only using **Chromium** with Playwright Test and Play
 Let's look at a breakdown of a real-life scenario. The code below logs into Checkly, and waits for the dashboard to fully load.
 
 {{< tabs "Breakdown example" >}}
-{{< tab "JavaScript" >}}
-```js
-const { test } = require('@playwright/test') // 1
-
-test('Login to Checkly', async ({ page }) => { // 2
-  await page.goto('https://app.checklyhq.com/login') // 3
-
-  await page.locator('input[type="email"]').type('john@example.com') // 4
-  await page.locator('input[type="password"]').type('mypassword') // 4
-  await page.getByRole('button', { name: 'Log In' }).click() // 5
-
-  const homeDashboardTable = page.getByTestId('home-dashboard-table')
-  await expect(homeDashboardTable).toBeVisible() // 6
-})
- ```
-{{< /tab >}}
 {{< tab "TypeScript" >}}
 ```ts
 import { test } from '@playwright/test' // 1
@@ -104,6 +88,22 @@ test('Login to Checkly', async ({ page }) => { // 2
   await expect(homeDashboardTable).toBeVisible() // 6
 })
 ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { test } = require('@playwright/test') // 1
+
+test('Login to Checkly', async ({ page }) => { // 2
+  await page.goto('https://app.checklyhq.com/login') // 3
+
+  await page.locator('input[type="email"]').type('john@example.com') // 4
+  await page.locator('input[type="password"]').type('mypassword') // 4
+  await page.getByRole('button', { name: 'Log In' }).click() // 5
+
+  const homeDashboardTable = page.getByTestId('home-dashboard-table')
+  await expect(homeDashboardTable).toBeVisible() // 6
+})
+ ```
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -164,9 +164,9 @@ You can use as many assertions in your code as you want. For example, in the cod
 
 
 {{< tabs "Assertions example" >}}
-{{< tab "JavaScript" >}}
-```js
-const { expect, test } = require('@playwright/test')
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
 test('CTA button has "Start for free" text', async ({ page }) => {
   await page.goto('https://checklyhq.com/')
@@ -179,9 +179,9 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 })
  ```
 {{< /tab >}}
-{{< tab "TypeScript" >}}
-```ts
-import { expect, test } from '@playwright/test'
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
 
 test('CTA button has "Start for free" text', async ({ page }) => {
   await page.goto('https://checklyhq.com/')
