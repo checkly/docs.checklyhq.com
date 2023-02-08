@@ -104,3 +104,9 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 
 > **Note:** When running tests from the editor page, video files are always available for download and preview, 
 > regardless of whether the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.
+
+## Overhead issue
+
+A check using the Playwright Test Runner will currently run around 30-50% longer than a regular Playwright check. This is caused by the additional assets of traces and videos. We are aware of this and are investigating solutions.
+
+If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.
