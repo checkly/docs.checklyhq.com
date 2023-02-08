@@ -139,6 +139,12 @@ Valid Playwright Test or Playwright scripts are the foundation of a valid Browse
 If the script fails, your check fails.
 {{< /info >}}
 
+### Browser check templates
+
+We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
+
+![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
+
 ## How do I make assertions?
 
 Navigating around your app or site can already give you a lot of confidence your critical business processes are working correctly.

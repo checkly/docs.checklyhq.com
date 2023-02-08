@@ -1,7 +1,7 @@
 ---
 title: Scraping & asserting on page elements
 description: How to scrape web page elements like texts, buttons and forms with Google Chrome and Puppeteer or Playwright.
-weight: 15
+weight: 16
 menu:
   docs:
     parent: "Browser checks"

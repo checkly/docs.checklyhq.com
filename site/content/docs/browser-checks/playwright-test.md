@@ -19,57 +19,7 @@ Playwright Test Runner elevates your monitoring and debugging experience by prov
 - high-level locators like `getByTitle`, `getByRole`
 - independent nested test cases that make your Checkly check even more powerful
 
-## Getting started
 > Playwright Test is available from runtime [**2022.02**](/docs/runtimes/specs/) onwards.
-
-A simple Playwright Test script would look like this:
-
-{{< tabs "Basic test" >}}
-{{< tab "TypeScript" >}}
- ```ts
-import { test, expect } from '@playwright/test';
-
-test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/')
-  const name = await page.innerText('.navbar__title')
-  expect(name).toBe('Playwright')
-})
-```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
- ```js
-const { test, expect } = require('@playwright/test')
-
-test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/')
-  const name = await page.innerText('.navbar__title')
-  expect(name).toBe('Playwright')
-})
- ```
-{{< /tab >}}
-{{< /tabs >}}
-
-Which renders the logs:
-```
-Sep 29 13:47:33 - DEBUG - Starting job
-Sep 29 13:47:33 - DEBUG - Compiling environment variables
-Sep 29 13:47:33 - DEBUG - Creating runtime using version 2022.02
-Sep 29 13:47:33 - DEBUG - Running Playwright test script
-Sep 29 13:47:34 - INFO - Running 1 test using 1 worker
-Sep 29 13:47:34 - INFO -
-Sep 29 13:47:35 - INFO - [1/1] [chromium] › ../../var/task/src/2022-02/node_modules/vm2/lib/bridge.js:479:11 › basic test
-Sep 29 13:47:35 - INFO -
-Sep 29 13:47:35 - INFO -
-Sep 29 13:47:35 - INFO - 1 passed (2s)
-Sep 29 13:47:35 - DEBUG - Run finished
-Sep 29 13:47:36 - DEBUG - Uploading log file
-```
-
-### Browser check templates
-
-We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
-
-![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
 
 ## Features
 
