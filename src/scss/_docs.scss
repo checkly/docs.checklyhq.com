@@ -283,7 +283,7 @@
     }
 
     &-header {
-      padding-left: 2 * $menu-item-padding-spacer;
+      padding-left: 2 * $menu-item-padding-spacer + 2px;
       color: $gray-dark;
       font-weight: 600;
       margin-bottom: $menu-item-padding-spacer;

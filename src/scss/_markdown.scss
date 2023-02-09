@@ -191,6 +191,7 @@
       width: 100%;
       outline: 3px solid $gray-lighter;
       display: none;
+      position: relative;
     }
 
     input[type="radio"]:checked + label {
