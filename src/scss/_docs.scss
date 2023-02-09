@@ -260,7 +260,7 @@
 
     nav#TableOfContents {
       ul {
-        border-left: 2px solid $brand-primary;
+        border-left: 2px solid $gray-light;
         padding-left: 2 * $menu-item-padding-spacer;
 
         ul {
@@ -287,6 +287,49 @@
       color: $gray-dark;
       font-weight: 600;
       margin-bottom: $menu-item-padding-spacer;
+    }
+
+    &-community {
+      margin-top: 4 * $menu-item-padding-spacer;
+
+      nav {
+        ul {
+          border-left: 2px solid $gray-light;
+          padding-left: 2 * $menu-item-padding-spacer !important;
+
+          li {
+            a {
+              display: block;
+              padding-bottom: $menu-item-padding-spacer;
+              color: $gray-darkish;
+            }
+          }
+        }
+      }
+
+      &-slack-link {
+        &::before {
+          width: 12px;
+          height: 12px;
+          background: url(/images/icons/slack-icon.svg);
+          background-size: 100%;
+          margin: 0 8px 0 0;
+          content: '';
+          display: inline-block;
+        }
+      }
+
+      &-github-link {
+        &::before {
+          width: 12px;
+          height: 12px;
+          background: url(/images/icons/github-icon.svg);
+          background-size: 100%;
+          margin: 0 8px 0 0;
+          content: '';
+          display: inline-block;
+        }
+      }
     }
 
     &-mobile {
