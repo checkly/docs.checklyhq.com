@@ -7,7 +7,7 @@ menu:
     parent: "Browser checks"
 ---
 
-Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. 
+Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework.
 Read more on how to utilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
 
 Playwright Test Runner elevates your monitoring and debugging experience by providing a number of neat functionalities:
@@ -85,10 +85,9 @@ Playwright Test Runner offers hook functions such as `test.afterEach` and `test.
 You can find more information on available methods in the [official documentation](https://playwright.dev/docs/api/class-test).
 
 ### Viewing trace files
-When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. 
-This makes it very easy to inspect individual traces and debug failing tests.
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. Traces enable you to follow each action of your test and their outcome. This makes it very easy to inspect individual traces and debug failing tests.
 
-You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
+You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev). In Trace Viewer you can effortlessly view your test, skip back and forth between actions, view snapshots and metadata, and more.
 
 ![checkly-pw-traces](/docs/images/browser-checks/pwt_traces.gif)
 
@@ -96,7 +95,7 @@ You can download the trace files for manual inspection or view them directly wit
 > regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
 
 ### Video recordings
-When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI.
+When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI. It is a great tool to get a first look of the actions and their outcome to identify what failed quickly, and to visualize regressions.
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
@@ -107,6 +106,6 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 
 ## Overhead issue
 
-A check using the Playwright Test Runner will currently run around 30-50% longer than a regular Playwright check. This is caused by the additional assets of traces and videos. We are aware of this and are investigating solutions.
+A check using Playwright Test Runner will currently run around 30-50% longer than a regular Playwright check. This is caused by the additional assets of traces and videos. We are aware of this and are investigating solutions.
 
 If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.
