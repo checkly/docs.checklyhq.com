@@ -53,7 +53,7 @@
   }
 
   pre {
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     overflow: auto;
     font-size: $font-size-sm;
     line-height: 1.45;
@@ -168,25 +168,20 @@
   .markdown-tabs {
     margin-top: 1rem;
     margin-bottom: 1rem;
-
-    border: 1solid $gray-light;
-    border-radius: $border-radius;
-
     overflow: hidden;
-
     display: flex;
     flex-wrap: wrap;
 
     label {
       display: inline-block;
       padding: 0.75em 1.5em;
-      border-bottom: 1px transparent;
+      border-bottom: 2px transparent;
       cursor: pointer;
       margin-bottom: 0;
       text-transform: uppercase;
       font-size: .75rem;
       color: $gray;
-      font-weight: 500;
+      font-weight: 600;
       line-height: 24px;
       letter-spacing: .04rem;
     }
@@ -194,14 +189,14 @@
     .markdown-tabs-content {
       order: 999; //Move content blocks to the end
       width: 100%;
-      border-top: 1px solid $gray-light;
-      padding: 1rem;
+      outline: 3px solid $gray-lighter;
       display: none;
     }
 
     input[type="radio"]:checked + label {
       border-bottom: 3px solid $brand-primary;
       color: $brand-primary;
+      z-index: 999;
     }
     input[type="radio"]:checked + label + .markdown-tabs-content {
       display: block;

@@ -15,7 +15,38 @@ configuration.
 
 Create a `checkly.config.js` (or `checkly.config.ts`) at the root of your project.
 
-```js
+{{< tabs "config" >}}
+{{< tab "TypeScript" >}}
+ ```ts
+const config = {
+  projectName: 'Website Monitoring',
+  logicalId: 'website-monitoring-1',
+  repoUrl: 'https://github.com/acme/website',
+  checks: {
+      activated: true,
+      muted: false,
+      runtimeId: '2022.10',
+      frequency: 5,
+      locations: ['us-east-1', 'eu-west-1'],
+      tags: ['website', 'api'],
+      alertChannels: [],
+      checkMatch: '**/*.check.js',
+      browserChecks: {
+          frequency: 10,
+          testMatch: '**/*.spec.js',
+      },
+  },
+  cli: {
+      verbose: false,
+      runLocation: 'eu-west-1',
+  }
+}
+
+export default config
+ ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+ ```js
 const config = {
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
@@ -41,7 +72,9 @@ const config = {
 }
 
 module.exports = config;
-```
+ ```
+{{< /tab >}}
+{{< /tabs >}}
 
 - `checkMatch`: By default, Checkly looks for files matching `**/*.check.{js,ts}`.
 - `cli`: Sets default values for command line flags. Setting command line flags will still override these values.
