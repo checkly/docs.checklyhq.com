@@ -85,9 +85,9 @@ Playwright Test Runner offers hook functions such as `test.afterEach` and `test.
 You can find more information on available methods in the [official documentation](https://playwright.dev/docs/api/class-test).
 
 ### Viewing trace files
-When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. Traces enable you to follow each action of your test and their outcome. This makes it very easy to inspect individual traces and debug failing tests.
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev). 
 
-You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev). In Trace Viewer you can effortlessly view your test, skip back and forth between actions, view snapshots and metadata, and more.
+Using the Playwright Trace Viewer you can effortlessly view your test, skip back and forth between actions, view snapshots and metadata, and more. This makes it very easy to inspect individual traces and debug failing tests.
 
 ![checkly-pw-traces](/docs/images/browser-checks/pwt_traces.gif)
 
@@ -95,7 +95,7 @@ You can download the trace files for manual inspection or view them directly wit
 > regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
 
 ### Video recordings
-When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI. It is a great tool to get a first look of the actions and their outcome to identify what failed quickly, and to visualize regressions.
+When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI. It is a great tool to get a first look of the actions and their outcome to quickly identify what failed, and to visualize regressions.
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
