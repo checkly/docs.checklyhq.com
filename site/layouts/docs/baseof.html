@@ -7,7 +7,7 @@
   {{ range $index, $element := split $url "/" }}
     {{ if ne $element "" }}
       {{ if eq $element "docs" }}
-        {{ $breadcrumb_text = (print $breadcrumb_text "Checkly docs")}}
+        {{ $breadcrumb_text = (print $breadcrumb_text "docs")}}
       {{ else }}
         {{ if eq $index 3 }}
           {{ $sub_str := humanize . }}

@@ -248,11 +248,10 @@
     font-size: .875rem;
     margin-right: auto;
     width: 232px;
-    padding-top: 8rem;
+    padding-top: 6rem;
 
     nav {
       width: $toc-width;
-      padding: 1rem 0 1rem 0;
       bottom: 0;
       overflow-x: hidden;
       overflow-y: auto
@@ -262,7 +261,7 @@
     nav#TableOfContents {
       ul {
         border-left: 2px solid $brand-primary;
-        padding-left: .5rem;
+        padding-left: 2 * $menu-item-padding-spacer;
 
         ul {
           padding-left: 0.75rem;
@@ -271,7 +270,8 @@
         li {
           a {
             display: block;
-            padding-block: 5px;
+            padding-bottom: $menu-item-padding-spacer;
+            color: $gray-darkish;
           }
         }
       }
@@ -283,9 +283,10 @@
     }
 
     &-header {
+      padding-left: 2 * $menu-item-padding-spacer;
       color: $gray-dark;
       font-weight: 600;
-      text-transform: uppercase;
+      margin-bottom: $menu-item-padding-spacer;
     }
 
     &-mobile {
@@ -314,31 +315,6 @@
       color: $black;
     }
 
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      margin: 30px 0 20px;
-      padding: 0;
-      background: none;
-      font-size: 14px;
-
-      & a {
-        color: $gray;
-        &:hover {
-          text-decoration: none;
-          color: $gray-dark;
-        }
-      }
-
-      & a:last-child {
-        color: $gray-dark;
-      }
-
-      & span {
-        margin: 0 5px;
-        color: $gray;
-      }
-    }
     nav#TableOfContents {
       ul {
         border-left: 2px solid $brand-primary;
