@@ -22,6 +22,16 @@
     margin: 0 0 .5rem;
   }
 
+  .yt-container {
+    max-width: 40rem;
+    margin: 3rem auto;
+
+    iframe {
+      border-radius: 0.5rem;
+      max-width: 100%;
+    }
+  }
+
   .racoon-container {
     text-style: center;
 
@@ -38,6 +48,8 @@
 
   .subline {
     font-size: 1.25rem;
+    max-width: 70ch;
+    margin-inline: auto;
   }
 
   .tag {
