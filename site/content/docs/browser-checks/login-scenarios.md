@@ -16,30 +16,40 @@ a great candidate for a browser check as these site transactions tend to be very
 The code snippet below shows how you can log into GitHub.
 
 {{< tabs "Basic login" >}}
-{{< tab "Playwright" >}}
-```javascript
-const playwright = require('playwright')
+{{< tab "Typescript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-await page.goto('https://github.com/login')
-await page.type('#login_field', 'johndoe@example.com')
-await page.type('#password', 'mypasswd')
-await page.click('[name="commit"]')
-await browser.close()
+test('Login into Github', async ({ page }) => {
+    // Go to login page
+    await page.goto('https://github.com/login')
+
+    // Fill in credentials
+    await page.locator('#login_field').type('janedoe@example.com')
+    await page.locator('#password').type('mypasswd')
+    await page.locator('#login-btn').click()
+
+    // Verify successful login
+    await expect(page.locator('#login-message')).toBeVisible()
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```javascript
-const puppeteer = require('puppeteer')
+{{< tab "Javascript" >}}
+```js
+const { expect, test } = require('@playwright/test')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-await page.goto('https://github.com/login')
-await page.type('#login_field', 'johndoe@example.com')
-await page.type('#password', 'mypasswd')
-await page.click('[name="commit"]')
-await browser.close()
+test('Login into Github', async ({ page }) => {
+    // Go to login page
+    await page.goto('https://github.com/login')
+
+    // Fill in credentials
+    await page.locator('#login_field').type('janedoe@example.com')
+    await page.locator('#password').type('mypasswd')
+    await page.locator('#login-btn').click()
+
+    // Verify successful login
+    await expect(page.locator('#login-message')).toBeVisible()
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -48,30 +58,40 @@ However, notice we are hard coding the username and password into our script. Th
 Better to replace them with some environment variables. Read more about [how to use environment variables in your browser checks.](/docs/browser-checks/variables/)
 
 {{< tabs "Using environment variables" >}}
-{{< tab "Playwright" >}}
-```javascript
-const playwright = require('playwright')
+{{< tab "Typescript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-await page.goto('https://github.com/login')
-await page.type('#login_field', process.env.GITHUB_USER)
-await page.type('#password', process.env.GITHUB_PWD)
-await page.click('[name="commit"]')
-await browser.close()
+test('Login into Github', async ({ page }) => {
+    // Go to login page
+    await page.goto('https://github.com/login')
+
+    // Fill in credentials
+    await page.locator('#login_field').type(process.env.GITHUB_USERNAME)
+    await page.locator('#password').type(process.env.GITHUB_PASSWORD)
+    await page.locator('#login-btn').click()
+
+    // Verify successful login
+    await expect(page.locator('#login-message')).toBeVisible()
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```javascript
-const puppeteer = require('puppeteer')
+{{< tab "Javascript" >}}
+```js
+const { expect, test } = require('@playwright/test')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-await page.goto('https://github.com/login')
-await page.type('#login_field', process.env.GITHUB_USER)
-await page.type('#password', process.env.GITHUB_PWD)
-await page.click('[name="commit"]')
-await browser.close()
+test('Login into Github', async ({ page }) => {
+    // Go to login page
+    await page.goto('https://github.com/login')
+
+    // Fill in credentials
+    await page.locator('#login_field').type(process.env.GITHUB_USERNAME)
+    await page.locator('#password').type(process.env.GITHUB_PASSWORD)
+    await page.locator('#login-btn').click()
+
+    // Verify successful login
+    await expect(page.locator('#login-message')).toBeVisible()
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -83,126 +103,93 @@ redirects involved. Also, many providers make their login pages "bot resistant" 
 below uses the Google social login option on the Checkly login page.
 
 {{< tabs "Social login" >}}
-{{< tab "Playwright" >}}
-```javascript
-const playwright = require('playwright')
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+{{< tab "Typescript" >}}
+```ts
+import { test } from '@playwright/test'
 
-await page.setViewportSize({ width: 1280, height: 800 })
-await page.goto('https://app.checklyhq.com/')
+test('Login into Checkly with Google social login', async ({ page }) => {
+    await page.goto('https://app.checklyhq.com/')
 
-// Click Google login
-await page.click('a[data-provider="google-oauth2"]')
+    // Click Google login
+    await page.getByText('Sign in with Google').click()
 
-// provide email address and click next
-await page.fill('input[type="email"]', process.env.GOOGLE_USER)
-await page.click('#identifierNext')
+    // Provide email address and click 'next' button
+    await page.locator('input[type="email"]').type(process.env.GOOGLE_USERNAME)
+    await page.getByRole('button', { name: 'Next' }).click()
 
-// provide password, click next and wait for redirect back to Checkly
-await page.fill('input[type="password"]', process.env.GOOGLE_PWD)
-await page.click('#passwordNext')
+    // Provide password, click 'sign in' button
+    await page.locator('input[type="password"]').type(process.env.GOOGLE_PASSWORD)
+    await page.getByRole('button', { name: 'Sign in' }).click()
 
-await browser.close()
+    // Verify successful login
+    await page.getByTestId('home-dashboard-table').toBeVisible()
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```javascript
-const puppeteer = require('puppeteer')
+{{< tab "Javascript" >}}
+```js
+const { test } = require('@playwright/test')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+test('Login into Checkly with Google social login', async ({ page }) => {
+    await page.goto('https://app.checklyhq.com/')
 
-await page.setViewport({ width: 1280, height: 800 })
-await page.goto('https://checklyhq.com/login')
+    // Click Google login
+    await page.getByText('Sign in with Google').click()
 
-const navigationPromise = page.waitForNavigation()
-await page.goto('https://app.checklyhq.com/')
+    // Provide email address and click 'next' button
+    await page.locator('input[type="email"]').type(process.env.GOOGLE_USERNAME)
+    await page.getByRole('button', { name: 'Next' }).click()
 
-// Click Google login and wait for redirect
-await page.click('a[data-provider="google-oauth2"]')
-await navigationPromise
+    // Provide password, click 'sign in' button
+    await page.locator('input[type="password"]').type(process.env.GOOGLE_PASSWORD)
+    await page.getByRole('button', { name: 'Sign in' }).click()
 
-// provide email address and click next
-await page.waitForSelector('input[type="email"]')
-await page.type('input[type="email"]', process.env.GOOGLE_USER)
-await page.click('#identifierNext')
-
-// provide password, click next and wait for redirect back to Checkly
-await page.waitForSelector('input[type="password"]', { visible: true })
-await page.type('input[type="password"]', process.env.GOOGLE_PWD)
-
-const navigationPromise2 = page.waitForNavigation()
-await page.waitForSelector('#passwordNext', { visible: true })
-await page.click('#passwordNext')
-await navigationPromise2
-
-await browser.close()
+    // Verify successful login
+    await page.getByTestId('home-dashboard-table').toBeVisible()
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
 Note the following:
 
-- We create a `navigationPromise` ahead of time and wait for this promise to resolve as we navigate from domain to domain.
 - We of course store our credentials in environment variables.
-- We use the `state: 'visible'`/`visible: true`(for Playwright and Puppeteer, respectively) option when waiting for the buttons and input fields to appear. The script fails otherwise.
+- Playwright Test's locators will wait for your elements to be visible until the test times out (which will make the check fail).
 
 ## Password-protected websites
 
-In certain cases, for example with [Vercel password-protected deployments](https://vercel.com/blog/protecting-deployments), websites might require a password to be entered before the target page is made available. Much like login cases, this can be solved directly using Puppeteer or Playwright:
+In certain cases, for example with [Vercel password-protected deployments](https://vercel.com/blog/protecting-deployments), websites might require a password to be entered before the target page is made available. Much like login cases, this can be solved directly using Playwright Test:
 
 {{< tabs "Password-protected deployment" >}}
-{{< tab "Playwright" >}}
-```javascript
-const {chromium} = require("playwright");
+{{< tab "Typescript" >}}
+```ts
+import { test } from '@playwright/test'
 
-(async () => {
-
-    const browser = await chromium.launch();
-    const page = await browser.newPage();
-
-    // If the check is being triggered via GitHub deployments, you might
-    // want to change the below environment variable to ENVIRONMENT_URL
-    await page.goto(process.env.URL);
-
-    await page.type('input', 'password')
-    await page.click('button')
-
-    // Your check logic here
-
-    await browser.close();
-
-})()
+test('Login into password-protected website', async ({ page }) => {
+    await page.goto(process.env.URL)
+    await page.locator('input[type="email"]').type(process.env.USERNAME)
+    await page.locator('input[type="password"]').type(process.env.PASSWORD)
+    await page.getByRole('button', { name: 'Sign in' }).click()
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```javascript
-const puppeteer = require("puppeteer");
+{{< tab "Javascript" >}}
+```js
+const { test } = require('@playwright/test')
 
-(async () => {
+test('Login into password-protected website', async ({ page }) => {
+    await page.goto(process.env.URL)
+    await page.locator('input[type="email"]').type(process.env.USERNAME)
+    await page.locator('input[type="password"]').type(process.env.PASSWORD)
+    await page.getByRole('button', { name: 'Sign in' }).click()
+})
 
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-
-    // If the check is being triggered via GitHub deployments, you might
-    // want to change the below environment variable to ENVIRONMENT_URL
-    await page.goto(process.env.URL);
-
-    await page.type('input', 'password')
-    await page.click('button')
-
-    // Your check logic here
-
-    await browser.close();
-
-})()
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-# More resources
+## More resources
 
 - [Microsoft Live Login](/learn/headless/e2e-microsoft-live-login/)
 - [Login with Google](/learn/headless/e2e-google-login/)
