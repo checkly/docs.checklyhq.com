@@ -18,7 +18,7 @@ synthetic monitors (checks) at scale, from your code base. We call this workflow
 - **Typescript-first.** Fully typings and code completion.
 - **Run in the cloud or on-prem.** Run on the Checkly cloud or in your network using the [Private Locations](https://www.checklyhq.com/docs/private-locations/)
 
-# Starting your first project
+## Starting your first project
 
 First, make sure you sign up for a [free Checkly account](https://app.checklyhq.com/signup).
 
