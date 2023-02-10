@@ -82,3 +82,7 @@ test('Visit Checkly homepage and take a screenshot', async ({ page }) => {
 The code above snaps a picture of the headline on the Checkly homepage.
 
 ![take screenshot of page element with Playwright](/docs/images/browser-checks/element_screenshot.gif)
+
+## More resources
+
+- Learn [how to mask dynamic elements with Playwright screenshots](https://www.youtube.com/watch?v=f_u8PZvmYUo) on our YouTube channel
