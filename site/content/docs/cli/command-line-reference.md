@@ -1,6 +1,6 @@
 ---
-title: Command Line
-weight: 4
+title: Command Line Reference
+weight: 99
 menu:
   docs:
     parent: "CLI"

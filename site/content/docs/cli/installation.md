@@ -6,6 +6,9 @@ menu:
     parent: "CLI"
 ---
 
+To kickstart a new project with the CLI, we recommend running `npm create @checkly/cli`. But you can also add the CLI
+from scratch with the following steps. 
+
 First, install the CLI.
 
 ```bash
@@ -18,26 +21,68 @@ To use TypeScript, also install `ts-node` and `typescript`:
 npm i --save-dev ts-node typescript
 ```
 
-Create a `checkly.config.js` (or `checkly.config.ts`) at the root of your project.
+Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of your project.
 
-```js
+{{< tabs "config" >}}
+{{< tab "TypeScript" >}}
+ ```ts
 const config = {
-  projectName: 'My First Checkly Project',
-  logicalId: 'checkly-project-1',
+  projectName: 'Website Monitoring',
+  logicalId: 'website-monitoring-1',
+  repoUrl: 'https://github.com/acme/website',
+  checks: {
+      activated: true,
+      muted: false,
+      runtimeId: '2022.10',
+      frequency: 5,
+      locations: ['us-east-1', 'eu-west-1'],
+      tags: ['website', 'api'],
+      alertChannels: [],
+      checkMatch: '**/*.check.js',
+      browserChecks: {
+          frequency: 10,
+          testMatch: '**/*.spec.js',
+      },
+  },
+  cli: {
+      verbose: false,
+      runLocation: 'eu-west-1',
+  }
+}
+
+export default config
+ ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+ ```js
+const config = {
+  projectName: 'Website Monitoring',
+  logicalId: 'website-monitoring-1',
+  repoUrl: 'https://github.com/acme/website',
   checks: {
     activated: true,
     muted: false,
     runtimeId: '2022.10',
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
+    tags: ['website', 'api'],
+    alertChannels: [],
+    checkMatch: '**/*.check.js',
     browserChecks: {
+      frequency: 10,
       testMatch: '**/*.spec.js',
     },
+  },
+  cli: {
+    verbose: false,
+    runLocation: 'eu-west-1',
   }
 }
 
 module.exports = config;
-```
+ ```
+{{< /tab >}}
+{{< /tabs >}}
 
 Use the CLI to authenticate and pick a Checkly account. Make sure you have [signed up for a free account on checklyhq.com](https://www.checklyhq.com/).
 
@@ -47,8 +92,10 @@ npx checkly login
 
 Now, let's create your first synthetic monitoring check, starting with a `@playwright/test` based Browser check. Create a file named `__checks__/home.spec.js`.
 
-```js
-const { expect, test } = require('@playwright/test')
+{{< tabs "check-example" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
 test('Playwright home page', async ({ page }) => {
   const response = await page.goto('https://playwright.dev/')
@@ -57,12 +104,27 @@ test('Playwright home page', async ({ page }) => {
   await page.screenshot({ path: 'homepage.jpg' })
 })
 ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```ts
+const { expect, test } =  require('@playwright/test')
+
+test('Playwright home page', async ({ page }) => {
+  const response = await page.goto('https://playwright.dev/')
+  expect(response.status()).toBeLessThan(400)
+  expect(page).toHaveTitle(/Playwright/)
+  await page.screenshot({ path: 'homepage.jpg' })
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
 
 Now run `npx checkly test` to do a dry run against the global Checkly infrastructure so we validate we didn't make any mistakes.
 This should print the message:
 
 ```
-Running 1 checks in eu-central-1.
+Running 1 checks in eu-west-1.
 
 __checks__/js/home.spec.js
   ✔ home.spec.js > home.spec.js (4s)

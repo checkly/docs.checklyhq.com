@@ -6,14 +6,37 @@ menu:
     parent: "CLI"
 ---
 
+This is how a typical project using the Checkly CLI is organized. Most files, directories and paths are conventions you
+can tweak to your liking using `import` / `require` and setting `glob` patterns.
 
-The getting started example above uses a set of defaults and conventions to get you going quickly. In more complex cases
-you will want more control. The recommended way to tackle this is using a mix of **global** and **local**
-configuration.
+## Directories and files
 
-## Global configuration
+- `checkly.config.ts` - Global project and CLI configuration. This one is mandatory.
+- `src/__checks__/*` - Your TS/JS files defining Checks and other resources.
+- `package.json` - Standard NPM project manifest.
 
-Create a `checkly.config.js` (or `checkly.config.ts`) at the root of your project.
+Here is an example directory tree of what that would look like:
+
+```
+.
+|-- checkly.config.ts
+|-- package.json
+`-- src
+    `-- __checks__
+      |-- alert-channels.ts
+      |-- api-check.check.ts
+      `-- homepage.spec.ts
+ 
+```
+
+The main `checkly.config.ts` at the root of your project defines a range of defaults for all your checks. However, as your
+project grows, you will want to override these defaults for specific checks of whole groups of checks. The recommended way 
+to tackle this is using a mix of **global** and **local** configuration.
+
+## Global Configuration
+
+As mentioned, your global `checkly.config.ts` holds a set of defaults for your project, the checks in that project and some
+CLI commands.
 
 {{< tabs "config" >}}
 {{< tab "TypeScript" >}}
@@ -39,6 +62,7 @@ const config = {
   cli: {
       verbose: false,
       runLocation: 'eu-west-1',
+      privateRunLocation: 'private-dc1'
   }
 }
 
@@ -68,6 +92,7 @@ const config = {
   cli: {
     verbose: false,
     runLocation: 'eu-west-1',
+    privateRunLocation: 'private-dc1'
   }
 }
 
@@ -82,6 +107,7 @@ module.exports = config;
   - `privateRunLocation`: A [private run location](https://www.checklyhq.com/docs/private-locations/) for `checkly test`. Both `runLocation` and `privateRunLocation` can't be set at once.
 
 ### Config Intellisense
+
 The CLI ships TypeScript typings, so you add hints to your IDE by either annotating the config object type in JSDoc:
 
 ```js

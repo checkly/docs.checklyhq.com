@@ -8,10 +8,26 @@ menu:
     identifier: getting-started-cli
 ---
 
-The Checkly CLI and Constructs in this repo together form the basic building blocks of the Checkly Monitoring-as-Code
-(MaC) workflow.
+The Checkly CLI gives you a JavaScript/TypeScript-native **workflow** for creating, testing, deploying and life cycling
+synthetic monitors (checks) at scale, from your code base. We call this workflow **Monitoring as Code**.
 
-The goal of this repo and the larger MaC project is to deliver a JavaScript/TypeScript-native workflow for creating,
-debugging, deploying and life cycling synthetic monitors (checks) at scale, from your code base.
+- **Unite E2E testing & monitoring in one workflow.** No more silos between Dev, QA and Ops.
+- **Codeable, testable, reviewable.** Works with your dev pipeline. From your IDE, via PR to CI.
+- **Native `@playwright/test` support.** No lock-in, just write standard `*.spec.ts` files.
+- **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
+- **Typescript-first.** Fully typings and code completion.
+- **Run in the cloud or on-prem.** Run on the Checkly cloud or in your network using the [Private Locations](https://www.checklyhq.com/docs/private-locations/)
 
-This project is now in `alpha`, we aim for `beta` mid-February '23. `GA` should be before end Q1 '23.
+# Starting your first project
+
+First, make sure you sign up for a [free Checkly account](https://app.checklyhq.com/signup).
+
+Then, the **easiest** way to get started is to install the CLI using the following command:
+
+```bash
+npm create @checkly/cli
+```
+This command will guide you through some simple steps and set up a fully working example project for you. Should take
+~1 minute.
+
+For a custom installation check out [our installation docs](/docs/cli/installation/)
