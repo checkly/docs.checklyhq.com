@@ -28,6 +28,5 @@ Then, get started by installing the CLI using the following command:
 npm create @checkly/cli
 ```
 This command will guide you through the required steps to set up a fully working example project in under one minute.
-~1 minute.
 
 For a custom installation check out [our installation docs](/docs/cli/installation/)
