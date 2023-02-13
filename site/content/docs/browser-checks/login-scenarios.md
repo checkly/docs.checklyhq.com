@@ -108,7 +108,7 @@ below uses the Google social login option on the Checkly login page.
 
 {{< tab "Typescript" >}}
 ```ts
-import { test } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test('Login into Checkly with Google social login', async ({ page }) => {
     await page.goto('https://app.checklyhq.com/')
@@ -125,13 +125,13 @@ test('Login into Checkly with Google social login', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign in' }).click()
 
     // Verify successful login
-    await page.getByTestId('home-dashboard-table').toBeVisible()
+    await expect(page.getByTestId('home-dashboard-table')).toBeVisible()
 })
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
 ```js
-const { test } = require('@playwright/test')
+const { expect, test } = require('@playwright/test')
 
 test('Login into Checkly with Google social login', async ({ page }) => {
     await page.goto('https://app.checklyhq.com/')
@@ -148,7 +148,7 @@ test('Login into Checkly with Google social login', async ({ page }) => {
     await page.getByRole('button', { name: 'Sign in' }).click()
 
     // Verify successful login
-    await page.getByTestId('home-dashboard-table').toBeVisible()
+    await expect(page.getByTestId('home-dashboard-table')).toBeVisible()
 })
 ```
 {{< /tab >}}
