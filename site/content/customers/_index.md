@@ -19,7 +19,8 @@ customers:
       description: Checkly is super easy to use and fits perfectly in our toolchain.
       author: — Andreas Wixler, CTO & Co-Founder
   logos:
-    - icon: '/case-studies/kizen.png'
+    - icon: '/case-studies/action.png'
+    - icon: '/case-studies/airbus.png'
     - icon: '/case-studies/joyn.svg'
     - icon: '/case-studies/cathay.png'
     - icon: '/case-studies/autodesk.png'
