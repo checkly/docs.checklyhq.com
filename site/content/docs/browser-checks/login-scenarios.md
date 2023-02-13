@@ -54,6 +54,8 @@ test('Login into Github', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
+In certain cases, for example with [Vercel password-protected deployments](https://vercel.com/blog/protecting-deployments), websites might require a password to be entered before the target page is made available. Much like login cases, this can be solved directly using Playwright Test following the example above.
+
 However, notice we are hard coding the username and password into our script. That's never a good idea...
 Better to replace them with some environment variables. Read more about [how to use environment variables in your browser checks.](/docs/browser-checks/variables/)
 
@@ -156,38 +158,6 @@ Note the following:
 
 - We of course store our credentials in environment variables.
 - Playwright Test's locators will wait for your elements to be visible until the test times out (which will make the check fail).
-
-## Password-protected websites
-
-In certain cases, for example with [Vercel password-protected deployments](https://vercel.com/blog/protecting-deployments), websites might require a password to be entered before the target page is made available. Much like login cases, this can be solved directly using Playwright Test:
-
-{{< tabs "Password-protected deployment" >}}
-{{< tab "Typescript" >}}
-```ts
-import { test } from '@playwright/test'
-
-test('Login into password-protected website', async ({ page }) => {
-    await page.goto(process.env.URL)
-    await page.locator('input[type="email"]').type(process.env.USERNAME)
-    await page.locator('input[type="password"]').type(process.env.PASSWORD)
-    await page.getByRole('button', { name: 'Sign in' }).click()
-})
-```
-{{< /tab >}}
-{{< tab "Javascript" >}}
-```js
-const { test } = require('@playwright/test')
-
-test('Login into password-protected website', async ({ page }) => {
-    await page.goto(process.env.URL)
-    await page.locator('input[type="email"]').type(process.env.USERNAME)
-    await page.locator('input[type="password"]').type(process.env.PASSWORD)
-    await page.getByRole('button', { name: 'Sign in' }).click()
-})
-
-```
-{{< /tab >}}
-{{< /tabs >}}
 
 ## More resources
 
