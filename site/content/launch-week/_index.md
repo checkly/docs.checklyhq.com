@@ -1,5 +1,5 @@
 ---
-title: Join our Checkly Launch week.
+title: Join our Checkly Launch week — Feb 27 - Mar 2.
 description: Stay up-to-date with all Launch week releases.
 
 header:
