@@ -7,7 +7,7 @@ menu:
 ---
 
 Checkly lets you use JavaScript / TypeScript in your Browser checks and in API check setup & teardown scripts.
-add to your API checks. This JavaScript code executes in a runtime environment managed by Checkly.
+This JavaScript code executes in a runtime environment managed by Checkly.
 This environment has access to a specific Node.js versions and NPM packages.
 
 > This means not all NPM packages from NPM are available inside the context of a Check.
