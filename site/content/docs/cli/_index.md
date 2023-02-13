@@ -22,7 +22,7 @@ synthetic monitors (checks) at scale, from your code base. We call this workflow
 
 First, make sure you sign up for a [free Checkly account](https://app.checklyhq.com/signup).
 
-Then, the **easiest** way to get started is to install the CLI using the following command:
+Then, get started by installing the CLI using the following command:
 
 ```bash
 npm create @checkly/cli
