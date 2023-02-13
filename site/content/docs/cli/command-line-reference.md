@@ -53,7 +53,7 @@ This is very powerful when combined with passing environment variables using one
 can target staging, test and preview environment with specific URLs, credentials and other common variables that differ
 between environments.
 
-- `--env <key=value>` or `-e`: Pass environment variables to the check execution runtime. Variables passed here overwrite any existing variables stored in your Checkly account.
+- `--env <key=value>` or `-e`: Pass environment variables to the check execution runtime. Passed variables overwrite any existing variables stored in your Checkly account.
 - `--grep <pattern>` or `-g`: Only run checks where the check name matches a regular expression.
 - `--location <location>` or `-l`: Run checks against a specified location, e.g. `eu-west-1`. Defaults to `us-east-1`.
 - `--private-location <private location ID>`: Run checks against the specified private location.
