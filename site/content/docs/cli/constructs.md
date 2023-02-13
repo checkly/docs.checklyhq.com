@@ -108,7 +108,7 @@ new ApiCheck('hello-api-1', {
 # Using the Constructs API
 
 All resources you can create and manage using the Checkly CLI are derived from "constructs". These constructs are just
-[TypeScript classes](https://github.com/checkly/checkly-cli/tree/main/package/src/constructs) like `ApiCheck` in `api-check.ts` and
+[TypeScript classes](https://github.com/checkly/checkly-cli/tree/main/packages/cli/src/constructs) like `ApiCheck` in `api-check.ts` and
 `SlackAlertChannel` in `slack-alert-channel.ts`.
 
 You can use standard JS/TS programming to use these constructs to create the monitoring setup of your
