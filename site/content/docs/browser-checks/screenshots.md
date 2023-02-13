@@ -9,13 +9,13 @@ menu:
 You can take up to ten screenshots per browser check. This is really handy when debugging a failure situation or just
 in general to get a comfy feeling everything is OK.  
 
-Using Playwright or Playwright Test add a screenshot anywhere by using the following syntax in your script:
+When using Playwright or Playwright Test, add a screenshot anywhere with the following syntax in your script:
 
 ```js
 await page.screenshot({ path: 'my_screenshot.png' })
 ```
 
-> While screenshots are a great way to capture a specific moment of your check, we highlight recommend using it together with `@playwright/test` to record videos of your entire check run and enable step-by-step trace views.
+> We highly recommend using `@playwright/test` to record videos of your entire check run and enable step-by-step trace views instead of screenshots, or use screenshots along with `@playwright/test` if you want to highlight a specific moment.
 
 Screenshots will show up while editing your browser check in the editor on the "screenshots" tab and as part of the 
 check results on every check run. You can download the full size screenshot by clicking on the thumbnail.
@@ -34,7 +34,7 @@ Read more about the options for `page.screenshot()` like transparency, clipping 
 {{< warning >}}
 The experimental video recording added in [Playwright 
 1.4.0](https://github.com/microsoft/playwright/releases/tag/v1.4.0) 
-is not supported by Checkly - instead use video recordings with Playwright Test.
+is not supported by Checkly - use video recordings with Playwright Test instead.
 {{</ warning >}}
 
 ## Full page screenshots
