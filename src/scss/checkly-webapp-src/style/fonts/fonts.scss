@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 @font-face {
-  font-family: 'Source Code Pro';
-  src: url('https://d1tzmx204wa22c.cloudfront.net/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: optional;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: optional;
+	src: url('../fonts/Inter/Inter.var.woff2') format('woff2');
 }
