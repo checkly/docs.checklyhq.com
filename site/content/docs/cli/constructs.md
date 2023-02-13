@@ -323,6 +323,8 @@ const smsChannel = new SmsAlertChannel('sms-channel-1', {
 })
 ```
 
+[Learn more about SMS alert channels](/docs/alerting/sms-delivery/)
+
 ### Email Alert Channel
 
 Sends email notifications to an email address. Only accepts one address, do not use multiple addresses separated by a comma.
@@ -349,6 +351,7 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
   channel: '#ops'
 })
 ````
+[Learn more about Slack alert channels](/docs/integrations/slack/)
 
 ### Webhook Alert Channel
 
@@ -376,8 +379,8 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 - `url`: The URL where to send the webhook HTTP request.
 - `method`: A string, either `GET`, `POST`, `PUT`, `PATCH`, `HEAD` or `DELETE` just like an API check.
 - `template`: This is commonly a JSON body. You can use Handlebars-style template variables to add custom data to the template.
-  See all supported template variables available in
-  [our docs section on using variables with webhooks.](https://www.checklyhq.com/docs/alerting/webhooks/#using-variables)
+  
+[Learn more about Webhook alert channels and available variables](/docs/alerting/webhooks/)
 
 ### Opsgenie Alert Channel
 
@@ -397,7 +400,9 @@ const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
 - `name`: Friendly name to recognise the integration.
 - `region`: A string representing the Opsgenie location, either `EU` or `US`.
 - `priority`: A string representing the severity level, `P1` to `P5`.
-- `apiKey`: An API key for your Opsgenie account. [See our docs on where to create this API key](https://www.checklyhq.com/docs/integrations/opsgenie/)
+- `apiKey`: An API key for your Opsgenie account. 
+
+[Learn more about Opsgenie alert channels](/docs/integrations/opsgenie/)
 
 ### Pagerduty Alert Channel
 
@@ -413,10 +418,9 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 - `account`: The name of your Pagerduty account.
 - `serviceName`: The name of your service defined in Pagerduty under which the alerts should be nested.
-- `serviceKey`: The API key created by installing the Checkly integration in Pagerduty. We would advise you to [install the
+- `serviceKey`: The API key created by installing the Checkly integration in Pagerduty. We advise you to [install the
   Pagerduty alert channel first from our UI](https://app.checklyhq.com/alerts/settings/channels/new/pagerduty) to grab
-  the `serviceKey` because Pagerduty is...great!
+  the `serviceKey`.
 
-# Local Development
+[Learn more about Pagerduty alert channels](/docs/integrations/pagerduty/)
 
-To get started with local development check [CONTRIBUTING.MD](https://github.com/checkly/checkly-cli/blob/main/CONTRIBUTING.md)

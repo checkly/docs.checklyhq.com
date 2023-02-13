@@ -6,12 +6,12 @@ menu:
     parent: "CLI"
 ---
 
-This is how a typical project using the Checkly CLI is organized. Most files, directories and paths are conventions you
-can tweak to your liking using `import` / `require` and setting `glob` patterns.
+The example below is how a typical project using the Checkly CLI is organized. Most files, directories and paths are 
+conventions you can tweak to your liking using `import` / `require` and setting `glob` patterns.
 
 ## Directories and files
 
-- `checkly.config.ts` - Global project and CLI configuration. This one is mandatory.
+- `checkly.config.ts` - Global project and CLI configuration. This one is mandatory and we recommend using TypeScript.
 - `src/__checks__/*` - Your TS/JS files defining Checks and other resources.
 - `package.json` - Standard NPM project manifest.
 
@@ -46,23 +46,23 @@ const config = {
   logicalId: 'website-monitoring-1',
   repoUrl: 'https://github.com/acme/website',
   checks: {
-      activated: true,
-      muted: false,
-      runtimeId: '2022.10',
-      frequency: 5,
-      locations: ['us-east-1', 'eu-west-1'],
-      tags: ['website', 'api'],
-      alertChannels: [],
-      checkMatch: '**/*.check.js',
-      browserChecks: {
-          frequency: 10,
-          testMatch: '**/*.spec.js',
-      },
+    activated: true,
+    muted: false,
+    runtimeId: '2022.10',
+    frequency: 5,
+    locations: ['us-east-1', 'eu-west-1'],
+    tags: ['website', 'api'],
+    alertChannels: [],
+    checkMatch: '**/*.check.js',
+    browserChecks: {
+      frequency: 10,
+      testMatch: '**/*.spec.js',
+    },
   },
   cli: {
-      verbose: false,
-      runLocation: 'eu-west-1',
-      privateRunLocation: 'private-dc1'
+    verbose: false,
+    runLocation: 'eu-west-1',
+    privateRunLocation: 'private-dc1'
   }
 }
 
