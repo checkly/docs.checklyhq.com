@@ -360,6 +360,9 @@ All alert channels share a set of common properties to define when / how they sh
 Alert channels are assigned to Checks and CheckGroups by instantiating a class and adding the resulting object to the
 `alertChannels` array.
 
+> Note that alert channels are only deployed to your Checkly account when referenced explicitly in the `alertChannels` 
+property of a Project, CheckGroup or Check.
+
 ### SMS Alert Channel
 
 Sends SMS notifications to phone number. Make sure to use standard international notation.
