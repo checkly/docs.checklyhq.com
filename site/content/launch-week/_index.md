@@ -10,7 +10,7 @@ releases:
   - id: lw-2-day-1
     date: 2023-02-27
     headline: Monitoring as Code
-    description: We’re revealing our new CLI that enables new workflows to define, test and deploy your entire monitoring setup.
+    description: We’re revealing our new Monitoring as Code workflow and the CLI that enables you to define, test and deploy your entire monitoring setup.
     video_image: /images/launch-week/week-2/lw2-d1.jpg
     video_url: https://www.youtube.com/watch?v=IcaMW2opx2U
     links:
