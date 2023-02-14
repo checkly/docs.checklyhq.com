@@ -21,7 +21,7 @@ releases:
   - id: lw-2-day-2
     date: 2023-02-28
     headline: Native Playwright Test Support
-    description: After a long BETA period we're excited release native Playwright Test support into general availability!
+    description: After a long BETA period we're excited to release native Playwright Test support into general availability!
 
     video_image: /images/launch-week/week-2/lw2-d2.jpg
     video_url: https://www.youtube.com/watch?v=mB-jIkLlY24
