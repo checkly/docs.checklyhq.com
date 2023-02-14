@@ -12,24 +12,6 @@
             <input class="form-control py-2" id="search" type="search" placeholder="Press / to search" />
           </form>
         </div>
-        <div class="breadcrumb">
-          {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
-
-          {{ range $index, $element := split $url "/" }}
-            {{ if ne $element "" }}
-              {{ if eq $element "docs" }}
-                <a href="/docs/">Checkly docs</a>
-              {{ else }}
-                <span>/</span>
-                {{ if eq $index 3 }}
-                <a href="/docs/{{ . }}/">{{ humanize . }}</a>
-                {{ else }}
-                {{ humanize . }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        </div>
         <h1>{{ .Title }}</h1>
         <div class="docs-toc-mobile mb-5 pt-3">
           <div class="docs-toc-header mb-3 pt-3">On this page</div>
@@ -68,6 +50,7 @@
       <div id="tocMenu">
         <div class="docs-toc-header">On this page</div>
         {{ .Page.TableOfContents }}
+        {{ partial "toc-sidebar-community" .}}
       </div>
     </aside>
   </div>

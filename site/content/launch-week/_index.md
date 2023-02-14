@@ -1,11 +1,11 @@
 ---
-title: Join our Checkly Launch week.
+title: Join our Checkly Launch week — Feb 27 - Mar 2.
 description: Stay up-to-date with all Launch week releases.
 
 header:
-  tag: Launchweek
-  headline: New Checkly Features Shipping During Launch Week - Oct 11-14
-  subline: Get notified on new features when they go live!
+  tag: Launch week 2
+  headline: The New Era of Monitoring is here!
+  subline: As your apps are evolving, the way you test and monitor should also!
 releases:
   - id: lw-1-day-1
     date: 2022-10-11

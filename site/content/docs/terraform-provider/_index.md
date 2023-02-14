@@ -4,6 +4,7 @@ weight: 1
 menu:
   docs:
     parent: "Terraform provider"
+    identifier: getting-started-terraform
 aliases:
 - /terraform-provider/getting-started/
 ---
