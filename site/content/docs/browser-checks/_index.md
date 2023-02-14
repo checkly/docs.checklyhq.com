@@ -1,5 +1,5 @@
 ---
-title: Quickstart
+title: Getting started
 weight: 14
 slug: /
 menu:
@@ -7,9 +7,10 @@ menu:
     parent: "Browser checks"
 aliases:
     - /docs/browser-checks/quickstart/
+    - /docs/browser-checks/getting-started/
 ---
 
-This quick start gives you all the info to create your first Browser check with Checkly. You should have some prior
+This guide gives you all the info to create your first Browser check with Checkly. You should have some prior
 knowledge of working with Javascript and/or Node.js.
 
 ## What is a Browser check?
@@ -25,135 +26,120 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected.
 
-Checkly uses the **[Playwright](https://github.com/microsoft/playwright)** and **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
-frameworks to power your Browser checks. Use these frameworks to control the interactions you want to happen on a web page.
+To power your Browser checks, Checkly uses **[Playwright Test](https://playwright.dev/docs/intro)** - a robust open-source test-runner build around **[Playwright](https://github.com/microsoft/playwright)**. Playwright test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+
+While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues, [learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
+
 
 {{< info >}}
-While Playwright and Puppeteer share many similarities, they have evolved at different speeds over the last two years. Playwright's rapid release cycle and new  features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community.
-
-__We recommend using Playwright if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).__
+We have stopped support for Puppeeteer with runtime 2022.10. [Read more about our reasons](/docs/browser-checks/#what-about-puppeteer).
 {{< /info >}}
 
-The following code is a valid Browser check.
+The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
-{{< tab "Playwright" >}}
+{{< tab "JavaScript" >}}
  ```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-const response = await page.goto('https://checklyhq.com/')
+const { test } = require('@playwright/test')
 
-if (response.status() > 399) {
-  throw new Error(`Failed with response code ${response.status()}`)
-}
+test('Visit Checkly HQ page', async ({ page }) => {
+  const response = await page.goto('https://checklyhq.com')
 
-await browser.close()
+  // Test that the response did not fail
+  expect(response.status()).toBeLessThan(400)
+})
  ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-const response = await page.goto('https://checklyhq.com/')
+{{< tab "TypeScript" >}}
+ ```ts
+import { test } from '@playwright/test'
 
-if (response.status() > 399) {
-  throw new Error(`Failed with response code ${response.status()}`)
-}
+test('Visit Checkly HQ page', async ({ page }) => {
+  const response = await page.goto('https://checklyhq.com')
 
-await browser.close()
+  // Test that the response did not fail
+  expect(response.status()).toBeLessThan(400)
+})
  ```
 {{< /tab >}}
 {{< /tabs >}}
 
 {{< info >}}
-Checkly currently supports using only **Chromium** with Playwright and Puppeteer.
+Checkly currently supports only using **Chromium** with Playwright Test and Playwright library.
 {{< /info >}}
-
-{{< warning >}}
-Note: It is not possible to use both Playwright and Puppeteer in the same Browser Check script.
-{{< /warning >}}
-
 
 ## Breaking down a Browser check step-by-step
 
-Let's look at a more real life example and break down each step. The code below logs into Checkly, waits for the dashboard
-to fully load and then snaps a screenshot.
+Let's look at a breakdown of a real-life scenario. The code below logs into Checkly, and waits for the dashboard to fully load.
 
 {{< tabs "Breakdown example" >}}
-{{< tab "Playwright" >}}
+{{< tab "JavaScript" >}}
 ```js
-const playwright = require('playwright') // 1
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+const { test } = require('@playwright/test') // 1
 
-await page.goto('https://app.checklyhq.com/login') // 2
+test('Login to Checkly', async ({ page }) => { // 2
+  await page.goto('https://app.checklyhq.com/login') // 3
 
-await page.type('input[type="email"]', 'john@example.com') // 3
-await page.type('input[type="password"]','mypassword')
-await page.click('.btn.btn-success.btn-block')
+  await page.locator('input[type="email"]').type('john@example.com') // 4
+  await page.locator('input[type="password"]').type('mypassword') // 4
+  await page.getByRole('button', { name: 'Log In' }).click() // 5
 
-await page.waitForSelector('.status-table') // 4
-await page.screenshot({ path: 'checkly_dashboard.png' })
-await browser.close()
+  const homeDashboardTable = page.getByTestId('home-dashboard-table')
+  await expect(homeDashboardTable).toBeVisible() // 6
+})
  ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer') // 1
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test' // 1
 
-await page.goto('https://app.checklyhq.com/login') // 2
+test('Login to Checkly', async ({ page }) => { // 2
+  await page.goto('https://app.checklyhq.com/login') // 3
 
-await page.type('input[type="email"]', 'john@example.com') // 3
-await page.type('input[type="password"]','mypassword')
-await page.click('.btn.btn-success.btn-block')
+  await page.locator('input[type="email"]').type('john@example.com') // 4
+  await page.locator('input[type="password"]').type('mypassword') // 4
+  await page.getByRole('button', { name: 'Log In' }).click() // 5
 
-await page.waitForSelector('.status-table') // 4
-await page.screenshot({ path: 'checkly_dashboard.png' })
-await browser.close()
+  const homeDashboardTable = page.getByTestId('home-dashboard-table')
+  await expect(homeDashboardTable).toBeVisible() // 6
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-**1. Initial declarations:** We first import a framework (Puppeteer or Playwright) to control a browser.
-We also declare a `browser` and a `page` variable.
+**1. Initial declarations:** We first import the Playwright Test framework to control the browser.
 
-**2. Initial navigation:** We use the `page.goto()` method to load the first page.
+**2. Establish environment:** We use the `page` fixture without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
 
-**3. Fill out input fields and submit:** Using the `page.type()` and `page.click()` methods we enter our email address and
-password and click the login button. You would normally use environment variables here to keep sensitive data
+**3. Initial navigation:** We use the `page.goto()` method to load the first page.
+
+**4. Fill out input fields and submit:** Using the `page.type()` method we enter our email address and
+password. You would normally use environment variables here to keep sensitive data
 out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-and-secrets/) for more info.
 
-**4. Wait for dashboard and close:** The expected behaviour is that the dashboard loads. In our case we can recognise this
-by the correct loading of the `.status-table` element in the page. For a visual reference, we also take a screenshot.
-We then close the browser. Our check is done.
+**5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
+
+**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright Test will automatically retry the assertion until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright Test will automatically tear down the `page` fixture and clean up.
 
 ## How do I create a Browser check?
 
-Every valid **[Puppeteer](https://github.com/GoogleChrome/puppeteer)**
-or **[Playwright](https://github.com/microsoft/playwright)** script is a valid Browser check. You can create these
-scripts in two ways:
+A valid Browser check is based on a valid **[Playwright Test](https://playwright.dev/docs/intro)** or **[Playwright](https://github.com/microsoft/playwright)** script. We are constantly updating Checkly to integrate their newest features ([view currently supported features](/docs/browser-checks/playwright-test/#features])).
+You can create these scripts in two ways:
 
-1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright or Puppeteer script automatically.
+1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright Test or Playwright script automatically.
 2. By writing the Node.js by hand.
 
 A combination of both is also very common, i.e. you record the basic interactions with Codegen and then tweak the generated code with extra things like passwords, extra wait conditions and content checks.
 
-In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before
-uploading it
-to Checkly.
+In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before uploading it to Checkly.
 
 
 {{< info >}}
-Every valid Playwright or Puppeteer script is a valid Browser check. If the script passes, your check passes.
+Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
-
-## How do I assert assumptions?
+## How do I make assertions?
 
 Navigating around your app or site can already give you a lot of confidence your critical business processes are working correctly.
 However, many times you want to assert specific values on a page.
@@ -164,79 +150,71 @@ However, many times you want to assert specific values on a page.
 
 To do this, you can:
 
-1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (Recommended).
+1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (Recommended). If you use Playwright Test it is directly available.
 2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
 3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
-You can use as many assertions in your code as you want. For example, in the code below we scrape the text from the
-large button on the Checkly homepage and assert it in two ways.
+You can use as many assertions in your code as you want. For example, in the code below we verify that the signup button on Checkly homepage has the right text.
 
 
 {{< tabs "Assertions example" >}}
-{{< tab "Playwright" >}}
+{{< tab "JavaScript" >}}
 ```js
-const playwright = require('playwright')
-const expect = require('expect')
+const { expect, test } = require('@playwright/test')
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
+test('CTA button has "Start for free" text', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
 
-// get the text of the button
-const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
+  // CTA button locator
+  const button = page.locator('#nav-signup-button')
 
-// assert using Jest's expect function
-expect(buttonText).toEqual('Start for free')
-
-await browser.close()
+  // Assert that the button has the correct text
+  await expect(button).toHaveText('Start for free')
+})
  ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer')
-const expect = require('expect')
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
-await page.goto('https://checklyhq.com/')
+test('CTA button has "Start for free" text', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
 
-// get the text of the button
-const buttonText = await page.$eval('a.btn-lg', el => el.innerText)
+  // CTA button locator
+  const button = page.locator('#nav-signup-button')
 
-// assert using Jest's expect function
-expect(buttonText).toEqual('Start for free')
-
-await browser.close()
+  // Assert that the button has the correct text
+  await expect(button).toHaveText('Start for free')
+})
  ```
 {{< /tab >}}
 {{< /tabs >}}
 
-Note the following:
-
-- We use the `page.$eval()` method to grab the button element and get its innerText property.
-- We use a basic Jest `expect().toEqual()` statement to verify the text is correct.
+Note that we are using Playwright Tests's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text.
 
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
 
-![failed api monitoring assertion](/docs/images/browser-checks/failed_assertion.png)
+![failed PWT assertion](/docs/images/browser-checks/getting-started_pwt.gif)
 
+## What about Puppeteer?
+While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer in newer [runtimes](/docs/runtimes/). The latest runtime that supports Puppeteer is [2022.02](/docs/runtimes/specs/).
+
+We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
 
 ## Next Steps
-
+- Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
 - Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-and-secrets/).
 - Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [creating reusable code snippets](/docs/browser-checks/partials-code-snippets/).
 - Run checks behind an [HTTP proxy](/docs/private-locations/proxy).
 
-## More Playwright and Puppeteer resources
+## More Playwright resources
 
 - [Headless Automation guides](/learn/headless), a free & open source knowledge base for Playwright and Puppeteer
 (maintained by Checkly).
+- [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
 - [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
 Playwright-related libraries, tips and resources.
-- [pptr.dev](https://pptr.dev/) is the official API documentation site for the Puppeteer framework.
-- [awesome-puppeteer](https://github.com/transitive-bullshit/awesome-puppeteer) is a great GitHub repo full of
-Puppeteer-related libraries, tips and resources.

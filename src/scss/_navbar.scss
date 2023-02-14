@@ -59,6 +59,13 @@
     }
   }
 
+  @media (min-width: 992px) and (max-width: 1200px) {
+    &.navbar-toggleable-md .navbar-nav .nav-link {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
   .nav-link {
     color: $gray;
     font-weight: 400;

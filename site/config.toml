@@ -1,7 +1,7 @@
 baseurl = "https://www.checklyhq.com"
 languageCode = "en-us"
 languageLang = "en"
-title = "Delightful Active Monitoring for Developers"
+title = "Build and Run Synthetics That Scale"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 enableGitInfo = true
 enableRobotsTXT = true
@@ -15,109 +15,102 @@ disqusShortname = "checkly"
   blog = "/blog/:year/:month/:title/"
 
 [params]
-    description = "Checkly is the API & E2E monitoring platform for the modern stack: programmable, flexible and loving JavaScript."
+    description = "Monitoring as Code workflow for developers: programmable, fast, reliable."
 
 [[menu.docs]]
 	name = "Monitoring"
 	url = "/docs/monitoring/"
-	pre="/docs/images/icons/monitoring.svg"
 	weight = 10
 
 
 [[menu.docs]]
 	name = "API checks"
 	url = "/docs/api-checks/"
-	pre="/docs/images/icons/api.svg"
 	weight = 20
 
 [[menu.docs]]
 	name = "Browser checks"
 	url = "/docs/browser-checks/"
-	pre="/docs/images/icons/browser-checks.svg"
 	weight = 30
 
 [[menu.docs]]
 	name = "Groups"
 	url = "/docs/groups/"
-	pre="/docs/images/icons/groups.svg"
 	weight = 40
 
 [[menu.docs]]
 	name = "Alerting"
 	url = "/docs/alerting/"
-	pre="/docs/images/icons/alerting.svg"
 	weight = 50
+
+[[menu.docs]]
+    name = "CLI"
+    url = "/docs/cli/"
+    weight = 51
 
 [[menu.docs]]
 	name = "Terraform provider"
 	url = "/docs/terraform-provider/"
-	pre="/docs/images/icons/code.svg"
 	weight = 55
 
 [[menu.docs]]
 	name = "CI/CD integration"
 	url = "/docs/cicd/"
-	pre="/docs/images/icons/ci-cd.svg"
 	weight = 60
 
 [[menu.docs]]
 	name = "Maintenance windows"
 	url = "/docs/maintenance-windows/"
-	pre="/docs/images/icons/maintenance-windows.svg"
 	weight = 70
-
-[[menu.docs]]
-	name = "Dashboards"
-	url = "/docs/dashboards/"
-	pre="/docs/images/icons/dashboards.svg"
-	weight = 80
 
 [[menu.docs]]
     name = "Dashboards V2"
     url = "/docs/dashboards-v2/"
-    pre="/docs/images/icons/dashboards.svg"
+    weight = 80
+
+[[menu.docs]]
+    name = "Dashboards (Legacy)"
+    url = "/docs/dashboards/"
     weight = 81
 
 [[menu.docs]]
 	name = "Accounts & Users"
 	url = "/docs/accounts-users/"
-	pre="/docs/images/icons/teams.svg"
 	weight = 90
 
 [[menu.docs]]
 	name = "Private Locations"
 	url = "/docs/private-locations/"
-	pre="/docs/images/icons/private-locations.svg"
 	weight = 95
 
 [[menu.docs]]
 	name = "Integrations"
 	url = "/docs/integrations/"
-	pre="/docs/images/icons/integrations.svg"
 	weight = 100
 
 [[menu.docs]]
 	name = "Reporting"
 	url = "/docs/reporting/"
-	pre="/docs/images/icons/reporting.svg"
 	weight = 110
+
+[[menu.docs]]
+	name = "Analytics"
+	url = "/docs/anlytics/"
+	weight = 105
 
 [[menu.docs]]
     name = "Runtimes"
     url = "/docs/runtimes/"
-    pre="/docs/images/icons/runtimes.svg"
     weight = 120
 
 [[menu.docs]]
     name = "Snippets"
     url = "/docs/snippets/"
-    pre="/docs/images/icons/snippets.svg"
     weight = 130
 
 [[menu.docs]]
 	name = "Single sign-on"
 	url = "/docs/single-sign-on/"
-	pre="/docs/images/icons/key.svg"
 	weight = 140
 
 [[menu.learn]]

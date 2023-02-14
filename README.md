@@ -5,7 +5,6 @@
 
 ![https://app.checklyhq.com/groups/8411/edit](https://api.checklyhq.com/v1/badges/groups/8411)
 ![https://app.checklyhq.com/groups/247124/edit](https://api.checklyhq.com/v1/badges/groups/247124)
-![https://app.checklyhq.com/groups/170797/edit](https://api.checklyhq.com/v1/badges/groups/170797)
 
 > 🦝 Checkly public site, docs and guides
 
@@ -65,7 +64,7 @@ Do you want to share your use case and experience using Checkly with your produc
   <img width="100px" src="https://www.checklyhq.com/images/text_racoon_logo.svg" alt="Checkly" />
   </a>
   <br />
-  <i><sub>Delightful Active Monitoring for Developers</sub></i>
+  <i><sub>Build and Run Synthetics That Scale</sub></i>
   <br>
   <b><sub>From Checkly with ♥️</sub></b>
 <p>

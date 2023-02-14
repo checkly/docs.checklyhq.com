@@ -7,7 +7,7 @@ questions:
     a: Browser checks are monitors based on Node.js scripts using frameworks like Mocha, Puppeteer,
       and Playwright. Each browser check uses an actual Chrome browser to execute clicks, fill out forms and validate if
       these interactions have the correct results. This is also commonly called “synthetic monitoring”. For billing we count
-      every executed script as a check run. Browser check runs have a timeout threshold of 60 seconds.
+      every executed script as a check run. Browser check runs have a timeout threshold of 120 seconds.
   - q: How does the hobby plan work?
     a: By signing up for the hobby plan, you get access to almost all of Checkly's features. You do not need a credit card
       to get started. You can execute up to 50,000 API and 5,000 browser check runs.
