@@ -37,7 +37,7 @@ API checks are used to validate your HTTP based API endpoints. Let's look at the
 ```ts
 // hello-api.check.ts
 
-import { ApiCheck } from '@checkly/cli/constructs'
+import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
 const path = require('path')
 const { readFileSync } = require('fs')
 
@@ -48,8 +48,8 @@ new ApiCheck('hello-api-1', {
     method: 'GET',
     url: 'https://mac-demo-repo.vercel.app/api/hello',
     assertions: [
-      { source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' },
-    ]
+      AssertionBuilder.statusCode().equals(200)
+    ],
   }
 })
 ```
@@ -114,7 +114,7 @@ All resources you can create and manage using the Checkly CLI are derived from "
 You can use standard JS/TS programming to use these constructs to create the monitoring setup of your
 choice. Loops, variables, if-statements, file imports, extensions etc.
 
-## Project
+## `Project`
 
 A `Project` defines core settings and defaults for the CLI and other constructs like Checks. In many cases, you can just
 use set defaults for your Checks in the `checks` property and override them occasionally at the Check or CheckGroup level. 
@@ -168,11 +168,12 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
   - `runLocation`: The default run location when running `npx checkly test`.
   - `privateRunLocation`: The default private run location when running `npx checkly test`.
 
-## Check
+## `Check`
 
-The CLI currently supports two Check types: API Checks and Browser Checks. All checks share the following common properties:
+The CLI currently supports two Check types: API Checks and Browser Checks. All checks share the following common properties
+derived from the abstract class `Check`.
 
-- `name` : A human readable name for your Check.
+- `name` : A friendly name for your Check.
 - `frequency`: How often to run your Check in minutes, i.e. `60` for every hour.
 - `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1]`.
 - `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
@@ -187,17 +188,21 @@ The CLI currently supports two Check types: API Checks and Browser Checks. All c
 
 Note that most properties have sane default values and do not need to be specified.
 
-### APICheck
+## `ApiCheck`
 
 API Checks are a good fit for monitoring typical HTTP based endpoints like REST APIs and GraphQL APIs, but can also be
 used for form encoded payloads. [Read more about API checks in our docs](https://www.checklyhq.com/docs/api-checks/)
 
+The examples below does the following:
+
 - It defines the basic Check properties like `name`, `activated` etc.
-- It defines the HTTP method `GET` the `url`.
+- It defines the HTTP method `GET` and the `url`.
 - It sets an extra header in the `headers` array.
 - It sets an extra param in the `queryParams` array, although you could add that to the URL directly too.
-- It defines an array of assertions to assert the HTTP response status is correct and that the JSON response body
-  has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `*.name`
+- It defines an array of assertions using the `AssertionBuilder` to assert that:
+  - the HTTP response status is `200` 
+  - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
+  - the `strict-transport-security` response header's `max-age` property has a value greater than 100000.
 - It runs a **setup script** and **teardown script**, which are just JavaScript files referenced from the same directory.
 
 The file hierarchy looks as follows:
@@ -212,7 +217,7 @@ The file hierarchy looks as follows:
 ```ts
 // hello-api.check.ts
 
-import { ApiCheck } from '@checkly/cli/constructs'
+import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
 import * as path from 'path'
 import { readFileSync } from 'fs'
 
@@ -239,8 +244,9 @@ new ApiCheck('hello-api-1', {
       }
     ],
     assertions: [
-      { source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' },
-      { source: 'JSON_BODY', regex: '', property: '$.name', comparison: 'NOT_EMPTY', target: '' }
+        AssertionBuilder.statusCode().equals(200),
+        AssertionBuilder.jsonBody('$.name').notEmpty(),
+        AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
     ]
   }
 })
@@ -268,7 +274,44 @@ and [for example delete some resource on your API](https://www.checklyhq.com/doc
 console.log('this is a teardown script')
 ```
 
-### BrowserCheck
+### `AssertionBuilder`
+
+To define `assertions` for the `request` of an `ApiCheck` you should use the `AssertionBuilder`. The `AssertionBuilder` provides a fluent 
+API for the otherwise slightly cryptic JSON object that the CLI passes to the Checkly API. Here are some examples:
+
+
+- Asserting an HTTP status code.
+```ts
+AssertionBuilder.statusCode().equals(200)
+// renders to a JSON string 
+"{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
+```
+
+- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path]((/docs/api-checks/assertions/#json-responses-with-json-path)).
+```ts
+AssertionBuilder.statusCode().equals(200)
+// renders to a JSON string 
+"{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
+```
+
+- Asserting the value of a part of an HTTP response header. Note that you can pass in a regex as the second argument.
+```ts
+AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
+// renders to a JSON string 
+"{ source: 'HEADERS', regex: 'max-age=(\d+)', property: 'strict-transport-security', comparison: 'GREATER_THAN', target: '100000' }"
+```
+
+The `AssertionBuilder` defines the following sources as an entry to building an assertion. 
+
+- `statusCode()`: Assert the HTTP status code for the HTTP request, e.g. `200` or `404`.
+- `jsonBody(property?)`: Assert the JSON response body. Accepts a [JSON path expression](/docs/api-checks/assertions/#json-responses-with-json-path) as the `property` argument. 
+- `textBody()`: Assert the body as raw text.
+- `headers(propery?, regex?)`: Assert a set of response headers, takes the header name as the `property` argument and a `regex` to tease out a string from the header value. 
+- `responseTime()`: Assert the total response time of the HTTP request.
+
+Read more about assertions in [our docs on API check assertions](/docs/api-checks/assertions/).
+
+## `BrowserCheck`
 
 Browser Checks are based on [`@playwright/test`](https://playwright.dev/). You can just write `.spec.js|ts` files with test cases
 and the Checkly CLI will pick them up and apply some default settings like a name, run locations and run frequency to turn
@@ -290,7 +333,7 @@ new BrowserCheck('browser-check-1', {
 })
 ```
 
-## CheckGroup
+## `CheckGroup`
 
 You can explicitly organize Checks in Check Groups.
 
@@ -304,7 +347,7 @@ This brings the following benefits:
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need
 Check Groups for that purpose.
 
-### Adding Checks to a Check Group
+#### Adding Checks to a Check Group
 
 You can add a Check to a group in two ways.
 
@@ -335,7 +378,7 @@ new ApiCheck('check-group-api-check-1', {
 })
 ```
 
-- `name` : A human readable name for your Check Group.
+- `name` : A friendly name for your Check Group.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
 - `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1]`.
 - `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
@@ -350,10 +393,11 @@ new ApiCheck('check-group-api-check-1', {
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
-## Alert Channels
+## `AlertChannel`
 
 Alert channels let you get alert notifications when a Check fails. [Learn more about alerting in our docs](https://www.checklyhq.com/docs/alerting/)
-All alert channels share a set of common properties to define when / how they should alert:
+All alert channels share a set of common properties to define when / how they should alert derived from the abstract class
+`AlertChannel`
 
 - `sendRecovery`: A boolean if you want to receive recovery notifications.
 - `sendFailure`: A boolean if you want to receive failure notifications.
@@ -367,7 +411,7 @@ Alert channels are assigned to Checks and CheckGroups by instantiating a class a
 > Note that alert channels are only deployed to your Checkly account when referenced explicitly in the `alertChannels` 
 property of a Project, CheckGroup or Check.
 
-### SMS Alert Channel
+## `SMSAlertChannel`
 
 Sends SMS notifications to phone number. Make sure to use standard international notation.
 
@@ -381,7 +425,7 @@ const smsChannel = new SmsAlertChannel('sms-channel-1', {
 
 [Learn more about SMS alert channels](/docs/alerting/sms-delivery/)
 
-### Email Alert Channel
+## `EmailAlertChannel`
 
 Sends email notifications to an email address. Only accepts one address, do not use multiple addresses separated by a comma.
 
@@ -393,7 +437,7 @@ const emailChannel = new EmailAlertChannel('email-channel-1', {
 })
 ```
 
-### Slack Alert Channel
+## `SlackAlertChannel`
 
 Sends a Slack message to an incoming Slack webhook address. You can specify the target `channel`.
 
@@ -409,7 +453,7 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
 ````
 [Learn more about Slack alert channels](/docs/integrations/slack/)
 
-### Webhook Alert Channel
+## `WebhookAlertChannel`
 
 Sends a webhook to any URL. Webhooks are very powerful and have quite some options. Here is an example that send
 
@@ -438,7 +482,7 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
   
 [Learn more about Webhook alert channels and available variables](/docs/alerting/webhooks/)
 
-### Opsgenie Alert Channel
+## `OpsgenieAlertChannel`
 
 Sends an alert notification to your Opsgenie account.
 
@@ -460,7 +504,7 @@ const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
 
 [Learn more about Opsgenie alert channels](/docs/integrations/opsgenie/)
 
-### Pagerduty Alert Channel
+## `PagerdutyAlertChannel`
 
 Sends an alert notification to a specific service in your Pagerduty account
 

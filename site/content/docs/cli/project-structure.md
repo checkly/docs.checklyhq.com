@@ -100,7 +100,7 @@ You can override any of the settings in the `checks` global configuration sectio
 
 ```ts
 // __check__/api.check.ts
-import { ApiCheck } from '@checkly/cli/constructs'
+import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
 
 const api = new ApiCheck('hello-api', {
   name: 'Hello API',
@@ -109,7 +109,9 @@ const api = new ApiCheck('hello-api', {
   request: {
     method: 'GET',
     url: 'https://api.checklyhq.com/public-stats',
-    assertions: [{ source: 'STATUS_CODE', comparison: 'EQUALS', target: '200' }]
+    assertions: [
+      AssertionBuilder.statusCode().equals(200)
+    ]
   }
 })
 ```
