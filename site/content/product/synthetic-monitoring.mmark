@@ -39,7 +39,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
 <div class="text-center mb-5">
   <div class="video-wrapper video-wrapper--with-pause">
     <video id="synthetic-monitoring-video" autoplay loop controls >
-      <source src="https://s3.eu-central-1.amazonaws.com/cdn.checklyhq.com/videos/synthetic-browser-check-how-works.mp4" type=video/mp4>
+      <source src="https://d1tzmx204wa22c.cloudfront.net/videos/synthetic-browser-check-how-works.mp4" type=video/mp4>
     </video>
     <div class="action-button video-play">
       <img src="/why-checkly/play-button.svg" alt="play" width="72" heigt="72" />

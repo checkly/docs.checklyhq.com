@@ -5,20 +5,31 @@
       <div class="tag">{{.Params.header.tag}}</div>
       <h1>{{.Params.header.headline}}</h1>
       <div class="subline">{{.Params.header.subline}}</div>
+      <div class="yt-container">
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+        src="https://www.youtube.com/embed/dxNGeI7HIYk?autoplay=1&origin=https://www.checklyhq.com"
+        frameborder="0"></iframe>
+      </div>
+
+      <div class="subline">
+        <p>We're showcasing Checkly's newest features to make your day-to-day monitoring activities a whole lot easier on Checkly's Launch Week 2, happening from <strong>February 27th - March 2nd</strong>.</p>
+        <p><strong>Subscribe to get notified when we live-demo all the new features on <a href="https://www.youtube.com/c/checklyhq">YouTube</a>!</strong></p>
+      </div>
     </div>
+
 
     <div class="hbsp-container">
       <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
       <script>
         hbspt.forms.create({
-          region: "na1",
-          portalId: "7651213",
-          formId: "6f151543-8b05-440b-b2a1-2168a465818b",
-          version: "V2_PRERELEASE"
-        });
+        region: "na1",
+        portalId: "7651213",
+        formId: "28b035ee-e246-4b84-8eb7-3691bc40f6d0"
+      });
       </script>
     </div>
 
+    <!--
     <ul class="releases">
       {{ range .Params.releases }}
           <li>
@@ -47,6 +58,7 @@
           </li>
       {{ end }}
     </ul>
+    -->
 
     {{ partial "start-for-free-row" . }}
   </div>
