@@ -24,7 +24,7 @@ releases:
     description: After a long BETA period we're excited release native Playwright Test support into general availability!
 
     video_image: /images/launch-week/week-2/lw2-d2.jpg
-    video_url: https://www.youtube.com/watch?v=2ZUZ2Yez3TE
+    video_url: https://www.youtube.com/watch?v=mB-jIkLlY24
     links:
       - label: YouTube Live Stream
         url: https://www.youtube.com/watch?v=mB-jIkLlY24
