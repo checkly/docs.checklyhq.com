@@ -1,6 +1,6 @@
 ---
 title: Using NPM packages
-weight: 5
+weight: 4
 menu:
   docs:
     parent: "CLI"
