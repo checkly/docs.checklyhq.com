@@ -21,7 +21,7 @@ To use TypeScript, also install `ts-node` and `typescript`:
 npm i --save-dev ts-node typescript
 ```
 
-Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of your project.
+Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of your project. We recommend using TypeScript.
 
 {{< tabs "config" >}}
 {{< tab "TypeScript" >}}

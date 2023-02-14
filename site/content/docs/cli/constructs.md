@@ -13,7 +13,7 @@ you run `npx checkly deploy`.
 Remember the following rules when creating and updating constructs:
 
 1. Every construct needs to have a `logicalId`. This is the first argument when instantiating a class, i.e.
-```js
+```ts
 const check  = new ApiCheck('my-logical-id', { name: 'My API check' })
 ```
 2. Every `logicalId` needs to be unique within the scope of a `Project`. A Project also has a `logicalId`.
@@ -34,10 +34,10 @@ API checks are used to validate your HTTP based API endpoints. Let's look at the
 - It defines the HTTP method `GET` the `url`.
 - It defines an array of assertions to assert the HTTP response status is correct.
 
-```js
-// hello-api.check.js
+```ts
+// hello-api.check.ts
 
-const { ApiCheck } = require('@checkly/cli/constructs')
+import { ApiCheck } from '@checkly/cli/constructs'
 const path = require('path')
 const { readFileSync } = require('fs')
 
@@ -60,10 +60,10 @@ When a check fails, you want to get alerted. There are two steps to take here:
 
 1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.js`
 
-```js
-// alert-channels.js
+```ts
+// alert-channels.ts
 
-const { SmsAlertChannel, EmailAlertChannel } = require('@checkly/cli/constructs')
+import { SmsAlertChannel, EmailAlertChannel } from '@checkly/cli/constructs'
 
 const sendDefaults = {
   sendFailure: true,
@@ -89,11 +89,11 @@ module.exports = {
 
 2. Now you can import these channels into one or more checks by passing the objects into the `alertChannels` array:
 
-```js
-// api.check.js
+```ts
+// api.check.ts
 
-const { ApiCheck } = require('@checkly/cli/constructs')
-const { smsChannel, emailChannel } = require('./alert-channels')
+import { ApiCheck } from '@checkly/cli/constructs'
+import { smsChannel, emailChannel } from './alert-channels'
 
 new ApiCheck('hello-api-1', {
   name: 'Hello API',
@@ -205,18 +205,18 @@ The file hierarchy looks as follows:
 │   ├── teardown.js
 ```
 
-```js
-// hello-api.check.js
+```ts
+// hello-api.check.ts
 
-const { ApiCheck } = require('@checkly/cli/constructs')
-const path = require('path')
-const { readFileSync } = require('fs')
+import { ApiCheck } from '@checkly/cli/constructs'
+import * as path from 'path'
+import { readFileSync } from 'fs'
 
 new ApiCheck('hello-api-1', {
   name: 'Hello API',
   activated: true,
-  localSetupScript: readFileSync(path.join(__dirname, 'setup.js'), 'utf-8'),
-  localTearDownScript: readFileSync(path.join(__dirname, 'teardown.js'), 'utf-8'),
+  localSetupScript: readFileSync(path.join(__dirname, 'setup.ts'), 'utf-8'),
+  localTearDownScript: readFileSync(path.join(__dirname, 'teardown.ts'), 'utf-8'),
   request: {
     method: 'GET',
     url: 'https://mac-demo-repo.vercel.app/api/hello',
@@ -251,16 +251,16 @@ headers or other parts of the eventual HTTP request. Check our docs for examples
 - [Create a JWT token](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#create-a-jwt-token-using-the-jsonwebtoken-library)
 - [Dismiss a Vercel password prompt](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment)
 
-```js
-// setup.js
+```ts
+// setup.ts
 console.log('this is a setup script')
 ```
 
 Teardown script are commonly used to clean up any created test data. You can use access the previously executed HTTP request
 and [for example delete some resource on your API](https://www.checklyhq.com/docs/api-checks/teardown-script-examples/#delete-created-test-data-based-on-response)
 
-```js
-// teardown.js
+```ts
+// teardown.ts
 console.log('this is a teardown script')
 ```
 
@@ -273,8 +273,8 @@ them into synthetic monitoring Checks.
 However, you can override these global settings and configure individual Browser Checks just like all other built-in Check
 types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file. This property supports relative and absolute paths.
 
-```js
-const { BrowserCheck } = require('@checkly/cli/constructs')
+```ts
+import { BrowserCheck } from '@checkly/cli/constructs'
 
 new BrowserCheck('browser-check-1', {
   name: 'Browser check #1',
@@ -305,11 +305,11 @@ Check Groups for that purpose.
 You can add a Check to a group in two ways.
 
 1. Assign `group.ref()` to the `groupId` property of a Check.
-2. For Browser Checks, we allow you to use the `testMatch` glob pattern to include any `.spec.js` file, without having to
+2. For Browser Checks, we allow you to use the `testMatch` glob pattern to include any `.spec.js|ts` file, without having to
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
-```js
-const { CheckGroup, ApiCheck } = require('@checkly/cli/constructs')
+```ts
+import { CheckGroup, ApiCheck } from '@checkly/cli/constructs'
 
 const group = new CheckGroup('check-group-1', {
   name: 'Group',
@@ -367,8 +367,8 @@ property of a Project, CheckGroup or Check.
 
 Sends SMS notifications to phone number. Make sure to use standard international notation.
 
-```js
-const { SmsAlertChannel } = require('@checkly/cli/constructs'
+```ts
+import { SmsAlertChannel } from '@checkly/cli/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
   phoneNumber: '0031061234567890',
@@ -381,8 +381,8 @@ const smsChannel = new SmsAlertChannel('sms-channel-1', {
 
 Sends email notifications to an email address. Only accepts one address, do not use multiple addresses separated by a comma.
 
-```js
-const { EmailAlertChannel } = require('@checkly/cli/constructs')
+```ts
+import { EmailAlertChannel } from '@checkly/cli/constructs'
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
   address: 'alerts@acme.com',
@@ -393,9 +393,9 @@ const emailChannel = new EmailAlertChannel('email-channel-1', {
 
 Sends a Slack message to an incoming Slack webhook address. You can specify the target `channel`.
 
-````js
+````ts
 
-const { SlackAlertChannel } = require('@checkly/cli/constructs')
+import { SlackAlertChannel } from '@checkly/cli/constructs'
 
 const slackChannel = new SlackAlertChannel('slack-channel-1', {
   name: 'Slack channel',
@@ -409,8 +409,8 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
 
 Sends a webhook to any URL. Webhooks are very powerful and have quite some options. Here is an example that send
 
-```js
-const { WebhookAlertChannel } = require('@checkly/cli/constructs')
+```ts
+import { WebhookAlertChannel } from '@checkly/cli/constructs'
 
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
   name: 'Pushover webhook',
@@ -438,8 +438,8 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 
 Sends an alert notification to your Opsgenie account.
 
-```js
-const { OpsgenieAlertChannel } = require('@checkly/cli/constructs')
+```ts
+import { OpsgenieAlertChannel } from '@checkly/cli/constructs'
 
 const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
   name: 'My Ops Team',
@@ -460,7 +460,9 @@ const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
 
 Sends an alert notification to a specific service in your Pagerduty account
 
-```js
+```ts
+import { PagerdutyAlertChannel } from '@checkly/cli/constructs'
+
 const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
   account: 'ACME',
   serviceName: 'ACME products',
