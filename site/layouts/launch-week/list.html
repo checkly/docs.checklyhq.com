@@ -29,7 +29,8 @@
       </script>
     </div>
 
-    <!--
+    <h2>Four days of new features!</h2>
+
     <ul class="releases">
       {{ range .Params.releases }}
           <li>
@@ -43,10 +44,10 @@
                 </div>
               </div>
               <div>
-                <h2 id="{{ .id }}">{{ .headline }}</h2>
+                <h3 id="{{ .id }}">{{ .headline }}</h3>
                 <p>{{ .description }}</p>
                 {{ if .links }}
-                  <h3>Related links</h3>
+                  <h4>Related links</h4>
                   <ul class="releases__related">
                     {{ range .links }}
                       <li><a href="{{ .url }}">{{ .label }}</a></li>
@@ -58,7 +59,6 @@
           </li>
       {{ end }}
     </ul>
-    -->
 
     {{ partial "start-for-free-row" . }}
   </div>
