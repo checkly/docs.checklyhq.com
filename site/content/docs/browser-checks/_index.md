@@ -39,8 +39,8 @@ The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
 {{< tab "TypeScript" >}}
- ```ts
-import { test } from '@playwright/test'
+```ts
+import { expect, test } from '@playwright/test'
 
 test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
@@ -48,11 +48,11 @@ test('Visit Checkly HQ page', async ({ page }) => {
   // Test that the response did not fail
   expect(response.status()).toBeLessThan(400)
 })
- ```
+```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
-const { test } = require('@playwright/test')
+```js
+const { expect, test } = require('@playwright/test')
 
 test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
@@ -60,7 +60,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
   // Test that the response did not fail
   expect(response.status()).toBeLessThan(400)
 })
- ```
+```
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -75,7 +75,7 @@ Let's look at a breakdown of a real-life scenario. The code below logs into Chec
 {{< tabs "Breakdown example" >}}
 {{< tab "TypeScript" >}}
 ```ts
-import { test } from '@playwright/test' // 1
+import { expect, test } from '@playwright/test' // 1
 
 test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
@@ -91,7 +91,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 ```js
-const { test } = require('@playwright/test') // 1
+const { expect, test } = require('@playwright/test') // 1
 
 test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
@@ -103,7 +103,7 @@ test('Login to Checkly', async ({ page }) => { // 2
   const homeDashboardTable = page.getByTestId('home-dashboard-table')
   await expect(homeDashboardTable).toBeVisible() // 6
 })
- ```
+```
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -177,7 +177,7 @@ test('CTA button has "Start for free" text', async ({ page }) => {
   // Assert that the button has the correct text
   await expect(button).toHaveText('Start for free')
 })
- ```
+```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 ```js
@@ -192,7 +192,7 @@ test('CTA button has "Start for free" text', async ({ page }) => {
   // Assert that the button has the correct text
   await expect(button).toHaveText('Start for free')
 })
- ```
+```
 {{< /tab >}}
 {{< /tabs >}}
 
