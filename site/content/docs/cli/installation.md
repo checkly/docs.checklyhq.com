@@ -26,6 +26,8 @@ Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of you
 {{< tabs "config" >}}
 {{< tab "TypeScript" >}}
  ```ts
+import { defineConfig } from '@checkly/cli'
+
 const config = {
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
@@ -38,19 +40,19 @@ const config = {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     alertChannels: [],
-    checkMatch: '**/*.check.js',
+    checkMatch: '**/__checks__/*.check.ts',
+    ignoreDirectoriesMatch: [],
     browserChecks: {
       frequency: 10,
-      testMatch: '**/*.spec.js',
+      testMatch: '**/__checks__/*.spec.ts',
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
   }
 }
 
-export default config
+export default defineConfig(config)
  ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
@@ -67,14 +69,14 @@ const config = {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     alertChannels: [],
-    checkMatch: '**/*.check.js',
+    checkMatch: '**/__checks__/*.check.js',
+    ignoreDirectoriesMatch: [],
     browserChecks: {
       frequency: 10,
-      testMatch: '**/*.spec.js',
+      testMatch: '**/__checks__/*.spec.js',
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
   }
 }

@@ -9,10 +9,10 @@ menu:
 ---
 
 The Checkly CLI gives you a JavaScript/TypeScript-native **workflow** for creating, testing, deploying and life cycling
-synthetic monitors (checks) at scale, from your code base. We call this workflow **Monitoring as Code**.
+synthetic monitors (Checks) at scale, from your code base. We call this workflow **Monitoring as Code**.
 
 - **Unite E2E testing & monitoring in one workflow.** No more silos between Dev, QA and Ops.
-- **Codeable, testable, reviewable.** Works with your dev pipeline. From your IDE, via PR to CI.
+- **Programmable, testable, reviewable.** Works with your dev pipeline. From your IDE, via PR to CI.
 - **Native `@playwright/test` support.** No lock-in, just write standard `*.spec.ts` files.
 - **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
 - **Typescript-first.** Fully typed for a stellar developer experience with code completion.
@@ -35,7 +35,7 @@ Now, login to your Checkly account.
 npx checkly login
 ```
 
-After this, let's dry run the checks in your new project against the global Checkly infrastructure.
+After this, let's dry run the Checks in your new project against the global Checkly infrastructure.
 
 ```bash
 npx checkly test
@@ -59,13 +59,13 @@ src/services/docs/__checks__/docs-search.spec.ts
 5 passed, 5 total
 ```
 
-Lastly, you deploy your checks and related alert channels to Checkly so we run your checks around the clock.
+Lastly, you deploy your Checks and related alert channels to Checkly so we run your Checks around the clock.
 
 ```bash
 npx checkly deploy
 ```
 
-✨Et voilà, you have just created a synthetic monitoring check based on Playwright from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
+✨Et voilà, you have just created a synthetic monitoring Check based on Playwright from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
 around the clock. ✨
 
 
