@@ -114,11 +114,11 @@ All resources you can create and manage using the Checkly CLI are derived from "
 You can use standard JS/TS programming to use these constructs to create the monitoring setup of your
 choice. Loops, variables, if-statements, file imports, extensions etc.
 
-## Project
+## `Project`
 
 Coming very soon.
 
-## Checks
+## Check
 
 The CLI currently supports two Check types: API Checks and Browser Checks. All checks share the following common properties:
 
@@ -135,7 +135,7 @@ The CLI currently supports two Check types: API Checks and Browser Checks. All c
 
 Note that most properties have sane default values and do not need to be specified.
 
-### API Checks
+### APICheck
 
 API checks are a good fit for monitoring typical HTTP based endpoints like REST APIs and GraphQL APIs, but can also be
 used for form encoded payloads. [Read more about API checks in our docs](https://www.checklyhq.com/docs/api-checks/)
@@ -216,7 +216,7 @@ and [for example delete some resource on your API](https://www.checklyhq.com/doc
 console.log('this is a teardown script')
 ```
 
-### Browser Checks
+### BrowserCheck
 
 Browser checks are based on [`@playwright/test`](https://playwright.dev/). You can just write `.spec.js|ts` files with test cases
 and the Checkly CLI will pick them up and apply some default settings like a name, run locations and run frequency to turn
@@ -238,7 +238,7 @@ new BrowserCheck('browser-check-1', {
 })
 ```
 
-## Check Groups
+## CheckGroup
 
 You can explicitly organize checks in Check Groups.
 

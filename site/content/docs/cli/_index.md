@@ -22,11 +22,51 @@ synthetic monitors (checks) at scale, from your code base. We call this workflow
 
 First, make sure you sign up for a [free Checkly account](https://app.checklyhq.com/signup).
 
-Then, get started by installing the CLI using the following command:
+Then, get started by installing the CLI using the following command which will guide you through the required steps to
+set up a fully working example.
 
 ```bash
 npm create @checkly/cli
 ```
-This command will guide you through the required steps to set up a fully working example project in under one minute.
+
+Now, login to your Checkly account.
+
+```bash
+npx checkly login
+```
+
+After this, let's dry run the checks in your new project against the global Checkly infrastructure.
+
+```bash
+npx checkly test
+```
+
+This should report the following output to your terminal 
+
+```
+Running 5 checks in eu-west-1.
+
+src/__checks__/group.check.ts
+  ✔ Homepage - fetch stats (43ms)
+src/__checks__/home.check.ts
+  ✔ 404 page (7s)
+  ✔ Homepage (7s)
+src/services/api/api.check.ts
+  ✔ Homepage - fetch stats (50ms)
+src/services/docs/__checks__/docs-search.spec.ts
+  ✔ docs-search.spec.ts (11s)
+
+5 passed, 5 total
+```
+
+Lastly, you deploy your checks and related alert channels to Checkly so we run your checks around the clock.
+
+```bash
+npx checkly deploy
+```
+
+✨Et voilà, you have just created a synthetic monitoring check based on Playwright from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
+around the clock. ✨
+
 
 For a custom installation check out [our installation docs](/docs/cli/installation/)
