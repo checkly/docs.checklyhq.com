@@ -42,8 +42,8 @@ done by just prepending the variable to the command.
 PHONE_NUMBER=0987654321 npx checkly deploy
 ```
 
-The above command will replace `process.env.PHONE_NUMBER` with the actual number and persist that as an SMS alert channel
-in your Checkly account.
+The above command will replace `process.env.PHONE_NUMBER` with the actual `PHONE_NUMBER` you prepended and then create
+that SMS channel in your Checkly account.
 
 ## Remote Environment Variables
 
@@ -77,8 +77,8 @@ npx checkly test -e ENVIRONMENT_URL="https://staging.checklyhq.com"
 
 - Notice that we pass in the variable using the `-e` flag. This means it will be passed to the cloud environment and made 
 available during runtime.
-- After deploying this check, either the `ENVIRONMENT_URL` is set at the Account, Group or Check level or in the example's
-case the fallback URL is used.
+- After deploying this check, the `ENVIRONMENT_URL` needs to be set at the Account, Group or Check level. If not set, the Check
+will use the fallback URL.
 - Prepending the variable like `ENVIRONMENT_URL="https://staging.checklyhq.com" npx checkly test` has no effect as local
 environment variables are not replaced in code dependencies.
 

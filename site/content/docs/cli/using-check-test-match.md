@@ -34,10 +34,13 @@ allows you to just use `npx playwright test` on the command line to write and de
 
 Two caveats:
 1. As a `.spec.ts` file does not contain any Checkly specific properties like `frequency` or `tags`, the CLI will add 
-these properties based on the defaults set inside the `browserChecks` config object. Also, a `name` will be generated based
-on the file name.
+these properties based on the defaults set inside the `browserChecks` config object. Also, a `logicalId` and `name` will 
+be generated based on the file name.
 2. If you want to explicitly set the properties for a Browser Check and not use the defaults, you need to add `BrowserCheck`
 construct in a separate `.check.ts` file and set file path to the `.spec.ts` file in the `code.entrypoint` property.
+3. When you rename a file that was previously deployed, the `logicalId` will change. The effect is that once you deploy
+again the new `logicalId` will trigger a deletion of the "old" Check and a creation of this "new" Check and you will lose
+any historical metrics.
 
 
 > Note that the recommended patterns are just conventions. You can set any glob pattern or turn off any globbing by setting
