@@ -10,11 +10,16 @@
   }
 
   h2 {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  h3 {
     font-size: 1.25rem;
     color: $gray-dark;
   }
 
-  h3 {
+  h4 {
     font-size: 0.75rem;
     color: $gray-dark;
     font-weight: 600;
@@ -135,6 +140,12 @@
       border-radius: 0.25rem;
       font-weight: 600;
       color: $gray-dark;
+    }
+
+    &__imgContainer {
+      img {
+        border-radius: 0.25rem;
+      }
     }
 
     &__grid {
