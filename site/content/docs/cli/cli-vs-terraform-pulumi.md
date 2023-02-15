@@ -21,7 +21,7 @@ pros and cons based on our own experience and user feedback.
 ## Terraform vs. Checkly CLI
 
 If you are a Terraform shop, you can use Checkly to its full capacity. The CLI adds core capabilities like TS/JS coding 
-, simple Git integration and executing tests.
+, simple Git integration and test execution.
 
 **Pros**
 
