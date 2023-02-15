@@ -6,7 +6,7 @@ menu:
     parent: "CLI"
 ---
 
-Creating, debugging and managing E2E and synthetics monitoring at scale is best done "as code". Currently, Checkly supports
+Creating, debugging and managing E2E and synthetic monitoring at scale is best done "as code". Currently, Checkly supports
 three tools you can use for your **Monitoring as Code** workflow:
 
 1. The Checkly CLI.
