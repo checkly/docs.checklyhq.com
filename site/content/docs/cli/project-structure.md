@@ -38,8 +38,6 @@ to tackle this is using a mix of **global** and **local** configuration.
 As mentioned, your global `checkly.config.ts` holds a set of defaults for your project, the checks in that project and some
 CLI commands.
 
-{{< tabs "config" >}}
-{{< tab "TypeScript" >}}
  ```ts
 const config = {
   projectName: 'Website Monitoring',
@@ -68,47 +66,13 @@ const config = {
 
 export default config
  ```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
- ```js
-const config = {
-  projectName: 'Website Monitoring',
-  logicalId: 'website-monitoring-1',
-  repoUrl: 'https://github.com/acme/website',
-  checks: {
-    activated: true,
-    muted: false,
-    runtimeId: '2022.10',
-    frequency: 5,
-    locations: ['us-east-1', 'eu-west-1'],
-    tags: ['website', 'api'],
-    alertChannels: [],
-    checkMatch: '**/*.check.js',
-    browserChecks: {
-      frequency: 10,
-      testMatch: '**/*.spec.js',
-    },
-  },
-  cli: {
-    verbose: false,
-    runLocation: 'eu-west-1',
-    privateRunLocation: 'private-dc1'
-  }
-}
 
-module.exports = config;
- ```
-{{< /tab >}}
-{{< /tabs >}}
-
-- `checkMatch`: By default, Checkly looks for files matching `**/*.check.{js,ts}`.
-- `cli`: Sets default values for command line flags. Setting command line flags will still override these values.
-  - `runLocation`: The default run location for `checkly test`.
-  - `privateRunLocation`: A [private run location](https://www.checklyhq.com/docs/private-locations/) for `checkly test`. Both `runLocation` and `privateRunLocation` can't be set at once.
+You can find a full reference of all properties of a Project in [the Project construct section](/docs/cli/constructs/#project)
 
 ### Config Intellisense
 
-The CLI ships TypeScript typings, so you add hints to your IDE by either annotating the config object type in JSDoc:
+We recommend using TypeScript, but you can use JavaScript and still get some benefits of TS and add hints to your IDE by 
+either annotating the config object type in JSDoc:
 
 ```js
 /** @type {import('@checkly/cli').ChecklyConfig} */
@@ -134,9 +98,9 @@ module.exports = config;
 
 You can override any of the settings in the `checks` global configuration section at the individual check level.
 
-```js
-// __check__/api.check.js
-const { ApiCheck } = require('@checkly/cli/constructs')
+```ts
+// __check__/api.check.ts
+import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
 
 const api = new ApiCheck('hello-api', {
   name: 'Hello API',
@@ -145,7 +109,9 @@ const api = new ApiCheck('hello-api', {
   request: {
     method: 'GET',
     url: 'https://api.checklyhq.com/public-stats',
-    assertions: [{ source: 'STATUS_CODE', comparison: 'EQUALS', target: '200' }]
+    assertions: [
+      AssertionBuilder.statusCode().equals(200)
+    ]
   }
 })
 ```
