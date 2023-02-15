@@ -6,7 +6,7 @@ menu:
     parent: "CLI"
 ---
 
-In the context for the Checkly CLI there are two types of environment variables (env vars) you have to be aware of.
+There are two types of environment variables (env vars) in the Checkly CLI context.
 
 - Local environment variables.
 - Remote environment variables.
