@@ -1,5 +1,5 @@
 ---
-title: Using environment variables.
+title: Using environment variables
 weight: 5
 menu:
   docs:
