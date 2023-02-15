@@ -65,7 +65,7 @@ Lastly, you deploy your Checks and related alert channels to Checkly so we run y
 npx checkly deploy
 ```
 
-✨Et voilà, you have just created a synthetic monitoring Check based on Playwright from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
+✨Et voilà, you have just created your entire synthetic monitoring setup with API and Playwright-based Browser Checks from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
 around the clock. ✨
 
 
