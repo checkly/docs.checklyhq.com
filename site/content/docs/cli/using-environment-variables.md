@@ -57,7 +57,7 @@ You will typically use remote environment variables inside the code dependencies
  and teardown scripts. The point is that the `process.env.SOME_VARIABLE` stays in your code and are only interpreted when
 a check executes on the Checkly cloud.
 
-Here is an example of a Playwright script using an `ENVIRONMENT_URL` variable to define the page the visit. We also added
+Here is an example of a Playwright script using an `ENVIRONMENT_URL` variable to define the page to visit. We also added
 a fallback value in case that variable is not defined for some reason.
 
 ```ts
