@@ -6,7 +6,7 @@ menu:
     parent: "CLI"
 ---
 
-The Project and CheckGroup constructs have two properties that allow you to use a form of file-based routing to find and
+The Project and CheckGroup constructs have two properties that allow you to use file-based routing to find and
 include Checks in your Project for testing and deploying.
 
 ## `checks.checkMatch`
