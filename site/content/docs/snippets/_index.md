@@ -40,17 +40,36 @@ Snippets work like any Javascript file on your local disk in Node.js, making it 
 
 Require a snippet named `setup-library` from within a Browser check, a setup or teardown script as follows:
 
-```javascript
+{{< tabs "snippet_within_browser_check" >}}
+{{< tab "TypeScript" >}}
+```ts
+import setupLibrary from './snippets/setup-library.js'
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
 const setupLibrary = require('./snippets/setup-library.js')
 ```
+{{< /tab >}}
+{{< /tabs >}}
 
 Snippets can also import other snippets. Since snippets are stored in the same directory, it isn't necessary to include `./snippets` in the path when requiring.
 
 For example, to import a snippet named `setup-library` from another snippet:
 
-```javascript
+{{< tabs "snippet_within_other_snippet" >}}
+{{< tab "TypeScript" >}}
+```ts
+import setupLibrary from './setup-library.js'
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
 const setupLibrary = require('./setup-library.js')
 ```
+{{< /tab >}}
+{{< /tabs >}}
+
 
 {{<info >}}
 Do you use [reusable code snippets for a setup or teardown script](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets)?
@@ -68,13 +87,13 @@ Browser checks to have granular feedback whether each part functions.
 Create a snippet named `github_login` in the "code snippets" section with a function that executes the login routine.
 
 {{< tabs "github_login" >}}
-{{< tab "Playwright" >}}
-```javascript
+{{< tab "TypeScript" >}}
+```ts
 async function gitHubLogin (page, username, password) {
-  await page.goto("https://github.com/login")
-  await page.type("#login_field", username)
-  await page.type("#password", password)
-  await page.click('[name="commit"]')
+  await page.goto('https://github.com/login')
+  await page.locator('#login_field').type(username)
+  await page.locator('#password').type(password)
+  await page.locator('[name="commit"]').click()
 }
 
 module.exports = {
@@ -82,13 +101,13 @@ module.exports = {
 }
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```javascript
+{{< tab "JavaScript" >}}
+```js
 async function gitHubLogin (page, username, password) {
-  await page.goto("https://github.com/login")
-  await page.type("#login_field", username)
-  await page.type("#password", password)
-  await page.click('[name="commit"]')
+  await page.goto('https://github.com/login')
+  await page.locator('#login_field').type(username)
+  await page.locator('#password').type(password)
+  await page.locator('[name="commit"]').click()
 }
 
 module.exports = {
@@ -108,36 +127,33 @@ Your snippet should look like this now.
 
 ![github login snippet example](/docs/images/browser-checks/github_login_snippet_example.png)
 
-Create a new Browser check and `require` the code snippet you just created.
+Create a new Browser check and import the code snippet you just created.
 
 {{< tabs "github_login_referenced" >}}
-{{< tab "Playwright" >}}
-```javascript
-const playwright = require('playwright')
-const { gitHubLogin } = require('./snippets/github_login.js')
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test'
+import { gitHubLogin } from './snippets/github_login.js'
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+test('Github login', async ({ page }) => {
+  await gitHubLogin(page, process.env.GITHUB_USER, process.env.GITHUB_PWD)
 
-await gitHubLogin(page, process.env.GITHUB_USER, process.env.GITHUB_PWD)
-
-// your normal check code
-await page.click('.header-search-input')
+  // your normal check code
+  await page.click('.header-search-input')
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```javascript
-const puppeteer = require('puppeteer')
+{{< tab "JavaScript" >}}
+```js
+const { test } = require('@playwright/test')
 const { gitHubLogin } = require('./snippets/github_login.js')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+test('Github login', async ({ page }) => {
+  await gitHubLogin(page, process.env.GITHUB_USER, process.env.GITHUB_PWD)
 
-await gitHubLogin(page, process.env.GITHUB_USER, process.env.GITHUB_PWD)
-
-// your normal check code
-await page.waitForSelector('.application-main')
-await page.click('.header-search-input')
+  // your normal check code
+  await page.click('.header-search-input')
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
