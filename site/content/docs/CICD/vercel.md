@@ -217,4 +217,4 @@ Selecting a deployment enables you to quickly determine whether it caused any ch
 
 ## Password-protected deployments
 
-If you're interested in using Checkly to bypass Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can accomplish this using the resources depending on the approach you're taking referenced in [browser checks](/docs/browser-checks/login-scenarios#username--password-login) or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).
+If you're interested in using Checkly to bypass Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios#username--password-login) or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).
