@@ -115,7 +115,7 @@ Use the `locator.inputValue()` method to get the text from a standard text input
 ```ts
 import { expect, test } from '@playwright/test'
 
-test('visit page and take screenshot', async ({ page }) => {
+test('Search "playwright" on the Duckduckgo search page', async ({ page }) => {
   await page.goto('https://duckduckgo.com/')
 
   const searchInput = page.locator('#search_form_input_homepage')
