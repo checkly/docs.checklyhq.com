@@ -86,7 +86,7 @@ test('Find "Advanced" sections on playwright docs page', async ({ page }) => {
 ```js
 const { expect, test } = require('@playwright/test')
 
-test('Find "Advanced" sections on playwright docs page', async ({ page }) => {
+test('Find "Advanced" sections on the playwright docs page', async ({ page }) => {
   await page.goto('https://playwright.dev/docs/intro')
 
   const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i })
