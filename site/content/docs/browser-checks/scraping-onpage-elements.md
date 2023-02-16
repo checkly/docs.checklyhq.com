@@ -18,7 +18,7 @@ This is a two-step process:
 Playwright Test offers many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
 common ones below, together with some tips on how to use them effectively.
 
-When it comes to assertions, Playwright Test uses Jest's [expect](https://jestjs.io/docs/expect) library. Playwright also extends the `expect` library with it's own, recommended web-first assertions. These will re-fetch the element and check it until the condition is met or the test times out. The full list of web-first assertions can be found [here.](https://playwright.dev/docs/test-assertions#list-of-assertions)
+When it comes to assertions, Playwright Test uses Jest's [expect](https://jestjs.io/docs/expect) library. Playwright also extends the `expect` library with it's own, recommended web-first assertions. These will re-fetch an element and check it until the condition is met or the test times out. The full list of web-first assertions can be found [here.](https://playwright.dev/docs/test-assertions#list-of-assertions)
 
 ## Scraping text values
 
@@ -108,7 +108,7 @@ test('Find "Advanced" sections on the playwright docs page', async ({ page }) =>
 
 ### Text input fields
 
-Use the `locator.inputValue()` method to get the text from a standard text input field.
+You can use the `locator.inputValue()` method to get the text from a standard text input field, or even better, an `expect(locator).toHaveValue()` to assert it right away.
 
 {{< tabs "locator.inputValue()" >}}
 {{< tab "TypeScript" >}}
@@ -143,8 +143,7 @@ test('visit page and take screenshot', async ({ page }) => {
 
 ### Checkboxes, radio buttons and dropdown selects
 
-Scraping the values of other common form elements is pretty similar to scraping text inputs, with a few quirks here and
-there.
+Scraping the values of other common form elements is pretty similar to scraping text inputs. See the examples below for specific use cases.
 
 #### Checkboxes:
 
@@ -256,13 +255,13 @@ test('Test Bootstrap select menu', async ({ page }) => {
 
 Key takeaways are:
 
-1. You can use `locator.check()` and `locator.isChecked()` methods to interact with checkboxes and radio buttons
-2. Using `locator.inputValue()` will return the selected value of a dropdown. `locator.selectOption()` will select a new value
+1. You can use `locator.check()` and `expect(locator).toBeChecked()` methods to interact with checkboxes and radio buttons
+2. `locator.selectOption()` will select a new value. `expect(locator).toHaveValue()` will assert that the desired value is chosen in a select menu component.
 
 ## Built-in shortcuts
 
 Playwright Test offers some built-in shortcuts to access common elements of a typical webpage which you can use in Checkly. For the full details see
-[the Playwright docs](https://playwright.dev/docs/api/class-page).
+[the Playwright docs](https://playwright.dev/docs/api/class-page) on `Page` class.
 
 {{< tabs "page.viewport" >}}
 {{< tab "TypeScript" >}}
