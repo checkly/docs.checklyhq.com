@@ -18,11 +18,11 @@ This is a two-step process:
 Playwright Test offers many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
 common ones below, together with some tips on how to use them effectively.
 
+When it comes to assertions, Playwright Test uses Jest's [expect](https://jestjs.io/docs/expect) library. Playwright also extends the `expect` library with it's own, recommended web-first assertions. These will re-fetch the element and check it until the condition is met or the test times out. The full list of web-first assertions can be found [here.](https://playwright.dev/docs/test-assertions#list-of-assertions)
+
 ## Scraping text values
 
-Playwright Test uses Jest's [`expect`](https://jestjs.io/docs/expect) library for test assertions. Playwright also extends it with convenience async matchers that will wait until the expected condition is met.
-
-For text assertions, you can use `expect().toHaveText()` or `expect().toContainText()`. The first one will look for an exact match, while the latter will check for a substring match. Both methods accept regex patterns too. The example below shows how these could be used in a real-world scenario:
+For the text assertions, you can use `expect().toHaveText()` or `expect().toContainText()`. The first one will look for an exact match, while the latter will check for a substring match. Both methods accept regex patterns too. The example below shows how these could be used in a real-world scenario:
 
 
 {{< tabs "Scraping text values" >}}
@@ -44,11 +44,11 @@ test('Checkly API Docs search input has a keyboard shortcut info', async ({ page
 const { test, expect } = require('@playwright/test')
 
 test('Checkly API Docs search input has a keyboard shortcut info', async ({ page }) => {
-  await page.goto('https://developers.checklyhq.com/')
+  await page.goto('https://developers.checklyhq.com/') // 1
 
-  const searchBox = page.getByRole('button', { name: 'Search' })
+  const searchBox = page.getByRole('button', { name: 'Search' }) // 2
 
-  await expect(searchBox).toContainText('CTRL-K')
+  await expect(searchBox).toContainText('CTRL-K') // 3
 })
  ```
 {{< /tab >}}
@@ -75,10 +75,10 @@ import { expect, test } from '@playwright/test'
 test('Find "Advanced" sections on playwright docs page', async ({ page }) => {
   await page.goto('https://playwright.dev/docs/intro')
 
-  const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i })
+  const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i }) // 1, 2
 
-  await expect(advancedSections).toHaveCount(2)
-  await expect(advancedSections).toHaveText(['Advanced: configuration', 'Advanced: fixtures'])
+  await expect(advancedSections).toHaveCount(2) // 3
+  await expect(advancedSections).toHaveText(['Advanced: configuration', 'Advanced: fixtures']) // 4
 })
 ```
 {{< /tab >}}
@@ -89,10 +89,10 @@ const { expect, test } = require('@playwright/test')
 test('Find "Advanced" sections on the playwright docs page', async ({ page }) => {
   await page.goto('https://playwright.dev/docs/intro')
 
-  const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i })
+  const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i }) // 1,2
 
-  await expect(advancedSections).toHaveCount(2)
-  await expect(advancedSections).toHaveText(['Advanced: configuration', 'Advanced: fixtures'])
+  await expect(advancedSections).toHaveCount(2) // 3
+  await expect(advancedSections).toHaveText(['Advanced: configuration', 'Advanced: fixtures']) // 4
 })
 ```
 {{< /tab >}}
@@ -101,7 +101,7 @@ test('Find "Advanced" sections on the playwright docs page', async ({ page }) =>
 1. We select all elements that have the CSS class `menu__link`. 
 2. In the same line, we filter these elements to those that contain `Advanced` word
 3. We assert the elements count
-3. We assert that the exact text of these elements (`expect().toHaveText()` accepts arrays too!)
+4. We assert that the exact text of these elements (`expect().toHaveText()` accepts arrays too!)
 
 
 ## Scraping form input elements
@@ -121,7 +121,7 @@ test('Search "playwright" on the Duckduckgo search page', async ({ page }) => {
   const searchInput = page.locator('#search_form_input_homepage')
 
   await searchInput.type('Playwright')
-  expect(await searchInput.inputValue()).toEqual('Playwright')
+  await expect(searchInput).toHaveValue('Playwright')
 })
 ```
 {{< /tab >}}
@@ -135,7 +135,7 @@ test('visit page and take screenshot', async ({ page }) => {
   const searchInput = page.locator('#search_form_input_homepage')
 
   await searchInput.type('Playwright')
-  expect(await searchInput.inputValue()).toEqual('Playwright')
+  await expect(searchInput).toHaveValue('Playwright')
 })
 ```
 {{< /tab >}}
@@ -146,39 +146,21 @@ test('visit page and take screenshot', async ({ page }) => {
 Scraping the values of other common form elements is pretty similar to scraping text inputs, with a few quirks here and
 there.
 
-{{< tabs "Checkboxes, radio & dropdown" >}}
+#### Checkboxes:
+
+{{< tabs "Checkboxes" >}}
 {{< tab "TypeScript" >}}
 ```ts
 import { expect, test } from '@playwright/test'
 
-test('visit page and take screenshot', async ({ page }) => {
+test('Test Bootstrap checkbox element', async ({ page }) => {
   await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
-  // Checkbox
   const checkbox = page.getByLabel('Default checkbox')
 
-  expect(await checkbox.isChecked()).toBeFalsy()
+  await expect(checkbox).not.toBeChecked()
   await checkbox.check()
-  expect(await checkbox.isChecked()).toBeTruthy()
-
-  // Radio button
-  const defaultRadio = page.getByRole('radio', { name: 'Default radio', exact: true })
-  const secondDefaultRadio = page.getByRole('radio', { name: 'Second default radio', exact: true })
-
-  expect(await defaultRadio.isChecked()).toBeTruthy()
-  await secondDefaultRadio.check()
-
-  expect(await defaultRadio.isChecked()).toBeFalsy()
-  expect(await secondDefaultRadio.isChecked()).toBeTruthy()
-
-  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
-
-  // Dropdown selects
-  const select = page.locator('.bd-example > select.custom-select.custom-select-lg.mb-3')
-
-  expect(await select.inputValue()).toEqual('Open this select menu')
-  await select.selectOption('1')
-  expect(await select.inputValue()).toEqual('1')
+  await expect(checkbox).toBeChecked()
 })
 ```
 {{< /tab >}}
@@ -186,34 +168,87 @@ test('visit page and take screenshot', async ({ page }) => {
 ```js
 const { expect, test } = require('@playwright/test')
 
-test('visit page and take screenshot', async ({ page }) => {
+test('Test Bootstrap checkbox element', async ({ page }) => {
   await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
-  // Checkbox
   const checkbox = page.getByLabel('Default checkbox')
 
-  expect(await checkbox.isChecked()).toBeFalsy()
+  await expect(checkbox).not.toBeChecked()
   await checkbox.check()
-  expect(await checkbox.isChecked()).toBeTruthy()
+  await expect(checkbox).toBeChecked()
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
 
-  // Radio button
+
+#### Radio buttons: 
+
+{{< tabs "Radio buttons" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
+
+test('Test Bootstrap radio element', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
+
   const defaultRadio = page.getByRole('radio', { name: 'Default radio', exact: true })
   const secondDefaultRadio = page.getByRole('radio', { name: 'Second default radio', exact: true })
 
-  expect(await defaultRadio.isChecked()).toBeTruthy()
+  await expect(defaultRadio).toBeChecked()
   await secondDefaultRadio.check()
+  await expect(secondDefaultRadio).toBeChecked()
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
 
-  expect(await defaultRadio.isChecked()).toBeFalsy()
-  expect(await secondDefaultRadio.isChecked()).toBeTruthy()
+test('Test Bootstrap radio element', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
+  const defaultRadio = page.getByRole('radio', { name: 'Default radio', exact: true })
+  const secondDefaultRadio = page.getByRole('radio', { name: 'Second default radio', exact: true })
+
+  await expect(defaultRadio).toBeChecked()
+  await secondDefaultRadio.check()
+  await expect(secondDefaultRadio).toBeChecked()
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+#### Select menu: 
+
+{{< tabs "Select dropdown" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
+
+test('Test Bootstrap select menu', async ({ page }) => {
   await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
 
-  // Dropdown selects
   const select = page.locator('.bd-example > select.custom-select.custom-select-lg.mb-3')
 
-  expect(await select.inputValue()).toEqual('Open this select menu')
+  await expect(select).toHaveValue('Open this select menu')
   await select.selectOption('1')
-  expect(await select.inputValue()).toEqual('1')
+  await expect(select).toHaveValue('1')
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
+
+test('Test Bootstrap select menu', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
+
+  const select = page.locator('.bd-example > select.custom-select.custom-select-lg.mb-3')
+
+  await expect(select).toHaveValue('Open this select menu')
+  await select.selectOption('1')
+  await expect(select).toHaveValue('1')
 })
 ```
 {{< /tab >}}
