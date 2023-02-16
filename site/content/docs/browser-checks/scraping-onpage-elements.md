@@ -12,7 +12,7 @@ many cases, you want to validate whether the session shows the right stuff to th
 
 This is a two-step process:
 
-1. Scrape the relevant item from the current page.
+1. Identify the relevant element on the current page.
 2. Assert that it shows what you expect.
 
 Playwright Test offers many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
