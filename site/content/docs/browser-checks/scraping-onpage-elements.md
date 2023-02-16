@@ -100,7 +100,7 @@ test('Find "Advanced" sections on the playwright docs page', async ({ page }) =>
 
 1. We select all elements that have the CSS class `menu__link`. 
 2. In the same line, we filter these elements to those that contain `Advanced` word
-2. We assert the elements count
+3. We assert the elements count
 3. We assert that the exact text of these elements (`expect().toHaveText()` accepts arrays too!)
 
 
