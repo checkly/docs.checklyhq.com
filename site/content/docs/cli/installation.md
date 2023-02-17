@@ -21,11 +21,13 @@ To use TypeScript, also install `ts-node` and `typescript`:
 npm i --save-dev ts-node typescript
 ```
 
-Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of your project.
+Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of your project. We recommend using TypeScript.
 
 {{< tabs "config" >}}
 {{< tab "TypeScript" >}}
  ```ts
+import { defineConfig } from '@checkly/cli'
+
 const config = {
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
@@ -38,19 +40,19 @@ const config = {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     alertChannels: [],
-    checkMatch: '**/*.check.js',
+    checkMatch: '**/__checks__/*.check.ts',
+    ignoreDirectoriesMatch: [],
     browserChecks: {
       frequency: 10,
-      testMatch: '**/*.spec.js',
+      testMatch: '**/__checks__/*.spec.ts',
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
   }
 }
 
-export default config
+export default defineConfig(config)
  ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
@@ -67,14 +69,14 @@ const config = {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     alertChannels: [],
-    checkMatch: '**/*.check.js',
+    checkMatch: '**/__checks__/*.check.js',
+    ignoreDirectoriesMatch: [],
     browserChecks: {
       frequency: 10,
-      testMatch: '**/*.spec.js',
+      testMatch: '**/__checks__/*.spec.js',
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
   }
 }
@@ -89,57 +91,6 @@ Use the CLI to authenticate and pick a Checkly account. Make sure you have [sign
 ```bash
 npx checkly login
 ```
-
-Now, let's create your first synthetic monitoring check, starting with a `@playwright/test` based Browser check. Create a file named `__checks__/home.spec.js`.
-
-{{< tabs "check-example" >}}
-{{< tab "TypeScript" >}}
-```ts
-import { expect, test } from '@playwright/test'
-
-test('Playwright home page', async ({ page }) => {
-  const response = await page.goto('https://playwright.dev/')
-  expect(response.status()).toBeLessThan(400)
-  expect(page).toHaveTitle(/Playwright/)
-  await page.screenshot({ path: 'homepage.jpg' })
-})
-```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
-```ts
-const { expect, test } =  require('@playwright/test')
-
-test('Playwright home page', async ({ page }) => {
-  const response = await page.goto('https://playwright.dev/')
-  expect(response.status()).toBeLessThan(400)
-  expect(page).toHaveTitle(/Playwright/)
-  await page.screenshot({ path: 'homepage.jpg' })
-})
-```
-{{< /tab >}}
-{{< /tabs >}}
-
-
-Now run `npx checkly test` to do a dry run against the global Checkly infrastructure so we validate we didn't make any mistakes.
-This should print the message:
-
-```
-Running 1 checks in eu-west-1.
-
-__checks__/js/home.spec.js
-  ✔ home.spec.js > home.spec.js (4s)
-
-1 passed, 1 total
-```
-
-After you have validated the check does the right thing and has no bugs, deploy the check to your account:
-
-```bash
-npx checkly deploy
-```
-
-Et voilà, you have just created a synthetic monitoring check based on Playwright from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
-around the clock.
 
 ## Authentication
 
