@@ -15,9 +15,7 @@ menu:
 
 The [official documentation](https://playwright.dev/) for Playwright reads:
 
-> Playwright provides a set of APIs to automate Chromium, Firefox and WebKit browsers. By using the Playwright API, you can write JavaScript code to create new browser pages, navigate to URLs and then interact with elements on a page.
-
-> You can [import test](https://playwright.dev/docs/api/class-test) from Playwright which provides a test function to declare tests and expect function to write assertions. We'll be using this throughout our e2e examples as a best practice. 
+> Playwright provides a set of APIs to automate Chromium, Firefox and WebKit browsers. By using the Playwright API, you can write JavaScript code to create new browser pages, navigate to URLs and then interact with elements on a page. You can [import test](https://playwright.dev/docs/api/class-test) from Playwright which provides a test function to declare tests and an expect function to write assertions. We'll be using this throughout our e2e examples as a best practice. 
 
 The resemblance to Google's [Puppeteer](/learn/headless/basics-puppeteer-intro) is striking, and for good reason.
 
