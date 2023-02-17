@@ -7,7 +7,7 @@ menu:
 ---
 
 Creating, debugging and managing E2E and synthetic monitoring at scale is best done "as code". Currently, Checkly supports
-three tools you can use for your **Monitoring as Code** workflow:
+three tools you can use for your **monitoring as code** (MaC) workflow:
 
 1. The Checkly CLI.
 2. Terraform (through our Terraform provider)

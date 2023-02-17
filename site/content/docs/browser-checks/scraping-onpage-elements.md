@@ -1,6 +1,6 @@
 ---
 title: Scraping & asserting on page elements
-description: How to scrape web page elements like texts, buttons and forms with Google Chrome and Puppeteer or Playwright.
+description: How to scrape web page elements like texts, buttons and forms with Google Chrome and Playwright Test.
 weight: 15
 menu:
   docs:
@@ -8,256 +8,298 @@ menu:
 ---
 
 Any standard Node.js script that successfully finishes an execution is a valid, passing browser check. However, in
-many cases you want to validate whether the session is actually showing the right stuff to the user.
+many cases, you want to validate whether the session shows the right stuff to the user.
 
 This is a two-step process:
 
-1. Scrape the relevant item from the current page.
+1. Identify the relevant element on the current page.
 2. Assert that it shows what you expect.
 
-Both Playwright and Puppeteer offer many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
-used ones below, together with some tips on how to use them effectively.
+Playwright Test offers many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
+common ones below, together with some tips on how to use them effectively.
+
+When it comes to assertions, Playwright Test uses Jest's [expect](https://jestjs.io/docs/expect) library. Playwright also extends the `expect` library with it's own, recommended web-first assertions. These will re-fetch an element and check it until the condition is met or the test times out. The full list of web-first assertions can be found [here.](https://playwright.dev/docs/test-assertions#list-of-assertions)
 
 ## Scraping text values
 
-Both libraries provide the `page.$eval()` method which is a very powerful way to actually run a selector query inside a web page. See the example
-below. Note: we are using Jest's `expect` library for assertions here.
+For the text assertions, you can use `expect().toHaveText()` or `expect().toContainText()`. The first one will look for an exact match, while the latter will check for a substring match. Both methods accept regex patterns too. The example below shows how these could be used in a real-world scenario:
 
-{{< tabs "page.$eval" >}}
-{{< tab "Playwright" >}}
- ```js
-const playwright = require('playwright')
-const expect = require('expect')
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+{{< tabs "Scraping text values" >}}
+{{< tab "TypeScript" >}}
+ ```ts
+import { test, expect } from '@playwright/test'
 
-await page.goto('https://news.ycombinator.com/news')
-const name = await page.$eval('.hnname > a', el => el.textContent.trim())
-expect(name).toEqual('Hacker News')
+test('Checkly API Docs search input has a keyboard shortcut info', async ({ page }) => {
+  await page.goto('https://developers.checklyhq.com/') // 1
 
-await browser.close()
+  const searchBox = page.getByRole('button', { name: 'Search' }) // 2
+
+  await expect(searchBox).toContainText('CTRL-K') // 3
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
  ```js
-const puppeteer = require('puppeteer')
-const expect = require('expect')
+const { test, expect } = require('@playwright/test')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+test('Checkly API Docs search input has a keyboard shortcut info', async ({ page }) => {
+  await page.goto('https://developers.checklyhq.com/') // 1
 
-await page.goto('https://news.ycombinator.com/news')
-const name = await page.$eval('.hnname > a', el => el.textContent.trim())
-expect(name).toEqual('Hacker News')
+  const searchBox = page.getByRole('button', { name: 'Search' }) // 2
 
-await browser.close()
+  await expect(searchBox).toContainText('CTRL-K') // 3
+})
  ```
 {{< /tab >}}
 {{< /tabs >}}
+
 Ok, let's break this down:
 
-1. We require all needed modules and load a page.
-2. We use `$page.eval()` and pass it two arguments: 1) a query selector string 2) a callback to handle the resulting element.
-3. We inspect the element's `textContent` property and use the `trim()` method to get rid of any trailing white space.
-4. We validate that indeed the name is as expected.
+1. We require `@playwright/test` library, declare a test block and go to the Checkly docs page.
+2. We use `page.getByRole()` and pass it two arguments:
+  - A role of the element
+  - An object with `name` property - it will narrow the search to an element with a matching text, or in this case, `aria-label` attribute 
+3. We expect the `searchBox` element to contain `CTRL-K` text (a keyboard shortcut info)
 
-> Some may want to use the `innerText` property here, but `textContent` is [actually better](https://stackoverflow.com/questions/35213147/difference-between-textcontent-vs-innertext)
 
 ## Scraping a list of values
 
-Using the `page.$$()` (notice the two dollar signs) we can scrape an array of elements in one go. You commonly use this
-when the query selector you are providing targets multiple similar elements on a page, say a list of links:
+Playwright Test makes it easy to work with [lists of elements](https://playwright.dev/docs/locators#lists). The `getByX()` methods will return a list, if multiple elements match the parameters. You could then assert the count, text or perform additional filtering on the elements:
 
-{{< tabs "page.$$eval" >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const expect = require('expect')
+{{< tabs "Scraping list values" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+test('Find "Advanced" sections on playwright docs page', async ({ page }) => {
+  await page.goto('https://playwright.dev/docs/intro')
 
-await page.goto('https://news.ycombinator.com/news')
-const stories = await page.$$eval('a.storylink', links =>
-  links.map(link => link.textContent).slice(0, 10)
-)
-expect(stories).toHaveLength(10)
-expect(typeof stories[0]).toBe('string')
+  const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i }) // 1, 2
 
-await browser.close()
+  await expect(advancedSections).toHaveCount(2) // 3
+  await expect(advancedSections).toHaveText(['Advanced: configuration', 'Advanced: fixtures']) // 4
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-const puppeteer = require('puppeteer')
-const expect = require('expect')
+const { expect, test } = require('@playwright/test')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+test('Find "Advanced" sections on the playwright docs page', async ({ page }) => {
+  await page.goto('https://playwright.dev/docs/intro')
 
-await page.goto('https://news.ycombinator.com/news')
-const stories = await page.$$eval('a.storylink', links =>
-  links.map(link => link.textContent).slice(0, 10)
-)
-expect(stories).toHaveLength(10)
-expect(typeof stories[0]).toBe('string')
+  const advancedSections = page.locator('.menu__link').filter({ hasText: /Advanced.+/i }) // 1,2
 
-await browser.close()
+  await expect(advancedSections).toHaveCount(2) // 3
+  await expect(advancedSections).toHaveText(['Advanced: configuration', 'Advanced: fixtures']) // 4
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-1. We select all `<a>` elements that have the CSS class `storylink`.
-2. We pass these into the callback and use the `map()` method to return just the link text.
-3. We slice of the first 10 items.
+1. We select all elements that have the CSS class `menu__link`. 
+2. In the same line, we filter these elements to those that contain `Advanced` word
+3. We assert the elements count
+4. We assert that the exact text of these elements (`expect().toHaveText()` accepts arrays too!)
+
 
 ## Scraping form input elements
 
 ### Text input fields
 
-Use the `.value` property to get the text from a standard text input field.
+You can use the `locator.inputValue()` method to get the text from a standard text input field, or even better, an `expect(locator).toHaveValue()` to assert it right away.
 
-{{< tabs ".value" >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const expect = require('expect')
+{{< tabs "locator.inputValue()" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+test('Search "playwright" on the Duckduckgo search page', async ({ page }) => {
+  await page.goto('https://duckduckgo.com/')
 
-await page.goto('https://duckduckgo.com/', { waitUntil: 'networkidle' })
-await page.type('#search_form_input_homepage', 'Playwright')
-const searchValue = await page.$eval('#search_form_input_homepage', el => el.value)
-expect(searchValue).toEqual('Playwright')
+  const searchInput = page.locator('#search_form_input_homepage')
 
-await browser.close()
+  await searchInput.type('Playwright')
+  await expect(searchInput).toHaveValue('Playwright')
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-const puppeteer = require('puppeteer')
-const expect = require('expect')
+const { expect, test } = require('@playwright/test')
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+test('visit page and take screenshot', async ({ page }) => {
+  await page.goto('https://duckduckgo.com/')
 
-await page.goto('https://duckduckgo.com/', { waitUntil: 'networkidle2' })
-await page.type('#search_form_input_homepage', 'Puppeteer')
-const searchValue = await page.$eval('#search_form_input_homepage', el => el.value)
-expect(searchValue).toEqual('Puppeteer')
+  const searchInput = page.locator('#search_form_input_homepage')
 
-await browser.close()
+  await searchInput.type('Playwright')
+  await expect(searchInput).toHaveValue('Playwright')
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
 ### Checkboxes, radio buttons and dropdown selects
 
-Scraping the values of other common form elements is pretty similar to scraping text inputs, with a few quirks here and
-there.
+Scraping the values of other common form elements is pretty similar to scraping text inputs. See the examples below for specific use cases.
 
-{{< tabs "Checkboxes, radio & dropdown" >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
+#### Checkboxes:
 
-const page = await browser.newPage()
-await page.setViewportSize({ width: 1280, height: 1800 })
+{{< tabs "Checkboxes" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
+test('Test Bootstrap checkbox element', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
-// Checkboxes
-const checkboxStatus = await page.$eval('#defaultCheck1', input => input.checked)
-console.log('Checkbox checked status:', checkboxStatus)
+  const checkbox = page.getByLabel('Default checkbox')
 
-// Radio buttons
-const radios = await page.$$eval('input[name="exampleRadios"]', inputs => inputs.map(input => input.value))
-console.log('Radio values:', radios)
-
-await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
-
-// Dropdown selects
-const selectOptions = await page.$$eval('.bd-example > select.custom-select.custom-select-lg.mb-3 > option', options => options.map(option => option.value))
-console.log('Select options are:', selectOptions)
-
-await browser.close()
+  await expect(checkbox).not.toBeChecked()
+  await checkbox.check()
+  await expect(checkbox).toBeChecked()
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
+const { expect, test } = require('@playwright/test')
 
-const page = await browser.newPage()
-await page.setViewport({ width: 1280, height: 1800 })
+test('Test Bootstrap checkbox element', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
 
-await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
+  const checkbox = page.getByLabel('Default checkbox')
 
-// Checkboxes
-const checkboxStatus = await page.$eval('#defaultCheck1', input => input.checked)
-console.log('Checkbox checked status:', checkboxStatus)
+  await expect(checkbox).not.toBeChecked()
+  await checkbox.check()
+  await expect(checkbox).toBeChecked()
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
 
-// Radio buttons
-const radios = await page.$$eval('input[name="exampleRadios"]', inputs => inputs.map(input => input.value))
-console.log('Radio values:', radios)
 
-await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
+#### Radio buttons: 
 
-// Dropdown selects
-const selectOptions = await page.$$eval('.bd-example > select.custom-select.custom-select-lg.mb-3 > option', options => options.map(option => option.value))
-console.log('Select options are:', selectOptions)
+{{< tabs "Radio buttons" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
 
-await browser.close()
+test('Test Bootstrap radio element', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
+
+  const defaultRadio = page.getByRole('radio', { name: 'Default radio', exact: true })
+  const secondDefaultRadio = page.getByRole('radio', { name: 'Second default radio', exact: true })
+
+  await expect(defaultRadio).toBeChecked()
+  await secondDefaultRadio.check()
+  await expect(secondDefaultRadio).toBeChecked()
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
+
+test('Test Bootstrap radio element', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#checkboxes-and-radios')
+
+  const defaultRadio = page.getByRole('radio', { name: 'Default radio', exact: true })
+  const secondDefaultRadio = page.getByRole('radio', { name: 'Second default radio', exact: true })
+
+  await expect(defaultRadio).toBeChecked()
+  await secondDefaultRadio.check()
+  await expect(secondDefaultRadio).toBeChecked()
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+#### Select menu: 
+
+{{< tabs "Select dropdown" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
+
+test('Test Bootstrap select menu', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
+
+  const select = page.locator('.bd-example > select.custom-select.custom-select-lg.mb-3')
+
+  await expect(select).toHaveValue('Open this select menu')
+  await select.selectOption('1')
+  await expect(select).toHaveValue('1')
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
+
+test('Test Bootstrap select menu', async ({ page }) => {
+  await page.goto('https://getbootstrap.com/docs/4.3/components/forms/#select-menu')
+
+  const select = page.locator('.bd-example > select.custom-select.custom-select-lg.mb-3')
+
+  await expect(select).toHaveValue('Open this select menu')
+  await select.selectOption('1')
+  await expect(select).toHaveValue('1')
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
 Key takeaways are:
 
-1. Checkboxes are mostly singular items, use the `page.$eval()` method.
-2. Radio buttons come in groups, use the `page.$$eval()` method and `.map()` over result.
-3. For selects, you are probably interested in the nested `option` elements, not so much the parent `select` element. Use
-the `page.$$eval()` method.
+1. You can use `locator.check()` and `expect(locator).toBeChecked()` methods to interact with checkboxes and radio buttons
+2. `locator.selectOption()` will select a new value. `expect(locator).toHaveValue()` will assert that the desired value is chosen in a select menu component.
 
 ## Built-in shortcuts
 
-Both libraries offer some built-in shortcuts to access common elements of a typical webpage which you can use in Checkly. For the full details see
-[the Playwright docs](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=class-page) or [the Puppeteer docs](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-class-page).
+Playwright Test offers some built-in shortcuts to access common elements of a typical webpage which you can use in Checkly. For the full details see
+[the Playwright docs](https://playwright.dev/docs/api/class-page) on `Page` class.
 
 {{< tabs "page.viewport" >}}
-{{< tab "Playwright" >}}
- ```js
-...
-await page.goto('https://www.google.com/')
+{{< tab "TypeScript" >}}
+ ```ts
+import { test } from '@playwright/test'
 
-// grabs the page title
-const title = await page.title()
+test('Go to google.com', async ({ page }) => {
+  await page.goto('https://www.google.com/')
 
-// grabs the page's URL
-const url = await page.url()
+  // grabs the page title
+  const title = await page.title()
 
-// return an object with the page's viewport setting
-const viewport = await page.viewportSize()
-console.log('Page width is:', viewport.width)
+  // grabs the page's URL
+  const url = page.url()
+
+  // return an object with the page's viewport setting
+  const viewport = page.viewportSize()
+  console.log('Page width is:', viewport.width)
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-...
-await page.goto('https://www.google.com/')
+const { test } = require('@playwright/test')
 
-// grabs the page title
-const title = await page.title()
+test('Go to google.com', async ({ page }) => {
+  await page.goto('https://www.google.com/')
 
-// grabs the page's URL
-const url = await page.url()
+  // grabs the page title
+  const title = await page.title()
 
-// return an object with the page's viewport setting
-const viewport = await page.viewport()
-console.log('Page width is:', viewport.width)
+  // grabs the page's URL
+  const url = page.url()
+
+  // return an object with the page's viewport setting
+  const viewport = page.viewportSize()
+  console.log('Page width is:', viewport.width)
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
