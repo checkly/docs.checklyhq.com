@@ -91,9 +91,9 @@ Create a snippet named `github_login` in the "code snippets" section with a func
 ```ts
 async function gitHubLogin (page, username, password) {
   await page.goto('https://github.com/login')
-  await page.locator('#login_field').type(username)
-  await page.locator('#password').type(password)
-  await page.locator('[name="commit"]').click()
+  await page.getByLabel('Username or email address').type(username)
+  await page.getByLabel('Password').type(password)
+  await page.getByRole('button', { name: 'Sign in' })
 }
 
 module.exports = {
@@ -105,9 +105,9 @@ module.exports = {
 ```js
 async function gitHubLogin (page, username, password) {
   await page.goto('https://github.com/login')
-  await page.locator('#login_field').type(username)
-  await page.locator('#password').type(password)
-  await page.locator('[name="commit"]').click()
+  await page.getByLabel('Username or email address').type(username)
+  await page.getByLabel('Password').type(password)
+  await page.getByRole('button', { name: 'Sign in' })
 }
 
 module.exports = {
