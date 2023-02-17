@@ -359,6 +359,7 @@ import { CheckGroup, ApiCheck } from '@checkly/cli/constructs'
 const group = new CheckGroup('check-group-1', {
   name: 'Group',
   activated: true,
+  locations: ['us-east-1', 'eu-west-1'],
   tags: ['api-group'],
   concurrency: 10,
   browserChecks: {
