@@ -25,9 +25,9 @@ test('Login into Github', async ({ page }) => {
     await page.goto('https://github.com/login')
 
     // Fill in credentials
-    await page.locator('#login_field').type('janedoe@example.com')
-    await page.locator('#password').type('mypasswd')
-    await page.locator('#login-btn').click()
+    await page.getByLabel('Username or email address').type('janedoe@example.com')
+    await page.getByLabel('Password').type('mypasswd')
+    await page.getByRole('button', { name: 'Sign in' })
 
     // Verify successful login
     await expect(page.locator('#login-message')).toBeVisible()
@@ -43,9 +43,9 @@ test('Login into Github', async ({ page }) => {
     await page.goto('https://github.com/login')
 
     // Fill in credentials
-    await page.locator('#login_field').type('janedoe@example.com')
-    await page.locator('#password').type('mypasswd')
-    await page.locator('#login-btn').click()
+    await page.getByLabel('Username or email address').type('janedoe@example.com')
+    await page.getByLabel('Password').type('mypasswd')
+    await page.getByRole('button', { name: 'Sign in' })
 
     // Verify successful login
     await expect(page.locator('#login-message')).toBeVisible()
@@ -69,9 +69,9 @@ test('Login into Github', async ({ page }) => {
     await page.goto('https://github.com/login')
 
     // Fill in credentials
-    await page.locator('#login_field').type(process.env.GITHUB_USERNAME)
-    await page.locator('#password').type(process.env.GITHUB_PASSWORD)
-    await page.locator('#login-btn').click()
+    await page.getByLabel('Username or email address').type(process.env.GITHUB_USER)
+    await page.getByLabel('Password').type(process.env.GITHUB_PWD)
+    await page.getByRole('button', { name: 'Sign in' })
 
     // Verify successful login
     await expect(page.locator('#login-message')).toBeVisible()
@@ -87,9 +87,9 @@ test('Login into Github', async ({ page }) => {
     await page.goto('https://github.com/login')
 
     // Fill in credentials
-    await page.locator('#login_field').type(process.env.GITHUB_USERNAME)
-    await page.locator('#password').type(process.env.GITHUB_PASSWORD)
-    await page.locator('#login-btn').click()
+    await page.getByLabel('Username or email address').type(process.env.GITHUB_USER)
+    await page.getByLabel('Password').type(process.env.GITHUB_PWD)
+    await page.getByRole('button', { name: 'Sign in' })
 
     // Verify successful login
     await expect(page.locator('#login-message')).toBeVisible()
