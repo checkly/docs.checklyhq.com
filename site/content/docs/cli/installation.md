@@ -28,7 +28,7 @@ Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of you
  ```ts
 import { defineConfig } from '@checkly/cli'
 
-const config = {
+export default defineConfig({
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
   repoUrl: 'https://github.com/acme/website',
@@ -50,9 +50,7 @@ const config = {
   cli: {
     runLocation: 'eu-west-1',
   }
-}
-
-export default defineConfig(config)
+})
  ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
