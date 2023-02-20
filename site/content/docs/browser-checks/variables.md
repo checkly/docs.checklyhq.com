@@ -49,34 +49,29 @@ Both check, group and global environment variables are accessible in your code u
 For example, the code snippet below show how you can log into GitHub. We have more [examples of login scenarios on this page.](/docs/browser-checks/login-scenarios/)
 
 {{< tabs "Variables example" >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test'
 
-await page.goto('https://github.com/login')
-await page.type('#login_field', process.env.GITHUB_USER)
-await page.type('#password', process.env.GITHUB_PWD)
-await page.click('[name="commit"]')
-
-await browser.close()
+test('Github login', async ({ page }) => {
+  await page.goto('https://github.com/login')
+  await page.getByLabel('Username or email address').type(process.env.GITHUB_USER)
+  await page.getByLabel('Password').type(process.env.GITHUB_PWD)
+  await page.getByRole('button', { name: 'Sign in' })
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+const { test } = require('@playwright/test')
 
-await page.goto('https://github.com/login')
-await page.type('#login_field', process.env.GITHUB_USER)
-await page.type('#password', process.env.GITHUB_PWD)
-await page.click('[name="commit"]')
-
-await browser.close()
+test('Github login', async ({ page }) => {
+  await page.goto('https://github.com/login')
+  await page.getByLabel('Username or email address').type(process.env.GITHUB_USER)
+  await page.getByLabel('Password').type(process.env.GITHUB_PWD)
+  await page.getByRole('button', { name: 'Sign in' })
+})
 ```
-
 {{< /tab >}}
 {{< /tabs >}}
 
