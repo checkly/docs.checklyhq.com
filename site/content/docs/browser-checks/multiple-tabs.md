@@ -8,11 +8,11 @@ menu:
     parent: "Browser checks"
 ---
 
-Certain scenarios might requires us to handle new tab creation or multiple tabs at once. Playwright supports this case and, as a consequence, Checkly does as well.
+Certain scenarios might requires us to handle new tab creation or multiple tabs at once. Playwright Test supports this case and, as a consequence, Checkly does as well.
 
 ## Handling links that open a new tab
 
-By allowing us to wait for the creation of a child tab with `context.waitForEvent`, Playwright enables us to "catch" it following a click on an element with `target="_blank"`, and then seamlessly interact with any of the currently open tabs. 
+By allowing us to wait for the creation of a child tab with `context.waitForEvent`, Playwright Test enables us to "catch" it following a click on an element with `target="_blank"`, and then seamlessly interact with any of the currently open tabs.
 
 {{< tabs "Multiple tabs" >}}
 {{< tab "Typescript" >}}
@@ -54,6 +54,13 @@ test('Open new tab', async ({ context, page }) => {
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+Playwright Test will record videos for each of your tabs. You can find them in your test result for failed checks or in the check editor for passing as well as failing checks for easy debugging.
+
+![mutiple tabs - test report](/docs/images/browser-checks/multiple-tabs-pwt-report.png)
+
+Playwright's Trace Viewer displays your tabs conveniently in a waterfall timeline to access all neccessary information:
+![mutiple tabs - trace viewer](/docs/images/browser-checks/multiple-tabs-trace-viewer.png)
 
 {{< info >}}
 You can learn more about multi-tab scripts in our [Learn Headless section](/learn/headless/multitab-flows).
