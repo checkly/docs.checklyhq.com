@@ -27,7 +27,11 @@ Timeout-related errors are often a sticking point for many beginners. Understand
 
 This refers to Playwright's own 30s default timeout for a single `test` fixture. While it is best to [keep your checks as short as possible](/learn/headless/valuable-tests), you can increase a test's timeout using `test.setTimeout(milliseconds)`. For example:
 
-```js
+{{< tabs "setTimeout example" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test'
+
 test('add item to wishlist', async ({ page }) => {
   test.setTimeout(60000)
 
@@ -35,6 +39,21 @@ test('add item to wishlist', async ({ page }) => {
 
 })
 ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { test } = require('@playwright/test')
+
+test('add item to wishlist', async ({ page }) => {
+  test.setTimeout(60000)
+
+  // rest of your script
+
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
 
 ### Your check run has reached the maximum run time of 120000 ms.
 
