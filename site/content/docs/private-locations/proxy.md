@@ -32,41 +32,37 @@ for outgoing traffic.
 ## Using an HTTP proxy with Browser checks
 
 You can enable your proxy directly in your browser checks via a few extra lines of code, using the `process.env.PROXY_URL` 
-notation. For Playwright, you can use the `proxy` option when launching a new browser instance. With Puppeteer, you can pass
-the URL as a CLI option, but you will have to supply the username and password separately if your proxy is authenticated.
+notation and Playwright's `test.use()` method:
 
 {{< tabs "Proxy Settings" >}}
-  {{< tab "Playwright" >}}
-```javascript
-const { chromium } = require('playwright')
+  {{< tab "TypeScript" >}}
+```typescript
+import { test } from '@playwright/test'
 
-;(async () => {
-  const browser = await chromium.launch({
-    proxy: {
-      server: process.env.PROXY_URL // just reference the global evironment variable.
-    }
-  })
-  const page = await browser.newPage()
+test.use({
+  proxy: {
+    server: process.env.PROXY_URL
+  }
+})
+
+test('Go to google.com', async ({ page }) => {
   await page.goto('https://google.com')
-  await page.close()
-  await browser.close()
-})()
+})
 ```
   {{< /tab >}}   
-  {{< tab "Puppeteer" >}}
+  {{< tab "JavaScript" >}}
 ```javascript
-const puppeteer = require('puppeteer')
+const { test } = require('@playwright/test')
 
-;(async () => {
-  const browser = await puppeteer.launch({
-    args: ['--proxy-server=123.456.789:3128'] // provide the host and port name here
-  })
-  const page = await browser.newPage()
-  await page.authenticate({ // provide any authentication credentials here
-    username: 'username',
-    password: 'password',
-  })
-})()
+test.use({
+  proxy: {
+    server: process.env.PROXY_URL
+  }
+})
+
+test('Go to google.com', async ({ page }) => {
+  await page.goto('https://google.com')
+})
 ```
   {{< /tab >}}   
 {{< /tabs >}}
