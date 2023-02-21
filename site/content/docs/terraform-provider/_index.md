@@ -118,7 +118,7 @@ resource "checkly_check" "browser-check-1" {
   ]
 
   script = <<EOT
-const { test, expect } = require()'@playwright/test');
+const { test, expect } = require('@playwright/test');
 
 test('Has "Playwright" in the page title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
