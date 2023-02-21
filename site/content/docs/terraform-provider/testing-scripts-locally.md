@@ -12,9 +12,7 @@ Having the possibility to run Playwright Test scripts for your browser checks lo
 
 You can easily enable local execution by storing your browser check scripts in local folders and passing the path to the right script:
 
-{{< tabs "TF Check Resource" >}}
-{{< tab "TypeScript" >}}
- ```terraform
+```terraform
 resource "checkly_check" "e2e-checkout" {
   name                      = "Checkout Flow"
   type                      = "BROWSER"
@@ -28,30 +26,9 @@ resource "checkly_check" "e2e-checkout" {
     "eu-central-1"
   ]
 
-  script = file("${path.module}/__checks__/checkout.spec.ts") // Our script is contained in this file
+  script = file("${path.module}/scripts/checkout.spec.ts") // Or .js - our script is contained in this file
 }
 ```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
- ```terraform
-resource "checkly_check" "e2e-checkout" {
-  name                      = "Checkout Flow"
-  type                      = "BROWSER"
-  activated                 = true
-  should_fail               = false
-  frequency                 = 1
-  double_check              = true
-  use_global_alert_settings = true
-  locations = [
-    "us-west-1",
-    "eu-central-1"
-  ]
-
-  script = file("${path.module}/__checks__/checkout.spec.js") // Our script is contained in this file
-}
- ```
-{{< /tab >}}
-{{< /tabs >}}
 
 Basic checks written with `@playwright/test` will run locally with `npx playwright test` and remotely on Checkly without any modifications: 
 
@@ -80,32 +57,21 @@ test('Should load the web store', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-If your script is using [Page Object Models](https://playwright.dev/docs/pom) or imports other files, you can take advantage of Checkly's code snippets. Consider the following directory structure:
+If your script is using [Page Object Models](https://playwright.dev/docs/pom) or imports other files, you can take advantage of Checkly's [code snippets](/docs/terraform-provider/snippets-variables/). Consider the following directory structure:
 
-{{< tabs "Directory Structure" >}}
-{{< tab "TypeScript" >}}
+
  ```
-__checks__ /
+scripts /
 |--- snippets /
-|     |--- shoppingCart.ts
-|--- checkout.spec.ts 
+|     |--- shoppingCart.ts // or .js
+|--- checkout.spec.ts // or .js
 ```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
- ```
-__checks__ /
-|--- snippets /
-|     |--- shoppingCart.js
-|--- checkout.spec.js 
- ```
-{{< /tab >}}
-{{< /tabs >}}
 
-`__checks__/snippets/shoppingCart.{js,ts}` contains a Page Object Model class encapsulating the logic for the store's shopping cart page:
+`scripts/snippets/shoppingCart.{js,ts}` contains a Page Object Model class encapsulating the logic for the store's shopping cart page:
 
 {{< tabs "Shopping Cart POM" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts  
 import { type Locator, type Page } from '@playwright/test'
 
 export class ShoppingCart {
@@ -140,7 +106,7 @@ export class ShoppingCart {
 {{< /tab >}}
 {{< /tabs >}}
 
-`__checks__/checkout.spec.{js,ts}` file is your Checkly check with the following content: 
+`scripts/checkout.spec.{js,ts}` file is your Checkly check with the following content:
 
 {{< tabs "Checkout.spec.ts" >}}
 {{< tab "TypeScript" >}}
@@ -179,24 +145,12 @@ test('Shopping cart should be empty by default', async ({ page }) => {
 
 As you can see, it imports the `ShoppingCart` class from the `./snippets/shoppingCart` directory and uses its methods and locators within the test. This setup will work out of the box locally with `npx playwright test`. If you'd like to use the external files in Checkly, you'll need to declare them as a `checkly_snippet` resource in your `.tf` file:
 
-{{< tabs "Checkly Snippet Resource" >}}
-{{< tab "TypeScript" >}}
 ```terraform
 resource "checkly_snippet" "shopping_cart" {
   name   = "shoppingCart" // This will be the name of your file in Checkly!
-  script = file("${path.module}/__checks__/snippets/shoppingCart.ts") // Your script is contained in this file
+  script = file("${path.module}/scripts/snippets/shoppingCart.ts") // Or .js - Your script is contained in this file
 }
 ```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
-```terraform
-resource "checkly_snippet" "shopping_cart" {
-  name   = "shoppingCart" // This will be the name of your file in Checkly!
-  script = file("${path.module}/__checks__/snippets/shoppingCart.js") // Your script is contained in this file
-}
-```
-{{< /tab >}}
-{{< /tabs >}}
 
 {{<info>}}
 What's worth noting:
