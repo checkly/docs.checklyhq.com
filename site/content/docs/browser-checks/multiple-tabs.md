@@ -8,23 +8,49 @@ menu:
     parent: "Browser checks"
 ---
 
-Certain scenarios might requires us to handle new tab creation or multiple tabs at once. Playwright and Puppeteer both support this case and, as a consequence, Checkly does as well.
+Certain scenarios might requires us to handle new tab creation or multiple tabs at once. Playwright supports this case and, as a consequence, Checkly does as well.
 
 ## Handling links that open a new tab
 
-By allowing us to wait for the creation of a child tab with `page.waitForEvent`, Playwright enables us to "catch" it following a click on an element with `target="_blank"`, and then seamlessly interact with any of the currently open tabs. 
+By allowing us to wait for the creation of a child tab with `context.waitForEvent`, Playwright enables us to "catch" it following a click on an element with `target="_blank"`, and then seamlessly interact with any of the currently open tabs. 
 
-With Puppeteer we need to follow a different procedure, using `page.waitForTarget` to grab the new tab once it has been opened.
+{{< tabs "Multiple tabs" >}}
+{{< tab "Typescript" >}}
+```ts
+import { test } from '@playwright/test'
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
-```js
-{{< readfile filename="samples/playwright/multitab-flows.js" >}}
+test('Open new tab', async ({ context, page }) => {
+  await page.goto('https://www.checklyhq.com/')
+
+  const [newPage] = await Promise.all([
+    context.waitForEvent('page'),
+    page.getByRole('link', { name: 'Public Roadmap' }).click()
+  ])
+
+  await page.screenshot({ path: 'screenshot-tab-old.png' })
+
+  await newPage.getByText('By quarter').click()
+  await newPage.screenshot({ path: 'screenshot-tab-new.png' })
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "Javascript" >}}
 ```js
-{{< readfile filename="samples/puppeteer/multitab-flows.js" >}}
+const { test } = require('@playwright/test')
+
+test('Open new tab', async ({ context, page }) => {
+  await page.goto('https://www.checklyhq.com/')
+
+  const [newPage] = await Promise.all([
+    context.waitForEvent('page'),
+    page.getByRole('link', { name: 'Public Roadmap' }).click()
+  ])
+
+  await page.screenshot({ path: 'screenshot-tab-old.png' })
+
+  await newPage.getByText('By quarter').click()
+  await newPage.screenshot({ path: 'screenshot-tab-new.png' })
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
