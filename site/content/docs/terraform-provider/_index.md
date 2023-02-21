@@ -120,7 +120,7 @@ resource "checkly_check" "browser-check-1" {
   script = <<EOT
 const { test, expect } = require()'@playwright/test');
 
-test('has title', async ({ page }) => {
+test('Has "Playwright" in the page title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
