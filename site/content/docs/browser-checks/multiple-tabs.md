@@ -8,7 +8,7 @@ menu:
     parent: "Browser checks"
 ---
 
-Certain scenarios might requires us to handle new tab creation or multiple tabs at once. Playwright Test supports this case and, as a consequence, Checkly does as well.
+Certain scenarios may require us to create new or multiple tabs simultaneously. Playwright Test supports this case and, as a consequence, Checkly does as well.
 
 ## Handling links that open a new tab
 
@@ -57,7 +57,7 @@ test('Open new tab', async ({ context, page }) => {
 
 Playwright Test will record videos for each of your tabs. You can find them in your test result for failed checks or in the check editor for passing as well as failing checks for easy debugging.
 
-![mutiple tabs - test report](/docs/images/browser-checks/multiple-tabs-pwt-report.png)
+<video alt="Checkly Playwright Test UI" autoplay loop muted src="/docs/images/browser-checks/multiple-tabs-pwt-report.mp4"></video>
 
 Playwright's Trace Viewer displays your tabs conveniently in a waterfall timeline to access all neccessary information:
 ![mutiple tabs - trace viewer](/docs/images/browser-checks/multiple-tabs-trace-viewer.png)
