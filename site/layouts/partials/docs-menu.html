@@ -12,7 +12,6 @@
       {{ range $index, $element:=.Site.Menus.docs }} {{ if .HasChildren }}
       <li class='docs-menu-item'>
         <div class='docs-menu-title{{ if $currentPage.HasMenuCurrent "docs" . }} active{{ end }}' id="{{$index}}">
-          <img src="{{.Pre}}" width="26" height="26" alt="{{.Name}}" />
           {{.Name}}
         </div>
         <ul class='docs-menu-sub {{ if $currentPage.HasMenuCurrent "docs" . }}menu-display{{ end }}' id="docs-menu-{{$index}}">

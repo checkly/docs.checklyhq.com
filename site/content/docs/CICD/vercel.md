@@ -67,34 +67,39 @@ You can access all these variables with the familiar `process.ENV` syntax.
 
 ### Browser checks
 
-This means you can write a Browser check using Playwright that automatically targets the Preview deploy whenever this URL is 
+This means you can write a Browser check using Playwright Test or Playwright that automatically targets the Preview deploy whenever this URL is 
 available, but otherwise just defaults to the stable **production URL**. 
 
 Here is a full example that we use ourselves to monitor checklyhq.com which is actually also deployed to Vercel.
 
-```js {hl_lines=[7]}
-const { chromium } = require('playwright')
+{{< tabs "Vercel example" >}}
+{{< tab "Typescript" >}}
+```ts {hl_lines=[4]}
+import { expect, test } from '@playwright/test'
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('assert response status of page', async ({ page }) => {
   const targetUrl = process.env.ENVIRONMENT_URL || 'https://www.checklyhq.com'
-  
   const response = await page.goto(targetUrl)
-  
-  if (response.status() > 399) {
-    throw new Error(`Failed with response code ${response.status()}`)
-  }
-  
-  await page.screenshot({ path: 'screenshot.jpg' })
-  
-  await page.close()
-  await browser.close()
-})()
-```
 
-This way we are setting set the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL. 
+  expect(response.status()).toBeLessThan(400)
+})
+```
+{{< /tab >}}
+{{< tab "Javascript" >}}
+```js {hl_lines=[4]}
+const { expect, test } = require('@playwright/test')
+
+test('assert response status of page', async ({ page }) => {
+  const targetUrl = process.env.ENVIRONMENT_URL || 'https://www.checklyhq.com'
+  const response = await page.goto(targetUrl)
+
+  expect(response.status()).toBeLessThan(400)
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+This way we are setting the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL.
 
 Whenever a **Preview** deploy happens on Vercel, this check gets called and runs the script against the preview environment. This check also runs on a 5 minute schedule, and checks our production environment.
 
@@ -217,4 +222,4 @@ Selecting a deployment enables you to quickly determine whether it caused any ch
 
 ## Password-protected deployments
 
-You can also use Checkly together with Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can bypass the login prompt as part of a [browser check](/docs/browser-checks/login-scenarios#password-protected-websites) or using an [API request](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).
+If you're interested in using Checkly to bypass Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios#username--password-login) or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).

@@ -4,9 +4,14 @@ weight: 1
 menu:
   docs:
     parent: "Terraform provider"
+    identifier: getting-started-terraform
 aliases:
 - /terraform-provider/getting-started/
 ---
+
+{{<warning>}}
+Psst... for the best Monitoring as Code experience we recommend giving our [CLI solution](/docs/cli/) a try.
+{{</warning>}}
 
 The [Checkly Terraform provider](https://github.com/checkly/terraform-provider-checkly) enables you to declare your monitoring setup as code using [HashiCorp Terraform](https://www.terraform.io/). You can get started with it in a matter of minutes by following the steps shown below.
 
@@ -113,16 +118,14 @@ resource "checkly_check" "browser-check-1" {
   ]
 
   script = <<EOT
-const assert = require("chai").assert;
-const { chromium } = require("playwright");
+const { test, expect } = require('@playwright/test');
 
-const browser = await chromium.launch();
-const page = await browser.newPage();
-await page.goto("https://google.com/");
-const title = await page.title();
+test('Has "Playwright" in the page title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
 
-assert.equal(title, "Google");
-await browser.close();
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
 
 EOT
 }

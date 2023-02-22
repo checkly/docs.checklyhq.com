@@ -2,6 +2,8 @@
   $top: 1rem;
   $menu-width: 15rem;
   $toc-width: 14rem;
+  $menu-item-padding-spacer: 6px;
+  $menu-line-height: 18px;
   max-width: 90rem;
   margin: 0 auto;
 
@@ -44,17 +46,6 @@
       overflow-x: hidden;
       overflow-y: auto;
 
-      border: 1px solid $gray-light;
-      border-radius: 5px;
-      ul {
-        list-style: none;
-        font-size: 14px;
-
-        ul {
-          list-style: disc;
-        }
-      }
-
     }
     .right-transform {
       transform: none;
@@ -85,21 +76,32 @@
       align-items: center;
       font-weight: 600;
       font-size: 14px;
-      line-height: 17px;
-      color: $gray-darkish !important;
-      margin-bottom: 10px;
-      margin-top: 10px;
-      img {
-        margin-right: 5px;
-      }
+      line-height: $menu-line-height;
+      color: $gray-dark !important;
+      padding: $menu-item-padding-spacer 0px;
+
       &:hover {
         cursor: pointer;
+      }
+      &::before {
+        width: 3 * $menu-item-padding-spacer;
+        height: 3 * $menu-item-padding-spacer;
+        background: url(/images/icons/svg/chevron.svg);
+        background-size: 100%;
+        margin: 0 $menu-item-padding-spacer 0 0;
+        content: '';
+        display: inline-block;
+        transition: .15s transform ease;
       }
     }
     .active {
       color: $gray-dark !important;
+      &::before {
+        transform: rotate(90deg);
+      }
     }
     .menu-display {
+      margin-bottom: 12px;
       display: block;
     }
     &-sub {
@@ -113,20 +115,20 @@
       }
 
       &-item {
-        margin-left: 6px;
-
         & & {
-          margin-left: 16px;
+          margin-left: 8px;
         }
 
         a {
+          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 4 * $menu-item-padding-spacer;
           display: block;
-          padding-block: 5px;
           color: $gray-darkish;
         }
         &.active {
           > a {
-            color: $gray-dark;
+            background: $blue-light;
+            border-radius: .25rem;
+            color: $blue;
             font-weight: 500;
           }
         }
@@ -134,8 +136,8 @@
     }
 
     &-item {
+      line-height: $menu-line-height;
       padding-left: 0;
-      margin-bottom: .75rem;
       h3 {
         color: $gray-dark;
         font-size: $font-size-base;
@@ -246,11 +248,10 @@
     font-size: .875rem;
     margin-right: auto;
     width: 232px;
-    padding-top: 8rem;
+    padding-top: 6rem;
 
     nav {
       width: $toc-width;
-      padding: 1rem 0 1rem 0;
       bottom: 0;
       overflow-x: hidden;
       overflow-y: auto
@@ -259,8 +260,8 @@
 
     nav#TableOfContents {
       ul {
-        border-left: 2px solid $brand-primary;
-        padding-left: .5rem;
+        border-left: 2px solid $gray-light;
+        padding-left: 2 * $menu-item-padding-spacer;
 
         ul {
           padding-left: 0.75rem;
@@ -269,7 +270,8 @@
         li {
           a {
             display: block;
-            padding-block: 5px;
+            padding-bottom: $menu-item-padding-spacer;
+            color: $gray-darkish;
           }
         }
       }
@@ -281,9 +283,70 @@
     }
 
     &-header {
+      padding-left: 2 * $menu-item-padding-spacer + 2px;
       color: $gray-dark;
       font-weight: 600;
-      text-transform: uppercase;
+      margin-bottom: $menu-item-padding-spacer;
+    }
+
+    &-community {
+      margin-top: 4 * $menu-item-padding-spacer;
+
+      nav {
+        ul {
+          border-left: 2px solid $gray-light;
+          padding-left: 2 * $menu-item-padding-spacer !important;
+
+          li {
+            a {
+              display: block;
+              padding-bottom: $menu-item-padding-spacer;
+              color: $gray-darkish;
+            }
+          }
+        }
+      }
+
+      &-slack-link {
+        &::before {
+          width: 12px;
+          height: 12px;
+          background: url(/images/icons/slack-icon.svg);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: bottom;
+          margin: 0 8px 0 0;
+          content: '';
+          display: inline-block;
+        }
+      }
+
+      &-github-link {
+        &::before {
+          width: 12px;
+          height: 12px;
+          background: url(/images/icons/github-icon.svg);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: bottom;
+          margin: 0 8px 0 0;
+          content: '';
+          display: inline-block;
+        }
+      }
+      &-youtube-link {
+        &::before {
+          width: 12px;
+          height: 12px;
+          background: url(/images/icons/youtube-icon.svg);
+          background-repeat: no-repeat;
+          background-position: bottom;
+          background-size: 100%;
+          margin: 0 8px 0 0;
+          content: '';
+          display: inline-block;
+        }
+      }
     }
 
     &-mobile {
@@ -312,31 +375,6 @@
       color: $black;
     }
 
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      margin: 30px 0 20px;
-      padding: 0;
-      background: none;
-      font-size: 14px;
-
-      & a {
-        color: $gray;
-        &:hover {
-          text-decoration: none;
-          color: $gray-dark;
-        }
-      }
-
-      & a:last-child {
-        color: $gray-dark;
-      }
-
-      & span {
-        margin: 0 5px;
-        color: $gray;
-      }
-    }
     nav#TableOfContents {
       ul {
         border-left: 2px solid $brand-primary;
