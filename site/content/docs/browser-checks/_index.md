@@ -38,21 +38,9 @@ We have stopped support for Puppeeteer with runtime 2022.10. [Read more about ou
 The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
-{{< tab "JavaScript" >}}
- ```js
-const { test } = require('@playwright/test')
-
-test('Visit Checkly HQ page', async ({ page }) => {
-  const response = await page.goto('https://checklyhq.com')
-
-  // Test that the response did not fail
-  expect(response.status()).toBeLessThan(400)
-})
- ```
-{{< /tab >}}
 {{< tab "TypeScript" >}}
- ```ts
-import { test } from '@playwright/test'
+```ts
+import { expect, test } from '@playwright/test'
 
 test('Visit Checkly HQ page', async ({ page }) => {
   const response = await page.goto('https://checklyhq.com')
@@ -60,7 +48,19 @@ test('Visit Checkly HQ page', async ({ page }) => {
   // Test that the response did not fail
   expect(response.status()).toBeLessThan(400)
 })
- ```
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
+
+test('Visit Checkly HQ page', async ({ page }) => {
+  const response = await page.goto('https://checklyhq.com')
+
+  // Test that the response did not fail
+  expect(response.status()).toBeLessThan(400)
+})
+```
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -73,9 +73,9 @@ Checkly currently supports only using **Chromium** with Playwright Test and Play
 Let's look at a breakdown of a real-life scenario. The code below logs into Checkly, and waits for the dashboard to fully load.
 
 {{< tabs "Breakdown example" >}}
-{{< tab "JavaScript" >}}
-```js
-const { test } = require('@playwright/test') // 1
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test' // 1
 
 test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
@@ -87,11 +87,11 @@ test('Login to Checkly', async ({ page }) => { // 2
   const homeDashboardTable = page.getByTestId('home-dashboard-table')
   await expect(homeDashboardTable).toBeVisible() // 6
 })
- ```
+```
 {{< /tab >}}
-{{< tab "TypeScript" >}}
-```ts
-import { test } from '@playwright/test' // 1
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test') // 1
 
 test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
@@ -139,6 +139,12 @@ Valid Playwright Test or Playwright scripts are the foundation of a valid Browse
 If the script fails, your check fails.
 {{< /info >}}
 
+### Browser check templates
+
+We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
+
+![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
+
 ## How do I make assertions?
 
 Navigating around your app or site can already give you a lot of confidence your critical business processes are working correctly.
@@ -158,21 +164,6 @@ You can use as many assertions in your code as you want. For example, in the cod
 
 
 {{< tabs "Assertions example" >}}
-{{< tab "JavaScript" >}}
-```js
-const { expect, test } = require('@playwright/test')
-
-test('CTA button has "Start for free" text', async ({ page }) => {
-  await page.goto('https://checklyhq.com/')
-
-  // CTA button locator
-  const button = page.locator('#nav-signup-button')
-
-  // Assert that the button has the correct text
-  await expect(button).toHaveText('Start for free')
-})
- ```
-{{< /tab >}}
 {{< tab "TypeScript" >}}
 ```ts
 import { expect, test } from '@playwright/test'
@@ -186,7 +177,22 @@ test('CTA button has "Start for free" text', async ({ page }) => {
   // Assert that the button has the correct text
   await expect(button).toHaveText('Start for free')
 })
- ```
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
+
+test('CTA button has "Start for free" text', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
+
+  // CTA button locator
+  const button = page.locator('#nav-signup-button')
+
+  // Assert that the button has the correct text
+  await expect(button).toHaveText('Start for free')
+})
+```
 {{< /tab >}}
 {{< /tabs >}}
 
