@@ -32,7 +32,7 @@ for outgoing traffic.
 ## Using an HTTP proxy with Browser checks
 
 You can enable your proxy directly in your browser checks via a few extra lines of code, using the `process.env.PROXY_URL` 
-notation and Playwright's `test.use()` method:
+notation and Playwright Test's `test.use()` method:
 
 {{< tabs "Proxy Settings" >}}
   {{< tab "TypeScript" >}}
