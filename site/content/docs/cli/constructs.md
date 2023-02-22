@@ -122,7 +122,7 @@ use set defaults for your Checks in the `checks` property and override them occa
 ```ts
 import { defineConfig } from '@checkly/cli'
 
-const config = {
+export default defineConfig({
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
   repoUrl: 'https://github.com/acme/website',
@@ -145,9 +145,7 @@ const config = {
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
-}
-
-export default defineConfig(config)
+})
 ```
 
 - `projectName` : A friendly name for your Project.
@@ -361,6 +359,7 @@ import { CheckGroup, ApiCheck } from '@checkly/cli/constructs'
 const group = new CheckGroup('check-group-1', {
   name: 'Group',
   activated: true,
+  locations: ['us-east-1', 'eu-west-1'],
   tags: ['api-group'],
   concurrency: 10,
   browserChecks: {

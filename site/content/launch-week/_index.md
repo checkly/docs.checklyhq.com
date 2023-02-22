@@ -45,7 +45,7 @@ releases:
   - id: lw-2-day-4
     date: 2023-03-02
     headline: SOC 2 Type 2 compliance
-    description: We’re breaking some exciting news on the security front for Checkly, focused on SOC II Type 2 certification.
+    description: We’re breaking some exciting news on the security front for Checkly, focused on SOC II Type 2 compliance.
     video_image: /images/launch-week/week-2/lw2-d4.jpg
     video_url: https://www.youtube.com/watch?v=tyDy8PgBFuY
     links:
