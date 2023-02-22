@@ -7,7 +7,7 @@ menu:
     parent: "Browser checks"
 ---
 
-Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework. 
+Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework.
 Read more on how to utilise Playwright Test best in the [official documentation](https://playwright.dev/docs/writing-tests).
 
 Playwright Test Runner elevates your monitoring and debugging experience by providing a number of neat functionalities:
@@ -19,57 +19,11 @@ Playwright Test Runner elevates your monitoring and debugging experience by prov
 - high-level locators like `getByTitle`, `getByRole`
 - independent nested test cases that make your Checkly check even more powerful
 
-## Getting started
 > Playwright Test is available from runtime [**2022.02**](/docs/runtimes/specs/) onwards.
 
-A simple Playwright Test script would look like this:
-
-{{< tabs "Basic test" >}}
-{{< tab "TypeScript" >}}
- ```ts
-import { test, expect } from '@playwright/test';
-
-test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/')
-  const name = await page.innerText('.navbar__title')
-  expect(name).toBe('Playwright')
-})
-```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
- ```js
-const { test, expect } = require('@playwright/test')
-
-test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/')
-  const name = await page.innerText('.navbar__title')
-  expect(name).toBe('Playwright')
-})
- ```
-{{< /tab >}}
-{{< /tabs >}}
-
-Which renders the logs:
-```
-Sep 29 13:47:33 - DEBUG - Starting job
-Sep 29 13:47:33 - DEBUG - Compiling environment variables
-Sep 29 13:47:33 - DEBUG - Creating runtime using version 2022.02
-Sep 29 13:47:33 - DEBUG - Running Playwright test script
-Sep 29 13:47:34 - INFO - Running 1 test using 1 worker
-Sep 29 13:47:34 - INFO -
-Sep 29 13:47:35 - INFO - [1/1] [chromium] › ../../var/task/src/2022-02/node_modules/vm2/lib/bridge.js:479:11 › basic test
-Sep 29 13:47:35 - INFO -
-Sep 29 13:47:35 - INFO -
-Sep 29 13:47:35 - INFO - 1 passed (2s)
-Sep 29 13:47:35 - DEBUG - Run finished
-Sep 29 13:47:36 - DEBUG - Uploading log file
-```
-
-### Browser check templates
-
-We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
-
-![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
+{{< warning >}}
+A check using Playwright Test Runner will currently run around 30-50% longer than a regular Playwright check. This is caused by the additional assets of traces and videos. We are aware of this and are investigating solutions. If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.
+{{</ warning >}}
 
 ## Features
 
@@ -135,10 +89,9 @@ Playwright Test Runner offers hook functions such as `test.afterEach` and `test.
 You can find more information on available methods in the [official documentation](https://playwright.dev/docs/api/class-test).
 
 ### Viewing trace files
-When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. 
-This makes it very easy to inspect individual traces and debug failing tests.
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev). 
 
-You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
+Using the Playwright Trace Viewer you can effortlessly view your test, skip back and forth between actions, view snapshots and metadata, and more. This makes it very easy to inspect individual traces and debug failing tests.
 
 ![checkly-pw-traces](/docs/images/browser-checks/pwt_traces.gif)
 
@@ -146,7 +99,7 @@ You can download the trace files for manual inspection or view them directly wit
 > regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
 
 ### Video recordings
-When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI.
+When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI. It is a great tool to get a first look of the actions and their outcome to quickly identify what failed, and to visualize regressions.
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
