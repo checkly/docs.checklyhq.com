@@ -1,7 +1,7 @@
 ---
 title: Using Playwright Test
 description: How to use Playwright Test Runner natively within browser checks at Checkly
-weight: 15
+weight: 14
 menu:
   docs:
     parent: "Browser checks"

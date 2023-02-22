@@ -31,26 +31,20 @@ resource "checkly_check" "e2e-login" {
     "eu-central-1"
   ]
 
-  script = <<EOT                              // The script the check should execute
-const { chromium } = require("playwright");
+  // The script the check should execute
+  script = <<EOT
+const { expect, test } = require('@playwright/test');
 
-async function run() {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
+test('Login flow', async ({ page }) => {
+  await page.goto('https://danube-web.shop/');
+  await page.getByRole('button', { name: 'Log in' }).click();
 
-  await page.goto("https://danube-web.shop/");
+  await page.getByPlaceholder('Email').type('user@email.com');
+  await page.getByPlaceholder('Password').type('supersecure1');
 
-  await page.click("#login");
-
-  await page.type("#n-email", "user@email.com");
-  await page.type("#n-password2", "supersecure1");
-
-  await page.click("#goto-signin-btn");
-  await page.waitForSelector("#login-message", { visible: true });
-
-  await browser.close();
-}
-run()
+  await page.getByRole('button', { name: 'Sign in' }).click();
+  await expect(page.getByText(/Welcome back/)).toBeVisible();
+});
 EOT
 }
 ```
