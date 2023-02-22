@@ -42,7 +42,7 @@ break or slow down.
 
 ## Adopt The Monitoring As Code Workflow
 
-Checkly offers a lot of power and perks to modern developers and DevOps teams. Manage checks at scale with Terraform, hook into your CI/CD and deployment flow.
+Checkly offers a lot of power and perks to modern developers and DevOps teams to manage their Checks and monitoring setup from their code base. We call it "monitoring as code".
 
 <div class="cards-list">
 {{< doc-card
