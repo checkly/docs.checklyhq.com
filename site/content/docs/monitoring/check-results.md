@@ -67,17 +67,19 @@ Individual browser check results contain:
 
 1. A short check summary, including errors broken down by category.
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
-2. A time ribbon showing how much time was spent on each page.
-<img class="screenshot-partial" alt="check results browser time ribbon" src="/docs/images/monitoring/check-results-browser-time-ribbon.png"/>
-3. An error log, only if your script failed.
+2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test) about the additonal functionalities of Playwright Test.
+<img class="screenshot-partial" alt="check results browser playwright test report" src="/docs/images/monitoring/check-results-browser-pwt-report.png"/>
+3. A waterfall timeline showing how much time was spent on each page.
+<img class="screenshot-partial" alt="check results browser timeline" src="/docs/images/monitoring/check-results-browser-timeline.png"/>
+4. An error log, only if your script failed.
 <img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>
-4. Expandable tabs on page your script navigated to.
+5. Expandable tabs on page your script navigated to.
 <img class="screenshot-partial" alt="check results browser page navigation" src="/docs/images/monitoring/check-results-browser-page-navigations.png"/>
 When expanded, each tab shows its own navigation/loading time ribbon and web vitals...
 <img class="screenshot-partial" alt="check results browser navigation top" src="/docs/images/monitoring/check-results-browser-navigation-top.png"/>
 ...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
 <img class="screenshot-partial" alt="check results browser navigation bottom" src="/docs/images/monitoring/check-results-browser-navigation-bottom.png"/>
-5. A job log for the check.
+6. A job log for the check.
 <img class="screenshot-partial" alt="check results browser job log" src="/docs/images/monitoring/check-results-browser-job-log.png"/>
 
 ## API check results
