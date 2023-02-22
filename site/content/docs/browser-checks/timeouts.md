@@ -16,7 +16,7 @@ There are different kinds of timeouts you will encounter while working with Brow
 | Playwright action timeout       | Playwright     | no timeout    | Yes                |
 
 {{<info >}}
-Since browser checks have no specified action timeout, failing actions will rely on the test-case timeout.
+Since browser checks have no specified action timeout, failing actions will rely on the test timeout.
 {{</info >}}
 
 Checkly runs your Browser check code for a maximum of **120 seconds**. Tests that exceed this time will be capped and time out. Everything in your Browser Check needs to happen within those 120 seconds, no matter what. 
