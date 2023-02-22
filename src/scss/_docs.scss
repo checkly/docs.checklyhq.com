@@ -375,6 +375,32 @@
       color: $black;
     }
 
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      margin: 30px 0 20px;
+      padding: 0;
+      background: none;
+      font-size: 14px;
+
+      & a {
+        color: $gray;
+        &:hover {
+          text-decoration: none;
+          color: $gray-dark;
+        }
+      }
+
+      & a:last-child {
+        color: $gray-dark;
+      }
+
+      & span {
+        margin: 0 5px;
+        color: $gray;
+      }
+    }
+
     nav#TableOfContents {
       ul {
         border-left: 2px solid $brand-primary;
