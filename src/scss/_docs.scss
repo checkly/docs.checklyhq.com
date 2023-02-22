@@ -446,7 +446,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
 
       .two-column-card {
@@ -459,8 +459,8 @@
         display: flex;
         justify-content: space-between;
         padding: 20px;
-        background: url(/docs/images/icons/pattern@2x.png);
         border-radius: 6px;
+        border: 1px solid $gray-light;
 
         .text-wrap {
           width: 100%;
