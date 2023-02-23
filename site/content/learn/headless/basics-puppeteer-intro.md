@@ -15,7 +15,7 @@ menu:
     parent: "Getting started"
 ---
 
-> Checkly no longer supports Puppeteer as of runtime [2022.02](https://www.checklyhq.com/docs/runtimes/specs/). We recommend using Playwright Test if you are just starting out or migrating from Puppeteer to Playwright using [puppeteer-to-playwright](https://github.com/checkly/puppeteer-to-playwright).
+>  We recommend using Playwright Test if you are just starting out with e2e testing and if you're considering migrating from Puppeteer to Playwright use [puppeteer-to-playwright](https://github.com/checkly/puppeteer-to-playwright).
 
 Straight from the [official documentation](https://developers.google.com/web/tools/puppeteer):
 
