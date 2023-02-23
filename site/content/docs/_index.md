@@ -5,7 +5,7 @@ title: Checkly documentation
 Learn how to use Checkly to monitor your vital frontend webapp transactions and backend API's. Our docs cover everything
 from initial setup, scripting with extensive JavaScript examples to alerting and integrations.
 
-## Getting started: monitoring & alerting
+## Getting started: monitoring & alerting basics
 
 Start with monitoring your key webapp flows, your backend API's and set up alerting, so you get a notification when things
 break or slow down.
@@ -40,11 +40,20 @@ break or slow down.
 >}}
 </div>
 
-## Diving deeper
+## Adopt The Monitoring As Code Workflow
 
-Checkly offers a lot of power and perks to modern developers and DevOps teams. Manage checks at scale with Terraform, hook into your CI/CD and deployment flow.
+Checkly offers a lot of power and perks to modern developers and DevOps teams to manage their Checks and monitoring setup from their code base. We call it "monitoring as code".
 
 <div class="cards-list">
+{{< doc-card
+	class="full-width-card"
+	headerTag="h3"
+	title="Checkly CLI (beta)"
+	img="/docs/images/icons/terminal.svg"
+	description="Code, test and deploy your monitoring configuration using a JavaScript/TypeScript-native workflow right from your code base."
+	link="/docs/cli/"
+>}}
+
 {{< doc-card
 	class="full-width-card"
 	headerTag="h3"
@@ -52,14 +61,6 @@ Checkly offers a lot of power and perks to modern developers and DevOps teams. M
 	img="/docs/images/icons/plug@2x.png"
 	description="Manage and scale your complete monitoring configuration right from your code base with our official Hashicorp Terraform provider."
 	link="/docs/integrations/terraform/"
->}}
-{{< doc-card
-	class="full-width-card"
-	headerTag="h3"
-	title="CI/CD and deployments"
-	img="/docs/images/icons/infinity@2x.png"
-	description="Catch bugs and breakage early by triggering your checks from your deployment platforms and CI/CD pipelines. Integrates with GitHub, Vercel, Heroku and basically all CI providers."
-	link="/docs/cicd/"
 >}}
 </div>
 
@@ -70,5 +71,6 @@ Checkly offers a lot of power and perks to modern developers and DevOps teams. M
 
 {{< doc-card class="three-column-card" title="Dashboards" description="Whip up a status page on your own domain or create an internal dashboard." link="/docs/dashboards" >}}
 
-{{< doc-card class="three-column-card" title="Maintenance Windows" description="Manage your scheduled maintenance periods so your numbers don't get skewed." link="/docs/maintenance-windows" >}}
+{{< doc-card class="three-column-card" title="Private Locations" description="Run your Checks wherever you want: inside your firewall, VPC or K8S cluster. " link="/docs/private-locations" >}}
 </div>
+
