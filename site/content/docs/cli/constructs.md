@@ -136,7 +136,7 @@ export default defineConfig({
     alertChannels: [],
     checkMatch: '**/__checks__/*.check.ts',
     ignoreDirectoriesMatch: [],
-      browserChecks: {
+    browserChecks: {
       frequency: 10,
       testMatch: '**/__checks__/*.spec.ts',
     },
@@ -390,7 +390,7 @@ new ApiCheck('check-group-api-check-1', {
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
-- `browserCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
+- `browserCheckDefaults`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
 ## `AlertChannel`
 
