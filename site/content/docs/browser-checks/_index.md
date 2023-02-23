@@ -201,7 +201,7 @@ Note that we are using Playwright Tests's built-in expect, which is enriched wit
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
 
-![failed PWT assertion](/docs/images/browser-checks/getting-started_pwt.gif)
+<video alt="Viewing a failed check" autoplay loop muted src="/docs/images/browser-checks/getting-started_pwt.mp4"></video>
 
 ## What about Puppeteer?
 While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer in newer [runtimes](/docs/runtimes/). The latest runtime that supports Puppeteer is [2022.02](/docs/runtimes/specs/).
