@@ -136,7 +136,7 @@ export default defineConfig({
     alertChannels: [],
     checkMatch: '**/__checks__/*.check.ts',
     ignoreDirectoriesMatch: [],
-      browserChecks: {
+    browserChecks: {
       frequency: 10,
       testMatch: '**/__checks__/*.spec.ts',
     },
@@ -177,7 +177,7 @@ derived from the abstract class `Check`.
 - `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
 - `activated`: A boolean value if your Check is activated or not.
 - `muted`: A boolean value if alert notifications from your Check are muted, i.e. not sent out.
-- `groupId`: The id of the check group this check is part of. Set this by calling `someGroup.ref()`
+- `group`: The `CheckGroup` object that this check is part of.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
 - `doubleCheck`: A boolean value if Checkly should double check on failure.
 - `tags`: An array of tags to help you organize your Checks, i.e. `['product', 'api']`
@@ -349,7 +349,7 @@ Check Groups for that purpose.
 
 You can add a Check to a group in two ways.
 
-1. Assign `group.ref()` to the `groupId` property of a Check.
+1. By passing the `CheckGroup` object for the `group` property of a Check.
 2. For Browser Checks, we allow you to use the `testMatch` glob pattern to include any `.spec.js|ts` file, without having to
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
@@ -369,7 +369,7 @@ const group = new CheckGroup('check-group-1', {
 
 new ApiCheck('check-group-api-check-1', {
   name: 'API check #1',
-  groupId: group.ref(),
+  group,
   request: {
     method: 'GET',
     url: 'https://mac-demo-repo.vercel.app/api/hello',
@@ -390,7 +390,7 @@ new ApiCheck('check-group-api-check-1', {
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
-- `browserCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
+- `browserCheckDefaults`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
 ## `AlertChannel`
 

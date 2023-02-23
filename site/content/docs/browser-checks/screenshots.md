@@ -25,8 +25,10 @@ Screenshots need to stick to the following specs:
 - Either `.png`, `jpeg` or `jpg` suffix.
 - Allowed characters are `a-z A-Z 0-9 - _ @` So no whitespaces in the filename.
 
-![take screenshots with Puppeteer](/docs/images/browser-checks/screenshots.png)
+![take screenshots with Playwright](/docs/images/browser-checks/screenshots.png)
 
+When using Playwright Test your screenshots are automatically mapped to their corresponding test cases. This is especially useful when running multiple test cases within a `test.describe` block.
+<img class="screenshot-partial" alt="Checkly UI showing sreenshots in multiple test cases" src="/docs/images/browser-checks/screenshots-describe.png"/>
 
 Read more about the options for `page.screenshot()` like transparency, clipping and quality settings in the official docs for [Playwright](https://playwright.dev/docs/screenshots).
 
@@ -81,7 +83,7 @@ test('Visit Checkly homepage and take a screenshot', async ({ page }) => {
 
 The code above snaps a picture of the headline on the Checkly homepage.
 
-![take screenshot of page element with Playwright](/docs/images/browser-checks/element_screenshot.gif)
+<video alt="Taking a screenshot of Checkly's headline" autoplay loop muted src="/docs/images/browser-checks/screenshots-element.mp4"></video>
 
 ## More resources
 
