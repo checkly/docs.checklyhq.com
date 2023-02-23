@@ -199,25 +199,15 @@ new checkly.Check('my-browser-check-pulumi', {
   frequency: 10,
   type: 'BROWSER',
   script: `
-    const { chromium } = require('playwright')
+  const { expect, test } = require('@playwright/test')
 
-    async function run () {
-    const browser = await chromium.launch()
-    const page = await browser.newPage()
+  test('visit page and take screenshot', async ({ page }) => {
+    const response = await page.goto('https://checklyhq.com')
 
-    const response = await page.goto('https://google.com')
-
-    if (response.status() > 399) {
-        throw new Error('Failed with response code \${response.status()}')
-    }
+    expect(response.status()).toBeLessThan(400)
 
     await page.screenshot({ path: 'screenshot.jpg' })
-
-    await page.close()
-    await browser.close()
-    }
-
-    run()`,
+  })`,
   locations: ['eu-west-1', 'us-west-2'],
   tags: ['pulumi'],
 })
