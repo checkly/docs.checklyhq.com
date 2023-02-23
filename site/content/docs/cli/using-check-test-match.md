@@ -32,7 +32,7 @@ The goal of this property is to allow you to just write standard `*.spec.ts` Pla
 config or code added — this is why it's nested under `browserChecks` as it only applies to Browser Checks. In turn, this
 allows you to just use `npx playwright test` on the command line to write and debug these Checks.
 
-Two caveats:
+Some caveats:
 1. As a `.spec.ts` file does not contain any Checkly specific properties like `frequency` or `tags`, the CLI will add 
 these properties based on the defaults set inside the `browserChecks` config object. Also, a `logicalId` and `name` will 
 be generated based on the file name.
