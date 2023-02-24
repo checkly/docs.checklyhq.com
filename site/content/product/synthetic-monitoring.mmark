@@ -5,8 +5,9 @@ alias:
     - transaction-monitoring
 ---
 
-{.text-center .hero-text .width-645}
-# Reliable Synthetic Monitoring for Vital User Flows
+<h1 class="text-center hero-text mac-title">
+Reliable Synthetic Monitoring for Vital User Flows
+</h1>
 
 <p class="text-center hero-sub hero-sub-center mb-lg-5">
 Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. Banish false positives and validate the correctness and performance of your web app and get rich debugging insights with Checkly’s API and browser checks. Leverage Checkly’s <a href='https://www.checklyhq.com/product/monitoring-as-code/'>monitoring as code</a> workflow and easily integrate Playwright scripts. Start shipping features with confidence, today!
@@ -29,7 +30,7 @@ Broken or slow signup forms and flaky shopping carts are extremely frustrating t
 </section>
 
 {.text-center .section-header .mt-8}
-## How it Works: Checkly and Playwright
+## How it Works: Checkly and Playwright <img class="img-fluid" width="52" height="52" src="/product/transaction-monitoring/playwright.png" alt="checkly code"/>
 
 <p class="text-center hero-sub hero-sub-center mb-5">
 Checkly uses the Playwright Test Runner to accurately simulate interactions with a Chrome browser. Getting a monitoring script going is a lot easier than you might think. Just follow the steps in the video below and you'll be up and monitoring in no time.
