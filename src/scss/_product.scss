@@ -480,6 +480,9 @@
           color: #697280;
           padding: 4px 4px;
           text-align: center;
+          &.mac {
+            font-size: 20px !important;
+          }
           &.active {
             background-color: #45C8F1;
             border-color: #45C8F1;
@@ -492,6 +495,9 @@
     .tab-content {
       padding-top: 0px;
       width: 100%;
+      &.mac {
+        width: 80%;
+      }
     }
 
     .tab-code-wrapper {
@@ -565,7 +571,12 @@
         .code-green {
           color: #10CE66;
         }
-
+        .code-red {
+          color: $red;
+        }
+        .code-purple {
+          color: #c488e0;
+        }
         .code-pink {
           color: $pink;
         }

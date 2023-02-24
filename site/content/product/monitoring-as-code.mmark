@@ -36,21 +36,21 @@ Unite E2E testing and monitoring in one developer-focused Monitoring as Code (Ma
         <p class="text-center provision-text">Use our new CLI to enable a developer-focused monitoring workflow from development to production.</p>
       </div>
     </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-12 px-0">
       <ul class="col-12 nav nav-pills checks-list p-0" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="first-check-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">npx checkly text</a>
+          <a class="nav-link mac active" id="first-check-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Code</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">npx checkly whoami</a>
+          <a class="nav-link mac" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Test</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">npx checkly deploy</a>
+          <a class="nav-link mac" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Deploy 🚀</a>
         </li>
       </ul>
     </div>
-    <div class="tab-content" id="pills-tabContent">
+    <div class="tab-content mac" id="pills-tabContent">
       <!-- start tab panel -->
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row tab-code-wrapper d-flex align-items-stretch">
@@ -60,20 +60,32 @@ Unite E2E testing and monitoring in one developer-focused Monitoring as Code (Ma
                 <div class="dot mr-2"></div>
                   <div class="dot"></div>
             </div>
-            <div class="text">main.tf</div>
+            <div class="text">checks.ts</div>
             <div class="dots"></div>
           </div>
           <!-- start codeblock -->
           <div class="code-block code-mac dark">
 <pre>
-<code>npx checkly test <span class="code-blue">"checkly_check" "add-to-cart"</span> {
-<span class="pl-3">name</span> <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span>
-<span class="pl-3">type</span> <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span>
-<span class="pl-3">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
-<span class="pl-3">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-<span class="pl-3">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1", "eu-central-1"</span>]
-<span class="pl-3">script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)
-}</code>
+<code><span class="code-yellow">new </span><span class="code-blue">BrowserCheck</span>(<span class="code-blue">'homepage-browser-check-1',</span> {
+<span class="pl-3 code-purple">name</span>: <span class="code-blue">'Browser Check #1'</span>,
+<span class="pl-3 code-purple">frequency</span>: <span class="code-red">10</span>,
+<span class="pl-3 code-purple">regions</span>: [<span class="code-blue">'us-east-1', 'eu-west-1'</span>],
+<span class="pl-3 code-purple">code</span>: {
+  <span class="pl-3 code-purple">entrypoint</span>: <span class="code-blue">'./home.spec.js'</span>
+  }
+})
+
+<span class="code-yellow">new </span><span class="code-blue">ApiCheck</span>(<span class="code-blue">'homepage-api-check-1',</span> {
+<span class="pl-3 code-purple">name</span>: <span class="code-blue">'Homepage - fetch stats'</span>,
+<span class="pl-3 code-purple">degradedResponseTime</span>: <span class="code-red">10000</span>,
+<span class="pl-3 code-purple">maxResponseTime</span>: <span class="code-red">20000</span>,
+<span class="pl-3 code-purple">requests</span>: {
+    <span class="pl-3 code-purple">url</span>: <span class="code-blue">"https://api.checklyhq.com/public-stats",</span>
+    <span class="pl-3 code-purple">method</span>: <span class="code-blue">"GET",</span>
+    <span class="pl-3 code-purple">assertions</span>: [<span class="code-blue">AssertionBuilder.statusCode().equals(200)</span>]  
+  }
+})
+</code>
 </pre>
           </div> 
           <!-- end codeblock -->
@@ -89,45 +101,23 @@ Unite E2E testing and monitoring in one developer-focused Monitoring as Code (Ma
               <div class="dot mr-2"></div>
               <div class="dot"></div>
             </div>
-            <div class="text">main.tf</div>
             <div class="dots"></div>
           </div>
           <div class="code-block code-mac dark">
           <!-- start codeblock -->
 <pre>
-<code>resource <span class="code-blue">"checkly_check_group" "purchase"</span> {
-  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span>
-  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
-  <span>locations</span> <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
-}
+<code>
+<span class="font-italic">$</span> <span class="code-green">npx</span> checkly test
 
-resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {
-  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span>
-  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span>
-  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
-  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>locations</span> <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]
-  <span>script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)
-  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span>
-}
+Running 2 checks in eu-west-1.
 
-resource <span class="code-blue">"checkly_check" "payment"</span> {
-  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Payment"</span>
-  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"API"</span>
-  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">1</span>
-  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>locations</span> <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]
-  <span>request</span> {
-    <span>url</span> <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span>
-    <span>assertion</span> {
-      <span>source</span> <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
-      <span>comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
-      <span>target</span> <span class="code-grey">=</span> <span class="code-blue">"200"</span>
-    <span>}</span>
-  <span>}</span>
-  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group<span class="code-green">.purchase.id</span>
-}</code>
+_ _checks_ _/api.check.ts
+   ✅ Homepage - fetch stats (65ms)
+_ _checks_ _/browser.check.ts
+   ✅ Homepage spec (7s)
+
+<span class="code-green">2 passed, </span>2 total
+</code>
 </pre>
           <!-- end codeblock -->
           </div>
@@ -143,71 +133,25 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {
               <div class="dot mr-2"></div>
               <div class="dot"></div>
             </div>
-            <div class="text">main.tf</div>
             <div class="dots"></div>
           </div>
           <div class="code-block code-mac dark">
           <!-- start codeblock -->
 <pre>
-<code>resource <span class="code-blue">"checkly_alert_channel" "pagerduty_ac"</span> {
-  <span>pagerduty</span> {
-    <span>account</span> <span class="code-grey">=</span> <span class="code-blue">"checkly"</span>
-    <span>service_key</span> <span class="code-grey">=</span> <span class="code-blue">"key1"</span>
-    <span>service_name</span> <span class="code-grey">=</span> <span class="code-blue">"pdalert"</span>
-  <span>}</span>
-}
+<code>
+<span class="font-italic">$</span> <span class="code-green">npx</span> checkly deploy <span class="code-blue">--preview</span>
 
-resource <span class="code-blue">"checkly_alert_channel" "email_ac"</span> {
-  <span>email</span> {
-    <span>address</span> <span class="code-grey">=</span> <span class="code-blue">"john@acme.com"</span>
-  <span>}</span>
-}
+<span class="code-green">Create: </span>
+    BrowserCheck: homepage-browser-check-1
+    ApiCheck: homepage-api-check-1
 
-resource <span class="code-blue">"checkly_check_group" "purchase"</span> {
-  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span>
-  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
-  <span>locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
-}
+<span class="font-italic">$</span> <span class="code-green">npx</span> checkly deploy
 
-resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {
-  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span>
-  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span>
-  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
-  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
-  <span>script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)
-  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span>
-  <span>alert_channel_subscription</span> {
-    <span>channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">pagerduty_ac.id</span>
-    <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>}</span>
-  <span>alert_channel_subscription</span> {
-    <span>channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">slack_ac.id</span>
-    <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>}</span>
-}
+<span class="code-green">?</span> You are about to deploy your project "Monitoring as code" to account "Checkly". Do
+you want to continue? <span class="code-blue">Yes</span>
 
-resource <span class="code-blue">"checkly_check" "payment"</span> {
-  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Payment"</span>
-  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"API"</span>
-  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">1</span>
-  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
-  <span>request</span> {
-    <span>url</span> <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span>
-    <span>assertion</span> {
-      <span>source</span> <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
-      <span>comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
-      <span>target</span> <span class="code-grey">=</span> <span class="code-blue">"200"</span>
-    <span>}</span>
-  <span>}</span>
-  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span>
-  <span>alert_channel_subscription</span> {
-    <span></span>channel_id <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">email_ac.id</span>
-    <span></span>activated <span class="code-grey">=</span> <span class="code-yellow">true</span>
-  <span>}</span>
-}</code>
+Successfully deployed project "Monitoring as code" to account "Checkly".
+</code>
 </pre>
             </div>                     
           </div> 
@@ -238,6 +182,8 @@ resource <span class="code-blue">"checkly_check" "payment"</span> {
   <div class="row justify-content-center header-part">
     <div class="col-sm-12 col-md-8">
       <h2 class="section-super-header">LEVERAGE EXISTING CI/CD TOOLS</h2>
+      <img class="mr-3" src="/images/icons/terraform-icon.svg" width="32" height="32"/>
+      <img  src="/images/icons/pulumi-icon.svg" width="32" height="32"/>
       <h2 class="section-header mt-1">Integrate with your existing tech stack</h3>
       <p class="lead-text mb-lg-2">
       Checkly also integrates seamlessly with your existing tech stack, including IaC tools like Terraform and Pulumi. 
