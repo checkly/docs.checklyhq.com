@@ -9,7 +9,7 @@ alias:
 # Reliable Synthetic Monitoring for Vital User Flows
 
 <p class="text-center hero-sub hero-sub-center mb-lg-5">
-Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. Banish false positives and validate the correctness and performance of your web app and get rich debugging insights with Checkly’s API and Browser Checks. Leverage Checkly’s <a href='https://www.checklyhq.com/product/monitoring-as-code/'>monitoring as code</a> workflow and easily integrate Playwright scripts. Start shipping features with confidence, today!
+Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. Banish false positives and validate the correctness and performance of your web app and get rich debugging insights with Checkly’s API and browser checks. Leverage Checkly’s <a href='https://www.checklyhq.com/product/monitoring-as-code/'>monitoring as code</a> workflow and easily integrate Playwright scripts. Start shipping features with confidence, today!
 </p>
 
 <div class="row justify-content-center text-center images">
@@ -19,12 +19,12 @@ Broken or slow signup forms and flaky shopping carts are extremely frustrating t
 
 <section class="grid-section">
 <div class="row">
-{{< sm-4-col-item "USE PLAYWRIGHT" "Reuse your existing Playwright code base to run E2E Browser Checks and validate that all your crucial web apps and sites are working up to spec." >}}
-{{< sm-4-col-item "MONITOR WITH REAL BROWSERS" "Your Browser Checks run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security." >}}
-{{< sm-4-col-item "VALIDATE ALL THINGS" "Check for specific content items, browser responses, visibility and error responses in your Browser Checks. Automate your user flows and be sure that they work!" >}}
+{{< sm-4-col-item "USE PLAYWRIGHT" "Reuse your existing Playwright code base to run E2E browser checks and validate that all your crucial web apps and sites are working up to spec." >}}
+{{< sm-4-col-item "MONITOR WITH REAL BROWSERS" "Your browser checks run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security." >}}
+{{< sm-4-col-item "VALIDATE ALL THINGS" "Check for specific content items, browser responses, visibility and error responses in your browser checks. Automate your user flows and be sure that they work!" >}}
 {{< sm-4-col-item "DEBUG WITH EASE" "Automatically collect error traces and screenshots or videos for faster debugging." >}}
 {{< sm-4-col-item "IMPORT FROM TOOLS YOU KNOW" "For [API monitoring](https://www.checklyhq.com/product/api-monitoring/), Checkly’s cUrl and Swagger API importers let you create robust API checks with just a few clicks." >}}
-{{< sm-4-col-item "TRACK PERFORMANCE" "Receive web vitals and load times for every page in your Browser Check to ensure an outstanding user experience." >}}
+{{< sm-4-col-item "TRACK PERFORMANCE" "Receive web vitals and load times for every page in your browser check to ensure an outstanding user experience." >}}
 </div>
 </section>
 
@@ -54,7 +54,7 @@ Checkly uses the Playwright Test Runner to accurately simulate interactions with
       </div>
       <div class="col-12 col-md-8 text">
         <h4 class="feature-title mt-0">CREATE ACTIONABLE BROWSER CHECKS WITH PLAYWRIGHT TEST</h4>
-        <p>Every Browser Check can collect error traces, screenshots and performance metrics. Use web-first assertions and auto-waiting to write highly reactive code that’s easy to read. Use Playwright traces to easily identify failed assertions and missing resources when you receive an alert.</p>
+        <p>Every browser check can collect error traces, screenshots and performance metrics. Use web-first assertions and auto-waiting to write highly reactive code that’s easy to read. Use Playwright traces to easily identify failed assertions and missing resources when you receive an alert.</p>
       </div>
     </div>
     <div class="feature-item col row justify-content-center mt-2">
