@@ -292,6 +292,9 @@
           width: calc(100% - 412px);
           height: 461px;
         }
+        .code-mac {
+          width: 100% !important;
+        }
         .video-wrapper {
           padding: 44px 0 0 0;
           width: 412px;
@@ -357,11 +360,13 @@
         z-index: 1;
         width: calc(100% - 190px);
         left: 30px;
+        border-radius: 8px;
       }
 
       .hero-second {
         position: absolute;
         z-index: 2;
+        border-radius: 8px;
         right: 30px;
         top: 100px;
         width: calc(100% - 164px);

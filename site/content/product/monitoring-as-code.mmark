@@ -1,0 +1,282 @@
+---
+title: Monitoring as Code
+description: Welcome to the New Era of Monitoring.
+alias:
+    - monitoring-as-code
+---
+
+{.text-center .hero-text .width-645}
+# Welcome to the New Era of Monitoring
+
+<p class="text-center hero-sub hero-sub-center mb-lg-5">
+Unite E2E testing and monitoring in one developer-focused Monitoring as Code (Mac) workflow. The Checkly CLI, now in beta, enables you to code, test, and deploy your testing and synthetic monitoring setup like never before.
+</p>
+
+<div class="row justify-content-center text-center images">
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-first" img="/product/monitoring-as-code/mac_landing.png" alt="monitoring as code landing" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second" img="/product/monitoring-as-code/mac_terminal.png" alt="monitoring as code terminal" width="910" height="568" >}}
+</div>
+
+<section class="grid-section">
+<div class="row">
+{{< sm-4-col-item "DEVELOPER FIRST WORKFLOW" "Code your monitoring on your local machine, test your preview deployments in CI and monitor in production." >}}
+{{< sm-4-col-item "HARNESS THE POWER OF PLAYWRIGHT" "Fully harness the power of Playwright for E2E testing with Browser Checks." >}}
+{{< sm-4-col-item "RUN FROM YOUR REPOSITORY" "Store all resources in your Git repo, alongside your application code: just like the unit testing patterns you are familiar with." >}}
+{{< sm-4-col-item "TYPESCRIPT FIRST" "Code, compose and structure your resources using TypeScript. No YAML-engineering needed." >}}
+{{< sm-4-col-item "MONITOR APIs" "Seamlessly integrate API monitoring into your E2E testing and monitoring regimen." >}}
+{{< sm-4-col-item "CODE AND COLLABORATE" "Use any CI platform to collaborate with your team to code, test, and deploy E2E browser and API checks." >}}
+</div>
+</section>
+
+<div id="provision-all">
+  <div class="container">
+    <div class="row text-section">
+      <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
+        <h3 class="text-center sub-heading">Meet the Checkly CLI</h3>
+        <p class="text-center provision-text">Use our new CLI to enable a developer-focused monitoring workflow from development to production.</p>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-12 px-0">
+      <ul class="col-12 nav nav-pills checks-list p-0" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="first-check-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">npx checkly text</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">npx checkly whoami</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">npx checkly deploy</a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+      <!-- start tab panel -->
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="row tab-code-wrapper d-flex align-items-stretch">
+          <div class="window-header hide-mobile">
+            <div class="dots d-flex pl-2">
+              <div class="dot mr-2"></div>
+                <div class="dot mr-2"></div>
+                  <div class="dot"></div>
+            </div>
+            <div class="text">main.tf</div>
+            <div class="dots"></div>
+          </div>
+          <!-- start codeblock -->
+          <div class="code-block code-mac dark">
+<pre>
+<code>npx checkly test <span class="code-blue">"checkly_check" "add-to-cart"</span> {
+<span class="pl-3">name</span> <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span>
+<span class="pl-3">type</span> <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span>
+<span class="pl-3">frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
+<span class="pl-3">activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+<span class="pl-3">locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1", "eu-central-1"</span>]
+<span class="pl-3">script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)
+}</code>
+</pre>
+          </div> 
+          <!-- end codeblock -->
+        </div> 
+        <!-- end tab panel -->
+      </div>
+      <!-- start tab panel -->
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="row tab-code-wrapper d-flex align-items-start">
+          <div class="window-header hide-mobile">
+            <div class="dots d-flex pl-2">
+              <div class="dot mr-2"></div>
+              <div class="dot mr-2"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="text">main.tf</div>
+            <div class="dots"></div>
+          </div>
+          <div class="code-block code-mac dark">
+          <!-- start codeblock -->
+<pre>
+<code>resource <span class="code-blue">"checkly_check_group" "purchase"</span> {
+  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span>
+  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
+  <span>locations</span> <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
+}
+
+resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {
+  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span>
+  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span>
+  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
+  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>locations</span> <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]
+  <span>script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)
+  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span>
+}
+
+resource <span class="code-blue">"checkly_check" "payment"</span> {
+  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Payment"</span>
+  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"API"</span>
+  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">1</span>
+  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>locations</span> <span class="code-grey">=</span> [ <span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span> ]
+  <span>request</span> {
+    <span>url</span> <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span>
+    <span>assertion</span> {
+      <span>source</span> <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
+      <span>comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
+      <span>target</span> <span class="code-grey">=</span> <span class="code-blue">"200"</span>
+    <span>}</span>
+  <span>}</span>
+  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group<span class="code-green">.purchase.id</span>
+}</code>
+</pre>
+          <!-- end codeblock -->
+          </div>
+        </div>
+        <!-- end tab panel -->
+      </div>
+        <!-- start tab panel -->
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="row tab-code-wrapper d-flex align-items-start">
+          <div class="window-header hide-mobile">
+            <div class="dots d-flex pl-2">
+              <div class="dot mr-2"></div>
+              <div class="dot mr-2"></div>
+              <div class="dot"></div>
+            </div>
+            <div class="text">main.tf</div>
+            <div class="dots"></div>
+          </div>
+          <div class="code-block code-mac dark">
+          <!-- start codeblock -->
+<pre>
+<code>resource <span class="code-blue">"checkly_alert_channel" "pagerduty_ac"</span> {
+  <span>pagerduty</span> {
+    <span>account</span> <span class="code-grey">=</span> <span class="code-blue">"checkly"</span>
+    <span>service_key</span> <span class="code-grey">=</span> <span class="code-blue">"key1"</span>
+    <span>service_name</span> <span class="code-grey">=</span> <span class="code-blue">"pdalert"</span>
+  <span>}</span>
+}
+
+resource <span class="code-blue">"checkly_alert_channel" "email_ac"</span> {
+  <span>email</span> {
+    <span>address</span> <span class="code-grey">=</span> <span class="code-blue">"john@acme.com"</span>
+  <span>}</span>
+}
+
+resource <span class="code-blue">"checkly_check_group" "purchase"</span> {
+  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Purchase"</span>
+  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>concurrency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
+  <span>locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
+}
+
+resource <span class="code-blue">"checkly_check" "add-to-cart"</span> {
+  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Add to cart"</span>
+  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"BROWSER"</span>
+  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">5</span>
+  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
+  <span>script</span> <span class="code-grey">=</span> file(<span class="code-blue">"${path.module}/scripts/add-to-cart.js"</span>)
+  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span>
+  <span>alert_channel_subscription</span> {
+    <span>channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">pagerduty_ac.id</span>
+    <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>}</span>
+  <span>alert_channel_subscription</span> {
+    <span>channel_id</span> <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">slack_ac.id</span>
+    <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>}</span>
+}
+
+resource <span class="code-blue">"checkly_check" "payment"</span> {
+  <span>name</span> <span class="code-grey">=</span> <span class="code-blue">"Payment"</span>
+  <span>type</span> <span class="code-grey">=</span> <span class="code-blue">"API"</span>
+  <span>frequency</span> <span class="code-grey">=</span> <span class="code-yellow">1</span>
+  <span>activated</span> <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>locations</span> <span class="code-grey">=</span> [<span class="code-blue">"us-west-1"</span>, <span class="code-blue">"eu-central-1"</span>]
+  <span>request</span> {
+    <span>url</span> <span class="code-grey">=</span> <span class="code-blue">"https://webshop.com/api/charges"</span>
+    <span>assertion</span> {
+      <span>source</span> <span class="code-grey">=</span> <span class="code-blue">"STATUS_CODE"</span>
+      <span>comparison</span> <span class="code-grey">=</span> <span class="code-blue">"EQUALS"</span>
+      <span>target</span> <span class="code-grey">=</span> <span class="code-blue">"200"</span>
+    <span>}</span>
+  <span>}</span>
+  <span>group_id</span> <span class="code-grey">=</span> checkly_check_group.<span class="code-green">purchase.id</span>
+  <span>alert_channel_subscription</span> {
+    <span></span>channel_id <span class="code-grey">=</span> checkly_alert_channel.<span class="code-green">email_ac.id</span>
+    <span></span>activated <span class="code-grey">=</span> <span class="code-yellow">true</span>
+  <span>}</span>
+}</code>
+</pre>
+            </div>                     
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-5">
+    <a href="https://www.checklyhq.com/docs/cli/"><button type="button" class="btn btn-primary b-cta">Get started</button></a>
+    <a class="text-center text-decoration-none btn landing-link read-docs" href="https://app.checklyhq.com/signup">Read Documentation</a>
+  </div>
+</div>
+
+<div class="gray-section">
+  <div class="row justify-content-center header-part text-center mb-5">
+    <div class="col-sm-12 col-md-8">
+      <h2 class="section-header mb-5">The Three Pillars of Monitoring as Code</h2>
+    </div>
+    <div class="row mb-5">
+    {{< sm-4-col-item "CODE ALL RESOURCES" "Your app’s code lives in your repository. Your monitoring should too. Create resources in a programmable way, coding them instead of configuring them." >}}
+    {{< sm-4-col-item "TEST LOCALLY AND IN CI/CD" "A Checkly first: Test your resources from your local machine or during deployment in CI, all running on Checkly’s global infrastructure." >}}
+    {{< sm-4-col-item "DEPLOY WITH CONFIDENCE" "Deploy, lifecycle and scale your end-to-end testing and monitoring solution from the command line alongside your application deployments." >}}
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 pb-9">
+  <div class="row justify-content-center header-part">
+    <div class="col-sm-12 col-md-8">
+      <h2 class="section-super-header">LEVERAGE EXISTING CI/CD TOOLS</h2>
+      <h2 class="section-header mt-1">Integrate with your existing tech stack</h3>
+      <p class="lead-text mb-lg-2">
+      Checkly also integrates seamlessly with your existing tech stack, including IaC tools like Terraform and Pulumi. 
+      </p>
+      <p class="lead-text mt-2">
+      {{% cta-link "Learn more" "https://www.checklyhq.com/docs/cli/" %}}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="gray-section">
+  <div class="row justify-content-center header-part mb-5">
+    <div class="col-sm-12 col-md-8">
+      <h2 class="section-header mt-1">Monitoring as Code Resources</h2>
+      <ul>
+      <li class="lead-text mt-2">
+      {{% cta-link "Checkly CLI Documentation" "https://www.checklyhq.com/docs/cli/" %}}
+      </li>
+      <li class="lead-text mt-1">
+      {{% cta-link "Monitoring as Code with Terraform Cloud and Checkly" "https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly" %}}
+      </li>
+      <li class="lead-text mt-1">
+      {{% cta-link "The Case for Monitoring as Code" "https://blog.checklyhq.com/the-case-for-monitoring-as-code/" %}}
+      </li>
+      <li class="lead-text mt-1">
+      {{% cta-link "Monitoring as Code: Worth The Hype?" "https://www.apmdigest.com/monitoring-as-code" %}}
+      </li>
+      <li class="lead-text mt-1">
+      {{% cta-link "It’s time to embrace Monitoring-as-Code (ITOps Times)" "https://www.itopstimes.com/monitoring/its-time-to-embrace-monitoring-as-code/" %}}
+      </li>
+      <li class="lead-text mt-1">
+      {{% cta-link "It’s time to embrace Monitoring-as-Code (SD Times)" "https://sdtimes.com/monitoring/its-time-to-embrace-monitoring-as-code/" %}}
+      </li>
+      <li class="lead-text mt-1">
+      {{% cta-link "2023 Application Performance Management Predictions" "https://www.apmdigest.com/2023-application-performance-management-apm-predictions-4" %}}
+      </p>
+      </ul>
+    </div>
+  </div>
+</div>
+
