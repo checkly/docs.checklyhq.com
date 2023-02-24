@@ -780,6 +780,16 @@
         padding-top: 6.25 * $spacer;
         padding-bottom: 6.25rem;
       }
+      .mac-pillar {
+        border: 1px $gray-light solid;
+        padding: 25px;
+        margin: 10px 10px;
+        border-radius: 5px;
+        background-color: white;
+        p {
+          font-size: 14px;
+        }
+      }
     }
     .two-grid {
       padding-bottom: 90px !important;

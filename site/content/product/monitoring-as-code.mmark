@@ -33,7 +33,7 @@ Unite E2E testing and monitoring in one developer-focused monitoring as code (Ma
     <div class="row text-section">
       <div class="col-12 d-flex flex-column flex-nowrap align-items-center">
         <h3 class="text-center sub-heading">Meet the Checkly CLI</h3>
-        <p class="text-center provision-text">Use our new CLI to enable a developer-focused monitoring workflow from development to production.</p>
+        <p class="text-center provision-text">Use our new CLI to enable a MaC workflow from development to production.</p>
       </div>
     </div>
   <div class="row justify-content-center">
@@ -167,14 +167,21 @@ Successfully deployed project "Monitoring as code" to account "Checkly".
 </div>
 
 <div class="gray-section">
-  <div class="row justify-content-center header-part text-center mb-5">
-    <div class="col-sm-12 col-md-8">
-      <h2 class="section-header mb-5">The Three Pillars of Monitoring as Code</h2>
-    </div>
-    <div class="row mb-5">
-    {{< sm-4-col-item "CODE ALL RESOURCES" "Your app’s code lives in your repository. Your monitoring should too. Create resources in a programmable way, coding them instead of configuring them." >}}
-    {{< sm-4-col-item "TEST LOCALLY AND IN CI/CD" "A Checkly first: Test your resources from your local machine or during deployment in CI, all running on Checkly’s global infrastructure." >}}
-    {{< sm-4-col-item "DEPLOY WITH CONFIDENCE" "Deploy, lifecycle, and scale your end-to-end testing and monitoring solution from the command line alongside your application deployments." >}}
+  <div class="col justify-content-center header-part text-center mb-5">
+    <h2 class="section-header mb-5">The Three Pillars of Monitoring as Code</h2>
+    <div class="d-flex flex-column flex-md-row mb-5 justify-content-center">
+        <div class="grid-item mac-pillar">
+          <h6>💻 CODE ALL RESOURCES</h6>
+          <p class="text-left">Your app’s code lives in your repository. Your monitoring should too. Create resources in a programmable way, coding them instead of configuring them.</p>
+        </div>
+        <div class="grid-item mac-pillar">
+          <h6>📝 TEST LOCALLY AND IN CI/CD</h6>
+          <p class="text-left">A Checkly first: Test your resources from your local machine or during deployment in CI, all running on Checkly’s global infrastructure.</p>
+        </div>
+        <div class="grid-item mac-pillar">
+          <h6>🚀 DEPLOY WITH CONFIDENCE</h6>
+          <p class="text-left">Deploy, lifecycle, and scale your end-to-end testing and monitoring solution from the command line alongside your application deployments.</p>
+        </div>
     </div>
   </div>
 </div>
@@ -202,26 +209,26 @@ Successfully deployed project "Monitoring as code" to account "Checkly".
       <h2 class="section-header mt-1">Monitoring as Code Resources</h2>
       <ul>
       <li class="lead-text mt-2">
-      {{% cta-link "Checkly CLI Documentation" "https://www.checklyhq.com/docs/cli/" %}}
+      Checkly Docs: {{% cta-link "Checkly CLI Documentation" "https://www.checklyhq.com/docs/cli/" %}}
       </li>
       <li class="lead-text mt-1">
-      {{% cta-link "Monitoring as Code with Terraform Cloud and Checkly" "https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly" %}}
+      Hashicorp (April 2021): {{% cta-link "Monitoring as Code with Terraform Cloud and Checkly" "https://www.hashicorp.com/blog/monitoring-as-code-with-terraform-cloud-and-checkly" %}}
       </li>
       <li class="lead-text mt-1">
-      {{% cta-link "The Case for Monitoring as Code" "https://blog.checklyhq.com/the-case-for-monitoring-as-code/" %}}
+      ITOps Times (Sep 2022): {{% cta-link "It’s time to embrace Monitoring-as-Code (ITOps Times)" "https://www.itopstimes.com/monitoring/its-time-to-embrace-monitoring-as-code/" %}}
       </li>
       <li class="lead-text mt-1">
-      {{% cta-link "Monitoring as Code: Worth The Hype?" "https://www.apmdigest.com/monitoring-as-code" %}}
+      SD Times (Sep 2022): {{% cta-link "It’s time to embrace Monitoring-as-Code (SD Times)" "https://sdtimes.com/monitoring/its-time-to-embrace-monitoring-as-code/" %}}
       </li>
       <li class="lead-text mt-1">
-      {{% cta-link "It’s time to embrace Monitoring-as-Code (ITOps Times)" "https://www.itopstimes.com/monitoring/its-time-to-embrace-monitoring-as-code/" %}}
+      APM Digest (Nov 2022): {{% cta-link "Monitoring as Code: Worth The Hype?" "https://www.apmdigest.com/monitoring-as-code" %}}
       </li>
       <li class="lead-text mt-1">
-      {{% cta-link "It’s time to embrace Monitoring-as-Code (SD Times)" "https://sdtimes.com/monitoring/its-time-to-embrace-monitoring-as-code/" %}}
+      APM Digest (Dec 2022): {{% cta-link "2023 Application Performance Management Predictions" "https://www.apmdigest.com/2023-application-performance-management-apm-predictions-4" %}}
       </li>
       <li class="lead-text mt-1">
-      {{% cta-link "2023 Application Performance Management Predictions" "https://www.apmdigest.com/2023-application-performance-management-apm-predictions-4" %}}
-      </p>
+      Checkly Blog (Dec 2022): {{% cta-link "The Case for Monitoring as Code" "https://blog.checklyhq.com/the-case-for-monitoring-as-code/" %}}
+      </li>
       </ul>
     </div>
   </div>
