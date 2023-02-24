@@ -496,7 +496,10 @@
       padding-top: 0px;
       width: 100%;
       &.mac {
-        width: 80%;
+        width: 75%;
+      }
+      code {
+        font-size: 18px;
       }
     }
 
