@@ -6,7 +6,7 @@ menu:
     parent: "CLI"
 ---
 
-Checkly lets you use JavaScript / TypeScript in your Browser checks and in API check setup & teardown scripts.
+Checkly lets you use JavaScript / TypeScript in your browser checks and in API check setup & teardown scripts.
 Checks are able to use NPM packages that are defined in [our runtimes](https://www.checklyhq.com/docs/runtimes/specs/), as well as import local JavaScript and TypeScript files.
 
 
@@ -31,7 +31,7 @@ The latest runtime is `2022.10` at the time of writing. This runtime contains am
 
 ## Local Dependencies
 
-Browser Checks are also able to import other JavaScript and TypeScript files as dependencies.
+Browser checks are also able to import other JavaScript and TypeScript files as dependencies.
 This can be particularly useful for defining helper functions to be reused across multiple checks.
 The Checkly CLI will automatically detect these dependencies and make sure that they're bundled as part of the check.
 No additonal configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
@@ -44,7 +44,7 @@ __checks__
 └── login-helper.ts
 ```
 
-In `login-helper.ts` we define a reusable function `gitHubLogin`. This function can be used by multiple Browser checks.
+In `login-helper.ts` we define a reusable function `gitHubLogin`. This function can be used by multiple browser checks.
 ```
 export async function gitHubLogin (page, username, password) {
   await page.goto('https://github.com/login')
@@ -68,7 +68,7 @@ test('Github login', async ({ page }) => {
 })
 ```
 
-Finally, in `login.check.ts` we define the [Browser Check construct](/docs/cli/constructs/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
+Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/constructs/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
 ```
 import { BrowserCheck } from '@checkly/cli/constructs'
 
