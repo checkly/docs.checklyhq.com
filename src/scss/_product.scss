@@ -357,11 +357,13 @@
         z-index: 1;
         width: calc(100% - 190px);
         left: 30px;
+        border-radius: 8px;
       }
 
       .hero-second {
         position: absolute;
         z-index: 2;
+        border-radius: 8px;
         right: 30px;
         top: 100px;
         width: calc(100% - 164px);

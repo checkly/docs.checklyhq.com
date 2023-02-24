@@ -9,12 +9,12 @@ alias:
 # Reliable Synthetic Monitoring for Vital User Flows
 
 <p class="text-center hero-sub hero-sub-center mb-lg-5">
-Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. Banish false positives and validate the correctness and performance of your web app and get rich debugging insights with Checkly’s API and Browser Checks. Leverage Checkly’s monitoring as code workflow and easily integrate Playwright scripts. Start shipping features with confidence, today!
+Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. Banish false positives and validate the correctness and performance of your web app and get rich debugging insights with Checkly’s API and Browser Checks. Leverage Checkly’s <a href='https://www.checklyhq.com/product/monitoring-as-code/'>monitoring as code</a> workflow and easily integrate Playwright scripts. Start shipping features with confidence, today!
 </p>
 
 <div class="row justify-content-center text-center images">
-{{< alternative-picture class="text-center hero-image big-drop-shadow hero-first" img="/product/transaction-monitoring/rbcr-fullpage@2x.png" alt="synthetic monitoring rbcr" width="910" height="568" >}}
-{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second" img="/product/transaction-monitoring/app.checklyhq@2x.png" alt="synthetic monitoring" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-first" img="/product/transaction-monitoring/synthetic_bg.png" alt="synthetic monitoring rbcr" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second" img="/product/transaction-monitoring/synthetic_detail.png" alt="synthetic monitoring" width="910" height="568" >}}
 </div>
 
 <section class="grid-section">
@@ -23,7 +23,7 @@ Broken or slow signup forms and flaky shopping carts are extremely frustrating t
 {{< sm-4-col-item "MONITOR WITH REAL BROWSERS" "Your Browser Checks run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security." >}}
 {{< sm-4-col-item "VALIDATE ALL THINGS" "Check for specific content items, browser responses, visibility and error responses in your Browser Checks. Automate your user flows and be sure that they work!" >}}
 {{< sm-4-col-item "DEBUG WITH EASE" "Automatically collect error traces and screenshots or videos for faster debugging." >}}
-{{< sm-4-col-item "IMPORT FROM TOOLS YOU KNOW" "For API monitoring, Checkly’s cUrl and Swagger API importers let you create robust API checks with just a few clicks." >}}
+{{< sm-4-col-item "IMPORT FROM TOOLS YOU KNOW" "For [API monitoring](https://www.checklyhq.com/product/api-monitoring/), Checkly’s cUrl and Swagger API importers let you create robust API checks with just a few clicks." >}}
 {{< sm-4-col-item "TRACK PERFORMANCE" "Receive web vitals and load times for every page in your Browser Check to ensure an outstanding user experience." >}}
 </div>
 </section>
@@ -122,7 +122,7 @@ Checkly uses the Playwright Test Runner to accurately simulate interactions with
     <div class="col-sm-12 col-md-8">
       <h2 class="section-header mt-1">Global coverage</h2>
       <p class="lead-text mb-lg-2">
-      Get a clear picture of how your services perform for your users worldwide. Run your checks from twenty-two data center locations spread around the world. For apps running behind a firewall, use Private Locations and get complete visibility of private applications across your private or hybrid cloud infrastructure.
+      Get a clear picture of how your services perform for your users worldwide. Run your checks from twenty-two data center locations spread around the world. For apps running behind a firewall, use <a href='https://www.checklyhq.com/product/private-locations/'>Private Locations</a> and get complete visibility of private applications across your private or hybrid cloud infrastructure.
       </p>
       <p class="lead-text mt-2">
       {{% cta-link "Learn more" "/docs/monitoring/global-locations/" %}}
