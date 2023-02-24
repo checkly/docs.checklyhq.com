@@ -20,7 +20,7 @@ Our dashboards give you ultimate control over how and where you share essential 
 <section class="grid-section">
 <div class="row">
 {{< sm-4-col-item "COMMUNICATE AND SHARE" "Use our public dashboards to communicate the real-time status of a service to your users, both inside and outside of your organization." >}}
-{{< sm-4-col-item "OPTIMIZE FOR SPEED AND ACCESSIBILITY" "Give your public dashboards the speed, responsiveness, and accessibility that you and your stakeholders demand." >}}
+{{< sm-4-col-item "OPTIMIZE FOR ACCESSIBILITY" "Give your dashboards clarity, readability, and responsiveness to make monitoring data easy to consume." >}}
 {{< sm-4-col-item "CREATE YOUR OWN DOMAIN" "Configure custom subdomains for added personalization in public dashboards, like status.acme.com." >}}
 {{< sm-4-col-item "BRAND AND CUSTOMIZE" "Personalize the look and feel of your dashboard using custom CSS rules—including a built-in CSS editor—to align to your company’s brand." >}}
 {{< sm-4-col-item "MONITOR WITH CONFIDENCE" "Our new dashboards are built on NuxtJS 3 and leverage NuxtJS Universal Rendering capabilities for speed and reliability." >}}
