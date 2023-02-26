@@ -15,7 +15,7 @@ now in beta, enables you to code, test, and deploy your testing and synthetic mo
 
 <div class="row justify-content-center text-center images mac-landing">
 {{< alternative-picture class="text-center hero-image big-drop-shadow hero-first mac-landing" img="/product/monitoring-as-code/mac_landing.png" alt="monitoring as code landing" width="910" height="568" >}}
-{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second mac-landing" img="/product/monitoring-as-code/mac_terminal_3.png" alt="monitoring as code terminal" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second mac-landing" img="/product/monitoring-as-code/mac_terminal.png" alt="monitoring as code terminal" width="910" height="568" >}}
 </div>
 
 
