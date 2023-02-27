@@ -1,9 +1,6 @@
-const { chromium } = require('playwright')
+import { test, expect } from '@playwright/test'
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('signup flow', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
   await page.click('#signup')
@@ -20,7 +17,6 @@ const { chromium } = require('playwright')
   await page.click('#privacy-policy')
   await page.click('#register-btn')
 
-  await page.waitForSelector('#login-message', { visible: true })
-
-  await browser.close()
-})()
+  const loginMessage = await page.locator('#login-message')
+  await expect(loginMessage).toBeVisible()
+})
