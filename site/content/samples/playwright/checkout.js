@@ -1,10 +1,7 @@
-const { chromium } = require('playwright')
+import { test, expect } from '@playwright/test'
 const productsNumber = process.env.PRODUCTS_NUMBER || 3
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('checkout', async ({ page }) => {
   const navigationPromise = page.waitForNavigation()
 
   await page.goto('https://danube-web.shop/')
@@ -36,7 +33,6 @@ const productsNumber = process.env.PRODUCTS_NUMBER || 3
 
   await page.click('.checkout > .call-to-action')
 
-  await page.waitForSelector('#order-confirmation', { visible: true })
-
-  await browser.close()
-})()
+  const orderConfirmation = await page.locator('#order-confirmation')
+  await expect(orderConfirmation).toBeVisible()
+})
