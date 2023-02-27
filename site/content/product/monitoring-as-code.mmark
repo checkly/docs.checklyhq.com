@@ -9,7 +9,7 @@ alias:
 # Welcome to the New Era of Monitoring
 
 <p class="text-center hero-sub hero-sub-center mb-lg-5">
-Unite E2E testing and monitoring in one developer-focused monitoring as code (Mac) workflow. The Checkly CLI,
+Unite E2E testing and monitoring in one developer-focused monitoring as code (MaC) workflow. The Checkly CLI,
 now in beta, enables you to code, test, and deploy your testing and synthetic monitoring setup like never before.
 </p>
 
