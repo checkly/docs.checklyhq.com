@@ -6,273 +6,68 @@ menu:
     parent: "Browser checks"
 ---
 
-All browser checks are capped at **120 seconds**. This means everything in your script needs to happen within those 120 seconds.  
+There are different kinds of timeouts you will encounter while working with Browser checks:
 
-## Dealing with timeouts
+| Timeout name                    | Timeout origin | Default value | Can it be changed? |
+|---------------------------------|----------------|---------------|--------------------|
+| Browser check execution timeout | Checkly        | 120 seconds   | No                 |
+| Playwright test timeout         | Playwright     | 30 seconds    | Yes                |
+| Playwright navigation timeout	  | Playwright     | 30 seconds    | Yes                |
+| Playwright action timeout       | Playwright     | no timeout    | Yes                |
 
-Setting correct timeout values can mean the difference between a good night's sleep or alerts bugging
-you because your site or apps performance dropped by 500 milliseconds.
+{{<info >}}
+Since browser checks have no specified action timeout, failing actions will rely on the test timeout.
+{{</info >}}
 
-You can deal with timeouts at two levels, and we recommend you study them in the order below:
+Checkly runs your Browser check code for a maximum of **120 seconds**. Tests that exceed this time will be capped and time out. Everything in your Browser Check needs to happen within those 120 seconds, no matter what. 
 
-1. Use the timeout options in Playwright/Puppeteer.
-2. Set global timeouts on the Mocha suite and test level.
+Playwright does offer multiple [configurable timeouts](https://playwright.dev/docs/test-timeouts). Make sure you configure these in a way that prevents your check from hitting the general 120 seconds timeout.
 
-> Tip: Good use of the `page.waitForSelector()` can save you a lot of headaches.
+## Timeout-related errors
 
-## Timeouts in Playwright and Puppeteer
+Timeout-related errors are often a sticking point for many beginners. Understanding which timeout is being raised and which command or config option it corresponds to can save you plenty of time when debugging a failing script. Here we try to explain the most common timeout errors.
 
-In your Playwright/Puppeteer code, you have a range of options to set timeouts for different actions. 
-The default for most actions is 30 seconds. There are two very important ones that you should use in almost every 
-browser check:
+### Test timeout of 30000ms exceeded.
 
-### page.waitForSelector()
+This refers to Playwright's own 30s default timeout for a single `test` fixture. While it is best to [keep your checks as short as possible](/learn/headless/valuable-tests), you can increase a test's timeout using `test.setTimeout(milliseconds)`. For example:
 
-This method waits for an element to appear on the page. This is your bread and butter and should be used whenever something
-needs to be loaded after clicking, hovering, navigating, etc. You can pass it an options object with a timeout attribute
-to override the default 30 seconds.
+{{< tabs "setTimeout example" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test'
 
-{{< info >}} 
-Playwright `click` and `fill` methods will 
-[auto-wait](https://playwright.dev/#version=v1.4.0&path=docs%2Fcore-concepts.md&q=auto-waiting) 
-for the element to be visible.
-{{< /info >}}
+test('add item to wishlist', async ({ page }) => {
+  test.setTimeout(60000)
 
-In the example below, we type 'fluffy kittens' into an input field on a search page and click "submit". We then use the
-`page.waitForSelector()` method and pass in a timeout of 5 seconds because we want this check to fail if it takes any longer.
-You can also see we assign a 10-second timeout to the surrounding Mocha test.
+  // rest of your script
 
-{{< tabs "waitForSelector example" >}}
-{{< tab "Playwright" >}}
-```js
-it('First search result is my link', async () => {
-  await page.type('input[name=q]', 'fluffy kittens')
-  await page.click('input[type="submit"]')
-  await page.waitForSelector('h3 a', { timeout: 5000 })
-
-  const links = await page.evaluate(() =>
-    Array.from(document.querySelectorAll('h3 a'))
-      .map(a => a.textContent)
-  )
-
-  assert.equal('my link', links[0])
-}).timeout(10000)
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-it('First search result is my link', async () => {
-  await page.type('input[name=q]', 'fluffy kittens')
-  await page.click('input[type="submit"]')
-  await page.waitForSelector('h3 a', { timeout: 5000 })
-
-  const links = await page.evaluate(() =>
-    Array.from(document.querySelectorAll('h3 a'))
-      .map(a => a.textContent)
-  )
-
-  assert.equal('my link', links[0])
-}).timeout(10000)
-```
-
-{{< /tab >}}
-{{< /tabs >}} 
-
-Read more in the [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitforselectorselector-options--options-timeout)
-or [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitforselectorselector-options) API docs.
-
-> Playwright allows you to use XPath selectors in the `page.waitForSelector()` method. 
-> Puppeteer provides a separate method for that: `page.waitForXpath()`.
-
-### page.waitForNavigation()
-
-In both Playwright and Puppeteer you can click on a link that triggers a navigation to a new page. 
-Use the `page.waitForNavigation()`
-method, although it is slightly unintuitive to use as the associated promise has to be initialized before waiting for it.
-This means the following **will not work**
-
-{{< tabs "waitForNavigation broken" >}}
-{{< tab "Playwright" >}}
-```js
-await page.click('a.some-link')
-await page.waitForNavigation() // does not works as expected
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-await page.click('a.some-link')
-await page.waitForNavigation() // does not works as expected
-```
-
-{{< /tab >}}
-{{< /tabs >}} 
-
-but this will work:
-
-{{< tabs "waitForNavigation correct" >}}
-{{< tab "Playwright" >}}
-```js
-const navigationPromise =  page.waitForNavigation()
-await page.click('a.some-link')
-await navigationPromise
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-const navigationPromise =  page.waitForNavigation()
-await page.click('a.some-link')
-await navigationPromise
-```
-
-{{< /tab >}}
-{{< /tabs >}} 
-
-
-### Navigation wait times
-
-The `page.waitForNavigation()` method — but also almost all other methods that deal with navigation like `page.reload()` and `page.goBack()`) — 
-has a very important set of options that tell the library what it should consider a "navigation".
-
-These options come in two categories:
-
-**DOM event based**
-
-These two options are directly related to the events your browser emits when it has reached a certain loading stage. 
-These events are not specific to Puppeteer or Playwright and are used in almost all browsers.
-
-- `load` - This the most strict: your whole page including all dependent resources, i.e. images, scripts, css etc. [More info](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event)
-- `domcontentloaded` - less strict: when your HTML has loaded. [More info](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event)
-
-Note: the `load` option is the default. It is pretty strict, so if you have slow dependencies it can be less than optimal.
-
-**Heuristic based**
-
-These options are based on the heuristic that if (almost) all network connections your browser has
-are no longer active, your page has *probably* finished loading.
-
-- **Playwright:** `networkidle` - is the equivalent of `networkidle0` in Puppeteer.
-- **Puppeteer:** `networkidle0` - consider navigation to be finished when there are no more than 0 network connections for at least 500 ms.
-- **Puppeteer:** `networkidle2` - consider navigation to be finished when there are no more than 2 network connections for at least 500 ms.
-
-So, which one to choose? This really depends on your situation:
-
-- Have an SPA that needs to be fully rendered? Probably go with `load`
-- Have a server side rendered page but some slow dynamically loaded sections that are not crucial: 
-go for `networkidle2`/`networkidle`
-
-Options are set as follows: 
-{{< tabs "networkidle example" >}}
-{{< tab "Playwright" >}}
-```js
-page.waitForNavigation({ waitUntil: 'networkidle' })
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-page.waitForNavigation({ waitUntil: 'networkidle2' })
-```
-
-{{< /tab >}}
-{{< /tabs >}} 
-
-You can also specify an array of `waitUntil` options. Read more in the 
-[Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagewaitfornavigationoptions) or 
-[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagewaitfornavigationoptions) API docs.
-
-### page.setDefaultNavigationTimeout(timeout)
-
-You can tweak the navigation timeout with `page.setDefaultNavigationTimeout()`. This impact the timeout limits of the
-initial load of your page or app and all subsequent navigation.
-
-Read more in the [Playwright](https://playwright.dev/#version=v1.4.0&path=docs%2Fapi.md&q=pagesetdefaultnavigationtimeouttimeout) or 
-[Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v2.0.0&show=api-pagesetdefaultnavigationtimeouttimeout) API docs.
-
-### page.waitFor(timeout)  / page.waitForTimeout(timeout)
-
-Some pages can be finicky because of animations or some non-linear behaviour or dynamic content. This method allows you
-to "just wait" for a set amount of time. The example below passes in a number. The result is the test will wait for five
-seconds.
-
-{{< tabs "waitForTimeout" >}}
-{{< tab "Playwright" >}}
-```js
-await page.waitForTimeout(5000)
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-await page.waitFor(5000)
-```
-
-{{< /tab >}}
-{{< /tabs >}} 
-
-> Note: using `page.waitFor(timeout)` or `page.waitForTimeout(timeout)` should be a last option. 
-> Use it sparingly as it can quickly break your script if load times vary a lot.
-
-## Timeouts in Mocha
-
-> Default: 2 sec
-
-At the highest level, you can set timeout values in your Mocha code. These timeouts are enforced regardless of what
-happens in the Chromium browser started by Puppeteer or Playwright. For Checkly checks, we recommend using timeout 
-values on each test. In the example below, we added a `.timeout(10000)` to the `it` function. The default timeout of 
-2 seconds is almost always too short to run any meaningful check.
-
-{{< tabs "Mocha timeout example" >}}
-{{< tab "Playwright" >}}
-```js
-describe('Check Google Homepage', () => {
-  it('has title "Google"', async () => {
-    await page.goto('https://google.com', { waitUntil: 'networkidle' })
-    const title = await page.title()
-    assert.equal(title, 'Google')
-  }).timeout(10000)
 })
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-describe('Check Google Homepage', () => {
-  it('has title "Google"', async () => {
-    await page.goto('https://google.com', { waitUntil: 'networkidle2' })
-    const title = await page.title()
-    assert.equal(title, 'Google')
-  }).timeout(10000)
-})
-```
+const { test } = require('@playwright/test')
 
-{{< /tab >}}
-{{< /tabs >}} 
+test('add item to wishlist', async ({ page }) => {
+  test.setTimeout(60000)
 
-This means this test will fail if it does not resolve within 10 seconds. You can also add a timeout at the suite level. However, the syntax is a bit different, because you cannot use an arrow function if you are going to call `this.timeout`.
+  // rest of your script
 
-{{< tabs "Mocha suite timeout example" >}}
-{{< tab "Playwright" >}}
-```js
-describe('Check Google Homepage', function () {
-  this.timeout(10000)
-  it('has title "Google"', async () => {
-    await page.goto('https://google.com', { waitUntil: 'networkidle' })
-    const title = await page.title()
-    assert.equal(title, 'Google')
-  })
 })
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-describe('Check Google Homepage', function () => {
-  this.timeout(10000)
-  it('has title "Google"', async () => {
-    await page.goto('https://google.com', { waitUntil: 'networkidle2' })
-    const title = await page.title()
-    assert.equal(title, 'Google')
-  })
-})
-```
+{{< /tabs >}}
 
-{{< /tab >}}
-{{< /tabs >}} 
 
-[Read more on the Mocha site](https://mochajs.org/#timeouts).
+### Your check run has reached the maximum run time of 120000 ms.
+
+In this case, your script is hitting Checkly's 120s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. Try to make your check shorter by following [best practices](/learn/headless/valuable-tests).
+
+No assets will be available for review after the check has gone over the maximum run time. 
+### Timeout 20000ms exceeded
+
+Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. 
+
+{{<info >}}
+Remember that you can use Playwright Traces to help you understand exactly where in your script the error was raised. Traces are populated automatically for failed Browser checks in your check results.
+{{</info >}}

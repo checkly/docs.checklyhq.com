@@ -15,21 +15,17 @@
 
       {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
       {{ $homeURL := $url | absURL }}
-
-       <div class="breadcrumb">
+      <div class="breadcrumb">
         {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
 
-        {{ range $index, $element := split $url "/" }}
-          {{ if ne $element "" }}
-            {{ if eq $element "docs" }}
-              <a href="/docs/">Checkly docs</a>
-            {{ else }}
-              <span>/</span>
+          {{ range $index, $element := split $url "/" }}
+            {{ if and (ne $element "") (ne $index 2) }}
               {{ if eq $index 3 }}
-              <a href="/docs/{{ . }}/">{{ humanize . }}</a>
-              {{ else }}
-              {{ humanize . }}
-              {{ end }}
+                <a href="/docs/">home</a>
+                <span>/</span>
+                <a href="/docs/{{ . }}/">{{ humanize . }}</a>
+                {{ else }}
+                {{ humanize . }}
             {{ end }}
           {{ end }}
         {{ end }}
@@ -63,6 +59,7 @@
     <div id="tocMenu">
       <div class="docs-toc-header">On this page</div>
       {{ .Page.TableOfContents }}
+      {{ partial "toc-sidebar-community" .}}
     </div>
   </aside>
 </div>
