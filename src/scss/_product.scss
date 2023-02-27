@@ -300,6 +300,9 @@
           width: calc(100% - 412px);
           height: 461px;
         }
+        .code-mac {
+          width: 100% !important;
+        }
         .video-wrapper {
           padding: 44px 0 0 0;
           width: 412px;
@@ -360,6 +363,10 @@
       margin-top: 52px;
       min-height: 480px;
 
+      &.mac-landing {
+        min-height: 550px;
+      }
+
       .hero-first {
         position: absolute;
         z-index: 1;
@@ -375,6 +382,9 @@
         right: 30px;
         top: 100px;
         width: calc(100% - 164px);
+        &.mac-landing {
+          top: 75px;
+        }
       }
     }
 
@@ -419,16 +429,8 @@
 
     h5 {
       font-size: .875rem;
-      text-transform: uppercase;
       font-weight: $font-weight-semi-bold;
-      &::before {
-        content: "\f4b3" !important;
-        color: $yellow;
-        padding-right: .5rem;
-        font-family: Ionicons;
-        position: relative;
-        font-size: inherit;
-      }
+      text-transform: uppercase;
     }
 
     .feature-row-item-wrapper {
@@ -497,6 +499,12 @@
     .tab-content {
       padding-top: 0px;
       width: 100%;
+      &.mac {
+        width: 75%;
+      }
+      code {
+        font-size: 16px;
+      }
     }
 
     .tab-code-wrapper {
@@ -570,7 +578,12 @@
         .code-green {
           color: #10CE66;
         }
-
+        .code-red {
+          color: $red;
+        }
+        .code-purple {
+          color: #c488e0;
+        }
         .code-pink {
           color: $pink;
         }
@@ -770,6 +783,17 @@
       &#code-lives {
         padding-top: 6.25 * $spacer;
         padding-bottom: 6.25rem;
+      }
+      .mac-pillar {
+        border: 1px $gray-light solid;
+        padding: 25px;
+        margin: 10px 10px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: left;
+        p {
+          font-size: 14px;
+        }
       }
     }
     .two-grid {
@@ -1077,7 +1101,7 @@
       }
       #provision-all {
         padding-top: 4.5rem;
-        padding-bottom: 0px;
+        padding-bottom: 3rem;
         .text-section {
           margin-bottom: 3.125rem;
         }
@@ -1094,7 +1118,7 @@
             display: none;
           }
           li {
-            margin-bottom: .5rem;
+            margin-bottom: 2.5rem;
             a {
               font-size: .875rem;
               padding: .25rem;
@@ -1246,6 +1270,25 @@
           width: calc(100% - 30px);
           height: auto;
         }
+      }
+
+      .images.mac-landing {
+        min-height: 220px;
+      }
+
+      .hero-first.mac-landing {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        border-radius: 8px
+      }
+      .hero-second.mac-landing {
+        position: absolute;
+        z-index: 2;
+        border-radius: 8px;
+        right: 0;
+        top: 100px;
+        width: 100%
       }
     }
   }

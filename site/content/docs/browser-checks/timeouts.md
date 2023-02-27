@@ -63,6 +63,7 @@ test('add item to wishlist', async ({ page }) => {
 
 In this case, your script is hitting Checkly's 120s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. Try to make your check shorter by following [best practices](/learn/headless/valuable-tests).
 
+No assets will be available for review after the check has gone over the maximum run time. 
 ### Timeout 20000ms exceeded
 
 Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. 
