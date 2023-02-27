@@ -21,8 +21,6 @@ Most services allow users to manage their account settings. These oftentimes hav
 
 Account properties to verify can run the gamut from simple text to connected third party services. In this example, we will focus on a popular case, updating our profile settings by logging in and going to our user account page and submitting. 
 
-<!-- In this example, we will focus on a popular case: changing a profile image by uploading one of our own. -->
-
 On our [test site](https://danube-web.shop/), such a test could look as follows:
 
 {{< tabs "1">}}
@@ -31,11 +29,6 @@ On our [test site](https://danube-web.shop/), such a test could look as follows:
 {{< readfile filename="samples/playwright/account-settings.js" >}}
 ```
 {{< /tab >}}
-<!-- {{< tab "Puppeteer" >}}
-```js {hl_lines=["25-28"]}
-{{< readfile filename="samples/puppeteer/file-upload.js" >}}
-```
-{{< /tab >}} -->
 {{< /tabs >}}
 
 {{< tabs "2">}}
