@@ -72,7 +72,7 @@ Checkly uses the Playwright Test Runner to accurately simulate interactions with
 
 <div class="text-center mb-5">
   <div class="video-wrapper video-wrapper--with-pause">
-    <video id="synthetic-monitoring-video" autoplay loop controls >
+    <video id="synthetic-monitoring-video" autoplay loop controls muted>
       <source src="/product/synthetic/video/synthetic.mp4" type=video/mp4>
     </video>
   </div>
