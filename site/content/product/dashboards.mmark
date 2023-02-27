@@ -36,7 +36,7 @@ Our dashboards give you ultimate control over how and where you share essential 
         In addition to being fast and responsive, our dashboards are designed with readability and accessibility in mind.
       </p>
       <p class="lead-text text-center mb-5">
-        {{% cta-link "Try the New Checkly Dashboards Today" "https://app.checklyhq.com/signup" %}}
+        {{% cta-link "Try the new Checkly Dashboards today" "https://app.checklyhq.com/signup" %}}
       </p>
     </div>
     <div class="lead-text mt-5 text-center">
@@ -78,10 +78,10 @@ Our dashboards give you ultimate control over how and where you share essential 
     <div class="col-sm-12 col-md-8">
       <h2 class="section-header mt-1">Built for Speed</h2>
       <p class="lead-text mb-lg-2">
-      Our new dashboards are built on NuxtJS 3 and leverage NuxtJS Universal Rendering capabilities. We host the new dashboard on Vercel, and use the Vercel Domains API to properly handle custom domains. The result? Jaw-dropping-fast dashboard loads and refreshes. 
+      Our new dashboards are built on NuxtJS 3 and leverage NuxtJS Universal Rendering capabilities. We host the new dashboards on Vercel, and use the Vercel Domains API to properly handle custom domains. The result? Jaw-dropping-fast dashboard loads and refreshes. 
       </p>
       <p class="lead-text mt-2">
-      {{% cta-link "Try the New Checkly Dashboards Today" "https://app.checklyhq.com/signup" %}}
+      {{% cta-link "Try the new Checkly Dashboards today" "https://app.checklyhq.com/signup" %}}
       </p>
     </div>
     <div class="lead-text mt-5 text-center">
