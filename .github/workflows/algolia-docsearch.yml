@@ -1,6 +1,8 @@
 name: algolia doc-search
 on:
-  - push
+  push:
+    branches:
+      - main
 
 jobs:
   changes:
