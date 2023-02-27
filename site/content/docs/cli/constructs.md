@@ -331,6 +331,8 @@ new BrowserCheck('browser-check-1', {
 })
 ```
 
+> When using a relative path for `code.entrypoint`, the CLI loads the file using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
+
 ## `CheckGroup`
 
 You can explicitly organize Checks in Check Groups.
@@ -391,6 +393,8 @@ new ApiCheck('check-group-api-check-1', {
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserCheckDefaults`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
+
+> When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path. 
 
 ## `AlertChannel`
 
