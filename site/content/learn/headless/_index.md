@@ -23,7 +23,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 	  headerTag="h3"
 	  title="What is Puppeteer?"
 	  img="/learn/icons/puppeteer.png"
-	  description="Learn what's behind the popular Node.js library from Google and the use cases it serves."
+	  description="Learn what's behind the popular Node.js library from Google and the use cases it serves. We have stopped supporting Puppeteer in newer runtimes after 2022.02."
 	  link="/learn/headless/basics-puppeteer-intro"
 >}}
 </div>

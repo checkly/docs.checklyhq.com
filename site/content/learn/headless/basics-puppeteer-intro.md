@@ -15,6 +15,8 @@ menu:
     parent: "Getting started"
 ---
 
+>  We recommend using Playwright Test if you are just starting out with e2e testing and if you're considering migrating from Puppeteer to Playwright use [puppeteer-to-playwright](https://github.com/checkly/puppeteer-to-playwright).
+
 Straight from the [official documentation](https://developers.google.com/web/tools/puppeteer):
 
 > Puppeteer is a Node library which provides a high-level API to control Chrome or Chromium over the DevTools Protocol. Puppeteer runs headless by default, but can be configured to run full (non-headless) Chrome or Chromium.
