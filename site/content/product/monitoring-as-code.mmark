@@ -300,6 +300,9 @@ Successfully deployed project "Monitoring as code" to account "Production".
       <li class="lead-text mt-1">
       Checkly Blog (Dec 2022): {{% cta-link "The Case for Monitoring as Code" "https://blog.checklyhq.com/the-case-for-monitoring-as-code/" %}}
       </li>
+      <li class="lead-text mt-1">
+      Checkly Blog: (Feb 2023): {{% cta-link "Why We Built a Typescript CLI for Monitoring as Code" "https://blog.checklyhq.com/why-we-built-a-developer-first-typescript-cli-for-monitoring-as-code/" %}}
+      </li>
       </ul>
     </div>
   </div>
