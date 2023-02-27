@@ -1,18 +1,13 @@
-const { chromium } = require('playwright')
-const assert = require('chai').assert
+import { test, expect } from '@playwright/test'
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('signup flow', async ({ page }) => {
+  await page.goto('https://danube-web.shop/')
   const bookList = [
     'The Foreigner',
     'The Transformation',
     'For Whom the Ball Tells',
     'Baiting for Robot'
   ]
-
-  await page.goto('https://danube-web.shop/')
 
   await page.click('.topbar > input')
   await page.type('.topbar > input', 'for')
@@ -24,7 +19,8 @@ const assert = require('chai').assert
 
   // Halt immediately if results do not equal expected number
   const resultsNumber = (await page.$$('.preview-title')).length
-  assert.equal(resultsNumber, bookList.length)
+  // assert.equal(resultsNumber, bookList.length)
+  expect(resultsNumber).toEqual(bookList.length)
 
   // Remove every element found from the original array...
   for (let i = 0; i < resultsNumber; i++) {
@@ -37,8 +33,5 @@ const assert = require('chai').assert
     bookList.splice(index, 1)
   }
 
-  // ...then assert that the original array is now empty
-  assert.equal(bookList.length, 0)
-
-  await browser.close()
-})()
+  expect(bookList.length).toEqual(0)
+})
