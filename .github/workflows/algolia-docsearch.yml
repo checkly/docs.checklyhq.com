@@ -27,7 +27,7 @@ jobs:
   scrape-docs:
     runs-on: ubuntu-latest
     needs: changes
-    if: ${{ needs.changes.outputs.docs == 'true' && github.ref == 'refs/heads/main' }}
+    if: ${{ needs.changes.outputs.docs == 'true' && github.ref == 'refs/heads/main' &&  github.event.review.state == 'approved' }}
     steps:
       - uses: actions/checkout@v2
       - name: Run doc-search
@@ -39,7 +39,7 @@ jobs:
   scrape-learn:
     runs-on: ubuntu-latest
     needs: changes
-    if: ${{ needs.changes.outputs.learn == 'true' && github.ref == 'refs/heads/main' }}
+    if: ${{ needs.changes.outputs.learn == 'true' && github.ref == 'refs/heads/main' &&  github.event.review.state == 'approved' }}
     steps:
       - uses: actions/checkout@v2
       - name: Run learn-search
