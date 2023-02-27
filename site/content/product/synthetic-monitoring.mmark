@@ -5,47 +5,110 @@ alias:
     - transaction-monitoring
 ---
 
-{.text-center .hero-text .width-645}
-# Synthetic monitoring for your vital click flows
+<h1 class="text-center hero-text mac-title">
+Reliable Synthetic Monitoring for Vital User Flows
+</h1>
 
 <p class="text-center hero-sub hero-sub-center mb-lg-5">
-Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. With Checkly's Browser checks you can validate the correctness and performance of your web app and get rich insights for debugging.
+Broken or slow signup forms and flaky shopping carts are extremely frustrating to your customers. Banish false positives and validate the correctness and performance of your web app and get rich debugging insights with Checkly’s browser checks. Leverage Checkly’s <a href='https://www.checklyhq.com/product/monitoring-as-code/'>monitoring as code</a> workflow and easily integrate Playwright scripts.
 </p>
 
 <div class="row justify-content-center text-center images">
-{{< alternative-picture class="text-center hero-image big-drop-shadow hero-first" img="/product/transaction-monitoring/rbcr-fullpage@2x.png" alt="synthetic monitoring rbcr" width="910" height="568" >}}
-{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second" img="/product/transaction-monitoring/app.checklyhq@2x.png" alt="synthetic monitoring" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-first" img="/product/transaction-monitoring/synthetic_bg.png" alt="synthetic monitoring rbcr" width="910" height="568" >}}
+{{< alternative-picture class="text-center hero-image big-drop-shadow hero-second" img="/product/transaction-monitoring/synthetic_detail.png" alt="synthetic monitoring" width="910" height="568" >}}
 </div>
 
 <section class="grid-section">
 <div class="row">
-{{< sm-4-col-item "Real browsers" "Your checks are run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security." >}}
-{{< sm-4-col-item "VALIDATE ALL THINGS" "In a Browser check you can check for specific content items, browser responses, visibility and error responses." >}}
-{{< sm-4-col-item "ERROR TRACING" "Automatically collect error traces such as network and console logs and screenshots for faster debugging." >}}
-{{< sm-4-col-item "SETUP & TEARDOWN SCRIPTS" "Run custom Javascript before and after your API check. Sign requests, get auth tokens and clean up test data." >}}
-{{< sm-4-col-item "IMPORT FROM TOOLS YOU KNOW" "Checkly's cUrl and Swagger API importers create fully fledged API checks with just a couple of clicks." >}}
-{{< sm-4-col-item "PERFORMANCE TRACING" "Receive Web Vitals for every browser check you run to ensure an outstanding user experience." >}}
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 grid-item">
+<h5 class="add-star-before">
+USE PLAYWRIGHT
+</h5>
+<p>
+Reuse your existing Playwright code base to run E2E browser checks and validate that all your crucial web apps and sites are working up to spec.
+</p>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 grid-item">
+<h5 class="add-star-before">
+MONITOR WITH REAL BROWSERS
+</h5>
+<p>
+Your browser checks run in actual Chrome browsers to achieve a 100% match with real world conditions. We run each session in a sealed off sandbox for extra security.
+</p>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 grid-item">
+<h5 class="add-star-before">
+VALIDATE ALL THINGS
+</h5>
+<p>
+Check for specific content items, browser responses, visibility and error responses in your browser checks. Automate your user flows and be sure that they work!
+</p>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 grid-item mr-0 debug-item">
+<h5 class="add-star-before">
+DEBUG WITH EASE
+</h5>
+<p>
+Automatically collect error traces and screenshots or videos for faster debugging.
+</p>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 grid-item">
+<h5 class="add-star-before">
+TRACK PERFORMANCE
+</h5>
+<p>
+Receive web vitals and load times for every page in your browser check to ensure an outstanding user experience.
+</p>
+</div>
 </div>
 </section>
 
 {.text-center .section-header .mt-8}
-## How it works
+## How it Works: Checkly and Playwright <img class="img-fluid" width="52" height="52" src="/product/transaction-monitoring/playwright.png" alt="checkly code"/>
 
 <p class="text-center hero-sub hero-sub-center mb-5">
-Checkly uses the Puppeteer & Playwright frameworks to accurately simulate interactions with a Chrome browser.
-Getting a monitoring script going is a lot easier than you might think. Just follow the steps below and you'll be up in no time.
+Checkly uses the Playwright Test Runner to accurately simulate interactions with a Chrome browser. Getting a monitoring script going is a lot easier than you might think. Just follow the steps in the video below and you'll be up and monitoring in no time.
 </p>
 
 <div class="text-center mb-5">
   <div class="video-wrapper video-wrapper--with-pause">
     <video id="synthetic-monitoring-video" autoplay loop controls >
-      <source src="https://d1tzmx204wa22c.cloudfront.net/videos/synthetic-browser-check-how-works.mp4" type=video/mp4>
+      <source src="/product/synthetic/video/synthetic.mp4" type=video/mp4>
     </video>
-    <div class="action-button video-play">
-      <img src="/why-checkly/play-button.svg" alt="play" width="72" heigt="72" />
+  </div>
+</div>
+
+<div class="mb-5">
+  <h2 class="text-center section-header">
+  With Checkly and Playwright you can:
+  </h2>
+  <div class="col mt-5">
+    <div class="feature-item col row justify-content-center">
+      <div class="col-1 p-0 mt-0 d-none d-md-flex justify-content-md-center align-items-md-start">
+        <img class="img-fluid" width="42" height="42" src="/product/transaction-monitoring/chrome.svg" alt="checkly code"/>
+      </div>
+      <div class="col-12 col-md-8 text">
+        <h4 class="feature-title mt-0">CREATE ACTIONABLE BROWSER CHECKS WITH PLAYWRIGHT TEST</h4>
+        <p>Every browser check can collect error traces, screenshots and performance metrics. Use web-first assertions and auto-waiting to write highly reactive code that’s easy to read. Use Playwright traces to easily identify failed assertions and missing resources when you receive an alert.</p>
+      </div>
     </div>
-    <div class="action-button video-pause">
-      <img src="/why-checkly/pause-button.svg" alt="play" width="72" heigt="72" />
+    <div class="feature-item col row justify-content-center mt-2">
+      <div class="col-1 p-0 mt-0 d-none d-md-flex justify-content-md-center align-items-md-start">
+        <img class="img-fluid" width="32" height="32" src="/product/transaction-monitoring/test.svg" alt="checkly code"/>
+      </div>
+      <div class="col-12 col-md-8 text">
+        <h4 class="feature-title mt-0">ADOPT MODERN TESTING PRACTICES IN YOUR MONITORING</h4>
+        <p>Reuse your existing Playwright code and use it for testing and monitoring. Leverage Playwright’s web-first assertions and auto-waiting to define your monitoring with confidence instead of flakiness.</p>
+      </div>
+    </div>
+    <div class="feature-item col row justify-content-center mt-2">
+      <div class="col-1 p-0 mt-0 d-none d-md-flex justify-content-md-center align-items-md-start">
+        <img class="img-fluid" width="40" height="40" src="/product/transaction-monitoring/debug.svg" alt="checkly code"/>
+      </div>
+      <div class="col-12 col-md-8 text">
+        <h4 class="feature-title mt-0">DEBUG WITH EASE</h4>
+        <p>Review failed monitoring alerts with automatically captured videos and screenshots to dive deeper.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -78,11 +141,9 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
           <img class="alerting-top-image" src="/landing/alerting-options@2x.png" alt="checkly alerting options" width="750" height="45" />
         </picture>
       </div>
-      <h2 class="section-header mt-1">Alerting for any situation</h3>
+      <h2 class="section-header mt-1">Accurate alerting for any situation</h3>
       <p class="lead-text mb-lg-2">
-      When a check fails, you and your team need timely and actionable insights to address any down time.
-      Add Slack, SMS, email or Pagerduty: Checkly's alerts give you the right information whatever alerting medium you choose.
-      Need more control? Webhooks give you full access to the JSON data we use ourselves for alerting.
+        Banish false positives! When a check fails, you and your team need timely, accurate, and actionable insights to address any down time. Add Slack, SMS, email, or Pagerduty: Checkly's alerts give you the right information whatever alerting medium you choose. Need more control? Webhooks give you full access to the JSON data we use ourselves for alerting.
       </p>
       <p class="lead-text mt-2">
       {{% cta-link "Learn more" "/product/alerting/" %}}
@@ -96,9 +157,7 @@ Getting a monitoring script going is a lot easier than you might think. Just fol
     <div class="col-sm-12 col-md-8">
       <h2 class="section-header mt-1">Global coverage</h2>
       <p class="lead-text mb-lg-2">
-      Get a clear picture of how your services perform for your users worldwide.
-      Run your checks from twenty data center locations spread around the world
-      and get complete visibility of private applications across your private or hybrid cloud infrastructure.
+      Get a clear picture of how your services perform for your users worldwide. Run your checks from twenty-two data center locations spread around the world. For apps running behind a firewall, use <a href='https://www.checklyhq.com/product/private-locations/'>Private Locations</a> and get complete visibility of private applications across your private or hybrid cloud infrastructure.
       </p>
       <p class="lead-text mt-2">
       {{% cta-link "Learn more" "/docs/monitoring/global-locations/" %}}

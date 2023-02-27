@@ -14,6 +14,14 @@
     img {
       height: auto !important;
     }
+    .mac-title {
+      @media (min-width: 992px) {
+        padding: 0 115px;
+      }
+    }
+    .debug-item {
+      margin-left: 115px !important;
+    }
     code {
       font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       display: inline-block;
