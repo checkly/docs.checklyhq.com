@@ -15,7 +15,7 @@ disqusShortname = "checkly"
   blog = "/blog/:year/:month/:title/"
 
 [params]
-    description = "Monitoring as Code workflow for developers: programmable, fast, reliable."
+    description = "Monitoring as code workflow for developers: programmable, fast, reliable."
 
 [[menu.docs]]
 	name = "Monitoring"
