@@ -164,9 +164,21 @@ Successfully deployed project "Monitoring as code" to account "Production".
       </div>
     </div>
   </div>
-  <div class="text-center mt-5">
-    <a href="https://app.checklyhq.com/signup"><button type="button" class="btn btn-primary b-cta">Get started</button></a>
-    <a class="text-center text-decoration-none btn landing-link read-docs" href="https://www.checklyhq.com/docs/cli/">Read Documentation</a>
+  <div class="row py-3" id="get-started">
+            <div class="d-flex flex-column mx-auto">
+                <div class="d-flex flex-column flex-md-row">
+                    <div class="d-flex flex-column">
+                        <a href="https://app.checklyhq.com/signup"><button type="button" class="btn btn-primary b-cta mb-3">Sign up for Free</button></a>
+                    </div>
+                    <div class="mx-3 md-mx-0 mb-3 md-mb-0 d-flex align-items-center or">and</div>
+                    <div class="code-block dark align-self-baseline">
+<pre><code>npm create @checkly/cli</code></pre>
+                    </div>
+                </div>
+            <div class="d-flex mt-3 md-mt-0">
+             {{% cta-link "Read the docs" "https://www.checklyhq.com/docs/cli/" %}}
+            </div>
+        </div>
   </div>
 </div>
 
