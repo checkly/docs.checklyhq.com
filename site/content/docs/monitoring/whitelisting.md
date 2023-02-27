@@ -40,29 +40,33 @@ You can set the header at group-level using [API check defaults](/docs/groups/ap
 
 To whitelist browser checks, allow traffic with user agent containing `Checkly/<UUID>`, with `<UUID>` being your shortened Checkly ID or another chosen value. 
 
-You will then be able to set up the matching user agent in your browser checks using Playwright's [`userAgent`](https://playwright.dev/docs/emulation#user-agent) context property or Puppeteer's [`setUserAgent`](https://pptr.dev/#?product=Puppeteer&show=api-pagesetuseragentuseragent-useragentmetadata) method.
+You will then be able to set up the matching user agent in your browser checks using Playwright's [`userAgent`](https://playwright.dev/docs/emulation#user-agent) property.
 
 {{< tabs "User agent example" >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const myUserAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Checkly/abcd1234'
-const context = await browser.newContext({
-  userAgent: myUserAgent
-});
+{{< tab "Typescript" >}}
+```ts
+import { test } from '@playwright/test'
 
-const page = await context.newPage()
+const myUserAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Checkly/abcd1234'
+
+test.use({ userAgent: myUserAgent })
+
+test('my user agent test', async ({ page }) => {
+  // ...
+})
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
+{{< tab "JavaScript" >}}
 ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
-const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Checkly/abcd1234'
-const page = await browser.newPage()
+const { test } = require('@playwright/test')
 
-await page.setUserAgent(userAgent);
+const myUserAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Checkly/abcd1234'
+
+test.use({ userAgent: myUserAgent })
+
+test('my user agent test', async ({ page }) => {
+  // ...
+})
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -74,18 +78,9 @@ numbers, here is one way to do it:
 
 1. Add a UTM source tag to the URLs your requesting, i.e.:
 
-{{< tabs "Goto example" >}}
-{{< tab "Playwright" >}}
 ```js
 await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
  ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
- ```
-{{< /tab >}}
-{{< /tabs >}}
 
 2. In Google Analytics, filter on campaign source.
 
