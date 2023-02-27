@@ -6,8 +6,6 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - e2e
-  - checkout flow
-  - online ordering
 weight: 10
 menu:
   learn:

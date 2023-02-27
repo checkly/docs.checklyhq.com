@@ -1,11 +1,7 @@
-const assert = require('chai').assert
-const { chromium } = require('playwright')
+import { test, expect } from '@playwright/test'
 const productsNumber = process.env.PRODUCTS_NUMBER || 3
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('coupon', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
   for (let i = 1; i <= productsNumber; i++) {
@@ -24,9 +20,8 @@ const productsNumber = process.env.PRODUCTS_NUMBER || 3
   await page.type('#coupon', 'COUPON2020')
   await page.click('.cart > div > button')
 
-  const expectedDiscountedPrice = price * 0.8
-  const discountedPrice = await page.$eval('#total-price', (e) => e.innerText)
-  assert.equal(discountedPrice, expectedDiscountedPrice)
+  const expectedDiscountedPrice = (await price) * 0.8
+  const discountedPrice = await page.$eval('#total-price', (e) => parseFloat(e.innerText))
 
-  await browser.close()
-})()
+  expect(discountedPrice).toEqual(expectedDiscountedPrice)
+})
