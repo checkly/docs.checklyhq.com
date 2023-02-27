@@ -4,6 +4,10 @@
   background-position: 1.5rem 1.25rem;
   background-repeat: no-repeat;
   background-size: 1rem;
+
+  p {
+    color: $state-info-text !important;
+  }
 }
 
 .alert-warning {
