@@ -21,6 +21,7 @@ test('coupon', async ({ page }) => {
   await page.click('.cart > div > button')
 
   const expectedDiscountedPrice = (await price) * 0.8
+  // we use parseFloat to convert the string in the innerText to a floating decimal for comparison
   const discountedPrice = await page.$eval('#total-price', (e) => parseFloat(e.innerText))
 
   expect(discountedPrice).toEqual(expectedDiscountedPrice)

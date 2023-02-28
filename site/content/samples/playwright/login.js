@@ -12,5 +12,6 @@ test('login flow', async ({ page }) => {
   await page.click('#goto-signin-btn')
 
   const loginMessage = await page.locator('#login-message')
+
   await expect(loginMessage).toBeVisible()
 })

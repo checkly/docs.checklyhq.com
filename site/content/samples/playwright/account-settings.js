@@ -20,8 +20,8 @@ test('account settings', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Update' }).click()
 
-  // If there was UI confirmation the below code would be a great starting place
-
+  // If there was UI confirmation the below code would be a useful assertion
   const successMessage = await page.locator('#upload-message-succcess')
+
   await expect(successMessage).toBeVisible()
 })

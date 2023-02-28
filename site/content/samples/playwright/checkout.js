@@ -34,5 +34,6 @@ test('checkout', async ({ page }) => {
   await page.click('.checkout > .call-to-action')
 
   const orderConfirmation = await page.locator('#order-confirmation')
+
   await expect(orderConfirmation).toBeVisible()
 })

@@ -18,5 +18,6 @@ test('signup flow', async ({ page }) => {
   await page.click('#register-btn')
 
   const loginMessage = await page.locator('#login-message')
+
   await expect(loginMessage).toBeVisible()
 })
