@@ -6,7 +6,7 @@ menu:
     parent: "Browser checks"
 ---
 
-Having your Playwright and Puppeteer scripts live in your code repository allows you to use your familiar development environment and keep your Browser check code in sync with your application code.
+Having your Playwright scripts live in your code repository allows you to use your familiar development environment and keep your Browser check code in sync with your application code.
 
 GitHub Sync enables you to synchronize your Browser checks with JavaScript files in a GitHub repository.
 
