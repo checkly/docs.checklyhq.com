@@ -29,21 +29,15 @@ This example runs against our [test webshop](https://danube-web.shop/) and proce
 2. Navigating to the account page
 3. Interacting with the account page 
     * Uploading a file
-    * Downloading a linked file
-
-### 3 Using the beforeEach hook
-
-To accomplish steps 1 & 2, we'll be using a beforeEach hook to keep our code lean in our approach. 
-
-before & after hooks let us setup and tear down state for our tests. We'll have to login and navigate to the account page for each of our tests, so our beforeHooks handle that for us.
-### 3a Steps for Upload
+    * Downloading a file from an href element
+## Steps for Upload
 In this example, we will focus on a popular case: changing a profile image by uploading one of our own.
 
 On our [test site](https://danube-web.shop/), such a test could look as follows:
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
-```js {hl_lines=["23-28"]}
+```js {hl_lines=["15-18"]}
 {{< readfile filename="samples/playwright/file-upload.js" >}}
 ```
 {{< /tab >}}
@@ -54,33 +48,35 @@ On our [test site](https://danube-web.shop/), such a test could look as follows:
 {{< /tab >}}
 {{< /tabs >}}
 
-### 3b Steps for Download
+## Steps for Download
 
 We will check that the downloaded file is as expected by comparing it to a [fixture file](/learn/headless/test-data-intro) in our final assertion.
 
-We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/headless/basics-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
+We can approach this scenario in different ways. One possibility is to perform the first two steps, then we could click the link directly and wait for the download event, then proceed with the comparison. Waiting for the download event is currently supported by Playwright, but not by Puppeteer.
+
+The Playwright and Puppeteer mutual approach is below.
+
+Note: that in this case, we need to enable downloads in the browser context before proceeding.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
-```js {hl_lines=["23-28"]}
+```js {hl_lines=["18-22"]}
+{{< readfile filename="samples/playwright/file-download-alt.js" >}}
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+The other approach here is that we could [extract](/learn/headless/basics-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
+
+{{< tabs "3" >}}
+{{< tab "Playwright" >}}
+```js {hl_lines=["17-32"]}
 {{< readfile filename="samples/playwright/file-download.js" >}}
 ```
 {{< /tab >}}
 {{< tab "Puppeteer" >}}
 ```js {hl_lines=["29-35"]}
 {{< readfile filename="samples/puppeteer/file-download.js" >}}
-```
-{{< /tab >}}
-{{< /tabs >}}
-
-We could also click the link directly and wait for the download event, then proceed with the comparison. Waiting for the download event is currently supported by Playwright, but not by Puppeteer.
-
-Note that in this case, we need to enable downloads in the browser context before proceeding.
-
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
-```js {hl_lines=["8", "23-26"]}
-{{< readfile filename="samples/playwright/file-download-alt.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -103,9 +99,10 @@ node file-download.js
 
 ## Takeaways
 
-1. Use environment variables to inject secrets.
-2. Compare the expected file with the newly downloaded one.
-3. There is more than one way to download a file within our script.
+1. Playwright's code is more concise & easier to maintain.
+2. Use environment variables to inject secrets.
+3. Compare the expected file with the newly downloaded one.
+4. There is more than one way to download a file within our script.
 
 ## Further reading
 

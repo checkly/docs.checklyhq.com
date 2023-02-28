@@ -1,35 +1,40 @@
-const { chromium } = require('playwright')
-const axios = require('axios')
+import { test, expect } from '@playwright/test'
 const fs = require('fs')
-const assert = require('chai').assert
+const axios = require('axios')
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('file download', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
   await page.click('#login')
+
   await page.type('#n-email', process.env.USER_EMAIL)
   await page.type('#n-password2', process.env.USER_PASSWORD)
+  await page.getByRole('button', { name: 'Sign In' }).click()
 
-  await page.click('#goto-signin-btn')
+  await page.locator('#account').click()
 
-  await page.click('#account')
+  const url = await page.$eval('#orders > ul > li > a', (el) => el.href)
+  const filePath = './tests/fixtures/downloadedFile.pdf'
+  // Download the file using Axios
+  const response = await axios({
+    method: 'get',
+    url: url,
+    responseType: 'stream'
+  })
+  const writer = fs.createWriteStream(filePath)
+  response.data.pipe(writer)
 
-  await page.waitForSelector('#orders > ul > li:nth-child(1) > a')
+  // Handle if writing passes or failes
+  await new Promise((resolve, reject) => {
+    writer.on('finish', resolve)
+    writer.on('error', reject)
+  })
 
-  const downloadUrl = await page.$eval(
-    '#orders > ul > li:nth-child(1) > a',
-    (el) => el.href
-  )
+  // Compare the downloaded file to the existing file using Playwright/Test
+  const downloadedFile = await page.locator('input[type=file]').inputValue(filePath)
+  const existingFile = await page
+    .locator('input[type=file]')
+    .inputValue(process.env.TEST_FILE_PATH)
 
-  const response = await axios.get(downloadUrl)
-  const newFile = Buffer.from(response.data)
-
-  const testFile = await fs.readFileSync('fixtures/testfile.pdf')
-
-  assert(newFile.equals(testFile))
-
-  await browser.close()
-})()
+  expect(downloadedFile).toEqual(existingFile)
+})
