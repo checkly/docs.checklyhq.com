@@ -82,16 +82,15 @@ This is the list of Playwright Test Runner features that are currently supported
 | API testing              | Yes               |
 | Custom fixtures          | Yes               |
 | Reporters                | Only JSON, more to come |
-| Typescript               | Opt-in (Currently in beta - enable it via [Labs](https://app.checklyhq.com/settings/account/labs)) <br> **Not compatible with code sync via GitHub yet.**             |
+| Typescript               | Yes <br> **Not compatible with code sync via GitHub yet.** |
 | Global configuration     | No           |
-| Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179))          |
+| Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179)) |
 | Test retry               | No           |
 | Parallelism and sharding | No           |
 
-> Playwright Test Runner is currently not available for code sync via GitHub using TypeScript.
 
 ### Browser check with multiple test cases
-One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases, 
+One of the key benefits of using Playwright Test is that you can split your check into multiple independent test cases, 
 and group them using the `test.describe` function.
 
 > Your Checkly check will fail if **at least one** of the test cases fails.
