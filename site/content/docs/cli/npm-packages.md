@@ -91,3 +91,13 @@ After running [`npx checkly deploy`](/docs/cli/command-line-reference/#npx-check
 ![login check with helper file in dependencies](/docs/images/cli/github_login_helper_dependency.png)
 
 > Local dependencies are currently only supported for Browser checks. This feature isn't available for API check setup and teardown scripts.
+
+## Why can't I import any NPM package or other 3rd party dependencies?
+
+Great question! Please see [this paragraph in our runtime docs](/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)
+
+In short:
+
+1. Our runtime architecture is not a full CI platform for reasons of size, complexity and security.
+2. Having said that, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291) 
+with a package you would love to see included in our Runtime
