@@ -283,7 +283,7 @@ const api = new ApiCheck('webstore-list-books', {
 
 We can now once more run `checkly deploy` to see the new Check on Checkly:
 
-{{< figure src="/guides/images/guides-mac-cli-api-checks-on-checkly.png" alt="CLI-deployed api check on checkly" title="Our API and Browser checks on Checkly" >}}
+{{< figure src="/guides/images/guides-mac-cli-api-checks-on-checkly.png" alt="CLI-deployed api check on checkly" title="Our API and Browser Checks on Checkly" >}}
 
 ### Alerting
 
