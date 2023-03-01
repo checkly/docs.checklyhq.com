@@ -221,7 +221,7 @@ Now it's time to test run your browser checks on Checkly:
 Success! You should see a similar message to the following:
 
 ```
-MacBook-Air-5:checkly-mac-cli-example hanneslenke$ npx checkly test
+$ npx checkly test
 
 Running 3 checks in eu-west-1.
 
