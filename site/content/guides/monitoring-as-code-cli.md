@@ -235,7 +235,7 @@ __checks__/search.spec.ts
 3 passed, 3 total
 ```
 
-### Deploy your first checks to Checkly
+### Deploy your first Checks to Checkly
 Now that our project has been initialised and we have added some resources, we can deploy our checks by running `npx checkly deploy`.
 
 The CLI will determine all the needed changes to be performed to replicate our monitoring code on Checkly. 
