@@ -100,4 +100,4 @@ In short:
 
 1. Our runtime architecture is not a full CI platform for reasons of size, complexity and security.
 2. Having said that, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291) 
-with a package you would love to see included in our Runtime
+with a package you would love to see included in our Runtime.
