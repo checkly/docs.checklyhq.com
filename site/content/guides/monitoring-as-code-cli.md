@@ -43,7 +43,7 @@ Users who have already used Checkly will be familiar with creating Checks, Check
 
 How does this all look like in practice? Let's find out by creating a small monitoring setup for our {{< newtabref  href="https://danube-web.shop/" title="demo e-commerce website" >}}.
 
-### Setting up our CLI
+### Setting up the Checkly CLI
 
 For our example we will be creating browser checks using {{< newtabref  href="https://playwright.dev" title="Playwright" >}} scripts we have previously written as part of our Playwright guides.
 
