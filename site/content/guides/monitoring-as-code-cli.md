@@ -249,7 +249,7 @@ Successfully deployed project "Website Monitoring" to account "TestCheckly".
 
 Logging in to our Checkly account, we will see the dashboard has been populated with our three checks, which will soon start executing on their set schedules.
 
-{{< figure src="/guides/images/guides-terraform-checks.png" alt="terraform-created checks on checkly dashboard" title="Terraform-provisioned checks on Checkly" >}}
+{{< figure src="/guides/images/guides-mac-cli-checks-on-checkly.png" alt="CLI-deployed checks on checkly dashboard" title="CLI-deployed checks on Checkly" >}}
 
 ### Monitoring API correctness and performance
 
