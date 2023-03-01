@@ -201,7 +201,7 @@ export default defineConfig({
 {{< /tab >}}
 {{< /tabs >}}
 
-We are ready to run the first tests of our project. Use the CLI to authenticate and pick a Checkly account. Make sure you have signed up for a free account on checklyhq.com. That is achieved by running:
+We are ready to run the first tests of our project. Use the CLI to authenticate and pick a Checkly account. Make sure you have signed up for a free account on [checklyhq.com](https://app.checklyhq.com/signup). That is achieved by running:
 
 ```npx checkly login```
 
