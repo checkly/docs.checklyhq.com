@@ -45,11 +45,19 @@ How does this all look like in practice? Let's find out by creating a small moni
 
 ### Setting up the Checkly CLI
 
+A quick way to bootstrap a new project with the Checkly CLI is to run the following command.
+
+```bash
+npm create @checkly/cli
+```
+
+But for this guide, we will show you the manual process to show you all the structure and general idea behind the setup.
+
 For our example we will be creating Browser Checks using {{< newtabref  href="https://playwright.dev" title="Playwright" >}} scripts we have previously written as part of our Playwright guides.
 
 {{< tabs "Web shop example" >}}
 {{< tab "Login" >}}
-```js
+```ts
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -69,7 +77,7 @@ test('test', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Search" >}}
- ```js
+ ```ts
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -115,7 +123,7 @@ test('test', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Checkout" >}}
- ```js
+ ```ts
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -150,25 +158,35 @@ test('test', async ({ page }) => {
 
 Let's start off by creating a brand new folder:
 
-```mkdir checkly-mac-cli-example && cd $_```
+```bash
+mkdir checkly-mac-cli-example && cd $_
+```
 
 To keep things easy, we create a subdirectory...
 
-```mkdir __checks__```
+```bash
+mkdir __checks__
+```
 
 ...and copy all our scripts from above into separate files, for example `login.spec.ts`.
 
 ...install playwright
 
-```npm init playwright@latest```
+```bash
+npm init playwright@latest
+```
 
 First, install the CLI.
 
-```npm i --save-dev @checkly/cli```
+```bash
+npm i --save-dev @checkly/cli
+```
 
 Since we are using TypeScript, also install ts-node and typescript:
 
-```npm i --save-dev ts-node typescript```
+```bash
+npm i --save-dev ts-node typescript
+```
 
 Next up, we want to create our `checkly.config.ts` file and include the basic Checkly configuration as follows:
 
@@ -206,7 +224,9 @@ export default defineConfig({
 
 We are ready to run the first tests of our project. Use the CLI to authenticate and pick a Checkly account. Make sure you have signed up for a free account on [checklyhq.com](https://app.checklyhq.com/signup). That is achieved by running:
 
-```npx checkly login```
+```bash
+npx checkly login
+```
 
 After a few seconds, you should see a similar message to the following:
 
@@ -219,7 +239,9 @@ Welcome to @checkly/cli 🦝
 ```
 
 Now it's time to test run your browser checks on Checkly:
-```npx checkly test```
+```bash
+npx checkly test
+```
 
 Success! You should see a similar message to the following:
 
