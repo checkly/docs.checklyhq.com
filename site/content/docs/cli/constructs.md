@@ -58,7 +58,7 @@ new ApiCheck('hello-api-1', {
 
 When a check fails, you want to get alerted. There are two steps to take here:
 
-1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.js`
+1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.ts`
 
 ```ts
 // alert-channels.ts

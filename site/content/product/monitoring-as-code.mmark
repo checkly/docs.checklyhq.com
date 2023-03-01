@@ -81,7 +81,7 @@ __checks__/browser.check.ts
 {{< sm-4-col-item "Run from your repository" "Store all resources in your Git repo, alongside your application code: just like the unit testing patterns you are familiar with." >}}
 {{< sm-4-col-item "Typescript first" "Code, compose, and structure your resources using TypeScript. No YAML-engineering needed." >}}
 {{< sm-4-col-item "Monitor APIs" "Seamlessly integrate API monitoring into your E2E testing and monitoring regimen." >}}
-{{< sm-4-col-item "Code anc collaborate" "Use any CI platform to collaborate with your team to code, test, and deploy E2E browser and API checks." >}}
+{{< sm-4-col-item "Code and collaborate" "Use any CI platform to collaborate with your team to code, test, and deploy E2E browser and API checks." >}}
 </div>
 </section>
 
@@ -299,6 +299,9 @@ Successfully deployed project "Monitoring as code" to account "Production".
       </li>
       <li class="lead-text mt-1">
       Checkly Blog (Dec 2022): {{% cta-link "The Case for Monitoring as Code" "https://blog.checklyhq.com/the-case-for-monitoring-as-code/" %}}
+      </li>
+      <li class="lead-text mt-1">
+      Checkly Blog: (Feb 2023): {{% cta-link "Why We Built a Typescript CLI for Monitoring as Code" "https://blog.checklyhq.com/why-we-built-a-developer-first-typescript-cli-for-monitoring-as-code/" %}}
       </li>
       </ul>
     </div>
