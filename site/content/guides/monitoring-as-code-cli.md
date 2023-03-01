@@ -287,7 +287,7 @@ We can now once more run `checkly deploy` to see the new Check on Checkly:
 
 ### Alerting
 
-Now that we have our checks in place, we want to set up alerting to ensure we are informed as soon as a failure takes place. Alert channels can be declared as constructs, just like the checks. Let's add the following to our `alert-channels.ts` file:
+Now that we have our Checks in place, we want to set up alerting to ensure we are informed as soon as a failure takes place. Alert channels can be declared as constructs, just like the Checks. Let's add the following to our `alert-channels.ts` file:
 
 ```ts
 // alert-channels.ts
