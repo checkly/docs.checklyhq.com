@@ -43,4 +43,4 @@ These are the currently available runtimes and the included external NPM depende
 > We are planning to deprecate `mocha` in the future. Please use `@playwright/test` as a test framework instead.
 
 
-{{< runtimes >}}
+{{% runtimes %}}
