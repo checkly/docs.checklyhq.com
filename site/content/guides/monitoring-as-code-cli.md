@@ -6,7 +6,7 @@ author: Hannes Lenke
 avatar: 'images/avatars/hannes-lenke.png'
 ---
 
-## Learn from Infrastructure-as-Code and End-to-End Testing
+## Inspired by Infrastructure-as-Code and E2E-Testing
 
 Historically, IT infrastructure has been provisioned manually, both on premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files as code.
 
@@ -35,9 +35,9 @@ What does one gain when moving from a manual to a monitoring as code approach? T
 
 Users who have just started out will be familiar with creating checks, groups, alert channels and other resources through the Checkly UI. Creating, debugging and managing E2E and synthetic monitoring at scale is best done “as code”. Currently, Checkly supports three tools you can use for your monitoring as code (MaC) workflow:
 
-1. The Checkly CLI.
-2. Terraform (through our Terraform provider)
-3. Pulumi (through our Pulumi provider)
+1. {{< newtabref  href="https://www.checklyhq.com/docs/cli/" title="The Checkly CLI." >}}
+2. {{< newtabref  href="https://checklyhq-com-git-cli-guide-checkly.vercel.app/docs/terraform-provider/" title="Terraform (through our Terraform provider)" >}}
+3. {{< newtabref  href="https://www.checklyhq.com/docs/integrations/pulumi/" title="Pulumi (through our Pulumi provider)" >}}
 
 ## Monitoring an e-commerce website - as code
 
@@ -165,7 +165,7 @@ First, install the CLI.
 ```npm i --save-dev @checkly/cli```
 
 Since we are using TypeScript, also install ts-node and typescript:
-npm i --save-dev ts-node typescript
+```npm i --save-dev ts-node typescript```
 
 Next up, we want to create our `checkly.config.ts` file and include the basic Checkly configuration as follows:
 
