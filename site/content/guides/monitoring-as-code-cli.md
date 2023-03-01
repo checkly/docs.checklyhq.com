@@ -29,7 +29,7 @@ What does one gain when moving from a manual to a monitoring as code approach? T
 3. **Native @playwright/test support.** No lock-in, just write standard *.spec.ts files.
 4. **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
 5. **Typescript-first.** Fully typed for a stellar developer experience with code completion.
-6. **Run in the cloud or on-prem**.** Run on the Checkly cloud or in your network using the Private Locations
+6. **Run in the cloud or on-prem**. Run on the Checkly cloud or in your network using [Private Locations](product/private-locations/)
 
 ## Monitoring as Code with Checkly
 
