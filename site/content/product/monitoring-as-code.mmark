@@ -14,7 +14,7 @@ alias:
       <h1 class="terraform-title text-center text-md-left">
         Welcome to the New Era of Monitoring
       </h1>
-      <p class="text-center text-md-left terraform-sub">Unite E2E testing and monitoring in one developer-focused monitoring as code (Mac) workflow. The Checkly CLI, now in beta, enables you to code, test, and deploy your testing and synthetic monitoring setup like never before.</p>
+      <p class="text-center text-md-left terraform-sub">Unite E2E testing and monitoring in one developer-focused monitoring as code (MaC) workflow. The Checkly CLI, now in beta, enables you to code, test, and deploy your testing and synthetic monitoring setup like never before.</p>
       <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-top">
         <div class="d-flex flex-column">
             <a href="https://app.checklyhq.com/signup"><button type="button" class="btn btn-primary b-cta mb-3">Sign up for Free</button></a>
