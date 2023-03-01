@@ -159,12 +159,15 @@ To keep things easy, we create a subdirectory...
 ...and copy all our scripts from above into separate files, for example `login.spec.ts`.
 
 ...install playwright
+
 ```npm init playwright@latest```
 
 First, install the CLI.
+
 ```npm i --save-dev @checkly/cli```
 
 Since we are using TypeScript, also install ts-node and typescript:
+
 ```npm i --save-dev ts-node typescript```
 
 Next up, we want to create our `checkly.config.ts` file and include the basic Checkly configuration as follows:
