@@ -1,12 +1,12 @@
 ---
-title: Monitoring-as-Code-CLI
+title: Monitoring as Code with the Checkly CLI
 description: >-
   The as code movement has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure, security and other ressources. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of monitoring as code (MaC) via our Checkly CLI.
 author: Hannes Lenke
 avatar: 'images/avatars/hannes-lenke.png'
 ---
 
-## Infrastructure-as-Code and End-to-End testing
+## Learn from Infrastructure-as-Code and End-to-End Testing
 
 Historically, IT infrastructure has been provisioned manually, both on premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files as code.
 
@@ -24,12 +24,12 @@ Monitoring as code learns from IaC, Unit testing and E2E testing and brings your
 
 What does one gain when moving from a manual to a monitoring as code approach? The **main advantages of the Checkly CLI** are:
 
-1. Unite E2E testing & monitoring in one workflow. No more silos between Dev, QA and Ops.
-2. Programmable, testable, reviewable. Works with your dev pipeline. From your IDE, via PR to CI.
-3. Native @playwright/test support. No lock-in, just write standard *.spec.ts files.
-4. Alerting baked in. Set alerts for Slack, SMS and many more channels.
-5. Typescript-first. Fully typed for a stellar developer experience with code completion.
-6. Run in the cloud or on-prem. Run on the Checkly cloud or in your network using the Private Locations
+1. **Unite E2E testing & monitoring in one workflow.** No more silos between Dev, QA and Ops.
+2. **Programmable, testable, reviewable.** Works with your dev pipeline. From your IDE, via PR to CI.
+3. **Native @playwright/test support.** No lock-in, just write standard *.spec.ts files.
+4. **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
+5. **Typescript-first.** Fully typed for a stellar developer experience with code completion.
+6. **Run in the cloud or on-prem**.** Run on the Checkly cloud or in your network using the Private Locations
 
 ## Monitoring as Code with Checkly
 
@@ -340,8 +340,8 @@ We are now fully up and running with our monitoring as code setup. Our checks wi
 You can find the more details about our CLI on our doc {{< newtabref  href="https://www.checklyhq.com/docs/cli/" title="Checkly cli docs" >}}.
 
 ### More on MaC with our CLI
-
 Expanding our initial setup from here is easy, please follow these links if you want to know more:
-1. [Why we built Monitoring as Code blog post] (https://blog.checklyhq.com/why-we-built-a-developer-first-typescript-cli-for-monitoring-as-code/)
-2. [Deep-dive & live coding session] (https://www.youtube.com/watch?v=IcaMW2opx2U)
-3. [Checkly CLI Docs] (https://www.checklyhq.com/docs/cli/)
+
+1. [Why we built Monitoring as Code blog post](https://blog.checklyhq.com/why-we-built-a-developer-first-typescript-cli-for-monitoring-as-code/)
+2. [Deep-dive & live coding session](https://www.youtube.com/watch?v=IcaMW2opx2U)
+3. [Checkly CLI Docs](https://www.checklyhq.com/docs/cli/)
