@@ -68,7 +68,7 @@ Currently, Checkly is not a full-blown CI system, where a user has full control 
 installed in the `node_modules` directory. To help you navigate this tradeoff, we want to show you exactly what happens under
 the hood.
 
-1. We bundle all your user code when using the [Checkly CLI] or GitHub Sync before storing your Check in our database.
+1. We bundle all your user code when using the [Checkly CLI](/docs/cli) or GitHub Sync before storing your Check in our database.
 2. Your Check is scheduled to our 20+ global locations via a message bus that has a 256kb file size limit. This is in 99% 
 of the cases more than enough for any user code and included file dependencies you may include. However, it is not enough for potentially unlimited
 NPM dependencies living in `node_modules`.
