@@ -333,7 +333,7 @@ const api = new ApiCheck('webstore-list-books', {
 
 The usual `checkly deploy` will apply the changes on our Checkly account:
 
-{{< figure src="/guides/images/guides-terraform-alerts.png" alt="terraform-created alert on checkly" title="Terraform-provisioned alert on Checkly" >}}
+{{< figure src="/guides/images/guides-mac-cli-alert-channels-on-checkly.png" alt="CLI-deployed alert on checkly" title="CLI-provisioned alert on Checkly" >}}
 
 We are now fully up and running with our monitoring as code setup. Our checks will run on a schedule, informing us promptly if anything were to go wrong. Rapidly getting to know about failures in our API and key website flows will allow us to react fast and mitigate impact on our users, ensuring a better experience with our product.
 
