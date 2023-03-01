@@ -1,21 +1,18 @@
 {{ $Runtimes := getJSON "https://api.checklyhq.com/v1/runtimes" }}
 
 {{ range $Runtimes }}
-  <h3 id="{{.name}}">{{ .name }}
+  ### `{{ .name }}`
     {{ if eq .stage "DEPRECATED" }}
-    <span class="badge badge-accent">{{ .stage }}</span>
+      ({{ .stage }})
     {{ end }}
-  </h3>
   {{ if eq .stage "DEPRECATED" }}
-  <p class="text-accent">This runtime will be available until {{ .runtimeEndOfLife }}. Please update your checks' runtimes and account settings to avoid failures due to automatic change to the next supported runtime.</p>
+    This runtime will be available until {{ .runtimeEndOfLife }}. Please update your checks' runtimes and account settings
+    to avoid failures due to automatic change to the next supported runtime.
   {{ end }}
-  <p>{{ .description }}</p>
-  <ul>
-    {{ range $key, $value := .dependencies }}
-    <li>
-      <a href="https://npmjs.com/package/{{ $key }}/v/{{ $value }}" target="_blank">{{ $key }}</a>
-      {{ $value }}
-    </li>
-    {{ end }}
-  </ul>
+  {{ .description }}
+
+
+  {{ range $key, $value := .dependencies }}
+  - [{{ $key }}](https://npmjs.com/package/{{ $key }}/v/{{ $value }}) {{ $value }}
+  {{ end }}
 {{ end }}
