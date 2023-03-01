@@ -10,7 +10,7 @@ avatar: 'images/avatars/hannes-lenke.png'
 
 Historically, IT infrastructure has been provisioned manually, both on premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files as code.
 
-A new generation of tools has emerged to serve this use case, the most notable example of which is {{< newtabref  href="https://www.terraform.io/" title="HashiCorp Terraform" >}}. Terraform provides a CLI workflow allowing users to specify what the final infrastructure setup should look like, and then takes care of all the intermediate steps needed to get there.
+A new generation of tools has emerged to serve this use case, the most notable example of which is HashiCorp Terraform. Terraform provides a CLI workflow allowing users to specify what the final infrastructure setup should look like, and then takes care of all the intermediate steps needed to get there.
 
 E2E testing evolved similarly during the last decade during from proprietary algorithms living in tools like HP Quality Center to open-source-based code hosted in your repository next to your application code. Today, cross-functional DevOps teams continuously run automated E2E tests in their CI/CD pipeline instead of isolated QA teams testing new versions of your app for three months before release.
 
