@@ -241,7 +241,7 @@ Now that our project has been initialised and we have added some resources, we c
 The CLI will determine all the needed changes to be performed to replicate our monitoring code on Checkly. 
 
 ```
-MacBook-Air-5:checkly-mac-cli-example hanneslenke$ npx checkly deploy
+$ npx checkly deploy
 ? You are about to deploy your project "Website Monitoring" to account 
 "TestCheckly". Do you want to continue? Yes
 Successfully deployed project "Website Monitoring" to account "TestCheckly".
