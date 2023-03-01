@@ -208,7 +208,7 @@ We are ready to run the first tests of our project. Use the CLI to authenticate 
 After a few seconds, you should see a similar message to the following:
 
 ```
-MacBook-Air-5:checkly-mac-cli-example hanneslenke$ npx checkly login
+$ npx checkly login
 ? Do you allow to open the browser to continue with login? Yes
 ? Which account do you want to use? TestCheckly
 Successfully logged in as Hannes Lenke
