@@ -33,7 +33,7 @@ What does one gain when moving from a manual to a monitoring as code approach? T
 
 ## Monitoring as Code with Checkly
 
-Users who have just started out will be familiar with creating checks, groups, alert channels and other resources through the Checkly UI. Creating, debugging and managing E2E and synthetic monitoring at scale is best done “as code”. Currently, Checkly supports three tools you can use for your monitoring as code (MaC) workflow:
+Users who have already used Checkly will be familiar with creating Checks, Check Groups, Alert Channels and other resources through the Checkly UI. Creating, debugging and managing E2E and synthetic monitoring at scale is best done “as code”. Currently, Checkly supports three tools you can use for your monitoring as code (MaC) workflow:
 
 1. {{< newtabref  href="https://www.checklyhq.com/docs/cli/" title="The Checkly CLI." >}}
 2. {{< newtabref  href="https://checklyhq-com-git-cli-guide-checkly.vercel.app/docs/terraform-provider/" title="Terraform (through our Terraform provider)" >}}
