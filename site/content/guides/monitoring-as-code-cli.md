@@ -305,7 +305,7 @@ export const emailChannel = new EmailAlertChannel('email-channel-1', {
 })
 ```
 
-We are setting up things so that we are alerted when our check starts failing, as well as when it recovers. But we still need to decide which checks will subscribe to this channel, and therefore be able to trigger the alerts. This is done by adding the following inside the resource declaration of each check, e.g.:
+We are setting up things so that we are alerted when our Check starts failing, as well as when it recovers. But we still need to decide which Checks will subscribe to this channel, and therefore be able to trigger the alerts. This is done by adding the following inside the resource declaration of each check, e.g.:
 
 ```ts
 // __check__/api.check.ts
