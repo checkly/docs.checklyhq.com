@@ -253,7 +253,7 @@ Logging in to our Checkly account, we will see the dashboard has been populated 
 
 ### Monitoring API correctness and performance
 
-Browser checks are now there to keep us informed on the status of our key website flows. What about our APIs, though? Whether they make up the foundation of our service or they are consumed directly by the customer, we need to ensure our endpoints are working as expected. This is easily achieved by setting up API check resources.
+Browser Checks are now there to keep us informed on the status of our key website flows. What about our APIs, though? Whether they make up the foundation of our service or they are consumed directly by the customer, we need to ensure our endpoints are working as expected. This is easily achieved by setting up API Check resources.
 
 {{< tabs "CLI example 3" >}}
 {{< tab "API check resource" >}}
