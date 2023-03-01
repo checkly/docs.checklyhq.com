@@ -45,7 +45,7 @@ How does this all look like in practice? Let's find out by creating a small moni
 
 ### Setting up the Checkly CLI
 
-For our example we will be creating browser checks using {{< newtabref  href="https://playwright.dev" title="Playwright" >}} scripts we have previously written as part of our Playwright guides.
+For our example we will be creating Browser Checks using {{< newtabref  href="https://playwright.dev" title="Playwright" >}} scripts we have previously written as part of our Playwright guides.
 
 {{< tabs "Web shop example" >}}
 {{< tab "Login" >}}
