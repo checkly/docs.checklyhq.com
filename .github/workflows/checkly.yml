@@ -8,22 +8,16 @@ jobs:
     name: Test E2E on Checkly
     runs-on: ubuntu-latest
     environment:
-      name: staging
+      name: preview
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-      - name: Restore or cache node_modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
+        # GH actions runs NPM 6. This should only install dev dependencies, speeding up the process. NPM CI install everything.
+        run: npm install --only=dev --no-save
       - name: Validate checkly config
         run: npm run checkly:deploy -- --preview
       - name: Run checks
