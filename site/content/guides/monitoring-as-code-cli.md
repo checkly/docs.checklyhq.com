@@ -16,13 +16,7 @@ E2E testing evolved similarly during the last decade during from proprietary alg
 
 
 
-{{< rawhtml >}}
-  <div class="yt-container">
-        <iframe id="ytplayer" type="text/html" width="640" height="360"
-        src="https://www.youtube.com/embed/IcaMW2opx2U&t=560s&origin=https://www.checklyhq.com"
-        frameborder="0"></iframe>
-  </div>
-{{< /rawhtml >}}
+
 
 ## Monitoring as integral part of your SDLC
 
@@ -40,6 +34,15 @@ What does one gain when moving from a manual to a monitoring as code approach? T
 4. **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
 5. **Typescript-first.** Fully typed for a stellar developer experience with code completion.
 6. **Run in the cloud or on-prem**. Run on the Checkly cloud or in your network using [Private Locations](product/private-locations/)
+
+Watch our launch event to learn more about our CLI:
+{{< rawhtml >}}
+  <div class="yt-container">
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+        src="https://www.youtube.com/embed/IcaMW2opx2U?start=560s&origin=https://www.checklyhq.com"
+        frameborder="0"></iframe>
+  </div>
+{{< /rawhtml >}}
 
 ## Monitoring as Code with Checkly
 
