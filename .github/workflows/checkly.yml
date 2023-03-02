@@ -16,8 +16,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install dependencies
-        # GH actions runs NPM 6. This should only install dev dependencies, speeding up the process. NPM CI install everything.
-        run: npm ci
+        # GH actions runs NPM 6. Somehow NPM CI fails with Cannot read property 'babel-core' of undefined
+        run: npm install --no-save
       - name: Validate checkly config
         run: npm run checkly:deploy -- --preview
       - name: Run checks
