@@ -17,7 +17,7 @@ jobs:
           node-version-file: '.nvmrc'
       - name: Install dependencies
         # GH actions runs NPM 6. This should only install dev dependencies, speeding up the process. NPM CI install everything.
-        run: npm install --only=dev --no-save
+        run: npm ci
       - name: Validate checkly config
         run: npm run checkly:deploy -- --preview
       - name: Run checks
