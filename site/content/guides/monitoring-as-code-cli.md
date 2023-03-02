@@ -17,9 +17,7 @@ E2E testing evolved similarly during the last decade during from proprietary alg
 
 
 {{< rawhtml >}}
-  <p class="speshal-fancy-custom">
-    This is <strong>raw HTML</strong>, inside Markdown.
-  </p>
+  <h1>hahahaa</h1>
 {{< /rawhtml >}}
 
 ## Monitoring as integral part of your SDLC
