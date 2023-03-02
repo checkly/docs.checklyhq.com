@@ -36,13 +36,8 @@ What does one gain when moving from a manual to a monitoring as code approach? T
 6. **Run in the cloud or on-prem**. Run on the Checkly cloud or in your network using [Private Locations](product/private-locations/)
 
 Watch our launch event to learn more about our CLI:
-{{< rawhtml >}}
-  <div class="yt-container">
-        <iframe id="ytplayer" type="text/html" width="640" height="360"
-        src="https://www.youtube.com/embed/IcaMW2opx2U?start=560s&origin=https://www.checklyhq.com"
-        frameborder="0"></iframe>
-  </div>
-{{< /rawhtml >}}
+
+{{< youtube id="IcaMW2opx2U" title="monitoring as code launch event video" >}}
 
 ## Monitoring as Code with Checkly
 
