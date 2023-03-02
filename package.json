@@ -54,6 +54,7 @@
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
+    "@checkly/cli": "0.4.5",
     "eslint": "7.32.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-html": "7.1.0",
@@ -63,7 +64,9 @@
     "eslint-plugin-standard": "5.0.0",
     "gulp-cli": "2.3.0",
     "lint-staged": "13.1.2",
-    "simple-git-hooks": "2.8.1"
+    "simple-git-hooks": "2.8.1",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.5"
   },
   "hugo-bin": {
     "buildTags": "extended"
