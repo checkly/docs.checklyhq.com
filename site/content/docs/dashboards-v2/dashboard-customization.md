@@ -29,7 +29,7 @@ Any DNS provider will have the option to easily add CNAME records. For example, 
 
 ![add cname to DNS provider](/docs/images/dashboards-v2/aws_cname.png)
 
-In some cases, our provider will ask you to verify you are the owner of the domain by adding another `TXT` record to you
+In some cases, our provider will ask you to verify you are the owner of the domain by adding another `TXT` record to
 your DNS. You will see a notice similar to the one below.
 
 ![verify domain via txt recrod](/docs/images/dashboards-v2/dashboards_txt_record.png)
