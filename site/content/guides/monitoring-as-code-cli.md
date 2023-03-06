@@ -368,6 +368,7 @@ We are now fully up and running with our monitoring as code setup. Our Checks wi
 
 You can find the more details about our CLI on our doc {{< newtabref  href="https://www.checklyhq.com/docs/cli/" title="Checkly cli docs" >}}.
 
+
 ### More on MaC with our CLI
 Expanding our initial setup from here is easy, please follow these links if you want to know more:
 
