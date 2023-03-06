@@ -14,10 +14,6 @@ A new generation of tools has emerged to serve this use case, the most notable e
 
 E2E testing evolved similarly during the last decade during from proprietary algorithms living in tools like HP Quality Center to open-source-based code hosted in your repository next to your application code. Today, cross-functional DevOps teams continuously run automated E2E tests in their CI/CD pipeline instead of isolated QA teams testing new versions of your app for three months before release.
 
-
-
-
-
 ## Monitoring as integral part of your SDLC
 
 Setting up monitoring can present some of the same issues as provisioning infrastructure or testing. This becomes apparent when we move past the initial rollout or proof-of-concept and onboard multiple products and/or teams, and see our monitoring setup rapidly grow in scope - along with its maintenance needs, that is.

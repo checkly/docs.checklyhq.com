@@ -9,7 +9,9 @@ avatar: 'images/avatars/giovanni-rago.png'
 ## Infrastructure-as-Code (IaC)
 
 {{<warning>}}
-We've released our brand new CLI and recommend giving it a try for the best [Monitoring as Code experience via CLI](/guides/monitoring-as-code-cli/).
+We've released our brand new CLI and recommend giving it a try for the best [Monitoring as Code experience](/guides/monitoring-as-code-cli/).
+
+Please visit our [documentation](/docs/cli/cli-vs-terraform-pulumi/) if you want to learn more about the pros & cons of the Terraform provider vs. the CLI.
 {{</warning>}}
 
 
