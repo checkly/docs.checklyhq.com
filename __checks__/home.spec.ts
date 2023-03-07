@@ -1,5 +1,5 @@
-const { test, expect } = require('@playwright/test')
-const ChecklySitePage = require('./ChecklySitePage')
+import { test, expect } from '@playwright/test'
+import { ChecklySitePage } from './poms/ChecklySitePage'
 
 test('homepage', async ({ page }) => {
   const checklyPage = new ChecklySitePage(page)
