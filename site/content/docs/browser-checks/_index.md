@@ -153,7 +153,7 @@ The Checkly UI supports the following keyboard shortcuts within the browser chec
 |-----------------------|------------------------------------------|
 | Save check            | **Mac**: `CMD`+`S` / **Windows**: `CTRL`+`S` |
 | Start/pause check run | **Mac**: `CMD`+`SHIFT`+`K` / **Windows**: `CTRL`+`SHIFT`+`K`  |
-| Toggle sidebar        | **Mac**: `CMD`+`S` / **Windows**: `CTRL`+`B` |
+| Toggle sidebar        | **Mac**: `CMD`+`B` / **Windows**: `CTRL`+`B` |
 
 ## How do I make assertions?
 
