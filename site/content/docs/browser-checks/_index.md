@@ -147,7 +147,7 @@ We have picked a selection of handy templates that have been optimised for Playw
 
 ### Editor tips
 
-The Checkly UI supports the following keyboard shortcuts within the browser check editor to perform routine actions directly from your keyboard.
+You can use the following keyboard shortcuts to perform routine actions within the browser check editor.
 
 | Command               | Keybinding                               |
 |-----------------------|------------------------------------------|
