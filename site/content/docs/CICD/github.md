@@ -68,33 +68,34 @@ For browser checks, the environment URL is exposed as the `ENVIRONMENT_URL` envi
 variable in your code to replace any hardcoded URL you might have, i.e.:
 
 {{< tabs "Environment example" >}}
-{{< tab "Puppeteer" >}}
-```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+{{< tab "Typescript" >}}
+```ts {hl_lines=[4]}
+import { expect, test } from '@playwright/test'
 
-const myURL = process.env.ENVIRONMENT_URL || 'https://acme.com'
-await page.goto(myURL)
+test('assert response status of page', async ({ page }) => {
+  const targetUrl = process.env.ENVIRONMENT_URL || 'https://www.checklyhq.com'
+  const response = await page.goto(targetUrl)
 
-await browser.close()
- ```
+  expect(response.status()).toBeLessThan(400)
+})
+```
 {{< /tab >}}
-{{< tab "Playwright" >}}
-```js
-const playwright = require('playwright')
-const browser = await playwright.chromium.launch()
-const page = await browser.newPage()
+{{< tab "Javascript" >}}
+```js {hl_lines=[4]}
+const { expect, test } = require('@playwright/test')
 
-const myURL = process.env.ENVIRONMENT_URL || 'https://acme.com'
-await page.goto(myURL)
+test('assert response status of page', async ({ page }) => {
+  const targetUrl = process.env.ENVIRONMENT_URL || 'https://www.checklyhq.com'
+  const response = await page.goto(targetUrl)
 
-await browser.close()
- ```
+  expect(response.status()).toBeLessThan(400)
+})
+```
 {{< /tab >}}
 {{< /tabs >}}
 
+This way we are setting the `targetUrl` variable to either the `ENVIRONMENT_URL` or just our main production URL.
 
+Whenever a **Preview** deploy happens on GitHub, this check gets called and runs the script against the preview environment. This check also runs on a set interval, and checks our production environment.
 
-
-
+This way, we kill two birds with one stone and don't need separate checks for separate environments.

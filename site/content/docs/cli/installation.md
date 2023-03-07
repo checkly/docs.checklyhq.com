@@ -7,7 +7,14 @@ menu:
 ---
 
 To kickstart a new project with the CLI, we recommend running `npm create @checkly/cli`. But you can also add the CLI
-from scratch with the following steps. 
+from scratch with the following steps.
+
+## Prerequisites
+
+- Node.js `v16.x` or higher.
+- A text editor like [Visual Studio Code](https://code.visualstudio.com/).
+
+## Installation
 
 First, install the CLI.
 
