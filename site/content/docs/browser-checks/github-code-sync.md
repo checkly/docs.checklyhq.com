@@ -6,6 +6,13 @@ menu:
     parent: "Browser checks"
 ---
 
+{{<warning >}}
+
+We recommend using the [Checkly CLI](/docs/cli) to code, test and deploy your Checks from your code base instead of using GitHub Sync.
+In the first half of '23 we will deprecate the GitHub Sync functionality.
+
+{{</warning >}}
+
 Having your Playwright scripts live in your code repository allows you to use your familiar development environment and keep your Browser check code in sync with your application code.
 
 GitHub Sync enables you to synchronize your Browser checks with JavaScript files in a GitHub repository.
