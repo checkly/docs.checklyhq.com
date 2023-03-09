@@ -173,8 +173,8 @@ derived from the abstract class `Check`.
 
 - `name` : A friendly name for your Check.
 - `frequency`: How often to run your Check in minutes, i.e. `60` for every hour.
-- `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1]`.
-- `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
+- `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.
+- `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `activated`: A boolean value if your Check is activated or not.
 - `muted`: A boolean value if alert notifications from your Check are muted, i.e. not sent out.
 - `group`: The `CheckGroup` object that this check is part of.
@@ -381,8 +381,8 @@ new ApiCheck('check-group-api-check-1', {
 
 - `name` : A friendly name for your Check Group.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
-- `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1]`.
-- `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
+- `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1']`.
+- `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
 - `activated`: A boolean value if all the Checks in the group are activated.
 - `muted`: A boolean value if alert notifications from the Checks in the group are muted, i.e. not sent out.
