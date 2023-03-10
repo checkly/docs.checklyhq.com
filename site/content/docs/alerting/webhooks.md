@@ -344,7 +344,7 @@ exports.handler = async function (context, event, callback) {
 
 ## Jira
 
-A webhook can be used to create a new issue on Jira, for example in the case of a previously passing check that switches to failing state.
+A webhook can be used to create a new issue on Jira via the [Jira API](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/), for example in the case of a previously passing check that switches to failing state.
 
 We will be creating a POST request to `{{JIRA_INSTANCE_URL}}/rest/api/2/issue`, where the content of your `JIRA_INSTANCE_URL` environment variable would look something like `https://your-jira-instance-name.atlassian.net`.
 
