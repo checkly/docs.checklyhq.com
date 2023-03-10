@@ -15,12 +15,12 @@ nutshell, you can:
 
 ## Using variables
 
-![webhook editor](/docs/images/alerting/webhook_editor.png)
+![webhook jira example](/docs/images/alerting/webhook-jira.png)
 
 The example above shows a webhook configured to create a Jira ticket on each event. Notice the following:
 
-- We use the variables `JIRA_USER` and `JIRA_TOKEN` in the URL. We previously stored these variables in the environment variables section.
-- We use the variables `RESULT_LINK` and`ALERT_TITLE` in the payload. These are event-based variables and will change with each call.
+- We use the variable `JIRA_INSTANCE_URL` in the URL. We previously stored this variable in the [environment variables section](https://app.checklyhq.com/environment-variables).
+- We use the variable `CHECK_ID` in the payload. This is one of many event-based variables that will change with each call. See below for the complete list.
 
 In both cases we use the familiar Handlebars templating braces, i.e. `{{ }}` to insert the variable.
 
