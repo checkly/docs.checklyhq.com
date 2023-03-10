@@ -341,3 +341,37 @@ exports.handler = async function (context, event, callback) {
   }
 };
 ```
+
+## Jira
+
+A webhook can be used to create a new issue on Jira, for example in the case of a previously passing check that switches to failing state.
+
+We will be creating a POST request to `{{JIRA_INSTANCE_URL}}/rest/api/2/issue`, where the content of your `JIRA_INSTANCE_URL` environment variable would look something like `https://your-jira-instance-name.atlassian.net`.
+
+The required headers will be:
+
+```
+Authorization: <YOUR_JIRA_BASIC_AUTH>
+Accept: application/json
+Content-Type: application/json
+```
+
+An example body could look as follows:
+
+```json
+{
+  "fields": {
+    "description": "{{RESULT_LINK}}",
+    "issuetype": {
+      "id": "10001" // your Jira issue type id
+    },
+    "labels": [
+      "needs_investigation"
+    ],
+    "project": {
+      "key": "ABC" // your Jira project key
+    },
+    "summary": "{{ALERT_TITLE}}"
+  }
+}
+```
