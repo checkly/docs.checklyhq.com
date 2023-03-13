@@ -1,0 +1,31 @@
+name: 'Run Checkly MaC Checks'
+on: [deployment_status]
+env:
+  ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
+  CHECKLY_API_KEY: ${{ secrets.CHECKLY_API_KEY }}
+  CHECKLY_ACCOUNT_ID: ${{ secrets.CHECKLY_ACCOUNT_ID }}
+jobs:
+  test-e2e:
+    if: github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment_url, 'checklyhq-')
+    name: Test E2E on Checkly
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        # GH actions runs NPM 6. Somehow NPM CI fails with Cannot read property 'babel-core' of undefined
+        run: npm install --no-save
+      - name: Validate checkly config
+        run: npm run checkly:deploy -- --preview
+      - name: Run checks
+        run: npm run checkly:test --
+          -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
+        continue-on-error: false
+      - name: Deploy checks
+        if: steps.run-checks.outcome == 'success'
+        run: npm run checkly:deploy

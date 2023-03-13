@@ -8,7 +8,7 @@
   <label for="{{ printf "%s-%d" $group $index }}">
   {{- $tab.Name -}}
   </label>
-  <div class="markdown-tabs-content markdown">
+  <div class="markdown-tabs-content">
     {{- .Content | markdownify -}}
   </div>
   {{- end -}}

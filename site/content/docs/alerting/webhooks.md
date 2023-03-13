@@ -15,12 +15,12 @@ nutshell, you can:
 
 ## Using variables
 
-![webhook editor](/docs/images/alerting/webhook_editor.png)
+![webhook jira example](/docs/images/alerting/webhook-jira.png)
 
 The example above shows a webhook configured to create a Jira ticket on each event. Notice the following:
 
-- We use the variables `JIRA_USER` and `JIRA_TOKEN` in the URL. We previously stored these variables in the environment variables section.
-- We use the variables `RESULT_LINK` and`ALERT_TITLE` in the payload. These are event-based variables and will change with each call.
+- We use the variable `JIRA_INSTANCE_URL` in the URL. We previously stored this variable in the [environment variables section](https://app.checklyhq.com/environment-variables).
+- We use the variable `CHECK_ID` in the payload. This is one of many event-based variables that will change with each call. See below for the complete list.
 
 In both cases we use the familiar Handlebars templating braces, i.e. `{{ }}` to insert the variable.
 
@@ -340,4 +340,38 @@ exports.handler = async function (context, event, callback) {
     return callback(error);
   }
 };
+```
+
+## Jira
+
+A webhook can be used to create a new issue on Jira via the [Jira API](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/), for example in the case of a previously passing check that switches to failing state.
+
+We will be creating a POST request to `{{JIRA_INSTANCE_URL}}/rest/api/2/issue`, where the content of your `JIRA_INSTANCE_URL` environment variable would look something like `https://your-jira-instance-name.atlassian.net`.
+
+The required headers will be:
+
+```
+Authorization: <YOUR_JIRA_BASIC_AUTH>
+Accept: application/json
+Content-Type: application/json
+```
+
+An example body could look as follows:
+
+```json
+{
+  "fields": {
+    "description": "{{RESULT_LINK}}",
+    "issuetype": {
+      "id": "10001" // your Jira issue type id
+    },
+    "labels": [
+      "needs_investigation"
+    ],
+    "project": {
+      "key": "ABC" // your Jira project key
+    },
+    "summary": "{{ALERT_TITLE}}"
+  }
+}
 ```

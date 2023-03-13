@@ -15,6 +15,10 @@ There are different kinds of timeouts you will encounter while working with Brow
 | Playwright navigation timeout	  | Playwright     | 30 seconds    | Yes                |
 | Playwright action timeout       | Playwright     | no timeout    | Yes                |
 
+{{<info >}}
+Since browser checks have no specified action timeout, failing actions will rely on the test timeout.
+{{</info >}}
+
 Checkly runs your Browser check code for a maximum of **120 seconds**. Tests that exceed this time will be capped and time out. Everything in your Browser Check needs to happen within those 120 seconds, no matter what. 
 
 Playwright does offer multiple [configurable timeouts](https://playwright.dev/docs/test-timeouts). Make sure you configure these in a way that prevents your check from hitting the general 120 seconds timeout.
@@ -27,7 +31,11 @@ Timeout-related errors are often a sticking point for many beginners. Understand
 
 This refers to Playwright's own 30s default timeout for a single `test` fixture. While it is best to [keep your checks as short as possible](/learn/headless/valuable-tests), you can increase a test's timeout using `test.setTimeout(milliseconds)`. For example:
 
-```js
+{{< tabs "setTimeout example" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { test } from '@playwright/test'
+
 test('add item to wishlist', async ({ page }) => {
   test.setTimeout(60000)
 
@@ -35,11 +43,27 @@ test('add item to wishlist', async ({ page }) => {
 
 })
 ```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { test } = require('@playwright/test')
+
+test('add item to wishlist', async ({ page }) => {
+  test.setTimeout(60000)
+
+  // rest of your script
+
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
 
 ### Your check run has reached the maximum run time of 120000 ms.
 
 In this case, your script is hitting Checkly's 120s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. Try to make your check shorter by following [best practices](/learn/headless/valuable-tests).
 
+No assets will be available for review after the check has gone over the maximum run time. 
 ### Timeout 20000ms exceeded
 
 Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. 
