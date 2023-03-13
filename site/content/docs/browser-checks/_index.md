@@ -145,6 +145,16 @@ We have picked a selection of handy templates that have been optimised for Playw
 
 ![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
 
+### Editor tips
+
+You can use the following keyboard shortcuts to perform routine actions within the browser check editor.
+
+| Command               | Keybinding                               |
+|-----------------------|------------------------------------------|
+| Save check            | **Mac**: `CMD`+`S` / **Windows**: `CTRL`+`S` |
+| Start/pause check run | **Mac**: `CMD`+`SHIFT`+`K` / **Windows**: `CTRL`+`SHIFT`+`K`  |
+| Toggle sidebar        | **Mac**: `CMD`+`B` / **Windows**: `CTRL`+`B` |
+
 ## How do I make assertions?
 
 Navigating around your app or site can already give you a lot of confidence your critical business processes are working correctly.
