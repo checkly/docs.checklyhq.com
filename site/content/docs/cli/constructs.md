@@ -196,7 +196,7 @@ The examples below does the following:
 - It defines the basic Check properties like `name`, `activated` etc.
 - It defines the HTTP method `GET` and the `url`.
 - It sets an extra header in the `headers` array.
-- It sets an extra param in the `queryParams` array, although you could add that to the URL directly too.
+- It sets an extra parameter in the `queryParameters` array, although you could add that to the URL directly too.
 - It defines an array of assertions using the `AssertionBuilder` to assert that:
   - the HTTP response status is `200` 
   - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
@@ -235,7 +235,7 @@ new ApiCheck('hello-api-1', {
         value: 'My custom header value'
       }
     ],
-    queryParams: [
+    queryParameters: [
       {
         key: 'myParam',
         value: 'true'
