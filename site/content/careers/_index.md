@@ -30,24 +30,17 @@ values:
   buttonTxt: See open positions
   buttonLink: /
   list:
-    - icon: '/images/careers/search.svg'
-      title: Focus
+    - title: 🤴 We talk to customers
+      description: The customer comes first.
+    - title: 🎯 Focus
       description: Focus.
-    - icon: '/images/careers/people.svg'
-      title: We talk to customers, we ship features
-      description: The customer comes first. All interactions matter. We ship communication & features.
-    - icon: '/images/careers/ruby.svg'
-      title: We assume good intentions
-      description: People have many sides. Stories have many sides. Don't judge before learning and listening.
-    - icon: '/images/careers/shield-check.svg'
-      title: We are reliable and trustworthy
+    - title: 🤝 We are reliable and trustworthy
       description: Customers need to trust us, when they lost trust in themselves.
-    - icon: '/images/careers/law.svg'
-      title: We balance art & engineering
-      description: Sometimes the mathematical solution is the right one. Sometimes what feels right is right.
-    - icon: '/images/careers/heart.svg'
-      title: We support open source
-      description: We donate 1% of MRR to non-corporate backed Open Source projects.
+      We trust each other, are transparent and inclusive, own our work and mistakes, ask for and give help, and don’t avoid uncomfortable conversations to help each other improve.
+    - title: 🛳️ We ship results and follow up
+      description: We are proactive and deliver work, communication and features that make an impact.
+    - title: 👼 We assume good intentions
+      description: People have many sides. Stories have many sides. Don't judge before learning and listening.
 trusted:
   title: Trusted by the best
   logos:
