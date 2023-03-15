@@ -7,7 +7,11 @@ import cssnext from 'postcss-cssnext'
 import purgecss from 'gulp-purgecss'
 import cleanCSS from 'gulp-clean-css'
 import inlineCss from 'gulp-inline-css'
-import sass from 'gulp-sass'
+import gulpSass from 'gulp-sass'
+import dartSass from 'sass'
+
+const sass = gulpSass(dartSass)
+
 import revall from 'gulp-rev-all'
 import del from 'del'
 

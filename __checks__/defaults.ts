@@ -13,13 +13,13 @@ const LOCAL_DEV_URL = 'http://localhost:3000'
 const PREVIEW_URL = process.env.ENVIRONMENT_URL
 const PROD_URL = 'https://www.checklyhq.com'
 
-const config = {
-  headless: process.env.NODE_ENV !== 'development',
+export const defaults = {
   baseURL: process.env.NODE_ENV === 'development' ? LOCAL_DEV_URL : PREVIEW_URL || PROD_URL,
-  defaultViewPortSize: {
-    width: 1280,
-    height: 720
-  }
+  playwright: {
+    viewportSize: {
+      width: 1280,
+      height: 720
+    }
+  },
+  screenshotPath: 'test-results/screenshots'
 }
-
-module.exports = config

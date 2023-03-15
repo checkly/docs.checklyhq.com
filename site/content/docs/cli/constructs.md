@@ -58,7 +58,7 @@ new ApiCheck('hello-api-1', {
 
 When a check fails, you want to get alerted. There are two steps to take here:
 
-1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.js`
+1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.ts`
 
 ```ts
 // alert-channels.ts
@@ -173,8 +173,8 @@ derived from the abstract class `Check`.
 
 - `name` : A friendly name for your Check.
 - `frequency`: How often to run your Check in minutes, i.e. `60` for every hour.
-- `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1]`.
-- `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
+- `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.
+- `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `activated`: A boolean value if your Check is activated or not.
 - `muted`: A boolean value if alert notifications from your Check are muted, i.e. not sent out.
 - `group`: The `CheckGroup` object that this check is part of.
@@ -196,7 +196,7 @@ The examples below does the following:
 - It defines the basic Check properties like `name`, `activated` etc.
 - It defines the HTTP method `GET` and the `url`.
 - It sets an extra header in the `headers` array.
-- It sets an extra param in the `queryParams` array, although you could add that to the URL directly too.
+- It sets an extra parameter in the `queryParameters` array, although you could add that to the URL directly too.
 - It defines an array of assertions using the `AssertionBuilder` to assert that:
   - the HTTP response status is `200` 
   - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
@@ -235,7 +235,7 @@ new ApiCheck('hello-api-1', {
         value: 'My custom header value'
       }
     ],
-    queryParams: [
+    queryParameters: [
       {
         key: 'myParam',
         value: 'true'
@@ -331,6 +331,8 @@ new BrowserCheck('browser-check-1', {
 })
 ```
 
+> When using a relative path for `code.entrypoint`, the CLI loads the file using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
+
 ## `CheckGroup`
 
 You can explicitly organize Checks in Check Groups.
@@ -379,8 +381,8 @@ new ApiCheck('check-group-api-check-1', {
 
 - `name` : A friendly name for your Check Group.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
-- `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1]`.
-- `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1]`.
+- `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1']`.
+- `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
 - `activated`: A boolean value if all the Checks in the group are activated.
 - `muted`: A boolean value if alert notifications from the Checks in the group are muted, i.e. not sent out.
@@ -391,6 +393,8 @@ new ApiCheck('check-group-api-check-1', {
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserCheckDefaults`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
+
+> When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path. 
 
 ## `AlertChannel`
 
