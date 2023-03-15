@@ -152,7 +152,7 @@ You can use the following keyboard shortcuts to perform routine actions within t
 | Command               | Keybinding                               |
 |-----------------------|------------------------------------------|
 | Save check            | **Mac**: `CMD`+`S` / **Windows**: `CTRL`+`S` |
-| Start/pause check run | **Mac**: `CMD`+`SHIFT`+`K` / **Windows**: `CTRL`+`SHIFT`+`K`  |
+| Start/pause check run | **Mac**: `CMD`+`ENTER` / **Windows**: `CTRL`+`ENTER`  |
 | Toggle sidebar        | **Mac**: `CMD`+`B` / **Windows**: `CTRL`+`B` |
 
 ## How do I make assertions?
