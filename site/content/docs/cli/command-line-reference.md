@@ -60,14 +60,23 @@ between environments.
 - `--env-file`: You can read variables from a `.env` file by passing the file path e.g. `--env-file="./.env"`
 - `--list`: Just list the checks in your project, but don't run them.
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete.
+- `--config` or `-c`: You can specify a particular configuration file, e.g. `--config="./checkly.staging.config.ts"`
 
 ### `npx checkly deploy`
 
 Deploys all your checks and associated resources like alert channels to your Checkly account.
 
+- `--config` or `-c`: You can specify a particular configuration file, e.g. `--config="./checkly.staging.config.ts"`
 - `--force` or `-f`: Skips the confirmation dialog when deploying. Handy in CI environments.
 - `--preview` or `-p`: Preview the differences between your actual configuration and your account.
 - `--output` or `-o`: Show applied differences after deploying.
+
+### `npx checkly destroy`
+
+Destroy all project's resources (checks, groups, alert channels, etc.) from your Checkly account.
+
+- `--config` or `-c`: You can specify a particular configuration file, e.g. `--config="./checkly.staging.config.ts"`
+- `--force` or `-f`: Skips the confirmation dialog when deploying. Handy in CI environments.
 
 ### `npx checkly login`
 
