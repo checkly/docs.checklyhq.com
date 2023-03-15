@@ -34,13 +34,12 @@ values:
       description: The customer comes first.
     - title: 🎯 Focus
       description: Focus.
-    - title: 🤝 We are reliable and trustworthy
-      description: Customers need to trust us, when they lost trust in themselves.
-      We trust each other, are transparent and inclusive, own our work and mistakes, ask for and give help, and don’t avoid uncomfortable conversations to help each other improve.
     - title: 🛳️ We ship results and follow up
       description: We are proactive and deliver work, communication and features that make an impact.
     - title: 👼 We assume good intentions
       description: People have many sides. Stories have many sides. Don't judge before learning and listening.
+    - title: 🤝 We are reliable and trustworthy
+      description: Customers need to trust us, when they lost trust in themselves. We trust each other, are transparent and inclusive, own our work and mistakes, ask for and give help, and don’t avoid uncomfortable conversations to help each other improve.
 trusted:
   title: Trusted by the best
   logos:
