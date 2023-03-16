@@ -358,7 +358,7 @@ You can add a Check to a group in two ways.
 ```ts
 import { CheckGroup, ApiCheck } from '@checkly/cli/constructs'
 
-const group = new CheckGroup('check-group-1', {
+const checkGroup = new CheckGroup('check-group-1', {
   name: 'Group',
   activated: true,
   locations: ['us-east-1', 'eu-west-1'],
@@ -371,7 +371,7 @@ const group = new CheckGroup('check-group-1', {
 
 new ApiCheck('check-group-api-check-1', {
   name: 'API check #1',
-  group,
+  group: checkGroup,
   request: {
     method: 'GET',
     url: 'https://mac-demo-repo.vercel.app/api/hello',
