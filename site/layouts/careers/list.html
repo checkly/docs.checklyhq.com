@@ -60,11 +60,10 @@
     <div class="container">
       <h3 class="section-header">{{.Params.values.title}}</h3>
       <p class="lead-text">{{.Params.values.description}}</p>
-      <div class="row">
+      <div class="row justify-content-center">
         {{ range .Params.values.list }}
         <div class="value-card">
-          <img src={{.icon}} alt={{.title}} />
-          <h5>{{.title}}</h5>
+          <h4>{{.title}}</h4>
           <p>{{.description}}</p>
         </div>
         {{ end }}
