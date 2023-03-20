@@ -8,7 +8,7 @@ menu:
 
 {{<warning >}}
 
-We recommend using the [Checkly CLI](/docs/cli) to code, test and deploy your Checks from your code base instead of using GitHub Sync.
+We recommend using the [Checkly CLI](/docs/cli) to code, test and deploy your checks from your code base instead of using GitHub Sync.
 In the first half of '23 we will deprecate the GitHub Sync functionality.
 
 {{</warning >}}
