@@ -287,9 +287,9 @@ AssertionBuilder.statusCode().equals(200)
 
 - Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path]((/docs/api-checks/assertions/#json-responses-with-json-path)).
 ```ts
-AssertionBuilder.statusCode().equals(200)
+AssertionBuilder.jsonBody('$.data').greaterThan(2000),
 // renders to a JSON string 
-"{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
+"{ source: 'JSON_BODY', regex: '', property: '$.data', comparison: 'GREATER_THAN', target: '2000' }"
 ```
 
 - Asserting the value of a part of an HTTP response header. Note that you can pass in a regex as the second argument.
