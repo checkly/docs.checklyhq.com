@@ -23,6 +23,7 @@ jobs:
       - name: Validate checkly config
         run: npm run checkly:deploy -- --preview
       - name: Run checks
+        id: run-checks
         run: npm run checkly:test --
           -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
         continue-on-error: false
