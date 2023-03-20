@@ -4,7 +4,6 @@
  * START Navbar
  */
 $(document).ready(() => {
-
   const location = window.location.href
 
   // don't make the header sticky on docs pages.
