@@ -10,7 +10,7 @@ aliases:
 ---
 
 {{<warning>}}
-Psst... for the best Monitoring as Code experience we recommend giving our [CLI solution](/docs/cli/) a try.
+Psst... looking for Monitoring as Code but don't want to use Terraform? Give our [CLI solution](/docs/cli/) a try.
 {{</warning>}}
 
 The [Checkly Terraform provider](https://github.com/checkly/terraform-provider-checkly) enables you to declare your monitoring setup as code using [HashiCorp Terraform](https://www.terraform.io/). You can get started with it in a matter of minutes by following the steps shown below.

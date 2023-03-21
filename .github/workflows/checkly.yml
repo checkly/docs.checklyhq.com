@@ -23,9 +23,10 @@ jobs:
       - name: Validate checkly config
         run: npm run checkly:deploy -- --preview
       - name: Run checks
+        id: run-checks
         run: npm run checkly:test --
           -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
         continue-on-error: false
       - name: Deploy checks
-        if: steps.run-checks.outcome == 'success'
+        if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
         run: npm run checkly:deploy

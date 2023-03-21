@@ -1,11 +1,6 @@
 ---
-title: Checkly documentation
+title: Getting started
 ---
-
-Learn how to use Checkly to monitor your vital frontend webapp transactions and backend API's. Our docs cover everything
-from initial setup, scripting with extensive JavaScript examples to alerting and integrations.
-
-## Getting started: monitoring & alerting basics
 
 Start with monitoring your key webapp flows, your backend API's and set up alerting, so you get a notification when things
 break or slow down.
@@ -16,7 +11,7 @@ break or slow down.
 	  headerTag="h3"
 	  title="Create browser checks"
 	  img="/docs/images/icons/chrome@2x.png"
-	  description="Use JavaScript and Headless browsers to navigate, screenshot and assert your key webapp flows. E2E monitoring as it should be."
+	  description="Use TS / JS with @playwright/test and Headless browsers to navigate, screenshot and assert your key webapp flows. E2E monitoring as it should be."
 	  link="/docs/browser-checks"
 >}}
 {{< doc-card
