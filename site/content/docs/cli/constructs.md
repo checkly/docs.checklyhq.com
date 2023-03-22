@@ -227,7 +227,7 @@ new ApiCheck('hello-api-1', {
   request: {
     method: 'GET',
     url: 'https://mac-demo-repo.vercel.app/api/hello',
-    skipSsl: false,
+    skipSSL: false,
     followRedirects: true,
     headers: [
       {
