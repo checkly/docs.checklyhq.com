@@ -6,7 +6,7 @@ alias:
 ---
 
 <div id="landing-header">
-  <div class="row justify-content-center mb-5">
+  <div class="row justify-content-center mb-5 code-test-deploy-hero-section">
     <div class="col-12 col-lg-6 pr-lg-5 left-header">
       <div class="d-flex justify-content-center justify-content-md-start">
         <span class="terraform-text">MONITORING AS CODE</span>
@@ -15,21 +15,19 @@ alias:
         Welcome to the New Era of Monitoring
       </h1>
       <p class="text-center text-md-left terraform-sub">Unite E2E testing and monitoring in one developer-focused monitoring as code (MaC) workflow. The Checkly CLI, now in beta, enables you to code, test, and deploy your testing and synthetic monitoring setup like never before.</p>
-      <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-top">
-        <div class="d-flex flex-column">
-            <a href="https://app.checklyhq.com/signup"><button type="button" class="btn btn-primary b-cta mb-3">Sign up for Free</button></a>
-        </div>
-        <div class="mx-3 md-mx-0 mb-3 md-mb-0 d-flex align-items-center or">and</div>
-        <div class="code-block dark align-self-baseline">
-<pre class="p-3"><code>npm create @checkly/cli</code></pre>
+      <div class="d-flex justify-content-center align-items-center justify-content-md-start flex-column flex-sm-row flex-lg-wrap flex-xl-nowrap">
+        <a href="https://app.checklyhq.com/signup"><button type="button" class="btn btn-primary b-cta">Sign up for Free</button></a>
+        <div class="mx-3 my-2">and</div>
+        <div id="copy-cli-installation-code" class="code-block dark d-flex justify-content-center align-items-center mt-lg-3 mt-xl-0">
+          <pre id="cli-installation-pre"><code id="cli-installation-code">npm create @checkly/cli</code></pre>
         </div>
       </div>
-                  <div class="d-flex md-mt-0">
-                   {{% cta-link "Read the docs" "https://www.checklyhq.com/docs/cli/" %}}
-                  </div>
+      <div class="d-flex mt-2 justify-content-center justify-content-md-start">
+        {{% cta-link "Read the docs" "https://www.checklyhq.com/docs/cli/" %}}
+      </div>
     </div>
     <div class="col-12 col-lg-6 pb-0 right-header mac-landing">
-      <img class="img-fluid d-block d-md-none code-block-header" src="/product/pulumi/code-block-header.png" alt="checkly code"/>
+      <img class="img-fluid d-block d-md-none code-block-header rounded" src="/product/monitoring-as-code/code-block-mac.png" alt="checkly code"/>
       <div class="d-flex justify-content-start align-bottom">
             <div>
               <div class="tab-code-wrapper">
