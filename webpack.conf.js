@@ -49,7 +49,8 @@ export default {
     productVideo: ['./js/productVideo'],
     whyCheckly: ['./js/whyCheckly'],
     learn: ['./js/learn'],
-    terraform: ['./js/terraform']
+    terraform: ['./js/terraform'],
+    cliCopyButton: ['./js/cliCopyButton']
   },
   output: {
     path: path.join(__dirname, 'public/js'),
