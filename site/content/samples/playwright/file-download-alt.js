@@ -1,35 +1,25 @@
-const { chromium } = require('playwright')
+import { test, expect } from '@playwright/test'
 const fs = require('fs')
-const assert = require('chai').assert
 
-;(async () => {
-  const browser = await chromium.launch()
-  const context = await browser.newContext({ acceptDownloads: true })
-  const page = await context.newPage()
-
+test('file download', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
   await page.click('#login')
+
   await page.type('#n-email', process.env.USER_EMAIL)
   await page.type('#n-password2', process.env.USER_PASSWORD)
-
   await page.click('#goto-signin-btn')
 
   await page.click('#account')
+  page.locator('#orders > ul > li:nth-child(1) > a')
 
-  await page.waitForSelector('#orders > ul > li:nth-child(1) > a')
+  const downloadPromise = page.waitForEvent('download')
+  await page.getByRole('link', { name: 'Invoice' }).click()
+  const download = downloadPromise
+  const newFilePath = await download.path()
 
-  const [download] = await Promise.all([
-    page.waitForEvent('download'),
-    page.click('#orders > ul > li:nth-child(1) > a')
-  ])
+  const testFile = await fs.promises.readFile(process.env.TEST_FILE_PATH)
+  const newFile = await fs.promises.readFile(newFilePath)
 
-  const path = await download.path()
-
-  const newFile = await fs.readFileSync(path)
-  const testFile = await fs.readFileSync('fixtures/testfile.pdf')
-
-  assert(newFile.equals(testFile))
-
-  await browser.close()
-})()
+  expect(testFile).toEqual(newFile)
+})

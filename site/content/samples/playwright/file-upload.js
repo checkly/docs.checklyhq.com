@@ -1,29 +1,18 @@
-const { chromium } = require('playwright')
+import { test } from '@playwright/test'
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-
+test('file upload', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
   await page.click('#login')
-  await page.click('#n-email')
 
   await page.type('#n-email', process.env.USER_EMAIL)
   await page.type('#n-password2', process.env.USER_PASSWORD)
-  await page.click('#goto-signin-btn')
+  await page.getByRole('button', { name: 'Sign In' }).click()
 
-  await page.click('.fa-user')
+  await page.locator('#account').click()
 
-  await page.waitForSelector('#user-details > div > input')
+  await page.locator('input[type="file"]').setInputFiles(process.env.FILE_PATH)
+  await page.getByRole('button', { name: 'Upload' }).click()
 
-  const handle = await page.$('input[type="file"]')
-  await handle.setInputFiles(process.env.FILE_PATH)
-
-  await page.waitForSelector('#user-details > div > button')
-  await page.click('#user-details > div > button')
-
-  await page.waitForSelector('#upload-message-succcess', { visible: true })
-
-  await browser.close()
-})()
+  await page.getByText('Upload successful.')
+})
