@@ -37,7 +37,7 @@ customers:
     - icon: '/case-studies/heriot.png'
     - icon: '/case-studies/sentry.svg'
     - icon: '/case-studies/pokerstars.png'
-    - icon: '/case-studies/autotrader.png'
+    - icon: '/case-studies/autotrader.svg.png'
     - icon: '/case-studies/loyalhealth.png'    
     - icon: '/case-studies/hannaan.png'
     - icon: '/case-studies/codewise.svg'
