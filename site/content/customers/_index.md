@@ -108,7 +108,7 @@ customers:
     - icon: '/case-studies/free2move.png'
     - icon: '/case-studies/globant.png'
     - icon: '/case-studies/greenhouse.png'
-    - icon: '/case-studies/hangar.png'
+    - icon: '/case-studies/hangarww.png'
     - icon: '/case-studies/healy.png'
     - icon: '/case-studies/honest.png'
     - icon: '/case-studies/id90.png' 
