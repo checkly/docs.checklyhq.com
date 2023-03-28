@@ -1,6 +1,8 @@
 {{ $Runtimes := getJSON "https://api.checklyhq.com/v1/runtimes" }}
 
 {{ range $Runtimes }}
+  {{ if ne .stage "BETA" }}
+
   ### `{{ .name }}`
     {{ if eq .stage "DEPRECATED" }}
       ({{ .stage }})
@@ -14,5 +16,7 @@
 
   {{ range $key, $value := .dependencies }}
   - [{{ $key }}](https://npmjs.com/package/{{ $key }}/v/{{ $value }}) {{ $value }}
+  {{ end }}
+
   {{ end }}
 {{ end }}
