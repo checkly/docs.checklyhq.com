@@ -6,13 +6,12 @@ menu:
     parent: "CLI"
 ---
 
-The example below is how a typical project using the Checkly CLI is organized. Most files, directories and paths are 
-conventions you can tweak to your liking using `import` / `require` and setting `glob` patterns.
+The example below shows how a typical Checkly CLI project is organized. Most files, directories and paths are conventions you can tweak to your liking using `import` / `require` and setting `glob` patterns.
 
 ## Directories and files
 
-- `checkly.config.ts` - Global project and CLI configuration. This one is mandatory and we recommend using TypeScript.
-- `src/__checks__/*` - Your TS/JS files defining Checks and other resources.
+- `checkly.config.ts` - Mandatory global project and CLI configuration. We recommend using TypeScript.
+- `src/__checks__/*` - Your TS/JS files defining checks and other resources.
 - `package.json` - Standard NPM project manifest.
 
 Here is an example directory tree of what that would look like:
@@ -26,20 +25,24 @@ Here is an example directory tree of what that would look like:
       |-- alert-channels.ts
       |-- api-check.check.ts
       `-- homepage.spec.ts
- 
+
 ```
 
-The main `checkly.config.ts` at the root of your project defines a range of defaults for all your checks. However, as your
-project grows, you will want to override these defaults for specific checks of whole groups of checks. The recommended way 
-to tackle this is using a mix of **global** and **local** configuration.
+The `checkly.config.ts` at the root of your project defines a range of defaults for all your checks.
 
-## Global Configuration
+## Project configuration
 
-As mentioned, your global `checkly.config.ts` holds a set of defaults for your project, the checks in that project and some
-CLI commands.
+As your project grows, you will want to override these defaults for specific checks or check groups. The recommended way to tackle this is using a mix of **global** and **local** configuration.
+### Global Configuration
 
+As mentioned, your global `checkly.config.ts` holds a set of defaults for your project, checks and some CLI commands. Use `defineConfig` to configure your Checkly project.
+
+{{< tabs "describe" >}}
+{{< tab "TypeScript" >}}
  ```ts
-const config = {
+import { defineConfig } from '@checkly/cli'
+
+export default defineConfig({
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
   repoUrl: 'https://github.com/acme/website',
@@ -62,44 +65,52 @@ const config = {
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
-}
-
-export default config
- ```
-
-You can find a full reference of all properties of a Project in [the Project construct section](/docs/cli/constructs/#project)
-
-### Config Intellisense
-
-We recommend using TypeScript, but you can use JavaScript and still get some benefits of TS and add hints to your IDE by 
-either annotating the config object type in JSDoc:
-
-```js
-/** @type {import('@checkly/cli').ChecklyConfig} */
-const config = {
-  // …
-}
-
-module.exports = config;
+})
 ```
-
-Or alternatively, import and use the `defineConfig` helper which will provide typings intellisense without needing to annotate the object:
+{{< /tab >}}
+{{< tab "JavaScript" >}}
 ```js
 const { defineConfig } = require('@checkly/cli')
 
 const config = defineConfig({
-  // …
+  projectName: 'Website Monitoring',
+  logicalId: 'website-monitoring-1',
+  repoUrl: 'https://github.com/acme/website',
+  checks: {
+    activated: true,
+    muted: false,
+    runtimeId: '2022.10',
+    frequency: 5,
+    locations: ['us-east-1', 'eu-west-1'],
+    tags: ['website', 'api'],
+    alertChannels: [],
+    checkMatch: '**/*.check.js',
+    browserChecks: {
+      frequency: 10,
+      testMatch: '**/*.spec.js',
+    },
+  },
+  cli: {
+    verbose: false,
+    runLocation: 'eu-west-1',
+    privateRunLocation: 'private-dc1'
+  }
 })
 
 module.exports = config;
 ```
+{{< /tab >}}
+{{< /tabs >}}
 
-## Local configuration
+Find a full reference of all project properties in [the Project construct section](/docs/cli/constructs/#project).
 
-You can override any of the settings in the `checks` global configuration section at the individual check level.
+
+### Local configuration
+
+Override any of the settings in the `checks` global configuration section at the individual check level.
 
 ```ts
-// __check__/api.check.ts
+// __checks__/api.check.ts
 import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
 
 const api = new ApiCheck('hello-api', {
@@ -114,4 +125,59 @@ const api = new ApiCheck('hello-api', {
     ]
   }
 })
+```
+
+Find a full reference of all check properties in [the ApiCheck construct](/docs/cli/constructs/#apicheck) or [BrowserCheck construct section](/docs/cli/constructs/#browsercheck).
+
+## Dynamic and programmable check creation
+
+The Checkly CLI enables you not only to define but also code your entire monitoring setup.
+
+Use standard TypeScript/JavaScript, the file system or remote data to configure your Checkly project.
+
+
+```ts
+// __checks__/api.check.ts
+import { ApiCheck } from '@checkly/cli/constructs'
+
+const publicResources = ['/public-stats', '/v1/runtimes']
+
+for (const publicResource of publicResources) {
+  new ApiCheck(`public-resource_${publicResource}`, {
+    name: `Public Resource ${publicResource}`,
+    request: {
+      url: `https://api.checkly.com${publicResource}`,
+      method: 'GET',
+      followRedirects: true,
+      skipSsl: false,
+      assertions: [ AssertionBuilder.statusCode().equals(200) ]
+    }
+  })
+}
+```
+
+Asynchronous operations are supported by exporting an async function from your check files, too.
+
+```ts
+// __checks__/api.check.ts
+import { ApiCheck } from '@checkly/cli/constructs'
+import { getPublicResources } from './helpers'
+
+export default async function createApiChecks() {
+  // an async operation fetching from the network
+  const publicResources = await getPublicResources();
+
+  for (const publicResource of publicResources) {
+    new ApiCheck(`public-resource_${publicResource}`, {
+      name: `Public Resource ${publicResource}`,
+      request: {
+        url: `https://api.checkly.com${publicResource}`,
+        method: 'GET',
+        followRedirects: true,
+        skipSsl: false,
+        assertions: [ AssertionBuilder.statusCode().equals(200) ]
+      }
+    })
+  }
+}
 ```
