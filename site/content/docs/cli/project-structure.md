@@ -11,7 +11,7 @@ The example below shows how a typical Checkly CLI project is organized. Most fil
 ## Directories and files
 
 - `checkly.config.ts` - Mandatory global project and CLI configuration. We recommend using TypeScript.
-- `src/__checks__/*` - Your TS/JS files defining checks and other resources.
+- `src/__checks__/*` - TS/JS files defining your checks and other resources.
 - `package.json` - Standard NPM project manifest.
 
 Here is an example directory tree of what that would look like:
@@ -33,6 +33,7 @@ The `checkly.config.ts` at the root of your project defines a range of defaults 
 ## Project configuration
 
 As your project grows, you will want to override these defaults for specific checks or check groups. The recommended way to tackle this is using a mix of **global** and **local** configuration.
+
 ### Global Configuration
 
 As mentioned, your global `checkly.config.ts` holds a set of defaults for your project, checks and some CLI commands. Use `defineConfig` to configure your Checkly project.
@@ -102,7 +103,7 @@ module.exports = config;
 {{< /tab >}}
 {{< /tabs >}}
 
-Find a full reference of all project properties in [the Project construct section](/docs/cli/constructs/#project).
+Find a full reference of all project properties in [the `Project` construct section](/docs/cli/constructs/#project).
 
 
 ### Local configuration
@@ -127,7 +128,7 @@ const api = new ApiCheck('hello-api', {
 })
 ```
 
-Find a full reference of all check properties in [the ApiCheck construct](/docs/cli/constructs/#apicheck) or [BrowserCheck construct section](/docs/cli/constructs/#browsercheck).
+Find a full reference of all check properties in [the `ApiCheck` construct](/docs/cli/constructs/#apicheck) or [`BrowserCheck` construct section](/docs/cli/constructs/#browsercheck).
 
 ## Dynamic and programmable check creation
 
@@ -163,8 +164,9 @@ Asynchronous operations are supported by exporting an async function from your c
 import { ApiCheck } from '@checkly/cli/constructs'
 import { getPublicResources } from './helpers'
 
+// an exported async function to signal that
+// this check file performs asynchronous operations
 export default async function createApiChecks() {
-  // an async operation fetching from the network
   const publicResources = await getPublicResources();
 
   for (const publicResource of publicResources) {
