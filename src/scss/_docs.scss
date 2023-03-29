@@ -4,7 +4,7 @@
   $toc-width: 14rem;
   $menu-item-padding-spacer: 6px;
   $menu-line-height: 18px;
-  max-width: 90rem;
+  max-width: 1440px;
   margin: 0 auto;
 
   .algolia-autocomplete .ds-dropdown-menu {
@@ -31,21 +31,28 @@
     font-size: 1rem;
     margin-left: auto;
 
+    &-category {
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-block;
+      color: $gray-dark;
+      width: calc(100% - 20px);
+      padding: 1rem 0 0.5rem 0;
+    }
+
     &-content {
-      max-height: 78vh;
-      overflow-y: auto;
       margin-left: -6px !important;
       padding-right: 20px !important;
     }
 
     nav {
+      height: calc(100vh - $top);
       position: relative;
       width: $menu-width;
       margin: $top 0 $top;
       padding: 20px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
-
     }
     .right-transform {
       transform: none;
@@ -74,7 +81,7 @@
     &-title {
       display: flex;
       align-items: center;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 14px;
       line-height: $menu-line-height;
       color: $gray-dark !important;
@@ -94,6 +101,21 @@
         transition: .15s transform ease;
       }
     }
+
+    &-reference-link {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: $menu-line-height;
+      color: $gray-dark !important;
+      padding: $menu-item-padding-spacer;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     .active {
       color: $gray-dark !important;
       &::before {
@@ -155,7 +177,6 @@
       color: $gray-dark;
       width: calc(100% - 20px);
       padding-bottom: 1rem;
-      border-bottom: 1px solid $gray-light;
       margin-bottom: 10px;
 
       &:hover {
@@ -378,7 +399,7 @@
     .breadcrumb {
       display: flex;
       align-items: center;
-      margin: 30px 0 20px;
+      margin: 20px 0 20px;
       padding: 0;
       background: none;
       font-size: 14px;
