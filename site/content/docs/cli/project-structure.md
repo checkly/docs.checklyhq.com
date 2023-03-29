@@ -39,7 +39,9 @@ As mentioned, your global `checkly.config.ts` holds a set of defaults for your p
 CLI commands.
 
  ```ts
-const config = {
+import { defineConfig } from '@checkly/cli'
+
+const config = defineConfig({
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
   repoUrl: 'https://github.com/acme/website',
@@ -51,10 +53,10 @@ const config = {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     alertChannels: [],
-    checkMatch: '**/*.check.js',
+    checkMatch: '**/__checks__/**/*.check.ts',
     browserChecks: {
       frequency: 10,
-      testMatch: '**/*.spec.js',
+      testMatch: '**/__checks__/**/*.spec.ts'
     },
   },
   cli: {
@@ -62,10 +64,9 @@ const config = {
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
-}
-
+})
 export default config
- ```
+```
 
 You can find a full reference of all properties of a Project in [the Project construct section](/docs/cli/constructs/#project)
 
@@ -79,17 +80,6 @@ either annotating the config object type in JSDoc:
 const config = {
   // …
 }
-
-module.exports = config;
-```
-
-Or alternatively, import and use the `defineConfig` helper which will provide typings intellisense without needing to annotate the object:
-```js
-const { defineConfig } = require('@checkly/cli')
-
-const config = defineConfig({
-  // …
-})
 
 module.exports = config;
 ```
