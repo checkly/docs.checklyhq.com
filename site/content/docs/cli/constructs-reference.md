@@ -322,7 +322,7 @@ import { BrowserCheck } from '@checkly/cli/constructs'
 new BrowserCheck('browser-check-1', {
   name: 'Browser check #1',
   frequency: 10, // minutes
-  regions: ['us-east-1', 'eu-west-1'],
+  locations: ['us-east-1', 'eu-west-1'],
   code: {
     entrypoint: './home.spec.js'
   }
