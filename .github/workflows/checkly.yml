@@ -12,6 +12,7 @@ jobs:
     environment:
       name: staging
     timeout-minutes: 10
+    permissions: write-all
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -33,6 +34,8 @@ jobs:
         with:
           header: Checkly Run Summary
           path: checkly-github-report.md
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
       - name: Deploy checks
         if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
         run: npm run checkly:deploy
