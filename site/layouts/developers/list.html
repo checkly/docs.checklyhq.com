@@ -72,7 +72,7 @@
       <div class="posts">
         {{ range $index, $post := first 4 $posts.posts }}
           {{ if (eq $index 0)}}
-            <a class="card card--simple" href="{{.Params.posts.card1.linkTarget}}" target="_blank">
+            <a class="card card--simple" href="{{$post.url}}" target="_blank">
               <div class="card__img">
                 <img
                   src="https://og-image.checklyhq.com/image.png?titleText={{ $post.title }}&subtitleText={{$post.excerpt}}&template=blog&image=&width=300&fontSize=55px"
