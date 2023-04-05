@@ -31,8 +31,8 @@ jobs:
       - id: post-comment-summary
         uses: marocchino/sticky-pull-request-comment@v2
         with:
-          header: 🦝 Checkly Run Summary
-          path: summary.md
+          header: Checkly Run Summary
+          path: checkly-github-report.md
       - name: Deploy checks
         if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
         run: npm run checkly:deploy
