@@ -1,0 +1,31 @@
+<nav class="navbar navbar-docs {{ if .Params.navIsGray }}navbar-gray {{ end }} navbar-toggleable-md">
+  <div class="container-fluid d-flex docs w-100">
+    <button
+      class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent"><span></span><span></span><span></span>
+    </button>
+    <a class="navbar-brand mr-2" href="/">
+      <img src="/images/racoon_logo.svg" width="40" height="40" alt="checkly logo"/>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.topnav }}
+          {{ $active := in $currentPage.RelPermalink .URL }}
+            <li class="nav-item">
+              <a class='nav-link {{ if $active }}active{{ end }}' href="{{.URL}}">{{.Name}}</a>
+            </li>
+        {{ end }}
+      </ul>
+      <form class="form-inline search-form" id="search-form">
+        <img src="/images/icons/search-outline.svg" alt="search" with="16" height="16" />
+        <input class="form-control py-2" id="search" type="search" placeholder="Press / to search" />
+      </form>
+      <form class="form-inline my-2 my-lg-0 ml-auto">
+        <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="login-button" href="https://app.checklyhq.com/" rel="noopener">Log in</a>
+        <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="dashboard-button" style="display: none;" href="https://app.checklyhq.com/" rel="noopener">Dashboard<div class="ion-arrow-right-c d-inline ml-2"></div></a>
+        <a class="signup-button btn btn-success my-2 my-sm-0" id="nav-signup-button" data-signup="data-signup" target="_blank" href="https://app.checklyhq.com/signup" rel="noopener">Start for free</a>
+      </form>
+    </div>
+  </div>
+</nav>

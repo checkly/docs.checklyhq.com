@@ -1,6 +1,6 @@
 ---
 title: Using environment variables
-weight: 5
+weight: 6
 menu:
   docs:
     parent: "CLI"

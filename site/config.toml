@@ -17,6 +17,15 @@ disqusShortname = "checkly"
 [params]
     description = "Monitoring as code workflow for developers: programmable, fast, reliable."
 
+[[menu.topnav]]
+    name = "Documentation"
+    url = "/docs/"
+    weight = 10
+[[menu.topnav]]
+    name = "Guides"
+    url = "/guides"
+    weight = 20
+
 [[menu.docs]]
 	name = "Monitoring"
 	url = "/docs/monitoring/"
@@ -112,6 +121,21 @@ disqusShortname = "checkly"
 	name = "Single sign-on"
 	url = "/docs/single-sign-on/"
 	weight = 140
+
+[[menu.reference]]
+    name = "CLI Commands"
+    url = "/docs/cli/command-line-reference"
+    weight = 150
+
+[[menu.reference]]
+    name = "CLI Constructs"
+    url = "/docs/cli/constructs-reference"
+    weight = 160
+
+[[menu.reference]]
+    name = "API Reference"
+    url = "https://developers.checklyhq.com"
+    weight = 170
 
 [[menu.learn]]
 	name = "Getting started"

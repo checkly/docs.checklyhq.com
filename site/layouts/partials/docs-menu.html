@@ -1,12 +1,5 @@
 <aside class="docs-menu">
   <nav id="sideMenu" class="left-transform right-transform">
-    <a
-      class="api-reference-link"
-      href="https://developers.checklyhq.com"
-      target="_blank"
-    >
-      API reference
-    </a>
     <ul class="docs-menu-content">
       {{ $currentPage := . }}
       {{ range $index, $element:=.Site.Menus.docs }} {{ if .HasChildren }}
@@ -42,7 +35,19 @@
       </li>
       {{end}} {{end}}
     </ul>
-    <a href="/slack" class="slack-link">Checkly community</a>
+    <span class="docs-menu-category">Reference</span>
+    <ul class="docs-menu-content">
+      {{ $currentPage := . }}
+      {{ range $index, $element:=.Site.Menus.reference }}
+      <li class="docs-menu-item" id="docs-menu-reference-{{$index}}">
+        <div class="docs-menu-reference-link">
+          <a href="{{.URL}}">
+            {{ .Name }}
+          </a>
+        </div>
+      </li>
+      {{end}}
+    </ul>
   </nav>
   <div class="docs-menu-mobile-right-space">
   </div>

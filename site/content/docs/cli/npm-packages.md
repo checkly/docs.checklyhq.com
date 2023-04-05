@@ -1,6 +1,6 @@
 ---
 title: Using NPM packages and local dependencies
-weight: 4
+weight: 7
 menu:
   docs:
     parent: "CLI"
