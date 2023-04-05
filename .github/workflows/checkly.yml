@@ -26,7 +26,13 @@ jobs:
         id: run-checks
         run: npm run checkly:test --
           -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
-        continue-on-error: false
+      - id: create-summary
+        run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY
+      - id: post-comment-summary
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: 🦝 Checkly Run Summary
+          path: summary.md
       - name: Deploy checks
         if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
         run: npm run checkly:deploy
