@@ -23,6 +23,13 @@ Dry run checks that have `product` and `api` in the file name
 npx checkly test product api
 ```
 
+Record a test session in Checkly with git branch info, full logging, videos and traces. [Enable this feature in Labs](https://app.checklyhq.com/settings/account/labs).
+
+```bash
+npx checkly test --record
+```
+
+
 Dry run all checks against a specific location:
 
 ```bash
@@ -38,14 +45,17 @@ npx checkly test --env "ENVIRONMENT_URL=https://preview.acme.com" --env PASSWORD
 This is very powerful when combined with passing environment variables using one of the flags `--env` or `--env-file` as you can target staging, test and preview environment with specific URLs, credentials and other common variables that differ
 between environments.
 
+- `--config` or `-c`: You can specify a particular configuration file, e.g. `--config="./checkly.staging.config.ts"`
 - `--env <key=value>` or `-e`: Pass environment variables to the check execution runtime. Passed variables overwrite any existing variables stored in your Checkly account.
+- `--env-file`: You can read variables from a `.env` file by passing the file path e.g. `--env-file="./.env"`
 - `--grep <pattern>` or `-g`: Only run checks where the check name matches a regular expression.
+- `--list`: Just list the checks in your project, but don't run them.
 - `--location <location>` or `-l`: Run checks against a specified location, e.g. `eu-west-1`. Defaults to `us-east-1`.
 - `--private-location <private location ID>`: Run checks against the specified private location.
-- `--env-file`: You can read variables from a `.env` file by passing the file path e.g. `--env-file="./.env"`
-- `--list`: Just list the checks in your project, but don't run them.
+- `--record:` Record tests results in Checkly as a **Test Session**. [Enable this feature in Labs](https://app.checklyhq.com/settings/account/labs).
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete.
-- `--config` or `-c`: You can specify a particular configuration file, e.g. `--config="./checkly.staging.config.ts"`
+- `--verbose` or `-v`: Always show the full logs of the checks.
+
 
 ## `npx checkly deploy`
 
@@ -77,7 +87,7 @@ Destroy all project's resources (checks, groups, alert channels, etc.) from your
 
 ## `npx checkly login`
 
-Logs you in to your Checkly account and clear local credentials.
+Sign up for a new Checkly account or log in to your existing Checkly account.
 
 ## `npx checkly logout`
 
