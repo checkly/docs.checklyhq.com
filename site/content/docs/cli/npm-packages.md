@@ -73,7 +73,7 @@ test('Github login', async ({ page }) => {
 })
 ```
 
-Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/constructs/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
+Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/constructs-reference/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
 ```ts
 // login.check.ts
 
@@ -99,5 +99,5 @@ Great question! Please see [this paragraph in our runtime docs](/runtimes/#why-c
 In short:
 
 1. Our runtime architecture is not a full CI platform for reasons of size, complexity and security.
-2. Having said that, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291) 
+2. Having said that, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291)
 with a package you would love to see included in our Runtime.
