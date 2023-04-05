@@ -103,7 +103,7 @@ module.exports = config;
 {{< /tab >}}
 {{< /tabs >}}
 
-Find a full reference of all project properties in [the `Project` construct section](/docs/cli/constructs/#project).
+Find a full reference of all project properties in [the `Project` construct section](/docs/cli/constructs-reference/#project).
 
 
 ### Local configuration
@@ -128,7 +128,7 @@ const api = new ApiCheck('hello-api', {
 })
 ```
 
-Find a full reference of all check properties in [the `ApiCheck` construct](/docs/cli/constructs/#apicheck) or [`BrowserCheck` construct section](/docs/cli/constructs/#browsercheck).
+Find a full reference of all check properties in [the `ApiCheck` construct](/docs/cli/constructs-reference/#apicheck) or [`BrowserCheck` construct section](/docs/cli/constructs-reference/#browsercheck).
 
 ## Dynamic and programmable check creation
 
