@@ -1,116 +1,10 @@
 ---
-title: Using Constructs
-weight: 3
+title: Constructs Reference
+weight: 98
 menu:
   docs:
     parent: "CLI"
 ---
-
-Every resource you create using the Checkly CLI is represented by a "construct": it's a class you import from `@checkly/cli/constructs`.
-A construct is the "as-code" representation of the eventual resource created / deleted / updated on the Checkly cloud once
-you run `npx checkly deploy`.
-
-Remember the following rules when creating and updating constructs:
-
-1. Every construct needs to have a `logicalId`. This is the first argument when instantiating a class, i.e.
-```ts
-const check  = new ApiCheck('my-logical-id', { name: 'My API check' })
-```
-2. Every `logicalId` needs to be unique within the scope of a `Project`. A Project also has a `logicalId`.
-3. A `logicalId` can be any string up to 255 characters in length.
-4. There is no hard limit on the amount of `Project`'s you can have in your Checkly account.
-
-Behind the scenes, we use the `logicalId` to create a graph of your resources so we know what to persist, update and remove
-from our database. Changing the `logicalId` on an existing resource in your code base will tell the Checkly backend that
-a resource was removed and a new resource was created.
-
-So, I guess you know now that logical IDs are important!
-
-## Creating an API Check
-
-API checks are used to validate your HTTP based API endpoints. Let's look at the example below as it does a couple of things:
-
-- It defines the basic check properties like `name`, `activated` etc.
-- It defines the HTTP method `GET` the `url`.
-- It defines an array of assertions to assert the HTTP response status is correct.
-
-```ts
-// hello-api.check.ts
-
-import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
-
-new ApiCheck('hello-api-1', {
-  name: 'Hello API',
-  activated: true,
-  request: {
-    method: 'GET',
-    url: 'https://mac-demo-repo.vercel.app/api/hello',
-    assertions: [
-      AssertionBuilder.statusCode().equals(200)
-    ],
-  }
-})
-```
-
-## Creating and adding an Alert Channel
-
-When a check fails, you want to get alerted. There are two steps to take here:
-
-1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.ts`
-
-```ts
-// alert-channels.ts
-
-import { SmsAlertChannel, EmailAlertChannel } from '@checkly/cli/constructs'
-
-const sendDefaults = {
-  sendFailure: true,
-  sendRecovery: true,
-  sendDegraded: false,
-}
-
-const smsChannel = new SmsAlertChannel('sms-channel-1', {
-  phoneNumber: '0031061234567890',
-  ...sendDefaults
-})
-
-const emailChannel = new EmailAlertChannel('email-channel-1', {
-  address: 'alerts@acme.com',
-  ...sendDefaults
-})
-
-module.exports = {
-  smsChannel,
-  emailChannel
-}
-```
-
-2. Now you can import these channels into one or more checks by passing the objects into the `alertChannels` array:
-
-```ts
-// api.check.ts
-
-import { ApiCheck } from '@checkly/cli/constructs'
-import { smsChannel, emailChannel } from './alert-channels'
-
-new ApiCheck('hello-api-1', {
-  name: 'Hello API',
-  alertChannels: [smsChannel, emailChannel],
-  request: {
-    method: 'GET',
-    url: 'https://mac-demo-repo.vercel.app/api/hello',
-  }
-})
-```
-
-# Using the Constructs API
-
-All resources you can create and manage using the Checkly CLI are derived from "constructs". These constructs are just
-[TypeScript classes](https://github.com/checkly/checkly-cli/tree/main/packages/cli/src/constructs) like `ApiCheck` in `api-check.ts` and
-`SlackAlertChannel` in `slack-alert-channel.ts`.
-
-You can use standard JS/TS programming to use these constructs to create the monitoring setup of your
-choice. Loops, variables, if-statements, file imports, extensions etc.
 
 ## `Project`
 
@@ -187,27 +81,26 @@ Note that most properties have sane default values and do not need to be specifi
 ## `ApiCheck`
 
 API Checks are a good fit for monitoring typical HTTP based endpoints like REST APIs and GraphQL APIs, but can also be
-used for form encoded payloads. [Read more about API checks in our docs](https://www.checklyhq.com/docs/api-checks/)
-
-The examples below does the following:
+used for form encoded payloads. The example below shows the following:
 
 - It defines the basic Check properties like `name`, `activated` etc.
-- It defines the HTTP method `GET` and the `url`.
+- It defines the HTTP method `POST`, `url` and the `body`
 - It sets an extra header in the `headers` array.
 - It sets an extra parameter in the `queryParameters` array, although you could add that to the URL directly too.
 - It defines an array of assertions using the `AssertionBuilder` to assert that:
   - the HTTP response status is `200`
   - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
   - the `strict-transport-security` response header's `max-age` property has a value greater than 100000.
-- It runs a **setup script** and **teardown script**, which are just JavaScript files referenced from the same directory.
+- It runs a **setup script** and **teardown script**, which are just TypeScript files referenced from the same directory.
+
 
 The file hierarchy looks as follows:
 
 ```
 ├── __checks__
-│   ├── hello-api.check.js
-│   ├── setup.js
-│   ├── teardown.js
+│   ├── hello-api.check.ts
+│   ├── setup.ts
+│   ├── teardown.ts
 ```
 
 ```ts
@@ -215,16 +108,24 @@ The file hierarchy looks as follows:
 
 import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
 import * as path from 'path'
-import { readFileSync } from 'fs'
 
 new ApiCheck('hello-api-1', {
   name: 'Hello API',
   activated: true,
-  localSetupScript: readFileSync(path.join(__dirname, 'setup.ts'), 'utf-8'),
-  localTearDownScript: readFileSync(path.join(__dirname, 'teardown.ts'), 'utf-8'),
+  setupScript: {
+      entrypoint: path.join(__dirname, 'setup.ts') 
+  },
+  tearDownScript: {
+    entrypoint: path.join(__dirname, 'teardown.ts')     
+  },
+  maxResponseTime: 10000,
+  degradedResponseTime: 5000,
   request: {
-    method: 'GET',
-    url: 'https://mac-demo-repo.vercel.app/api/hello',
+    method: 'POST',
+    url: ' https://httpbin.org/post',
+    body: JSON.stringify({
+      name: 'checkly'
+    }),
     skipSSL: false,
     followRedirects: true,
     headers: [
@@ -248,27 +149,30 @@ new ApiCheck('hello-api-1', {
 })
 ```
 
-The setup script just has a placeholder `console.log()` statement, but you can do a ton off stuff for authentication, overriding
-headers or other parts of the eventual HTTP request. Check our docs for examples like:
+- `setupScript` : An object with either an `entrypoint` property that points to a `.js|ts` file, or a `content` property with
+raw JavaScript / TypeScript as a string. This runs before the API check is executed. Check [our docs on how to use setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/).
+- `tearDownScript` : An object with either an `entrypoint` property that points to a `.js|ts` file, or a `content` property with
+  raw JavaScript / TypeScript as a string. This runs after the API check is executed. Check [our docs on how to use setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/).
+- `maxResponseTime` : The response time in milliseconds where a check should be considered failing.
+- `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
+- `request`: An object of the `Request` type. See the [`Request` reference](#request).
 
-- [Fetching an OAuth2 token](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#fetch-an-oauth2-access-token-using-the-client_credentials-grant)
-- [Sign an AWS API request](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#sign-an-aws-api-request)
-- [Sign a HMAC request](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#sign-an-hmac-request)
-- [Create a JWT token](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#create-a-jwt-token-using-the-jsonwebtoken-library)
-- [Dismiss a Vercel password prompt](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment)
+### `Request`
 
-```ts
-// setup.ts
-console.log('this is a setup script')
-```
+The `request` object is a mandatory part of an API check.
 
-Teardown script are commonly used to clean up any created test data. You can use access the previously executed HTTP request
-and [for example delete some resource on your API](https://www.checklyhq.com/docs/api-checks/teardown-script-examples/#delete-created-test-data-based-on-response)
-
-```ts
-// teardown.ts
-console.log('this is a teardown script')
-```
+- `url`: A string for the target URL.
+- `method`: The HTTP method as a string, i.e. `GET | POST | PUT | PATCH | HEAD | DELETE | OPTIONS`
+- `body`: A string for HTTP request body.
+- `bodyType`: A string indicating the type of body. Options are `JSON | FORM | RAW | GRAPHQL | NONE`. This property is mostly
+for rendering the body type in the web UI and not needed in most cases using the CLI.
+- `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
+- `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
+- `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
+- `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
+- `basicAuth`: An object of the shape `{ username: 'admin', password: 'admin' }` to set basic auth credentials.
+- `assertions`: An array of assertions to validate status codes, response bodies and much more. 
+See the [`AssertionBuilder` reference](#assertionbuilder).
 
 ### `AssertionBuilder`
 
@@ -314,22 +218,26 @@ and the Checkly CLI will pick them up and apply some default settings like a nam
 them into synthetic monitoring Checks.
 
 However, you can override these global settings and configure individual Browser Checks just like all other built-in Check
-types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file. This property supports relative and absolute paths.
+types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file. 
+This property supports relative and absolute paths.
 
 ```ts
 import { BrowserCheck } from '@checkly/cli/constructs'
+import * as path from 'path'
 
 new BrowserCheck('browser-check-1', {
   name: 'Browser check #1',
   frequency: 10, // minutes
   locations: ['us-east-1', 'eu-west-1'],
   code: {
-    entrypoint: './home.spec.js'
+    entrypoint: path.join(__dirname, 'home.spec.js')
   }
 })
 ```
 
-> When using a relative path for `code.entrypoint`, the CLI loads the file using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
+- `code` : an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
+raw JavaScript / TypeScript as a string.
+
 
 ## `CheckGroup`
 

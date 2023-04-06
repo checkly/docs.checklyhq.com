@@ -91,7 +91,8 @@ module.exports = config;
 {{< /tab >}}
 {{< /tabs >}}
 
-Use the CLI to authenticate and pick a Checkly account. Make sure you have [signed up for a free account on checklyhq.com](https://www.checklyhq.com/).
+Use the CLI to authenticate and pick a Checkly account. Make sure you have [signed up for a free account on checklyhq.com](https://www.checklyhq.com/)
+before hand or just sign up for a new account straight from the terminal.
 
 ```bash
 npx checkly login
@@ -130,3 +131,16 @@ When **running the CLI from your CI pipeline** you will need to export two varia
 
 Go to your Settings page in Checkly and grab a fresh API key from [the API keys tab](https://app.checklyhq.com/settings/user/api-keys) and your
 Account ID from the [Account settings tab](https://app.checklyhq.com/settings/account/general).
+
+## Using a Proxy Server
+
+The CLI respects the common `HTTP_PROXY` environment variable for any outbound traffic, like running `npx checkly test`
+or `npx checkly deploy`. 
+
+```bash
+HTTP_PROXY=https://proxy-url npx checkly test
+```
+
+The CLI communicates with the following domains if you need to allow-list them in your proxy:
+- `api.checklyhq.com`
+- `events.checklyhq.com`
