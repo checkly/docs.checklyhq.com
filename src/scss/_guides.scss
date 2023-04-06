@@ -61,6 +61,11 @@
 	      line-height: 20px;
 	      float: right;
 	    }
+
+			img {
+				border-radius: 50%;
+				overflow: hidden;
+			}
 	  }
 	}
 	@include media-breakpoint-down(xs) {
