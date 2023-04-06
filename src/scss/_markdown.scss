@@ -1,12 +1,4 @@
 .markdown {
-  *[id]:before {
-    display: block;
-    content: " ";
-    margin-top: -90px;
-    height: 90px;
-    visibility: hidden;
-  }
-
   h1 {
     font-size: 2rem;
     line-height: 3rem;

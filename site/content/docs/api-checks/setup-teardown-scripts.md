@@ -6,45 +6,27 @@ menu:
     parent: "API checks"
 ---
 
-You can tailor each HTTP request made by an API check to your exact situation by using setup and/or teardown scripts.
+Setup and teardown scripts can be used to execute arbitrary JavaScript/TypeScript code before and/or after an API check. 
+Both script types have access to all environment variables, runtime objects like `request` and `response` and popular npm packages
+like `moment`, `axios` and `lodash`.
 
-- **Setup scripts** give you access to properties like the URL, headers and query parameters of the HTTP request as well as
-all environment variables. Popular use cases are signing HMAC requests, requesting tokens and setting up test data.
-- **Teardown scripts** give you access to all the same data as the setup scripts plus the response
-object, allowing you to read and modify the response. Use cases are cleaning up test data and scrubbing sensitive
-response data for regulatory reasons.
-
-![setup and teardown script for http requests](/docs/images/api-checks/setup-teardown-inline.png)
-
-Both script types are written in JavaScript and have access to popular libraries like moment, axios and lodash. See the full list of available libraries [here](#included-libraries).
+To get the most power out of API checks with setup and teardown scripts, we advise using [the Checkly CLI](/docs/cli).
+However, you can also use them [via our web UI](#using-setup-and-teardown-scripts-via-the-ui)
 
 {{<info >}}
 Setup and teardown scrips have a **maximum execution time of 10 seconds**.
 {{</info >}}
 
-
 ## Setup scripts
 
-Setup scripts allow you to process test data and configure API Check requests.
+Setup scripts allow you to process test data and configure API check requests. A setup script executes before any requests 
+are made. You have access to a set of [built-in variables](#built-in-variables) to tweak the HTTP request (URL, headers etc.)
+and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs). Popular use cases are signing HMAC requests, 
+requesting tokens and setting up test data.
 
-A setup script executes before any requests are made. You have access to a set of [built-in variables](#built-in-variables) to tweak the HTTP request
-and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs).
+Some simple examples are below:
 
-{{<info >}}
-Note: any libraries need to be explicitly imported using a `require` statement.
-{{</info >}}
-
-### Add custom request configuration
-
-If your API Check's request configuration relies on setup script data, adjust the `request` object.
-
-Common examples are:
-
-- Setting a custom header
-- Updating the request URL
-- Defining of a cookie
-
-```javascript
+```ts
 // request.headers is a standard Javascript object
 
 // Set a custom header
@@ -57,57 +39,112 @@ request.url = request.url + '/extra'
 request.headers['Cookie'] = tokenString
 ```
 
-### Use environment variables to access values in your API Check request body
+### Authentication using setup scripts
 
-If your API Check's request body relies on data evaluated in a setup script, use [environment variables](/docs/api-checks/variables/) to make it accessible.
+A very common task for setup scripts is to fetch or sign some session token and use that token in the main API check.
+You probably want to centralize that logic and use it across all you API checks. You can solve that problem elegantly
+with the following structure.
 
-```javascript
-// define a variable that should be accessible in the API Check response body
-process.env.MY_VALUE = 'my value'
+1. Create an API check an reference the setup script (`setup.ts`) using the `entrypoint` property.
+2. Encapsulate the actual authentication logic (fetching, signing etc.) in a separate `auth-client.ts` file. 
+3. In the `setup.ts` file, import `common/auth-client.ts` and update the necessary fields in the `request` object.
+
+Your folder structure would look as follows:
+
+```
+.
+|-- api-1.check.ts
+|-- setup.ts
+`-- common
+    `-- auth-client.ts
+
 ```
 
-Access your defined environment variables in the API Check request body with `{{MY_VALUE}}` notation.
+The API check performs a `GET` on an authenticated API endpoint, in this case `https://api.acme.com/v1.products`.
 
-![Checkly API check editor showing a JSON request body that uses the MY_VALUE environment variable.](/docs/images/api-checks/setup-env-variables.png)
+```ts
+// api.check.ts
+import { ApiCheck } from '@checkly/cli/constructs'
+import * as path from 'path'
 
-To learn more about setup scripts, [check our setup script examples](/docs/api-checks/setup-script-examples/).
+new ApiCheck('api-check-1', {
+    name: 'Fetch Product Data',
+    setupScript: {
+        entrypoint: path.join(__dirname, 'setup.ts'),
+    },
+    request: {
+        method: 'GET',
+        url: 'https://api.acme.com/v1/products'
+    }
+})
+```
+
+The setup script uses the auth client and sets the `Authentication` header with a Bearer token. Notice two things:
+- The `request` object is a global variable, injected at runtime. See the [request reference](#request) below for more details
+- You need to use a top-level `await` statement as the `getToken()` function returns a `Promise`.
+
+```ts
+// setup.ts
+import { getToken } from './common/auth-client'
+const token = await getToken()
+request.headers['Authentication'] = `Bearer ${token}`
+```
+
+The actual auth client doesn't do anything Checkly specific, besides reading a static environment variable `AUTH_SERVER_TOKEN`
+that authenticates the request to the server issuing session tokens. You should store that static token in [your global
+environment variables](/docs/api-checks/variables/#managing-variables).
+
+```ts
+// common/auth-client.ts
+import axios from 'axios'
+
+export async function getToken () {
+    console.log('Fetching session token from auth server')
+    const { data } = await axios.get('https://api.checklyhq.com/public-stats', {
+        headers: {
+            authentication: process.env.AUTH_SERVER_TOKEN
+        }
+    })
+    return data.token
+}
+```
+
+The benefits from this structure are:
+
+1. You can reuse the authentication logic across as many API checks as you want.
+2. You can test the core authentication logic separately from any Checkly specific code.
+
+The above example uses a fictional authentication server for simplicity. Check out our 
+[setup script examples](/docs/api-checks/setup-script-examples/) for actual examples of OAuth2, HMAC signing, JWT tokens 
+and other auth methods.
 
 ## Teardown scripts
 
-Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. Next to the [request](#request)
-and [environment](#environment) objects, teardown scripts also have access to the [response](#response) object. Use teardown scripts to clean up
-any created test data or clean up response data that might contain sensitive information you do not want to store on the
-Checkly backend.
+Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. Next to the 
+[request](#request) object, teardown scripts also have access to the [response](#response) object. Use cases are cleaning 
+up test data and scrubbing sensitive response data for regulatory reasons.
 
 To learn more about teardown scripts, [check our teardown script examples](/docs/api-checks/teardown-script-examples/).
-
-## Reusable code snippets
-
-To DRY (Don't Repeat Yourself) up your code, we strongly advice you create all setup and teardown scripts as code
-snippets. You can create, update and delete code snippets in the 'Code Snippets' section. Snippets are available to all checks.
-
-![reusable code snippets](/docs/images/api-checks/snippets.png)
-
-Once created, just select any snippets from the drop down menu in setup and teardown scripts section of your API check.
-
-![setup and teardown script for http requests with snippets](/docs/images/api-checks/setup-teardown-snippet.png)
-
-It's also possible to import snippets from your setup or teardown scripts. This can be valuable if setup and teardown scripts are similar across checks, but still require some customization. Find more information in the [snippet documentation](/docs/snippets).
 
 ## Built-in variables
 
 Inside each script, you have access to certain data structures of the API check lifecycle.
 
+1. Environment variables for reading tokens and other secrets you have stored.
+2. The `request` object.
+3. The `response` object, only in teardown scripts as there is no response till after the API check runs.
+4. General runtime variables injected automatically, like `process.env.CHECK_NAME`
+
 ### Environment
 
-You have access to all environment variables configured in the variables section on the account page. They are available under `process.env`.
-
-You can create, read, update and delete any of the attributes in this object.
+You have access to all environment variables configured in the variables section on the account page. You can create, read, 
+update and delete any of the attributes in this object, but these mutations are only available during the lifetime of 
+a single check run.
 
 The current data center location the script is running in is exposed as the AWS region code in the `REGION` constant,
 i.e. `eu-west-1` or `us-east-1`
 
-```javascript
+```typescript
 // read values and use them for further processing
 const myValue = process.env.MY_KEY
 
@@ -119,9 +156,6 @@ process.env.NEW_KEY = 'new value'
 
 // remove a key
 delete process.env.SOME_OTHER_KEY
-
-// read the current region
-const region = process.env.REGION
 ```
 
 In setup scripts, the modified environment object is used for the subsequent HTTP request. In teardown
@@ -131,7 +165,7 @@ script, the modified environment object is just there for informational purposes
 
 ### Request
 
-Request properties are exposed a standard Javascript object. This object is available in both setup and teardown scripts.
+Request properties are exposed as a standard JavaScript object. This object is available in both setup and teardown scripts.
 
 | property | description | type |
 | ------------- | ------------- | --- |
@@ -156,21 +190,23 @@ Response properties are exposed a standard Javascript object. These are only ava
 
 ### General runtime variables
 
-[The setup and teardown runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. process.env.CHECK_NAME)
+[The setup and teardown runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
 to figure out what check, check type etc. you are running.
 
-| property                  | description                                                | type   |
-|---------------------------|------------------------------------------------------------|--------|
-| `CHECK_NAME`              | The name of the check being executed.                      | String |
-| `CHECK_ID`                | The UUID of the check being executed.                      | String |
-| `CHECK_TYPE`              | The type of the check being executed, (`API`)              | String |
-| `CHECK_RESULT_ID`         | The UUID of the result where the run result will be saved. | String |
-| `REQUEST_URL`             | The request URL of the `API` check executed.               | String |
-| `GROUP_BASE_URL`          | The `{{GROUP_BASE_URL}}` value of the grouped `API` check. | String |
+| property          | description                                                | type   |
+|-------------------|------------------------------------------------------------|--------|
+| `GROUP_BASE_URL`  | The `{{GROUP_BASE_URL}}` value of the grouped `API` check. | String |
+| `CHECK_NAME`      | The name of the check being executed.                      | String |
+| `CHECK_ID`        | The UUID of the check being executed.                      | String |
+| `CHECK_TYPE`      | The type of the check being executed, (`API`)              | String |
+| `CHECK_RESULT_ID` | The UUID of the result where the run result will be saved. | String |
+| `REGION`          | The region where a check is executed, e.g `eu-west-1`      | String |
+| `REQUEST_URL`     | The request URL of the `API` check executed.               | String |
 
 ## Included libraries
 
-All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the Node.js standard library or to arbitrary NPM modules.
+All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the 
+Node.js standard library or to arbitrary npm packages.
 
 Check out [our runtimes documentation](/docs/runtimes/specs) for a full specification of which modules are included.
 
@@ -180,3 +216,41 @@ Check out [our runtimes documentation](/docs/runtimes/specs) for a full specific
 - You cannot use nested callbacks as there is no way to determine the callback function. Always use `await` statements.
 - You need to include modules and libraries explicitly, e.g. `const moment = require('moment')` before you can use them.
 - You can pass a maximum of 256KB of data to and from the check's main request (e.g. using `request.body = data`).
+
+## Using setup and teardown scripts via the UI
+
+When using the Checkly web UI to create and run API checks, you can use setup and teardown script in the following two 
+modes:
+
+1. Using a inline piece of JS/TS code as shown below. This is great for quick, adhoc pieces of code you only use once.
+
+![setup and teardown script for http requests](/docs/images/api-checks/setup-teardown-inline.png)
+
+2. Using [snippets](/docs/snippets/) to DRY (Don't Repeat Yourself) up your code, and referencing those snippets by name.
+This method approaches the way of working with the CLI, but is less flexible in general as you don't have direct access
+to a full JS/TS environment.
+
+![reusable code snippets](/docs/images/api-checks/snippets.png)
+
+Once created, just select any snippets from the drop down menu in setup and teardown scripts section of your API check.
+
+![setup and teardown script for http requests with snippets](/docs/images/api-checks/setup-teardown-snippet.png)
+
+It's also possible to import snippets from your setup or teardown scripts. This can be valuable if setup and teardown 
+scripts are similar across checks, but still require some customization.
+Find more information in the [snippet documentation](/docs/snippets).
+
+### Using environment variables via Handlebars
+
+If your API Check's request body relies on data evaluated in a setup script, use [environment variables](/docs/api-checks/variables/) to make it accessible.
+
+```typescript
+// define a variable that should be accessible in the API Check response body
+process.env.MY_VALUE = 'my value'
+```
+
+Access your defined environment variables in the API Check request body with `{{MY_VALUE}}` notation.
+
+![Checkly API check editor showing a JSON request body that uses the MY_VALUE environment variable.](/docs/images/api-checks/setup-env-variables.png)
+
+To learn more about setup scripts, [check our setup script examples](/docs/api-checks/setup-script-examples/).

@@ -133,9 +133,14 @@ disqusShortname = "checkly"
     weight = 160
 
 [[menu.reference]]
+    name = "Runtime specs"
+    url = "/docs/runtimes/specs/"
+    weight = 170
+
+[[menu.reference]]
     name = "API Reference"
     url = "https://developers.checklyhq.com"
-    weight = 170
+    weight = 180
 
 [[menu.learn]]
 	name = "Getting started"

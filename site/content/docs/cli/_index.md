@@ -20,16 +20,14 @@ monitoring at scale, from your code base. We call this workflow **monitoring as 
 
 ## Starting your first project
 
-First, make sure you sign up for a [free Checkly account](https://app.checklyhq.com/signup).
-
-Then, get started by installing the CLI using the following command which will guide you through the required steps to
+Get started by installing the CLI using the following command which will guide you through the required steps to
 set up a fully working example.
 
 ```bash
 npm create @checkly/cli
 ```
 
-Now, login to your Checkly account.
+Now, login to your Checkly account or sign up for a new account right from the terminal.
 
 ```bash
 npx checkly login
