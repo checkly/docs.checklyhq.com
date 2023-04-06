@@ -37,14 +37,14 @@ export default defineConfig({
 The `checks.checkMatch` property accepts a glob pattern to specify which files should be executed to test and deploy your monitoring infrastructure.
 
 {{<info >}}
-Find out more about [all the project configuration options in the docs](http://localhost:3001/docs/cli/constructs-reference/#project).
+Find out more about [all the project configuration options in the docs](/docs/cli/constructs-reference/#project).
 {{</info >}}
 
 Place your check files next to your running application code or in a dedicated monitoring directory; it's up to you!
 
 ## How to use Checkly constructs
 
-When the Checkly CLI executes a check file, the file must [import and initialize Checkly constructs](http://localhost:3001/docs/cli/constructs-reference/) to create resources such as browser and API checks, groups, and alert channels.
+When the Checkly CLI executes a check file, the file must [import and initialize Checkly constructs](/docs/cli/constructs-reference/) to create resources such as browser and API checks, groups, and alert channels.
 
 ```js
 // __checks__/monitoring.check.ts
