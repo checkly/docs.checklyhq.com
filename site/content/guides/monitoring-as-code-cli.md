@@ -1,5 +1,5 @@
 ---
-title: Monitoring as Code with the Checkly CLI
+title: Monitoring as code with the Checkly CLI
 description: >-
   The as code movement has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure, security and other ressources. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of monitoring as code (MaC) via our Checkly CLI.
 author: Hannes Lenke
@@ -133,7 +133,7 @@ import { test, expect } from '@playwright/test';
 test('test', async ({ page }) => {
   // navigate to our target web page
   await page.goto('https://danube-web.shop/');
-  
+
   // add the first item to the cart
   await page.getByText('Haben oder haben').click();
   await page.getByRole('button', { name: 'Add to cart' }).click();
@@ -267,11 +267,11 @@ __checks__/search.spec.ts
 ### Deploy your first Checks to Checkly
 Now that our project has been initialised and we have added some resources, we can deploy our Checks by running `npx checkly deploy`.
 
-The CLI will determine all the needed changes to be performed to replicate our monitoring code on Checkly. 
+The CLI will determine all the needed changes to be performed to replicate our monitoring code on Checkly.
 
 ```
 $ npx checkly deploy
-? You are about to deploy your project "Website Monitoring" to account 
+? You are about to deploy your project "Website Monitoring" to account
 "TestCheckly". Do you want to continue? Yes
 Successfully deployed project "Website Monitoring" to account "TestCheckly".
 ```
