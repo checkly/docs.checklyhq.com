@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          ref: "${{ github.event.deployment_status.deployment.ref }}"
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
