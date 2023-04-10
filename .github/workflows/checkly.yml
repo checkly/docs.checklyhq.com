@@ -4,6 +4,7 @@ env:
   ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
   CHECKLY_API_KEY: ${{ secrets.CHECKLY_API_KEY }}
   CHECKLY_ACCOUNT_ID: ${{ secrets.CHECKLY_ACCOUNT_ID }}
+  GITHUB_CONTEXT: ${{ toJson(github) }}
 jobs:
   test-e2e:
     if: github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment_url, 'checklyhq-')
@@ -31,6 +32,9 @@ jobs:
           -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
       - id: create-summary
         run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY
+      - id: print-github-event-context
+        run: |
+          echo "$GITHUB_CONTEXT"
       - id: post-comment-summary
         uses: marocchino/sticky-pull-request-comment@v2
         with:
