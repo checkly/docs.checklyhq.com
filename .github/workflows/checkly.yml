@@ -34,6 +34,7 @@ jobs:
       - id: post-comment-summary
         uses: marocchino/sticky-pull-request-comment@v2
         with:
+          number: ${{ github.event.number }}
           header: Checkly Run Summary
           path: checkly-github-report.md
           hide_and_recreate: true
