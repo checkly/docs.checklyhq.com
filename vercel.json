@@ -60,6 +60,10 @@
     {
       "source": "/whats-new",
       "destination": "https://www.checklyhq.com"
+    },
+    {
+      "source": "/docs/cli/constructs",
+      "destination": "https://www.checklyhq.com/docs/cli/using-constructs/"
     }
   ]
 }
