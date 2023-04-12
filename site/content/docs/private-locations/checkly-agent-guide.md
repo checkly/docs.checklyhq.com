@@ -186,7 +186,7 @@ If you lose track of which agent containers are using the old API key, you can u
 
 9) Click Save to close the dialog. You will now only see the new API key listed for the private location.
 
-## Trusing Enterprise TLS Certificates
+## Trusting Enterprise TLS Certificates
 
 Some enterprise environments may use internal certificates for TLS connections. These certificates need to be trusted by the agent; otherwise, the agent's TLS connection to the Checkly platform will fail. 
 
@@ -206,6 +206,12 @@ Environment Variable|Description
 `HTTPS_PROXY`|HTTPS proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. `https://user:password@127.0.0.1:8080`
 `HTTP_PROXY`|HTTP proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. Used if the proxy server does not accept HTTPS connections. `http://user:password@127.0.0.1:8080`
 `JOB_CONCURRENCY`|(Default: 1, max: 10) Number of concurrent checks that are run by the agent.
+
+## Troubleshooting
+
+If you're using a self-signed certificate for your proxy, the Agent's HTTP client will not trust it by default. There are two ways to deal with this.
+1. Add your Certificate Authority's (CA) root certificate to the system's CA store. On Debian, and related Linux distributions, you can do this by copying your `*.crt` certificate to `/usr/local/share/ca-certificates/my-ca.crt` and running `sudo update-ca-certificates`.
+2. Alternatively, you can tell the Agent's Docker container to not reject unauthorized certificates with the following environment variable, `NODE_TLS_REJECT_UNAUTHORIZED=0`. This can be appended to your `docker run ..` command with the `-e` flag.
 
 ## Examples
 
