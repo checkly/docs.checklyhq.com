@@ -209,9 +209,10 @@ Environment Variable|Description
 
 ## Troubleshooting
 
-If you're using a self-signed certificate for your proxy, the Agent's HTTP client will not trust it by default. There are two ways to deal with this.
-1. Add your Certificate Authority's (CA) root certificate to the system's CA store. On Debian, and related Linux distributions, you can do this by copying your `*.crt` certificate to `/usr/local/share/ca-certificates/my-ca.crt` and running `sudo update-ca-certificates`.
-2. Alternatively, you can tell the Agent's Docker container to not reject unauthorized certificates with the following environment variable, `NODE_TLS_REJECT_UNAUTHORIZED=0`. This can be appended to your `docker run ..` command with the `-e` flag.
+If you're using a self-signed certificate for your proxy, the Agent's HTTP client will not trust it by default. There are two ways to fix this.
+
+1. Add your Certificate Authority's (CA) root certificate to the system's CA store. On Debian, and related Linux distributions, you can do this by copying your `*.crt` certificate to `/usr/local/share/ca-certificates/` and running `sudo update-ca-certificates`.
+2. Alternatively, you can tell the node process in the Agent's Docker container to not reject unauthorized certificates with the following environment variable, `NODE_TLS_REJECT_UNAUTHORIZED=0`. This can be appended to your `docker run ..` command with the `-e` flag.
 
 ## Examples
 
