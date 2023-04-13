@@ -394,6 +394,10 @@
 
     .heading-anchor {
       color: $black;
+
+      & > * {
+        scroll-margin-top: 3rem;
+      }
     }
 
     .breadcrumb {
