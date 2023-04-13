@@ -52,7 +52,7 @@
     "sass": "1.60.0",
     "sass-loader": "^8.0.0",
     "url-loader": "^0.6.2",
-    "webpack": "4.46.0",
+    "webpack": "5.79.0",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
