@@ -12,8 +12,6 @@ aliases:
 
 ## About Private Locations
 
-> Private Locations are available on the [**Enterprise** plan](/pricing) only
-
 **You must have the Owner or Admin role on your Checkly account to create Private Locations.**
 
 Here are the requirements/questions before you get started:
