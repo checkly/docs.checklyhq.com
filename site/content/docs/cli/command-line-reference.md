@@ -104,3 +104,66 @@ Switch which account you are logged into based on the accounts you can access wi
 ## `npx checkly runtimes`
 
 List all available runtimes and their dependencies.
+
+## `npx checkly env`
+
+The checkly env command is used to manage Environment Variables of a Checkly account, providing functionality to list, add, remove, update and export.
+
+### `npx checkly env pull`
+
+The checkly env pull sub-command will export development environment variables to a local .env file or a different file of your choice.
+
+```bash
+checkly env pull [FILENAME] [-f]
+```
+
+- `FILENAME`: You can specify a particular environment variable file, e.g. `.env.local`
+- `--force` or `-f`: Skips the confirmation dialog when pulling environment variables to existing env file.
+
+```bash
+npx checkly env pull -f
+```
+Pull all environment variables to the .env file and overwrite it if it already exists.
+
+### `npx checkly env ls`
+
+List global Checkly environment variables. This command does not list environment variables on group or check level.
+
+```bash
+checkly env ls
+```
+
+### `npx checkly env add`
+
+Add environment variable.
+
+```bash
+checkly env add [KEY] [VALUE] [-l]
+```
+
+- `KEY`: Environment variable key.
+- `VALUE`: Environment variable value.
+- `--locked` or `-l`: Indicate that the environment variable will be locked.
+
+
+### `npx checkly env update`
+Update global environment variable.
+
+```bash
+checkly env update [KEY] [VALUE] [-l]
+```
+
+- `KEY`: Environment variable key.
+- `VALUE`: Environment variable value.
+- `--locked` or `-l`: Indicate that the environment variable will be locked.
+
+### `npx checkly env rm`
+
+Remove global environment variable.
+
+```bash
+checkly env rm [KEY] [-f]
+```
+
+- `KEY`: Environment variable key.
+- `--force` or `-f`: Skips the confirmation dialog when removing an environment.
