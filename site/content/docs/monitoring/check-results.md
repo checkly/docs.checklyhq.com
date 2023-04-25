@@ -32,7 +32,7 @@ Selecting a check execution will take you to the dedicated check result page for
 
 When retries are enabled, an additional icon highlights that the check result contains multiple check runs. All attempts as well as the final result are available to view.
 
-The check retries ratio indicates how many of the total checks run were executed twice due to an initial failed attempt.
+The check retries ratio indicates how many of the total checks run were retried due to an initial failed attempt.
 
 <!-- @TODO: add screenshot of new ribbon (tooltip preview + result table) -->
 
