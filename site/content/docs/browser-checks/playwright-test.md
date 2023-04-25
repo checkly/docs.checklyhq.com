@@ -39,7 +39,7 @@ This is the list of Playwright Test Runner features that are currently supported
 | Typescript               | Yes <br> **Not compatible with code sync via GitHub yet.** |
 | Global configuration     | No           |
 | Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179)) |
-| Test retry               | No           |
+| Test retry               | No <br> Enable Checkly's "Double-check on failure" in the check settings to retry a check.           |
 | Parallelism and sharding | No           |
 
 
