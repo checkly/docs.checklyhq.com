@@ -3,7 +3,7 @@ title: Overview
 weight: 36
 slug: /
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 aliases:
 - /docs/cicd/

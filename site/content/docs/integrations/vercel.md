@@ -2,7 +2,7 @@
 title: Vercel
 weight: 54
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
     identifier: vercel-integration
 ---

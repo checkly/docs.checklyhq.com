@@ -2,8 +2,8 @@
 title: Incident & Maintenance messages
 weight: 50
 menu:
-  docs:
-    parent: "Dashboards V2"
+  resources:
+    parent: "Dashboards"
 ---
 
 Using **Incidents** you can communicate outages and planned maintenance to your audience — customers, co-workers, partners —

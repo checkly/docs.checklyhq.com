@@ -3,7 +3,7 @@ title: Getting started with Private Locations
 weight: 51
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Private Locations"
 aliases:
 - "/docs/private-locations/private-locations-getting-started/"

@@ -2,7 +2,7 @@
 title: Parameterized resources
 weight: 9
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

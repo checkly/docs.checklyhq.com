@@ -3,7 +3,7 @@ title: 'Overview'
 weight: 53
 slug: /
 menu:
-    docs:
+    integrations:
         parent: "Integrations"
         identifier: overview-integration
 aliases:

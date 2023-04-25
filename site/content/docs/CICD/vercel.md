@@ -2,7 +2,7 @@
 title: Vercel
 weight: 44
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

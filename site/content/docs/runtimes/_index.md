@@ -3,10 +3,11 @@ title: How runtimes work
 weight: 69
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Runtimes"
 aliases:
 - /docs/runtimes/
+cli: true
 ---
 
 Checkly allows you to use JavaScript code in your [Browser checks](/docs/browser-checks) and in the optional 

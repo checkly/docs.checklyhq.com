@@ -2,7 +2,7 @@
 title: GitHub deployments
 weight: 37
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

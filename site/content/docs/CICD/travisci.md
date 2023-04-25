@@ -2,7 +2,7 @@
 title: Travis CI
 weight: 42
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

@@ -2,8 +2,9 @@
 title: Timeouts and timing phases
 weight: 13
 menu:
-  docs:
+  resources:
     parent: "API checks"
+cli: true
 ---
 
 All API checks are capped at a timeout of **30 seconds**. With each request, we record the most relevant timing phases. This can help you troubleshoot slow responses, e.g. your DNS might be slow.

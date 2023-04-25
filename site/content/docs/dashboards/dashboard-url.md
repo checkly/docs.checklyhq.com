@@ -1,12 +1,10 @@
 ---
 title: Url and Custom Domain
-weight: 48
+weight: 51
 menu:
-  docs:
-    parent: "Dashboards (Legacy)"
-aliases:
-- "/dashboards/dashboard-url/"
-- "/docs/dashboards/dashboard-url/"
+  resources:
+    parent: "Legacy Dashboards"
+    identifier: legacy-dashboards-url-and-custom-domain
 ---
 
 ## Custom URL

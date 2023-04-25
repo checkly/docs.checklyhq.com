@@ -2,7 +2,7 @@
 title: Jenkins
 weight: 40
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

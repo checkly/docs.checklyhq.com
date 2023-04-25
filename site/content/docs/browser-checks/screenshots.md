@@ -2,8 +2,9 @@
 title: Taking screenshots
 weight: 19
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 You can take up to ten screenshots per browser check. This is really handy when debugging a failure situation or just

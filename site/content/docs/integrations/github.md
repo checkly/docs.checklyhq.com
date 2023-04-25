@@ -4,7 +4,7 @@ weight: 59
 aliases:
 - /docs/integrations
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

@@ -3,7 +3,7 @@ title: CI/CD
 slug: cicd
 weight: 28
 menu:
-  docs:
+  resources:
     parent: "Groups"
 ---
 

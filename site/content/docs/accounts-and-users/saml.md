@@ -1,9 +1,11 @@
 ---
 title: SAML
-weight: 72
+weight: 54
 menu:
-  docs:
-    parent: "Single sign-on"
+  resources:
+    parent: "Single Sign-on"
+aliases:
+  - "/docs/single-sign-on/saml"
 ---
 
 > SSO is only available for Checkly's [enterprise plans](/pricing).

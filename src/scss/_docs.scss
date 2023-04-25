@@ -81,10 +81,10 @@
     &-title {
       display: flex;
       align-items: center;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 14px;
       line-height: $menu-line-height;
-      color: $gray-dark !important;
+      color: $gray-darkish !important;
       padding: $menu-item-padding-spacer 0px;
 
       &:hover {
@@ -105,11 +105,14 @@
     &-reference-link {
       display: flex;
       align-items: center;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 14px;
       line-height: $menu-line-height;
-      color: $gray-dark !important;
       padding: $menu-item-padding-spacer;
+
+      > a {
+        color: $gray-darkish !important;
+      }
 
       &:hover {
         cursor: pointer;
@@ -118,6 +121,7 @@
 
     .active {
       color: $gray-dark !important;
+      font-weight: 500;
       &::before {
         transform: rotate(90deg);
       }
@@ -423,6 +427,24 @@
       & span {
         margin: 0 5px;
         color: $gray;
+      }
+
+      .badge-cli {
+        margin-left: auto;
+        color: $gray-darkish;
+        background: $gray-lighter;
+        font-weight: 600;
+        text-transform: capitalize;
+        &::before {
+          width: 14px;
+          height: 14px;
+          background: url(/images/icons/terminal_gray.svg);
+          background-size: 100%;
+          margin: 0 $menu-item-padding-spacer 0 0;
+          content: '';
+          display: inline-block;
+          vertical-align: -24%;
+        }
       }
     }
 

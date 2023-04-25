@@ -2,7 +2,7 @@
 title: Environment variables
 weight: 29
 menu:
-  docs:
+  resources:
     parent: "Groups"
     identifier: variables-groups    
 ---

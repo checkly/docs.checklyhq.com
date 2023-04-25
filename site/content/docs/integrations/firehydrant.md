@@ -2,7 +2,7 @@
 title: FireHydrant
 weight: 68
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

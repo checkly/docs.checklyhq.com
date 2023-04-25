@@ -2,9 +2,10 @@
 title: Environment variables
 weight: 21
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
     identifier: variables-browser-checks
+cli: true
 ---
 
 When creating browser checks, you probably run some code locally, store it in a Git repo or copy and paste it around

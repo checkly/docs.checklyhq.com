@@ -3,8 +3,9 @@ title: Using Playwright Test
 description: How to use Playwright Test Runner natively within browser checks at Checkly
 weight: 14
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework.

@@ -3,11 +3,12 @@ title: Getting started
 weight: 14
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
 aliases:
     - /docs/browser-checks/quickstart/
     - /docs/browser-checks/getting-started/
+cli: true
 ---
 
 This guide gives you all the info to create your first Browser check with Checkly. You should have some prior

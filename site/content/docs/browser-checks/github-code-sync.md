@@ -2,7 +2,7 @@
 title: Syncing code from GitHub
 weight: 17
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
 ---
 

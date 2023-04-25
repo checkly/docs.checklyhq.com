@@ -3,7 +3,7 @@ title: Overview
 weight: 26
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Groups"
     identifier: overview-groups
 aliases:

@@ -2,7 +2,7 @@
 title: Sync with the GitHub Deployments API
 weight: 2
 menu:
-  docs:
+  resources:
     parent: "Syncing code from GitHub"
 ---
 

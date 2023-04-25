@@ -3,11 +3,12 @@ title: Overview
 weight: 7
 slug: /
 menu:
-  docs:
+  resources:
     parent: "API checks"
     identifier: overview-api-checks
 aliases:
 - 'docs/api-checks'
+cli: true
 ---
 
 API checks consist of few parts:

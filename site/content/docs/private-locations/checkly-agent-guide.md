@@ -2,7 +2,7 @@
 title: Installing & running the Checkly Agent
 weight: 52
 menu:
-  docs:
+  resources:
     parent: "Private Locations"
 aliases:
 - "/docs/private-locations/checkly-agent-guide/"

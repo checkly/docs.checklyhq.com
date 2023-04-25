@@ -8,7 +8,7 @@ aliases:
     - /docs/browser-checks/triggers
     - /docs/cicd/trigger/
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

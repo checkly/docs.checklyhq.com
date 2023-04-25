@@ -2,7 +2,7 @@
 title: Storing secrets
 weight: 5
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 

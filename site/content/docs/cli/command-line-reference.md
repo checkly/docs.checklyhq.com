@@ -2,7 +2,7 @@
 title: Command Line Reference
 weight: 99
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 

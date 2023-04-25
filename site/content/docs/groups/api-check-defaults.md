@@ -2,7 +2,7 @@
 title: API check defaults
 weight: 27
 menu:
-  docs:
+  resources:
     parent: "Groups"
 ---
 

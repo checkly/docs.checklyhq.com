@@ -5,7 +5,7 @@ slug: /
 aliases:
 - /docs/monitoring
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 

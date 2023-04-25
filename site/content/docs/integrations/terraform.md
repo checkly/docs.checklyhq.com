@@ -2,7 +2,7 @@
 title: Terraform
 weight: 66
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

@@ -2,7 +2,7 @@
 title: GitLab CI
 weight: 43
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

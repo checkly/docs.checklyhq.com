@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: Overview
 ---
 
 Start with monitoring your key webapp flows, your backend API's and set up alerting, so you get a notification when things

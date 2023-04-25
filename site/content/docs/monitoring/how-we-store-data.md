@@ -2,7 +2,7 @@
 title: How we store data
 weight: 4
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 

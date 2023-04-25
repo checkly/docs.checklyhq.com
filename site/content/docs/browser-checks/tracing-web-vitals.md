@@ -2,9 +2,10 @@
 title: Tracing and Web Vitals
 weight: 25
 menu:
-  docs: 
+  resources: 
     parent: "Browser checks"
     identifier: tracing-web-vitals-browser-checks
+cli: true
 ---
 
 For all your browser checks we automatically collect a comprehensive set of data like **console logs and network requests** 

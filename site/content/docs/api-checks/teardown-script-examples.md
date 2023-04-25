@@ -2,9 +2,10 @@
 title: Teardown script examples
 weight: 2
 menu:
-  docs:
+  resources:
     parent: "Setup & teardown scripts"
     identifier: teardown-script-examples
+cli: true
 ---
 
 ## Update response status

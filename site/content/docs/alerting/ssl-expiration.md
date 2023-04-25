@@ -2,7 +2,7 @@
 title: SSL certificate expiration
 weight: 33
 menu:
-  docs:
+  resources:
     parent: "Alerting"
 aliases:
 - "/whats-new/summer-update/docs/alerting/ssl-expiration/"

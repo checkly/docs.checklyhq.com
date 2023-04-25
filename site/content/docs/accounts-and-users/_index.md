@@ -3,7 +3,7 @@ title: About roles
 weight: 50
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Accounts & Users"
 aliases:
 - "/docs/teams/"

@@ -2,7 +2,7 @@
 title: CircleCI
 weight: 38
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 

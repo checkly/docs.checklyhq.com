@@ -2,7 +2,7 @@
 title: Global locations
 weight: 3
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 You can configure your run checks to run from an ever growing amount of global locations. Leveraging global infrastructure allows us to measure what the user experience is in different parts of the world.

@@ -1,9 +1,11 @@
 ---
 title: Microsoft Azure AD
-weight: 73
+weight: 55
 menu:
-  docs:
-    parent: "Single sign-on"
+  resources:
+    parent: "Single Sign-on"
+aliases:
+  - "/docs/single-sign-on/microsoft-azure-ad"
 ---
 
 This page illustrates the standard procedure to follow in order to get started with Microsoft Azure AD SSO on Checkly.

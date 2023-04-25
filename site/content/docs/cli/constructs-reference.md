@@ -2,7 +2,7 @@
 title: Constructs Reference
 weight: 98
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
@@ -12,7 +12,7 @@ A `Project` defines core settings and defaults for the CLI and other constructs 
 use set defaults for your Checks in the `checks` property and override them occasionally at the Check or CheckGroup level.
 
 ```ts
-import { defineConfig } from '@checkly/cli'
+import { defineConfig } from 'checkly'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -106,7 +106,7 @@ The file hierarchy looks as follows:
 ```ts
 // hello-api.check.ts
 
-import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
+import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 import * as path from 'path'
 
 new ApiCheck('hello-api-1', {
@@ -222,7 +222,7 @@ types. The most important thing is to set the `code.entrypoint` property and poi
 This property supports relative and absolute paths.
 
 ```ts
-import { BrowserCheck } from '@checkly/cli/constructs'
+import { BrowserCheck } from 'checkly/constructs'
 import * as path from 'path'
 
 new BrowserCheck('browser-check-1', {
@@ -262,7 +262,7 @@ You can add a Check to a group in two ways.
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
 ```ts
-import { CheckGroup, ApiCheck } from '@checkly/cli/constructs'
+import { CheckGroup, ApiCheck } from 'checkly/constructs'
 
 const group = new CheckGroup('check-group-1', {
   name: 'Group',
@@ -325,7 +325,7 @@ property of a Project, CheckGroup or Check.
 Sends SMS notifications to phone number. Make sure to use standard international notation.
 
 ```ts
-import { SmsAlertChannel } from '@checkly/cli/constructs'
+import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
   phoneNumber: '0031061234567890',
@@ -339,7 +339,7 @@ const smsChannel = new SmsAlertChannel('sms-channel-1', {
 Sends email notifications to an email address. Only accepts one address, do not use multiple addresses separated by a comma.
 
 ```ts
-import { EmailAlertChannel } from '@checkly/cli/constructs'
+import { EmailAlertChannel } from 'checkly/constructs'
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
   address: 'alerts@acme.com',
@@ -352,7 +352,7 @@ Sends a Slack message to an incoming Slack webhook address. You can specify the 
 
 ````ts
 
-import { SlackAlertChannel } from '@checkly/cli/constructs'
+import { SlackAlertChannel } from 'checkly/constructs'
 
 const slackChannel = new SlackAlertChannel('slack-channel-1', {
   url: 'https://hooks.slack.com/services/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',
@@ -366,7 +366,7 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
 Sends a webhook to any URL. Webhooks are very powerful and have quite some options. Here is an example that send
 
 ```ts
-import { WebhookAlertChannel } from '@checkly/cli/constructs'
+import { WebhookAlertChannel } from 'checkly/constructs'
 
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
   name: 'Pushover webhook',
@@ -395,7 +395,7 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 Sends an alert notification to your Opsgenie account.
 
 ```ts
-import { OpsgenieAlertChannel } from '@checkly/cli/constructs'
+import { OpsgenieAlertChannel } from 'checkly/constructs'
 
 const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
   name: 'My Ops Team',
@@ -417,7 +417,7 @@ const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
 Sends an alert notification to a specific service in your Pagerduty account
 
 ```ts
-import { PagerdutyAlertChannel } from '@checkly/cli/constructs'
+import { PagerdutyAlertChannel } from 'checkly/constructs'
 
 const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
   account: 'ACME',

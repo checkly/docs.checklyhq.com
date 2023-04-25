@@ -2,7 +2,7 @@
 title: Whitelisting & filtering traffic
 weight: 6
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 

@@ -2,8 +2,8 @@
 title: Using Custom CSS
 weight: 49
 menu:
-  docs:
-    parent: "Dashboards V2"
+  resources:
+    parent: "Dashboards"
 ---
 
 You can completely customize the look & feel of your dashboard using custom CSS rules so the dashboard fits your company's

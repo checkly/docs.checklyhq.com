@@ -2,7 +2,7 @@
 title: Getting started
 weight: 1
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
     identifier: getting-started-terraform
 aliases:
