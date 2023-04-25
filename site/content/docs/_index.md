@@ -9,7 +9,9 @@ Monitoring as code is a methodology for managing your monitoring infrastructure 
 2. **Test** — Run your monitors as E2E tests against production and staging from your CI pipeline. 
 3. **Deploy** — Deploy and lifecycle your monitoring alongside your application deployments.
 
-## Get Started with monitoring as code
+{{< youtube VCpkjhFUufI >}}
+
+## Get started with monitoring as code
 
 Get started with monitoring as code by picking the right integration for your team. We recommend using the **Checkly CLI**
 for the full code, test and deploy workflow.
@@ -35,7 +37,7 @@ link="/docs/integrations/terraform/"
 </div>
 
 
-## Get Started using the web UI
+## Get started using the web UI
 
 Not quite ready to start your monitoring as code journey? No problem. Get started using just the web UI and you'll be 
 monitoring in minutes.

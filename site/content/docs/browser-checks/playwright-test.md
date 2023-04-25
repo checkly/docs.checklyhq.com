@@ -30,18 +30,18 @@ A check using [the Playwright Test Runner (`@playwright/test`)](https://playwrig
 
 This is the list of Playwright Test Runner features that are currently supported. We will update it as more features become supported.
 
-| Feature                  | Supported?              |
-|--------------------------|-------------------------|
-| Trace files              | Yes               |
-| Video recordings         | Yes               |
-| API testing              | Yes               |
-| Custom fixtures          | Yes               |
+| Feature                  | Supported?         |
+|--------------------------|--------------------|
+| Trace files              | Yes          |
+| Video recordings         | Yes          |
+| API testing              | Yes          |
+| Custom fixtures          | Yes          |
 | Reporters                | Only JSON, more to come |
-| Typescript               | Yes <br> **Not compatible with code sync via GitHub yet.** |
-| Global configuration     | No           |
+| Typescript               | Yes |
+| Global configuration     | No      |
 | Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179)) |
-| Test retry               | No           |
-| Parallelism and sharding | No           |
+| Test retry               | No      |
+| Parallelism and sharding | No      |
 
 
 ### Browser check with multiple test cases
