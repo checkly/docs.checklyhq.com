@@ -128,6 +128,6 @@ When retries are enabled through the "Double-check on failure" setting, tabs wil
 1. The initial failed attempt
 2. The final result (which may have failed or succeeded)
 
-By selecting a check run all data and assets are available for inspection for each attempt.
+When selecting a check run, all data and assets are available for inspection for each attempt.
 
 <!-- @TODO: add a video navigating through the tabs -->
