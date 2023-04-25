@@ -27,7 +27,7 @@ disqusShortname = "checkly"
     weight = 20
 
 [[menu.started]]
-	name = "Overview"
+	name = "Introduction"
 	url = "/docs/"
 	weight = 1
 

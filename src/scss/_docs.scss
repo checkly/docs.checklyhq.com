@@ -463,15 +463,23 @@
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
-      margin-top: 40px;
+      margin-top: 20px;
+
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+      }
 
       .image-wrap {
         width: 42px;
         margin-right: 1rem;
+        margin-bottom: 1rem;
       }
 
       .text-wrap {
-        width: calc(100% - 58px);
+        //width: calc(100% - 58px);
+
 
         h2 {
           margin: 3px 0;
@@ -484,8 +492,15 @@
         }
 
         p {
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 16px;
+          line-height: 1.6;
+        }
+      }
+
+      .basic-card {
+        transition: box-shadow .15s ease-out,transform .15s ease-out,opacity .15s ease-out;
+        &:hover {
+          box-shadow: 0px 1px 2px rgba(2,8,20,.06),0px 2px 8px rgba(2,8,20,.08);
         }
       }
 
@@ -494,18 +509,24 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
+        padding: 20px 24px;
+        border-radius: 6px;
+        border: 1px solid $gray-light;
       }
 
       .two-column-card {
-        width: 47%;
+        width: 49%;
         display: flex;
         justify-content: space-between;
+        padding: 20px 24px;
+        border-radius: 6px;
+        border: 1px solid $gray-light;
       }
       .three-column-card {
         width: calc((100% - 50px)/3);
         display: flex;
         justify-content: space-between;
-        padding: 20px;
+        padding: 20px 24px;
         border-radius: 6px;
         border: 1px solid $gray-light;
 

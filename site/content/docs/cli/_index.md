@@ -8,13 +8,12 @@ menu:
     identifier: getting-started-cli
 ---
 
-The Checkly CLI (now in beta) gives you a JavaScript/TypeScript-native **workflow** for coding, testing and deploying synthetic
-monitoring at scale, from your code base. We call this workflow **monitoring as code** (MaC).
+The Checkly CLI gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic
+monitoring at scale, from your code base.
 
 - **Unite E2E testing & monitoring in one workflow.** No more silos between Dev, QA and Ops.
 - **Programmable, testable, reviewable.** Works with your dev pipeline. From your IDE, via PR to CI.
 - **Native `@playwright/test` support.** No lock-in, just write standard `*.spec.ts` files.
-- **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
 - **Typescript-first.** Fully typed for a stellar developer experience with code completion.
 - **Run in the cloud or on-prem.** Run on the Checkly cloud or in your network using the [Private Locations](https://www.checklyhq.com/docs/private-locations/)
 
