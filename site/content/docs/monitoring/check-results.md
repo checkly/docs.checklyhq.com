@@ -16,7 +16,7 @@ Select a check and you will see a breakdown of its recent runs, together with ke
 
 ### Summary section
 
-The summary at the top of the page allows for filtering based all of the page's data points based on the selected timeframe and locations. 
+The summary at the top of the page allows for filtering based on all of the page's data points and the selected timeframe and locations. Retried check runs do not influence this section and only final results are taken into account.
 
 <img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-bar.png"/>
 
@@ -29,6 +29,13 @@ Single check runs can be accessed by selecting them on the time ribbon or by hov
 <img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-time-ribbon.png"/>
 
 Selecting a check execution will take you to the dedicated check result page for it, which will look different based on whether you had been running a [Browser](#browser-check-results) or an [API check](#api-check-results).
+
+When retries are enabled, an additional icon highlights that the check result contains multiple check runs. All attempts as well as the final result are available to view.
+
+The check retries ratio indicates how many of the total checks run were executed twice due to an initial failed attempt.
+
+<!-- @TODO: add screenshot of new ribbon (tooltip preview + result table) -->
+
 
 {{< info >}}
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
@@ -113,3 +120,14 @@ These include:
     d. First Byte
 
     e. Download
+
+
+## Check results with retries
+
+When retries are enabled through the "Double-check on failure" setting, tabs will indicate that the check result contains multiple check runs:
+1. The initial failed attempt
+2. The final result (which may have failed or succeeded)
+
+By selecting a check run all data and assets are available for inspection for each attempt.
+
+<!-- @TODO: add a video navigating through the tabs -->
