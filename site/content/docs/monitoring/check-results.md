@@ -124,7 +124,7 @@ These include:
 
 ## Check results with retries
 
-When retries are enabled through the "Double-check on failure" setting, tabs will indicate that the check result contains multiple check runs:
+When retries are enabled through the "[Double-check on failure](/docs/alerting/#double-checking)" setting, tabs will indicate that the check result contains multiple check runs:
 1. The initial failed attempt
 2. The final result (which may have failed or succeeded)
 
