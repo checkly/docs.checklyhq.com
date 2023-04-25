@@ -16,7 +16,7 @@ Select a check and you will see a breakdown of its recent runs, together with ke
 
 ### Summary section
 
-The summary at the top of the page allows for filtering based on all of the page's data points and the selected timeframe and locations. Retried check runs do not influence this section and only final results are taken into account.
+The summary at the top of the page allows for filtering based on the page's data points and the selected timeframe and locations. Retried check runs do not influence this section; only the final results are considered.
 
 <img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-bar.png"/>
 
