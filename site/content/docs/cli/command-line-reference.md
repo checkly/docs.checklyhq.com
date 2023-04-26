@@ -107,11 +107,13 @@ List all available runtimes and their dependencies.
 
 ## `npx checkly env`
 
-The checkly env command is used to manage Environment Variables of a Checkly account, providing functionality to list, add, remove, update and export.
+The `checkly env` command is used to manage the environment variables of a Checkly account. You can list, add, remove, 
+update and export environment variables.
 
 ### `npx checkly env pull`
 
-The checkly env pull sub-command will export development environment variables to a local .env file or a different file of your choice.
+The `checkly env pull` sub-command exports environment variables from your Checkly account to a local `.env` file or a 
+different file of your choice.
 
 ```bash
 checkly env pull [FILENAME] [-f]
@@ -123,7 +125,7 @@ checkly env pull [FILENAME] [-f]
 ```bash
 npx checkly env pull -f
 ```
-Pull all environment variables to the .env file and overwrite it if it already exists.
+Pull all environment variables to the `.env` file and overwrite it if it already exists.
 
 ### `npx checkly env ls`
 
@@ -135,7 +137,7 @@ checkly env ls
 
 ### `npx checkly env add`
 
-Add environment variable.
+Adds an environment variable.
 
 ```bash
 checkly env add [KEY] [VALUE] [-l]
@@ -143,11 +145,11 @@ checkly env add [KEY] [VALUE] [-l]
 
 - `KEY`: Environment variable key.
 - `VALUE`: Environment variable value.
-- `--locked` or `-l`: Indicate that the environment variable will be locked.
+- `--locked` or `-l`: Indicate that the environment variable will be locked, making it private to all read only users.
 
 
 ### `npx checkly env update`
-Update global environment variable.
+Updates a global environment variable.
 
 ```bash
 checkly env update [KEY] [VALUE] [-l]
@@ -155,11 +157,11 @@ checkly env update [KEY] [VALUE] [-l]
 
 - `KEY`: Environment variable key.
 - `VALUE`: Environment variable value.
-- `--locked` or `-l`: Indicate that the environment variable will be locked.
+- `--locked` or `-l`: Indicate that the environment variable will be locked,  making it private to all read only users.
 
 ### `npx checkly env rm`
 
-Remove global environment variable.
+Remove a global environment variable.
 
 ```bash
 checkly env rm [KEY] [-f]
