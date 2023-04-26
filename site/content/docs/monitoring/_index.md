@@ -36,5 +36,4 @@ A picture is a thousand words:
 Teardown scripts are run *before* any assertions are validated.
 5. The result is stored in our central database.
 6. If the check fails and “double-check” is enabled, the process starts over from a different location. The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations. Any setup & teardown scripts are run again as part of the process.
-7. When applicable, alerts are sent out in requested channels.
-
+7. Alerts are sent out in requested channels when the sequence is complete. It's considered complete when the check run was successful or the final attempt was executed. We will send alerts only if the final attempt has failed (no alerts sent for the initial attempts)
