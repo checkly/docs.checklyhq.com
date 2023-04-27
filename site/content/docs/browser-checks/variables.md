@@ -76,7 +76,7 @@ test('Github login', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-> You can access the current data center location using the implicit `process.env.REGION` variable. This resolve to the AWS region name, i.e. 'us-east-1'
+You can access the current data center location using the implicit `process.env.REGION` variable. This resolve to the AWS region name, i.e. `us-east-1`
 
 
 ## Variable hierarchy
@@ -84,9 +84,7 @@ test('Github login', async ({ page }) => {
 As browser checks are scheduled, Checkly merges the check, group and global environment variables into one data set and exposes them
 to the runtime environment. During merging, any check variable with the same name as a global or group variable **overrides that variable.**
 
-Or in another words:
-
-> **check** variables trump **group** variables trump **global** variables.
+Or, in other words: **check** variables trump **group** variables trump **global** variables.
 
 You can make use of this by providing a default value for a specific variable at the global or group level, but allow that variable to
 be overridden at the check level.

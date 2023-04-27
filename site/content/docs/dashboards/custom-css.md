@@ -18,7 +18,9 @@ Editing works like this.
 - Open the **hints** tab so see all the classes available for you to target.
 - Make some edits, hit **Save dashboard** and reload your dashboard.
 
-> Custom CSS is available on any paid Checkly plan.
+{{< info >}}
+Custom CSS is available on any paid Checkly plan.
+{{< /info >}}
 
 ## Styling examples
 

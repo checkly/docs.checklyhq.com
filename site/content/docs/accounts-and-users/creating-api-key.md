@@ -6,10 +6,7 @@ menu:
     parent: "Accounts & Users"
 ---
 
-The Checkly public API uses API keys to authenticate requests. API keys are unique to the user and not tied to an account. 
-
->Be aware that account-scoped API keys will be deprecated soon. Please create an API key for your user account in [User Settings](https://app.checklyhq.com/settings/user/).
-
+The Checkly public API uses API keys to authenticate requests. API keys are unique to the user and not tied to an account.
 
 **Steps to create an API key:** 
 
@@ -22,9 +19,7 @@ The Checkly public API uses API keys to authenticate requests. API keys are uniq
 ## Using an API key
 
 Use the API key as a Bearer token in the Authorization header when calling the Checkly API, e.g.
-
 You also need to set your target Account ID, you can find the Checkly Account ID under your [Account Settings](https://app.checklyhq.com/settings/account/general). If you don’t have access to account settings, please contact your account owner/admin.
-
 
 ```sh
 curl -H "Authorization: Bearer my_token" -H "X-Checkly-Account: my_account_ID" https://api.checklyhq.com/v1/checks

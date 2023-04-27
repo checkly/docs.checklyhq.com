@@ -28,33 +28,7 @@ Regardless of the provider or platform you use, integrating Checkly into your CI
 
 The preferred and most flexible way to integrate Checkly with your CI/CD platform is through the [Checkly CLI](/docs/cli).
 
-<div class="cards-list">
-{{< doc-card
-	class="three-column-card"
-	headerTag="h3"
-	title="GitHub Actions"
-	img="/docs/images/icons/github-icon-dark.svg"
-	description="Run the Checkly CLI from GitHub Actions, export summary reports and integrate with mono repos"
-	link="/docs/cicd/github-actions/"
->}}
-{{< doc-card
-	class="three-column-card"
-    headerTag="h3"
-    title="Jenkins"
-    img="/docs/images/icons/jenkins-logo.svg"
-    description="Run the Checkly CLI from Jenkins."
-    link="/docs/cicd/jenkins/"
->}}
-{{< doc-card
-	class="three-column-card"
-    headerTag="h3"
-    title="GitLab CI"
-    img="/docs/images/icons/gitlab-logo.svg"
-    description="Run the Checkly CLI from GitLab CI pipelines, using separate e2e-test and deploy jobs."
-    link="/docs/cicd/gitlabci/"
->}}
-</div>
-
+{{< markdownpartial "/_shared/main-cicd-cards.md" >}}
 
 ## CI/CD Integration using webhooks
 

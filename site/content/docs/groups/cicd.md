@@ -5,6 +5,7 @@ weight: 28
 menu:
   resources:
     parent: "Groups"
+cli: true
 ---
 
 Triggering a group of checks in your CI/CD pipeline works exactly the same as triggering a single check. 

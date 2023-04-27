@@ -13,9 +13,6 @@ cli: true
 
 API checks consist of few parts:
 
-> The following phases are executed under the hood by the Node.js [request](https://www.npmjs.com/package/request/v/2.88.2) library and the [chai.js](https://www.npmjs.com/package/chai/v/4.3.4) assertions library. All public checks are executed on Amazon's AWS Lambda infrastructure.
-
-
 **1. Name and tags**
 
 Start as you mean to go on. Pick a sensible name, something that other members of your team are going to understand. A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide better a better alerting experience if your checks fall into an alert state.

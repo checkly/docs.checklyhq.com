@@ -32,9 +32,9 @@ To power your Browser checks, Checkly uses **[Playwright Test](https://playwrigh
 While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues, [learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
 
 
-{{< info >}}
-We have stopped support for Puppeeteer with runtime 2022.10. [Read more about our reasons](/docs/browser-checks/#what-about-puppeteer).
-{{< /info >}}
+{{< warning >}}
+We have stopped support for Puppeteer with runtime 2022.10. [Read more about our reasons](/docs/browser-checks/#what-about-puppeteer).
+{{< /warning >}}
 
 The following code is a valid Browser check using Playwright Test.
 

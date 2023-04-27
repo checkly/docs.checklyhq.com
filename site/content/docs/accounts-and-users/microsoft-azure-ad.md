@@ -10,8 +10,6 @@ aliases:
 
 This page illustrates the standard procedure to follow in order to get started with Microsoft Azure AD SSO on Checkly.
 
-> SSO is only available for Checkly's [enterprise plans](/pricing).
-
 ## Initial SSO configuration
 
 Setting up SSO for your organisation starts with providing [Checkly Support](mailto:support@checklyhq.com) with the following information:
@@ -28,4 +26,6 @@ After configuration has taken place on Checkly's side, you will receive confirma
 
 After submitting the Checkly login form, you should be redirected to your SSO login interface. Completing the login procedure will then lead you to your existing Checkly account, if you have one, or to the new account creation screen, in case you don't.
 
-> Note: once Microsoft Azure AD has been set up, you will still need to invite new users from your organization to your Checkly account, as they will not be added automatically.
+{{< info >}}
+Once Microsoft Azure AD has been set up, you will still need to invite new users from your organization to your Checkly account, as they will not be added automatically.
+{{< /info >}}

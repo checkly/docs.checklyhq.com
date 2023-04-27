@@ -9,6 +9,8 @@ Monitoring as code is a methodology for managing your monitoring infrastructure 
 2. **Test** — Run your monitors as E2E tests against production and staging from your CI pipeline. 
 3. **Deploy** — Deploy and lifecycle your monitoring alongside your application deployments.
 
+With MaC, your synthetic monitoring is now programmable, testable, reviewable and works with your dev pipeline. From your IDE, via PR to CI.
+
 ## Get started with monitoring as code
 
 Get started with monitoring as code by picking the right integration for your team. We recommend using the **Checkly CLI**

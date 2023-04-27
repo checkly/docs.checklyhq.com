@@ -6,7 +6,9 @@ menu:
     parent: "Dashboards"
 ---
 
-> Legacy Dashboards will be deprecated June 1st 2023.
+{{< warning >}}
+Legacy Dashboards will be deprecated June 1st 2023.
+{{< /warning >}}
 
 ## Migrating to Dashboards V2
 
