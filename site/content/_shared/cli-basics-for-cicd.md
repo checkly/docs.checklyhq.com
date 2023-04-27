@@ -13,12 +13,13 @@ When using the `--record` flag, the CLI will attempt to parse `git` specific inf
 the environment to display in the recorded test session as metadata. However, you can also set these data items specifically 
 by using environment variables.
 
-| variable                            | description                                 |
-|-------------------------------------|---------------------------------------------|
-| `CHECKLY_TEST_REPO_SHA`             | The SHA of the commit.                      |
-| `CHECKLY_TEST_REPO_URL`             | The URL of your repo on GitHub, GitLab etc. |
-| `CHECKLY_TEST_REPO_BRANCH`          | The branch name.                            |
-| `CHECKLY_TEST_REPO_COMMIT_OWNER`    | The committer's name or email.              |
-| `CHECKLY_TEST_REPO_COMMIT_MESSAGE`  | The commit message.                         |
+| variable                           | description                                |
+|------------------------------------|--------------------------------------------|
+| `CHECKLY_TEST_REPO_SHA`            | The SHA of the commit.                     |
+| `CHECKLY_TEST_REPO_URL`            | The URL of your repo on GitHub, GitLab etc.|
+| `CHECKLY_TEST_REPO_BRANCH`         | The branch name.                           |
+| `CHECKLY_TEST_REPO_COMMIT_OWNER`   | The committer's name or email.             |
+| `CHECKLY_TEST_REPO_COMMIT_MESSAGE` | The commit message.                        |
+| `CHECKLY_TEST_ENVIRONMENT`         | The environment name, e.g. "staging"       |
 
 Check the [CLI command line reference](/docs/cli/command-line-reference) for more options.

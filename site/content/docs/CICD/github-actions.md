@@ -57,8 +57,7 @@ jobs:
           ref: "${{ github.event.deployment_status.deployment.ref }}"
           fetch-depth: 1
       - name: Set branch name # this is workaround to get the branch name.
-        run: |
-          echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV       
+        run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV       
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
