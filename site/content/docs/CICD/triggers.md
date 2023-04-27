@@ -1,6 +1,6 @@
 ---
 title: Command Line triggers
-weight: 45
+weight: 10
 aliases:
     - /api-checks/triggers
     - /browser-checks/triggers

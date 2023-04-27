@@ -6,7 +6,8 @@ menu:
     parent: "Terraform provider"
     identifier: getting-started-terraform
 aliases:
-- /terraform-provider/getting-started/
+    - /terraform-provider/getting-started/
+    - /docs/integrations/terraform/
 ---
 
 {{<warning>}}

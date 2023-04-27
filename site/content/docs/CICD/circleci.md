@@ -1,6 +1,6 @@
 ---
 title: CircleCI
-weight: 38
+weight: 6
 menu:
   integrations:
     parent: "CI/CD integration"

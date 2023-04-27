@@ -1,6 +1,6 @@
 ---
 title: Overview
-weight: 36
+weight: 1
 slug: /
 menu:
   integrations:
@@ -9,27 +9,27 @@ aliases:
 - /docs/cicd/
 ---
 
-Checkly enables you to trigger **single checks or groups of checks** as you deploy your code from your CI/CD pipeline. 
+Core to Checkly's monitoring as code approach is running your checks from your CI/CD pipeline and use them as E2E tests.
 
-The easiest way to get started is by using our Vercel integration or GitHub integration. Both require minimal setup.
-The direct Vercel integration also works with GitLab and Bitbucket.
+With this approach, you can validate your application and infrastructure before deploying to production, staging or any other environments.
+Simultaneously , you can life cycle (create/update/delete) your checks from your code base as part of your CI/CD workflow.
+
+
+## CI/CD Integration with the Checkly CLI
+
+The preferred and most flexible way to integrate Checkly with your CI/CD platform is through the [Checkly CLI](/docs/cli).
+
+- [GitHub Actions](/docs/cicd/github-actions)
+- [Jenkins](/docs/cicd/jenkins/)
+- [GitLab CI](/docs/cicd/gitlabci)
+- [CircleCI](/docs/cicd/circleci/)
+- [Codeship](/docs/cicd/codeship/)
+
+## CI/CD Integration using webhooks
 
 - [GitHub deployments](/docs/cicd/github/)
 - [Vercel](/docs/cicd/vercel/)
 
-You can also integrate with your CI/CD using our API directly:
-
-- [CircleCI](/docs/cicd/circleci/)
-- [Codeship](/docs/cicd/codeship/)
-- [Heroku](/docs/cicd/heroku/)
-- [Jenkins](/docs/cicd/jenkins/)
-- [Travis CI](/docs/cicd/travisci/)
-- [GitLab CI](/docs/cicd/gitlabci)
-
 For any other platform, check out how to use our command line trigger API:
 
 - [Command Line triggers](/docs/cicd/triggers/)
-
-{{<info >}}
-Note that failed checks triggered by CI/CD integrations won't send alert notifications, because their purpose is to block and monitor pre-production environments.
-{{</info >}}
