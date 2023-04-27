@@ -1,7 +1,7 @@
 import { defineConfig } from '@checkly/cli'
 
 const config = defineConfig({
-  projectName: 'Production E2E MaC - checklyhq.com',
+  projectName: 'www.checklyhq.com',
   logicalId: 'checkly-production-e2e-mac-checklyhq-com-1',
   repoUrl: 'https://github.com/checkly/checklyhq.com',
   checks: {
