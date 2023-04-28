@@ -320,6 +320,20 @@ Alert channels are assigned to Checks and CheckGroups by instantiating a class a
 > Note that alert channels are only deployed to your Checkly account when referenced explicitly in the `alertChannels`
 property of a Project, CheckGroup or Check.
 
+### Using `fromId()` to reference an existing channel
+
+You can reference an existing alert channel in your Checkly account using the `fromId()` method on any `AlertChannel`
+class. This enables you to share an alert channel resource between different projects living in different code repositories.
+
+```ts
+export const emailChannel = EmailAlertChannel.fromId(20)
+```
+
+You can fetch the ID for your alert channel from web UI or using our REST API.
+
+![email channel id](/docs/images/cli/constructs_email_id@2x.jpg)
+
+
 ## `SMSAlertChannel`
 
 Sends SMS notifications to phone number. Make sure to use standard international notation.
