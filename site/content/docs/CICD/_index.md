@@ -30,11 +30,7 @@ The preferred and most flexible way to integrate Checkly with your CI/CD platfor
 
 {{< markdownpartial "/_shared/main-cicd-cards.md" >}}
 
-## CI/CD Integration using webhooks
+## CI/CD Integration using vendor webhooks
 
-- [GitHub deployments](/docs/cicd/github/)
 - [Vercel](/docs/cicd/vercel/)
-
-For any other platform, check out how to use our command line trigger API:
-
-- [Command Line triggers](/docs/cicd/triggers/)
+- [GitHub deployments](/docs/cicd/github/)

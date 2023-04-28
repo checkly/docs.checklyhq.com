@@ -12,6 +12,11 @@ menu:
     parent: "CI/CD integration"
 ---
 
+{{< warning >}}
+Command line triggers are deprecated in favour of using the [Checkly CLI](/docs/cli). You can use the `npx checkly trigger` command
+as a drop-in replacement. [See the reference for `trigger` command](/docs/cli/command-line-reference/#npx-checkly-trigger)
+{{< /warning >}}
+
 Triggers enable you to call a check from a CI/CD pipeline, a bash shell or programmatically in your code.
 
 Start by creating a trigger URL from the **CI/CD** tab of your check:

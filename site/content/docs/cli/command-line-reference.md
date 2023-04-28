@@ -97,13 +97,13 @@ different, as there are no files to reference for instance.
 npx checkly trigger
 ```
 
-Trigger checks tagged with "production" and "api".
+Trigger checks tagged with "production" and "api" and pass in an `ENVIRONMENT_URL`.
 
 ```bash
-npx checkly trigger --tags=production,api
+npx checkly trigger --tags=production,api -e ENVIRONMENT_URL=https://staging.acme.com
 ```
 
-Trigger all checks to run in location `eu-west-1` and record a test session named "Adhoc test run"
+Trigger all checks to run in location `eu-west-1` and record a test session named "Adhoc test run".
 
 ```bash
 npx checkly trigger --record --test-session-name="Adhoc test run" --location=eu-west-1
