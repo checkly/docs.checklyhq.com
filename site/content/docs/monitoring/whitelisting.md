@@ -2,7 +2,7 @@
 title: Whitelisting & filtering traffic
 weight: 6
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 
@@ -87,10 +87,7 @@ await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
 ![filter google analytics traffic on campaign source](/docs/images/monitoring/analytics.png)
 
 For detailed instructions, see [the Google Analytics docs on custom filters](https://support.google.com/analytics/answer/1033162#CustomFilters).
-
-{{<info>}}
-Note, it will take some hours for this to take effect.
-{{</info>}}
+Note that this will take some hours for this to take effect.
 
 ## Default Checkly user agent
 

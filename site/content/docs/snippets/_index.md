@@ -7,7 +7,7 @@ aliases:
 - "/docs/browser-checks/partials-code-snippets/"
 
 menu:
-  docs:
+  resources:
     parent: "Snippets"
 ---
 

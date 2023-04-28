@@ -2,7 +2,7 @@
 title: Responsible use
 weight: 7
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 aliases:
   - /docs/browser-checks/responsible-use/

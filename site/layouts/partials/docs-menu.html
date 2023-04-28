@@ -1,40 +1,24 @@
 <aside class="docs-menu">
   <nav id="sideMenu" class="left-transform right-transform">
+    <span class="docs-menu-category">Getting Started</span>
     <ul class="docs-menu-content">
       {{ $currentPage := . }}
-      {{ range $index, $element:=.Site.Menus.docs }} {{ if .HasChildren }}
-      <li class='docs-menu-item'>
-        <div class='docs-menu-title{{ if $currentPage.HasMenuCurrent "docs" . }} active{{ end }}' id="{{$index}}">
-          {{.Name}}
+      {{ range $index, $element:=.Site.Menus.started }}
+      <li class="docs-menu-item" id="docs-menu-reference-getting-started-{{$index}}">
+        <div class="docs-menu-reference-link">
+          <a href="{{.URL}}">
+            {{ .Name }}
+          </a>
         </div>
-        <ul class='docs-menu-sub {{ if $currentPage.HasMenuCurrent "docs" . }}menu-display{{ end }}' id="docs-menu-{{$index}}">
-          {{range .Children}} {{ $has := $currentPage.IsMenuCurrent "docs" . }}
-          <li class="docs-menu-sub-item {{if $has}}active{{end}}">
-            <a href="{{.URL}}">
-              {{ partial "docs-title" . }}
-            </a>
-
-            {{if .Children}}
-              <ul>
-              {{range .Children}} {{ $has := $currentPage.IsMenuCurrent "docs" . }}
-                <li class="docs-menu-sub-item {{if $has}}active{{end}}">
-                  <a href="{{.URL}}">
-                    {{ partial "docs-title" . }}
-                  </a>
-                </li>
-              {{end}}
-            </ul>
-            {{end}}
-          </li>
-          {{end}}
-        </ul>
       </li>
-      {{else}}
-      <li class="docs-menu-item" id="docs-menu-{{$index}}">
-        <div class="docs-menu-title">{{.Name}}</div>
-      </li>
-      {{end}} {{end}}
+      {{end}}
     </ul>
+    <span class="docs-menu-category">Core Platform</span>
+    {{ partial "docs-menu-walk" (dict "menuID" "platform" "page" .) }}
+    <span class="docs-menu-category">Resources</span>
+    {{ partial "docs-menu-walk" (dict "menuID" "resources" "page" .) }}
+    <span class="docs-menu-category">Integrations</span>
+    {{ partial "docs-menu-walk" (dict "menuID" "integrations" "page" .) }}
     <span class="docs-menu-category">Reference</span>
     <ul class="docs-menu-content">
       {{ $currentPage := . }}

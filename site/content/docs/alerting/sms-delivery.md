@@ -2,7 +2,7 @@
 title: SMS delivery
 weight: 34
 menu:
-  docs:
+  resources:
     parent: "Alerting"
 ---
 

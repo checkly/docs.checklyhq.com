@@ -2,7 +2,7 @@
 title: Adding team members
 weight: 51
 menu:
-  docs:
+  resources:
     parent: "Accounts & Users"
 aliases:
 - "/docs/teams/adding-team-members/"

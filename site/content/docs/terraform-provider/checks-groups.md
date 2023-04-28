@@ -2,7 +2,7 @@
 title: Checks and groups
 weight: 2
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

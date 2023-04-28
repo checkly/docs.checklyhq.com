@@ -2,8 +2,9 @@
 title: Alert channels
 weight: 31
 menu:
-  docs:
+  resources:
     parent: "Alerting"
+cli: true
 ---
 
 You can add as many of the following alert channels as you want:

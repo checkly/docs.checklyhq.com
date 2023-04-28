@@ -2,7 +2,7 @@
 title: StatusPage
 weight: 64
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

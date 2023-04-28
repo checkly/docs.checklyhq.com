@@ -2,8 +2,9 @@
 title: Webhooks
 weight: 35
 menu:
-  docs:
+  resources:
     parent: "Alerting"
+cli: true
 ---
 
 Webhooks allow you to POST custom payloads to any endpoint in your own infrastructure or a third party provider. In a

@@ -2,7 +2,7 @@
 title: Splunk On-Call
 weight: 63
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

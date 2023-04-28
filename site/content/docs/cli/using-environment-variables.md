@@ -2,7 +2,7 @@
 title: Using environment variables
 weight: 6
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
@@ -28,7 +28,7 @@ variable. Note the exclamation mark `!` at the end. This is to tell the Typescri
 Alternatively you can use a string template.
 
 ```ts
-import { SmsAlertChannel } from '@checkly/cli/constructs'
+import { SmsAlertChannel } from 'checkly/constructs'
 
 export const smsChannel = new SmsAlertChannel('sms-channel-1', {
   phoneNumber: process.env.PHONE_NUMBER!

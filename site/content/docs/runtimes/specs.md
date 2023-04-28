@@ -2,10 +2,11 @@
 title: Runtime specification
 weight: 70
 menu:
-  docs:
+  resources:
     parent: "Runtimes"
 aliases:
   - /docs/browser-checks/runner-specification/
+cli: true
 ---
 
 By default, all our runners have their timezone set to UTC, regardless of their location.
