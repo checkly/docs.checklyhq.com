@@ -1,72 +1,86 @@
 ---
 title: Jenkins
-weight: 40
+weight: 3
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
 
-You can trigger your checks from your Jenkins builds. Below are two examples that leverage the 
-Checkly [command line trigger](/docs/cicd/triggers/) feature to run checks through Jenkins Pipelines or standalone jobs.
+## Using the CLI in a CI/CD pipeline
 
-In both cases, you will need to set your `CHECKLY_TOKEN` as an environment variable for your job. This allows it to be picked up by the trigger command without the need to expose it in plain text in your repository.
+{{< markdownpartial "/_shared/cli-basics-for-cicd.md" >}}
 
-![Jenkins Pipeline Checkly Token Config](/docs/images/cicd/jenkins-param.png)
+## Configuring Jenkins to run the Checkly CLI
 
-_Note: the Checkly Token is the very last part of the check's command line trigger URL._
+As the Checkly CLI is a Node.js project, the main step you need to take is install the NodeJS plugin.
 
-## Jenkins Pipelines example
-This `Jenkinsfile` is from our [checkly-ci-test GitHub repo](https://github.com/checkly/checkly-ci-test). This file contains different stages (here shown as generic placeholders) going from application build to deployment, with an added post-deployment stage to trigger Checkly checks and mark the build passed or failed depending on the outcome.
+1. In Jenkins, go to **Manage Jenkins → Plugins → Available plugins** and look for the NodeJS plugin and install it.
+2. After installing the NodeJS plugin, we need to configure it. Head over to **Manage Jenkins → Tools** and click "Add NodeJS"
 
-The content of each previous stage will of course be highly specific to your stack, environment and build process.
+![Jenkins Nodejs  config](/docs/images/cicd/cicd_jenkins_node.png)
+
+
+We recommend using any Node.js stable version higher than 16.x.
+
+## Set your Checkly credentials
+
+Navigate to **Manage Jenkins → Manage Credentials** to add your Checkly account ID and API key to your preferred scope.
+Store them as "secret text" and assign and ID to the credential.
+
+![Jenkins Nodejs  config](/docs/images/cicd/cicd_jenkins_credentials.png)
+
+## Configuring the Jenkins Pipeline
+
+Add the `Jenkinsfile` to your repo that defines the basic stages and steps. Make sure to set up your SCM settings
+correctly so Jenkins can fetch your git repo and look for the `Jenkinsfile` in the root of your project.
+
+![Jenkins Nodejs  config](/docs/images/cicd/cicd_jenkins_scm_setup.png)
+
+
+
+The actual contents of your `Jenkinsfile` will differ based on your code and how you deploy. But in general, your pipeline
+should look as follows:
+
+1. You deploy your application first.
+2. You install the required dependencies for the Checkly CLI.
+3. You run the `checkly test` command.
+
 ```groovy
-// The pipeline structure hinted at is just to contextualise the example
+// Jenkinsfile
 pipeline {
     agent any
-    stages {
-            
-        stage('Build') {
-            steps {
-                // ...
-            }
-        }
 
+    tools {nodejs "Node 18"}
+    environment {
+        CHECKLY_API_KEY = credentials('checkly-api-key')
+        CHECKLY_ACCOUNT_ID = credentials('checkly-account-id')
+        CHECKLY_TEST_ENVIRONMENT='production'
+    }
+
+    stages {
         stage('Deploy') {
             steps {
-                // ...
+                echo 'Deploying....'
             }
         }
-
-        // ...
-
-        // The interesting part happens here. We use an additional pipeline stage to trigger Checkly and either pass or fail the build.
-        stage('Trigger Checkly') {
+        stage('Dependencies') {
             steps {
-                sh 'echo "Deployment finished."'
-                // Call Checkly trigger
-                sh 'curl "https://api.checklyhq.com/check-groups/4/trigger/${CHECKLY_TOKEN}" > ${PWD}/checkly.json'
-                // Exit with an error status if we find more than 0 "hasFailures: true" in the output
-                sh 'if [ $(grep -c \'"hasFailures":true\' $PWD/checkly.json) -ne 0 ]; then exit 1; fi'
+                sh 'npm ci'
+            }
+        }
+        stage('checkly test') {
+            steps {
+                sh 'npx checkly test --record'
+            }
+        }
+        stage('checkly deploy') {
+            when {
+                branch "main"
+            }
+            steps {
+                sh 'npx checkly deploy --force'
             }
         }
     }
 }
 ```
-
-## Standalone Jenkins job config example
-If you are not using Jenkins Pipelines, you can leverage Checkly in your standalone Jenkins jobs by adding a build step to kick off your checks. Just select `Execute shell` as build step type and paste in your shell commands.
-
-An example could look like the following:
-
-![Jenkins Job Checkly Build Config](/docs/images/cicd/jenkins-freestyle-build.png)
-
-{{< info >}}
-This is a v1 integration. We are working on providing better feedback, longer runs, GitHub PR feedback and more customization options
-for checks triggered directly via the API. 
-{{< /info >}}
- 
- {{< warning >}}
- The total run time of all checks cannot exceed 30 seconds or you will receive a timeout error. 
- {{< /warning >}}
-  
-

@@ -2,7 +2,7 @@
 title: Check results
 weight: 2
 menu:
-  docs:
+   platform:
     parent: "Monitoring"
 ---
 

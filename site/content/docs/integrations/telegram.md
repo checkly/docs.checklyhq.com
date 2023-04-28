@@ -2,7 +2,7 @@
 title: Telegram
 weight: 58
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

@@ -2,8 +2,8 @@
 title: Incident & Maintenance messages
 weight: 50
 menu:
-  docs:
-    parent: "Dashboards V2"
+  resources:
+    parent: "Dashboards"
 ---
 
 Using **Incidents** you can communicate outages and planned maintenance to your audience — customers, co-workers, partners —
@@ -16,7 +16,9 @@ different custom domains). Use cases are:
 2. You have multiple internal teams, managing different services in your stack.
 3. You have a staging and production environment you want to keep tabs on.
 
-> Incidents are available on any paid Checkly plan.
+{{< info >}}
+Incidents are available on any paid Checkly plan.
+{{< /info >}}
 
 ## Creating incidents
 

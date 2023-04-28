@@ -2,8 +2,9 @@
 title: Assertions
 weight: 10
 menu:
-  docs:
+  resources:
     parent: "API checks"
+cli: true
 ---
 
 The response of an API request can be checked for correctness and timeliness by using assertions on the response data. Assertions are flexible statements that combine preset modifiers with custom values to meet the needs of a broad set of use cases.

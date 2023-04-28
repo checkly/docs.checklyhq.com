@@ -4,8 +4,9 @@ weight: 21
 aliases:
 - multiple-tabs
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 Certain scenarios may require us to create new or multiple tabs simultaneously. Playwright Test supports this case and, as a consequence, Checkly does as well.

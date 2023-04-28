@@ -19,7 +19,7 @@ alias:
         <a href="https://app.checklyhq.com/signup"><button type="button" class="btn btn-primary b-cta">Sign up for Free</button></a>
         <div class="mx-3 my-2"></div>
         <div id="copy-cli-installation-code" class="code-block dark d-flex justify-content-center align-items-center mt-lg-3 mt-xl-0">
-          <pre id="cli-installation-pre"><code id="cli-installation-code">npm create @checkly/cli</code></pre>
+          <pre id="cli-installation-pre"><code id="cli-installation-code">npm create checkly</code></pre>
         </div>
       </div>
       <div class="d-flex mt-2 justify-content-center justify-content-md-start">
@@ -225,7 +225,7 @@ Successfully deployed project "Monitoring as code" to account "Production".
                     </div>
                     <div class="mx-3 md-mx-0 mb-3 md-mb-0 d-flex align-items-center or">and</div>
                     <div class="code-block dark align-self-baseline">
-<pre><code>npm create @checkly/cli</code></pre>
+<pre><code>npm create checkly</code></pre>
                     </div>
                 </div>
             <div class="d-flex mt-3 md-mt-0">

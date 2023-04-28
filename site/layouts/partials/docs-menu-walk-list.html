@@ -1,0 +1,31 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{range $index, $element:=.menuEntries }}
+    <li class="docs-menu-item">
+      <div class="docs-menu-title{{ if $page.HasMenuCurrent .Menu . }} active{{ end }}" id="{{$menuID}}-{{$index}}">
+      {{ .Name }}
+      </div>
+        <ul class='docs-menu-sub{{ if $page.HasMenuCurrent .Menu . }} menu-display{{ end }}' id="docs-menu-{{$menuID}}-{{$index}}">
+            {{range .Children}} {{ $has := $page.IsMenuCurrent .Menu . }}
+                <li class="docs-menu-sub-item{{if $has}} active{{end}}">
+                    <a href="{{.URL}}">
+                        {{ partial "docs-title" . }}
+                    </a>
+
+                    {{if .Children}}
+                        <ul>
+                            {{range .Children}} {{ $has := $page.IsMenuCurrent .Menu . }}
+                            <li class="docs-menu-sub-item{{if $has}} active{{end}}">
+                                <a href="{{.URL}}">
+                                    {{ partial "docs-title" . }}
+                                </a>
+                            </li>
+                            {{end}}
+                        </ul>
+                    {{end}}
+                </li>
+            {{end}}
+        </ul>
+    </li>
+{{end }}

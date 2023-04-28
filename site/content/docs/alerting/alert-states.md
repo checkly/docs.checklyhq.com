@@ -2,7 +2,7 @@
 title: Alert states
 weight: 32
 menu:
-  docs:
+  resources:
     parent: "Alerting"
 ---
 

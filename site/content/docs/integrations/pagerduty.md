@@ -2,7 +2,7 @@
 title: Pagerduty
 weight: 56
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 aliases:
 - "/whats-new/introducing-sms-pagerduty/docs/alerting/pagerduty/"

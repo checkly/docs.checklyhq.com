@@ -1,12 +1,12 @@
 ---
 title: SAML
-weight: 72
+weight: 54
 menu:
-  docs:
-    parent: "Single sign-on"
+  resources:
+    parent: "Single Sign-on"
+aliases:
+  - "/docs/single-sign-on/saml"
 ---
-
-> SSO is only available for Checkly's [enterprise plans](/pricing).
 
 ## Initial SSO setup
 
@@ -35,7 +35,9 @@ Ensure your SSO IdP is sending Checkly the correct email address. Checkly can th
 }
 ```
 
-> Note: in case of issues, you might want to double-check your **Entity ID**, which should be: `urn:auth0:checkly:<YOUR_CONNECTION_ID>`
+{{< info >}}
+In case of issues, you might want to double-check your **Entity ID**, which should be: `urn:auth0:checkly:<YOUR_CONNECTION_ID>`
+{{< /info >}}
 
 ## Testing the integration
 

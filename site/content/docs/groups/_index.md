@@ -3,11 +3,12 @@ title: Overview
 weight: 26
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Groups"
     identifier: overview-groups
 aliases:
 - /docs/groups/
+cli: true
 ---
 
 Groups allow you to organize your checks and centralize settings like base URL's, headers, variables and other properties

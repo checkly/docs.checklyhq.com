@@ -3,17 +3,15 @@ title: Overview
 weight: 7
 slug: /
 menu:
-  docs:
+  resources:
     parent: "API checks"
     identifier: overview-api-checks
 aliases:
 - 'docs/api-checks'
+cli: true
 ---
 
 API checks consist of few parts:
-
-> The following phases are executed under the hood by the Node.js [request](https://www.npmjs.com/package/request/v/2.88.2) library and the [chai.js](https://www.npmjs.com/package/chai/v/4.3.4) assertions library. All public checks are executed on Amazon's AWS Lambda infrastructure.
-
 
 **1. Name and tags**
 

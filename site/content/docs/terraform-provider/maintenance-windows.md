@@ -2,7 +2,7 @@
 title: Service maintenance windows
 weight: 6
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

@@ -2,7 +2,7 @@
 title: Snippets and environment variables
 weight: 4
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

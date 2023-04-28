@@ -2,7 +2,7 @@
 title: Prometheus
 weight: 65
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

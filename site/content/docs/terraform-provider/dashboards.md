@@ -2,7 +2,7 @@
 title: Public dashboards
 weight: 5
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

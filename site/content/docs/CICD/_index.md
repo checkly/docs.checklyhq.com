@@ -1,35 +1,36 @@
 ---
 title: Overview
-weight: 36
+weight: 1
 slug: /
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 aliases:
 - /docs/cicd/
 ---
 
-Checkly enables you to trigger **single checks or groups of checks** as you deploy your code from your CI/CD pipeline. 
+Core to Checkly's monitoring as code approach is running your checks from your CI/CD pipeline and use them as E2E tests.
 
-The easiest way to get started is by using our Vercel integration or GitHub integration. Both require minimal setup.
-The direct Vercel integration also works with GitLab and Bitbucket.
+With this approach, you can validate your application and infrastructure before deploying to production, staging or any other environments.
+Simultaneously , you can life cycle (create/update/delete) your checks from your code base as part of your CI/CD workflow.
 
-- [GitHub deployments](/docs/cicd/github/)
+## CI/CD Integration 101
+
+Regardless of the provider or platform you use, integrating Checkly into your CI/CD pipeline boils down to **four basic steps**:
+
+1. Store your checks as code and `git push`. Preferably store your checks alongside your application code. Just like unit tests.
+2. Wait for your application to be deployed. This can be done through hooks, lifecycle events or wait scripts.
+3. Run your checks using `npx checkly test` and pass in any variables like an `ENVIRONMENT_URL`.
+4. If the checks pass successfully, run `npx checkly deploy`.
+
+
+## CI/CD Integration with the Checkly CLI
+
+The preferred and most flexible way to integrate Checkly with your CI/CD platform is through the [Checkly CLI](/docs/cli).
+
+{{< markdownpartial "/_shared/main-cicd-cards.md" >}}
+
+## CI/CD Integration using vendor webhooks
+
 - [Vercel](/docs/cicd/vercel/)
-
-You can also integrate with your CI/CD using our API directly:
-
-- [CircleCI](/docs/cicd/circleci/)
-- [Codeship](/docs/cicd/codeship/)
-- [Heroku](/docs/cicd/heroku/)
-- [Jenkins](/docs/cicd/jenkins/)
-- [Travis CI](/docs/cicd/travisci/)
-- [GitLab CI](/docs/cicd/gitlabci)
-
-For any other platform, check out how to use our command line trigger API:
-
-- [Command Line triggers](/docs/cicd/triggers/)
-
-{{<info >}}
-Note that failed checks triggered by CI/CD integrations won't send alert notifications, because their purpose is to block and monitor pre-production environments.
-{{</info >}}
+- [GitHub deployments](/docs/cicd/github/)

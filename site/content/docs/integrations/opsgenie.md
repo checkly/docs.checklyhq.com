@@ -2,7 +2,7 @@
 title: Opsgenie
 weight: 57
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

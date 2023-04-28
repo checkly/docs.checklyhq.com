@@ -2,9 +2,10 @@
 title: Environment variables
 weight: 9
 menu:
-  docs:
+  resources:
     parent: "API checks"
     identifier: variables-api-checks
+cli: true
 ---
 
 Multiple API checks can target the same server/service. In this case, your checks might need the same configuration item

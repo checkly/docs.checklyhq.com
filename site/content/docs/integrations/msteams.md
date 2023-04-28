@@ -2,7 +2,7 @@
 title: Microsoft Teams
 weight: 58
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

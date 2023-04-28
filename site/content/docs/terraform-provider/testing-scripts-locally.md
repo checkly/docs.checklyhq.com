@@ -2,7 +2,7 @@
 title: Testing scripts locally
 weight: 8
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

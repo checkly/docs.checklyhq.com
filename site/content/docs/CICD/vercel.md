@@ -1,9 +1,11 @@
 ---
 title: Vercel
-weight: 44
+weight: 7
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
+aliases:
+  - "/docs/integrations/vercel/"
 ---
 
 If you are using Vercel to develop, preview, and ship your application, you can natively integrate with Checkly by [installing the official integration](https://vercel.com/integrations/checkly) from the Vercel Marketplace.

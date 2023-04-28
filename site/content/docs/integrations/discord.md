@@ -2,7 +2,7 @@
 title: Discord
 weight: 61
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 
