@@ -22,7 +22,7 @@
     headerTag="h3"
     title="Jenkins"
     img="/docs/images/icons/jenkins-logo.svg"
-    description="Run the Checkly CLI from Jenkins."
+    description="Run the Checkly CLI from a Jenkins pipeline using a Jenkinsfile."
     link="/docs/cicd/jenkins/"
 >}}
 </div>
