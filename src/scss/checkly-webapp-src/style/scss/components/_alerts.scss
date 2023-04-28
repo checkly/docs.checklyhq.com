@@ -26,7 +26,6 @@
   background-size: 1rem;
 }
 
-
 .alert-white {
   padding-left: 4rem;
   background-color: $white;
@@ -39,7 +38,7 @@
 
 .alert-info-pattern {
   padding: 1.25 * $spacer;
-  background-color: #ebfaff;
+  background-color: #e7f2ff;
   @include backgroundPattern();
   background-size: 400px;
 }
