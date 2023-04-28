@@ -51,14 +51,14 @@ src/services/docs/__checks__/docs-search.spec.ts
 5 passed, 5 total
 ```
 
-Lastly, you deploy your Checks and related alert channels to Checkl,y so we run your Checks around the clock.
+Lastly, you deploy your Checks and related alert channels to Checkly, so we run your checks around the clock.
 
 ```bash
 npx checkly deploy
 ```
 
 You just created your entire synthetic monitoring setup with API and Playwright-based Browser Checks from your code base! 
-Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring around the clock.
+Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your check, ready to start monitoring around the clock.
 
 For a custom installation check out [our installation docs](/docs/cli/installation/)
 
