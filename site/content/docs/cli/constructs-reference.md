@@ -4,6 +4,8 @@ weight: 98
 menu:
   platform:
     parent: "CLI"
+aliases:
+  - /docs/cli/constructs
 ---
 
 ## `Project`
