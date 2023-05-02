@@ -77,6 +77,7 @@ derived from the abstract class `Check`.
 - `tags`: An array of tags to help you organize your Checks, i.e. `['product', 'api']`
 - `runtimeId`: The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.
 - `testOnly`: A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.
+- `shouldFail`: A boolean that indicates whether the request should fail. This only works with API checks, it allows you to treat HTTP error codes (4xx and 5xx) as correct responses.
 
 Note that most properties have sane default values and do not need to be specified.
 
@@ -170,7 +171,6 @@ for rendering the body type in the web UI and not needed in most cases using the
 - `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
 - `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
-- `shouldFail`: A boolean that indicates whether the request should fail.  This allows you to treat HTTP error codes (4xx and 5xx) as correct responses.
 - `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
 - `basicAuth`: An object of the shape `{ username: 'admin', password: 'admin' }` to set basic auth credentials.
 - `assertions`: An array of assertions to validate status codes, response bodies and much more. 
