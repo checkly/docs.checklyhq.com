@@ -94,8 +94,6 @@ used for form encoded payloads. The example below shows the following:
   - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
   - the `strict-transport-security` response header's `max-age` property has a value greater than 100000.
 - It runs a **setup script** and **teardown script**, which are just TypeScript files referenced from the same directory.
-- It determines that the check should pass with `shouldFail: false`.
-
 
 The file hierarchy looks as follows:
 
@@ -123,7 +121,6 @@ new ApiCheck('hello-api-1', {
   },
   maxResponseTime: 10000,
   degradedResponseTime: 5000,
-  shouldFail: false,
   request: {
     method: 'POST',
     url: ' https://httpbin.org/post',
@@ -173,6 +170,7 @@ for rendering the body type in the web UI and not needed in most cases using the
 - `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
 - `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
+- `shouldFail`: A boolean that indicates whether the request should fail.  This allows you to treat HTTP error codes (4xx and 5xx) as correct responses.
 - `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
 - `basicAuth`: An object of the shape `{ username: 'admin', password: 'admin' }` to set basic auth credentials.
 - `assertions`: An array of assertions to validate status codes, response bodies and much more. 
