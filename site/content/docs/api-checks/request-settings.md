@@ -2,9 +2,11 @@
 title: HTTP request settings
 weight: 8
 menu:
-  docs:
+  resources:
     parent: "API checks"
+cli: true
 ---
+
 
 A full HTTP request is created by filling out the various parts of the HTTP request settings screen. Not all sections and fields
 are mandatory, only a name and URL are required to get going.

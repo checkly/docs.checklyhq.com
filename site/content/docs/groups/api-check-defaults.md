@@ -2,8 +2,9 @@
 title: API check defaults
 weight: 27
 menu:
-  docs:
+  resources:
     parent: "Groups"
+cli: true
 ---
 
 Using a set of shared defaults for API checks helps you manage checks that go to the same basic 

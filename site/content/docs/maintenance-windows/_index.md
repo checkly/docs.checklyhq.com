@@ -3,7 +3,7 @@ title: Overview
 weight: 46
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Maintenance windows"
     identifier: overview-maintenance-windows
 aliases:

@@ -1,6 +1,6 @@
 ---
 title: Command Line triggers
-weight: 45
+weight: 10
 aliases:
     - /api-checks/triggers
     - /browser-checks/triggers
@@ -8,9 +8,14 @@ aliases:
     - /docs/browser-checks/triggers
     - /docs/cicd/trigger/
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
 ---
+
+{{< warning >}}
+Command line triggers are deprecated in favour of using the [Checkly CLI](/docs/cli). You can use the `npx checkly trigger` command
+as a drop-in replacement. [See the reference for `trigger` command](/docs/cli/command-line-reference/#npx-checkly-trigger)
+{{< /warning >}}
 
 Triggers enable you to call a check from a CI/CD pipeline, a bash shell or programmatically in your code.
 

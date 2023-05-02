@@ -2,7 +2,7 @@
 title: Slack
 weight: 55
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

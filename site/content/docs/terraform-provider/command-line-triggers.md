@@ -2,7 +2,7 @@
 title: Command line triggers
 weight: 7
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

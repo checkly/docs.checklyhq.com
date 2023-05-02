@@ -2,7 +2,7 @@
 title: Using NPM packages and local dependencies
 weight: 7
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
@@ -77,7 +77,7 @@ Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/co
 ```ts
 // login.check.ts
 
-import { BrowserCheck } from '@checkly/cli/constructs'
+import { BrowserCheck } from 'checkly/constructs'
 
 new BrowserCheck('login-check', {
   name: 'Login Check',

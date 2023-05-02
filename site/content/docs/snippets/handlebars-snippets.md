@@ -2,7 +2,7 @@
 title: Handlebars Snippets (Legacy)
 weight: 71
 menu:
-  docs:
+  resources:
     parent: "Snippets"
 ---
 

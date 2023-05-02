@@ -2,9 +2,11 @@
 title: Response time limits
 weight: 11
 menu:
-  docs:
+  resources:
     parent: "API checks"
+cli: true
 ---
+
 
 Sometimes an API is just slow, but not broken. We call that "degraded" and you can specify when an API checks should be 
 marked as degraded using the menu in the API check editor.

@@ -2,9 +2,10 @@
 title: Setup script examples
 weight: 1
 menu:
-  docs:
+  resources:
     parent: "Setup & teardown scripts"
     identifier: setup-script-examples
+cli: true
 ---
 
 ## Fetch an external token
