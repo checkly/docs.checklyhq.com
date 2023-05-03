@@ -54,7 +54,6 @@ export default defineConfig({
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/*.check.js',
     browserChecks: {
       frequency: 10,
@@ -62,7 +61,6 @@ export default defineConfig({
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
@@ -84,7 +82,6 @@ const config = defineConfig({
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/*.check.js',
     browserChecks: {
       frequency: 10,
@@ -92,7 +89,6 @@ const config = defineConfig({
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
