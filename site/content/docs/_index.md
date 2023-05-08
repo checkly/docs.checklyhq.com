@@ -6,7 +6,7 @@ Checkly unites E2E testing and monitoring in one **monitoring as code (MaC)** wo
 Monitoring as code is a methodology for managing your monitoring infrastructure using code. It consists of three key steps:
 
 1. **Code** — Define your monitoring setup as code, so you can version, automate and scale them with ease.
-2. **Test** — Run your monitors as E2E tests against production and staging from your CI pipeline. 
+2. **Test** — Run your monitors as E2E tests against production and staging from your CI pipeline.
 3. **Deploy** — Deploy and lifecycle your monitoring alongside your application deployments.
 
 With MaC, your synthetic monitoring is now programmable, testable, reviewable and works with your dev pipeline. From your IDE, via PR to CI.
@@ -30,7 +30,7 @@ for the full code, test and deploy workflow.
 class="full-width-card"
 headerTag="h3"
 title="Terraform"
-img="/docs/images/icons/plug@2x.png"
+img="/docs/images/icons/integrations.svg"
 description="Manage and scale your complete monitoring configuration right from your code base with our official Hashicorp Terraform provider."
 link="/docs/integrations/terraform/"
 >}}
@@ -39,7 +39,7 @@ link="/docs/integrations/terraform/"
 
 ## Get started using the web UI
 
-Not quite ready to start your monitoring as code journey? No problem. Get started using just the web UI and you'll be 
+Not quite ready to start your monitoring as code journey? No problem. Get started using just the web UI and you'll be
 monitoring in minutes.
 
 <div class="cards-list">
@@ -47,7 +47,7 @@ monitoring in minutes.
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="Create browser checks"
-	  img="/docs/images/icons/chrome@2x.png"
+	  img="/docs/images/icons/browser-checks.svg"
 	  description="Use TS / JS with @playwright/test and Headless browsers to navigate, screenshot and assert your key webapp flows."
 	  link="/docs/browser-checks"
 >}}
@@ -55,7 +55,7 @@ monitoring in minutes.
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="Create API checks"
-	  img="/docs/images/icons/api@2x.png"
+	  img="/docs/images/icons/api.svg"
 	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything."
 	  link="/docs/api-checks"
 >}}
@@ -66,7 +66,7 @@ monitoring in minutes.
 	class="full-width-card"
 	headerTag="h3"
 	title="Set up alert channels"
-	img="/docs/images/icons/bell@2x.png"
+	img="/docs/images/icons/alerting.svg"
 	description="Get notified about outages, broken transactions or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack, Pagerduty and Discord."
 	link="/docs/alerting"
 >}}

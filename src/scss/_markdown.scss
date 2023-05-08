@@ -78,6 +78,9 @@
 
   img {
     max-width: 100%;
+    border-radius: 0.25rem;
+    border: 1px solid $gray-lighter;
+    margin: 1rem 0;
   }
 
   video {

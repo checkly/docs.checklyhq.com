@@ -4,6 +4,8 @@
   background-position: 1.5rem 1.25rem;
   background-repeat: no-repeat;
   background-size: 1rem;
+  background-color: $blue-lightest;
+  border: 1px solid $blue-light;
 
   p {
     color: $state-info-text !important;
