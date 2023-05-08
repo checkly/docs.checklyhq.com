@@ -32,6 +32,7 @@ jobs:
         run: npm run checkly:test --
           -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
       - id: create-summary
+        if: always()
         run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY
       - id: post-comment-summary
         uses: marocchino/sticky-pull-request-comment@v2
