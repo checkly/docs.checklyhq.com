@@ -37,6 +37,12 @@
     color: $gray-dark;
     margin-bottom: 1rem;
     word-wrap: break-word;
+
+    img {
+      border-radius: 0.25rem;
+      border: 1px solid $gray-lighter;
+      margin: 1rem 0;
+    }
   }
 
   blockquote {
@@ -78,9 +84,6 @@
 
   img {
     max-width: 100%;
-    border-radius: 0.25rem;
-    border: 1px solid $gray-lighter;
-    margin: 1rem 0;
   }
 
   video {
