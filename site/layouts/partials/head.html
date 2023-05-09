@@ -25,7 +25,7 @@
   <meta property="twitter:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
   <meta property="twitter:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace (htmlEscape $subtitle_text) "\n" "%20" }}{{ else }}{{ replace (htmlEscape .Summary) "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
   <meta name="msvalidate.01" content="36F243A91FAA24DE468D8A8EECF33554" />
-  <link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://blog.checklyhq.com/rss/" />
+  <link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://checklyhq.com/rss.xml" />
   <link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
 
   <link rel="canonical" href="{{ .Permalink }}" />
