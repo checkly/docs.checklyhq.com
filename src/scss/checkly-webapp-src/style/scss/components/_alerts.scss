@@ -1,11 +1,11 @@
 .alert-info {
   padding-left: 3.5rem;
-  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='15' cy='15' r='15' fill='%2345C8F1'/%3E%3Cpath d='M14.843 9.936c-.298 0-.525-.07-.68-.212-.157-.141-.234-.36-.234-.656v-.485c0-.296.077-.515.233-.657.156-.141.383-.212.681-.212h.549c.298 0 .521.071.67.212.15.142.224.36.224.657v.485c0 .296-.075.515-.224.656-.149.141-.372.212-.67.212h-.549zm-.833 11.675v-8.08c0-.296.078-.518.234-.666.155-.148.382-.222.68-.222h.386c.298 0 .522.074.67.222.15.148.224.37.224.667v8.08c0 .295-.074.518-.223.666-.15.148-.373.222-.67.222h-.387c-.298 0-.525-.074-.68-.222-.156-.148-.234-.37-.234-.667z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='15' cy='15' r='15' fill='%230075ff'/%3E%3Cpath d='M14.843 9.936c-.298 0-.525-.07-.68-.212-.157-.141-.234-.36-.234-.656v-.485c0-.296.077-.515.233-.657.156-.141.383-.212.681-.212h.549c.298 0 .521.071.67.212.15.142.224.36.224.657v.485c0 .296-.075.515-.224.656-.149.141-.372.212-.67.212h-.549zm-.833 11.675v-8.08c0-.296.078-.518.234-.666.155-.148.382-.222.68-.222h.386c.298 0 .522.074.67.222.15.148.224.37.224.667v8.08c0 .295-.074.518-.223.666-.15.148-.373.222-.67.222h-.387c-.298 0-.525-.074-.68-.222-.156-.148-.234-.37-.234-.667z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
   background-position: 1.5rem 1.25rem;
   background-repeat: no-repeat;
   background-size: 1rem;
-  background-color: $blue-lightest;
-  border: 1px solid $blue-light;
+  background-color: $light-blue;
+  border: 1px solid $light-blue;
 
   p {
     color: $state-info-text !important;
