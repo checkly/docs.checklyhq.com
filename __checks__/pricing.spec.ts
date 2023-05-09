@@ -6,7 +6,7 @@ test('pricing', async ({ page }) => {
   await checklyPage.goto('/pricing')
   await checklyPage.screenshot('pricing')
 
-  expect(await page.title()).toEqual('Pricing | Checkly')
+  expect(await page.title()).toEqual('Checkly pricing plans')
   await page.locator('[data-test="pricing-free-signup"]').click()
   await page.waitForNavigation({ url: 'https://auth.checklyhq.com/**' })
 
