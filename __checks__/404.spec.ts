@@ -7,6 +7,5 @@ test('404', async ({ page }) => {
   await checklyPage.screenshot('404')
 
   expect(await page.title()).toEqual('404 | Checkly')
-  expect(await page.locator('.main h1').innerText()).toContain('404')
-  expect(await page.locator('.main h3').innerText()).toContain('Whoops, that page does not exist!')
+  expect(await page.locator('.container h1').innerText()).toContain('Page not found')
 })
