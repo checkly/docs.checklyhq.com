@@ -10,7 +10,6 @@
     "build-preview": "gulp build-preview",
     "deploy": "vercel --prod",
     "checkly:test": "npx checkly test --record --reporter=github",
-    "checkly:deploy": "npx checkly deploy --force",
     "lint": "eslint src",
     "start": "gulp server",
     "prepare": "npx simple-git-hooks",
