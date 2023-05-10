@@ -12,7 +12,7 @@ Checkly integrates with [Coralogix](https://coralogix.com/) to see your incident
 
 ![coralogix integration step 1](/docs/images/integrations/coralogix/coralogix_step1.png)
 
-2. Next, copy the generated "Send Your Data" API to your clipboard.
+2. Next, copy the generated "Send Your Data" API key to your clipboard.
 
 ![coralogix integration step 2](/docs/images/integrations/coralogix/coralogix_step2.png)
 
