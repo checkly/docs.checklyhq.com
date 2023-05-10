@@ -12,13 +12,13 @@ If you have checks running, you can select them on the main Checkly dashboard an
 
 Select a check and you will see a breakdown of its recent runs, together with key availability and performance metrics.
 
-![check results overview](/docs/images/monitoring/check-results-summary.png)
+![check results overview](/docs/images/monitoring/check-overview.png)
 
 ### Summary section
 
 The summary at the top of the page allows for filtering based on the page's data points and the selected timeframe and locations. Retried check runs do not influence this section; only the final results are considered.
 
-<img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-bar.png"/>
+<img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-summary.png"/>
 
 Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance. Single tabs in the summary can be clicked to skip to the related section of the page showing a more detailed breakdown of the relevant information.
 
@@ -75,17 +75,15 @@ Individual browser check results contain:
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
 2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test) about the additonal functionalities of Playwright Test.
 <img class="screenshot-partial" alt="check results browser playwright test report" src="/docs/images/monitoring/check-results-browser-pwt-report.png"/>
-3. A waterfall timeline showing how much time was spent on each page.
-<img class="screenshot-partial" alt="check results browser timeline" src="/docs/images/monitoring/check-results-browser-timeline.png"/>
-4. An error log, only if your script failed.
+3. An error log, only if your script failed.
 <img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>
-5. Expandable tabs on page your script navigated to.
+4. Expandable tabs on page your script navigated to.
 <img class="screenshot-partial" alt="check results browser page navigation" src="/docs/images/monitoring/check-results-browser-page-navigations.png"/>
 When expanded, each tab shows its own navigation/loading time ribbon and web vitals...
 <img class="screenshot-partial" alt="check results browser navigation top" src="/docs/images/monitoring/check-results-browser-navigation-top.png"/>
 ...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
 <img class="screenshot-partial" alt="check results browser navigation bottom" src="/docs/images/monitoring/check-results-browser-navigation-bottom.png"/>
-6. A job log for the check.
+5. A job log for the check.
 <img class="screenshot-partial" alt="check results browser job log" src="/docs/images/monitoring/check-results-browser-job-log.png"/>
 
 ## API check results
