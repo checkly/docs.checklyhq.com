@@ -6,7 +6,7 @@ menu:
     parent: "Integrations"
 ---
 
-Checkly integrates with [Coralogix](https://coralogix.com/) to see your incidents in your Coralogix installation. Let's get started!
+Checkly integrates with [Coralogix](https://coralogix.com/) to monitor your incidents in your Coralogix installation. Let's get started!
 
 1. Log in to Coralogix and navigate to `Data Flow > API Keys`.
 
@@ -24,4 +24,4 @@ Checkly integrates with [Coralogix](https://coralogix.com/) to see your incident
 
 ![coralogix integration step 4](/docs/images/integrations/coralogix/coralogix_step4.png)
 
-Congratulations, you have successfully integrated Checkly with Coralogix!
+Congratulations, you've successfully integrated Checkly with Coralogix!
