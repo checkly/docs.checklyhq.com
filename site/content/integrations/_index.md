@@ -75,6 +75,13 @@ alerting:
     ctaLink: "/docs/integrations/firehydrant/"
     description: >-
      Kick off and resolve incidents in FireHydrant.
+  - service: Coralogix
+    icon: "/integrations/alerting/coralogix@2x.png"
+    iconWidth: 36
+    iconHeight: 32
+    ctaLink: "/docs/integrations/coralogix/"
+    description: >-
+     Manage your checks with Coralogix.
   - service: Discord
     icon: "/integrations/alerting/discord@2x.png"
     iconWidth: 35
