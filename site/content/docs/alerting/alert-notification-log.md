@@ -2,7 +2,7 @@
 title: Alert notification log
 weight: 36
 menu:
-  docs:
+  resources:
     parent: "Alerting"
 ---
  

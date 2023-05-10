@@ -5,7 +5,7 @@ slug: /
 aliases:
 - /docs/monitoring
 menu:
-  docs:
+  platform:
     parent: "Monitoring"
 ---
 
@@ -21,9 +21,10 @@ There are two reasons for this:
 1. Redundancy: we might have an issue in one location, but not the other. 
 2. Double checking: if your check fails and you have "double check" enabled we will retry the check from the other location.
 
-> Note that **we run checks sequentially**, not in parallel. For example, a 1 minute API check, with data center locations
-> Paris and Frankfurt selected, will first run in Paris and 1 minute later in Frankfurt.
-
+{{< info >}}
+Note that **we run checks sequentially**, not in parallel. For example, a 1 minute API check, with data center locations
+Paris and Frankfurt selected, will first run in Paris and 1 minute later in Frankfurt.
+{{< /info >}}
 A picture is a thousand words:
 
 ![monitoring and alerting pipeline](/docs/images/monitoring/pipeline.png)
@@ -35,6 +36,3 @@ The other location is picked, at random, from all the configured locations. If o
 4. If the check is an API check and has a [teardown script](/docs/api-checks/setup-teardown-scripts/), the teardown script is executed.
 Teardown scripts are run *before* any assertions are validated.
 5. The result is stored in our central database and any alerts are sent where applicable.
-
- 
-> Checkly also monitors [SSL certificate expirations](/docs/alerting/ssl-expiration/).

@@ -2,7 +2,7 @@
 title: Using HTTP proxies
 weight: 53
 menu:
-  docs:
+  resources:
     parent: "Private Locations"
 ---
 

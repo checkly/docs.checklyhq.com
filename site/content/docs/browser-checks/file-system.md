@@ -2,8 +2,9 @@
 title: Using the file system
 weight: 20
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 Checkly creates a sandboxed directory for each check run. During the run you can use this directory to save or upload artifacts. This directory is destroyed after a check is finished.

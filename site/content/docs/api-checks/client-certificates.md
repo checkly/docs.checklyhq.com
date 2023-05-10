@@ -2,7 +2,7 @@
 title: Client certificates
 weight: 14
 menu:
-  docs:
+  resources:
     parent: "API checks"
 ---
 

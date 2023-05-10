@@ -2,8 +2,8 @@
 title: Customization
 weight: 48
 menu:
-  docs:
-    parent: "Dashboards V2"
+  resources:
+    parent: "Dashboards"
 ---
 
 ## Checkly URL

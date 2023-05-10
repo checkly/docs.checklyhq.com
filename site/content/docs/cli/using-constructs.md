@@ -2,11 +2,11 @@
 title: Using Constructs
 weight: 3
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
-Every resource you create using the Checkly CLI is represented by a "construct": it's a class you import from `@checkly/cli/constructs`,
+Every resource you create using the Checkly CLI is represented by a "construct": it's a class you import from `checkly/constructs`,
 for instance an `ApiCheck` or `EmailAlertChannel`. A construct is the "as-code" representation of the eventual resource 
 created / deleted / updated on the Checkly cloud once you run `npx checkly deploy`.
 
@@ -39,7 +39,7 @@ API checks are used to validate your HTTP based API endpoints. Let's look at the
 ```ts
 // hello-api.check.ts
 
-import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
+import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 const path = require('path')
 const { readFileSync } = require('fs')
 
@@ -65,7 +65,7 @@ When a check fails, you want to get alerted. There are two steps to take here:
 ```ts
 // alert-channels.ts
 
-import { SmsAlertChannel, EmailAlertChannel } from '@checkly/cli/constructs'
+import { SmsAlertChannel, EmailAlertChannel } from 'checkly/constructs'
 
 const sendDefaults = {
   sendFailure: true,
@@ -94,7 +94,7 @@ module.exports = {
 ```ts
 // api.check.ts
 
-import { ApiCheck } from '@checkly/cli/constructs'
+import { ApiCheck } from 'checkly/constructs'
 import { smsChannel, emailChannel } from './alert-channels'
 
 new ApiCheck('hello-api-1', {

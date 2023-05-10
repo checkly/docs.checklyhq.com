@@ -2,7 +2,7 @@
 title: Common issues
 weight: 100
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

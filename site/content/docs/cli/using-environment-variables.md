@@ -2,7 +2,7 @@
 title: Using environment variables
 weight: 6
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
@@ -28,7 +28,7 @@ variable. Note the exclamation mark `!` at the end. This is to tell the Typescri
 Alternatively you can use a string template.
 
 ```ts
-import { SmsAlertChannel } from '@checkly/cli/constructs'
+import { SmsAlertChannel } from 'checkly/constructs'
 
 export const smsChannel = new SmsAlertChannel('sms-channel-1', {
   phoneNumber: process.env.PHONE_NUMBER!
@@ -57,6 +57,8 @@ You will typically use remote environment variables inside the code dependencies
  and teardown scripts. The point is that the `process.env.SOME_VARIABLE` stays in your code and are only interpreted when
 a check executes on the Checkly cloud.
 
+### Using the `-e` flag
+
 Here is an example of a Playwright script using an `ENVIRONMENT_URL` variable to define the page to visit. We also added
 a fallback value in case that variable is not defined for some reason.
 
@@ -81,6 +83,33 @@ available during runtime.
 will use the fallback URL.
 - Prepending the variable like `ENVIRONMENT_URL="https://staging.checklyhq.com" npx checkly test` has no effect as local
 environment variables are not replaced in code dependencies.
+
+### Using the `--env-file` flag
+
+If you have a lot of variables, it makes sense to store them in a `.env` file. Make sure to add that to your `.gitignore` file!
+
+```
+ENVIRONMENT_URL=https://checklyhq.com
+USER_NAME=admin
+PASSWORD=admin
+```
+
+You can reference that file in the `test` as follows:
+
+```bash
+npx checkly test --env-file="./.env"
+```
+
+## Managing Environment Variables using the CLI
+
+You can manage your global environment variables with the CLI using the `checkly env` command. You can list, add, update, 
+remove and export your variables. Exporting is very powerful, as you can 
+
+1. Pull in the variables from your account with `npx checkly env pull` to a `.env` file.
+2. Reference that file in your `test` command with `npx checkly test --env-file="./.env"`
+
+This way, you are always using the correct variables while hacking on a Checkly CLI project. [See the reference documentation
+for the `checkly env` command](/docs/cli/command-line-reference/#npx-checkly-env)
 
 ## Securing Environment Variables
 

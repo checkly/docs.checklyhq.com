@@ -2,11 +2,11 @@
 title: Installation
 weight: 2
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
-To kickstart a new project with the CLI, we recommend running `npm create @checkly/cli`. But you can also add the CLI
+To kickstart a new project with the CLI, we recommend running `npm create checkly`. But you can also add the CLI
 from scratch with the following steps.
 
 ## Prerequisites
@@ -19,7 +19,7 @@ from scratch with the following steps.
 First, install the CLI.
 
 ```bash
-npm i --save-dev @checkly/cli
+npm i --save-dev checkly
 ```
 
 To use TypeScript, also install `ts-node` and `typescript`:
@@ -33,7 +33,7 @@ Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of you
 {{< tabs "config" >}}
 {{< tab "TypeScript" >}}
  ```ts
-import { defineConfig } from '@checkly/cli'
+import { defineConfig } from 'checkly'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -46,7 +46,6 @@ export default defineConfig({
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/__checks__/**/*.check.ts',
     ignoreDirectoriesMatch: [],
     browserChecks: {
@@ -73,7 +72,6 @@ const config = {
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/__checks__/**/*.check.js',
     ignoreDirectoriesMatch: [],
     browserChecks: {

@@ -3,7 +3,7 @@ title: Alert channels and settings
 weight: 3
 
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

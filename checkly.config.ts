@@ -1,13 +1,14 @@
-import { defineConfig } from '@checkly/cli'
+import { defineConfig } from 'checkly'
+import { slackChannelOps } from './__checks__/alertChannels'
 
 const config = defineConfig({
-  projectName: 'Production E2E MaC - checklyhq.com',
+  projectName: 'www.checklyhq.com',
   logicalId: 'checkly-production-e2e-mac-checklyhq-com-1',
   repoUrl: 'https://github.com/checkly/checklyhq.com',
   checks: {
     activated: true,
     muted: false,
-    runtimeId: '2022.10',
+    runtimeId: '2023.02',
     frequency: 10,
     locations: [
       'us-east-1',

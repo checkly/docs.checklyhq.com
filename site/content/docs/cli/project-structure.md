@@ -2,7 +2,7 @@
 title: Project Structure
 weight: 3
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
@@ -41,7 +41,7 @@ As mentioned, your global `checkly.config.ts` holds a set of defaults for your p
 {{< tabs "describe" >}}
 {{< tab "TypeScript" >}}
  ```ts
-import { defineConfig } from '@checkly/cli'
+import { defineConfig } from 'checkly'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -54,7 +54,6 @@ export default defineConfig({
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/*.check.js',
     browserChecks: {
       frequency: 10,
@@ -62,7 +61,6 @@ export default defineConfig({
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
@@ -71,7 +69,7 @@ export default defineConfig({
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 ```js
-const { defineConfig } = require('@checkly/cli')
+const { defineConfig } = require('checkly')
 
 const config = defineConfig({
   projectName: 'Website Monitoring',
@@ -84,7 +82,6 @@ const config = defineConfig({
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/*.check.js',
     browserChecks: {
       frequency: 10,
@@ -92,7 +89,6 @@ const config = defineConfig({
     },
   },
   cli: {
-    verbose: false,
     runLocation: 'eu-west-1',
     privateRunLocation: 'private-dc1'
   }
@@ -112,7 +108,7 @@ Override any of the settings in the `checks` global configuration section at the
 
 ```ts
 // __checks__/api.check.ts
-import { ApiCheck, AssertionBuilder } from '@checkly/cli/constructs'
+import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 
 const api = new ApiCheck('hello-api', {
   name: 'Hello API',
@@ -139,7 +135,7 @@ Use standard TypeScript/JavaScript, the file system or remote data to configure 
 
 ```ts
 // __checks__/api.check.ts
-import { ApiCheck } from '@checkly/cli/constructs'
+import { ApiCheck } from 'checkly/constructs'
 
 const publicResources = ['/public-stats', '/v1/runtimes']
 
@@ -161,7 +157,7 @@ Asynchronous operations are supported by exporting an async function from your c
 
 ```ts
 // __checks__/api.check.ts
-import { ApiCheck } from '@checkly/cli/constructs'
+import { ApiCheck } from 'checkly/constructs'
 import { getPublicResources } from './helpers'
 
 // an exported async function to signal that

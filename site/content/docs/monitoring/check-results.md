@@ -2,7 +2,7 @@
 title: Check results
 weight: 2
 menu:
-  docs:
+   platform:
     parent: "Monitoring"
 ---
 
@@ -34,8 +34,7 @@ When retries are enabled, an additional icon highlights that the check result co
 
 The check retries ratio indicates how many of the total checks run were retried due to an initial failed attempt.
 
-<!-- @TODO: add screenshot of new ribbon (tooltip preview + result table) -->
-
+<video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-overview-time-ribbon-with-retries.mp4"></video>
 
 {{< info >}}
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
@@ -130,4 +129,5 @@ When retries are enabled through the ["Double-check on failure"](/docs/alerting/
 
 When selecting a check run, all data and assets are available for inspection for each attempt.
 
-<!-- @TODO: add a video navigating through the tabs -->
+<video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-results-tabs.mp4"></video>
+

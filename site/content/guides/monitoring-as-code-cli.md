@@ -52,7 +52,7 @@ How does this all look like in practice? Let's find out by creating a small moni
 A quick way to bootstrap a new project with the Checkly CLI is to run the following command.
 
 ```bash
-npm create @checkly/cli
+npm create checkly
 ```
 
 But for this guide, we will show you the manual process to show you all the structure and general idea behind the setup.

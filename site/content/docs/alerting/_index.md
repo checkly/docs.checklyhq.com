@@ -3,12 +3,13 @@ title: 'Alert settings'
 weight: 30
 slug: /
 menu:
-  docs:
+  resources:
    parent: "Alerting"
 lastmod: 01-06-2020
 aliases:
 - /alerting/settings/
 - /alerting/
+cli: true
 ---
 
 Alerting in Checkly is pretty flexible and should address most common needs. You can tweak exactly when and how you should

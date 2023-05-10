@@ -2,8 +2,9 @@
 title: Timeouts
 weight: 24
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 There are different kinds of timeouts you will encounter while working with Browser checks:

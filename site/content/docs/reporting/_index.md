@@ -5,7 +5,7 @@ slug: /
 aliases:
 - /docs/reporting
 menu:
-  docs:
+  resources:
     parent: "Reporting"
 ---
 

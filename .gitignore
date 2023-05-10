@@ -9,3 +9,4 @@ public/
 .hugo_build.lock
 __checks__/screenshots
 .vercel
+checkly-github-report.md
