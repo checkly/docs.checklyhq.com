@@ -10,7 +10,8 @@ export class ChecklySitePage {
 
   async goto (uri = '/') {
     await this.page.setViewportSize(defaults.playwright.viewportSize)
-    await this.page.goto(defaults.baseURL + uri)
+    const response = await this.page.goto(defaults.baseURL + uri)
+    return response
   }
 
   async screenshot (name) {
