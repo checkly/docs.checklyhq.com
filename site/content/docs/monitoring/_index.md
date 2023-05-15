@@ -31,8 +31,9 @@ A picture is a thousand words:
 
 1. A cron process picks up a check based on its schedule, say every 5 minutes. It validates that the check is not in progress at the moment to avoid race conditions. The check is put into a queue to be run from the next configured data center location.
 2. If the check is an API check and has a [setup script](/docs/api-checks/setup-teardown-scripts/), the setup script is executed. 
-3. The check is executed. If the check fails and "double check" is enabled, the check is retried once in a different location.
-The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations. Setup scripts are executed again during the retry.
+3. The check is executed.
 4. If the check is an API check and has a [teardown script](/docs/api-checks/setup-teardown-scripts/), the teardown script is executed.
 Teardown scripts are run *before* any assertions are validated.
-5. The result is stored in our central database and any alerts are sent where applicable.
+5. The result is stored in our central database.
+6. If the check fails and “double-check” is enabled, the process starts over from a different location. The other location is picked, at random, from all the configured locations. If only one location has been selected, then the other location is picked at random from all available locations. Any setup & teardown scripts are run again as part of the process.
+7. Alerts are sent out in requested channels when the sequence is complete. It's considered complete when the check run was successful or the final attempt was executed. We will send alerts only if the final attempt has failed (no alerts sent for the initial attempts)
