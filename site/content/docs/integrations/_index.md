@@ -25,4 +25,5 @@ Checkly integrates with the alerting services you use. Missing an integration? L
 * [Prometheus](/docs/integrations/prometheus)
 * [FireHydrant](/docs/integrations/firehydrant)
 * [Coralogix](/docs/integrations/coralogix)
+* [Ilert](/docs/integrations/ilert)
 * [Telegram](/docs/integrations/telegram)
