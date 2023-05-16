@@ -82,7 +82,7 @@ alerting:
     ctaLink: "/docs/integrations/coralogix/"
     description: >-
      Manage your checks with Coralogix.
-  - service: Ilert
+  - service: ilert
     icon: "/integrations/alerting/ilert@2x.svg"
     iconWidth: 36
     iconHeight: 32
