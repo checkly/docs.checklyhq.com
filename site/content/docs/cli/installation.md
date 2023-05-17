@@ -46,7 +46,6 @@ export default defineConfig({
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/__checks__/**/*.check.ts',
     ignoreDirectoriesMatch: [],
     browserChecks: {
@@ -73,7 +72,6 @@ const config = {
     frequency: 5,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
-    alertChannels: [],
     checkMatch: '**/__checks__/**/*.check.js',
     ignoreDirectoriesMatch: [],
     browserChecks: {

@@ -16,6 +16,8 @@ You can add as many of the following alert channels as you want:
 - [Pagerduty]({{< ref "docs/integrations/pagerduty.md" >}})
 - [Opsgenie]({{< ref "docs/integrations/opsgenie.md" >}})
 - [FireHydrant]({{< ref "docs/integrations/firehydrant.md" >}})
+- [Coralogix]({{< ref "docs/integrations/coralogix.md" >}})
+- [ilert]({{< ref "docs/integrations/ilert.md" >}})
 - [Discord]({{< ref "docs/integrations/discord.md" >}})
 - [GitLab Alerts]({{< ref "docs/integrations/gitlab_alerts.md" >}})
 - [Spike.sh]({{< ref "docs/integrations/spike.md" >}})

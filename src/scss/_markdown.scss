@@ -3,6 +3,7 @@
     font-size: 2rem;
     line-height: 3rem;
     margin-bottom: 1rem;
+    letter-spacing: -0.04em;
   }
 
   h2 {
@@ -10,7 +11,8 @@
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     font-weight: $font-weight-semi-bold;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
+    letter-spacing: -0.04em;
   }
 
   h3 {
@@ -18,7 +20,8 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     font-weight: $font-weight-semi-bold;
-    padding-bottom: .3em;
+    padding-bottom: 0.3em;
+    letter-spacing: -0.04em;
   }
 
   h4 {
@@ -26,13 +29,20 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     font-weight: $font-weight-semi-bold;
-    padding-bottom: .3em;
+    padding-bottom: 0.3em;
+    letter-spacing: -0.04em;
   }
 
   p {
     color: $gray-dark;
     margin-bottom: 1rem;
     word-wrap: break-word;
+
+    img {
+      border-radius: 0.25rem;
+      border: 1px solid $gray-lighter;
+      margin: 1rem 0;
+    }
   }
 
   blockquote {
@@ -40,7 +50,7 @@
     border-left: 0.25rem solid $brand-primary;
     background-color: transparentize($brand-primary, 0.95);
     p {
-      padding: .75rem
+      padding: 0.75rem;
     }
   }
 
@@ -61,12 +71,13 @@
     font-weight: 600;
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: 2rem;
     line-height: $line-height-pub-site;
 
     li {
-      margin-bottom: .5 * $spacer-y;
+      margin-bottom: 0.5 * $spacer-y;
       line-height: 26px;
     }
   }
@@ -82,8 +93,8 @@
   code {
     color: $gray-dark;
     font-size: 80%;
-    padding: .15rem .4rem;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    padding: 0.15rem 0.4rem;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
 
   pre {
@@ -118,9 +129,9 @@
           list-style-type: disc;
           padding-left: 1rem;
           li {
-             ul {
-               display: none;
-             }
+            ul {
+              display: none;
+            }
           }
         }
       }
@@ -138,7 +149,7 @@
           color: $gray-dark;
           text-transform: uppercase;
           font-size: $font-size-xs;
-          font-family: 'fakt-soft', sans-serif;
+          font-family: "fakt-soft", sans-serif;
         }
       }
     }
@@ -158,6 +169,10 @@
     }
   }
 
+  .badge {
+    font-family: "fakt-soft", sans-serif;
+  }
+
   .markdown-tabs {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -172,11 +187,11 @@
       cursor: pointer;
       margin-bottom: 0;
       text-transform: uppercase;
-      font-size: .75rem;
+      font-size: 0.75rem;
       color: $gray;
       font-weight: 600;
       line-height: 24px;
-      letter-spacing: .04rem;
+      letter-spacing: 0.04rem;
     }
 
     .markdown-tabs-content {
@@ -207,5 +222,4 @@
       position: absolute;
     }
   }
-
 }

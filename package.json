@@ -56,8 +56,8 @@
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
-    "@checkly/cli": "0.4.13",
     "@playwright/test": "1.31.2",
+    "checkly": "4.0.5",
     "eslint": "7.32.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-html": "7.1.0",
