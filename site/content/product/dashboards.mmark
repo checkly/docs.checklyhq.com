@@ -19,9 +19,9 @@ Our dashboards give you ultimate control over how and where you share essential 
 
 <section class="grid-section">
 <div class="row">
-{{< sm-4-col-item "COMMUNICATE AND SHARE" "Use our public dashboards to communicate the real-time status of a service to your users, both inside and outside of your organization." >}}
+{{< sm-4-col-item "COMMUNICATE AND SHARE" "Use our dashboards to communicate the real-time status of a service to your users, both inside and outside of your organization." >}}
 {{< sm-4-col-item "OPTIMIZE FOR ACCESSIBILITY" "Give your dashboards clarity, readability, and responsiveness to make monitoring data easy to consume." >}}
-{{< sm-4-col-item "CREATE YOUR OWN DOMAIN" "Configure custom subdomains for added personalization in public dashboards, like status.acme.com." >}}
+{{< sm-4-col-item "CREATE YOUR OWN DOMAIN" "Configure custom subdomains for added personalization in dashboards, like status.acme.com." >}}
 {{< sm-4-col-item "BRAND AND CUSTOMIZE" "Personalize the look and feel of your dashboard using custom CSS rules—including a built-in CSS editor—to align to your company’s brand." >}}
 {{< sm-4-col-item "MONITOR WITH CONFIDENCE" "Our new dashboards are built on NuxtJS 3 and leverage NuxtJS Universal Rendering capabilities for speed and reliability." >}}
 {{< sm-4-col-item "MANAGE INCIDENTS" "Use the incident management feature to communicate scheduled maintenance notices and notify customers about incidents directly from the dashboard overview page." >}}
@@ -50,7 +50,7 @@ Our dashboards give you ultimate control over how and where you share essential 
     <div class="col-sm-12 col-md-8">
       <h2 class="section-header mt-1">Checkly URL and Custom Domains</h2>
       <p class="lead-text mb-lg-2">
-      You can host your public dashboard under your own custom domain. You’ll just need to add a valid custom domain to your dashboard setting, and then create a CNAME record in your DNS that points to checkly-dashboards.com.
+      You can host your dashboard under your own custom domain. You’ll just need to add a valid custom domain to your dashboard setting, and then create a CNAME record in your DNS that points to checkly-dashboards.com.
       </p>
     </div>
     <div class="lead-text mt-5 text-center">
