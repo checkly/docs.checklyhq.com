@@ -14,7 +14,7 @@ questions:
   - q: What does fair use mean?
     a: Fair use limits are soft boundaries that apply to certain features. The limits are set in a way that most customers
       should not encounter any limitations. On a Team plan, you can invite up to 99 users, have
-      25 public dashboards, and 200 SMS alerts per month. If you exceed the thresholds, we will reach out and discuss options with you.
+      25 dashboards, and 200 SMS alerts per month. If you exceed the thresholds, we will reach out and discuss options with you.
   - q: Can I upgrade or downgrade my plan?
     a: "For the **Hobby plan** upgrades and downgrades don't apply.<br><br>
       **Downgrade Team plan**: You can reduce the number of prepaid checks from account settings. The changes will apply after
