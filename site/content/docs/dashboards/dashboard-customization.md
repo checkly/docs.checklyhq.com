@@ -8,20 +8,20 @@ menu:
 
 ## Checkly URL
 
-Every public dashboard comes with a configurable custom subdomain under the `checkly-dashboards.com` domain. By default,
+Every dashboard comes with a configurable custom subdomain under the `checkly-dashboards.com` domain. By default,
 we generate a random ID. You can change this subdomain to anything you like as long as it is unique among all Checkly users.
 Typically, a company name works best, e.g. `acme.checkly-dashboards.com`
 
-![custom url for public dashboard](/docs/images/dashboards-v2/custom_url.png)
+![custom url for your dashboard](/docs/images/dashboards-v2/custom_url.png)
 
 
 ## Custom Domain
 
-You can host your public dashboard under your own domain. To make this work, you need to do two things:
+You can host your dashboard under your own domain. To make this work, you need to do two things:
 
 1. Add a valid custom domain to your dashboard setting.
 
-![custom domain for public dashboard](/docs/images/dashboards-v2/custom_domain.png)
+![custom domain for your dashboard](/docs/images/dashboards-v2/custom_domain.png)
 
 2. Create a CNAME record in your DNS that points to **checkly-dashboards.com**
 
@@ -37,11 +37,11 @@ your DNS. You will see a notice similar to the one below.
 
 ## Incidents
 
-You can toggle on/off whether incidents are shown on your public dashboard.
+You can toggle on/off whether incidents are shown on your dashboard.
 
 ## Look & Feel
 
-You can tweak the following parts of your public dashboard:
+You can tweak the following parts of your dashboard:
 
 ![config public monitoring dashboard 1](/docs/images/dashboards-v2/look_feel1.png)
 
