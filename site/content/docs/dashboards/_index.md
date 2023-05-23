@@ -12,12 +12,12 @@ aliases:
   - "/docs/dashboards/"
 ---
 
-Checkly Public Dashboards are dashboards you can use to communicate check status and incidents to non-Checkly users. Use
-them as a status page for your app, service or as a dashboard on a wall mounted TV in the office.
+You can use Checkly Dashboards to communicate check status and incidents to non-Checkly users. Use
+them as a status page for your app, a service or as a dashboard on a wall-mounted TV in the office.
 
 ![Dashboard example](/docs/images/dashboards-v2/public-dashboard-1.png)
 
-Public Dashboards allow you to do the following:
+Dashboards allow you to do the following:
 
 - Show the status of all your checks, or a subset by filtering by `tag`.
 - Show the availability and p95 / p99 response times over the last 24 hours, 7 days and 30 days.

@@ -53,6 +53,10 @@ between environments.
 - `--private-location <private location ID>`: Run checks against the specified private location.
 - `--record:` Record tests results in Checkly as a test session.
 - `--reporter` or `-r`: A list of custom reporters for the test output. Options are: list|dot|ci|github.
+- `--tags` or `-t`: Filter the checks using a comma separated list of tags. Checks will only be run if
+  they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they
+  match any of the `--tags` filters, i.e. `--tags production,webapp --tags production,backend` will run checks with tags
+  (production AND webapp) OR (staging AND backend).
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
@@ -117,8 +121,8 @@ npx checkly trigger --record --test-session-name="Adhoc test run" --location=eu-
 - `--record:` Record tests results in Checkly as a test session.
 - `--reporter` or `-r`: A list of custom reporters for the test output. Options are: list|dot|ci|github.
 - `--tags` or `-t`: Filter the checks to be triggered using a comma separated list of tags. Checks will only be run if 
-they contain all of the specified tags. Multiple --tags flags can be passed, in which case checks will be run if they 
-match any of the --tags filters. F.ex. `--tags production,webapp --tags production,backend` will run checks with tags 
+they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they 
+match any of the `--tag`s filters, i.e. `--tags production,webapp --tags production,backend` will run checks with tags 
 (production AND webapp) OR (staging AND backend).
 - `--test-session-name` A name to use when storing results in Checkly with `--record`.
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete. Default 240.

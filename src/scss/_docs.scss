@@ -1,6 +1,6 @@
 .docs {
   $top: 1rem;
-  $menu-width: 15rem;
+  $menu-width: 17rem;
   $toc-width: 14rem;
   $menu-item-padding-spacer: 6px;
   $menu-line-height: 18px;
@@ -49,7 +49,6 @@
       height: calc(100vh - $top);
       position: relative;
       width: $menu-width;
-      margin: $top 0 $top;
       padding: 20px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;

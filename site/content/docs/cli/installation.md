@@ -34,6 +34,7 @@ Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of you
 {{< tab "TypeScript" >}}
  ```ts
 import { defineConfig } from 'checkly'
+import { Frequency } from 'checkly/constructs'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -43,13 +44,13 @@ export default defineConfig({
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/__checks__/**/*.check.ts',
     ignoreDirectoriesMatch: [],
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/__checks__/**/*.spec.ts',
     },
   },
@@ -69,13 +70,13 @@ const config = {
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/__checks__/**/*.check.js',
     ignoreDirectoriesMatch: [],
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/__checks__/**/*.spec.js',
     },
   },
