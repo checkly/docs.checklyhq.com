@@ -101,7 +101,7 @@ import axios from 'axios'
 
 export async function getToken () {
     console.log('Fetching session token from auth server')
-    const { data } = await axios.get('https://api.checklyhq.com/public-stats', {
+    const { data } = await axios.get('https://api.checklyhq.com/v1/runtimes', {
         headers: {
             authentication: process.env.AUTH_SERVER_TOKEN
         }
