@@ -15,6 +15,7 @@ use set defaults for your Checks in the `checks` property and override them occa
 
 ```ts
 import { defineConfig } from 'checkly'
+import { Frequency } from 'checkly/constructs'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -24,13 +25,13 @@ export default defineConfig({
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/__checks__/*.check.ts',
     ignoreDirectoriesMatch: [],
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/__checks__/*.spec.ts',
     },
   },
@@ -65,7 +66,7 @@ The CLI currently supports two Check types: API Checks and Browser Checks. All c
 derived from the abstract class `Check`.
 
 - `name` : A friendly name for your Check.
-- `frequency`: How often to run your Check in minutes, i.e. `60` for every hour.
+- `frequency`: How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.
 - `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.
 - `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `activated`: A boolean value if your Check is activated or not.
@@ -228,7 +229,7 @@ import * as path from 'path'
 
 new BrowserCheck('browser-check-1', {
   name: 'Browser check #1',
-  frequency: 10, // minutes
+  frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
     entrypoint: path.join(__dirname, 'home.spec.js')
@@ -263,15 +264,17 @@ You can add a Check to a group in two ways.
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
 ```ts
-import { CheckGroup, ApiCheck } from 'checkly/constructs'
+import { CheckGroup, ApiCheck, Frequency } from 'checkly/constructs'
 
 const group = new CheckGroup('check-group-1', {
   name: 'Group',
   activated: true,
+  frequency: Frequency.EVERY_15M,
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['api-group'],
   concurrency: 10,
   browserChecks: {
+    frequency: Frequency.EVERY_30M,
     testMatch: '*.spec.js'
   }
 })
@@ -288,6 +291,7 @@ new ApiCheck('check-group-api-check-1', {
 
 - `name` : A friendly name for your Check Group.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
+- `frequency`: How often to run the Checks within the group, i.e. `Frequency.EVERY_15M` for every fifteen minutes.
 - `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1']`.
 - `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
@@ -299,9 +303,12 @@ new ApiCheck('check-group-api-check-1', {
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
-- `browserCheckDefaults`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
+- `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
 > When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
+
+> Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separatelly.
+> The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
 
 ## `AlertChannel`
 
