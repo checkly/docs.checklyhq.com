@@ -125,42 +125,49 @@ If your project uses ECMAScript modules files, you can specify `type: "module"` 
 #### Example using top-level `await` supported in ECMAScript
 
 ```js
-// __checks__/api.check.js
+// __checks__/api.check.mjs
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
-// top-level-await allowed
-const getSetupScriptName = await Promise.resolve('./utils/setup.js')
-new ApiCheck('homepage-api-check-1', {
-  name: 'Fetch Book List',
-  setupScript: {
-    // relative reference to the file (__dirname not available)
-    entrypoint: getSetupScriptName
-  },
-  request: {
+console.log('Fetching endpoints list from the database')
+// top-level-await available
+const getEndpointFromDB = await Promise.resolve([
+  {
+    id: 'fetch-books-check',
+    name: 'Fetch Book List',
     url: 'https://danube-web.shop/api/books',
     method: 'GET',
+  },
+  {
+    id: 'fetch-book-check',
+    name: 'Fetch a Book',
+    url: 'https://danube-web.shop/api/books/1',
+    method: 'GET',
+  }
+])
+getEndpointFromDB.forEach(endpoint => new ApiCheck(endpoint.id, {
+  name: endpoint.name,
+  setupScript: {
+    // relative reference to the file (__dirname not available in ECMAScript)
+    entrypoint: './utils/setup.mjs'
+  },
+  request: {
+    url: endpoint.url,
+    method: endpoint.method,
     followRedirects: true,
     skipSSL: false,
     assertions: [
       AssertionBuilder.statusCode().equals(200),
-      AssertionBuilder.jsonBody('$[0].id').isNotNull(),
     ],
   }
 })
+)
 
-// __checks__/utils/setup.js
-import { getToken } from './auth-client'
-// top-level-await allowed
-const getEnvironmentUrl = await Promise.resolve('https://danube-web.shop')
-async function setup () {
-  const token = await getToken()
-  request.headers['X-My-Env-Url'] = getEnvironmentUrl
-  request.headers['X-My-Auth-Header'] = token
-}
-await setup()
+// __checks__/utils/setup.mjs
+import { getToken } from './auth-client.mjs'
+// top-level-await available
+request.headers['X-My-Auth-Header'] = await getToken()
 
-
-// __checks__/utils/auth-client.js
-// top-level-await is NOT allowed for second-level dependencies
+// __checks__/utils/auth-client.mjs
+// top-level-await is NOT available in second-level script dependencies
 export async function getToken () {
   console.log('Fetching a token from an imaginary auth API endpoint')
   const token = await new Promise(resolve => { return resolve('abc123') })
