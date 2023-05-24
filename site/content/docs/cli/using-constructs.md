@@ -117,7 +117,56 @@ choice. Loops, variables, if-statements, file imports, extensions etc.
 
 ### Using ECMAScript modules files
 
-If your project uses ECMAScript modules files, you can specify `type: "module"` in your `package.json` file or use `.mjs` file extensions. ECMAScript modules files can be used to create resources or as check's script dependencies. 
+If your project uses ECMAScript modules files, you can specify `type: "module"` in your `package.json` file or use `.mjs` file extensions. ECMAScript modules files can be used to create resources or as check's script dependencies.
+
+> Note that `__dirname` and `__filename` don't exist in ECMAScript so you have to adapt your setup/teardown script references using relative paths.
+> Also, as the setup/teardown script dependencies are run in a sandboxed environment, you must use CommonJS (or TypeScript project) for all the second-level dependencies for API and Browser checks.
+
+#### Example using top-level `await` supported in ECMAScript
+
+```js
+// __checks__/api.check.js
+import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
+// top-level-await allowed
+const getSetupScriptName = await Promise.resolve('./utils/setup.js')
+new ApiCheck('homepage-api-check-1', {
+  name: 'Fetch Book List',
+  setupScript: {
+    // relative reference to the file (__dirname not available)
+    entrypoint: getSetupScriptName
+  },
+  request: {
+    url: 'https://danube-web.shop/api/books',
+    method: 'GET',
+    followRedirects: true,
+    skipSSL: false,
+    assertions: [
+      AssertionBuilder.statusCode().equals(200),
+      AssertionBuilder.jsonBody('$[0].id').isNotNull(),
+    ],
+  }
+})
+
+// __checks__/utils/setup.js
+import { getToken } from './auth-client'
+// top-level-await allowed
+const getEnvironmentUrl = await Promise.resolve('https://danube-web.shop')
+async function setup () {
+  const token = await getToken()
+  request.headers['X-My-Env-Url'] = getEnvironmentUrl
+  request.headers['X-My-Auth-Header'] = token
+}
+await setup()
+
+
+// __checks__/utils/auth-client.js
+// top-level-await is NOT allowed for second-level dependencies
+export async function getToken () {
+  console.log('Fetching a token from an imaginary auth API endpoint')
+  const token = await new Promise(resolve => { return resolve('abc123') })
+  return token
+}
+```
 
 ## Further Reading
 
