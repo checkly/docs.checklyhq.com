@@ -120,7 +120,7 @@ choice. Loops, variables, if-statements, file imports, extensions etc.
 If your project uses ECMAScript modules files, you can specify `type: "module"` in your `package.json` file or use `.mjs` file extensions. ECMAScript modules files can be used to create resources or as check's script dependencies.
 
 > Note that `__dirname` and `__filename` don't exist in ECMAScript so you have to adapt your setup/teardown script references using relative paths.
-> Also, as the setup/teardown script dependencies are run in a sandboxed environment, you must use CommonJS (or TypeScript project) for all the second-level dependencies for API and Browser checks.
+> Also, as the setup/teardown script dependencies are run under a sandboxed environment, you must use CommonJS (or TypeScript project) for all the second-level dependencies for API and Browser checks.
 
 #### Example using top-level `await` supported in ECMAScript
 
