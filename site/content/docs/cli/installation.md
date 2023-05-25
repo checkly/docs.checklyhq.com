@@ -96,6 +96,25 @@ before hand or just sign up for a new account straight from the terminal.
 ```bash
 npx checkly login
 ```
+## Direct download
+
+If you cannot access the npm registry directly, you can also download the Checkly CLI via our CDN.
+
+- [MacOS / Darwin](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.7/darwin/checkly.zip)
+- [Windows](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.7/windows/checkly.zip)
+
+The download is a zipped folder containing a full installation of [the boilerplate example project](https://github.com/checkly/checkly-cli/tree/main/examples/boilerplate-project).
+You will find the following files and folders:
+- a `checkly.config.ts` file.
+- a `package.json` file including the necessary Typescript dependencies.
+- a `node_modules` directory with all dependencies pre-installed.
+- a `__checks__` folder with some example checks.
+
+{{< info >}}
+If you want to move the CLI and its constructs to a different, already existing Node.js project, just copy the full contents
+of the `node_modules` folder to your project and manually add a `checkly.config.ts` file.
+{{< /info >}}
+
 
 ## Authentication
 
