@@ -115,7 +115,7 @@ All resources you can create and manage using the Checkly CLI are derived from "
 You can use standard JS/TS programming to use these constructs to create the monitoring setup of your
 choice. Loops, variables, if-statements, file imports, extensions etc.
 
-### Using ECMAScript modules files
+### Using ECMAScript modules files (experimental)
 
 If your project uses ECMAScript modules files, you can specify `type: "module"` in your `package.json` file or use `.mjs` file extensions. ECMAScript modules files can be used to create resources or as check's script dependencies.
 
