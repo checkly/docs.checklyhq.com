@@ -32,16 +32,6 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/a/b.js",
-      "destination": "https://plausible.io/js/plausible.js"
-    },
-    {
-      "source": "/a/e",
-      "destination": "https://plausible.io/api/event"
-    }
-  ],
   "redirects": [
     {
       "source": "/",
