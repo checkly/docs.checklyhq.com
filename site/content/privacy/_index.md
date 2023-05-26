@@ -24,8 +24,7 @@ activities may take place in the United States.
 - We will send you some emails regarding product updates and such.
 - If you log in with a third party provider (Google, GitHub etc.) we will read some data from that account.
 - We use Intercom to chat with you and help you with support and sales related questions.
-- We use Google Analytics and Plausible to see how you interact with website. You can opt out of both Google Analytics,
-  Plausible does not collect any personal information.
+- We use Google Analytics to see how you interact with website. You can opt out of Google Analytics.
 - We use Segment, Mixpanel and Hotjar to analyse how you use our product after signing up.
 - We use 3rd party providers like AWS and Heroku to process and store our data.
 
