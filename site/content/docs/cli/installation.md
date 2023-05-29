@@ -146,6 +146,7 @@ npx checkly whoami
 When **running the CLI from your CI pipeline** you will need to export two variables in the shell:
 - `CHECKLY_API_KEY`
 - `CHECKLY_ACCOUNT_ID`
+- `CHECKLY_ACCOUNT_NAME` (optional if you have multiple accounts and you want to specify wich one to use)
 
 Go to your Settings page in Checkly and grab a fresh API key from [the API keys tab](https://app.checklyhq.com/settings/user/api-keys) and your
 Account ID from the [Account settings tab](https://app.checklyhq.com/settings/account/general).
