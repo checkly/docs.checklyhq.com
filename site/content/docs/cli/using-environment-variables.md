@@ -20,7 +20,7 @@ remember:
 1. Use local environment variables to replace values in your constructs before `test` and `deploy` invocations.
 2. Local environment variables are not interpreted in code dependencies like `.spec.ts` files or setup and teardown scripts.
 
-Use local environment variables to inject or replace values in your `Check`, `AlertChannel` or other constructs at 
+Use local environment variables to inject or replace values in your `Check`, `AlertChannel` or other constructs at
 **build time** when the CLI compiles your constructs for testing and deploying.
 
 Here is an example of setting up an `SmsAlertChannel` where we pass in the actual phone number from a local environment
@@ -47,8 +47,8 @@ that SMS channel in your Checkly account.
 
 ## Remote Environment Variables
 
-Checkly also stores environment variables in your Checkly account. These can exist at the 
-[Account, Group or Check level](/docs/browser-checks/variables/). Here is what you need to remember:
+Checkly also stores environment variables in your Checkly account. These can exist at the
+[Global, Group or Check level](/docs/browser-checks/variables/). Here is what you need to remember:
 
 1. Use remote environment variables to dynamically inject or replace values during runtime of a check.
 2. Remote variables can be set and overridden when invoking the `test` command.
@@ -71,13 +71,13 @@ test('Check Home Page', async ({ page }) => {
 })
 ```
 
-You can now test this check and temporarily set the environment variable as follows. 
+You can now test this check and temporarily set the environment variable as follows.
 
 ```
 npx checkly test -e ENVIRONMENT_URL="https://staging.checklyhq.com"
 ```
 
-- Notice that we pass in the variable using the `-e` flag. This means it will be passed to the cloud environment and made 
+- Notice that we pass in the variable using the `-e` flag. This means it will be passed to the cloud environment and made
 available during runtime.
 - After deploying this check, the `ENVIRONMENT_URL` needs to be set at the Account, Group or Check level. If not set, the Check
 will use the fallback URL.
@@ -100,10 +100,11 @@ You can reference that file in the `test` as follows:
 npx checkly test --env-file="./.env"
 ```
 
-## Managing Environment Variables using the CLI
+## Managing Remote Environment Variables using the CLI
 
-You can manage your global environment variables with the CLI using the `checkly env` command. You can list, add, update, 
-remove and export your variables. Exporting is very powerful, as you can 
+Manage your remote environment variables with the CLI using the `checkly env` command. You can list, add, update, remove and export your global variables.
+
+Exporting is very powerful, as you can:
 
 1. Pull in the variables from your account with `npx checkly env pull` to a `.env` file.
 2. Reference that file in your `test` command with `npx checkly test --env-file="./.env"`
@@ -118,5 +119,5 @@ For storing and securing environment variables, we advise the following:
 1. Store local environment variables in your shell or in `.env` files that are not committed to your git repo. Add those
 files to your `.gitignore` file.
 2. In a CI context, e.g. GitHub Actions, store sensitive variables as secrets. Almost all CI providers have such a feature.
-3. For remote variables, store sensitive secrets at the Account level and click the lock icon so Read Only users cannot view them. 
+3. For remote variables, store sensitive secrets at the Account level and click the lock icon so Read Only users cannot view them.
 All variables are stored encrypted at rest and in transfer.
