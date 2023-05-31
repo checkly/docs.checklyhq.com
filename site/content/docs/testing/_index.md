@@ -39,16 +39,7 @@ The test session overview provides insights into where a test session was trigge
 
 While test session details are automatically detected you can also configure them:
 
-| Test session detail | Source                                                                       |
-|---------------------|------------------------------------------------------------------------------|
-| **Duration**        | Test session duration                                                        |
-| **Environment**     | `process.env.CHECKLY_TEST_ENVIRONMENT`                                       |
-| **Location**        | `cli.runLocation` in `checkly.config.ts` or `test` command `--location` flag |
-| **Repository**      | `repoUrl` in `checkly.config.ts` or `process.env.CHECKLY_TEST_REPO_URL`      |
-| **Branch**          | Automatically detected or `process.env.CHECKLY_TEST_REPO_BRANCH`             |
-| **Commit owner**    | Automatically detected or `process.env.CHECKLY_TEST_REPO_COMMIT_OWNER`       |
-| **Commit message**  | Automatically detected or `process.env.CHECKLY_TEST_REPO_COMMIT_MESSAGE`     |
-| **Commit hash**     | Automatically detected or `process.env.CHECKLY_TEST_REPO_SHA`                |
+{{< markdownpartial "/_shared/test-session-details.md" >}}
 
 For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful when using our `@playwright/test` powered browser checks.
 

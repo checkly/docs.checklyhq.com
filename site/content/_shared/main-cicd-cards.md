@@ -1,4 +1,5 @@
 ---
+sitemapExclude: true
 ---
 <div class="cards-list">
 {{< doc-card
