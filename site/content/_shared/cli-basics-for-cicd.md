@@ -1,4 +1,5 @@
 ---
+sitemapExclude: true
 ---
 We've optimized the [Checkly CLI](/docs/cli) to work in any CI/CD workflow. Here are the basics you need to know that
 will come in handy when adapting the examples we give you to your own, specific setup.
@@ -10,7 +11,7 @@ in your CI/CD platform.
 4. Use the `--force` flag on the `deploy` and / or `destroy` commands to skip the normal confirmation steps.
 
 When using the `--record` flag, the CLI will attempt to parse `git` specific information from
-the environment to display in the recorded test session as metadata. However, you can also set these data items specifically 
+the environment to display in the recorded test session as metadata. However, you can also set these data items specifically
 by using environment variables.
 
 | variable                           | description                                |
