@@ -33,20 +33,30 @@ in your [test sessions page](https://app.checklyhq.com/test-sessions).
 
 ![test sessions overview](/docs/images/testing/test_session_overview@2x.jpg)
 
-The test session overview gives you insights into where a test session was triggered from, who triggered it and optionally
-shows git branch and commit information.
-
-For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful
-when using our `@playwright/test` powered browser checks.
+The test session overview provides insights into where a test session was triggered from and who triggered it.
 
 ![test sessions detail](/docs/images/testing/test_session_detail@2x.jpg)
 
+While test session details are automatically detected you can also configure them:
+
+| Test session detail | Source                                                                       |
+|---------------------|------------------------------------------------------------------------------|
+| **Duration**        | Test session duration                                                        |
+| **Environment**     | `process.env.CHECKLY_TEST_ENVIRONMENT`                                       |
+| **Location**        | `cli.runLocation` in `checkly.config.ts` or `test` command `--location` flag |
+| **Repository**      | `repoUrl` in `checkly.config.ts` or `process.env.CHECKLY_TEST_REPO_URL`      |
+| **Branch**          | Automatically detected or `process.env.CHECKLY_TEST_REPO_BRANCH`             |
+| **Commit owner**    | Automatically detected or `process.env.CHECKLY_TEST_REPO_COMMIT_OWNER`       |
+| **Commit message**  | Automatically detected or `process.env.CHECKLY_TEST_REPO_COMMIT_MESSAGE`     |
+| **Commit hash**     | Automatically detected or `process.env.CHECKLY_TEST_REPO_SHA`                |
+
+For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful when using our `@playwright/test` powered browser checks.
 
 ## Testing with the CLI
 
 The preferred way to achieve a full monitoring as code workflow is to use the Checkly CLI. This workflow uses the best
 practices from standard testing frameworks like Playwright and Jest and extends them so you can `deploy` your checks
-to Checkly's global infrastructure and run them as monitors. 
+to Checkly's global infrastructure and run them as monitors.
 
 In a nutshell, the CLI gives you two powerful commands: `test` and `deploy`.
 
@@ -94,7 +104,7 @@ npx checkly deploy
 ### Integrating into CI
 
 Your checks should live in your codebase and managed as any other application code, making full use of code reviews, versioning,
-and your general software development lifecycle. 
+and your general software development lifecycle.
 
 Using the CLI, you can run your `test` commands from your CI/CD pipeline and target different environments like staging and
 production. You can then only `deploy` your checks once you are sure your build is passing and your deployment has no regressions.
@@ -114,19 +124,19 @@ and records a test session.
 
 There are some tradeoffs to be aware of when comparing `trigger` to `test`:
 
-- Using `trigger` you do not get the benefit of the code-first approach: no versioning, no code reviews. 
-- However, the `trigger` command works for any scenario, regardless of how you create your checks (web UI, Terraform, API, etc.) 
+- Using `trigger` you do not get the benefit of the code-first approach: no versioning, no code reviews.
+- However, the `trigger` command works for any scenario, regardless of how you create your checks (web UI, Terraform, API, etc.)
 
 
 [See the full docs on the `trigger` command](/docs/cli/command-line-reference/#npx-checkly-trigger)
 
 ## Triggering test sessions via vendor integrations
 
-You can trigger test sessions using our [Vercel](/docs/cicd/vercel/) and / or [GitHub Deployments](/docs/cicd/github/) 
+You can trigger test sessions using our [Vercel](/docs/cicd/vercel/) and / or [GitHub Deployments](/docs/cicd/github/)
 integrations.
 
 ![test sessions vercel and github](/docs/images/testing/test_session_vercel_gh@2x.jpg)
 
 These integrations work based on webhooks triggered by deployment events in either vendor's platforms. In general, this is
-a great way to get started, but less flexible and powerful than the "full" monitoring as code approach. 
+a great way to get started, but less flexible and powerful than the "full" monitoring as code approach.
 
