@@ -7,53 +7,18 @@
 @import 'main';
 @import 'navbar';
 @import 'sections';
-@import 'landing';
 @import 'free-trial';
-@import 'footer';
-@import 'plans';
 @import 'docs';
 @import 'guides';
 @import 'learn';
 @import 'toc-sidebar';
-@import 'article';
 @import 'markdown';
 @import 'status-circle';
 @import 'syntax';
-@import 'blog';
-@import 'product';
-@import 'integrations';
-@import 'opensource';
 @import 'promo-banner';
-@import 'private-locations';
-@import 'developer-portal';
-@import 'share-list';
 @import 'mailchimp-signup-row';
-@import 'more-like-this';
-@import 'pricing-v2';
-@import 'launch-week';
-@import 'why-checkly';
-@import 'customers';
-@import 'about';
-@import 'careers';
-@import 'slack';
-@import 'sections/hero';
 @import 'sections/api-monitoring';
-@import 'sections/alerting';
-@import 'sections/workflow';
-@import 'sections/results';
-@import 'sections/features';
-@import 'sections/all-features';
-@import 'sections/site-monitoring';
-@import 'sections/testimonials';
-@import 'sections/public-stats';
-@import 'sections/faq';
-@import 'sections/trusted-by';
-@import 'sections/terraform';
-@import 'sections/alternativeto-hero';
 @import 'sections/learn-headless';
-@import 'sections/case-studies-section';
-@import 'sections/private-locations-section';
-@import 'sections/code-test-deploy-hero';
 
 
 body {
@@ -62,9 +27,6 @@ body {
   }
   color: $gray-dark;
 }
-
-@import '../css/vendor/pricing-tables.css';
-@import 'pricing-tables-checkly';
 
 @import '../css/vendor/ionicons/css/ionicons.min.css';
 
