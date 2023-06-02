@@ -29,4 +29,4 @@ resource "checkly_dashboard" "dashboard-main" {
 By default, if no check is specified, all checks in the account will be shown in the dashboard. If instead you want to show specific checks, you will need to [use tags](/docs/dashboards/#adding-checks-to-your-dashboard).
 {{</info>}}
 
-You can see all the configuration options for checks, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_dashboard).
+You can see all the configuration options for checks, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/dashboard).
