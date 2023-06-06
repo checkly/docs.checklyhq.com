@@ -104,3 +104,12 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 
 When running tests from the editor page, video files are always available for download and preview, regardless of whether 
 the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.
+
+### PageObject Model (POM)
+
+If you are structuring your test codebase following the [PageObject pattern](https://martinfowler.com/bliki/PageObject.html), you can use the [Checkly CLI](/docs/cli) out of the box. Just make sure that:
+
+- the folder you initialize your CLI in when building your project sits above your test spec files and their dependencies
+- your `testMatch` is pointing to the path(s) where your test specs live
+
+To see one way this can look like, see our [example repository](https://github.com/checkly/checkly-sample-pom).
