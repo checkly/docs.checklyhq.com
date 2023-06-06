@@ -1,17 +1,20 @@
 ---
 title: Using HTTP proxies
-weight: 53
+weight: 56
 menu:
   resources:
     parent: "Private Locations"
+cli: true
 ---
 
 If you are operating our [Checkly Agent](/docs/private-locations/private-locations-getting-started/) behind an HTTP proxy, 
 for example in an enterprise environment, you can use an outgoing proxy for all check traffic. We recommend using the following
 setup.
 
-> Note you can also define a proxy for management traffic from your private location to the Checkly API where we ingest
-> your telemetry and management events. See [the environment variables available to the Checkly Agent container](/docs/private-locations/checkly-agent-guide/#checkly-agent-environment-variables)
+{{< info >}}
+Note you can also define a proxy for management traffic from your private location to the Checkly API where we ingest
+your telemetry and management events. See [the environment variables available to the Checkly Agent container](/docs/private-locations/checkly-agent-guide/#checkly-agent-environment-variables)
+{{< /info >}}
 
 ## Setting an HTTP proxy for your Private Location
 
