@@ -7,7 +7,7 @@ menu:
 ---
 
 Using **Incidents** you can communicate outages and planned maintenance to your audience — customers, co-workers, partners —
-or whoever might be lucky enough to visit one of your public dashboards. This turns your public dashboard into a status page!
+or whoever might be lucky enough to visit one of your dashboards. This turns your dashboard into a status page!
 
 Note that incidents are nested under dashboards. This means you can have multiple dashboards for different audiences (with
 different custom domains). Use cases are:
@@ -22,7 +22,7 @@ Incidents are available on any paid Checkly plan.
 
 ## Creating incidents
 
-You can quickly create an incident directly from the [dashboards overview page](https://app.checklyhq.com/dashes) and 
+You can quickly create an incident directly from the [dashboard's overview page](https://app.checklyhq.com/dashes) and 
 publish it to your dashboard in seconds. Things might be on fire. You want to be quick!
 
 ![create an incident](/docs/images/dashboards-v2/create_incident.png)
@@ -42,8 +42,8 @@ Here is an example:
 
 ## Incident updates
 
-For the **major impact** and **minor impact** incidents, you can add updates as you resolve the matter at hand. At each 
-stage you can add an updated message, which will show up on your public dashboard to keep your
+For the **major impact** and **minor impact** incidents, you can add updates as you resolve the matter at hand. At each
+stage you can add an updated message, which will show up on your dashboard to keep your
 audience in the loop. 
 
 It's very simple:
@@ -52,13 +52,13 @@ It's very simple:
 2. Add some clarifying text in the **Update Message** text field.
 
 You can edit any updates later to correct typos. You can also add more updates within the same category of updates, for
-instance if the "Investigating" phase is taking longer than expected and you want to post an update.
+instance, if the "Investigating" phase is taking longer than expected and you want to post an update.
 
 Here's an example of what that would look like while typing out the update messages.
 
 ![updating an incident](/docs/images/dashboards-v2/incident_updates.png)
 
-All incidents and their updates will show up on your public dashboard (if you have Incidents enabled for the relevant dashboard)
+All incidents and their updates will show up on your dashboard (if you have Incidents enabled for the relevant dashboard)
 in a chronological list for later reference.
 
 ![dashboard incident list](/docs/images/dashboards-v2/dashboard_incident_list.png)

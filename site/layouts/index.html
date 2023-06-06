@@ -4,25 +4,16 @@
 {{ partial "head" . }}
 
 <body class="landing">
-  {{ partial "navbar" . }}
   <div class="main">
-    <div class="landing" id="landing">
-      {{ partial "code-test-deploy-hero-section" . }}
-      {{ partial "trusted-by-section" . }}
-      {{ partial "site-monitoring-section" . }}
-      {{ partial "api-monitoring-section" . }}
-      {{ partial "private-locations-section" . }}
-      {{ partial "alerting-section" . }}
-      {{ partial "results-section" . }}
-      {{ partial "terraform-section" . }}
-      {{ partial "workflow-section" . }}
-      {{ partial "read-case-stuides" . }}
-      {{ partial "testimonial-three-col-row" . }}
-      {{ partial "all-features" . }}
-      {{ partial "public-stats-section" . }}
+    <div style="padding: 2rem; text-align: center; max-width: 50ch; margin: 2rem auto;">
+      <div>
+        <img src="/images/racoon_logo.svg" width="80" height="80" alt="checkly logo">
+      </div>
+      <p style="margin-top: 2rem;">
+        This is the codebase for the Checkly docs and guides. Navigate to <a href="/docs">/docs</a>, <a href="/guides">/guides</a> or <a href="/learn">/learn</a>.
+      </p>
     </div>
   </div>
-  {{ partial "footer" . }}
   {{ partial "scripts" . }}
   <script src="/js/cliCopyButton.js"></script>
 </body>

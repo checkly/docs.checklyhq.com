@@ -34,6 +34,7 @@ Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of you
 {{< tab "TypeScript" >}}
  ```ts
 import { defineConfig } from 'checkly'
+import { Frequency } from 'checkly/constructs'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -43,13 +44,13 @@ export default defineConfig({
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/__checks__/**/*.check.ts',
     ignoreDirectoriesMatch: [],
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/__checks__/**/*.spec.ts',
     },
   },
@@ -69,13 +70,13 @@ const config = {
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/__checks__/**/*.check.js',
     ignoreDirectoriesMatch: [],
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/__checks__/**/*.spec.js',
     },
   },
@@ -95,6 +96,25 @@ before hand or just sign up for a new account straight from the terminal.
 ```bash
 npx checkly login
 ```
+## Direct download
+
+If you cannot access the npm registry directly, you can also download the Checkly CLI via our CDN.
+
+- [MacOS / Darwin](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.8/darwin/checkly.zip)
+- [Windows](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.8/windows/checkly.zip)
+
+The download is a zipped folder containing a full installation of [the boilerplate example project](https://github.com/checkly/checkly-cli/tree/main/examples/boilerplate-project).
+You will find the following files and folders:
+- a `checkly.config.ts` file.
+- a `package.json` file including the necessary Typescript dependencies.
+- a `node_modules` directory with all dependencies pre-installed.
+- a `__checks__` folder with some example checks.
+
+{{< info >}}
+If you want to move the CLI and its constructs to a different, already existing Node.js project, just copy the full contents
+of the `node_modules` folder to your project and manually add a `checkly.config.ts` file.
+{{< /info >}}
+
 
 ## Authentication
 

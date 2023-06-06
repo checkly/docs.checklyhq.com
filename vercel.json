@@ -32,16 +32,6 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/a/b.js",
-      "destination": "https://plausible.io/js/plausible.js"
-    },
-    {
-      "source": "/a/e",
-      "destination": "https://plausible.io/api/event"
-    }
-  ],
   "redirects": [
     {
       "source": "/",
@@ -64,6 +54,10 @@
     {
       "source": "/docs/cli/constructs",
       "destination": "https://www.checklyhq.com/docs/cli/using-constructs/"
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn/headless"
     }
   ]
 }

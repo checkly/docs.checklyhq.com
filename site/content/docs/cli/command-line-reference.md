@@ -53,6 +53,10 @@ between environments.
 - `--private-location <private location ID>`: Run checks against the specified private location.
 - `--record:` Record tests results in Checkly as a test session.
 - `--reporter` or `-r`: A list of custom reporters for the test output. Options are: list|dot|ci|github.
+- `--tags` or `-t`: Filter the checks using a comma separated list of tags. Checks will only be run if
+  they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they
+  match any of the `--tags` filters, i.e. `--tags production,webapp --tags production,backend` will run checks with tags
+  (production AND webapp) OR (staging AND backend).
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
@@ -90,7 +94,7 @@ Destroy all project's resources (checks, groups, alert channels, etc.) from your
 The `trigger` command is similar to the `test` command, but "triggers" checks already in your Checkly account. This works
 regardless of whether you created these checks via a `Project` with CLI constructs, via the UI or using Terraform.
 
-Because `trigger` does not rely on any `Project` or as-code representation of your checks, the invocation is slightly 
+Because `trigger` does not rely on any `Project` or as-code representation of your checks, the invocation is slightly
 different, as there are no files to reference for instance.
 
 ```bash
@@ -116,9 +120,9 @@ npx checkly trigger --record --test-session-name="Adhoc test run" --location=eu-
 - `--private-location <private location ID>`: Run checks against the specified private location.
 - `--record:` Record tests results in Checkly as a test session.
 - `--reporter` or `-r`: A list of custom reporters for the test output. Options are: list|dot|ci|github.
-- `--tags` or `-t`: Filter the checks to be triggered using a comma separated list of tags. Checks will only be run if 
-they contain all of the specified tags. Multiple --tags flags can be passed, in which case checks will be run if they 
-match any of the --tags filters. F.ex. `--tags production,webapp --tags production,backend` will run checks with tags 
+- `--tags` or `-t`: Filter the checks to be triggered using a comma separated list of tags. Checks will only be run if
+they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they
+match any of the `--tag`s filters, i.e. `--tags production,webapp --tags production,backend` will run checks with tags
 (production AND webapp) OR (staging AND backend).
 - `--test-session-name` A name to use when storing results in Checkly with `--record`.
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete. Default 240.
@@ -146,13 +150,11 @@ List all available runtimes and their dependencies.
 
 ## `npx checkly env`
 
-The `checkly env` command is used to manage the environment variables of a Checkly account. You can list, add, remove, 
-update and export environment variables.
+Manage the global environment variables of a Checkly account. You can list, add, remove, update and export environment variables.
 
 ### `npx checkly env pull`
 
-The `checkly env pull` sub-command exports environment variables from your Checkly account to a local `.env` file or a 
-different file of your choice.
+Export global environment variables from your Checkly account to a local `.env` file or a different file of your choice.
 
 ```bash
 checkly env pull [FILENAME] [-f]
@@ -168,7 +170,7 @@ Pull all environment variables to the `.env` file and overwrite it if it already
 
 ### `npx checkly env ls`
 
-List global Checkly environment variables. This command does not list environment variables on group or check level.
+List global environment variables. This command does not list environment variables on group or check level.
 
 ```bash
 checkly env ls
@@ -176,7 +178,7 @@ checkly env ls
 
 ### `npx checkly env add`
 
-Adds an environment variable.
+Add a global environment variable.
 
 ```bash
 checkly env add [KEY] [VALUE] [-l]
@@ -188,7 +190,8 @@ checkly env add [KEY] [VALUE] [-l]
 
 
 ### `npx checkly env update`
-Updates a global environment variable.
+
+Update a global environment variable.
 
 ```bash
 checkly env update [KEY] [VALUE] [-l]

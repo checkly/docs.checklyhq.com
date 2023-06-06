@@ -115,6 +115,65 @@ All resources you can create and manage using the Checkly CLI are derived from "
 You can use standard JS/TS programming to use these constructs to create the monitoring setup of your
 choice. Loops, variables, if-statements, file imports, extensions etc.
 
+### Using ECMAScript modules files (experimental)
+
+If your project uses ECMAScript modules files, you can specify `type: "module"` in your `package.json` file or use `.mjs` file extensions. ECMAScript modules files can be used to create resources or as check's script dependencies.
+
+> Note that `__dirname` and `__filename` don't exist in ECMAScript so you have to adapt your setup/teardown script references using relative paths.
+> Also, as the setup/teardown script dependencies are run under a sandboxed environment, you must use CommonJS (or TypeScript project) for all the second-level dependencies for API and Browser checks.
+
+#### Example using top-level `await` supported in ECMAScript
+
+```js
+// __checks__/api.check.mjs
+import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
+console.log('Fetching endpoints list from the database')
+// top-level-await available
+const getEndpointFromDB = await Promise.resolve([
+  {
+    id: 'fetch-books-check',
+    name: 'Fetch Book List',
+    url: 'https://danube-web.shop/api/books',
+    method: 'GET',
+  },
+  {
+    id: 'fetch-book-check',
+    name: 'Fetch a Book',
+    url: 'https://danube-web.shop/api/books/1',
+    method: 'GET',
+  }
+])
+getEndpointFromDB.forEach(endpoint => new ApiCheck(endpoint.id, {
+  name: endpoint.name,
+  setupScript: {
+    // relative reference to the file (__dirname not available in ECMAScript)
+    entrypoint: './utils/setup.mjs'
+  },
+  request: {
+    url: endpoint.url,
+    method: endpoint.method,
+    followRedirects: true,
+    skipSSL: false,
+    assertions: [
+      AssertionBuilder.statusCode().equals(200),
+    ],
+  }
+})
+)
+
+// __checks__/utils/setup.mjs
+import { getToken } from './auth-client.mjs'
+// top-level-await available
+request.headers['X-My-Auth-Header'] = await getToken()
+
+// __checks__/utils/auth-client.mjs
+// top-level-await is NOT available in second-level script dependencies
+export async function getToken () {
+  console.log('Fetching a token from an imaginary auth API endpoint')
+  const token = await new Promise(resolve => { return resolve('abc123') })
+  return token
+}
+```
 
 ## Further Reading
 

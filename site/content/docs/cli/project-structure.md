@@ -42,6 +42,7 @@ As mentioned, your global `checkly.config.ts` holds a set of defaults for your p
 {{< tab "TypeScript" >}}
  ```ts
 import { defineConfig } from 'checkly'
+import { Frequency } from 'checkly/constructs'
 
 export default defineConfig({
   projectName: 'Website Monitoring',
@@ -51,12 +52,12 @@ export default defineConfig({
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/*.check.js',
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/*.spec.js',
     },
   },
@@ -79,12 +80,12 @@ const config = defineConfig({
     activated: true,
     muted: false,
     runtimeId: '2022.10',
-    frequency: 5,
+    frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
     checkMatch: '**/*.check.js',
     browserChecks: {
-      frequency: 10,
+      frequency: Frequency.EVERY_10M,
       testMatch: '**/*.spec.js',
     },
   },
@@ -108,12 +109,12 @@ Override any of the settings in the `checks` global configuration section at the
 
 ```ts
 // __checks__/api.check.ts
-import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
+import { ApiCheck, AssertionBuilder, Frequency } from 'checkly/constructs'
 
 const api = new ApiCheck('hello-api', {
   name: 'Hello API',
   locations: ['ap-south-1'], // overrides the locations property
-  frequency: 30, // overrides the frequency property
+  frequency: Frequency.EVERY_30M, // overrides the frequency property
   request: {
     method: 'GET',
     url: 'https://api.checklyhq.com/public-stats',

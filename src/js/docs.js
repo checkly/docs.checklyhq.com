@@ -82,25 +82,28 @@ $(document).on('keydown', function (e) {
  * Sidemenu fixed position after some scroll-up
  */
 
-var sideMenuDistance = $('#sideMenu').offset().top - 10
+var sideMenu = $('#sideMenu')
+if (sideMenu.length) {
+  var sideMenuDistance = sideMenu.offset().top - 10
 
-$(window).on('scroll', function () {
-  if ($(window).scrollTop() >= sideMenuDistance) {
-    $('#sideMenu').css({
-      position: 'fixed',
-      top: '0px'
-    })
-    $('#tocMenu').css({
-      position: 'fixed',
-      top: '30px'
-    })
-  } else {
-    $('#sideMenu').css({
-      position: 'relative'
-    })
-    $('#tocMenu').css({
-      position: 'relative',
-      top: '0'
-    })
-  }
-})
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() >= sideMenuDistance) {
+      $('#sideMenu').css({
+        position: 'fixed',
+        top: '0px'
+      })
+      $('#tocMenu').css({
+        position: 'fixed',
+        top: '30px'
+      })
+    } else {
+      $('#sideMenu').css({
+        position: 'relative'
+      })
+      $('#tocMenu').css({
+        position: 'relative',
+        top: '0'
+      })
+    }
+  })
+}
