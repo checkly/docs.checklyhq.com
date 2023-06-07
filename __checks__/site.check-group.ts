@@ -1,7 +1,7 @@
 import { CheckGroup } from 'checkly/constructs'
 import { alertChannels } from './alertChannels'
 export const checklyhqComGroup = new CheckGroup('checklyhq-com-1', {
-  name: 'checklyhq.com',
+  name: 'checklyhq.com/docs',
   activated: true,
   muted: false,
   runtimeId: '2023.02',
