@@ -1,6 +1,6 @@
 import { CheckGroup } from 'checkly/constructs'
 import { alertChannels } from './alertChannels'
-export const checklyhqComGroup = new CheckGroup('checklyhq-com-1', {
+export const checklyhqComGroup = new CheckGroup('checklyhq-docs-1', {
   name: 'checklyhq.com/docs',
   activated: true,
   muted: false,
