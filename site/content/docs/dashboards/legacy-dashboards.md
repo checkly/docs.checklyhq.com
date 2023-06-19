@@ -4,6 +4,7 @@ weight: 51
 menu:
   resources:
     parent: "Dashboards"
+cli: true
 ---
 
 {{< warning >}}

@@ -458,7 +458,7 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 ## `MaintenanceWindow`
 
-Creates a maintenance window that let you schedule planned maintenance for whatever you are monitoring in order to prevent your checks from running at specific times.
+Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
 
 ```ts
 import { MaintenanceWindow } from 'checkly/constructs'
@@ -475,12 +475,13 @@ new MaintenanceWindow('maintenance-window-1', {
 ```
 
 - `name`: A friendly name for your Maintenance Window.
-- `tags`: An array of tags. A list of one or more tags that filter which checks are affected by the maintenance window. i.e. `['production', 'api']`
-- `startsAt`: The start date of the maintenance window.
-- `endsAt`: The end date of the maintenance window.
-- `repeatInterval`: The repeat interval of the maintenance window from the first occurance.
+- `tags`: An array of tags. A list of one or more tags that filter which checks are affected by the maintenance window. i.e. `['production', 'api']`.
+- `startsAt`: The start date and time of the maintenance window as an ISO 8601 timestamp `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`.
+- `endsAt`: The end date and time of the maintenance window as an ISO 8601 timestamp `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`.
+- `repeatInterval`: The repeat interval of the maintenance window from the first occurrence.
 - `repeatUnit`: The repeat strategy for the maintenance window. This is mandatory when you specify a repeat interval.
-- `repeatEndsAt`: The end date where the maintenance window should stop repeating.
+- `repeatEndsAt`: The end date and time when the maintenance window should stop repeating  as an ISO 8601 timestamp 
+`"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`
 
 [Learn more about maintenance windows in our docs](https://www.checklyhq.com/docs/maintenance-windows)
 
@@ -492,18 +493,21 @@ Creates a dashboard allowing you to display checks and their related metrics on 
 import * as path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 import { Dashboard } from 'checkly/constructs'
-new Dashboard('dashboard-1', {
-  header: 'My dashboard',
+new Dashboard('acme-dashboard-1', {
+  header: 'ACME production',
+  description: 'service availability and response times',
   tags: ['prod', 'api'],
+  logo: 'https://assets.acme.com/images/acme-logo.png',
   customUrl: `status-test-cli-${uuidv4()}`,
   customCSS: {
     entrypoint: path.join(__dirname, 'dashboard.css'),
   }
 })
 ```
+You can add custom CSS by referencing a CSS file. Note, this is a paid feature.
 
 ```css
-/* file: dashboard.css */
+/* dashboard.css */
 .header {
   background: #080808;
   border-bottom-color: #313035;
@@ -517,7 +521,8 @@ new Dashboard('dashboard-1', {
 
 - `tags`: A list of one or more tags that filter what checks will be shown in the dashboard. All checks are included if no tag is specified.
 - `customUrl`: A subdomain name under "checklyhq.com". Needs to be unique across all users. This is required if `customDomain` is not specified.
-- `customDomain`: A custom user domain, e.g. "status.example.com". See the docs on updating your DNS and SSL usage. This is required if `customUrl` is not specified.
+- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](docs/dashboards/dashboard-customization/#custom-domain).
+This is required if `customUrl` is not specified.
 - `logo`: A URL pointing to an image file that will be used as logo in the dashboard header.
 - `favicon`: A URL pointing to an image file used as dashboard favicon.
 - `link`: A URL link to redirect when dashboard logo is clicked on.
@@ -542,10 +547,10 @@ new Dashboard('dashboard-1', {
 
 ## `PrivateLocation`
 
-Creates a Private Location you can use as our existing public locations, but you control over it.
+Creates a Private Location, so you can deploy one or more Checkly Agents on-prem, in a VPC or any segregated network.
 
 ```ts
-// file: private-location.check.ts
+// private-location.check.ts
 import { PrivateLocation } from 'checkly/constructs'
 
 export const myPrivateLocation = new PrivateLocation('private-location-1', {
@@ -567,7 +572,7 @@ new ApiCheck('local-api-1', {
   activated: true,
   maxResponseTime: 10000,
   degradedResponseTime: 5000,
-  privateLocations: [ myPrivateLocation ]
+  privateLocations: [ myPrivateLocation ],
   request: {
     method: 'POST',
     url: 'https://my-local-domain:5000/post',
@@ -582,10 +587,11 @@ new ApiCheck('local-api-1', {
   }
 })
 ```
-
-> Note that the `privateLocations` property accepts `PrivateLocation` instances and slug names string.
-
-> Important: slug names string are allowed only for external private location that weren't created withint the project.
+{{< info >}}
+Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the 
+instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
+project or created via the Web UI, you can pass in the `slugName` string.
+{{< /info >}}
 
 - `name`: A friendly name for your private location.
 - `slugName`: A valid unique slug name.

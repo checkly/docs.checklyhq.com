@@ -4,6 +4,7 @@ weight: 48
 menu:
   resources:
     parent: "Dashboards"
+cli: true
 ---
 
 ## Checkly URL
