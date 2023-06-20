@@ -8,7 +8,7 @@ menu:
 
 ## Authentication
 
-By default Checkly dashboards are public and visible to anyone who knows the URL. You can now set it to "Private", however, and protect it with an auto-generated password.
+By default Checkly dashboards are public and visible to anyone who knows the URL. You can set a dashboard to private, limiting access to users with a password, or Checkly account.
 
 {{< info >}}
 Private Dashboards are available on any paid Checkly plan.
