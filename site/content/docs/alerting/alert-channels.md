@@ -22,6 +22,7 @@ You can add as many of the following alert channels as you want:
 - [GitLab Alerts]({{< ref "docs/integrations/gitlab_alerts.md" >}})
 - [Spike.sh]({{< ref "docs/integrations/spike.md" >}})
 - [Splunk On-Call]({{< ref "docs/integrations/splunk_on_call.md" >}})
+- [Telegram]({{< ref "docs/integrations/telegram.md" >}})
 
 ## Managing alert channels
 
