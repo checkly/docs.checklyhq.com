@@ -15,7 +15,7 @@ To enable the Telegram alert channel, you'll need two things:
 
 ## Telegram Bot
 
-1. Create a **Telegram Bot** using the [@BotFather](https://t.me/botfather) (detailed instruction [here](https://core.telegram.org/bots)).
+1. Create a **Telegram Bot** using the [@BotFather](https://t.me/botfather) Detailed instructions can be found [here](https://core.telegram.org/bots)), however you can simply message the Telegram user `@BotFather` and send them the command message `/newbot`. Then follow the instructions the bot replies with.
    
    ![setup checkly telegram_bot step 1](/docs/images/integrations/telegram/telegram_step1.png)
 
