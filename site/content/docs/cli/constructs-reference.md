@@ -190,7 +190,7 @@ AssertionBuilder.statusCode().equals(200)
 "{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
 ```
 
-- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path]((/docs/api-checks/assertions/#json-responses-with-json-path)).
+- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path](/docs/api-checks/assertions/#json-responses-with-json-path).
 ```ts
 AssertionBuilder.jsonBody('$.data').greaterThan(2000),
 // renders to a JSON string
