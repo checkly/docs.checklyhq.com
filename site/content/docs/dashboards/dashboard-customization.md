@@ -1,6 +1,6 @@
 ---
 title: Customization
-weight: 48
+weight: 47
 menu:
   resources:
     parent: "Dashboards"
