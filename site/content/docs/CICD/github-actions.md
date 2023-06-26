@@ -12,15 +12,15 @@ menu:
 
 ## Workflow scenarios
 
-GitHub Actions workflows can run on different events. In most cases, you will want to trigger the Checkly CLI after a 
+GitHub Actions workflows can run on different events. In most cases, you will want to trigger the Checkly CLI after a
 **deployment** is done based on a recent `git push` to a branch, when a branch is merged or when a pull request is created.
 
 GitHub created the [deployments API](https://docs.github.com/en/rest/deployments/deployments) for this and many 3rd party
 integrators like Vercel and Heroku use this to relay deployment status to GitHub. However, you can also call this API
 yourself and trigger a `deployment_status` event.
 
-> Make sure to set your `CHECKLY_API_KEY` and `CHECKLY_ACCOUNT_ID` as 
-[secrets in your GitHub Actions settings](https://docs.github.com/en/actions/security-guides/encrypted-secrets) before you 
+> Make sure to set your `CHECKLY_API_KEY` and `CHECKLY_ACCOUNT_ID` as
+[secrets in your GitHub Actions settings](https://docs.github.com/en/actions/security-guides/encrypted-secrets) before you
 get started.
 
 ## Running on `deployment_status` events
@@ -28,10 +28,10 @@ get started.
 The `deployment_status` event is the preferred event to trigger a GH Actions workflow that executes your checks. However,
 this comes with some peculiarities that are native to GH Actions and a bit different from using the `push` event.
 
-- The deployment event holds core information about your deployment, i.e. the environment name and an optional `ENVIRONMENT_URL`. 
+- The deployment event holds core information about your deployment, i.e. the environment name and an optional `ENVIRONMENT_URL`.
 - The full git repo with full history is not available. We have to jump through some hoops to properly set the branch name
 for instance.
-- We have no access to the original pull request that triggered the deployment event. 
+- We have no access to the original pull request that triggered the deployment event.
 
 ```yaml
 # .github/checkly.yml
@@ -57,7 +57,7 @@ jobs:
           ref: "${{ github.event.deployment_status.deployment.ref }}"
           fetch-depth: 1
       - name: Set branch name # this is workaround to get the branch name.
-        run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV       
+        run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
@@ -72,13 +72,10 @@ jobs:
         run: npm ci
       - name: Run checks # run the checks passing in the ENVIRONMENT_URL and recording a test session.
         id: run-checks
-        run: npx checkly test
-          -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }} \
-          --reporter=github
-          --record
+        run: npx checkly test -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }} --reporter=github --record
       - name: Create summary # export the markdown report to the job summary.
         id: create-summary
-        run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY    
+        run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY
       - name: Deploy checks # if the test run was successful and we are on Production, deploy the checks
         id: deploy-checks
         if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
@@ -128,7 +125,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      # All steps as normal...  
+      # All steps as normal...
       - uses: LouisBrunner/checks-action@v1.6.0
         if: always()
         with:
@@ -139,7 +136,7 @@ jobs:
 
 The will generate a custom status for your called **Test E2E Passed Notification**.
 
-Then, add a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) 
+Then, add a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
 for your repo.
 
 ![GitHub Branch Protection Ruke](/docs/images/cicd/gh_branch_protection_rule.png)
