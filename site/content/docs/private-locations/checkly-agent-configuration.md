@@ -20,6 +20,7 @@ Variable|Description
 `HTTPS_PROXY`|HTTPS proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. `https://user:password@127.0.0.1:8080`
 `HTTP_PROXY`|HTTP proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. Used if the proxy server does not accept HTTPS connections. `http://user:password@127.0.0.1:8080`
 `JOB_CONCURRENCY`|(Default: 1, max: 10) Number of concurrent checks that are run by the agent.
+`LOG_LEVEL`|(Default: `INFO`) Set the log level of the agent. Can be one of `DEBUG`, `LOG`, `INFO`, `WARN` or `ERROR`.
 
 You add these variable to the standard docker run command
 
