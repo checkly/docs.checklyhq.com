@@ -11,14 +11,9 @@ aliases:
 cli: true
 ---
 
-A Private Location is similar to our existing public locations, but you have control over it. A Private Location can be
-in your own segregated network, on-premises or cloud-based. You need one or more Checkly Agents installed in that location/network
-with access to your applications.
+A Private Location is an additional location in Checkly. It acts exactly like any other location, but you run it on your own infrastructure.A Private Location can be used to run checks on your services which are not direcrtly exposed to the public internet but in your own segregated network. To operate a Private Location you need to run at least one Checkly Agent.
 
-Checkly checks are configured and scheduled in the Checkly cloud-based web UI or using the CLI as usual, but selecting a Private Location
-runs the check on the agent(s) in your infrastructure. **Agents are stateless and ephemeral**. As long as you have at
-least one operational Checkly Agent, checks will run in your Private Location. Adding more agents will distribute the load and
-improve resilience automatically.
+Checkly checks are configured and scheduled in the Checkly web UI or using the CLI as usual, but selecting a Private Location runs the check on the agent(s) in your infrastructure. As long as you have at least one operational Checkly Agent, checks will run in your Private Location. Adding more agents will distribute the load and improve resilience automatically.
 
 {{< info >}}
 You must have the Owner or Admin role on your Checkly account to create Private Locations.
@@ -26,12 +21,11 @@ You must have the Owner or Admin role on your Checkly account to create Private 
 
 ## Requirements
 
-Here are the requirements/questions before you get started:
+Here are the requirements before you get started:
 
-- Container runtime (we test using Docker, but other OCI-compliant runtimes should work)
-- Outbound internet access to https://agent.checklyhq.com (proxy configuration is supported)
-- Access to your internal API- or browser-based application
-- A Checkly account that you will use for testing Private Locations
+- A container runtime (we test using Docker, but other runtimes should work)
+- Outbound internet access for the Agent to https://agent.checklyhq.com (proxy configuration is supported)
+- Access to your internal API- or browser-based applications and services
 
 ## Configuring a Private Location
 
@@ -78,7 +72,7 @@ new ApiCheck('hello-api-1', {
   activated: true,
   maxResponseTime: 10000,
   degradedResponseTime: 5000,
-  privateLocations: ['blairs-private-network'],  
+  privateLocations: ['blairs-private-network'],
   request: {
     method: 'GET',
     url: ' https://checklyhq.com.org/',

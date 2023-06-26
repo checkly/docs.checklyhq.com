@@ -7,14 +7,10 @@ menu:
 cli: true
 ---
 
-At least two agents per Private Location are recommended for redundancy. When considering scaling, you should use at
-least N+1 agents per Private Location to ensure checks will be processed even if an agent fails.
-Agents are stateless, ephemeral, and scalable. You can add additional agents to a location at any time and remove them
+At least two running Checkly Agents per Private Location are recommended for redundancy. Agents are stateless and can be scaled horizontally as needed. You can add additional agents to a location at any time and remove them
 as necessary.
 
-If an agent fails, the other agents in the same Private Location will continue to run the checks assigned
-to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after
-a timeout period of 140 seconds.
+If one Checkly Agent fails, the other agents in the same Private Location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period of 140 seconds.
 
 There are two cases where checks assigned to a location could fail to run:
 
@@ -22,17 +18,17 @@ There are two cases where checks assigned to a location could fail to run:
 2. There is insufficient agent capacity in the Private Location.
 
 **Checks will stay queued for 6 minutes** waiting for an available agent. If there are no agents available or the available
-agents are so busy that they cannot process all the pending checks, the pending checks older than 6 minutes will be lost.
+agents are so busy that they cannot process all the pending checks in that timeframe, the pending checks older than 6 minutes will be lost.
 
-Agents can be scaled up and scaled out. Scaling up means adding additional CPU and memory allocations to existing agent 
+Agents can be scaled up and scaled out. Scaling up means adding additional CPU and memory allocations to existing agent
 containers. Scaling out means adding additional agent containers.
 
 ## Scale up
 
-Scaling up of individual agents is generally memory-constrained. For reference, a Browser check requires about 
-1.5GB of RAM and an API check requires about 150MB. The number of concurrent checks allowed to run on a single agent is 
-controlled by the `JOB_CONCURRENCY` environment variable which defaults to 1 and can be increased to 10. We do not 
-automatically separate browser and API checks on an agent. If you are running only Browser checks or a combination of 
+Scaling up of individual agents is generally memory-constrained. For reference, a Browser check requires about
+1.5GB of RAM and an API check requires about 150MB. The number of concurrent checks allowed to run on a single agent is
+controlled by the `JOB_CONCURRENCY` environment variable which defaults to 1 and can be increased to 10. We do not
+automatically separate browser and API checks on an agent. If you are running only Browser checks or a combination of
 browser and API checks in a Private Location, the formula (rounded down) is:
 
 `JOB_CONCURRENCY = Container memory allocation (GB) / 1.5`
@@ -43,21 +39,21 @@ If your Private Location is only running API checks:
 
 `JOB_CONCURRENCY = Container memory allocation (GB) / 0.15`
 
-For example: if your container has 1GB of memory allocated, you should set `JOB_CONCURRENCY` to 6 (1GB / 0.15GB per API check). 
+For example: if your container has 1GB of memory allocated, you should set `JOB_CONCURRENCY` to 6 (1GB / 0.15GB per API check).
 With 1.5GB of memory you can set `JOB_CONCURRENCY` to the maximum value of 10.
 
 ## Scale out
 
-To determine the number of agents you need in a Private Location you first need to know the number of checks assigned to 
-the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and Browser checks as 
+To determine the number of agents you need in a Private Location you first need to know the number of checks assigned to
+the location and their frequency. API checks can be scheduled as frequently as every 10 seconds and Browser checks as
 frequently as every 1 minute.
 
 Based on your configuration, you should be able to estimate how many checks will run per minute in your Private Location.
-API checks have a maximum running time of 30 seconds, Browser checks 2 minutes. This means that in the worst case scenario, 
+API checks have a maximum running time of 30 seconds, Browser checks 2 minutes. This means that in the worst case scenario,
 a checkly agent with a `JOB_CONCURRENCY` of 1 can run two API checks per minute, or 1 Browser checks per 2 minutes.
 In an average configuration this will be higher and API checks are generally faster than Browser checks.
 
-Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the 
+Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the
 agent container memory allocation, you can estimate the number of agents required as
 
 `agents = ((Checks per minute * average check duration in minutes) / JOB_CONCURRENCY) + 1`
