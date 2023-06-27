@@ -2,9 +2,7 @@ addReviewers: true
 addAssignees: author
 
 reviewers:
-  - pilimartinez
-  - ianaya89
-  - checklyalex
+  - tnolet
 
 skipKeywords:
   - wip

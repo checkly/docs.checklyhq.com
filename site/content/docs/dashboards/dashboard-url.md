@@ -5,6 +5,7 @@ menu:
   resources:
     parent: "Legacy Dashboards"
     identifier: legacy-dashboards-url-and-custom-domain
+cli: true
 ---
 
 ## Custom URL

@@ -4,6 +4,7 @@ weight: 50
 menu:
   resources:
     parent: "Dashboards"
+cli: true
 ---
 
 Using **Incidents** you can communicate outages and planned maintenance to your audience — customers, co-workers, partners —
