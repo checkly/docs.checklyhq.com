@@ -157,6 +157,7 @@ raw JavaScript / TypeScript as a string. This runs before the API check is execu
   raw JavaScript / TypeScript as a string. This runs after the API check is executed. Check [our docs on how to use setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/).
 - `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
+- `shouldFail`: Choose whether a failure should count as a pass. All requests with status code 400 or higher are reported as passed if set to `true`. The default behaviour if this setting is not defined is `false`.
 - `request`: An object of the `Request` type. See the [`Request` reference](#request).
 
 ### `Request`
@@ -189,7 +190,7 @@ AssertionBuilder.statusCode().equals(200)
 "{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
 ```
 
-- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path]((/docs/api-checks/assertions/#json-responses-with-json-path)).
+- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path](/docs/api-checks/assertions/#json-responses-with-json-path).
 ```ts
 AssertionBuilder.jsonBody('$.data').greaterThan(2000),
 // renders to a JSON string
