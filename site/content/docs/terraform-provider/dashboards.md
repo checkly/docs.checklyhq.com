@@ -19,6 +19,7 @@ resource "checkly_dashboard" "dashboard-main" {
   pagination_rate = 30          // How often to trigger pagination in seconds
   hide_tags       = false       // Whether to show or hide the tags on the dashboard
   width           = "FULL"      // Determines whether to use the full screen or focus in the center
+  isPrivate       = "false"     // Sets the dashboard to private. Will return a `key` to be used as password
   tags = [                      // One or more tags that filter which checks to display on the dashboard
     "auto"    
   ]
@@ -30,3 +31,11 @@ By default, if no check is specified, all checks in the account will be shown in
 {{</info>}}
 
 You can see all the configuration options for checks, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/dashboard).
+
+### Private Dashboards
+
+{{<info>}}
+Available as of `v1.6.6`
+{{</info>}}
+
+You can control your dashboards private/public status via Terraform by setting the `isPrivate` boolean to `true`. If activated, upon applying your terraform configuration changes, you will be returned a `read-only` `key` value for the dashboard which represents the password you can use to login via the browser.
