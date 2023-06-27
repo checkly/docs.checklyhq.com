@@ -42,9 +42,9 @@ export default defineConfig({
 })
 ```
 
-- `projectName` : A friendly name for your Project.
-- `logicalId` : A unique identifier for this Project. Like all logical ID's, this should be stable.
-- `repoUrl` : An optional URL to a Git repository.
+- `projectName`: A friendly name for your Project.
+- `logicalId`: A unique identifier for this Project. Like all logical ID's, this should be stable.
+- `repoUrl`: An optional URL to a Git repository.
 
 - `checks`: Top-level defaults for all Checks in this Project. If not overridden at the Check or CheckGroup level, these
 settings apply to your Checks. Takes all [Check properties](#check)
@@ -65,7 +65,7 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 The CLI currently supports two Check types: API Checks and Browser Checks. All checks share the following common properties
 derived from the abstract class `Check`.
 
-- `name` : A friendly name for your Check.
+- `name`: A friendly name for your Check.
 - `frequency`: How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.
 - `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.
 - `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
@@ -78,7 +78,7 @@ derived from the abstract class `Check`.
 - `runtimeId`: The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.
 - `testOnly`: A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.
 
-Note that most properties have sane default values and do not need to be specified.
+> Note that most properties have sane default values and do not need to be specified.
 
 ## `ApiCheck`
 
@@ -124,7 +124,7 @@ new ApiCheck('hello-api-1', {
   degradedResponseTime: 5000,
   request: {
     method: 'POST',
-    url: ' https://httpbin.org/post',
+    url: 'https://httpbin.org/post',
     body: JSON.stringify({
       name: 'checkly'
     }),
@@ -151,11 +151,11 @@ new ApiCheck('hello-api-1', {
 })
 ```
 
-- `setupScript` : An object with either an `entrypoint` property that points to a `.js|ts` file, or a `content` property with
+- `setupScript`: An object with either an `entrypoint` property that points to a `.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string. This runs before the API check is executed. Check [our docs on how to use setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/).
-- `tearDownScript` : An object with either an `entrypoint` property that points to a `.js|ts` file, or a `content` property with
+- `tearDownScript`: An object with either an `entrypoint` property that points to a `.js|ts` file, or a `content` property with
   raw JavaScript / TypeScript as a string. This runs after the API check is executed. Check [our docs on how to use setup and teardown scripts](/docs/api-checks/setup-teardown-scripts/).
-- `maxResponseTime` : The response time in milliseconds where a check should be considered failing.
+- `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
 - `shouldFail`: Choose whether a failure should count as a pass. All requests with status code 400 or higher are reported as passed if set to `true`. The default behaviour if this setting is not defined is `false`.
 - `request`: An object of the `Request` type. See the [`Request` reference](#request).
@@ -238,7 +238,7 @@ new BrowserCheck('browser-check-1', {
 })
 ```
 
-- `code` : an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
+- `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
 
@@ -290,7 +290,7 @@ new ApiCheck('check-group-api-check-1', {
 })
 ```
 
-- `name` : A friendly name for your Check Group.
+- `name`: A friendly name for your Check Group.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
 - `frequency`: How often to run the Checks within the group, i.e. `Frequency.EVERY_15M` for every fifteen minutes.
 - `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1']`.
@@ -457,3 +457,146 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 [Learn more about Pagerduty alert channels](/docs/integrations/pagerduty/)
 
+## `MaintenanceWindow`
+
+Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
+
+```ts
+import { MaintenanceWindow } from 'checkly/constructs'
+
+new MaintenanceWindow('maintenance-window-1', {
+  name: 'Programmed API maintenance',
+  tags: ['production', 'api'],
+  startsAt: new Date(),
+  endsAt: new Date(new Date().valueOf() + (1 * 60 * 60 * 1000)), // a hour from now
+  repeatInterval: 1,
+  repeatUnit: 'MONTH',
+  repeatEndsAt: new Date(new Date().valueOf() + (2160 * 60 * 60 * 1000)), // ~three months from now
+})
+```
+
+- `name`: A friendly name for your Maintenance Window.
+- `tags`: An array of tags. A list of one or more tags that filter which checks are affected by the maintenance window. i.e. `['production', 'api']`.
+- `startsAt`: The start date and time of the maintenance window as an ISO 8601 timestamp `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`.
+- `endsAt`: The end date and time of the maintenance window as an ISO 8601 timestamp `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`.
+- `repeatInterval`: The repeat interval of the maintenance window from the first occurrence.
+- `repeatUnit`: The repeat strategy for the maintenance window. This is mandatory when you specify a repeat interval.
+- `repeatEndsAt`: The end date and time when the maintenance window should stop repeating  as an ISO 8601 timestamp 
+`"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`
+
+[Learn more about maintenance windows in our docs](https://www.checklyhq.com/docs/maintenance-windows)
+
+## `Dashboard`
+
+Creates a dashboard allowing you to display checks and their related metrics on a single page.
+
+```ts
+import * as path from 'path'
+import { v4 as uuidv4 } from 'uuid'
+import { Dashboard } from 'checkly/constructs'
+new Dashboard('acme-dashboard-1', {
+  header: 'ACME production',
+  description: 'service availability and response times',
+  tags: ['prod', 'api'],
+  logo: 'https://assets.acme.com/images/acme-logo.png',
+  customUrl: `status-test-cli-${uuidv4()}`,
+  customCSS: {
+    entrypoint: path.join(__dirname, 'dashboard.css'),
+  }
+})
+```
+You can add custom CSS by referencing a CSS file. Note, this is a paid feature.
+
+```css
+/* dashboard.css */
+.header {
+  background: #080808;
+  border-bottom-color: #313035;
+  font-family: "SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+}
+
+.header .logo a {
+  color: #f7f8f8;
+}
+```
+
+- `tags`: A list of one or more tags that filter what checks will be shown in the dashboard. All checks are included if no tag is specified.
+- `customUrl`: A subdomain name under "checklyhq.com". Needs to be unique across all users. This is required if `customDomain` is not specified.
+- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](docs/dashboards/dashboard-customization/#custom-domain).
+This is required if `customUrl` is not specified.
+- `logo`: A URL pointing to an image file that will be used as logo in the dashboard header.
+- `favicon`: A URL pointing to an image file used as dashboard favicon.
+- `link`: A URL link to redirect when dashboard logo is clicked on.
+- `header`: A piece of text displayed at the top of your dashboard.
+- `description`: A piece of text displayed below the header or title of your dashboard.
+- `width`: Determines whether to use the full screen (`FULL`) or focus in the center (`960PX`). Default: `FULL`.
+- `refreshRate`: How often (`60`, `300` or `600` seconds) to refresh the dashboard in seconds. Default: `60`. 
+- `paginate`: Determines of pagination is on or off. Default: true.
+- `paginationRate`?: How often (`30`, `60` or `300` seconds) to trigger pagination in seconds. Default: `60`.
+- `checksPerPage`: Number of checks displayed per page, between `1` and `20`. Default: `15`.
+- `useTagsAndOperator`: When to use `AND` (instead `OR`) operator for tags lookup. Default: `false`.
+- `hideTags`: Show or hide the tags on the dashboard. Default: `false`.
+- `enableIncidents`: Enable or disable incidents on the dashboard. Default: `false`. (only paid accounts can enable this feature.)
+- `expandChecks`: Expand or collapse checks on the dashboard. Default: `false`.
+- `showHeader`: Show or hide header and description on the dashboard. Default: `true`.
+- `customCSS`: Custom CSS to be applied to the dashboard. You can specify CSS code or an entrypoint to a file including the CSS code to use
+- `isPrivate`: Determines if the dashboard is public or private. Default: false. (only paid accounts can enable this feature.)
+- `showP95`: Show or hide the P95 stats on the dashboard. Default: `true`.
+- `showP99`: Show or hide the P99 stats on the dashboard. Default: `true`.
+ 
+[Learn more about dashbaords in our docs](https://www.checklyhq.com/docs/dashboards)
+
+## `PrivateLocation`
+
+Creates a Private Location, so you can deploy one or more Checkly Agents on-prem, in a VPC or any segregated network.
+
+```ts
+// private-location.check.ts
+import { PrivateLocation } from 'checkly/constructs'
+
+export const myPrivateLocation = new PrivateLocation('private-location-1', {
+  name: 'My private location',
+  icon: 'squirrel',
+  slugName: `my-private-location`
+})
+```
+
+Use the new private location in a Check:
+
+```ts
+import * as path from 'path'
+import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
+import { myPrivateLocation } from './private-location.check'
+
+new ApiCheck('local-api-1', {
+  name: 'Local API',
+  activated: true,
+  maxResponseTime: 10000,
+  degradedResponseTime: 5000,
+  privateLocations: [ myPrivateLocation ],
+  request: {
+    method: 'POST',
+    url: 'https://my-local-domain:5000/post',
+    body: JSON.stringify({
+      name: 'checkly'
+    }),
+    skipSSL: true,
+    followRedirects: true,
+    assertions: [
+        AssertionBuilder.statusCode().equals(200),
+    ]
+  }
+})
+```
+{{< info >}}
+Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the 
+instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
+project or created via the Web UI, you can pass in the `slugName` string.
+{{< /info >}}
+
+- `name`: A friendly name for your private location.
+- `slugName`: A valid unique slug name.
+- `icon`: An icon to distinguish the location in our UI. You can pick any [Octicons](https://primer.style/design/foundations/icons) name.
+- `proxyUrl`: Define a proxy for outgoing API check HTTP calls from your private location.
+
+[Learn more about private locations in our docs](https://www.checklyhq.com/docs/private-locations)

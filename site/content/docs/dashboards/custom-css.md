@@ -4,6 +4,7 @@ weight: 49
 menu:
   resources:
     parent: "Dashboards"
+cli: true
 ---
 
 You can completely customize the look & feel of your dashboard using custom CSS rules so the dashboard fits your company's
