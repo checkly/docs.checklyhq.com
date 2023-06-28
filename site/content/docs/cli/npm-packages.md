@@ -35,7 +35,7 @@ The latest runtime is `2022.10` at the time of writing. This runtime contains am
 Browser checks are also able to import other JavaScript and TypeScript files as dependencies.
 This is useful for defining helper functions to be reused across multiple checks.
 The Checkly CLI will automatically detect these dependencies and make sure that they're bundled as part of the check.
-No additonal configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
+No additional configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
 
 Here is an example of how this works in practice. The directory tree looks like the following:
 ```
