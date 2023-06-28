@@ -11,7 +11,7 @@ aliases:
 cli: true
 ---
 
-A Private Location is an additional location in Checkly. It acts exactly like any other location, but you run it on your own infrastructure.A Private Location can be used to run checks on your services which are not direcrtly exposed to the public internet but in your own segregated network. To operate a Private Location you need to run at least one Checkly Agent.
+A Private Location is an additional location in Checkly. It acts exactly like any other location, but you run it on your own infrastructure. A Private Location can be used to run checks on your services which are not direcrtly exposed to the public internet but in your own segregated network. To operate a Private Location you need to run at least one Checkly Agent.
 
 Checkly checks are configured and scheduled in the Checkly web UI or using the CLI as usual, but selecting a Private Location runs the check on the agent(s) in your infrastructure. As long as you have at least one operational Checkly Agent, checks will run in your Private Location. Adding more agents will distribute the load and improve resilience automatically.
 
