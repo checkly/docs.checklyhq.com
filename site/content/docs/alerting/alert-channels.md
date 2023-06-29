@@ -13,6 +13,7 @@ You can add as many of the following alert channels as you want:
 - [Slack]({{< ref "../integrations/slack.md" >}})
 - [Webhook]({{< ref "webhooks.md" >}})
 - [SMS]({{< ref "sms-delivery.md" >}})
+- [Phone call]({{< ref "phone-calls.md" >}})
 - [Pagerduty]({{< ref "docs/integrations/pagerduty.md" >}})
 - [Opsgenie]({{< ref "docs/integrations/opsgenie.md" >}})
 - [FireHydrant]({{< ref "docs/integrations/firehydrant.md" >}})
