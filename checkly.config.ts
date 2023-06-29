@@ -1,9 +1,8 @@
 import { defineConfig } from 'checkly'
-import { slackChannelOps } from './__checks__/alertChannels'
 
 const config = defineConfig({
   projectName: 'www.checklyhq.com',
-  logicalId: 'checkly-production-e2e-mac-checklyhq-com-1',
+  logicalId: 'checkly-production-e2e-mac-docs-checklyhq-com-1',
   repoUrl: 'https://github.com/checkly/checklyhq.com',
   checks: {
     activated: true,
