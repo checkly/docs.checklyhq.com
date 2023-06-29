@@ -91,8 +91,7 @@ API keys can be rotated as necessary in order to maintain good security practice
 
    ![two keys](/docs/images/private-locations/two_keys.png)
 
-6. You now need to replace your Checkly agents. You can do this one-by-one or as a group, just make sure you always have
-enough agent containers up and running based on your workload. Using your container management tool, start new agents with the new API key:
+6. You now need to replace your Checkly agents. You can do this one-by-one or as a group, just make sure you always have enough agent containers up and running based on your workload. Using your container management tool, start new agents with the new API key:
 
 ```bash
 docker run -e API_KEY="pl_...." -d checkly/agent:latest`
