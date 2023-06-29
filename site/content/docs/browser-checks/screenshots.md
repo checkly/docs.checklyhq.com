@@ -7,7 +7,7 @@ menu:
 cli: true
 ---
 
-You can take up to ten screenshots per browser check. This is really handy when debugging a failure situation or just
+You can take up to 20 screenshots per browser check run. This is really handy when debugging a failure situation or just
 in general to get a comfy feeling everything is OK.  
 
 When using Playwright or Playwright Test, add a screenshot anywhere with the following syntax in your script:
