@@ -22,8 +22,6 @@ Check out this video for a quick explainer:
 
 {{< youtube GQOgjtBA2Pk >}}
 
-<br/>
-
 You can unite E2E testing with monitoring in multiple ways with Checkly. You might be a Terraform shop, or just configure
 your checks in the web UI first. To help you pick your own journey, we will discuss the core principles below.
 

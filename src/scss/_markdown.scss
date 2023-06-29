@@ -48,6 +48,7 @@
   iframe[src^="https://www.youtube.com"] {
     border-radius: 0.25rem;
     border: 1px solid $gray-lighter !important;
+    margin: 1rem 0;
   }
 
   blockquote {
