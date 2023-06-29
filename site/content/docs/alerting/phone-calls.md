@@ -12,7 +12,7 @@ The phone numbers used for phone calls alerting need to be in E.164 format. Stic
 - Do not use any white spaces
 - Use up to 15 characters
 
-![send monitoring alerts with SMS](/docs/images/alerting/phone-call.png)
+![send monitoring alerts with phone calls](/docs/images/alerting/phone-call.png)
 
 You can add as many phone number channels as you like.
 
@@ -20,25 +20,25 @@ You can add as many phone number channels as you like.
 
 | Country |
 | ------ |
-| Germany |
-| United States |
-| France |
-| United Kingdom |
-| India |
-| Norway |
-| Brazil |
-| Netherlands |
-| Vietnam |
-| Canada |
 | Australia |
+| Brazil |
+| Canada |
+| France |
+| Germany |
+| India |
+| Netherlands |
+| Norway |
+| Vietnam |
+| United Kingdom |
+| United States |
 
 {{< warning >}}
-If you country is not supported feel free to reach out our [support team](mailto:support@checklyhq.com).
+If your country is not supported feel free to reach out our [support team](mailto:support@checklyhq.com).
 {{< /warning >}}
 
 ## Phone call number and sender ID
 
-Phone calls alerts will be sent with a sender ID and phone number. But not all carriers support that. For instance, the number the call is sent from in the US will be +18142508623. But in other countries only the sender ID will be displayed, which is "Checkly". 
+Phone call alerts always use the following number: +18142508623. You can save the number as a contact to allow alerts bypassing any do-not-disturb settings.
 
 {{< info >}}
 For limits and other phone call related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing#features).
