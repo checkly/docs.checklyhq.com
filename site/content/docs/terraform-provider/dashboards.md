@@ -38,4 +38,4 @@ You can see all the configuration options for checks, as well as more examples, 
 Available as of `v1.6.6`
 {{</info>}}
 
-You can control your dashboards private/public status via Terraform by setting the `isPrivate` boolean to `true`. If activated, upon applying your terraform configuration changes, you will be returned a `read-only` `key` value for the dashboard which represents the password you can use to login via the browser.
+You can control your dashboards private/public status via Terraform by setting the `isPrivate` boolean to `true`. If activated, upon applying your terraform configuration changes, you will be returned a `read-only` `key` value for the dashboard which represents the password you can use to login via the browser. The password is stored in your `tfstate` file. 
