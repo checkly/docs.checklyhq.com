@@ -6,7 +6,7 @@ menu:
     parent: "Alerting"
 ---
 
-The phone numbers used for phone calls alerting need to be in E.164 format. Stick to the following rules and you'll be fine:
+The phone numbers used for phone call alerting need to be in[E.164 format](https://www.twilio.com/docs/glossary/what-e164). Stick to the following rules, and you'll be fine:
 
 - Prepend international access codes with a + sign
 - Do not use any white spaces
@@ -33,7 +33,7 @@ You can add as many phone number channels as you like.
 | United States |
 
 {{< warning >}}
-If your country is not supported feel free to reach out our [support team](mailto:support@checklyhq.com).
+If your country is not supported feel free to reach out to our [support team](mailto:support@checklyhq.com).
 {{< /warning >}}
 
 ## Phone call number and sender ID
