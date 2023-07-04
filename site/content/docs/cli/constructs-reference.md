@@ -351,7 +351,7 @@ Sends SMS notifications to phone number. Make sure to use standard international
 import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
-  phoneNumber: '0031061234567890',
+  phoneNumber: '+31061234567890',
 })
 ```
 
@@ -365,7 +365,7 @@ Sends phone call notifications to phone number. Make sure to use standard intern
 import { PhoneCallAlertChannel } from 'checkly/constructs'
 
 const callChannel = new PhoneCallAlertChannel('call-channel-1', {
-  phoneNumber: '0031061234567890',
+  phoneNumber: '+31061234567890',
 })
 ```
 
