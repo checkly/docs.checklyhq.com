@@ -392,7 +392,7 @@ Sends a Slack message to an incoming Slack webhook address. You can specify the 
 import { SlackAlertChannel } from 'checkly/constructs'
 
 const slackChannel = new SlackAlertChannel('slack-channel-1', {
-  url: 'https://hooks.slack.com/services/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',
+  url: new URL('https://hooks.slack.com/services/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'),
   channel: '#ops'
 })
 ````
