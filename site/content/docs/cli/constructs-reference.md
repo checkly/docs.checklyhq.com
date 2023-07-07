@@ -225,7 +225,7 @@ types. The most important thing is to set the `code.entrypoint` property and poi
 This property supports relative and absolute paths.
 
 ```ts
-import { BrowserCheck } from 'checkly/constructs'
+import { BrowserCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
 new BrowserCheck('browser-check-1', {
