@@ -67,6 +67,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
 
 {{< info >}}
 Checkly currently supports only using **Chromium** with Playwright Test and Playwright library.
+[Read more about using other browsers](/docs/browser-checks/#using-other-browsers). 
 {{< /info >}}
 
 ## Breaking down a Browser check step-by-step
@@ -218,6 +219,43 @@ alerting channels will be triggered, notifying your team that something is up.
 While Playwright and Puppeteer share many similarities, they have evolved at different speeds over time. Playwright's rapid release cycle and new features such as [auto-waiting](https://playwright.dev/docs/actionability) and [the built-in inspector](https://playwright.dev/docs/debug#playwright-inspector) made it gain momentum in the developer community. Playwright and Playwright Test Runner have become superior solutions and we have stopped support for Puppeteer in newer [runtimes](/docs/runtimes/). The latest runtime that supports Puppeteer is [2022.02](/docs/runtimes/specs/).
 
 We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
+
+## Using other browsers
+{{< info >}}
+We strongly recommend using the default `chromium` browser for all your checks [as per the offcial Playwright documentation](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge).
+{{< /info >}}
+
+If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
+Checkly enables you to use `Google Chrome` with Playwright in runtimes `2023.02` and newer. 
+In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
+
+{{< tabs "Google Chrome with Playwright test" >}}
+{{< tab "TypeScript" >}}
+```ts
+import { expect, test } from '@playwright/test'
+
+test.use({ channel: 'chrome' }) // <-- opt-in to use Google Chrome
+
+test('Open the page and take a screenshot', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
+  await page.screenshot({ path: `checkly.png` })  
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { expect, test } = require('@playwright/test')
+
+test.use({ channel: 'chrome' }) // <-- opt-in to use Google Chrome
+
+test('Open the page and take a screenshot', async ({ page }) => {
+  await page.goto('https://checklyhq.com/')
+  await page.screenshot({ path: `checkly.png` })
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
 
 ## Next Steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
