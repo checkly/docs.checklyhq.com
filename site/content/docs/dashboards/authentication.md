@@ -21,7 +21,7 @@ After enabling password protection, you will need to do the following.
 Be careful, **this is the only time you will see this password in plaintext**. We do not store the password in plaintext, so if it is ever lost, you will need to regenerate a new one and inform any users of the new credentials.
 
 {{< info >}}
-Private Dashboards are available on any paid Checkly plan.
+Private Dashboards are available on the Team and Enterprise plans.
 {{< /info >}}
 
 ## Access
