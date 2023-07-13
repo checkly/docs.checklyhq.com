@@ -226,7 +226,7 @@ We strongly recommend using the default `chromium` browser for all your checks [
 {{< /info >}}
 
 If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
-Checkly enables you to use `Google Chrome` with Playwright in runtimes `2023.02` and newer. 
+Checkly enables you to use `Google Chrome` with Playwright in runtime `2023.02`. 
 In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
 
 {{< tabs "Google Chrome with Playwright test" >}}
