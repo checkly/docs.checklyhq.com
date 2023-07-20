@@ -17,8 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 1
+          fetch-depth: 0
           ref: "${{ github.event.deployment_status.deployment.ref }}"
+      - name: Set branch name # workaround to detect branch name in "deployment_status" actions
+        run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
@@ -29,8 +31,7 @@ jobs:
         run: npm run checkly:deploy -- --preview
       - name: Run checks
         id: run-checks
-        run: npm run checkly:test --
-          -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
+        run: npm run checkly:test -- -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
       - id: create-summary
         if: always()
         run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY

@@ -55,8 +55,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: "${{ github.event.deployment_status.deployment.ref }}"
-          fetch-depth: 1
-      - name: Set branch name # this is workaround to get the branch name.
+          fetch-depth: 0
+      - name: Set branch name # workaround to detect branch name in "deployment_status" actions
         run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
