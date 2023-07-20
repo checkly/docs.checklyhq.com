@@ -83,6 +83,13 @@ npx checkly deploy
 - `--output` or `-o`: Show applied differences after deploying.
 - `--no-schedule-on-deploy`: Do not schedule check runs when deploying.
 
+When you deploy a project, you can attach Git specific information so changes to any resources are displayed in the 
+Checkly web UI wit the correct commit, owner etc.
+
+{{< markdownpartial "/_shared/cli-env-vars.md" >}}
+
+Some of the above variables will be detected automatically detected from your local or CI environment on a best effort basis.
+
 ## `npx checkly destroy`
 
 Destroy all project's resources (checks, groups, alert channels, etc.) from your Checkly account.
