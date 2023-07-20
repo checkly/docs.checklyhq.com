@@ -1,4 +1,6 @@
-
+---
+sitemapExclude: true
+---
 | variable                      | description                                |
 |-------------------------------|--------------------------------------------|
 | `CHECKLY_REPO_SHA`            | The SHA of the commit.                     |
