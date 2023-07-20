@@ -313,7 +313,7 @@
       margin-bottom: $menu-item-padding-spacer;
     }
 
-    &-community {
+    &-community, &-support {
       margin-top: 4 * $menu-item-padding-spacer;
 
       nav {
@@ -323,9 +323,21 @@
 
           li {
             a {
-              display: block;
+              display: flex;
+              align-items: center;
               padding-bottom: $menu-item-padding-spacer;
               color: $gray-darkish;
+
+              &::before {
+                width: 12px;
+                height: 12px;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: bottom;
+                margin: 0 8px 0 0;
+                content: '';
+                display: inline-block;
+              }
             }
           }
         }
@@ -333,42 +345,23 @@
 
       &-slack-link {
         &::before {
-          width: 12px;
-          height: 12px;
           background: url(/images/icons/slack-icon.svg);
-          background-size: 100%;
-          background-repeat: no-repeat;
-          background-position: bottom;
-          margin: 0 8px 0 0;
-          content: '';
-          display: inline-block;
         }
       }
 
       &-github-link {
         &::before {
-          width: 12px;
-          height: 12px;
           background: url(/images/icons/github-icon.svg);
-          background-size: 100%;
-          background-repeat: no-repeat;
-          background-position: bottom;
-          margin: 0 8px 0 0;
-          content: '';
-          display: inline-block;
         }
       }
       &-youtube-link {
         &::before {
-          width: 12px;
-          height: 12px;
           background: url(/images/icons/youtube-icon.svg);
-          background-repeat: no-repeat;
-          background-position: bottom;
-          background-size: 100%;
-          margin: 0 8px 0 0;
-          content: '';
-          display: inline-block;
+        }
+      }
+      &-question-link {
+        &::before {
+          background: url(/images/icons/question.svg);
         }
       }
     }
