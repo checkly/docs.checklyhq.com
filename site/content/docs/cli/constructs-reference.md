@@ -408,7 +408,7 @@ import { WebhookAlertChannel } from 'checkly/constructs'
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
   name: 'Pushover webhook',
   method: 'POST',
-  url: 'https://api.pushover.net/1/messages.json',
+  url: new URL('https://api.pushover.net/1/messages.json'),
   template: `{
     "token":"FILL_IN_YOUR_SECRET_TOKEN_FROM_PUSHOVER",
     "user":"FILL_IN_YOUR_USER_FROM_PUSHOVER",
