@@ -351,6 +351,7 @@ Sends SMS notifications to phone number. Make sure to use standard international
 import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
+  name: 'Ops on-call',    
   phoneNumber: '+31061234567890',
 })
 ```
