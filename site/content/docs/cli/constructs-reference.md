@@ -408,7 +408,8 @@ import { WebhookAlertChannel } from 'checkly/constructs'
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
   name: 'Pushover webhook',
   method: 'POST',
-  url: 'https://api.pushover.net/1/messages.json',
+  url: new URL('https://api.pushover.net/1/messages.json'),
+  headers: [ { key: 'X-My-Header', value: 'myToken' }],
   template: `{
     "token":"FILL_IN_YOUR_SECRET_TOKEN_FROM_PUSHOVER",
     "user":"FILL_IN_YOUR_USER_FROM_PUSHOVER",
@@ -424,7 +425,8 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 - `url`: The URL where to send the webhook HTTP request.
 - `method`: A string, either `GET`, `POST`, `PUT`, `PATCH`, `HEAD` or `DELETE` just like an API Check.
 - `template`: This is commonly a JSON body. You can use Handlebars-style template variables to add custom data to the template.
-
+- `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
+- `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
 [Learn more about Webhook alert channels and available variables](/docs/alerting/webhooks/)
 
 ## `OpsgenieAlertChannel`
