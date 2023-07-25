@@ -81,7 +81,7 @@ npx checkly deploy
 - `--force` or `-f`: Skips the confirmation dialog when deploying. Handy in CI environments.
 - `--preview` or `-p`: Preview the differences between your actual configuration and your account.
 - `--output` or `-o`: Show applied differences after deploying.
-- `--no-schedule-on-deploy`: Do not schedule check runs when deploying.
+- `--no-schedule-on-deploy`: Do not run checks when deploying.
 
 When you deploy a project, you can attach Git specific information so changes to any resources are displayed in the
 Checkly web UI wit the correct commit, owner etc.
