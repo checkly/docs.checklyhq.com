@@ -12,62 +12,39 @@ menu:
     parent: "Miscellaneous"
 ---
 
-With Playwright and Puppeteer, writing scripts by hand is not the only option. Since browser automation first became possible, there have always been tools trying to simplify script creation. Such instruments normally aim to help users with little or no scripting skills use automation tools, while also saving more expert users time when creating brand new scripts.
+With Playwright and Puppeteer, writing scripts manually is not the only option. Since browser automation became possible, there have always been tools trying to simplify script creation. Such instruments aim to help users with little or no scripting skills use automation tools, while also saving more expert users time when creating brand new scripts.
 
 Recorders can be used to quickly generate code for a scenario, saving time users would otherwise have to spend inspecting the various pages to find valid selectors. When creating multiple scripts, this adds up to a noticeable amount of time saved.
 
-<!-- more -->
+## Tools to record headless automation scripts
 
-## Extensions vs libraries
+In the world of headless automation, Microsoft's Playwright and Google's Puppeteer provide recorders.
 
-In the world of headless automation, most open-source recorders are available in one of two formats:
+### Record Playwright scripts with `codegen`
 
-1. As extensions to be installed and run from your browser, e.g. [Headless Recorder](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda?hl=en-GB)
-![headless recorder screenshot](/samples/images/recorder-headless.png)
+Playwright provides multiple ways to record browser automation scripts. The recommended approach is to leverage [the built-in `codegen` command](https://playwright.dev/docs/codegen-intro#running-codegen).
 
-2. As libraries which launch a new browser session, e.g. [QAWolf](https://www.qawolf.com/)
-![qawolf screenshot](/samples/images/recorder-qawolf.png)
+![Playwright codegen example](/samples/images/playwright-codegen.jpg)
 
-Both types will record different input events and generate the corresponding code line-by-line.
+{{< info >}}
+Pro tip: if you're using [the Playwright VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright#record-new-tests), you can also record and run scripts in your editor.
+{{< /info >}}
+
+### Record Puppeteer scripts in Google Chrome
+
+While the Puppeteer executable doesn't provide a built-in recorder, use the Google Chrome developer tools to give your Puppeteer scripts a headstart. Navigate to the "Recorder" panel and export a Puppeteer script.
+
+![Puppeteer recorder example](/samples/images/puppeteer-recorder.jpg)
 
 ## Using recorders effectively
 
-Regardless of the approach you choose, you will want to inspect the output scripts to make sure they are doing what you need them to in the fastest and most reliable way possible. In the interest of efficiency, it is recommended that you choose a recorder that outputs scripts that do not require too much tweaking.
+Regardless of your chosen approach, you will want to inspect the output scripts to make sure they are doing what you need them to in the fastest and most reliable way possible.
 
-That being said, you should always double-check the newly created scripts and tweak it when necessary, especially keeping an eye out for:
+Double-check the newly created scripts and tweak it when necessary, especially keeping an eye out for:
 
 1. Selectors, which should be in line with common [best practices](/learn/headless/basics-selectors/).
 2. [Waits](/learn/headless/basics-navigation/), which should ensure the right element is present and/or ready for interaction at the right time; also, make sure you get rid of unnecessary waits.
 3. Any sort of needless duplication.
-
-An example of recorded Puppeteer script:
-
-{{< tabs "1" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/recorder-rough.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/recorder-rough.js" "puppeteer"  >}}
-{{< /tab >}}
-{{< /tabs >}}
-
-We can modify this script to improve readability and efficiency:
-
-1. The duplicated `await navigationPromise` on line 14 serves no purpose and can be deleted.
-2. The `page.waitForSelector` on line 16 is not needed as we already are waiting on the navigationPromise.
-3. The `page.waitForSelector` on line 19 can be skipped as the element is present on the same page as the previous one.
-4. All the selectors used can be [refactored](/learn/headless/basics-selectors/).
-
-{{< tabs "2" >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/recorder-refactored.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/recorder-refactored.js" "puppeteer"  >}}
-{{< /tab >}}
-{{< /tabs >}}
-
-Like all scripts, recorded scripts need to be maintained in order to [remain useful](/learn/headless/valuable-tests/) over time.
 
 ## Takeaways
 
@@ -77,5 +54,4 @@ Like all scripts, recorded scripts need to be maintained in order to [remain use
 
 ## Further reading
 
-1. [Headless Recorder](https://github.com/checkly/headless-recorder) and [QAWolf's](https://github.com/qawolf/qawolf) GitHub repositories.
-2. [Playwright CLI](https://github.com/microsoft/playwright-cli) also enables script recording.
+1. [Playwright Codegen](https://playwright.dev/docs/codegen-intro#running-codegen) documentation.
