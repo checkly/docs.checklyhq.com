@@ -35,7 +35,7 @@ The latest runtime is `2022.10` at the time of writing. This runtime contains am
 Browser checks are also able to import other JavaScript and TypeScript files as dependencies.
 This is useful for defining helper functions to be reused across multiple checks.
 The Checkly CLI will automatically detect these dependencies and make sure that they're bundled as part of the check.
-No additonal configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
+No additional configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
 
 Here is an example of how this works in practice. The directory tree looks like the following:
 ```
@@ -94,10 +94,10 @@ After running [`npx checkly deploy`](/docs/cli/command-line-reference/#npx-check
 
 ## Why can't I import any NPM package or other 3rd party dependencies?
 
-Great question! Please see [this paragraph in our runtime docs](/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)
+Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)
 
 In short:
 
 1. Our runtime architecture is not a full CI platform for reasons of size, complexity and security.
-2. Having said that, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291)
+2. Having said that, [please comment on this pinned GitHub issue](https://checkly.featurebase.app/submissions/6464dc310f356460eca410d1)
 with a package you would love to see included in our Runtime.

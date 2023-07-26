@@ -18,7 +18,12 @@ steps:
 environments.
 3. You **deploy** your checks to Checkly, so we can run them around the clock as monitors and alert you when things break.
 
-However, you can unite E2E testing with monitoring in multiple ways with Checkly. You might be a Terraform shop, or just configure
+Check out this video for a quick explainer:
+
+{{< youtube GQOgjtBA2Pk >}}
+<br>
+
+You can unite E2E testing with monitoring in multiple ways with Checkly. You might be a Terraform shop, or just configure
 your checks in the web UI first. To help you pick your own journey, we will discuss the core principles below.
 
 - [Test sessions](#test-sessions)
@@ -37,11 +42,14 @@ The test session overview provides insights into where a test session was trigge
 
 ![test sessions detail](/docs/images/testing/test_session_detail@2x.jpg)
 
-While test session details are automatically detected you can also configure them:
+While test session git details are automatically detected you can also configure them by setting environment variables.
 
-{{< markdownpartial "/_shared/test-session-details.md" >}}
+{{< markdownpartial "/_shared/cli-env-vars.md" >}}
 
-For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful when using our `@playwright/test` powered browser checks.
+[Read more about using git with the CLI](/docs/cli/using-git)
+
+For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful 
+when using our `@playwright/test` powered browser checks.
 
 ## Testing with the CLI
 

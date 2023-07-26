@@ -100,8 +100,9 @@ npx checkly login
 
 If you cannot access the npm registry directly, you can also download the Checkly CLI via our CDN.
 
-- [MacOS / Darwin](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.8/darwin/checkly.zip)
-- [Windows](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.8/windows/checkly.zip)
+- [MacOS / Darwin](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.10/darwin/checkly.zip)
+- [Windows](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.10/windows/checkly.zip)
+- [Linux](https://cdn.checklyhq.com/downloads/checkly-cli/4.0.12/linux/checkly.tar.gz)
 
 The download is a zipped folder containing a full installation of [the boilerplate example project](https://github.com/checkly/checkly-cli/tree/main/examples/boilerplate-project).
 You will find the following files and folders:

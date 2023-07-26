@@ -28,6 +28,10 @@ a resource was removed and a new resource was created.
 
 So, I guess you know now that logical IDs are important!
 
+{{< info >}}
+When changing the logical ID of a project you will keep all resources on your Checkly account, unless you run [`npx checkly destroy`](/docs/cli/command-line-reference/#npx-checkly-destroy) to remove the old project.
+{{< /info >}}
+
 ## Creating an API Check
 
 API checks are used to validate your HTTP based API endpoints. Let's look at the example below as it does a couple of things:

@@ -69,6 +69,6 @@ The quickest schedule you can run is every 10 seconds and the slowest is every 2
 **8. Alerting**
 
 Our alerting is pretty flexible. You can configure any of our [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for whichever checks you like. If we don't have your preferred alert method, why not try out our [Webhooks](/docs/alerting/webhooks)?
-> [SMS](/docs/alerting/sms-delivery/) alerts are only available on our [paid plans](https://www.checklyhq.com/pricing#features) 
+> [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls) alerts are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features) 
 
 ![alerting](/docs/images/api-checks/overview-alerting.png)

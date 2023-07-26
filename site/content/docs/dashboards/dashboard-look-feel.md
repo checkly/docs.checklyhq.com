@@ -5,6 +5,7 @@ menu:
   resources:
     parent: "Legacy Dashboards"
     identifier: legacy-dashboards-look-and-feel
+cli: true
 ---
 
 Dashboards have a lot of tweakable options to make them work for you in your situation.

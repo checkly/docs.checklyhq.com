@@ -1,6 +1,6 @@
 ---
 title: Overview
-weight: 47
+weight: 46
 slug: /
 menu:
   resources:
@@ -10,6 +10,7 @@ aliases:
   - "/dashboards/overview/"
   - "/docs/dashboards/overview/"
   - "/docs/dashboards/"
+cli: true
 ---
 
 You can use Checkly Dashboards to communicate check status and incidents to non-Checkly users. Use
