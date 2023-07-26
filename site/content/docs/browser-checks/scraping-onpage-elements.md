@@ -3,8 +3,9 @@ title: Scraping & asserting on page elements
 description: How to scrape web page elements like texts, buttons and forms with Google Chrome and Playwright Test.
 weight: 15
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 Any standard Node.js script that successfully finishes an execution is a valid, passing browser check. However, in

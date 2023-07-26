@@ -2,7 +2,7 @@
 title: Discord
 weight: 61
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 
@@ -13,7 +13,7 @@ deliver failure, degradation, and recovery messages to any project in your Disco
 
    ![setup checkly discord step 1](/docs/images/integrations/discord/discord_step1.png)
 
-2. **Choose a name** for your integration like "Checkly" and [add this Checkly icon](https://d1tzmx204wa22c.cloudfront.net/logos/fat_racoon_square.png).
+2. **Choose a name** for your integration like "Checkly" and [add this Checkly icon](https://cdn.checklyhq.com/logos/fat_racoon_square.png).
     Click the "Copy the Webhook URL" to...well...copy the Webhook URL 
 
    ![setup checkly discord integration step 2](/docs/images/integrations/discord/discord_step2.png)

@@ -3,33 +3,25 @@ title: Getting Started
 weight: 1
 slug: /
 menu:
-  docs:
+  platform:
     parent: "CLI"
     identifier: getting-started-cli
 ---
 
-The Checkly CLI (now in beta) gives you a JavaScript/TypeScript-native **workflow** for coding, testing and deploying synthetic
-monitoring at scale, from your code base. We call this workflow **monitoring as code** (MaC).
-
-- **Unite E2E testing & monitoring in one workflow.** No more silos between Dev, QA and Ops.
-- **Programmable, testable, reviewable.** Works with your dev pipeline. From your IDE, via PR to CI.
-- **Native `@playwright/test` support.** No lock-in, just write standard `*.spec.ts` files.
-- **Alerting baked in.** Set alerts for Slack, SMS and many more channels.
-- **Typescript-first.** Fully typed for a stellar developer experience with code completion.
-- **Run in the cloud or on-prem.** Run on the Checkly cloud or in your network using the [Private Locations](https://www.checklyhq.com/docs/private-locations/)
+The Checkly CLI gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic
+monitoring at scale, from your code base. The Checkly CLI comes with **native `@playwright/test` support.** No lock-in, 
+just write standard `*.spec.ts` files.
 
 ## Starting your first project
 
-First, make sure you sign up for a [free Checkly account](https://app.checklyhq.com/signup).
-
-Then, get started by installing the CLI using the following command which will guide you through the required steps to
+Get started by installing the CLI using the following command which will guide you through the required steps to
 set up a fully working example.
 
 ```bash
-npm create @checkly/cli
+npm create checkly
 ```
 
-Now, login to your Checkly account.
+Now, login to your Checkly account or sign up for a new account right from the terminal.
 
 ```bash
 npx checkly login
@@ -59,14 +51,21 @@ src/services/docs/__checks__/docs-search.spec.ts
 5 passed, 5 total
 ```
 
-Lastly, you deploy your Checks and related alert channels to Checkly so we run your Checks around the clock.
+Lastly, you deploy your Checks and related alert channels to Checkly, so we run your checks around the clock.
 
 ```bash
 npx checkly deploy
 ```
 
-✨Et voilà, you have just created your entire synthetic monitoring setup with API and Playwright-based Browser Checks from your code base! Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your Check, ready to start monitoring
-around the clock. ✨
-
+You just created your entire synthetic monitoring setup with API and Playwright-based Browser Checks from your code base! 
+Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see your check, ready to start monitoring around the clock.
 
 For a custom installation check out [our installation docs](/docs/cli/installation/)
+
+## Integrating with CI/CD
+
+After kicking the tires, you should delegate the testing and deploying of your checks to your CI/CD pipeline. Check our
+docs on [setting up the Checkly CLI with your favourite CI/CD platform](/docs/cicd/).
+
+{{< markdownpartial "/_shared/main-cicd-cards.md" >}}
+

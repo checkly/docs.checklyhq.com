@@ -7,13 +7,17 @@ import cssnext from 'postcss-cssnext'
 import purgecss from 'gulp-purgecss'
 import cleanCSS from 'gulp-clean-css'
 import inlineCss from 'gulp-inline-css'
-import sass from 'gulp-sass'
+import gulpSass from 'gulp-sass'
+import dartSass from 'sass'
+
 import revall from 'gulp-rev-all'
 import del from 'del'
 
 import BrowserSync from 'browser-sync'
 import webpack from 'webpack'
 import webpackConfig from './webpack.conf'
+
+const sass = gulpSass(dartSass)
 
 const browserSync = BrowserSync.create()
 

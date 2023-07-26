@@ -7,6 +7,10 @@ body {
 p {
   color: $body-text;
   line-height: $line-height-pub-site;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 // typography
@@ -143,3 +147,4 @@ img.avatar {
     }
   }
 }
+

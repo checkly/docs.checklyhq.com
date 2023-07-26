@@ -1,30 +1,29 @@
 ---
 title: Url and Custom Domain
-weight: 48
+weight: 51
 menu:
-  docs:
-    parent: "Dashboards (Legacy)"
-aliases:
-- "/dashboards/dashboard-url/"
-- "/docs/dashboards/dashboard-url/"
+  resources:
+    parent: "Legacy Dashboards"
+    identifier: legacy-dashboards-url-and-custom-domain
+cli: true
 ---
 
 ## Custom URL
 
-Every public dashboard comes with a configurable custom subdomain under the checklyhq.com domain. By default, we generate
+Every dashboard comes with a configurable custom subdomain under the checklyhq.com domain. By default, we generate
 a random ID. You can change this subdomain to anything you like as long as it is unique among all Checkly users.
 Typically a company name works best.
 
-![custom url for public dashboard](/docs/images/dashboards/custom_url.png)
+![custom url for your dashboard](/docs/images/dashboards/custom_url.png)
 
 
 ## Custom Domain
 
-You can host your public dashboard under your own domain. To make this work, you need to do two things:
+You can host your dashboard under your own domain. To make this work, you need to do two things:
 
 1. Add a valid custom domain to your dashboard setting.
 
-![custom domain for public dashboard](/docs/images/dashboards/custom_domain.png)
+![custom domain for your dashboard](/docs/images/dashboards/custom_domain.png)
 
 2. Create a CNAME record in your DNS that points to **dashboards.checklyhq.com**
 

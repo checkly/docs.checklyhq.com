@@ -1,54 +1,43 @@
 ---
 title: Overview
-weight: 47
+weight: 46
 slug: /
 menu:
-  docs:
-    parent: "Dashboards (Legacy)"
-    identifier: overview-dashboard
+  resources:
+    parent: "Dashboards"
+    identifier: overview-dashboards-v2
 aliases:
-- "/dashboards/overview/"
-- "/docs/dashboards/overview/"
-- "/docs/dashboards/"
+  - "/dashboards/overview/"
+  - "/docs/dashboards/overview/"
+  - "/docs/dashboards/"
+cli: true
 ---
 
-> Legacy Dashboards will be deprecated June 1st 2023.
+You can use Checkly Dashboards to communicate check status and incidents to non-Checkly users. Use
+them as a status page for your app, a service or as a dashboard on a wall-mounted TV in the office.
 
-## Migrating to Dashboards V2
+![Dashboard example](/docs/images/dashboards-v2/public-dashboard-1.png)
 
-Our new Dashboards bring a ton of improvements over the first incarnation:
-- Incident management to keep your audience in the loop on outages and maintenance.
-- Better and longer range metrics for all check types.
-- Custom CSS to style your dashboard and match your brand colors.
-- Fully responsive and served from the worldwide Vercel CDN for speedy loading times.
+Dashboards allow you to do the following:
 
-[Check out the new docs](/docs/dashboards-v2/) and read below how to migrate.
+- Show the status of all your checks, or a subset by filtering by `tag`.
+- Show the availability and p95 / p99 response times over the last 24 hours, 7 days and 30 days.
+- Communicate custom incident messages and maintenance messages.
 
-Migrating to the new dashboards takes a couple of steps. Let's say you have a legacy dashboard hosted under the custom 
-domain `status.acme.com`
-
-Go to the [dashboards overview page](https://app.checklyhq.com/dashes) and click the relevant dashboard you want to migrate and click edit. 
-You will see two things:
-
-1. Your new dashboard is already available on a **custom URL** ending in `.checkly-dashboards.com`. It will have the same 
-checks and other config as your legacy dashboards, just with the new design.
-
-2. If you use a **custom domain**, you need to update the `CNAME` record for `status.acme.com` in your DNS to the new `checkly-dashboards.com` domain. 
-This record is probably pointing to `dashboards.checklyhq.com` right now.
-
-After updating your DNS it can take some minutes for the changes to propagate.
-
-## Troubleshooting
-
-We have synced most the custom domains with our new hosting provider Vercel: you only need to point your DNS towards the 
-new domain `checkly-dashboards.com`. However, if you find your dashboard not resolving after updating your DNS please reach 
-out to support on support@checklyhq.com with your domain name (e.g. status.acme.com).
-
-In some cases, our provider will ask you to verify you are the owner of the domain by adding another `TXT` record to you
-your DNS. You will see a notice similar to the one below.
-
-![verify domain via txt recrod](/docs/images/dashboards-v2/dashboards_txt_record.png)
+You can create multiple, distinct dashboards based on your plan. Edit your dashboard by clicking on
+the **Dashboards** button on the Checkly dashboard page.
 
 
+*Check out our [Checkly Production Dashboard](https://status.checkly-dashboards.com) for a live example* 
 
+## Adding checks to your dashboard
 
+You add checks to your dashboards by adding tags to checks and then referencing them in your dashboard. This is how it works:
+
+1. First add tags to one or more checks you would like to show. This is done by editing the check(s). 
+
+![Tags](/docs/images/dashboards-v2/tags.png)
+
+2. Then, edit the dashboard to include the tag:
+
+![Filter by tags](/docs/images/dashboards/filter_by_tag.png)

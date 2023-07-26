@@ -3,11 +3,12 @@ title: Overview
 weight: 46
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Maintenance windows"
     identifier: overview-maintenance-windows
 aliases:
 - /docs/maintenance-windows/
+cli: true
 ---
 
 You can schedule planned maintenance for your API, app or website using Checkly's maintenance windows. During maintenance 

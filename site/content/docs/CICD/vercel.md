@@ -1,9 +1,11 @@
 ---
 title: Vercel
-weight: 44
+weight: 7
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
+aliases:
+  - "/docs/integrations/vercel/"
 ---
 
 If you are using Vercel to develop, preview, and ship your application, you can natively integrate with Checkly by [installing the official integration](https://vercel.com/integrations/checkly) from the Vercel Marketplace.
@@ -222,4 +224,4 @@ Selecting a deployment enables you to quickly determine whether it caused any ch
 
 ## Password-protected deployments
 
-If you're interested in using Checkly to bypass Vercel's [password-protected deployments](https://vercel.com/docs/platform/projects#password-protection). You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios#username--password-login) or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).
+If you're interested in using Checkly to bypass Vercel's [password-protected deployments](https://vercel.com/docs/concepts/deployments/deployment-protection#password-protection). You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios#username--password-login) or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).

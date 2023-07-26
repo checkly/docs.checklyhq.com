@@ -2,7 +2,7 @@
 title: Pulumi
 weight: 67
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 

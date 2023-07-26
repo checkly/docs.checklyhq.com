@@ -1,8 +1,8 @@
 ---
 title: Using NPM packages and local dependencies
-weight: 4
+weight: 7
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 
@@ -35,7 +35,7 @@ The latest runtime is `2022.10` at the time of writing. This runtime contains am
 Browser checks are also able to import other JavaScript and TypeScript files as dependencies.
 This is useful for defining helper functions to be reused across multiple checks.
 The Checkly CLI will automatically detect these dependencies and make sure that they're bundled as part of the check.
-No additonal configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
+No additional configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
 
 Here is an example of how this works in practice. The directory tree looks like the following:
 ```
@@ -73,11 +73,11 @@ test('Github login', async ({ page }) => {
 })
 ```
 
-Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/constructs/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
+Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/constructs-reference/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
 ```ts
 // login.check.ts
 
-import { BrowserCheck } from '@checkly/cli/constructs'
+import { BrowserCheck } from 'checkly/constructs'
 
 new BrowserCheck('login-check', {
   name: 'Login Check',
@@ -91,3 +91,13 @@ After running [`npx checkly deploy`](/docs/cli/command-line-reference/#npx-check
 ![login check with helper file in dependencies](/docs/images/cli/github_login_helper_dependency.png)
 
 > Local dependencies are currently only supported for Browser checks. This feature isn't available for API check setup and teardown scripts.
+
+## Why can't I import any NPM package or other 3rd party dependencies?
+
+Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)
+
+In short:
+
+1. Our runtime architecture is not a full CI platform for reasons of size, complexity and security.
+2. Having said that, [please comment on this pinned GitHub issue](https://checkly.featurebase.app/submissions/6464dc310f356460eca410d1)
+with a package you would love to see included in our Runtime.

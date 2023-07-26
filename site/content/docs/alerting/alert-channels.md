@@ -2,8 +2,9 @@
 title: Alert channels
 weight: 31
 menu:
-  docs:
+  resources:
     parent: "Alerting"
+cli: true
 ---
 
 You can add as many of the following alert channels as you want:
@@ -11,14 +12,18 @@ You can add as many of the following alert channels as you want:
 - Email
 - [Slack]({{< ref "../integrations/slack.md" >}})
 - [Webhook]({{< ref "webhooks.md" >}})
+- [Phone call]({{< ref "phone-calls.md" >}})
 - [SMS]({{< ref "sms-delivery.md" >}})
 - [Pagerduty]({{< ref "docs/integrations/pagerduty.md" >}})
 - [Opsgenie]({{< ref "docs/integrations/opsgenie.md" >}})
 - [FireHydrant]({{< ref "docs/integrations/firehydrant.md" >}})
+- [Coralogix]({{< ref "docs/integrations/coralogix.md" >}})
+- [ilert]({{< ref "docs/integrations/ilert.md" >}})
 - [Discord]({{< ref "docs/integrations/discord.md" >}})
 - [GitLab Alerts]({{< ref "docs/integrations/gitlab_alerts.md" >}})
 - [Spike.sh]({{< ref "docs/integrations/spike.md" >}})
 - [Splunk On-Call]({{< ref "docs/integrations/splunk_on_call.md" >}})
+- [Telegram]({{< ref "docs/integrations/telegram.md" >}})
 
 ## Managing alert channels
 

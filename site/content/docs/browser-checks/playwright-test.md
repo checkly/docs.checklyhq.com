@@ -3,8 +3,9 @@ title: Using Playwright Test
 description: How to use Playwright Test Runner natively within browser checks at Checkly
 weight: 14
 menu:
-  docs:
+  resources:
     parent: "Browser checks"
+cli: true
 ---
 
 Checkly natively supports running browser checks using Playwright Test Runner, allowing you to write tests and use assertions using the popular testing framework.
@@ -19,36 +20,32 @@ Playwright Test Runner elevates your monitoring and debugging experience by prov
 - high-level locators like `getByTitle`, `getByRole`
 - independent nested test cases that make your Checkly check even more powerful
 
-> Playwright Test is available from runtime [**2022.02**](/docs/runtimes/specs/) onwards.
+Playwright Test is available from runtime [**2022.02**](/docs/runtimes/specs/) onwards.
 
 {{< warning >}}
-A check using Playwright Test Runner will currently run around 30-50% longer than a regular Playwright check. This is caused by the additional assets of traces and videos. We are aware of this and are investigating solutions. If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.
+A check using [the Playwright Test Runner (`@playwright/test`)](https://playwright.dev/docs/intro) will currently run around 30-50% longer than [a regular Playwright check (`playwright`)](https://playwright.dev/docs/library). This is caused by the automatic creation of trace and video assets. We are aware of this and are investigating solutions. If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.
 {{</ warning >}}
 
 ## Features
 
 This is the list of Playwright Test Runner features that are currently supported. We will update it as more features become supported.
 
-| Feature                  | Supported?              |
-|--------------------------|-------------------------|
-| Trace files              | Yes               |
-| Video recordings         | Yes               |
-| API testing              | Yes               |
-| Custom fixtures          | Yes               |
+| Feature                  | Supported?         |
+|--------------------------|--------------------|
+| Trace files              | Yes          |
+| Video recordings         | Yes          |
+| API testing              | Yes          |
+| Custom fixtures          | Yes          |
 | Reporters                | Only JSON, more to come |
-| Typescript               | Opt-in (Currently in beta - enable it via [Labs](https://app.checklyhq.com/settings/account/labs)) <br> **Not compatible with code sync via GitHub yet.**             |
-| Global configuration     | No           |
-| Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179))          |
-| Test retry               | No           |
+| Typescript               | Yes |
+| Global configuration     | No      |
+| Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179)) |
+| Test retry               | No <br> Enable Checkly's ["Double-check on failure"](/docs/alerting/#double-checking) in the check settings to retry a check.           |
 | Parallelism and sharding | No           |
 
-> Playwright Test Runner is currently not available for code sync via GitHub using TypeScript.
-
 ### Browser check with multiple test cases
-One of the key benefits of using Playwright Test, is that you can split your check into multiple independent test cases, 
-and group them using the `test.describe` function.
-
-> Your Checkly check will fail if **at least one** of the test cases fails.
+One of the key benefits of using Playwright Test is that you can split your check into multiple independent test cases,
+and group them using the `test.describe` function. Your Checkly check will fail if **at least one** of the test cases fails.
 
 {{< tabs "describe" >}}
 {{< tab "TypeScript" >}}
@@ -89,14 +86,14 @@ Playwright Test Runner offers hook functions such as `test.afterEach` and `test.
 You can find more information on available methods in the [official documentation](https://playwright.dev/docs/api/class-test).
 
 ### Viewing trace files
-When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev). 
+When a `@playwright/test` test case fails, Checkly will record and make its trace files available via the UI. You can download the trace files for manual inspection or view them directly with [trace.playwright.dev](https://trace.playwright.dev).
 
 Using the Playwright Trace Viewer you can effortlessly view your test, skip back and forth between actions, view snapshots and metadata, and more. This makes it very easy to inspect individual traces and debug failing tests.
 
 <video alt="Viewing a Playwright Test trace file" autoplay loop muted src="/docs/images/browser-checks/pwt_traces.mp4"></video>
 
-> **Note:** When running tests from the editor page, trace files are always available for download and preview, 
-> regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
+When running tests from the editor page, trace files are always available for download and preview,
+regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
 
 ### Video recordings
 When a `@playwright/test` test case fails, Checkly will record a video for each page navigation and make it available in the UI. It is a great tool to get a first look of the actions and their outcome to quickly identify what failed, and to visualize regressions.
@@ -105,5 +102,14 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 
 <video alt="Viewing a Playwright Test video" autoplay loop muted src="/docs/images/browser-checks/pwt_videos.mp4"></video>
 
-> **Note:** When running tests from the editor page, video files are always available for download and preview, 
-> regardless of whether the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.
+When running tests from the editor page, video files are always available for download and preview, regardless of whether 
+the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.
+
+### PageObject Model (POM)
+
+If you are structuring your test codebase following the [PageObject pattern](https://martinfowler.com/bliki/PageObject.html), you can use the [Checkly CLI](/docs/cli) out of the box. Just make sure that:
+
+- the folder you initialize your CLI in when building your project sits above your test spec files and their dependencies
+- your `testMatch` is pointing to the path(s) where your test specs live
+
+To see one way this can look like, see our [example repository](https://github.com/checkly/checkly-sample-pom).

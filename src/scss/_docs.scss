@@ -1,10 +1,10 @@
 .docs {
   $top: 1rem;
-  $menu-width: 15rem;
+  $menu-width: 17rem;
   $toc-width: 14rem;
   $menu-item-padding-spacer: 6px;
   $menu-line-height: 18px;
-  max-width: 90rem;
+  max-width: 1440px;
   margin: 0 auto;
 
   .algolia-autocomplete .ds-dropdown-menu {
@@ -31,21 +31,27 @@
     font-size: 1rem;
     margin-left: auto;
 
+    &-category {
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-block;
+      color: $gray-dark;
+      width: calc(100% - 20px);
+      padding: 1rem 0 0.5rem 0;
+    }
+
     &-content {
-      max-height: 78vh;
-      overflow-y: auto;
       margin-left: -6px !important;
       padding-right: 20px !important;
     }
 
     nav {
+      height: calc(100vh - $top);
       position: relative;
       width: $menu-width;
-      margin: $top 0 $top;
       padding: 20px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
-
     }
     .right-transform {
       transform: none;
@@ -74,10 +80,10 @@
     &-title {
       display: flex;
       align-items: center;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 14px;
       line-height: $menu-line-height;
-      color: $gray-dark !important;
+      color: $gray-darkish !important;
       padding: $menu-item-padding-spacer 0px;
 
       &:hover {
@@ -94,8 +100,27 @@
         transition: .15s transform ease;
       }
     }
+
+    &-reference-link {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: $menu-line-height;
+      padding: $menu-item-padding-spacer;
+
+      > a {
+        color: $gray-darkish !important;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     .active {
       color: $gray-dark !important;
+      font-weight: 500;
       &::before {
         transform: rotate(90deg);
       }
@@ -155,7 +180,6 @@
       color: $gray-dark;
       width: calc(100% - 20px);
       padding-bottom: 1rem;
-      border-bottom: 1px solid $gray-light;
       margin-bottom: 10px;
 
       &:hover {
@@ -289,7 +313,7 @@
       margin-bottom: $menu-item-padding-spacer;
     }
 
-    &-community {
+    &-community, &-support {
       margin-top: 4 * $menu-item-padding-spacer;
 
       nav {
@@ -299,9 +323,21 @@
 
           li {
             a {
-              display: block;
+              display: flex;
+              align-items: center;
               padding-bottom: $menu-item-padding-spacer;
               color: $gray-darkish;
+
+              &::before {
+                width: 12px;
+                height: 12px;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: bottom;
+                margin: 0 8px 0 0;
+                content: '';
+                display: inline-block;
+              }
             }
           }
         }
@@ -309,42 +345,23 @@
 
       &-slack-link {
         &::before {
-          width: 12px;
-          height: 12px;
           background: url(/images/icons/slack-icon.svg);
-          background-size: 100%;
-          background-repeat: no-repeat;
-          background-position: bottom;
-          margin: 0 8px 0 0;
-          content: '';
-          display: inline-block;
         }
       }
 
       &-github-link {
         &::before {
-          width: 12px;
-          height: 12px;
           background: url(/images/icons/github-icon.svg);
-          background-size: 100%;
-          background-repeat: no-repeat;
-          background-position: bottom;
-          margin: 0 8px 0 0;
-          content: '';
-          display: inline-block;
         }
       }
       &-youtube-link {
         &::before {
-          width: 12px;
-          height: 12px;
           background: url(/images/icons/youtube-icon.svg);
-          background-repeat: no-repeat;
-          background-position: bottom;
-          background-size: 100%;
-          margin: 0 8px 0 0;
-          content: '';
-          display: inline-block;
+        }
+      }
+      &-question-link {
+        &::before {
+          background: url(/images/icons/question.svg);
         }
       }
     }
@@ -373,12 +390,16 @@
 
     .heading-anchor {
       color: $black;
+
+      & > * {
+        scroll-margin-top: 3rem;
+      }
     }
 
     .breadcrumb {
       display: flex;
       align-items: center;
-      margin: 30px 0 20px;
+      margin: 20px 0 20px;
       padding: 0;
       background: none;
       font-size: 14px;
@@ -399,6 +420,24 @@
         margin: 0 5px;
         color: $gray;
       }
+
+      .badge-cli {
+        margin-left: auto;
+        color: $gray-darkish;
+        background: $gray-lighter;
+        font-weight: 600;
+        text-transform: capitalize;
+        &::before {
+          width: 14px;
+          height: 14px;
+          background: url(/images/icons/terminal_gray.svg);
+          background-size: 100%;
+          margin: 0 $menu-item-padding-spacer 0 0;
+          content: '';
+          display: inline-block;
+          vertical-align: -24%;
+        }
+      }
     }
 
     nav#TableOfContents {
@@ -416,15 +455,27 @@
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
-      margin-top: 40px;
+      margin-top: 20px;
+
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+      }
 
       .image-wrap {
         width: 42px;
         margin-right: 1rem;
+        margin-bottom: 1rem;
+
+        img {
+          border: none;
+        }
       }
 
       .text-wrap {
-        width: calc(100% - 58px);
+        //width: calc(100% - 58px);
+
 
         h2 {
           margin: 3px 0;
@@ -437,8 +488,15 @@
         }
 
         p {
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 16px;
+          line-height: 1.6;
+        }
+      }
+
+      .basic-card {
+        transition: box-shadow .15s ease-out,transform .15s ease-out,opacity .15s ease-out;
+        &:hover {
+          box-shadow: 0px 1px 2px rgba(2,8,20,.06),0px 2px 8px rgba(2,8,20,.08);
         }
       }
 
@@ -447,18 +505,24 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
+        padding: 20px 24px;
+        border-radius: 6px;
+        border: 1px solid $gray-light;
       }
 
       .two-column-card {
-        width: 47%;
+        width: 49%;
         display: flex;
         justify-content: space-between;
+        padding: 20px 24px;
+        border-radius: 6px;
+        border: 1px solid $gray-light;
       }
       .three-column-card {
         width: calc((100% - 50px)/3);
         display: flex;
         justify-content: space-between;
-        padding: 20px;
+        padding: 20px 24px;
         border-radius: 6px;
         border: 1px solid $gray-light;
 

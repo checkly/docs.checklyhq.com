@@ -3,10 +3,11 @@ title: How runtimes work
 weight: 69
 slug: /
 menu:
-  docs:
+  resources:
     parent: "Runtimes"
 aliases:
 - /docs/runtimes/
+cli: true
 ---
 
 Checkly allows you to use JavaScript code in your [Browser checks](/docs/browser-checks) and in the optional 
@@ -61,3 +62,21 @@ this if there are no known backwards compatibility issues.
 
 We introduced the concept of runtimes so customers can upgrade their JavaScript enhanced checks to more recent Node package versions
 in a controlled fashion; and roll back if anything breaks! Before, this was a more risky "big bang" migration.
+
+## Why can't I import any NPM package or other 3rd party dependencies?
+
+Currently, Checkly is not a full-blown CI system, where a user has full control over the Node.js version and the packages 
+installed in the `node_modules` directory. To help you navigate this tradeoff, we want to show you exactly what happens under
+the hood.
+
+1. We bundle all your user code when using the [Checkly CLI](/docs/cli) or GitHub Sync before storing your Check in our database.
+2. Your Check is scheduled to our 20+ global locations via a message bus that has a 256kb file size limit. This is in 99% 
+of the cases more than enough for any user code and included file dependencies you may include. However, it is not enough for potentially unlimited
+NPM dependencies living in `node_modules`.
+3. The Checkly Runtime prepackages common 3rd party NPM modules and defines the Node.js version to avoid building, transferring and caching
+potentially each Check across multiple Node.js versions, greatly reducing complexity.
+4. Our provided Runtime packages are tested with our sandboxing for extra runtime security.
+
+If you want to see a package included in the Checkly Runtime, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291)
+with a package name.
+

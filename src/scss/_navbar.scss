@@ -10,6 +10,33 @@
     background-color: $ash;
   }
 
+  &.navbar-docs {
+    padding: 8px 24px;
+    border-bottom: 1px solid $gray-light;
+
+    .search-form {
+      img {
+        position: relative;
+        left: 25px;
+      }
+
+      input {
+        position: relative;
+        vertical-align: top;
+        width: 100%;
+        height: 100%;
+        background: 0 0;
+        border: 1px solid $gray-light;
+        padding-left: 30px;
+        &::placeholder {
+          color: $gray-darkish;
+          font-size: 1rem;
+        }
+      }
+    }
+
+  }
+
   .callout {
     font-size: 13px;
     font-weight: 400;
@@ -67,10 +94,14 @@
   }
 
   .nav-link {
-    color: $gray;
+    color: $gray-darkish;
     font-weight: 400;
     &:hover {
       color: $gray-dark;
+    }
+    &.active {
+      color: $gray-dark;
+      font-weight: 500;
     }
   }
 

@@ -1,0 +1,20 @@
+<div class="breadcrumb">
+  {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
+  {{ range $index, $element := split $url "/" }}
+    {{ if ne $element "" }}
+      {{ if eq $element "docs" }}
+        <a href="/docs/">Docs</a>
+      {{ else }}
+        <span>/</span>
+        {{ if eq $index 3 }}
+          <a href="/docs/{{ . }}/">{{ humanize . }}</a>
+        {{ else }}
+          {{ humanize . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if .Page.Params.cli }}
+  <div class="badge badge-md badge-cli">CLI Enabled</div>
+  {{ end}}
+</div>

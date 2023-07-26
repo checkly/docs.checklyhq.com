@@ -1,0 +1,47 @@
+name: 'Run Checkly MaC Checks'
+on: [deployment_status]
+env:
+  ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
+  CHECKLY_API_KEY: ${{ secrets.CHECKLY_API_KEY }}
+  CHECKLY_ACCOUNT_ID: ${{ secrets.CHECKLY_ACCOUNT_ID }}
+  CHECKLY_TEST_ENVIRONMENT: ${{ github.event.deployment_status.environment }}
+jobs:
+  test-e2e:
+    if: github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.environment_url, 'checklyhq-')
+    name: Test E2E on Checkly
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    timeout-minutes: 10
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: "${{ github.event.deployment_status.deployment.ref }}"
+      - name: Set branch name # workaround to detect branch name in "deployment_status" actions
+        run: echo "CHECKLY_TEST_REPO_BRANCH=$(git show -s --pretty=%D HEAD | tr -s ',' '\n' | sed 's/^ //' | grep -e 'origin/' | head -1 | sed 's/\origin\///g')" >> $GITHUB_ENV
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        # GH actions runs NPM 6. Somehow NPM CI fails with Cannot read property 'babel-core' of undefined
+        run: npm install --no-save
+      - name: Validate checkly config
+        run: npm run checkly:deploy -- --preview
+      - name: Run checks
+        id: run-checks
+        run: npm run checkly:test -- -e ENVIRONMENT_URL=${{ env.ENVIRONMENT_URL }}
+      - id: create-summary
+        if: always()
+        run: cat checkly-github-report.md > $GITHUB_STEP_SUMMARY
+      - id: post-comment-summary
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: Checkly Run Summary
+          path: checkly-github-report.md
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
+      - name: Deploy checks
+        if: steps.run-checks.outcome == 'success' && github.event.deployment_status.environment == 'Production'
+        run: npm run checkly:deploy

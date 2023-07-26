@@ -2,7 +2,7 @@
 title: Check results
 weight: 2
 menu:
-  docs:
+   platform:
     parent: "Monitoring"
 ---
 
@@ -12,13 +12,13 @@ If you have checks running, you can select them on the main Checkly dashboard an
 
 Select a check and you will see a breakdown of its recent runs, together with key availability and performance metrics.
 
-![check results overview](/docs/images/monitoring/check-results-summary.png)
+![check results overview](/docs/images/monitoring/check-overview.png)
 
 ### Summary section
 
-The summary at the top of the page allows for filtering based all of the page's data points based on the selected timeframe and locations. 
+The summary at the top of the page allows for filtering based on the page's data points and the selected timeframe and locations. Retried check runs do not influence this section; only the final results are considered.
 
-<img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-bar.png"/>
+<img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-summary.png"/>
 
 Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance. Single tabs in the summary can be clicked to skip to the related section of the page showing a more detailed breakdown of the relevant information.
 
@@ -29,6 +29,12 @@ Single check runs can be accessed by selecting them on the time ribbon or by hov
 <img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-time-ribbon.png"/>
 
 Selecting a check execution will take you to the dedicated check result page for it, which will look different based on whether you had been running a [Browser](#browser-check-results) or an [API check](#api-check-results).
+
+When retries are enabled, an additional icon highlights that the check result contains multiple check runs. All attempts as well as the final result are available to view.
+
+The check retries ratio indicates how many of the total checks run were retried due to an initial failed attempt.
+
+<video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-overview-time-ribbon-with-retries.mp4"></video>
 
 {{< info >}}
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
@@ -69,17 +75,15 @@ Individual browser check results contain:
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
 2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test) about the additonal functionalities of Playwright Test.
 <img class="screenshot-partial" alt="check results browser playwright test report" src="/docs/images/monitoring/check-results-browser-pwt-report.png"/>
-3. A waterfall timeline showing how much time was spent on each page.
-<img class="screenshot-partial" alt="check results browser timeline" src="/docs/images/monitoring/check-results-browser-timeline.png"/>
-4. An error log, only if your script failed.
+3. An error log, only if your script failed.
 <img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>
-5. Expandable tabs on page your script navigated to.
+4. Expandable tabs on page your script navigated to.
 <img class="screenshot-partial" alt="check results browser page navigation" src="/docs/images/monitoring/check-results-browser-page-navigations.png"/>
 When expanded, each tab shows its own navigation/loading time ribbon and web vitals...
 <img class="screenshot-partial" alt="check results browser navigation top" src="/docs/images/monitoring/check-results-browser-navigation-top.png"/>
 ...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
 <img class="screenshot-partial" alt="check results browser navigation bottom" src="/docs/images/monitoring/check-results-browser-navigation-bottom.png"/>
-6. A job log for the check.
+5. A job log for the check.
 <img class="screenshot-partial" alt="check results browser job log" src="/docs/images/monitoring/check-results-browser-job-log.png"/>
 
 ## API check results
@@ -113,3 +117,15 @@ These include:
     d. First Byte
 
     e. Download
+
+
+## Check results with retries
+
+When retries are enabled through the ["Double-check on failure"](/docs/alerting/#double-checking) setting, tabs will indicate that the check result contains multiple check runs:
+1. The initial failed attempt
+2. The final result (which may have failed or succeeded)
+
+When selecting a check run, all data and assets are available for inspection for each attempt.
+
+<video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-results-tabs.mp4"></video>
+

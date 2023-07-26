@@ -1,9 +1,11 @@
 ---
 title: GitHub deployments
-weight: 37
+weight: 9
 menu:
-  docs:
+  integrations:
     parent: "CI/CD integration"
+aliases:
+  - "/docs/integrations/github/"
 ---
 
 GitHub deployments are webhook events triggered by GitHub whenever a deployment service reports a successful deployment 

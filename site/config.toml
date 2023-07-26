@@ -17,101 +17,136 @@ disqusShortname = "checkly"
 [params]
     description = "Monitoring as code workflow for developers: programmable, fast, reliable."
 
-[[menu.docs]]
+[[menu.topnav]]
+    name = "Documentation"
+    url = "/docs/"
+    weight = 10
+[[menu.topnav]]
+    name = "Guides"
+    url = "/guides"
+    weight = 20
+
+[[menu.started]]
+	name = "Introduction"
+	url = "/docs/"
+	weight = 1
+
+[[menu.platform]]
 	name = "Monitoring"
 	url = "/docs/monitoring/"
 	weight = 10
 
+[[menu.platform]]
+	name = "Testing"
+	url = "/docs/testing/"
+	weight = 20
 
-[[menu.docs]]
+[[menu.platform]]
+    name = "CLI"
+    url = "/docs/cli/"
+    weight = 30
+
+
+[[menu.resources]]
 	name = "API checks"
 	url = "/docs/api-checks/"
 	weight = 20
 
-[[menu.docs]]
+[[menu.resources]]
 	name = "Browser checks"
 	url = "/docs/browser-checks/"
 	weight = 30
 
-[[menu.docs]]
+[[menu.resources]]
 	name = "Groups"
 	url = "/docs/groups/"
 	weight = 40
 
-[[menu.docs]]
+[[menu.resources]]
 	name = "Alerting"
 	url = "/docs/alerting/"
 	weight = 50
 
-[[menu.docs]]
-    name = "CLI"
-    url = "/docs/cli/"
-    weight = 51
-
-[[menu.docs]]
-	name = "Terraform provider"
-	url = "/docs/terraform-provider/"
-	weight = 55
-
-[[menu.docs]]
-	name = "CI/CD integration"
-	url = "/docs/cicd/"
-	weight = 60
-
-[[menu.docs]]
+[[menu.resources]]
 	name = "Maintenance windows"
 	url = "/docs/maintenance-windows/"
 	weight = 70
 
-[[menu.docs]]
-    name = "Dashboards V2"
-    url = "/docs/dashboards-v2/"
+[[menu.resources]]
+    name = "Dashboards"
+    url = "/docs/dashboards"
     weight = 80
 
-[[menu.docs]]
-    name = "Dashboards (Legacy)"
-    url = "/docs/dashboards/"
-    weight = 81
-
-[[menu.docs]]
+[[menu.resources]]
 	name = "Accounts & Users"
 	url = "/docs/accounts-users/"
 	weight = 90
 
-[[menu.docs]]
+[[menu.resources]]
 	name = "Private Locations"
 	url = "/docs/private-locations/"
 	weight = 95
 
-[[menu.docs]]
-	name = "Integrations"
-	url = "/docs/integrations/"
-	weight = 100
-
-[[menu.docs]]
+[[menu.resources]]
 	name = "Reporting"
 	url = "/docs/reporting/"
 	weight = 110
 
-[[menu.docs]]
+[[menu.resources]]
 	name = "Analytics"
 	url = "/docs/anlytics/"
 	weight = 105
 
-[[menu.docs]]
+[[menu.resources]]
     name = "Runtimes"
     url = "/docs/runtimes/"
     weight = 120
 
-[[menu.docs]]
+[[menu.resources]]
     name = "Snippets"
     url = "/docs/snippets/"
     weight = 130
 
-[[menu.docs]]
-	name = "Single sign-on"
-	url = "/docs/single-sign-on/"
-	weight = 140
+[[menu.integrations]]
+	name = "Integrations"
+	url = "/docs/integrations/"
+	weight = 10
+
+[[menu.integrations]]
+	name = "CI/CD integration"
+	url = "/docs/cicd/"
+	weight = 20
+
+[[menu.integrations]]
+	name = "Terraform provider"
+	url = "/docs/terraform-provider/"
+	weight = 30
+
+[[menu.integrations]]
+	name = "Pulumi provider"
+	url = "/docs/pulumi-provider/"
+	weight = 40
+
+
+[[menu.reference]]
+    name = "CLI Commands"
+    url = "/docs/cli/command-line-reference"
+    weight = 170
+
+[[menu.reference]]
+    name = "CLI Constructs"
+    url = "/docs/cli/constructs-reference"
+    weight = 180
+
+[[menu.reference]]
+    name = "Runtime specs"
+    url = "/docs/runtimes/specs/"
+    weight = 190
+
+[[menu.reference]]
+    name = "API Reference"
+    url = "https://developers.checklyhq.com"
+    weight = 200
 
 [[menu.learn]]
 	name = "Getting started"

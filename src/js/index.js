@@ -4,7 +4,6 @@
  * START Navbar
  */
 $(document).ready(() => {
-
   const location = window.location.href
 
   // don't make the header sticky on docs pages.
@@ -24,25 +23,6 @@ $(document).ready(() => {
   if (document.cookie.split(';').filter((item) => item.trim().startsWith('checkly_has_account=')).length) {
     $('#login-button').hide()
     $('#dashboard-button').show()
-  }
-})
-
-/**
- * END Navbar
- */
-
-$(document).ready(() => {
-  if ($('body').hasClass('landing')) {
-    fetch('https://api.checklyhq.com/public-stats')
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (res) {
-        const countApi = res.apiCheckResults.toLocaleString()
-        const countBrowser = res.browserCheckResults.toLocaleString()
-        $('#api-check-results').text(countApi)
-        $('#browser-check-results').text(countBrowser)
-      })
   }
 })
 

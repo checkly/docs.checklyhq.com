@@ -2,7 +2,7 @@
 title: Using `checkMatch` and `testMatch`
 weight: 4
 menu:
-  docs:
+  platform:
     parent: "CLI"
 ---
 

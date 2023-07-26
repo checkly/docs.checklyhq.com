@@ -2,7 +2,7 @@
 title: CI/CD pipelines
 weight: 12
 menu:
-  docs:
+  integrations:
     parent: "Terraform provider"
 ---
 

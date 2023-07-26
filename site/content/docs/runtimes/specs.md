@@ -2,10 +2,11 @@
 title: Runtime specification
 weight: 70
 menu:
-  docs:
+  resources:
     parent: "Runtimes"
 aliases:
   - /docs/browser-checks/runner-specification/
+cli: true
 ---
 
 By default, all our runners have their timezone set to UTC, regardless of their location.
@@ -38,10 +39,9 @@ See the built-in module documentation on the official Node.js site:
 
 These are the currently available runtimes and the included external NPM dependencies.
 
-{{<info>}}
-Note:
-  - the below libraries are included for **setup and teardown scripts** as well, with the exclusion of Puppeteer, Playwright and Mocha.
-  - We are planning to deprecate `mocha` in the nearest future. Please use `@playwright/test` as a test framework instead.
-{{</info>}}
+> The packages below are included for **setup and teardown scripts** as well, with the exclusion of Puppeteer, Playwright and Mocha.
 
-{{< runtimes >}}
+> We are planning to deprecate `mocha` in the future. Please use `@playwright/test` as a test framework instead.
+
+
+{{% runtimes %}}

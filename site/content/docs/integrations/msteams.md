@@ -2,7 +2,7 @@
 title: Microsoft Teams
 weight: 58
 menu:
-  docs:
+  integrations:
     parent: "Integrations"
 ---
 
@@ -18,7 +18,7 @@ To enable the MS Teams alert channel, take the following steps:
 
    ![setup checkly msteams integration step 2](/docs/images/integrations/msteams/msteams_step2.png)
 
-3. **Choose a name** for your integration like "Checkly" and [add this Checkly icon](https://d1tzmx204wa22c.cloudfront.net/logos/fat_racoon_square.png)
+3. **Choose a name** for your integration like "Checkly" and [add this Checkly icon](https://cdn.checklyhq.com/logos/fat_racoon_square.png)
    
    ![setup checkly msteams integration step 3](/docs/images/integrations/msteams/msteams_step3.png)
 
