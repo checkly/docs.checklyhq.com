@@ -18,7 +18,7 @@ different custom domains). Use cases are:
 3. You have a staging and production environment you want to keep tabs on.
 
 {{< info >}}
-Incidents are available on any paid Checkly plan.
+Incidents are available on the Team and Enterprise plans.
 {{< /info >}}
 
 ## Creating incidents

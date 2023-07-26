@@ -20,7 +20,7 @@ Editing works like this.
 - Make some edits, hit **Save dashboard** and reload your dashboard.
 
 {{< info >}}
-Custom CSS is available on any paid Checkly plan.
+Custom CSS is available on the Team and Enterprise plans.
 {{< /info >}}
 
 ## Styling examples

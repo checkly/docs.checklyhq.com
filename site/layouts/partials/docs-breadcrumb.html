@@ -3,7 +3,7 @@
   {{ range $index, $element := split $url "/" }}
     {{ if ne $element "" }}
       {{ if eq $element "docs" }}
-        <a href="/docs/">home</a>
+        <a href="/docs/">Docs</a>
       {{ else }}
         <span>/</span>
         {{ if eq $index 3 }}

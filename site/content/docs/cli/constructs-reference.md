@@ -225,7 +225,7 @@ types. The most important thing is to set the `code.entrypoint` property and poi
 This property supports relative and absolute paths.
 
 ```ts
-import { BrowserCheck } from 'checkly/constructs'
+import { BrowserCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
 new BrowserCheck('browser-check-1', {
@@ -351,11 +351,26 @@ Sends SMS notifications to phone number. Make sure to use standard international
 import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
-  phoneNumber: '0031061234567890',
+  name: 'Ops on-call',    
+  phoneNumber: '+31061234567890',
 })
 ```
 
 [Learn more about SMS alert channels](/docs/alerting/sms-delivery/)
+
+## `PhoneCallAlertChannel`
+
+Sends phone call notifications to phone number. Make sure to use standard international notation.
+
+```ts
+import { PhoneCallAlertChannel } from 'checkly/constructs'
+
+const callChannel = new PhoneCallAlertChannel('call-channel-1', {
+  phoneNumber: '+31061234567890',
+})
+```
+
+[Learn more about Phone Call alert channels](/docs/alerting/phone-calls/)
 
 ## `EmailAlertChannel`
 
@@ -378,7 +393,7 @@ Sends a Slack message to an incoming Slack webhook address. You can specify the 
 import { SlackAlertChannel } from 'checkly/constructs'
 
 const slackChannel = new SlackAlertChannel('slack-channel-1', {
-  url: 'https://hooks.slack.com/services/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',
+  url: new URL('https://hooks.slack.com/services/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'),
   channel: '#ops'
 })
 ````
@@ -394,7 +409,8 @@ import { WebhookAlertChannel } from 'checkly/constructs'
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
   name: 'Pushover webhook',
   method: 'POST',
-  url: 'https://api.pushover.net/1/messages.json',
+  url: new URL('https://api.pushover.net/1/messages.json'),
+  headers: [ { key: 'X-My-Header', value: 'myToken' }],
   template: `{
     "token":"FILL_IN_YOUR_SECRET_TOKEN_FROM_PUSHOVER",
     "user":"FILL_IN_YOUR_USER_FROM_PUSHOVER",
@@ -410,7 +426,8 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 - `url`: The URL where to send the webhook HTTP request.
 - `method`: A string, either `GET`, `POST`, `PUT`, `PATCH`, `HEAD` or `DELETE` just like an API Check.
 - `template`: This is commonly a JSON body. You can use Handlebars-style template variables to add custom data to the template.
-
+- `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
+- `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
 [Learn more about Webhook alert channels and available variables](/docs/alerting/webhooks/)
 
 ## `OpsgenieAlertChannel`
@@ -505,7 +522,7 @@ new Dashboard('acme-dashboard-1', {
   }
 })
 ```
-You can add custom CSS by referencing a CSS file. Note, this is a paid feature.
+You can add custom CSS by referencing a CSS file. Note, this is only available on Team and Enterprise plans.
 
 ```css
 /* dashboard.css */
@@ -536,11 +553,11 @@ This is required if `customUrl` is not specified.
 - `checksPerPage`: Number of checks displayed per page, between `1` and `20`. Default: `15`.
 - `useTagsAndOperator`: When to use `AND` (instead `OR`) operator for tags lookup. Default: `false`.
 - `hideTags`: Show or hide the tags on the dashboard. Default: `false`.
-- `enableIncidents`: Enable or disable incidents on the dashboard. Default: `false`. (only paid accounts can enable this feature.)
+- `enableIncidents`: Enable or disable incidents on the dashboard. Default: `false`. Only accounts on Team and Enterprise plans can enable this feature.
 - `expandChecks`: Expand or collapse checks on the dashboard. Default: `false`.
 - `showHeader`: Show or hide header and description on the dashboard. Default: `true`.
-- `customCSS`: Custom CSS to be applied to the dashboard. You can specify CSS code or an entrypoint to a file including the CSS code to use
-- `isPrivate`: Determines if the dashboard is public or private. Default: false. (only paid accounts can enable this feature.)
+- `customCSS`: Custom CSS to be applied to the dashboard. You can specify CSS code or an entrypoint to a file including the CSS code to use. Only accounts on Team and Enterprise plans can enable this feature.
+- `isPrivate`: Determines if the dashboard is public or private. Default: false. Only accounts on Team and Enterprise plans can enable this feature.
 - `showP95`: Show or hide the P95 stats on the dashboard. Default: `true`.
 - `showP99`: Show or hide the P99 stats on the dashboard. Default: `true`.
  
