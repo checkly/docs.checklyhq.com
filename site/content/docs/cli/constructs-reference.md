@@ -114,6 +114,7 @@ import * as path from 'path'
 new ApiCheck('hello-api-1', {
   name: 'Hello API',
   activated: true,
+  shouldFail: false,
   setupScript: {
       entrypoint: path.join(__dirname, 'setup.ts') 
   },
