@@ -4,6 +4,7 @@
   "build": {
     "env": {}
   },
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)",
