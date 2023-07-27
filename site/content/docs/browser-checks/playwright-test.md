@@ -80,6 +80,10 @@ test.describe('two tests', () => {
 {{< /tab >}}
 {{< /tabs >}}
 
+{{< info >}}
+An executed browser check that includes multiple Playwright test cases still counts as a single check run towards your pricing plan's defined limits.
+{{</ info >}}
+
 ### Hooks
 Playwright Test Runner offers hook functions such as `test.afterEach` and `test.beforeEach` that run before or after individual test cases or `test.afterAll` and `test.beforeAll` that run before or after all tests have started/finished.
 
@@ -102,7 +106,7 @@ Here's an example of a Playwright Test script that fails, and provides a video o
 
 <video alt="Viewing a Playwright Test video" autoplay loop muted src="/docs/images/browser-checks/pwt_videos.mp4"></video>
 
-When running tests from the editor page, video files are always available for download and preview, regardless of whether 
+When running tests from the editor page, video files are always available for download and preview, regardless of whether
 the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.
 
 ### PageObject Model (POM)
