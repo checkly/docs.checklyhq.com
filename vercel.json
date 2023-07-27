@@ -31,5 +31,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "docs.checklyhq.com"
+        }
+      ],
+      "destination": "https://www.checklyhq.com/docs/"
+    }
   ]
 }
