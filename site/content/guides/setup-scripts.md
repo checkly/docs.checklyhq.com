@@ -10,7 +10,7 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 Checks run independently and on different schedules, possibly even following different retry logics when failures occur. It is therefore important not to create dependencies between them, which could introduce failures that do not depend on the target system's status, also known as "false failures" and "flakiness". Checkly prevents (or tries to prevent) this antipattern by having each check run fully isolated in its own sandbox.
 
-But then how do we run more complex API checks that might have prerequisites (e.g. auth tokens, test data) that themselves require an API call, or other similar preparation steps? That's what [setup scripts](/docs/api-checks/setup-teardown-scripts/#setup-scripts) are made for. They run right before the API check's main request and enable us to do any action that might be needed to make our check work according to industry [best practices](/learn/headless/valuable-tests/). 
+But then how do we run more complex API checks that might have prerequisites (e.g. auth tokens, test data) that themselves require an API call, or other similar preparation steps? That's what [setup scripts](/docs/api-checks/setup-teardown-scripts/#setup-scripts) are made for. They run right before the API check's main request and enable us to do any action that might be needed to make our check work according to industry [best practices](/learn/headless/valuable-tests/).
 
 ## Setup scripts
 
@@ -28,17 +28,17 @@ In many cases, we will need to pass data we have retrieved, modified or created 
 | `request.url`  | The request URL. Any separately defined query parameters are added at the end.  | String |
 | `request.body`  | The request body in string format.  | String  |
 | `request.headers`  | The request headers.  | Object |
-| `request.queryParameters`  | The request query parameters. | Object | 
+| `request.queryParameters`  | The request query parameters. | Object |
 
 This means we can, for example, set the `Authorization` header of the check's main request programmatically (maybe with a value we have just fetched in the same script) by setting `request.headers['Authorization'] = my_token`, or set the request body content with `request.body = { 'id': 123 }`.
 
-> Like for [Browser checks](/docs/browser-checks), which libraries and modules are available in setup and teardown scripts depends on which [Runtime](/docs/runtimes) you have chosen. You can find a list of exactly [which libraries are included](/docs/runtimes/specs) in which runtime.
+> Like for [Browser checks](/docs/browser-checks/), which libraries and modules are available in setup and teardown scripts depends on which [Runtime](/docs/runtimes/) you have chosen. You can find a list of exactly [which libraries are included](/docs/runtimes/specs/) in which runtime.
 
 ### Prepare test data
 
 A check that is self-contained is responsible for preparing (and cleaning up - more on that in [teardown scripts](/docs/api-checks/setup-teardown-scripts/#teardown-scripts)) all the test data it needs to properly test the target functionality. Let's take a look at an example.
 
-We [use Checkly to monitor Checkly](https://blog.checklyhq.com/how-we-monitor-checkly/)! That includes [our API](/docs/api), which exposes endpoints for CRUD operations on checks, groups, alert channels and other resources. One of the checks we run verifies that our `DELETE /v1/checks/{id}` works correctly. In order to verify that, we will need a check to actually delete. To keep things nice and clean, we can create a new check in the setup script, then retrieve its unique `id` and pass it to the main HTTP request so we can tell our API exactly which check to delete.
+We [use Checkly to monitor Checkly](https://blog.checklyhq.com/how-we-monitor-checkly/)! That includes [our API](/docs/api/), which exposes endpoints for CRUD operations on checks, groups, alert channels and other resources. One of the checks we run verifies that our `DELETE /v1/checks/{id}` works correctly. In order to verify that, we will need a check to actually delete. To keep things nice and clean, we can create a new check in the setup script, then retrieve its unique `id` and pass it to the main HTTP request so we can tell our API exactly which check to delete.
 
 First off, let's look at the basic HTTP request config inside our new API check. Note that this will be the request to delete the existing check, not the one to create the dummy check that will be deleted: that will be featured in our setup script, which will run before the request shown below.
 
@@ -146,7 +146,7 @@ Note that the check might still fail due to an issue with an endpoint other than
 
 There are several scenarios in which we might want to fetch test data from an external source. It might be out of convience, or because the data itself is changing often and we want to always grab the newest version, or maybe even because we want to make our check more dynamic to ensure our target system can handle different inputs.
 
-Our example will be about creating a new product for our webshop using its API. Specifically, we will 
+Our example will be about creating a new product for our webshop using its API. Specifically, we will
 
 1. Use our setup script to request the test data from an API generating random device information.
 2. Map that data field-by-field to match the schema of our target API.
@@ -221,6 +221,6 @@ const responseData = { // create the response body object
 request.body = JSON.stringify(responseData) // set request body to stringified response body object
 ```
 
-We built a fully encapsulated check that fetches dynamic (random, in this case) test data from an external API and repurposes it for one of our webshop's endpoints. 
+We built a fully encapsulated check that fetches dynamic (random, in this case) test data from an external API and repurposes it for one of our webshop's endpoints.
 
 > There is a huge variety of cases in which setup scripts can be used. Stay tuned for more examples over the coming weeks!
