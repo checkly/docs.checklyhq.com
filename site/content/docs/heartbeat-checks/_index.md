@@ -25,11 +25,7 @@ Here is an example of how to have a Heroku job send a ping to a Checkly Heartbea
 {{< tabs "Heroku example" >}}
 {{< tab "BASH" >}}
 ```BASH
-# Use a variable for readability (optional)
-
-MONITOR_URL=https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
-
-curl -m 5 --retry 3 $MONITOR_URL;
+curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec;
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -39,7 +35,7 @@ Note the use of the retry option. We recommend always using retries when availab
 
 To create a new Heartbeat check, click the + icon on the sidebar & select **Heartbeat check**.
 
-Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or alert settings.
+Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting).
 
 Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using Javascript, Python or in Bash in the quickstart section.
 
@@ -62,6 +58,7 @@ Use grace to compensate for variance in your jobs.
 ### Timer
 The check timer starts when it receives its first ping and will reset after each ping. 
 If you have a check that expects a ping every 60 minutes starting at 09:30, if it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
+> When a check is deactivated, and activated again the timer needs to be pinged to start it, just as when first creating a check.
 
 ### Ping now
 Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.
