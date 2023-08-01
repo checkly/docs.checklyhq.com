@@ -41,19 +41,7 @@
           "value": "docs.checklyhq.com"
         }
       ],
-      "destination": "https://www.checklyhq.com/docs"
-    },
-    {
-      "source": "/docs/api",
-      "destination": "https://developers.checklyhq.com"
-    },
-    {
-      "source": "/whats-new",
-      "destination": "https://www.checklyhq.com"
-    },
-    {
-      "source": "/learn",
-      "destination": "/learn/headless"
+      "destination": "https://www.checklyhq.com/docs/"
     }
   ]
 }
