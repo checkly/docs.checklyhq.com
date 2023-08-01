@@ -41,46 +41,7 @@ To create a new Heartbeat check, click the + icon on the sidebar & select **Hear
 
 Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or alert settings.
 
-Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using Javascript, Python or in Bash in the quickstart section. Here are additional examples for other platforms or languages.
-
-{{< tabs "Example setups" >}}
-{{< tab "Kubernetes" >}}
-```BASH
-# Use a variable for readability (optional)
-
-MONITOR_URL=https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
-
-curl -m 5 --retry 3 $MONITOR_URL;
-```
-{{< /tab >}}
-{{< tab "PHP" >}}
-```BASH
-# Use a variable for readability (optional)
-
-MONITOR_URL=https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
-
-curl -m 5 --retry 3 $MONITOR_URL;
-```
-{{< /tab >}}
-{{< tab "Node.js" >}}
-```BASH
-# Use a variable for readability (optional)
-
-MONITOR_URL=https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
-
-curl -m 5 --retry 3 $MONITOR_URL;
-```
-{{< /tab >}}
-{{< tab "Java" >}}
-```BASH
-# Use a variable for readability (optional)
-
-MONITOR_URL=https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
-
-curl -m 5 --retry 3 $MONITOR_URL;
-```
-{{< /tab >}}
-{{< /tabs >}}
+Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using Javascript, Python or in Bash in the quickstart section.
 
 ## Check breakdown
 
