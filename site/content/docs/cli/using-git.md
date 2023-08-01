@@ -29,7 +29,7 @@ can also set these data items specifically by using environment variables.
 For example, if you want to specifically set the Environment you invoke:
 
 ```bash
-CHECKLY_ENVIRONMENT=Production npx checkly test --record
+CHECKLY_TEST_ENVIRONMENT=Production npx checkly test --record
 ```
 
 Or, if you want to set repo URL you invoke:
