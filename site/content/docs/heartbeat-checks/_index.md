@@ -13,6 +13,9 @@ cli: true
 ---
 
 This guide gives you all the info needed to get started with Checkly Heartbeat checks.
+{{< info >}}
+Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
+{{< /info >}}
 
 ## What is a Heartbeat check?
 
