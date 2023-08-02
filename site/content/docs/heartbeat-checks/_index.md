@@ -16,7 +16,7 @@ This guide gives you all the info needed to get started with Checkly Heartbeat c
 
 ## What is a Heartbeat check?
 
-A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is a HTTP requests to a given endpoint URL. 
+A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL. 
 When a ping is not received on time, the check will trigger any configured alerts.
 
 Use heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
