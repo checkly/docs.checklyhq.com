@@ -44,9 +44,11 @@ Once you have created your check, the service or host you want to monitor needs 
 ### Name and tag
 The check name is used for identifying the check in the list of heartbeat checks and in alert messages. Using a clear and meaningful name will help team members identify the check and can help reduce the reaction time when alerts are triggered. 
 Tags are used to create meaningful distinctions between check groups, making it easy to filter out selections of checks. 
+![name and tag](/docs/images/heartbeat-checks/getting-started-name-and-tag.png)
 
 ### Ping URL
 The URL on which the check is listening for pings. The job or task monitored should make an HTTP request to the ping URL once per the period configured.
+![ping url](/docs/images/heartbeat-checks/getting-started-ping-url.png)
 
 ### Period and Grace
 **Period** defines how often you expect a ping to the ping URL. 
@@ -54,6 +56,7 @@ The URL on which the check is listening for pings. The job or task monitored sho
 **Grace** is the time Checkly will wait before triggering any alerts when a ping does not arrive within the set period. E.g., if you have a check that expects a ping every 60 minutes, with a grace of 10 minutes, no alarms would trigger until 70 minutes after the latest ping.
 
 Use grace to compensate for variance in your jobs.
+![period and grace](/docs/images/heartbeat-checks/getting-started-period-and-grace.png)
 
 ### Timer
 The check timer starts when it receives its first ping and will reset after each ping. 
@@ -62,6 +65,7 @@ If you have a check that expects a ping every 60 minutes starting at 09:30, if i
 
 ### Ping now
 Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.
+![ping now](/docs/images/heartbeat-checks/getting-started-ping-now.png)
 
 ### Alerting
 By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting/webhooks) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check. 
@@ -73,6 +77,7 @@ By default Checkly uses your account default alert settings and channels. You ca
 The heartbeat overview page displays a table of all your heartbeat checks. Here you can see the results of recent pings, the configured period and grace, and the availability over the last 7 days.
 
 Clicking any individual check will open the check overview page.
+![overview](/docs/images/heartbeat-checks/getting-started-overview.png)
 
 ### Check overview
 The check overview page shows the current status of the check, as well as a breakdown of recent runs and availability metrics.
