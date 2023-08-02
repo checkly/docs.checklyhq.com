@@ -33,7 +33,7 @@ Note the use of the retry option. We recommend always using retries when availab
 
 ## Creating a heartbeat check
 
-To create a new Heartbeat check, click the + icon on the sidebar & select **Heartbeat check**.
+To create a new Heartbeat check, click the `+` icon on the sidebar & select **Heartbeat check**.
 
 Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting).
 
