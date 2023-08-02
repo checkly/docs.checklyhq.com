@@ -60,7 +60,7 @@ disqusShortname = "checkly"
 [[menu.resources]]
 	name = "Heartbeat checks"
 	url = "/docs/heartbeat-checks/"
-	weight = 30
+	weight = 35
 
 [[menu.resources]]
 	name = "Groups"
