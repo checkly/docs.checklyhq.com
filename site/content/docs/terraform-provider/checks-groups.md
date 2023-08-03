@@ -10,7 +10,7 @@ Checks make up the most important unit of your Checkly monitoring setup. Groups 
 
 ## Checks
 
-[Browser checks](/docs/browser-checks) and [API checks](/docs/api-checks) share many arguments, configuration-wise, but also have their own unique ones. The type of your check is controlled using the `type` argument.
+[Browser checks](/docs/browser-checks), [API checks](/docs/api-checks) and [Heartbeat checks](/docs/heartbeat-checks) share many arguments, configuration-wise, but also have their own unique ones. The type of your check is controlled using the `type` argument.
 
 ### Browser checks
 
