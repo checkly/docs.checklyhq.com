@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-If you have checks running, you can select them on the main Checkly dashboard and get an overview of the results they have produced so far. 
+If you have API or Browser checks running, you can select them on the main Checkly dashboard and get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks) section
 
 ## Check results overview
 
