@@ -64,11 +64,15 @@ Use grace to compensate for variance in your jobs.
 ### Timer
 The check timer starts when it receives its first ping and will reset after each ping. 
 If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
-> When a check is deactivated, and activated again the timer needs to be pinged to start it, just as when first creating a check.
+> When a check is deactivated, and activated again the timer will start when the check is pinged, just as when first creating a check. This is also the case when changing the period of a check.
 
 ### Ping now
-Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.
+Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms. 
 ![ping now](/docs/images/heartbeat-checks/getting-started-ping-now.png)
+Ping now is also available in the quick menu in the heartbeat overview page.
+![ping now in list view](/docs/images/heartbeat-checks/getting-started-list-view-ping-now.png)
+
+
 
 ### Alerting
 By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting/webhooks) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check. 
