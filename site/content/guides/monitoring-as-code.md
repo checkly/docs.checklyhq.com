@@ -476,7 +476,7 @@ You can find the complete setup described in this guide on our {{< newtabref  hr
 
 As our setup expands, we might want to deploy additional tools to make our lives easier. We could:
 
-1. Iterate over existing Playwright scripts and [create multiple checks while declaring only one resource](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform#iterating-through-scripts-for-shorter-config).
-2. [Group checks together](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform#grouping-checks-together) to better handle them in large numbers.
-3. [Use code snippets](https://blog.checklyhq.com/scaling-puppeteer-playwright-on-checkly-with-terraform#reducing-code-duplication-with-snippets) to avoid code duplication and reduce maintenance.
+1. Iterate over existing Playwright scripts and [create multiple checks while declaring only one resource](/blog/scaling-puppeteer-playwright-on-checkly-with-terraform/#iterating-through-scripts-for-shorter-config).
+2. [Group checks together](/blog/scaling-puppeteer-playwright-on-checkly-with-terraform/#grouping-checks-together) to better handle them in large numbers.
+3. [Use code snippets](/blog/scaling-puppeteer-playwright-on-checkly-with-terraform/#reducing-code-duplication-with-snippets) to avoid code duplication and reduce maintenance.
 4. Move your workflow to {{< newtabref  href="https://www.terraform.io/cloud" title="Terraform Cloud" >}} to easily collaborate with your team when managing your Monitoring-as-Code configuration.
