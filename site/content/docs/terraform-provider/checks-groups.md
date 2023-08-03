@@ -131,6 +131,8 @@ resource "checkly_check" "send-weekly-digest-v-2" {
 }
 ```
 
+Upon applying your terraform configuration changes, you will be returned a read-only key value for the heartbeat ping token. The token is stored in your `tfstate` file.
+
 ## Groups
 
 Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups) to keep things tidy:
