@@ -229,6 +229,8 @@ If your application [has very specific requirements](https://playwright.dev/docs
 Checkly enables you to use `Google Chrome` with Playwright in runtime `2023.02`. 
 In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
 
+Google Chrome is not available on [Private Locations](/docs/private-locations) running on ARM64 and Apple silicon.
+
 {{< tabs "Google Chrome with Playwright test" >}}
 {{< tab "TypeScript" >}}
 ```ts
