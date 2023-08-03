@@ -164,3 +164,4 @@ Note the following:
 
 - [Microsoft Live Login](/learn/headless/e2e-microsoft-live-login/)
 - [Login with Google](/learn/headless/e2e-google-login/)
+- [How to Bypass TOTP-Based 2FA Login Flows](/blog/how-to-bypass-totp-based-2fa-login-flows-with-playwright/)
