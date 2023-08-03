@@ -214,6 +214,32 @@ The `AssertionBuilder` defines the following sources as an entry to building an 
 
 Read more about assertions in [our docs on API check assertions](/docs/api-checks/assertions/).
 
+## `HeartbeatCheck`
+
+A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL. 
+
+After creating the Heartbeat, you can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats).
+
+```ts
+import { HeartbeatCheck } from 'checkly/constructs'
+
+new HeartbeatCheck('heartbeat-check-1', {
+  name: 'Send weekly newsletter job',
+  period: 7,
+  periodUnit: 'days',
+  grace: 2,
+  graceUnit: 'hours',
+})
+```
+
+- `period`: The expected period of time between each ping. Between 30 seconds and 365 days.
+
+- `periodUnit`: The unit of time for the period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
+
+- `grace`: The grace period to wait for before sending an alert. Between 0 seconds and 365 days.
+
+- `graceUnit`: The unit of time for the grace period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
+
 ## `BrowserCheck`
 
 Browser Checks are based on [`@playwright/test`](https://playwright.dev/). You can just write `.spec.js|ts` files with test cases

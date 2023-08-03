@@ -111,6 +111,26 @@ resource "checkly_check" "get-books" {
 You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
 {{</info>}}
 
+
+### Heartbeat checks
+
+For example, a heartbeat check can look as follows:
+
+```terraform
+resource "checkly_check" "send-weekly-digest-v-2" {
+  name                      = "Send Weekly Digest"    // The name of the check
+  type                      = "HEARTBEAT"             // The type of the check
+  activated                 = true                    // Whether the check will start as active on creation
+  heartbeat {
+    period                  = 7                       // The expected period of time between each ping. Between 30 seconds and 365 days.
+    period_unit             = "days"                  // The unit of time for the period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`
+    grace                   = 1                       // The grace period to wait for before sending an alert. Between 0 seconds and 365 days.
+    grace_unit              = "days"                  // The unit of time for the grace period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
+  }
+  use_global_alert_settings = true                    // Whether to use account level alert setting instead of the alert setting defined on this check
+}
+```
+
 ## Groups
 
 Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups) to keep things tidy:
