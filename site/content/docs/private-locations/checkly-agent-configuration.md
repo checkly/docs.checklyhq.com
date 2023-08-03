@@ -61,7 +61,7 @@ CONTAINER ID   IMAGE                  COMMAND           CREATED       STATUS    
 
 ## Local Docker workflow
 
-You can easily install the Checkly Agent on your Macbook, Windows or Linux machine for local debugging using [Docker Desktop](https://docs.docker.com/desktop/). Currently the Agent is only available for AMD CPU architectures. ARM is not supported. The installation procedure is the same as described above.
+You can easily install the Checkly Agent on your Macbook, Windows or Linux machine for local debugging using [Docker Desktop](https://docs.docker.com/desktop/). The installation procedure is the same as described above.
 
 To resolve locally running webapps or APIs, e.g. some project running on `http://localhost:3000` you need to use the [internal
 Docker host](https://docs.docker.com/desktop/networking/) `http://host.docker.internal:3000` to bridge to your `localhost` address.
