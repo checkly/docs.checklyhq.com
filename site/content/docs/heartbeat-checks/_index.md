@@ -12,19 +12,19 @@ aliases:
 cli: true
 ---
 
-This guide gives you all the info needed to get started with Checkly Heartbeat checks.
+This guide gives you all the info needed to get started with Checkly heartbeat checks.
 {{< info >}}
 Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
 {{< /info >}}
 
-## What is a Heartbeat check?
+## What is a heartbeat check?
 
 A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL. 
 When a ping is not received on time, the check will trigger any configured alerts.
 
 Use heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
 
-Here is an example of how to have a Heroku job send a ping to a Checkly Heartbeat check.
+Here is an example of how to have a Heroku job send a ping to a Checkly heartbeat check.
 {{< tabs "Heroku example" >}}
 {{< tab "BASH" >}}
 ```BASH
@@ -36,11 +36,11 @@ Note the use of the retry option. We recommend always using retries when availab
 
 ## Creating a heartbeat check
 
-To create a new Heartbeat check, click the `+` icon on the sidebar & select **Heartbeat check**.
+To create a new heartbeat check, click the `+` icon on the sidebar & select **heartbeat check**.
 
 Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting).
 
-Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using Javascript, Python or in Bash in the quickstart section.
+Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using JavaScript, Python or in Bash in the quickstart section.
 
 ## Check breakdown
 
