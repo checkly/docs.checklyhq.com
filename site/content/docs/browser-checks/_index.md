@@ -67,7 +67,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
 
 {{< info >}}
 Checkly currently supports only using **Chromium** with Playwright Test and Playwright library.
-[Read more about using other browsers](/docs/browser-checks/#using-other-browsers). 
+[Read more about using other browsers](/docs/browser-checks/#using-other-browsers).
 {{< /info >}}
 
 ## Breaking down a Browser check step-by-step
@@ -220,13 +220,21 @@ While Playwright and Puppeteer share many similarities, they have evolved at dif
 
 We recommend using Playwright Test if you are just starting out or [migrating from Puppeteer to Playwright using `puppeteer-to-playwright`](https://github.com/checkly/puppeteer-to-playwright).
 
+## How to detect a Checkly browser check?
+
+Sometimes you want to detect and filter headless browsers sessions in your analytics or RUM monitoring. For these situations, the headless browsers used in browser checks include `Checkly` in their user agent header.
+
+```
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 (Checkly, https://www.checklyhq.com)
+```
+
 ## Using other browsers
 {{< info >}}
 We strongly recommend using the default `chromium` browser for all your checks [as per the offcial Playwright documentation](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge).
 {{< /info >}}
 
-If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
-Checkly enables you to use `Google Chrome` with Playwright in runtime `2023.02`. 
+If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to),
+Checkly enables you to use `Google Chrome` with Playwright in runtime `2023.02`.
 In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
 
 {{< tabs "Google Chrome with Playwright test" >}}
@@ -238,7 +246,7 @@ test.use({ channel: 'chrome' }) // <-- opt-in to use Google Chrome
 
 test('Open the page and take a screenshot', async ({ page }) => {
   await page.goto('https://checklyhq.com/')
-  await page.screenshot({ path: `checkly.png` })  
+  await page.screenshot({ path: `checkly.png` })
 })
 ```
 {{< /tab >}}
