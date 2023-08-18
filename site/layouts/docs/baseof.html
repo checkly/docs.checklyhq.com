@@ -21,7 +21,7 @@
   {{ end }}
   {{ .Scratch.Set "breadcrumb_text" $breadcrumb_text }}
   {{ partial "head" . }}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
 </head>
 
 <body>
@@ -29,15 +29,15 @@
   {{ block "main" . }}
   {{ end }}
   {{ partial "scripts" . }}
-  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
   <script src="/js/docs.js"></script>
   <script>
     docsearch({
       apiKey: 'b2b616fdea14b860ff00c72fa72bf267',
       indexName: 'checkly_docs',
       appId: 'LCMJSZN73Z',
-      inputSelector: '#search',
-      debug: false
+      container: '#docsearch',
+      debug: true
     })
   </script>
 </body>

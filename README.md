@@ -1,15 +1,4 @@
-<p>
-  <img height="128" src="https://www.checklyhq.com/images/footer-logo.svg" align="right" />
-  <h1>checklyhq.com</h1>
-</p>
-
-![https://app.checklyhq.com/groups/8411/edit](https://api.checklyhq.com/v1/badges/groups/8411)
-![https://app.checklyhq.com/groups/247124/edit](https://api.checklyhq.com/v1/badges/groups/247124)
-
-> 🦝 Checkly public site, docs and guides
-
-<img width="1676" alt="hero" src="https://user-images.githubusercontent.com/3258966/126023413-a69448d5-00ec-4161-aad6-99047b0aea97.png">
-
+![](https://api.checklyhq.com/v1/badges/checks/be14dfae-edea-48bd-a089-fa1ae7a4606a?style=flat&theme=default)
 
 ## Run Locally
 
@@ -34,12 +23,6 @@ $ npm run deploy
 ## Algolia Search
 
 This is done automatically through a github action, see `.github/worksflows/algolia-docsearch.yml`.
-If you need to do it manually, run the following commands
-
-```bash
-$ cd algolia
-$ ./docsearch run ./config.json
-```
 
 ## Docs, Learn & Guides
 
@@ -56,15 +39,3 @@ Do you want to share your use case and experience using Checkly with your produc
 ## License
 
 [MIT](https://github.com/checkly/jamstack-deploy/blob/master/LICENSE)
-
-<br>
-
-<p align="center">
-  <a href="https://checklyhq.com?utm_source=github&utm_medium=sponsor-logo-github&utm_campaign=checklyhq.com" target="_blank">
-  <img width="100px" src="https://www.checklyhq.com/images/text_racoon_logo.svg" alt="Checkly" />
-  </a>
-  <br />
-  <i><sub>Build and Run Synthetics That Scale</sub></i>
-  <br>
-  <b><sub>From Checkly with ♥️</sub></b>
-<p>
