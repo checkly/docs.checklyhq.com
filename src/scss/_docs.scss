@@ -69,14 +69,6 @@
       color: $gray-dark;
     }
 
-    &-search {
-      padding-bottom: 1rem;
-      position: sticky;
-      top: 1rem;
-      z-index: 1000;
-      background-color: white;
-    }
-
     &-title {
       display: flex;
       align-items: center;
@@ -231,10 +223,6 @@
 
       .mobile-toc-button {
         display: none;
-      }
-
-      .search {
-        margin-bottom: 30px;
       }
 
       code {
@@ -676,9 +664,6 @@
   @include media-breakpoint-down(xs) {
     .docs-page {
       .markdown {
-        .search {
-          flex-wrap: wrap;
-        }
         .mobile-toc-button {
           width: 100%;
           text-align: center;

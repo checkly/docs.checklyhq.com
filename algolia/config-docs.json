@@ -5,9 +5,14 @@
     ".*(?<!/)$"
   ],
   "selectors": {
-    "lvl0": ".docs-page article h1",
-    "lvl1": ".docs-page article h2",
-    "lvl2": ".docs-page article h3",
-    "text": ".docs-page article p,.docs-page article ul,.docs-page article ol"
+    "lvl0": {
+      "selector": ".DocSearch-lvl0",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": ".docs-page article h1",
+    "lvl2": ".docs-page article h2",
+    "lvl3": ".docs-page article h3",
+    "text": ".DocSearch-content p, .DocSearch-content li"
   }
 }
