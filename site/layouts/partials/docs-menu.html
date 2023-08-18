@@ -1,6 +1,6 @@
 <aside class="docs-menu">
   <nav id="sideMenu" class="left-transform right-transform">
-    <span class="docs-menu-category DocSearch-lvl0" id="docs-category-getting-started">Getting Started</span>
+    <span class="docs-menu-category">Getting Started</span>
     <ul class="docs-menu-content">
       {{ $currentPage := . }}
       {{ range $index, $element:=.Site.Menus.started }}
@@ -13,23 +13,21 @@
       </li>
       {{end}}
     </ul>
-    <span class="docs-menu-category DocSearch-lvl0" id="docs-category-core-platform">Core Platform</span>
+    <span class="docs-menu-category">Core Platform</span>
     {{ partial "docs-menu-walk" (dict "menuID" "platform" "page" .) }}
-    <span class="docs-menu-category DocSearch-lvl0" id="docs-category-resources">Resources</span>
+    <span class="docs-menu-category">Resources</span>
     {{ partial "docs-menu-walk" (dict "menuID" "resources" "page" .) }}
-    <span class="docs-menu-category DocSearch-lvl0" id="docs-category-integrations">Integrations</span>
+    <span class="docs-menu-category">Integrations</span>
     {{ partial "docs-menu-walk" (dict "menuID" "integrations" "page" .) }}
-    <span class="docs-menu-category DocSearch-lvl0" id="docs-category-reference">Reference</span>
+    <span class="docs-menu-category">Reference</span>
     <ul class="docs-menu-content">
       {{ $currentPage := . }}
       {{ range $index, $element:=.Site.Menus.reference }}
       <li class="docs-menu-item" id="docs-menu-reference-{{$index}}">
         <div class="docs-menu-reference-link">
-            <span class="DocSearch-lvl1"  id="docs-menu-reference-{{$index}}-{{anchorize .Name}}">
-                <a href="{{.URL}}">
-                  {{.Name}}
-                </a>
-            </span>
+          <a href="{{.URL}}">
+            {{ .Name }}
+          </a>
         </div>
       </li>
       {{end}}

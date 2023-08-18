@@ -7,7 +7,9 @@
       {{ else }}
         <span>/</span>
         {{ if eq $index 3 }}
-          <a href="/docs/{{ . }}/">{{ humanize . }}</a>
+          <a href="/docs/{{ . }}/" class="DocSearch-lvl1" id="breadcrumb-{{anchorize .}}">
+            {{ humanize . }}
+          </a>
         {{ else }}
           {{ humanize . }}
         {{ end }}

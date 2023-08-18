@@ -1,23 +1,15 @@
 {
   "index_name": "checkly_docs",
   "start_urls": ["https://www.checklyhq.com/docs"],
-  "stop_urls": [
-    ".*(?<!/)$"
-  ],
+  "sitemap_urls": ["https://docs.checklyhq.com/sitemap.xml"],
   "selectors": {
     "lvl0": {
-      "selector": ".DocSearch-lvl0",
-      "global": true,
+      "selector": ".breadcrumb a:nth-child(3)",
       "default_value": "Documentation"
     },
-    "lvl1": {
-      "selector": ".DocSearch-lvl1",
-      "global": true,
-      "default_value": "Chapter"
-    },
-    "lvl2": ".docs-page article h1",
-    "lvl3": ".docs-page article h2",
-    "lvl4": ".docs-page article h3",
+    "lvl1": ".docs-page article h1",
+    "lvl2": ".docs-page article h2",
+    "lvl3": ".docs-page article h3",
     "text": ".DocSearch-content p, .DocSearch-content li"
   }
 }

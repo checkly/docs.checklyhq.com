@@ -4,7 +4,7 @@
 {{range $index, $element:=.menuEntries }}
     <li class="docs-menu-item">
       <div class="docs-menu-title{{ if $page.HasMenuCurrent .Menu . }} active{{ end }}" id="{{$menuID}}-{{$index}}">
-          <span class="DocSearch-lvl1"  id="{{$menuID}}-{{$index}}-{{anchorize .Name}}">{{ .Name }}</span>
+      {{ .Name }}
       </div>
         <ul class='docs-menu-sub{{ if $page.HasMenuCurrent .Menu . }} menu-display{{ end }}' id="docs-menu-{{$menuID}}-{{$index}}">
             {{range .Children}} {{ $has := $page.IsMenuCurrent .Menu . }}
