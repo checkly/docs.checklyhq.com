@@ -23,8 +23,12 @@ disqusShortname = "checkly"
     weight = 10
 [[menu.topnav]]
     name = "Guides"
-    url = "/guides"
+    url = "/guides/"
     weight = 20
+[[menu.topnav]]
+    name = "Learn"
+    url = "/learn/headless/"
+    weight = 30
 
 [[menu.started]]
 	name = "Introduction"
