@@ -4,7 +4,7 @@
   "sitemap_urls": ["https://docs.checklyhq.com/sitemap.xml"],
   "selectors": {
     "lvl0": {
-      "selector": ".breadcrumb a:nth-child(3)",
+      "selector": ".DocSearch-lvl1",
       "default_value": "Documentation"
     },
     "lvl1": ".docs-page article h1",
