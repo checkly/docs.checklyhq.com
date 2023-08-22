@@ -19,6 +19,13 @@ Snippets can be useful for:
 - a common navigation flow
 - a common setup or teardown procedure
 
+
+{{<cli-tip >}}
+If you are using the CLI, you don't need to use snippets. You can just use `import` or `require` to add any local dependencies from your repo.
+Check the docs on using local dependencies [right here](/docs/cli/npm-packages/).
+
+{{</cli-tip >}}
+
 ## How to use snippets
 
 To create a snippet, access <a href="https://app.checklyhq.com/snippets" target="_blank">the snippets section on the left side of the UI</a>.
