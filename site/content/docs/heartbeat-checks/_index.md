@@ -32,7 +32,7 @@ curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5
 ```
 {{< /tab >}}
 {{< /tabs >}}
-Note the use of the retry option. We recommend always using retries when available to avoid false alarms due to temporary network issues or other disruptions.
+Note the use of the retry option. We recommend always using retries when available to avoid false alarms due to temporary network issues or other disruptions. You should also specify a timeout so that the ping does not end up blocking an ongoing process or job.
 
 ## Creating a heartbeat check
 
@@ -101,3 +101,130 @@ Selecting a single check result page from the check overview page will give a de
 
 The `source`  value is taken from the request parameter, if available, otherwise from the request `header.origin`, lastly from `headers.referer`. If none of these are available `source` defers to `null`.
 
+## Ping examples
+Here you can find examples on how to ping a heartbeat check using various types of script or programming languages.
+
+### Shell
+Adding a ping to a shell script only requires a single line. In this example we use [curl](https://github.com/curl/curl), and [wget](https://www.gnu.org/software/wget/).
+
+As mentioned earlier, we recommend using the `-m` and `--retry` options to specify timeout and retries to reduce the risk of false alerts or blocking the script. The corresponding options for wget are `-t` for retries and `-T` for timeout.
+{{< tabs "Shell" >}}
+{{< tab "Curl" >}}
+```BASH
+# run_backup.sh
+ 
+curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
+```
+{{< /tab >}}
+{{< tab "Wget" >}}
+```BASH
+# run_backup.sh
+
+wget -T 5 -t 3 https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+The above curl example can also be used in the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+
+`run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372 > dev/null`
+
+And similarly for [Render cron jobs](https://render.com/docs/cronjobs):
+
+`run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372`
+
+### Kubernetes CronJob
+Here is an example of how to add the curl command from earlier to a Kubernetes CronJob.
+
+{{< tabs "Kubernetes" >}}
+{{< tab "Kubernetes" >}}
+```BASH
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nightly
+  namespace: example
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl
+            image: docker.io/curlimages/curl:latest
+            imagePullPolicy: IfNotPresent
+            command:
+            - sh
+            - -c
+            args:
+            - 'curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372;'
+          restartPolicy: OnFailure
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+### Node.js
+In these examples we are using the built in [https.get](https://nodejs.org/api/https.html#httpsgeturl-options-callback) option, and then [axios](https://axios-http.com/).
+{{< tabs "Node.js" >}}
+{{< tab "Node.js" >}}
+```JS
+const https = require("https");
+
+// Sample URL
+const url = "https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4";
+
+const options = {
+  timeout: 5000,
+};
+
+https.get(url, options, (res) => {
+  console.log("statusCode:", res.statusCode);
+
+  res.on('data', (data) => {
+    console.log("responseBody:", data);
+  });
+});
+
+```
+{{< /tab >}}
+{{< tab "Axios" >}}
+```JS
+const axios = require('axios');
+
+axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').then(resp => {
+    console.log(resp.data);
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+
+### Python
+Using the python [requests](https://requests.readthedocs.io/en/latest/) library with a timeout set to 5 seconds.
+
+{{< tabs "Python" >}}
+{{< tab "Python" >}}
+```PYTHON
+import requests
+
+# Heartbeat URL
+url = ["https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc"]
+
+# A GET request to the Heartbeat
+response = requests.get(url, timeout=5)
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+### PowerShell
+Adding a ping to a PowerShell script only requires a single line. Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems. 
+
+Similar to the Shell example we can specify `timeout` and `retry` options. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
+{{< tabs "PowerShell" >}}
+{{< tab "PowerShell" >}}
+```BASH
+Invoke-RestMethod -Uri https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc -TimeoutSec 5 -MaximumRetryCount 3 -RetryIntervalSec 5
+```
+{{< /tab >}}
+{{< /tabs >}}
