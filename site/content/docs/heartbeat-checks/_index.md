@@ -136,8 +136,6 @@ And similarly for [Render cron jobs](https://render.com/docs/cronjobs):
 ### Kubernetes CronJob
 Here is an example of how to add the curl command from earlier to a Kubernetes CronJob.
 
-{{< tabs "Kubernetes" >}}
-{{< tab "Kubernetes" >}}
 ```BASH
 apiVersion: batch/v1
 kind: CronJob
@@ -161,8 +159,6 @@ spec:
             - 'curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372;'
           restartPolicy: OnFailure
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 ### Node.js
 In these examples we are using the built in [https.get](https://nodejs.org/api/https.html#httpsgeturl-options-callback) option, and then [axios](https://axios-http.com/).
@@ -203,28 +199,21 @@ axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').the
 ### Python
 Using the python [requests](https://requests.readthedocs.io/en/latest/) library with a timeout set to 5 seconds.
 
-{{< tabs "Python" >}}
-{{< tab "Python" >}}
 ```PYTHON
 import requests
 
 # Heartbeat URL
-url = ["https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc"]
+url = "https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc"
 
 # A GET request to the Heartbeat
 response = requests.get(url, timeout=5)
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 ### PowerShell
 Adding a ping to a PowerShell script only requires a single line. Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems. 
 
 Similar to the Shell example we can specify `timeout` and `retry` options. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
-{{< tabs "PowerShell" >}}
-{{< tab "PowerShell" >}}
+
 ```BASH
 Invoke-RestMethod -Uri https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc -TimeoutSec 5 -MaximumRetryCount 3 -RetryIntervalSec 5
 ```
-{{< /tab >}}
-{{< /tabs >}}
