@@ -3,7 +3,7 @@ title: Alert states
 weight: 32
 menu:
   resources:
-    parent: "Alerting"
+    parent: "Retries & Alerting"
 ---
 
 Sending out alert notifications like emails and Slack hooks depends on four factors:

@@ -1,10 +1,9 @@
 ---
 title: 'Alert settings'
 weight: 30
-slug: /
 menu:
   resources:
-   parent: "Alerting"
+   parent: "Retries & Alerting"
 lastmod: 01-06-2020
 aliases:
 - /alerting/settings/
@@ -20,7 +19,7 @@ for all options.
 
 ## Alert settings
 
-The [alert settings screen](https://app.checklyhq.com/alerts/settings) gives you the options to tailor when, how and how 
+The [alert settings screen](https://app.checklyhq.com/alerts/settings) gives you the options to tailor when, how and how
 often you want to be alerted when a check fails. This is also sometimes referred to as **threshold alerting**. For example:
 
 - Get an alert on the second or third failure.
@@ -96,16 +95,3 @@ When a check failure is resolved, we cancel any outstanding reminders so you don
 Toggling the "mute" checkbox on a check stops the sending of all alerts but keeps the check running. This is useful when
 your check might be flapping or showing other unpredictable behavior. Just mute the alerts but keep the check going while
 you troubleshoot.
-
-## Double checking
-
-Checkly runs on cloud infrastructure in data centers around the world. As nothing is perfect, this infrastructure
-occasionally experiences glitches and slowdowns. Enabling the  **double check** option makes sure we rerun your check
-to catch false positives.
-
-- API checks are retried after 5 seconds
-- Browser checks are retried after 30 seconds.
-
-This feature is switched on by default for all checks.
-
-![double checks against false positives](/docs/images/alerting/double_check.png)
