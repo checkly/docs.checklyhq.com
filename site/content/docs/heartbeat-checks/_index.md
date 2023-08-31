@@ -19,7 +19,7 @@ Heartbeat checks are available on our [Team and Enterprise plans](https://www.ch
 
 ## What is a heartbeat check?
 
-A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL. 
+A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
 When a ping is not received on time, the check will trigger any configured alerts.
 
 Use heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
@@ -45,8 +45,8 @@ Once you have created your check, the service or host you want to monitor needs 
 ## Check breakdown
 
 ### Name and tag
-The check name is used for identifying the check in the list of heartbeat checks and in alert messages. Using a clear and meaningful name will help team members identify the check and can help reduce the reaction time when alerts are triggered. 
-Tags are used to create meaningful distinctions between check groups, making it easy to filter out selections of checks. 
+The check name is used for identifying the check in the list of heartbeat checks and in alert messages. Using a clear and meaningful name will help team members identify the check and can help reduce the reaction time when alerts are triggered.
+Tags are used to create meaningful distinctions between check groups, making it easy to filter out selections of checks.
 ![name and tag](/docs/images/heartbeat-checks/getting-started-name-and-tag.png)
 
 ### Ping URL
@@ -54,7 +54,7 @@ The URL on which the check is listening for pings. The job or task monitored sho
 ![ping url](/docs/images/heartbeat-checks/getting-started-ping-url.png)
 
 ### Period and Grace
-**Period** defines how often you expect a ping to the ping URL. 
+**Period** defines how often you expect a ping to the ping URL.
 
 **Grace** is the time Checkly will wait before triggering any alerts when a ping does not arrive within the set period. E.g., if you have a check that expects a ping every 60 minutes, with a grace of 10 minutes, no alarms would trigger until 70 minutes after the latest ping.
 
@@ -62,22 +62,24 @@ Use grace to compensate for variance in your jobs.
 ![period and grace](/docs/images/heartbeat-checks/getting-started-period-and-grace.png)
 
 ### Timer
-The check timer starts when it receives its first ping and will reset after each ping. 
+The check timer starts when it receives its first ping and will reset after each ping.
 If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
 > When a check is deactivated, and activated again the timer will start when the check is pinged, just as when first creating a check. This is also the case when changing the period of a check.
 
 ### Ping now
-Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms. 
+Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.
 ![ping now](/docs/images/heartbeat-checks/getting-started-ping-now.png)
 Ping now is also available in the quick menu in the heartbeat overview page.
 ![ping now in list view](/docs/images/heartbeat-checks/getting-started-list-view-ping-now.png)
 
-
+> Note that some __user-agents__ are blocked to prevent false-positive pings from bots. <br>
+> We're currently blocking __Twitterbot__, __Slackbot__, __Googlebot__, __Discordbot__, __Facebot__, __TelegramBot__, __WhatsApp__, __LinkedInBot__.
+> Please note that this list might change in the future.
 
 ### Alerting
-By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting/webhooks) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check. 
+By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting/webhooks) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
 
-> Note that some alerting channels, like [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features) 
+> Note that some alerting channels, like [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features)
 
 
 ## Reporting
@@ -97,7 +99,7 @@ Select ‘View all’ for a complete list of available monitoring results in a t
 
 ### Check results
 
-Selecting a single check result page from the check overview page will give a detailed breakdown of the specific request. 
+Selecting a single check result page from the check overview page will give a detailed breakdown of the specific request.
 
 The `source`  value is taken from the request parameter, if available, otherwise from the request `header.origin`, lastly from `headers.referer`. If none of these are available `source` defers to `null`.
 
@@ -112,7 +114,7 @@ As mentioned earlier, we recommend using the `-m` and `--retry` options to speci
 {{< tab "Curl" >}}
 ```BASH
 # run_backup.sh
- 
+
 curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
 ```
 {{< /tab >}}
@@ -210,7 +212,7 @@ response = requests.get(url, timeout=5)
 ```
 
 ### PowerShell
-Adding a ping to a PowerShell script only requires a single line. Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems. 
+Adding a ping to a PowerShell script only requires a single line. Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems.
 
 Similar to the Shell example we can specify `timeout` and `retry` options. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
 
