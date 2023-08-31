@@ -18,7 +18,7 @@ $ npm run deploy
 
 > Push to any branch will generate deployment preview via Vercel
 
-> Push to `master` will automatically deploy to production via Vercel
+> Push to `main` will automatically deploy to production via Vercel
 
 ## Algolia Search
 
