@@ -8,7 +8,7 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 ## The importance of self-contained checks
 
-Checks run independently and on different schedules, possibly even following different retry logics when failures occur. It is therefore important not to create dependencies between them, which could introduce failures that do not depend on the target system's status, also known as "false failures" and "flakiness". Checkly prevents (or tries to prevent) this antipattern by having each check run fully isolated in its own sandbox.
+Checkly's [API Monitoring](/blog/what-is-api-monitoring/) checks run independently and on different schedules, possibly even following different retry logics when failures occur. It is therefore important not to create dependencies between them, which could introduce failures that do not depend on the target system's status, also known as "false failures" and "flakiness". Checkly prevents (or tries to prevent) this antipattern by having each check run fully isolated in its own sandbox.
 
 But then how do we run more complex API checks that might have prerequisites (e.g. auth tokens, test data) that themselves require an API call, or other similar preparation steps? That's what [setup scripts](/docs/api-checks/setup-teardown-scripts/#setup-scripts) are made for. They run right before the API check's main request and enable us to do any action that might be needed to make our check work according to industry [best practices](/learn/headless/valuable-tests/).
 
