@@ -121,7 +121,7 @@ These include:
 
 ## Check results with retries
 
-When check are retried,  tabs will indicate that the check result contains multiple check runs:
+When checks are retried,  tabs will indicate that the check result contains multiple check runs:
 1. The initial failed attempt
 2. The final result (which may have failed or succeeded)
 
