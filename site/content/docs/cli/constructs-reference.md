@@ -73,10 +73,11 @@ derived from the abstract class `Check`.
 - `muted`: A boolean value if alert notifications from your Check are muted, i.e. not sent out.
 - `group`: The `CheckGroup` object that this check is part of.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
-- `doubleCheck`: A boolean value if Checkly should double check on failure.
 - `tags`: An array of tags to help you organize your Checks, i.e. `['product', 'api']`
 - `runtimeId`: The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.
 - `testOnly`: A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.
+- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.
+- `doubleCheck`: (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.
 
 > Note that most properties have sane default values and do not need to be specified.
 
@@ -329,6 +330,7 @@ new ApiCheck('check-group-api-check-1', {
 - `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true' }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
+- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
@@ -643,3 +645,43 @@ project or created via the Web UI, you can pass in the `slugName` string.
 - `proxyUrl`: Define a proxy for outgoing API check HTTP calls from your private location.
 
 [Learn more about private locations in our docs](https://www.checklyhq.com/docs/private-locations)
+
+## `RetryStrategy`
+
+`RetryStrategy` objects can be used to configure retries for failed check runs.
+Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
+[Learn more about retry strategies](/docs/retries-and-alerting/).
+
+To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
+As an example, you can configure a check to retry up to 4 times, in different regions, with waits of 30 seconds, 60 seconds, 90 seconds, and 120 seconds between attempts:
+
+```ts
+import { ApiCheck, RetryStrategyBuilder } from 'checkly/constructs'
+
+new ApiCheck('retrying-check', {
+  name: 'Check With Retries',
+  retryStrategy: RetryStrategyBuilder.linearStrategy({
+    baseBackoffSeconds: 30,
+    maxRetries: 4,
+    sameRegion: false,
+  }),
+  request: {
+    method: 'GET',
+    url: 'https://danube-web.shop/api/books'
+  }
+})
+```
+
+`RetryStrategyBuilder` supports the following helper methods:
+
+* `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
+* `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
+* `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.
+
+For all of the methods above, the `options` argument can be used to customize the following properties:
+
+* `baseBackoffSeconds`: The amount of time to wait before the first retry. This will also be used to calculate the wait time for subsequent retries. Defaults to 60.
+* `maxRetries`: The maximum number of times to retry the check. This value should be between 1 and 10. Defaults to 2.
+* `maxDurationSeconds`: The maximum amount of time to continue retrying the check. Maximum 600 seconds. Defaults to 600 seconds.
+* `sameRegion`: Whether retries should be run in the same region as the initial failed check run. Defaults to `true`.
+
