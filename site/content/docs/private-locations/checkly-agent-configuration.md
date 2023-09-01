@@ -68,7 +68,38 @@ Docker host](https://docs.docker.com/desktop/networking/) `http://host.docker.in
 
 ## Updating the agent container
 
-Since the Agent is stateless, it can be updated by replacing or updating the image in place. If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
+New versions of the Checkly Agent are released regularly. To have access to the latest improvements, you can update the Checkly Agent containers.
+
+### Manual updates
+
+To manually uprade your Checkly Agent containers, first pull the image:
+
+```bash
+docker pull checkly/agent:latest
+```
+
+You can then start a new Checkly Agent using the updated image. If you no longer have the API key, you can always create a new one in the UI by [rotating API keys](#rotating-api-keys).
+
+```bash
+docker run -e API_KEY="pl_...." -d checkly/agent:latest
+```
+
+Finally, you can clean up old Checkly Agent containers. First, run `docker ps` to find the names of the previous Agent containers.
+
+```bash
+CONTAINER ID   IMAGE                  COMMAND           CREATED       STATUS       PORTS     NAMES
+72ec5591f6b2   checkly/agent:latest   "node index.js"   5 hours ago   Up 5 hours             lucid_shockley
+db0aa54baf78   checkly/agent:latest   "node index.js"   6 days ago    Up 5 hours             quirky_lumiere
+```
+
+You can distinguish the old containers from the new ones by looking at the `CREATED` field. Then run `docker stop <old container name>` and `docker rm <old container name>` to remove the old Agent containers.
+
+### Automatic updates
+
+Since the Agent is stateless, it can also be updated by replacing or updating the image in place.
+If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
+While this approach can be more convenient, it should be used with caution since new Agent versions may have breaking changes such as deprecating [runtimes](/docs/runtimes/).
+Breaking changes are communicated by increasing the major version of the image (e.g. from v1.3.8 to v2.0.0).
 
 You can use the [Watchtower tool](https://containrrr.dev/watchtower/) to do an in-place upgrade of an agent container. Ensure you have sufficient agent capacity as the agent container will have a short outage as it is upgraded. As agent shutdowns are graceful, no running checks will be lost:
 
