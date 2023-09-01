@@ -187,7 +187,7 @@ Depending on how much is described in a given API spec, it is possible to move e
 
 ## Generated monitoring checks with Checkly
 
-API monitoring is key to ensure that our endpoints are returning the correct results in an acceptable timeframe.  If we can generate APIs from a OAS description file, we can also generate monitoring checks for them. Checkly is {{< newtabref  href="https://www.openapis.org/membership/members" title="a member of the OpenAPI initiative" >}}, and allows us to import an OpenAPI spec file and automatically creates one or more checks depending on the amount of information available. All it takes is a couple of clicks.
+[API monitoring](/blog/what-is-api-monitoring/) is key to ensure that our endpoints are returning the correct results in an acceptable timeframe.  If we can generate APIs from a OAS description file, we can also generate monitoring checks for them. Checkly is {{< newtabref  href="https://www.openapis.org/membership/members" title="a member of the OpenAPI initiative" >}}, and allows us to import an OpenAPI spec file and automatically creates one or more checks depending on the amount of information available. All it takes is a couple of clicks.
 
 When creating an API check, select the `import from Swagger / OpenAPI` button.
 
