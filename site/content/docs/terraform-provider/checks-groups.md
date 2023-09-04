@@ -194,4 +194,4 @@ resource "checkly_check" "get-books" {
 Locations and alert channel subscriptions defined at group level always trump the ones defined at check level. Double-check your config to make sure all checks are running from the intended regions and are set to alert on the correct channels.
 {{</info>}}
 
-You can see all the configuration options for groups, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_check_group).
+You can see all the configuration options for groups, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check_group).
