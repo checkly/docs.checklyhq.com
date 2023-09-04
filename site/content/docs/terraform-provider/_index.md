@@ -13,7 +13,7 @@ aliases:
 The [Checkly Terraform provider](https://github.com/checkly/terraform-provider-checkly) enables you to declare your monitoring setup as code using [HashiCorp Terraform](https://www.terraform.io/). You can get started with it in a matter of minutes by following the steps shown below.
 
 If you prefer, you can also clone our [sample repository](https://github.com/checkly/checkly-terraform-getting-started) and play around with the resources on your own.
-For in-depth information on Terraform, please see HashiCorp's [official documentation](https://registry.terraform.io/providers/checkly/checkly/latest/docs).
+For in-depth information on Terraform, please see HashiCorp's [official documentation](https://developer.hashicorp.com/terraform/docs).
 
 {{<info>}}
 Looking for Monitoring as Code but don't want to use Terraform? Give our [CLI solution](/docs/cli/) a try.

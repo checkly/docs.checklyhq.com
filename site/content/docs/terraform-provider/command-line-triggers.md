@@ -28,4 +28,4 @@ output "test-trigger-group-url" {
 }
 ```
 
-You can see all the configuration options for [group triggers](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_trigger_group), as well as more examples [check triggers](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_trigger_check), on the official Terraform registry documentation page.
+You can see all the configuration options for [group triggers](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/trigger_group), as well as more examples [check triggers](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/trigger_check), on the official Terraform registry documentation page.

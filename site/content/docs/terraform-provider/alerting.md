@@ -94,7 +94,7 @@ resource "checkly_alert_channel" "email_ac" {
 }
 ```
 
-Checkly supports a variety of alert channels, from email and SMS to Pagerduty and custom webhooks. For all available alert channels, see the corresponding [resource page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_alert_channel).
+Checkly supports a variety of alert channels, from email and SMS to Pagerduty and custom webhooks. For all available alert channels, see the corresponding [resource page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/alert_channel).
 
 ### Alert channel subscriptions
 

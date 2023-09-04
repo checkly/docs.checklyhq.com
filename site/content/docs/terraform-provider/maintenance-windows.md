@@ -20,4 +20,4 @@ resource "checkly_maintenance_windows" "maintenance-monthly" {
 }
 ```
 
-You can see all the configuration options for maintenance windows, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/checkly_maintenance_windows).
+You can see all the configuration options for maintenance windows, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/maintenance_windows).
