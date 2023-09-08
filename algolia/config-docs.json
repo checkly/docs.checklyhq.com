@@ -11,6 +11,6 @@
     "lvl1": ".docs-page article h1",
     "lvl2": ".docs-page article h2",
     "lvl3": ".docs-page article h3",
-    "text": ".DocSearch-content p, .DocSearch-content li"
+    "text": ".DocSearch-content p, .DocSearch-content li, .DocSearch-content .alert"
   }
 }
