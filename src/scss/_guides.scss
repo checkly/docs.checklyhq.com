@@ -197,6 +197,9 @@
         display: none;
       }
     }
+		&-page {
+			padding: 0px !important;
+		}
 	}
 	&-toc {
 		position: relative;
@@ -252,4 +255,55 @@
       }
     }
 	}
+	&-page {
+    min-width: 20rem;
+    flex-grow: 1;
+    padding: 1rem 0 1rem 30px;
+    margin-left: 0;
+    margin-right: 0;
+
+    .markdown {
+      padding-right: 30px;
+
+      .breadcrumb {
+        background: $white;
+        padding: 0;
+
+        a {
+          color: $gray;
+        }
+      }
+
+      .mobile-toc-button {
+        display: none;
+      }
+
+      .search {
+        margin-bottom: 30px;
+      }
+    }
+
+    .form-inline {
+      width: 100%;
+      position: relative;
+
+      span {
+        width: 100%;
+        max-width: 2000px;
+        height: 100%;
+      }
+      img {
+        position: absolute;
+        top: 11px;
+        left: 10px;
+      }
+      input {
+       width: 100%;
+       height: 100%;
+       background: none;
+       border: 1px solid $gray-light;
+       padding-left: 30px;
+      }
+    }
+  }
 }
