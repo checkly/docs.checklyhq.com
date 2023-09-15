@@ -1,6 +1,8 @@
 ---
 title: Prometheus
 weight: 65
+aliases:
+- "/docs/integrations/prometheus-v1/"
 menu:
   integrations:
     parent: "Integrations"
