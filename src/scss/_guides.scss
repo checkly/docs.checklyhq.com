@@ -99,6 +99,7 @@
 .guides {
 	$toc-width: 14rem;
 	margin-top: 50px;
+	max-width: 90rem;
 	&__label {
 	  width: 150px;
 	  height: 30px;
@@ -258,7 +259,7 @@
 	&-page {
     min-width: 20rem;
     flex-grow: 1;
-    padding: 1rem 0 1rem 30px;
+    padding: 1rem 0;
     margin-left: 0;
     margin-right: 0;
 
