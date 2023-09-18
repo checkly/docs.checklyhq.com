@@ -62,22 +62,25 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports two Check types: API Checks and Browser Checks. All checks share the following common properties
-derived from the abstract class `Check`.
+The CLI currently supports three Check types: API, Browser and Heartbeat Checks.
 
-- `name`: A friendly name for your Check.
-- `frequency`: How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.
-- `locations`: An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.
-- `privateLocations`: an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
-- `activated`: A boolean value if your Check is activated or not.
-- `muted`: A boolean value if alert notifications from your Check are muted, i.e. not sent out.
-- `group`: The `CheckGroup` object that this check is part of.
-- `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
-- `tags`: An array of tags to help you organize your Checks, i.e. `['product', 'api']`
-- `runtimeId`: The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.
-- `testOnly`: A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.
-- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.
-- `doubleCheck`: (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.
+These Check types share properties derived from the abstract class `Check`.
+
+| Property           | Description                                                                                                                    | Supported in                  |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| `name`             | A friendly name for your Check.                                                                                                | `API`, `Browser`, `Heartbeat` |
+| `frequency`        | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                              | `API`, `Browser`              |
+| `locations`        | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                        | `API`, `Browser`              |
+| `privateLocations` | an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.        | `API`, `Browser`              |
+| `activated`        | A boolean value if your Check is activated or not.                                                                             | `API`, `Browser`, `Heartbeat` |
+| `muted`            | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                           | `API`, `Browser`, `Heartbeat` |
+| `group`            | The `CheckGroup` object that this check is part of.                                                                            | `API`, `Browser`              |
+| `alertChannels`    | An array of `AlertChannel` objects to which to send alert notifications.                                                       | `API`, `Browser`, `Heartbeat` |
+| `tags`             | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                  | `API`, `Browser`, `Heartbeat` |
+| `runtimeId`        | The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.                               | `API`, `Browser`              |
+| `testOnly`         | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.              | `API`, `Browser`              |
+| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.             | `API`, `Browser`              |
+| `doubleCheck`      | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`. | `API`, `Browser`              |
 
 > Note that most properties have sane default values and do not need to be specified.
 
@@ -116,10 +119,10 @@ new ApiCheck('hello-api-1', {
   name: 'Hello API',
   activated: true,
   setupScript: {
-      entrypoint: path.join(__dirname, 'setup.ts') 
+      entrypoint: path.join(__dirname, 'setup.ts')
   },
   tearDownScript: {
-    entrypoint: path.join(__dirname, 'teardown.ts')     
+    entrypoint: path.join(__dirname, 'teardown.ts')
   },
   maxResponseTime: 10000,
   degradedResponseTime: 5000,
@@ -175,7 +178,7 @@ for rendering the body type in the web UI and not needed in most cases using the
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
 - `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
 - `basicAuth`: An object of the shape `{ username: 'admin', password: 'admin' }` to set basic auth credentials.
-- `assertions`: An array of assertions to validate status codes, response bodies and much more. 
+- `assertions`: An array of assertions to validate status codes, response bodies and much more.
 See the [`AssertionBuilder` reference](#assertionbuilder).
 
 ### `AssertionBuilder`
@@ -217,9 +220,9 @@ Read more about assertions in [our docs on API check assertions](/docs/api-check
 
 ## `HeartbeatCheck`
 
-A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL. 
+A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
 
-After creating the Heartbeat, you can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats).
+You can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats) or the CLI output of [`checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy).
 
 ```ts
 import { HeartbeatCheck } from 'checkly/constructs'
@@ -248,7 +251,7 @@ and the Checkly CLI will pick them up and apply some default settings like a nam
 them into synthetic monitoring Checks.
 
 However, you can override these global settings and configure individual Browser Checks just like all other built-in Check
-types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file. 
+types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file.
 This property supports relative and absolute paths.
 
 ```ts
@@ -379,7 +382,7 @@ Sends SMS notifications to phone number. Make sure to use standard international
 import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
-  name: 'Ops on-call',    
+  name: 'Ops on-call',
   phoneNumber: '+31061234567890',
 })
 ```
@@ -526,7 +529,7 @@ new MaintenanceWindow('maintenance-window-1', {
 - `endsAt`: The end date and time of the maintenance window as an ISO 8601 timestamp `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`.
 - `repeatInterval`: The repeat interval of the maintenance window from the first occurrence.
 - `repeatUnit`: The repeat strategy for the maintenance window. This is mandatory when you specify a repeat interval.
-- `repeatEndsAt`: The end date and time when the maintenance window should stop repeating  as an ISO 8601 timestamp 
+- `repeatEndsAt`: The end date and time when the maintenance window should stop repeating  as an ISO 8601 timestamp
 `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`
 
 [Learn more about maintenance windows in our docs](https://www.checklyhq.com/docs/maintenance-windows)
@@ -575,7 +578,7 @@ This is required if `customUrl` is not specified.
 - `header`: A piece of text displayed at the top of your dashboard.
 - `description`: A piece of text displayed below the header or title of your dashboard.
 - `width`: Determines whether to use the full screen (`FULL`) or focus in the center (`960PX`). Default: `FULL`.
-- `refreshRate`: How often (`60`, `300` or `600` seconds) to refresh the dashboard in seconds. Default: `60`. 
+- `refreshRate`: How often (`60`, `300` or `600` seconds) to refresh the dashboard in seconds. Default: `60`.
 - `paginate`: Determines of pagination is on or off. Default: true.
 - `paginationRate`?: How often (`30`, `60` or `300` seconds) to trigger pagination in seconds. Default: `60`.
 - `checksPerPage`: Number of checks displayed per page, between `1` and `20`. Default: `15`.
@@ -588,7 +591,7 @@ This is required if `customUrl` is not specified.
 - `isPrivate`: Determines if the dashboard is public or private. Default: false. Only accounts on Team and Enterprise plans can enable this feature.
 - `showP95`: Show or hide the P95 stats on the dashboard. Default: `true`.
 - `showP99`: Show or hide the P99 stats on the dashboard. Default: `true`.
- 
+
 [Learn more about dashbaords in our docs](https://www.checklyhq.com/docs/dashboards)
 
 ## `PrivateLocation`
@@ -634,7 +637,7 @@ new ApiCheck('local-api-1', {
 })
 ```
 {{< info >}}
-Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the 
+Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the
 instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
 project or created via the Web UI, you can pass in the `slugName` string.
 {{< /info >}}
