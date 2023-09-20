@@ -22,7 +22,11 @@ const config = defineConfig({
       frequency: 10,
       testMatch: '**/__checks__/**/*.spec.{js,ts}'
     },
-    retryStrategy: RetryStrategyBuilder.fixedStrategy({ baseBackoffSeconds: 60, maxRetries: 3, sameRegion: true })
+    retryStrategy: RetryStrategyBuilder.fixedStrategy({
+      baseBackoffSeconds: 10,
+      maxRetries: 3,
+      sameRegion: true
+    })
   }
 })
 
