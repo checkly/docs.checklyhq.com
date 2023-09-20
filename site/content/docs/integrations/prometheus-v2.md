@@ -1,6 +1,11 @@
 ---
-title: Prometheus V2
+title: Prometheus v2
 weight: 65
+aliases:
+  - "/docs/integrations/prometheus/"
+menu:
+  integrations:
+    parent: "Integrations"
 ---
 
 If you are using [Prometheus](https://prometheus.io/) for monitoring and the popular [Grafana](https://grafana.com/) stack
@@ -18,7 +23,7 @@ Activating this integration is simple.
 ![Prometheus integration step 1](/docs/images/integrations/prometheus_step1.png)
 
 2. We directly create an endpoint for you and provide its URL and the required Bearer token.
-![Prometheus integration step 2](/docs/images/integrations/prometheus_step2.png)
+![Prometheus integration step 2](/docs/images/integrations/prometheus_v2_step2.png)
 
 3. Create a new job in your Prometheus `prometheus.yml` config and set up a scraping interval. We recommend an interval
 between 30 seconds and 60 seconds. Add the URL (divided into `metrics_path`, `scheme` and `target`) and `bearer_token`.
