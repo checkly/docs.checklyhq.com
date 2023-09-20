@@ -56,7 +56,7 @@ The following metrics are available to monitor checks:
 | `checkly_browser_check_duration_seconds` | Histogram | The total check duration. This includes all pages visited and any waits. |
 | `checkly_browser_check_errors` | Histogram | The errors encountered during a full browser session. |
 | `checkly_api_check_timing_seconds` | Histogram | The response time for the API request, as well as the duration of the different phases. |
-
+| `checkly_time_to_ssl_expiry_seconds` | Gauge | The amount of time remaining before the SSL certificate of the monitored domain expires. See the [SSL certificate expiration docs](/docs/retries-and-alerting/ssl-expiration/) for more information on monitoring SSL certificates with checks. |
 
 The `checkly_check_status` and `checkly_check_result_total` metrics contain a `status` label with values `passing`, `failing`, and `degraded`.
 The `checkly_check_status` gauge is `1` when the check has the status indicated by the `status` label and is `0` otherwise.
@@ -73,6 +73,8 @@ checkly_check_status{name="Passing Browser Check",status="degraded"} 0
 The metrics `checkly_browser_check_web_vitals_seconds`, `checkly_browser_check_errors`, and `checkly_api_check_timing_seconds` contain a `type` label.
 This label indicates the different Web Vitals, error types, and timing phases being measured.
 
+`checkly_time_to_ssl_expiry_seconds` contains a `domain` label giving the domain of the monitored SSL certificate.
+
 In addition, the check metrics all contain the following labels:
 
 | Label | Description |
@@ -84,7 +86,7 @@ In addition, the check metrics all contain the following labels:
 | `activated` | Whether the check is activated. Deactivated checks aren't be run. |
 | `group` | The name of the check group. |
 | `tags` | The tags of the check. |
-| `region` | The region that the check was run on. Not available for `checkly_check_status`. |
+| `region` | The region that the check was run on. Not available for `checkly_check_status` and `checkly_time_to_ssl_expiry_seconds`. |
 
 {{<info>}}
 You can set `key:value` tags in your checks and groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`.
