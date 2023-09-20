@@ -1,17 +1,19 @@
 ---
-title: Prometheus
-weight: 65
+title: Prometheus v1
+weight: 66
+aliases:
+- "/docs/integrations/prometheus-v1/"
 menu:
   integrations:
     parent: "Integrations"
 ---
 
-If you are using [Prometheus](https://prometheus.io/) for monitoring and the popular [Grafana](https://grafana.com/) stack
-for dashboarding, you can expose Checkly's core metrics on a dedicated, secured endpoint.
-
+{{< warning >}}
+This page describes the v1 version of the Prometheus exporter. If you are just starting with our Prometheus integration,
+we recommend using our [v2 version](/docs/integrations/prometheus-v2/).
+{{</ warning >}}
 
 > 💡 Check out our [blog post on using this integration with Prometheus and Grafana](https://blog.checklyhq.com/monitoring-website-performance-with-checkly-prometheus-grafana/) for some cool real-life applications.
-
 
 Checkly exposes the following metrics in a Prometheus-compatible format.
 
