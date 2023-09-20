@@ -94,9 +94,9 @@ You can set `key:value` tags in your checks and groups and they will be exported
 The counter and histogram metrics are reset every hour. These resets can be handled in Prometheus by using the [rate](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) or [increase](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions. 
 {{</info>}}
 
-### Recipes
+### PromQL Examples
 
-This section contains a few queries that you can use to start working with the Prometheus data.
+This section contains a few PromQL queries that you can use to start working with the Prometheus data.
 
 #### Currently failing checks
 
