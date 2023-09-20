@@ -17,5 +17,9 @@ export const checklyhqComGroup = new CheckGroup('checklyhq-docs-1', {
   browserChecks: {
     testMatch: '*.spec.ts'
   },
-  retryStrategy: RetryStrategyBuilder.fixedStrategy({ baseBackoffSeconds: 60, maxRetries: 3, sameRegion: true })
+  retryStrategy: RetryStrategyBuilder.fixedStrategy({
+    baseBackoffSeconds: 60,
+    maxRetries: 3,
+    sameRegion: true
+  })
 })
