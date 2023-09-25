@@ -25,14 +25,13 @@ Activating this integration is simple.
 2. We directly create an endpoint for you and provide its URL and the required Bearer token.
 ![Prometheus integration step 2](/docs/images/integrations/prometheus_v2_step2.png)
 
-3. Create a new job in your Prometheus `prometheus.yml` config and set up a scraping interval. We recommend an interval
-between 30 seconds and 60 seconds. Add the URL (divided into `metrics_path`, `scheme` and `target`) and `bearer_token`.
+3. Create a new job in your Prometheus `prometheus.yml` config and set up a scraping interval. The scrape interval should be above 60 seconds. Add the URL (divided into `metrics_path`, `scheme` and `target`) and `bearer_token`.
 Here is an example
 
 ```yaml
 # prometheus.yml
 - job_name: 'checkly'
-  scrape_interval: 30s
+  scrape_interval: 60s
   metrics_path: '/accounts/993adb-8ac6-3432-9e80-cb43437bf263/v2/prometheus/metrics'
   bearer_token: 'lSAYpOoLtdAa7ajasoNNS234'
   scheme: https
@@ -41,6 +40,10 @@ Here is an example
 ```
 
 Now restart Prometheus and you should see metrics coming in.
+
+{{< warning >}}
+The Prometheus metrics endpoint has a rate limit of 8 requests per 5 minutes. We recommend using a scrape interval of 60 seconds.
+{{</ warning >}}
 
 ## Check Metrics
 
@@ -86,7 +89,6 @@ In addition, the check metrics all contain the following labels:
 | `activated` | Whether the check is activated. Deactivated checks aren't be run. |
 | `group` | The name of the check group. |
 | `tags` | The tags of the check. |
-| `region` | The region that the check was run on. Not available for `checkly_check_status` and `checkly_time_to_ssl_expiry_seconds`. |
 
 {{<info>}}
 You can set `key:value` tags in your checks and groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`.
@@ -110,16 +112,14 @@ checkly_check_status{status="passing"}
 Passing checks will have the value `1` while failing and degraded checks will have the value `0`.
 This can be used to build a [Grafana table](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/table/) of currently failing checks.
 
-#### Failing checks per region
+#### Failure percentage
 
-To calculate the number of failing checks by region, you can use:
+To calculate the percentage of check runs that failed in the last 24 hours, use:
 ```bash
-sum by(region) (increase(checkly_check_result_total{status="failing"}[24h]))
+increase(checkly_check_result_total{status="failing"}[24h]) / sum by(status) (increase(checkly_check_result_total[24h]))
 ```
 
 The `checkly_check_result_total` counter is reset to `0` every hour. The [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) function will handle these resets automatically, though.
-
-This query can also be filtered by the `name` label to investigate if a check is flaky in a particular region.  
 
 #### Histogram averages
 
