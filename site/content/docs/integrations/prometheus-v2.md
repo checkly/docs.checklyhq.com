@@ -116,10 +116,10 @@ This can be used to build a [Grafana table](https://grafana.com/docs/grafana/lat
 
 To calculate the percentage of check runs that failed in the last 24 hours, use:
 ```bash
-increase(checkly_check_result_total{status="failing"}[24h]) / sum by(status) (increase(checkly_check_result_total[24h]))
+increase(checkly_check_result_total{status="failing"}[24h]) / ignoring(status) sum without (status) (increase(checkly_check_result_total[24h]))
 ```
 
-The `checkly_check_result_total` counter is reset to `0` every hour. The [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) function will handle these resets automatically, though.
+The `checkly_check_result_total` counter is reset to `0` every hour. The [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) function will handle these resets automatically, though. `ignoring(status)` is needed so that Prometheus can perform [vector matching](https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching) on the division operation. 
 
 #### Histogram averages
 
