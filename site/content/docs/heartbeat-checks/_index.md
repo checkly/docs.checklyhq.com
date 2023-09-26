@@ -17,6 +17,10 @@ This guide gives you all the info needed to get started with Checkly heartbeat c
 Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
 {{< /info >}}
 
+Check out this video for a quick explainer:
+
+{{< youtube 7I_NfCjYCmo >}}
+
 ## What is a heartbeat check?
 
 A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
