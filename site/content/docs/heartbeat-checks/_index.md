@@ -68,6 +68,11 @@ Use grace to compensate for variance in your jobs.
 ### Timer
 The check timer starts when it receives its first ping and will reset after each ping.
 If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
+
+![Explanation of timer resets. Every ping or alert resets the timer.](/docs/images/heartbeat-checks/heartbeats-grace.jpg)
+
+**Every ping or triggered alert will reset the timer of the next expected heartbeat ping.**
+
 > When a check is deactivated and activated again, the timer will start when the check is saved. This is also the case when changing the period of a check.
 
 ### Ping now
