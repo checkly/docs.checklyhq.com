@@ -2,14 +2,18 @@
  * Docs TOC Sidebar
  */
 
-$(document).ready(() => {
-  if ($('#TableOfContents ul').length >= 1) {
+const sideMenuDistance = $('#tocMenu').offset().top - 10
+
+$(window).on('scroll', function () {
+  if ($(window).scrollTop() >= sideMenuDistance) {
     $('#tocMenu').css({
-      display: 'block'
+      position: 'fixed',
+      top: '30px'
     })
   } else {
     $('#tocMenu').css({
-      display: 'none'
+      position: 'relative',
+      top: '0'
     })
   }
 })
