@@ -18,13 +18,19 @@ Assigning a `logicalId` is crucial when creating a construct. Remember the follo
 ```ts
 const check  = new ApiCheck('my-logical-id', { name: 'My API check' })
 ```
-2. Every `logicalId` needs to be unique within the scope of a `Project`. A Project also has a `logicalId`.
-3. A `logicalId` can be any string up to 255 characters in length.
-4. There is no hard limit on the amount of `Project`'s you can have in your Checkly account.
+2. Every `logicalId` needs to be unique within the scope of a `Project`.
+3. A `Project` also has a `logicalId`. This needs to be unique within the scope of the Checkly account.
+4. A `logicalId` can be any string up to 255 characters in length.
+5. There is no hard limit on the amount of `Project`'s you can have in your Checkly account.
 
 Behind the scenes, we use the `logicalId` to create a graph of your resources so we know what to persist, update and remove
 from our database. Changing the `logicalId` on an existing resource in your code base will tell the Checkly backend that
 a resource was removed and a new resource was created.
+
+When using the Checkly CLI to manage multiple projects and repositories, each project's `logicalId` should be unique within the Checkly account.
+The project's `logicalId` is used during the Checkly CLI commands to detect exactly which project is being used.
+If multiple projects are using the same project `logicalId`, deploying one project will delete the checks that were deployed by another project.
+The project `logicalId` can be configured in the project's [global configuration](/docs/cli/project-structure/#global-configuration).
 
 So, I guess you know now that logical IDs are important!
 
