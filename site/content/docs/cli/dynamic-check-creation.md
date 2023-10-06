@@ -1,6 +1,6 @@
 ---
 title: Dynamic check creation
-weight: 5
+weight: 6
 menu:
   platform:
     parent: "CLI"
