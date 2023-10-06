@@ -10,7 +10,7 @@ The Checkly CLI enables you to code your entire monitoring setup taking full adv
 
 This page shows a few examples.
 
-## Dynamic and programmable check creation
+## Similar checks from a list of targets
 
 Iterating through lists of target URLs is an easy way to manage checks at scale while avoiding code duplication.
 
@@ -61,7 +61,9 @@ export default async function createApiChecks() {
 }
 ```
 
-Iterating through target environments (like `preview` and `production`) allows you to reuse existing check or spec definitions.
+## Separate groups for prod and pre-prod
+
+Iterating through target environments (like `preview` and `production`) linked to `Group` resources allows you to reuse existing `Check` definitions.
 
 ```ts
 // __checks__/browser.check.ts
@@ -97,8 +99,10 @@ environments.forEach((environment) => {
 });
 ```
 
+You can handle potential differences between target environments via group-level environment variables, which are made available to all checks within a group.
+
 ```ts
-// __groups.check.ts
+// __checks__/groups.check.ts
 import { CheckGroup } from 'checkly/constructs'
 import { smsChannel, emailChannel } from '../alert-channels'
 const alertChannels = [smsChannel, emailChannel]
@@ -107,7 +111,7 @@ export const groupPreview = new CheckGroup('group-browser-preview', {
   name: 'WebShop - Preview',
   activated: true,
   muted: false,
-  runtimeId: '2023.02',
+  runtimeId: '2023.09',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'preview'],
   // You can use group-level environment vars to point each group's checks to the right target URL
@@ -121,7 +125,7 @@ export const groupProd = new CheckGroup('group-browser-prod', {
   name: 'WebShop - Production',
   activated: true,
   muted: false,
-  runtimeId: '2023.02',
+  runtimeId: '2023.09',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'production'],
   // You can use group-level environment vars to point each group's checks to the right target URL
