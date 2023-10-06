@@ -16,7 +16,7 @@ knowledge of working with Javascript and/or Node.js.
 
 ## What is a Browser check?
 
-A Browser check is a Node.js script that controls a headless Chromium browser to mimic user behavior.
+A Browser check is a Node.js script that controls a headless browser to mimic user behavior.
 Load a web page, click a link, fill a form input – do everything your visitors might do and check if these interactions lead to the correct results.
 
 Your critical interactions might be:
@@ -66,8 +66,8 @@ test('Visit Checkly HQ page', async ({ page }) => {
 {{< /tabs >}}
 
 {{< info >}}
-Checkly currently supports only using **Chromium** with Playwright Test and Playwright library.
-[Read more about using other browsers](/docs/browser-checks/#using-other-browsers). 
+Checkly currently supports using **Chromium** or **Chrome** with Playwright Test and Playwright library, with Chromium being the default browser for all checks.
+[Read more about using Chrome](/docs/browser-checks/#using-other-browsers). 
 {{< /info >}}
 
 ## Breaking down a Browser check step-by-step
@@ -226,7 +226,7 @@ We strongly recommend using the default `chromium` browser for all your checks [
 {{< /info >}}
 
 If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
-Checkly enables you to use `Google Chrome` with Playwright in runtime `2023.02`. 
+Checkly enables you to use `Google Chrome` with Playwright in runtimes `2023.02` and later. 
 In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
 
 Google Chrome is not available on [Private Locations](/docs/private-locations) running on ARM64 and Apple silicon.

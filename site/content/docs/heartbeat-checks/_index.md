@@ -17,6 +17,10 @@ This guide gives you all the info needed to get started with Checkly heartbeat c
 Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
 {{< /info >}}
 
+Check out this video for a quick explainer:
+
+{{< youtube 7I_NfCjYCmo >}}
+
 ## What is a heartbeat check?
 
 A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
@@ -64,7 +68,12 @@ Use grace to compensate for variance in your jobs.
 ### Timer
 The check timer starts when it receives its first ping and will reset after each ping.
 If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
-> When a check is deactivated, and activated again the timer will start when the check is pinged, just as when first creating a check. This is also the case when changing the period of a check.
+
+![Explanation of timer resets. Every ping or alert resets the timer.](/docs/images/heartbeat-checks/heartbeats-grace.jpg)
+
+**Every ping or triggered alert will reset the timer of the next expected heartbeat ping.**
+
+> When a check is deactivated and activated again, the timer will start when the check is saved. This is also the case when changing the period of a check.
 
 ### Ping now
 Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.

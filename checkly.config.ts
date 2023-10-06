@@ -1,4 +1,5 @@
 import { defineConfig } from 'checkly'
+import { RetryStrategyBuilder } from 'checkly/constructs'
 
 const config = defineConfig({
   projectName: 'www.checklyhq.com',
@@ -20,7 +21,12 @@ const config = defineConfig({
     browserChecks: {
       frequency: 10,
       testMatch: '**/__checks__/**/*.spec.{js,ts}'
-    }
+    },
+    retryStrategy: RetryStrategyBuilder.fixedStrategy({
+      baseBackoffSeconds: 10,
+      maxRetries: 3,
+      sameRegion: true
+    })
   }
 })
 

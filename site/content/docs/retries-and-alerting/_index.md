@@ -6,6 +6,8 @@ menu:
   resources:
    parent: "Retries & Alerting"
 cli: true
+aliases:
+  - /docs/alerting/
 ---
 
 Sometimes the internet is flaky, or your app is just having a hiccup not worth pinging your on-call team about. Retries 
