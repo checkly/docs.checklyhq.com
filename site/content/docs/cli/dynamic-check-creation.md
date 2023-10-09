@@ -72,9 +72,9 @@ import { BrowserCheck } from 'checkly/constructs';
 import { groupProd, groupPreview } from './groups.check';
 ​
 // This reads a directory and extracts all file paths containing '.spec.ts'
-let files = fs.readdirSync('__checks__/');
-let specFiles = files.filter((filename) => {
-	return filename.includes('.spec.ts');
+const files = fs.readdirSync('__checks__/');
+const specFiles = files.filter((filename) => {
+  return filename.includes('.spec.ts');
 });
 ​
 // This is the list of environments and their matching group; it can be extended easily
