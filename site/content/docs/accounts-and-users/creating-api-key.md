@@ -42,6 +42,10 @@ If you wish to revoke access of a user to an account, remove the user from the t
 Service API keys are specific to one account and are not tied to a user. This means that service API keys can be used to 
 access your account even if the user that created the API key is removed from your account.
 
+{{< info >}}
+Service API keys are available on the [Enterprise plan](https://www.checklyhq.com/pricing) only
+{{< /info >}}
+
 Service API keys allow you to set a role access level on the key itself, e.g. "read only", "admin" etc. 
 
 Prime use cases for service API keys are:
@@ -50,7 +54,6 @@ Prime use cases for service API keys are:
 - Any custom integrations that needs to create, update or delete resources through our public API.
 - Replacing user API keys for customers using our SSO integration and cannot create "service users" in their user directories
 due to compliance reasons.
-
 
 **Steps to create a service API key:**
 
