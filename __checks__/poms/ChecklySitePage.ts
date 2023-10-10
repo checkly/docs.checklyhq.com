@@ -9,6 +9,10 @@ export class ChecklySitePage {
   }
 
   async goto (uri = '/') {
+    // block linkedin pixel as it can hang
+    await this.page.route(/.*px\.ads\.linkedin.*/, (route) => {
+      route.abort();
+    });
     await this.page.setViewportSize(defaults.playwright.viewportSize)
     await this.page.goto(defaults.baseURL + uri)
   }

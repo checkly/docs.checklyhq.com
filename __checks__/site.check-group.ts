@@ -1,5 +1,6 @@
-import { CheckGroup } from 'checkly/constructs'
+import { CheckGroup, RetryStrategyBuilder } from 'checkly/constructs'
 import { alertChannels } from './alertChannels'
+
 export const checklyhqComGroup = new CheckGroup('checklyhq-docs-1', {
   name: 'checklyhq.com/docs',
   activated: true,
@@ -15,5 +16,10 @@ export const checklyhqComGroup = new CheckGroup('checklyhq-docs-1', {
   alertChannels,
   browserChecks: {
     testMatch: '*.spec.ts'
-  }
+  },
+  retryStrategy: RetryStrategyBuilder.fixedStrategy({
+    baseBackoffSeconds: 60,
+    maxRetries: 3,
+    sameRegion: true
+  })
 })
