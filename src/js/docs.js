@@ -5,11 +5,11 @@
 
 $(document).ready(() => {
   const docsMenuTitleClass = '.docs-menu-title'
-  var docsMenuHeader = $(docsMenuTitleClass)
+  const docsMenuHeader = $(docsMenuTitleClass)
 
   docsMenuHeader.click(function () {
-    var id = $(this).attr('id')
-    var docMenuId = '#docs-menu-' + id
+    const id = $(this).attr('id')
+    const docMenuId = '#docs-menu-' + id
     if ($(this).attr('class') === 'docs-menu-title') {
       $(this).addClass('active')
       $(docMenuId).addClass('menu-display')
@@ -82,28 +82,31 @@ $(document).on('keydown', function (e) {
  * Sidemenu fixed position after some scroll-up
  */
 
-var sideMenu = $('#sideMenu')
-if (sideMenu.length) {
-  var sideMenuDistance = sideMenu.offset().top - 10
+const sideMenu = $('#sideMenu')
+const tocMenu = $('#tocMenu')
+let sideMenuDistance
 
-  $(window).on('scroll', function () {
-    if ($(window).scrollTop() >= sideMenuDistance) {
-      $('#sideMenu').css({
-        position: 'fixed',
-        top: '0px'
-      })
-      $('#tocMenu').css({
-        position: 'fixed',
-        top: '30px'
-      })
-    } else {
-      $('#sideMenu').css({
-        position: 'relative'
-      })
-      $('#tocMenu').css({
-        position: 'relative',
-        top: '0'
-      })
-    }
-  })
-}
+if (sideMenu.length) {
+  sideMenuDistance = sideMenu.offset().top - 10
+} else { sideMenuDistance = tocMenu.offset().top - 10 }
+
+$(window).on('scroll', function () {
+  if ($(window).scrollTop() >= sideMenuDistance) {
+    $('#sideMenu').css({
+      position: 'fixed',
+      top: '0px'
+    })
+    $('#tocMenu').css({
+      position: 'fixed',
+      top: '30px'
+    })
+  } else {
+    $('#sideMenu').css({
+      position: 'relative'
+    })
+    $('#tocMenu').css({
+      position: 'relative',
+      top: '0'
+    })
+  }
+})
