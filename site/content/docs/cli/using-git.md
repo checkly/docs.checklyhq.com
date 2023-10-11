@@ -1,6 +1,6 @@
 ---
 title: Using git metadata
-weight: 7
+weight: 8
 menu:
   platform:
     parent: "CLI"

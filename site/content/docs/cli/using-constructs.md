@@ -1,6 +1,6 @@
 ---
 title: Using Constructs
-weight: 3
+weight: 4
 menu:
   platform:
     parent: "CLI"

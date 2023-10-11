@@ -1,6 +1,6 @@
 ---
 title: Using environment variables
-weight: 6
+weight: 5
 menu:
   platform:
     parent: "CLI"

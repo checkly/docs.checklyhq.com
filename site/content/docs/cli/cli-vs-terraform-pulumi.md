@@ -1,6 +1,6 @@
 ---
 title: CLI vs. Terraform & Pulumi
-weight: 8
+weight: 9
 menu:
   platform:
     parent: "CLI"
