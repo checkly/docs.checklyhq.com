@@ -7,6 +7,7 @@ jobs:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
+      # Give Vercel a few seconds to deploy preview URL
       - run: sleep 30
       - name: vercel-preview-url
         uses: zentered/vercel-preview-url@v1.1.9
@@ -15,6 +16,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
           vercel_project_id: 'QmSNiK5bcLmLnTeioXKfdE5uxVZ4Kh3nE7u6QLFKEfebM6'
+          vercel_team_id: 'team_AXvrWtvu32E0pksIZqnGmc78'
       - name: DEBUG - Get URL
         run: echo "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
       - name: Check for broken links
