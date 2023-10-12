@@ -26,7 +26,7 @@ outputs:
     description: 'Report of links'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: '.github/link-checker/Dockerfile'
   args:
     - ${{ inputs.url }}
     - ${{ inputs.honorRobotExclusions }}
