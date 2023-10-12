@@ -61,7 +61,9 @@ then
     echo "$LINKS"
     echo -e "$PURPLE ============================== $NC"
     echo "result<<EOF" >> "$GITHUB_OUTPUT"
-    echo "$RESULTS\n\n" >> "$GITHUB_OUTPUT"
+    echo "$RESULT" >> "$GITHUB_OUTPUT"
+    echo "" >> "$GITHUB_OUTPUT"
+    echo "" >> "$GITHUB_OUTPUT"
     echo "$LINKS" >> "$GITHUB_OUTPUT"
     echo "EOF" >> "$GITHUB_OUTPUT"
     exit 1
