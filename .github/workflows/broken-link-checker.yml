@@ -23,8 +23,8 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         with:
           deployment-url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
-          timeout: 30 # Wait for 10 seconds before failing
-          poll-interval: 10 # Wait for 1 second before each retry
+          timeout: 400 # Wait for 10 seconds before failing
+          poll-interval: 20 # Wait for 1 second before each retry
       - name: Check for broken links
         id: link-report
         uses: celinekurpershoek/link-checker@v1.0.2
