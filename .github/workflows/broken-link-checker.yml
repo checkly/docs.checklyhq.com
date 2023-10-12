@@ -25,8 +25,7 @@ jobs:
       - name: Check for broken links
         id: link-report
         # uses: celinekurpershoek/link-checker@v1.0.2
-        using: 'docker'
-        image: '.github/link-checker/Dockerfile'
+        uses: '.github/link-checker/action.yml'
         continue-on-error: true
         with:
           url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}/docs"
