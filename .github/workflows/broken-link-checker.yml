@@ -22,28 +22,24 @@ jobs:
           if [ "${{ steps.vercel_preview_url.outputs.deployment_state }}" != "READY" ]; then
             sleep 180
           fi
-      # - uses: UnlyEd/github-action-await-vercel@v1
-      #   id: await-vercel
-      #   env:
-      #     VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      #   with:
-      #     deployment-url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
-      #     timeout: 400 # Wait for 10 seconds before failing
-      #     poll-interval: 20 # Wait for 1 second before each retry
       - name: Check for broken links
         id: link-report
         uses: celinekurpershoek/link-checker@v1.0.2
         with:
           url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}/docs"
+          honorRobotExclusions: false
+          ignorePatterns: "github,google"
           recursiveLinks: true
       - name: DEBUG - Get the result
         run: echo "${{steps.link-report.outputs.result}}"
+      - uses: jwalton/gh-find-current-pr@v1
+        id: finder
       - name: Add comment to PR
         id: comment_to_pr
         uses: marocchino/sticky-pull-request-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.issue.number }}
+          number: ${{ steps.finder.outputs.pr }}
           header: Broken Links
           message: |
             ${{steps.link-report.outputs.result}}
