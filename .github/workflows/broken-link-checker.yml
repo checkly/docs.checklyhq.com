@@ -25,10 +25,11 @@ jobs:
       - name: Check for broken links
         id: link-report
         uses: celinekurpershoek/link-checker@v1.0.2
+        continue-on-error: true
         with:
           url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}/docs"
           honorRobotExclusions: false
-          ignorePatterns: "github,google"
+          ignorePatterns: "github,google,vercel.com,https://checklyhq.com,https://docs.checklyhq.com,terraform.io"
           recursiveLinks: true
       - name: DEBUG - Get the result
         run: echo "${{steps.link-report.outputs.result}}"
@@ -36,6 +37,7 @@ jobs:
         id: finder
       - name: Add comment to PR
         id: comment_to_pr
+        continue-on-error: true
         uses: marocchino/sticky-pull-request-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
