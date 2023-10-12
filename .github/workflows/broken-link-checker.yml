@@ -1,0 +1,37 @@
+name: Vercel Preview URL Broken Link Checker
+
+on: push
+
+jobs:
+  check_broken_links:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 30
+      - name: vercel-preview-url
+        uses: zentered/vercel-preview-url@v1.1.9
+        id: vercel_preview_url
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          vercel_project_id: 'QmSNiK5bcLmLnTeioXKfdE5uxVZ4Kh3nE7u6QLFKEfebM6'
+      - name: DEBUG - Get URL
+        run: echo "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
+      - name: Check for broken links
+        id: link-report
+        uses: celinekurpershoek/link-checker@v1.0.2
+        with:
+          url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
+          excludeExternalLinks: true
+          recursiveLinks: true
+      - name: DEBUG - Get the result
+        run: echo "${{steps.link-report.outputs.result}}"
+      - name: Add comment to PR
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.issue.number }}
+          header: Broken Links
+          message: |
+            ${{steps.link-report.outputs.result}}
