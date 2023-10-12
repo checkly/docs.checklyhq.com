@@ -7,8 +7,6 @@ jobs:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
-      # Give Vercel a few seconds to deploy preview URL
-      - run: sleep 30
       - name: vercel-preview-url
         uses: zentered/vercel-preview-url@v1.1.9
         id: vercel_preview_url
@@ -19,12 +17,19 @@ jobs:
           vercel_team_id: 'team_AXvrWtvu32E0pksIZqnGmc78'
       - name: DEBUG - Get URL
         run: echo "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
+      - uses: UnlyEd/github-action-await-vercel@v1
+        id: await-vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        with:
+          deployment-url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
+          timeout: 30 # Wait for 10 seconds before failing
+          poll-interval: 10 # Wait for 1 second before each retry
       - name: Check for broken links
         id: link-report
         uses: celinekurpershoek/link-checker@v1.0.2
         with:
-          url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
-          excludeExternalLinks: true
+          url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}/docs"
           recursiveLinks: true
       - name: DEBUG - Get the result
         run: echo "${{steps.link-report.outputs.result}}"
