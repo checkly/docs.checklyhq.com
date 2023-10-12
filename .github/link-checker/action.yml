@@ -1,5 +1,5 @@
 name: 'broken-link-check'
-description: 'Find broken links, missing images, etc within your HTML.'
+description: 'Find broken links, missing images, etc within your HTML. From celinekurpershoek/link-checker.'
 author: 'Celine Kurpershoek'
 branding: 
   icon: 'anchor'

@@ -60,7 +60,10 @@ then
     LINKS=$(grep -E 'BROKEN' <<< "$OUTPUT" | awk '{print "[✗] " $2 "\n" }')
     echo "$LINKS"
     echo -e "$PURPLE ============================== $NC"
-    echo "result=$RESULT\n$LINKS" >> "$GITHUB_OUTPUT"
+    echo "result<<EOF" >> "$GITHUB_OUTPUT"
+    echo "$RESULTS\n\n" >> "$GITHUB_OUTPUT"
+    echo "$LINKS" >> "$GITHUB_OUTPUT"
+    echo "EOF" >> "$GITHUB_OUTPUT"
     exit 1
 elif [ "$TOTAL_COUNT" == 0 ]
 then
