@@ -17,14 +17,19 @@ jobs:
           vercel_team_id: 'team_AXvrWtvu32E0pksIZqnGmc78'
       - name: DEBUG - Get URL
         run: echo "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
-      - uses: UnlyEd/github-action-await-vercel@v1
-        id: await-vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        with:
-          deployment-url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
-          timeout: 400 # Wait for 10 seconds before failing
-          poll-interval: 20 # Wait for 1 second before each retry
+      - name: Wait for Vercel Build
+        run: |
+          if [ "${{ steps.vercel_preview_url.outputs.deployment_state }}" != "READY" ]; then
+            sleep 180
+          fi
+      # - uses: UnlyEd/github-action-await-vercel@v1
+      #   id: await-vercel
+      #   env:
+      #     VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      #   with:
+      #     deployment-url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
+      #     timeout: 400 # Wait for 10 seconds before failing
+      #     poll-interval: 20 # Wait for 1 second before each retry
       - name: Check for broken links
         id: link-report
         uses: celinekurpershoek/link-checker@v1.0.2
