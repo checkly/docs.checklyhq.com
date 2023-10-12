@@ -24,12 +24,14 @@ jobs:
           fi
       - name: Check for broken links
         id: link-report
-        uses: celinekurpershoek/link-checker@v1.0.2
+        # uses: celinekurpershoek/link-checker@v1.0.2
+        using: 'docker'
+        image: '.github/link-checker/Dockerfile'
         continue-on-error: true
         with:
           url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}/docs"
           honorRobotExclusions: false
-          ignorePatterns: "github,google,vercel.com,https://checklyhq.com,https://docs.checklyhq.com,terraform.io"
+          ignorePatterns: "github,google,vercel.com,checklyhq.com,stripe.com,playwright.dev,visualstudio.com,npmjs.com,twitter.com,aka.ms,cloudflare.com,terraform.io"
           recursiveLinks: true
       - name: DEBUG - Get the result
         run: echo "${{steps.link-report.outputs.result}}"
