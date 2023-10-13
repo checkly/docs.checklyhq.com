@@ -30,7 +30,7 @@ jobs:
         with:
           url: "https://${{ steps.vercel_preview_url.outputs.preview_url }}/docs"
           honorRobotExclusions: false
-          ignorePatterns: "acme.com,nodejs.org,pptr.dev,placehold.co,herokuapp.com,github,google,vercel.com,checklyhq.com,stripe.com,playwright.dev,visualstudio.com,npmjs.com,twitter.com,aka.ms,cloudflare.com,terraform.io"
+          ignorePatterns: "now.sh,acme.com,nodejs.org,pptr.dev,placehold.co,herokuapp.com,github,google,vercel.com,checklyhq.com,stripe.com,playwright.dev,visualstudio.com,npmjs.com,twitter.com,aka.ms,cloudflare.com,terraform.io"
           recursiveLinks: true
       - name: DEBUG - Get the result
         run: echo "${{steps.link-report.outputs.result}}"
