@@ -57,7 +57,7 @@ if [ "$BROKEN_COUNT" -gt 0 ]
 then 
     RESULT="$BROKEN_COUNT broken link(s) found (out of $TOTAL_COUNT total)"
     echo -e "$RED Failed $RESULT: $NC"
-    LINKS=$(grep -E 'BROKEN' <<< "$OUTPUT" | awk '{print "[✗] " $2 "\n" }')
+    LINKS=$(grep -E 'BROKEN' <<< "$OUTPUT" | awk '{print "[✗] " $2 "\n" }' | sort -u)
     echo "$LINKS"
     echo -e "$PURPLE ============================== $NC"
     echo "result<<EOF" >> "$GITHUB_OUTPUT"
