@@ -570,7 +570,7 @@ You can add custom CSS by referencing a CSS file. Note, this is only available o
 
 - `tags`: A list of one or more tags that filter what checks will be shown in the dashboard. All checks are included if no tag is specified.
 - `customUrl`: A subdomain name under "checklyhq.com". Needs to be unique across all users. This is required if `customDomain` is not specified.
-- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](docs/dashboards/dashboard-customization/#custom-domain).
+- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](/docs/dashboards/dashboard-customization/#custom-domain).
 This is required if `customUrl` is not specified.
 - `logo`: A URL pointing to an image file that will be used as logo in the dashboard header.
 - `favicon`: A URL pointing to an image file used as dashboard favicon.

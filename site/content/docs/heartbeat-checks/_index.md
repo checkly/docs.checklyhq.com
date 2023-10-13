@@ -42,7 +42,7 @@ Note the use of the retry option. We recommend always using retries when availab
 
 To create a new heartbeat check, click the `+` icon on the sidebar & select **heartbeat check**.
 
-Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting).
+Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/retries-and-alerting/alert-settings/).
 
 Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using JavaScript, Python or in Bash in the quickstart section.
 
@@ -86,9 +86,9 @@ Ping now is also available in the quick menu in the heartbeat overview page.
 > Please note that this list might change in the future.
 
 ### Alerting
-By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting/webhooks) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
+By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/retries-and-alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/retries-and-alerting/webhooks/) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
 
-> Note that some alerting channels, like [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features)
+> Note that some alerting channels, like [SMS](/docs/retries-and-alerting/sms-delivery/) and [Phone call](/docs/retries-and-alerting/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features)
 
 
 ## Reporting
