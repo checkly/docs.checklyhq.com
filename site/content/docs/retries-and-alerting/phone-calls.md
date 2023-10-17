@@ -26,6 +26,7 @@ You can add as many phone number channels as you like.
 | France |
 | Germany |
 | India |
+| Lithuania |
 | Netherlands |
 | Norway |
 | Vietnam |
