@@ -24,7 +24,7 @@ Examples of API sequences might be:
 * Users can get, set and remove data from their account
 * Users can add items to a shopping card, checkout and go through the payment flow.
 
-Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole work as intended and that expected interactions between API calls are functional.
+Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole works as intended and that expected interactions between API calls are functional.
 
 Multistep API checks are powered by [Playwright Test](https://playwright.dev/docs/api-testing), a robust open-souce test-runner.
 
