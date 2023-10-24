@@ -4,7 +4,7 @@ weight: 29
 slug: /
 menu:
   resources:
-   parent: "Retries & Alerting"
+   parent: "Alerting & retries"
 cli: true
 aliases:
   - /docs/alerting/

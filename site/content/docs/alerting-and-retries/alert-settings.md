@@ -3,7 +3,7 @@ title: 'Alert settings'
 weight: 30
 menu:
   resources:
-   parent: "Retries & Alerting"
+   parent: "Alerting & retries"
 lastmod: 01-06-2020
 aliases:
 - /alerting/settings/

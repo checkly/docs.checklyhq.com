@@ -3,7 +3,7 @@ title: SSL certificate expiration
 weight: 33
 menu:
   resources:
-    parent: "Retries & Alerting"
+    parent: "Alerting & retries"
 aliases:
 - "/whats-new/summer-update/docs/alerting/ssl-expiration/"
 - "/whats-new/introducing-sms-pagerduty/docs/alerting/ssl-delivery/"

@@ -3,7 +3,7 @@ title: Alert channels
 weight: 31
 menu:
   resources:
-    parent: "Retries & Alerting"
+    parent: "Alerting & retries"
 cli: true
 ---
 

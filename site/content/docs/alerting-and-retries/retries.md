@@ -3,7 +3,7 @@ title: 'Retries'
 weight: 32
 menu:
   resources:
-   parent: "Retries & Alerting"
+   parent: "Alerting & retries"
 cli: true
 ---
 
