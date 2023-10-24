@@ -17,7 +17,7 @@ knowledge of working with Javascript and/or Node.js.
 
 ## What is a Multistep API check?
 
-A Multistep API check allows you to write Node.js scripts that can run multiple API requests in sequence, with arbitary code between requests. This allows you to monitor entire API user flows with a single check, working with response data in between requests exactly as a user of your API would to ensure that these interactions result in the correct results.
+A Multistep API check allows you to write Node.js scripts that can run multiple API requests in sequence, with arbitrary code between requests. This allows you to monitor entire API user flows with a single check, working with response data in between requests exactly as a user of your API would to ensure that these interactions result in the correct results.
 
 Examples of API squences might be:
 * Users can authenticate and access restricted data
