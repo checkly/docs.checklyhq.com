@@ -13,52 +13,51 @@ cli: true
 ---
 
 This guide gives you all the info to create your first Multistep API check with Checkly. You should have some prior
-knowledge of working with Javascript and/or Node.js.
+knowledge of working with JavaScript and/or Node.js.
 
 ## What is a Multistep API check?
 
-A Multistep API check allows you to write Node.js scripts that can run multiple API requests in sequence, with arbitary code between requests. This allows you to monitor entire API user flows with a single check, working with response data in between requests exactly as a user of your API would to ensure that these interactions result in the correct results.
+A Multistep API check allows you to write Node.js scripts that can run multiple API requests in sequence, with arbitrary code between requests. This allows you to monitor entire API user flows with a single check, working with response data in between requests exactly as a user of your API would to ensure that these interactions result in the correct results.
 
 Examples of API squences might be:
 * Users can authenticate and access restricted data
 * Users can get, set and remove data from their account
-* Users can add items to a shopping card, checkout and go through the payment flow.
+* Users can add items to a shopping cart, checkout and go through the payment flow.
 
-Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole work as intended and that expected interactions between API calls are functional.
+Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole work as intended and that the expected interactions between API calls are functional.
 
 Multistep API checks are powered by [Playwright Test](https://playwright.dev/docs/api-testing), a robust open-souce test-runner.
 
 The following code is a valid Multistep API check using Playwright Test.
 
 ```ts
-import { test, expect } from '@playwright/test'
+import { test, expect } from '@playwright/test' // 1
 
-const headers = {
+const headers = { // 2
   Authorization: `Bearer ${process.env.API_KEY}`,
-  'x-checkly-account': process.env.ACCOUNT_ID
-};
+  'x-checkly-account': process.env.ACCOUNT_ID,
+}
 
-test('create and delete a check group', async ({ request }) => {
-  const createGroup = await test.step('POST /check-groups', async () => {
-    const response = await request.post('https://api.checklyhq.com/v1/check-groups', {
+const baseUrl = process.env.API_URL ?? 'https://api.checklyhq.com/v1'
+
+test('create and delete a check group', async ({ request }) => { // 3
+  const createdGroup = await test.step('POST /check-groups', async () => { // 4
+    const response = await request.post(`${baseUrl}/check-groups`, {
       data: {
         locations: ['eu-west-1'],
-        name: "exampleCheckGroup",
+        name: 'exampleCheckGroup',
       },
-      headers
-      })
-    
-    expect(response).toBeOK()
-   
-   return response.json()
-  })
-
-await test.step('DELETE /check-group/{id}', async () => {
-  const response = await request.delete(`https://api.checklyhq.com/v1/check-groups/${createGroup.id}`, {
       headers,
     })
+    expect(response).toBeOK() // 5
+    return response.json() // 6
+  })
 
-    expect(response).toBeOK();
+  await test.step('DELETE /check-group/{id}', async () => { // 7
+    const response = await request.delete(`${baseUrl}/check-groups/${createdGroup.id}`, {
+      headers,
+    })
+    expect(response).toBeOK()
   })
 })
 ```
@@ -69,23 +68,23 @@ Let's look at the code above step by step.
 
 **1. Initial declarations:** To run any multistep check we first import the Playwright test framework.
 
-**2. Define our headers:** In many cases you will have to authenticate when requesting data by providing authorization data in your header. By using [environment variables](/docs/browser-checks/variables/) we avoid having any confidencial data in our test.
+**2. Define our headers:** In many cases you will have to authenticate when requesting data by providing authorization data in your header. By using [environment variables](/docs/browser-checks/variables/) we avoid having any confidential data in our test.
 
-**3. Establish environment:** We create a new test using the Playwright `request` fixture, which we can use to make API requests with in our test steps.
+**3. Establish environment:** We create a new test using the Playwright `request` fixture, which can be used to make API requests in the test steps.
 
-**4. Declare our first `test.step`:** The test step uses the `request` to do a `get`, using the headers we defined earlier.
+**4. Declare our first `test.step`:** The test step uses the `request` to perform a `get` request, using the headers we defined earlier.
 
 **5. Define our assertion:** We use the `expect(response)` method to assert if the response was successful (The response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
 
 **6. Return the response for future usage:** We return the request response in JSON format, so we can use it in the next test step.
 
-**7. Declare our second `test.step`:** In order to remove the test group we just created, and avoid cluttering our system with test data we remove it by sending a `delete` request, using the group ID that was returned in our earlier test step. We use the same assertion as in the previous test step.
+**7. Declare our second `test.step`:** In order to remove the test group we just created, and avoid cluttering our system with test data, we remove it by sending a `delete` request using the group ID that was returned in our earlier test step. We use the same assertion as in the previous test step.
 
-If you want to build on the above example, you can add additional assertions, ensuring that the data returned is correct and contains a specific check, or add a PUT and GET test step to verify more of the `/groups` functionality.
+If you want to build on the above example, you can add additional assertions, ensuring that the data returned is correct and contains a specific check, or add a `PUT` and `GET` test step to verify more of the `/groups` functionality.
 
 ## Creating a Multistep check
 
-A valid Multistep API check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in app editor, or write them in your IDE and deploy them using the [Checkly CLI](https://www.checklyhq.com/docs/cli/). For production, we recommend using the CLI so you can leverage best pracices such as version control and code reviews before updating your checks.
+A valid Multistep API check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](https://www.checklyhq.com/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
 
 {{< info >}}
 Valid Playwright Test API scripts are the foundation of a valid Multistep API check. If the script passes, your check passes.
@@ -121,11 +120,11 @@ test('My test', async ({request}) => {
 
 ### Building checks in the web editor
 
-When creating a check using the web editor, after each test run you can open up the result tree by clicking on the 'Test report' icon on the left side of the editor. Selecting a API response opens the response details. You can also view errors and any failed assertions in the report view.
+When creating a check using the web editor, after each test run you can open up the result tree by clicking on the 'Test report' icon on the left side of the editor. Selecting an API response opens the response details. You can also view errors and any failed assertion in the report view.
 
 ## Multistep result view
 
-When viewing a multistep check run result, you can select any API request in the result tree to view the full response details. If you have your API request and related assertions in the same `test.step` related requests and failing assertions will be grouped within under the same header.
+When viewing a multistep check run result, you can select any API request in the result tree to view the full response details. If you have your API request and related assertions in the same `test.step`, related requests and failing assertions will be grouped under the same header.
 
 Selecting the top node in the check report shows the full job log and the check configuration for the run.
 
