@@ -7,6 +7,8 @@ menu:
 cli: true
 ---
 
+Alert channels are the channels through which alert notifications will reach you when a check starts failing, showing degraded performance or recover.
+
 You can add as many of the following alert channels as you want:
 
 - Email

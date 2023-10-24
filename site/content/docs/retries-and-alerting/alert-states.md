@@ -1,6 +1,6 @@
 ---
 title: Alert states
-weight: 32
+weight: 34
 menu:
   resources:
     parent: "Retries & Alerting"
