@@ -74,6 +74,10 @@ Let's look at the code above step by step.
 
 **4. Declare our first `test.step`:** The test step uses the `request` to perform a `get` request, using the headers we defined earlier.
 
+{{< warning >}}
+Always use `await` before `test.step`, otherwise the test will fail.
+{{< /warning >}}
+
 **5. Define our assertion:** We use the `expect(response)` method to assert if the response was successful (The response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
 
 **6. Return the response for future usage:** We return the request response in JSON format, so we can use it in the next test step.
