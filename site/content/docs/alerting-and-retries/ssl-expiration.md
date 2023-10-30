@@ -13,7 +13,7 @@ An expired SSL certificate can cause havoc to sites and APIs. Checkly performs a
 alert you up to 30 days before your certificate expires. All alert channels (e-mail, SMS, OpsGenie, Webhook etc.) can be used for this alert.
 
 Simply create or pick an existing alert channel that your check subscribes to and enable *SSL certificate expiration* and
-set the day threshold to your preference. If you don't have your alert channels set up yet, see [Alert Channels](/docs/retries-and-alerting/alert-channels/).
+set the day threshold to your preference. If you don't have your alert channels set up yet, see [Alert Channels](/docs/alerting-and-retries/alert-channels/).
 
 ![Example alert channel form](/docs/images/alerting/ssl_check_example.png)
 
