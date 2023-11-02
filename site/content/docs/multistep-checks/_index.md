@@ -27,7 +27,7 @@ Examples of API sequences might be:
 
 Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole works as intended and that the expected interactions between API calls are functional.
 
-Multistep API checks are powered by [Playwright Test](https://playwright.dev/docs/api-testing), a robust open-souce test-runner.
+Multistep API checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API tests, in the form of a programmable @playwright/test check
 
 {{< info >}}
 Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
