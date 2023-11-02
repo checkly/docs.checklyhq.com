@@ -62,7 +62,7 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports three Check types: API, Browser and Heartbeat Checks.
+The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep API Checks.
 
 These Check types share properties derived from the abstract class `Check`.
 
@@ -271,6 +271,32 @@ new BrowserCheck('browser-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
+## `MultiStepCheck`
+
+As Browser Checks, Multistep API checks are based on [`@playwright/test`](https://playwright.dev/). You can just write `.spec.js|ts` files with test cases
+and the Checkly CLI will pick them up and apply some default settings like a name, run locations and run frequency to turn
+them into synthetic monitoring Checks.
+
+You can override global settings, just as with Browser checks. For details, see the construct entry on [`Browser checks`](#browsercheck).
+
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
+```ts
+new MultiStepCheck('multistep-check-1', {
+  name: 'Multistep Check #1',
+  runtimeId: '2023.09',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'home.spec.ts')
+  },
+})
+```
+
+- `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
+raw JavaScript / TypeScript as a string.
 
 ## `CheckGroup`
 

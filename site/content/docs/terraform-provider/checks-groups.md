@@ -10,7 +10,8 @@ Checks make up the most important unit of your Checkly monitoring setup. Groups 
 
 ## Checks
 
-[Browser checks](/docs/browser-checks), [API checks](/docs/api-checks) and [Heartbeat checks](/docs/heartbeat-checks) share many arguments, configuration-wise, but also have their own unique ones. The type of your check is controlled using the `type` argument.
+[Browser checks](/docs/browser-checks), [API checks](/docs/api-checks), [Heartbeat checks](/docs/heartbeat-checks) and [Multistep API checks](/docs/multistep-checks) share many arguments, configuration-wise, 
+but also have their own unique ones. The type of your check is controlled using the `type` argument.
 
 ### Browser checks
 
@@ -132,6 +133,33 @@ resource "checkly_check" "send-weekly-digest-v-2" {
 ```
 
 Upon applying your terraform configuration changes, you will be returned a read-only key value for the heartbeat ping token. The token is stored in your `tfstate` file.
+
+
+### Multistep API checks
+
+As with Browser checks, when constructing a Multistep API check it is possible to provide the script directly in-line, 
+but the recommended approach is to store scripts in separate files.
+
+For example, a Multistep check can look as follows:
+```terraform
+ resource "checkly_check" "e2e-shopping" {
+  name                      = "Shopping Flow"
+  type                      = "MULTI_STEP"
+  activated                 = true
+  should_fail               = false
+  frequency                 = 1
+  double_check              = true
+  ssl_check                 = false
+  use_global_alert_settings = true
+  locations = [
+    "us-west-1",
+    "eu-central-1"
+  ]
+
+  script = file("${path.module}/scripts/shopping.js")
+}
+```
+
 
 ## Groups
 

@@ -29,6 +29,10 @@ Monitoring your API user flows instead of individual endpoints gives confidence 
 
 Multistep API checks are powered by [Playwright Test](https://playwright.dev/docs/api-testing), a robust open-souce test-runner.
 
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
 The following code is a valid Multistep API check using Playwright Test.
 
 ```ts
