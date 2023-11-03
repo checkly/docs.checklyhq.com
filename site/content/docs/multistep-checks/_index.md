@@ -137,6 +137,14 @@ When viewing a multistep check run result, you can select any API request in the
 
 Selecting the top node in the check report shows the full job log and the check configuration for the run.
 
+## Pricing
+
+A multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
+
+As an example, let's say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single multistep API check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same
+
+A multistep check with 0 requests is billed as if it has 1 request.
+
 ## Resources
 
 - [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
