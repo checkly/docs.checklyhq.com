@@ -140,6 +140,10 @@ Upon applying your terraform configuration changes, you will be returned a read-
 As with Browser checks, when constructing a Multistep API check it is possible to provide the script directly in-line, 
 but the recommended approach is to store scripts in separate files.
 
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
 For example, a Multistep check can look as follows:
 ```terraform
  resource "checkly_check" "e2e-shopping" {
