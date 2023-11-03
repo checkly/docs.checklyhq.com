@@ -273,11 +273,7 @@ raw JavaScript / TypeScript as a string.
 
 ## `MultiStepCheck`
 
-As Browser Checks, Multistep API checks are based on [`@playwright/test`](https://playwright.dev/). You can just write `.spec.js|ts` files with test cases
-and the Checkly CLI will pick them up and apply some default settings like a name, run locations and run frequency to turn
-them into synthetic monitoring Checks.
-
-You can override global settings, just as with Browser checks. For details, see the construct entry on [`Browser checks`](#browsercheck).
+Similar to Browser Checks, Multistep API checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
 
 {{< info >}}
 Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.

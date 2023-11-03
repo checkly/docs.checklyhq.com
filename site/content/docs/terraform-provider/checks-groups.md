@@ -148,8 +148,6 @@ For example, a Multistep check can look as follows:
   activated                 = true
   should_fail               = false
   frequency                 = 1
-  double_check              = true
-  ssl_check                 = false
   use_global_alert_settings = true
   locations = [
     "us-west-1",
