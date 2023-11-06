@@ -3,7 +3,7 @@ title: SMS delivery
 weight: 34
 menu:
   resources:
-    parent: "Retries & Alerting"
+    parent: "Alerting & retries"
 ---
 
 The phone numbers used for SMS alerting need to be in [E.164 format](https://www.twilio.com/docs/glossary/what-e164) format. Stick to the following rules and you'll be fine:

@@ -77,7 +77,7 @@ disqusShortname = "checkly"
 	weight = 45
 
 [[menu.resources]]
-	name = "Retries & Alerting"
+	name = "Alerting & retries"
 	url = "/docs/alerting/"
 	weight = 50
 
