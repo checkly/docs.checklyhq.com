@@ -16,7 +16,12 @@
       {{ end }}
     {{ end }}
   {{ end }}
-  {{ if .Page.Params.cli }}
-  <div class="badge badge-md badge-cli">CLI Enabled</div>
-  {{ end}}
+  <div class="ml-auto">
+    {{ if .Page.Params.beta }}
+    <div class="badge badge-md badge-beta">BETA</div>
+    {{ end}}
+    {{ if .Page.Params.cli }}
+    <div class="badge badge-md badge-cli">CLI Enabled</div>
+    {{ end}}
+  </div>
 </div>
