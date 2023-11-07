@@ -6,4 +6,5 @@ test('homepage', async ({ page }) => {
   await checklyPage.goto('/docs')
   await checklyPage.screenshot('docs')
   expect(await page.title()).toEqual('Introduction to Checkly | Checkly')
+  await expect(page).toHaveScreenshot('docs_home.png')
 })
