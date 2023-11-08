@@ -8,7 +8,7 @@ cli: true
 beta: true
 ---
 Playwright Test gives you the ability to do visual comparison testing (sometimes called visual regression testing) and
-a snapshot testing. This is useful for testing the visual appearance of your application. The TL;DR is that you can:
+snapshot testing. This is useful for testing the visual appearance of your application. The TL;DR is that you can:
 
 - Use the `.toHaveScreenshot()` assertion to visually compare a screenshot of your page to a golden image / reference snapshot.
 - Use the `.toMatchSnapshot()` assertion to compare any `string` or `Buffer` value to a golden image / reference snapshot.
@@ -190,7 +190,7 @@ You can disable any CSS animations and transitions using the `animations` option
 
 ## Snapshot testing
 
-Snapshot testing, using the `expect(value).toMatchSnapshot(snapshotName)` assertion, is a great way to test the output of
+Snapshot testing, using the `expect().toMatchSnapshot(snapshotName)` assertion, is a great way to test the output of
 any arbitrary `string` or `Buffer` value. Note that it is not optimized for visual comparison testing.
 
 {{< tabs "Snapshot testing" >}}
