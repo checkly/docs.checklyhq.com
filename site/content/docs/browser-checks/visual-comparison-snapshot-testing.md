@@ -79,7 +79,7 @@ To create accurate and actionable screenshot comparisons, Playwright gives you a
 should behave. What are acceptable differences in color, size, position, etc.? Do you want to match the full screen, or ignore
 some dynamic elements that might screw up your comparison?
 
-Let's look at some examples.
+ Let's look at some examples, or check [the official reference docs](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1).
 
 ### Example 1: setting pixel ratios and color thresholds
 
@@ -125,16 +125,21 @@ A typical homepage can have dynamic elements that change on each page load, or c
 Think of a "latest blog posts" section, a cookie banner or a region / language selector. Playwright allows you to ignore
 these elements when doing a visual comparison using the `mask` option and using one or more `page.locator()` selectors.
 
-The example below hides the cookie banner on the Checkly docs pages.
+The example below hides the cookie banner and optional CTA popup from Intercom on the Checkly docs pages.
 
 {{< tabs "Ignoring elements" >}}
 {{< tab "Typescript" >}}
    ```ts
    import { test, expect } from '@playwright/test';
    
-   test('Ignore cookie banner', async ({ page }) => {
+   test('Ignore cookie banner & cta popup', async ({ page }) => {
       await page.goto('https://docs.checklyhq.com')
-      await expect(page).toHaveScreenshot({ mask: [page.locator('.optanon-alert-box-wrapper')] })
+      await expect(page).toHaveScreenshot({
+         mask: [
+            page.locator('.optanon-alert-box-wrapper'),
+            page.locator('#intercom-container-body')
+         ]
+      })
    })
    ```
 {{< /tab >}}
@@ -144,7 +149,12 @@ The example below hides the cookie banner on the Checkly docs pages.
    
    test('Playwright homepage', async ({ page }) => {
       await page.goto('https://docs.checklyhq.com')
-      await expect(page).toHaveScreenshot({ mask: [page.locator('.optanon-alert-box-wrapper')] })
+      await expect(page).toHaveScreenshot({
+         mask: [
+            page.locator('.optanon-alert-box-wrapper'),
+            page.locator('#intercom-container-body')
+         ]
+      })
    })
    ```
 {{< /tab >}}
@@ -178,8 +188,6 @@ You can disable any CSS animations and transitions using the `animations` option
 {{< /tab >}}
 {{< /tabs >}}
 
-[Reference the official Playwright documentation for all the options and their defaults](https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1).
-
 ## Snapshot testing
 
 Snapshot testing, using the `expect(value).toMatchSnapshot(snapshotName)` assertion, is a great way to test the output of
@@ -208,13 +216,40 @@ any arbitrary `string` or `Buffer` value. Note that it is not optimized for visu
 {{< /tab >}}
 {{< /tabs >}}
 
+Creating or updating the golden image / reference snapshot works the same as with visual comparison testing.
 
+Check [the official reference docs](https://playwright.dev/docs/api/class-snapshotassertions#snapshot-assertions-to-match-snapshot-1)
+for all options.
 
-Creating or updating the golden image / reference snapshot works the same as with visual comparison testing. 
+## Embedding in your CI/CD workflow
 
+Using the [Checkly CLI](/docs/cli/) you can code and configure visual comparison and snapshot testing on your local machine
+and deploy any changes either directly from your local machine or from your CI/CD pipeline of choice.
 
+In a typical scenario, you would follow the steps below:
 
-## Embedding in your CI/CD pipeline
+1. Create or update a browser check with visual comparison or snapshot testing on your local machine.
+2. Generate the golden image / reference snapshot(s).
+   ```bash
+   npx checkly test --update-snapshots
+   ```
+   The resulting files are stored in a `some-file-prepend.ts-snapshots` folder next to your browser check script.
+3. Commit the browser check script and the golden image / reference snapshot(s) to your version control system.
+4. Push your code to your CI/CD pipeline.
+5. In your CI/CD pipeline, optionally run your checks again. Maybe add the `--record` flag to record the test in 
+Checkly.
+   ```bash
+   npx checkly test --record 
+   ```
+6. If your tests pass, deploy your checks to production. The CLI will push your snapshot to the
+Checkly cloud automatically.
+   ```bash
+   npx checkly deploy
+   ```
+   
+Learn more about setting up the Checkly CLI for your CI/CD pipeline 👇
+
+{{< markdownpartial "/_shared/main-cicd-cards.md" >}}
 
 ## Known limitations
 
