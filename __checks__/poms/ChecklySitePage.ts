@@ -1,10 +1,11 @@
-import type { BrowserContext, Page } from '@playwright/test'
+import type { Page } from '@playwright/test'
+import { expect } from '@playwright/test'
 import { defaults } from '../defaults'
 
 export class ChecklySitePage {
   public page: Page
 
-  constructor (page) {
+  constructor (page: Page) {
     this.page = page
   }
 
@@ -17,7 +18,17 @@ export class ChecklySitePage {
     await this.page.goto(defaults.baseURL + uri)
   }
 
-  async screenshot (name) {
+  async screenshot (name: string) {
     await this.page.screenshot({ path: `${defaults.screenshotPath}/${name}.jpg` })
+  }
+
+  async doScreenshotCompare () {
+    await expect(this.page).toHaveScreenshot({
+      maxDiffPixelRatio: 0.2,
+      mask: [
+        this.page.locator('.optanon-alert-box-wrapper'),
+        this.page.locator('#intercom-container-body')
+      ]
+    })
   }
 }

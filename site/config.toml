@@ -67,12 +67,17 @@ disqusShortname = "checkly"
 	weight = 35
 
 [[menu.resources]]
-	name = "Groups"
-	url = "/docs/groups/"
+	name = "Multistep API checks"
+	url = "/docs/multistep-checks/"
 	weight = 40
 
 [[menu.resources]]
-	name = "Retries & Alerting"
+	name = "Groups"
+	url = "/docs/groups/"
+	weight = 45
+
+[[menu.resources]]
+	name = "Alerting & retries"
 	url = "/docs/alerting/"
 	weight = 50
 
