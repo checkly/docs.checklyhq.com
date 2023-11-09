@@ -145,6 +145,13 @@ As an example, let's say you have 4 API checks, where each check doing one of th
 
 A multistep check with 0 requests is billed as if it has 1 request.
 
+## Beta limitations
+
+During the beta phase, multistep API checks comes with some limitations:
+ - Multistep checks are not yet supported on [private locations](/docs/private-locations).
+ - Metrics from multistep API checks are not yet available via the [Checkly analytics API](/docs/analytics) or the [Prometheus integration](/docs/integrations/prometheus-v2/). 
+ - Multistep checks are not included in the weekly summary email.
+
 ## Resources
 
 - [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
