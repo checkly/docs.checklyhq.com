@@ -24,7 +24,7 @@ cd checkly-k8
 
 ## Helm chart
 
-Find the Helm chart in the `/helm-cart` directory. The Helm chart does two basic things:
+Find the Helm chart in the `/helm-chart` directory. The Helm chart does two basic things:
 - Creates a secret for the API key.
 - Spins up two pods running the Checkly Agent
 

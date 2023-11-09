@@ -62,7 +62,7 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports three Check types: API, Browser and Heartbeat Checks.
+The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep API Checks.
 
 These Check types share properties derived from the abstract class `Check`.
 
@@ -271,6 +271,28 @@ new BrowserCheck('browser-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
+## `MultiStepCheck`
+
+Similar to Browser Checks, Multistep API checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
+
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
+```ts
+new MultiStepCheck('multistep-check-1', {
+  name: 'Multistep Check #1',
+  runtimeId: '2023.09',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'home.spec.ts')
+  },
+})
+```
+
+- `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
+raw JavaScript / TypeScript as a string.
 
 ## `CheckGroup`
 
