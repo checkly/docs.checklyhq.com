@@ -13,6 +13,15 @@ snapshot testing. This is useful for testing the visual appearance of your appli
 - Use the `.toHaveScreenshot()` assertion to visually compare a screenshot of your page to a golden image / reference snapshot.
 - Use the `.toMatchSnapshot()` assertion to compare any `string` or `Buffer` value to a golden image / reference snapshot.
 
+This feature works with the following CLI and Checkly Agent versions:
+
+- [Checkly CLI v4.4.0 or later](https://www.npmjs.com/package/checkly/v/4.4.0).
+- [Checkly Agent v3.2.0 or later](https://hub.docker.com/layers/checkly/agent/3.2.0/images/sha256-714bbd7302d7c086ef1776014f919c1e9aacdfda450764295147e8f1ab99cb00?context=explore).
+
+{{< info >}}
+Visual comparison and snapshot testing is now in **beta**. During beta, this feature is free for all plans. 
+Any pricing or plans limits will be introduced after the beta.
+{{< /info >}}
 
 ## Visual comparison testing
 

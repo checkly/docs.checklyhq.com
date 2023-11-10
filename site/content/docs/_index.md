@@ -46,7 +46,7 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="Create browser checks"
+	  title="Create a browser check"
 	  img="/docs/images/icons/browser-checks.svg"
 	  description="Use TS / JS with @playwright/test and Headless browsers to navigate, screenshot and assert your key webapp flows."
 	  link="/docs/browser-checks"
@@ -54,10 +54,29 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="Create API checks"
+	  title="Create an API check"
 	  img="/docs/images/icons/api.svg"
 	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything."
 	  link="/docs/api-checks"
+>}}
+</div>
+
+<div class="cards-list">
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="Create a multistep API check"
+	  img="/docs/images/icons/multistep-check.svg"
+	  description="Write Node.js scripts that run multiple API requests in sequence, with arbitrary code between requests and get all the data."
+	  link="/docs/multistep-checks/"
+>}}
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="Create a heartbeat check"
+	  img="/docs/images/icons/heartbeats-check.svg"
+	  description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
+	  link="/docs/heartbeat-checks/"
 >}}
 </div>
 

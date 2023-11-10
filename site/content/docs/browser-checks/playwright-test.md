@@ -30,18 +30,18 @@ A check using [the Playwright Test Runner (`@playwright/test`)](https://playwrig
 
 This is the list of Playwright Test Runner features that are currently supported. We will update it as more features become supported.
 
-| Feature                  | Supported?         |
-|--------------------------|--------------------|
-| Trace files              | Yes          |
-| Video recordings         | Yes          |
-| API testing              | Yes          |
-| Custom fixtures          | Yes          |
-| Reporters                | Only JSON, more to come |
-| Typescript               | Yes |
-| Global configuration     | No      |
-| Visual comparisons       | No ([Current feature request](https://github.com/checkly/public-roadmap/issues/179)) |
-| Test retry               | No <br> Enable Checkly's ["Double-check on failure"](/docs/alerting/#double-checking) in the check settings to retry a check.           |
-| Parallelism and sharding | No           |
+| Feature                  | Supported?                                                                                                                    |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Trace files              | Yes                                                                                                                           |
+| Video recordings         | Yes                                                                                                                           |
+| API testing              | Yes                                                                                                                           |
+| Custom fixtures          | Yes                                                                                                                           |
+| Reporters                | Only JSON, more to come                                                                                                       |
+| Typescript               | Yes                                                                                                                           |
+| Global configuration     | No                                                                                                                            |
+| Visual comparisons       | Yes, [check the docs](/docs/browser-checks/visual-comparison-snapshot-testing/)                                               |
+| Test retry               | No <br> Enable Checkly's ["Double-check on failure"](/docs/alerting/#double-checking) in the check settings to retry a check. |
+| Parallelism and sharding | No                                                                                                                            |
 
 ### Browser check with multiple test cases
 One of the key benefits of using Playwright Test is that you can split your check into multiple independent test cases,
