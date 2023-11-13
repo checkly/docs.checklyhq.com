@@ -41,4 +41,4 @@ Puppeteer-based browser checks do not support IPv6 and will not in the future as
 We currently do not have a set of fixed, public IP ranges but are working on this. See and follow [our public roadmap item on static
 IPs](https://checkly.featurebase.app/submissions/6464dc4c0f356460eca41435) for updates.
 
-Note, if you are looking to whitelist Checkly traffic, [see our docs on whitelisting](/docs/monitoring/whitelisting/).
+Note, if you are looking to allowlist Checkly traffic, [see our docs on allowlisting](/docs/monitoring/allowlisting/).
