@@ -1,16 +1,16 @@
 ---
-title: Whitelisting & filtering traffic
+title: Allowlisting & filtering traffic
 weight: 6
 menu:
   platform:
     parent: "Monitoring"
 ---
 
-There are cases in which you might have to whitelist Checkly traffic in your firewall, load balancer or other to prevent it from being blocked or skewing analytics data. Below are some solutions to help you achieve that.
+There are cases in which you might have to allowlist Checkly traffic in your firewall, load balancer or other to prevent it from being blocked or skewing analytics data. Below are some solutions to help you achieve that.
 
-## IP range whitelisting
+## IP range allowlisting
 
-Whitelisting Checkly traffic by IP address or range is not possible at this moment, as Checkly uses a non-static set of IP addresses in the cloud to run its checks.
+Allowlisting Checkly traffic by IP address or range is not possible at this moment, as Checkly uses a non-static set of IP addresses in the cloud to run its checks.
 
 You can however fetch a list of the [dynamic IP addresses](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in use at AWS, our cloud provider.
 
@@ -18,7 +18,7 @@ You can however fetch a list of the [dynamic IP addresses](https://docs.aws.amaz
 Since the AWS IP ranges are quite vast, we suggest trying one of the methods below instead.
 {{</warning>}}
 
-## Header/user agent whitelisting
+## Header/user agent allowlisting
 
 If you are using Cloudflare or a similar provider, one or more of your automated checks might trigger a [bot detection mechanism](https://www.cloudflare.com/learning/bots/what-is-bot-traffic/). 
 
@@ -26,9 +26,9 @@ If you want to prevent that from happening without exposing your website to any 
 
 You can make the header and/or user agent specific to your own Checkly user account by grabbing the first eight digits of your unique user ID (or another fixed value of your choice), which you can find below your account name on the [Account Settings page](https://app.checklyhq.com/settings/account/). Embedding this value in your checks will enable them to be allowed through by your firewall rules.
 
-### Whitelisting API checks using headers
+### Allowlisting API checks using headers
 
-To whitelist API checks, allow traffic that contains a cookie in the shape of `Cookie: "checkly-account:<UUID>"`, with `<UUID>` being your shortened Checkly ID or other chosen value. 
+To allowlist API checks, allow traffic that contains a cookie in the shape of `Cookie: "checkly-account:<UUID>"`, with `<UUID>` being your shortened Checkly ID or other chosen value. 
 
 You can then [set the Cookie header](https://checklyhq.com/docs/api-checks/request-settings/#headers) while editing your check.
 
@@ -36,9 +36,9 @@ You can then [set the Cookie header](https://checklyhq.com/docs/api-checks/reque
 You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every API check in the group.
 {{</info>}}
 
-### Whitelisting browser checks with user agents
+### Allowlisting browser checks with user agents
 
-To whitelist browser checks, allow traffic with user agent containing `Checkly/<UUID>`, with `<UUID>` being your shortened Checkly ID or another chosen value. 
+To allowlist browser checks, allow traffic with user agent containing `Checkly/<UUID>`, with `<UUID>` being your shortened Checkly ID or another chosen value. 
 
 You will then be able to set up the matching user agent in your browser checks using Playwright's [`userAgent`](https://playwright.dev/docs/emulation#user-agent) property.
 
