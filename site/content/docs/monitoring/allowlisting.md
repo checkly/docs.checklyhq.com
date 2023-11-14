@@ -4,6 +4,8 @@ weight: 6
 menu:
   platform:
     parent: "Monitoring"
+aliases:
+- "/docs/monitoring/whitelisting"
 ---
 
 There are cases in which you might have to allowlist Checkly traffic in your firewall, load balancer or other to prevent it from being blocked or skewing analytics data. Below are some solutions to help you achieve that.
