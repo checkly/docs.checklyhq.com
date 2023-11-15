@@ -18,22 +18,23 @@ knowledge of working with JavaScript and/or Node.js.
 
 ## What is a Multistep API check?
 
-A Multistep API check allows you to write Node.js scripts that can run multiple API requests in sequence, with arbitrary code between requests. This allows you to monitor entire API user flows with a single check, working with response data in between requests exactly as a user of your API would to ensure that these interactions result in the correct results.
+Multistep API checks enable you to write Node.js scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimick and test API user behavior. Multistep API checks ensure that combined API interactions lead to the correct results.
 
 Examples of API sequences might be:
+
 * Users can authenticate and access restricted data
 * Users can get, set and remove data from their account
-* Users can add items to a shopping cart, checkout and go through the payment flow.
+* Users can add items to a shopping cart, check out and go through the payment flow.
 
 Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole works as intended and that the expected interactions between API calls are functional.
 
-Multistep API checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API tests, in the form of a programmable @playwright/test check
+Multistep API checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API checks in the form of a programmable `@playwright/test` check.
 
 {{< info >}}
 Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
 {{< /info >}}
 
-The following code is a valid Multistep API check using Playwright Test.
+The following code is a valid Multistep API check using Playwright Test. It creates and deletes an API resource in a single run.
 
 ```ts
 import { test, expect } from '@playwright/test' // 1
@@ -67,15 +68,15 @@ test('create and delete a check group', async ({ request }) => { // 3
 })
 ```
 
-## Breaking down a Multistep check
+## Breaking down a Multistep API check
 
 Let's look at the code above step by step.
 
-**1. Initial declarations:** To run any multistep check we first import the Playwright test framework.
+**1. Initial declarations:** To run any multistep check, import the Playwright test framework.
 
-**2. Define our headers:** In many cases you will have to authenticate when requesting data by providing authorization data in your header. By using [environment variables](/docs/browser-checks/variables/) we avoid having any confidential data in our test.
+**2. Define our headers:** In many cases you will have to authenticate when requesting data by providing authorization headers. Use [environment variables](/docs/browser-checks/variables/) to avoid having any confidential data in our test.
 
-**3. Establish environment:** We create a new test using the Playwright `request` fixture, which can be used to make API requests in the test steps.
+**3. Establish environment:** Create a new test and leverage the Playwright `request` fixture to make API requests in the test steps.
 
 **4. Declare our first `test.step`:** The test step uses the `request` to perform a `get` request, using the headers we defined earlier.
 
@@ -83,11 +84,11 @@ Let's look at the code above step by step.
 Always use `await` before `test.step`, otherwise the test will fail.
 {{< /warning >}}
 
-**5. Define our assertion:** We use the `expect(response)` method to assert if the response was successful (The response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
+**5. Define our assertion:** Use the `expect(response)` method to assert if the response was successful (The response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
 
-**6. Return the response for future usage:** We return the request response in JSON format, so we can use it in the next test step.
+**6. Return the response for future usage:** Return the request response in JSON format, so we can use it in the next test step.
 
-**7. Declare our second `test.step`:** In order to remove the test group we just created, and avoid cluttering our system with test data, we remove it by sending a `delete` request using the group ID that was returned in our earlier test step. We use the same assertion as in the previous test step.
+**7. Declare our second `test.step`:** In order to remove the test group we just created, and avoid cluttering our system with test data, remove it by sending a `delete` request using the group ID that was returned in our earlier test step. Use the same `toBeOK()` assertion as in the previous test step.
 
 If you want to build on the above example, you can add additional assertions, ensuring that the data returned is correct and contains a specific check, or add a `PUT` and `GET` test step to verify more of the `/groups` functionality.
 
@@ -102,10 +103,13 @@ If the script fails, your check fails.
 
 ### Structuring a Multistep check
 
-To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on the [test.step](https://playwright.dev/docs/api/class-test#test-step) method from Playwright. Your multistep test can have several test steps. 
-API requests and assertions in the same test step will be presented under the same node in the reporting structure. 
+To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on Playwright's [test.step](https://playwright.dev/docs/api/class-test#test-step) method. Your multistep test can have several test steps.
 
-To provide actionable and easy to read check run reports we recommend using this structure when writing Multistep checks.
+**API requests and assertions in the same test step will be presented under the same node in the reporting structure.**
+
+![Multistep test results](/docs/images/multistep-api-checks/test-results.jpg)
+
+To provide actionable and easy to read check run reports we recommend using the `test.step()` structure when writing Multistep checks.
 
 ```ts
 import { test, expect } from '@playwright/test'
@@ -115,8 +119,7 @@ const baseUrl = 'https://api.checklyhq.com/v1'
 test('My test', async ({request}) => {
     await test.step('First step', async () => {
         const health = await request.get(`${baseUrl}/health`)
-        expect(health).toBeOK()
-        await expect(response).toBeOK()
+        await expect(health).toBeOK()
     });
 
     await test.step('Second step', async () => {
@@ -130,6 +133,8 @@ test('My test', async ({request}) => {
 ### Building checks in the web editor
 
 When creating a check using the web editor, after each test run you can open up the result tree by clicking on the 'Test report' icon on the left side of the editor. Selecting an API response opens the response details. You can also view errors and any failed assertion in the report view.
+
+![API test step assertion](/docs/images/multistep-api-checks/test-step-assertion.jpg)
 
 ## Multistep result view
 
@@ -149,7 +154,7 @@ A multistep check with 0 requests is billed as if it has 1 request.
 
 During the beta phase, multistep API checks comes with some limitations:
  - Multistep checks are not yet supported on [private locations](/docs/private-locations).
- - Metrics from multistep API checks are not yet available via the [Checkly analytics API](/docs/analytics) or the [Prometheus integration](/docs/integrations/prometheus-v2/). 
+ - Metrics from multistep API checks are not yet available via the [Checkly analytics API](/docs/analytics) or the [Prometheus integration](/docs/integrations/prometheus-v2/).
  - Multistep checks are not included in the weekly summary email.
 
 ## Resources
