@@ -675,7 +675,7 @@ project or created via the Web UI, you can pass in the `slugName` string.
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
 Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
-[Learn more about retry strategies](/docs/retries-and-alerting/).
+[Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
 As an example, you can configure a check to retry up to 4 times, in different regions, with waits of 30 seconds, 60 seconds, 90 seconds, and 120 seconds between attempts:
