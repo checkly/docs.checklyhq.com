@@ -129,7 +129,7 @@ npx checkly env pull .env.prod
 Reference that file in your `test` command.
 
 ```bash
-`npx checkly test --env-file="./.env.prod"`
+npx checkly test --env-file="./.env.prod"
 ```
 
 
