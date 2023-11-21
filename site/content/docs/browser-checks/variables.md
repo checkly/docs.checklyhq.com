@@ -90,14 +90,9 @@ You can make use of this by providing a default value for a specific variable at
 be overridden at the check level.
 
 
-## General built-in runtime variables
+## Built-in runtime variables
 
-[The Browser Check runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. process.env.CHECK_NAME)
+[The Browser Check runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
 to figure out what check, check type etc. you are running.
 
-| property                  | description                                                | type   |
-|---------------------------|------------------------------------------------------------|--------|
-| `CHECK_NAME`              | The name of the check being executed.                      | String |
-| `CHECK_ID`                | The UUID of the check being executed.                      | String |
-| `CHECK_TYPE`              | The type of the check being executed, (`BROWSER`)          | String |
-| `CHECK_RESULT_ID`         | The UUID of the result where the run result will be saved. | String |
+{{< markdownpartial "/_shared/runtime-env-vars.md" >}}

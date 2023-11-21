@@ -142,6 +142,14 @@ When viewing a multistep check run result, you can select any API request in the
 
 Selecting the top node in the check report shows the full job log and the check configuration for the run.
 
+## Built-in runtime variables
+
+[The Multistep Check runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
+to figure out what check, check type etc. you are running.
+
+{{< markdownpartial "/_shared/runtime-env-vars.md" >}}
+
+
 ## Pricing
 
 During beta, a multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
