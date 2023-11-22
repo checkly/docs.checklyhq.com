@@ -16,7 +16,7 @@ app.
 ## Testing uploads with the browser's File API
 
 To test any upload features with Playwright's `.setInputFiles()` method, you need to provide a file object. Currently,
-Checkly does have a dedicated storage layer where you could upload that file, so you need to host it yourself at a (publicly)
+Checkly does not have a dedicated storage layer where you could upload that file, so you need to host it yourself at a (publicly)
 accessible location like an AWS S3 bucket, Dropbox or any other file hosting service.
 
 In the example below, we do not need to interact with the file system. We can just:
