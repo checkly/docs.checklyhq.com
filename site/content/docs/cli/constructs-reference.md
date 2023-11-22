@@ -79,7 +79,7 @@ These Check types share properties derived from the abstract class `Check`.
 | `tags`             | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                  | `API`, `Browser`, `Heartbeat` |
 | `runtimeId`        | The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.                               | `API`, `Browser`              |
 | `testOnly`         | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.              | `API`, `Browser`              |
-| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.             | `API`, `Browser`              |
+| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.             | `API`, `Browser`              |
 | `doubleCheck`      | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`. | `API`, `Browser`              |
 
 > Note that most properties have sane default values and do not need to be specified.
@@ -358,7 +358,7 @@ new ApiCheck('check-group-api-check-1', {
 - `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true' }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
-- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.
+- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
