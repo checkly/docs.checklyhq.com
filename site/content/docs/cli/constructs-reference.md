@@ -280,6 +280,9 @@ Multistep API checks are only supported on runtime 2023.09 or later. See [Runtim
 {{< /info >}}
 
 ```ts
+import { MultiStepCheck, Frequency } from 'checkly/constructs'
+import * as path from 'path'
+
 new MultiStepCheck('multistep-check-1', {
   name: 'Multistep Check #1',
   runtimeId: '2023.09',
