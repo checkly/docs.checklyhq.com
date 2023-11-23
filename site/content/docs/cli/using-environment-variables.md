@@ -11,6 +11,10 @@ There are two types of environment variables (env vars) in the Checkly CLI conte
 - Local environment variables.
 - Remote environment variables.
 
+To get a quick overview of when to use which, checkout this video 👇
+
+{{< youtube nEIOBRSbjAk >}}
+
 ## Local Environment Variables
 
 Local environment variables exist on your local machine, your CI environment, or anywhere you run the Checkly CLI. They

@@ -14,7 +14,7 @@ app.
 
 ## Testing uploads using HTTP POST requests
 
-To test any binary uploads, you need to provide a file object. Currently, Checkly does have a dedicated storage layer 
+To test any binary uploads, you need to provide a file object. Currently, Checkly does not have a dedicated storage layer 
 where you could upload that file, so you need to host it yourself at a (publicly) accessible location like an AWS S3 bucket, 
 Dropbox or any other file hosting service.
 
