@@ -10,7 +10,7 @@ cli: true
 At least two running Checkly Agents per Private Location are recommended for redundancy. Agents are stateless and can be scaled horizontally as needed. You can add additional agents to a location at any time and remove them
 as necessary.
 
-If one Checkly Agent fails, the other agents in the same Private Location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period of 140 seconds.
+If one Checkly Agent fails, the other agents in the same Private Location will continue to run the checks assigned to that location. Even checks that are currently in progress on an agent that fails will be rerun by another agent after a timeout period of 300 seconds.
 
 There are two cases where checks assigned to a location could fail to run:
 
