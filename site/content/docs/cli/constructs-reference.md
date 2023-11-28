@@ -363,14 +363,21 @@ property of a Project, CheckGroup or Check.
 ### Using `fromId()` to reference an existing channel
 
 You can reference an existing alert channel in your Checkly account using the `fromId()` method on any `AlertChannel`
-class. This enables you to share an alert channel resource between different projects living in different code repositories.
+class. When your CLI project is responsible for creating and managing alert channels, it integrates seamlessly with Checkly's deployment control mechanisms. This ensures that any changes made are thoroughly validated. 
+
+For users with multiple Checkly CLI projects: 
+- Alert channels can be set up through the Checkly UI or any other method, ensuring they remain intact and unaffected by individual CLI project operations.
+
+For users managing a single Checkly CLI project: 
+- The entire process of creating and subscribing to alert channels can be handled within that single project. This is made possible because the project references the logical ID of the alert channel, rather than an ID generated post-deployment.
+
+> If you attempt to deploy a project that references alert channels which have been removed or are no longer valid, the deployment process will not proceed. This feature helps maintain the integrity and reliability of your monitoring and alerting setup.
+
 
 ```ts
 export const emailChannel = EmailAlertChannel.fromId(20)
 ```
-
-You can fetch the ID for your alert channel from web UI or using our REST API.
-
+You can obtain the ID for your alert channel either from the Checkly web UI or by utilizing our [REST API](https://developers.checklyhq.com/reference/getv1alertchannels). 
 ![email channel id](/docs/images/cli/constructs_email_id@2x.jpg)
 
 
