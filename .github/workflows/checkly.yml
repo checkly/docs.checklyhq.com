@@ -26,7 +26,7 @@ jobs:
           node-version-file: '.nvmrc'
       - name: Install dependencies
         # GH actions runs NPM 6. Somehow NPM CI fails with Cannot read property 'babel-core' of undefined
-        run: npm install --no-save
+        run: npm ci
       - name: Validate checkly config
         run: npm run checkly:deploy -- --preview
       - name: Run checks
