@@ -62,7 +62,7 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports three Check types: API, Browser and Heartbeat Checks.
+The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep API Checks.
 
 These Check types share properties derived from the abstract class `Check`.
 
@@ -79,7 +79,7 @@ These Check types share properties derived from the abstract class `Check`.
 | `tags`             | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                  | `API`, `Browser`, `Heartbeat` |
 | `runtimeId`        | The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.                               | `API`, `Browser`              |
 | `testOnly`         | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.              | `API`, `Browser`              |
-| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.             | `API`, `Browser`              |
+| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.             | `API`, `Browser`              |
 | `doubleCheck`      | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`. | `API`, `Browser`              |
 
 > Note that most properties have sane default values and do not need to be specified.
@@ -271,6 +271,31 @@ new BrowserCheck('browser-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
+## `MultiStepCheck`
+
+Similar to Browser Checks, Multistep API checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
+
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
+```ts
+import { MultiStepCheck, Frequency } from 'checkly/constructs'
+import * as path from 'path'
+
+new MultiStepCheck('multistep-check-1', {
+  name: 'Multistep Check #1',
+  runtimeId: '2023.09',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'home.spec.ts')
+  },
+})
+```
+
+- `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
+raw JavaScript / TypeScript as a string.
 
 ## `CheckGroup`
 
@@ -333,7 +358,7 @@ new ApiCheck('check-group-api-check-1', {
 - `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true' }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
-- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.
+- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 
@@ -660,7 +685,7 @@ project or created via the Web UI, you can pass in the `slugName` string.
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
 Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
-[Learn more about retry strategies](/docs/retries-and-alerting/).
+[Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
 As an example, you can configure a check to retry up to 4 times, in different regions, with waits of 30 seconds, 60 seconds, 90 seconds, and 120 seconds between attempts:

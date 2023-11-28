@@ -3,7 +3,7 @@ title: Webhooks
 weight: 35
 menu:
   resources:
-    parent: "Retries & Alerting"
+    parent: "Alerting & retries"
 cli: true
 ---
 

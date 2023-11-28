@@ -134,7 +134,7 @@ Inside each script, you have access to certain data structures of the API check 
 1. Environment variables for reading tokens and other secrets you have stored.
 2. The `request` object.
 3. The `response` object, only in teardown scripts as there is no response till after the API check runs.
-4. General runtime variables injected automatically, like `process.env.CHECK_NAME`
+4. Built-in runtime variables injected automatically, like `process.env.CHECK_NAME`
 
 ### Environment
 
@@ -180,29 +180,31 @@ Request properties are exposed as a standard JavaScript object. This object is a
 
 Response properties are exposed a standard Javascript object. These are only available in teardown scripts.
 
-| property | description | type |
-| ------------- | ------------- | ---- |
-| `response.statusCode`  | The response status code, i.e. 200 or 404.  | Number |
-| `response.statusText`  | The response status text, i.e. 'Ok' or 'Not found'.  | String |
-| `response.body`  | The response body in string format. You will need to use `JSON.parse(response.body)` to access JSON responses.| String |
-| `response.headers`  | The response headers in the form of a standard Javascript object. | Object |
-| `response.timings`  | Various timestamps for the request stage relative to the starting time.  | Object |
-| `response.timingPhases`  | Time durations for each request phase. | Object |
+| property                | description                                                                                                    | type   |
+|-------------------------|----------------------------------------------------------------------------------------------------------------|--------|
+| `response.statusCode`   | The response status code, i.e. 200 or 404.                                                                     | Number |
+| `response.statusText`   | The response status text, i.e. 'Ok' or 'Not found'.                                                            | String |
+| `response.body`         | The response body in string format. You will need to use `JSON.parse(response.body)` to access JSON responses. | String |
+| `response.headers`      | The response headers in the form of a standard Javascript object.                                              | Object |
+| `response.timings`      | Various timestamps for the request stage relative to the starting time.                                        | Object |
+| `response.timingPhases` | Time durations for each request phase.                                                                         | Object |
 
-### General runtime variables
+### Built-in runtime variables
 
-[The setup and teardown runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
-to figure out what check, check type etc. you are running.
+[The setup and teardown runtime](/docs/runtimes/) also exposes a set of specific environment variables to the setup and teardown scripts,
+next to the "generic" runtime variables like `process.env.CHECK_NAME` you find in all check runtimes
 
-| property          | description                                                | type   |
-|-------------------|------------------------------------------------------------|--------|
-| `GROUP_BASE_URL`  | The `{{GROUP_BASE_URL}}` value of the grouped `API` check. | String |
-| `CHECK_NAME`      | The name of the check being executed.                      | String |
-| `CHECK_ID`        | The UUID of the check being executed.                      | String |
-| `CHECK_TYPE`      | The type of the check being executed, (`API`)              | String |
-| `CHECK_RESULT_ID` | The UUID of the result where the run result will be saved. | String |
-| `REGION`          | The region where a check is executed, e.g `eu-west-1`      | String |
-| `REQUEST_URL`     | The request URL of the `API` check executed.               | String |
+#### Setup & teardown specific variables
+
+| variable         | description                                                |
+|------------------|------------------------------------------------------------|
+| `GROUP_BASE_URL` | The `{{GROUP_BASE_URL}}` value of the grouped `API` check. |
+| `REQUEST_URL`    | The request URL of the `API` check executed.               |
+
+#### Generic runtime variables
+
+{{< markdownpartial "/_shared/runtime-env-vars.md" >}}
+
 
 ## Included libraries
 

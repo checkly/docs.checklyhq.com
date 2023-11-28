@@ -3,7 +3,7 @@ title: 'Alert settings'
 weight: 30
 menu:
   resources:
-   parent: "Retries & Alerting"
+   parent: "Alerting & retries"
 lastmod: 01-06-2020
 aliases:
 - /alerting/settings/
@@ -11,11 +11,7 @@ aliases:
 cli: true
 ---
 
-Alerting in Checkly is pretty flexible and should address most common needs. You can tweak exactly when and how you should
-be alerted, on what channels like email, [SMS]({{< ref "sms-delivery.md" >}}), [Slack]({{< ref "../integrations/slack.md" >}}) etc.
-If you need more, you can integrate with [Pagerduty]({{< ref "../integrations/pagerduty.md" >}}),
-[Opsgenie]({{< ref "../integrations/opsgenie.md" >}}) and many more! See [our integrations page]({{< ref "../integrations/" >}})
-for all options.
+Alert settings allow you to control when and how often you will be notified when a check starts failing, degrades or recovers.
 
 ## Alert settings
 

@@ -1,9 +1,9 @@
 ---
 title: Phone Calls
-weight: 34
+weight: 35
 menu:
   resources:
-    parent: "Retries & Alerting"
+    parent: "Alerting & retries"
 ---
 
 The phone numbers used for phone call alerting need to be in [E.164 format](https://www.twilio.com/docs/glossary/what-e164). Stick to the following rules, and you'll be fine:

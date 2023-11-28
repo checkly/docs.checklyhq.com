@@ -59,7 +59,7 @@ The following metrics are available to monitor checks:
 | `checkly_browser_check_duration_seconds` | Histogram | The total check duration. This includes all pages visited and any waits. |
 | `checkly_browser_check_errors` | Histogram | The errors encountered during a full browser session. |
 | `checkly_api_check_timing_seconds` | Histogram | The response time for the API request, as well as the duration of the different phases. |
-| `checkly_time_to_ssl_expiry_seconds` | Gauge | The amount of time remaining before the SSL certificate of the monitored domain expires. See the [SSL certificate expiration docs](/docs/retries-and-alerting/ssl-expiration/) for more information on monitoring SSL certificates with checks. |
+| `checkly_time_to_ssl_expiry_seconds` | Gauge | The amount of time remaining before the SSL certificate of the monitored domain expires. See the [SSL certificate expiration docs](/docs/alerting-and-retries/ssl-expiration/) for more information on monitoring SSL certificates with checks. |
 
 The `checkly_check_status` and `checkly_check_result_total` metrics contain a `status` label with values `passing`, `failing`, and `degraded`.
 The `checkly_check_status` gauge is `1` when the check has the status indicated by the `status` label and is `0` otherwise.

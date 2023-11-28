@@ -1,13 +1,10 @@
 ---
 title: 'Retries'
-weight: 29
-slug: /
+weight: 32
 menu:
   resources:
-   parent: "Retries & Alerting"
+   parent: "Alerting & retries"
 cli: true
-aliases:
-  - /docs/alerting/
 ---
 
 Sometimes the internet is flaky, or your app is just having a hiccup not worth pinging your on-call team about. Retries 
