@@ -57,10 +57,9 @@
             app_id: 'ep3ft8gg',
             custom_launcher_selector: '.open-intercom-link'
           })
-
-        	window.removeEventListener('DOMContentLoaded', intercomLoader)
+          window.removeEventListener('scroll', intercomLoader)
       }
-  	window.addEventListener('DOMContentLoaded', intercomLoader)
+      window.addEventListener('scroll', intercomLoader)
   </script>
 
   <!-- Google Tag Manager -->
