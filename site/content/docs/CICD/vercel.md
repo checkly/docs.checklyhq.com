@@ -1,6 +1,5 @@
 ---
 title: Vercel
-meta-title: vercel test
 description: >-
   Integrate Checkly with Vercel for app development and deployment to benefit from automated browser checks and production deployment testing.
 metatags:
