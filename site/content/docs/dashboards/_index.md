@@ -40,4 +40,4 @@ You add checks to your dashboards by adding tags to checks and then referencing 
 
 2. Then, edit the dashboard to include the tag:
 
-![Filter by tags](/docs/images/dashboards/filter_by_tag.png)
+![Filter by tags](/docs/images/dashboards-v2/filter_by_tag.png)
