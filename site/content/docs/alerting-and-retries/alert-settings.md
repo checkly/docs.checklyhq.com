@@ -58,7 +58,7 @@ Here's an example. You want to be alerted after two failures, so you set the esc
 
 ![escalation when a check has failed 2 time(s)](/docs/images/alerting/escalation-1.png)
 
-Your check runs in Frankfurt and Tokio. It fails from both regions because your server is down. We consider this
+Your check runs in Frankfurt and Tokyo. It fails from both regions because your server is down. We consider this
 one run. Five minutes later, the check fails again - assuming the check runs on a 5 minute schedule. Now we alert you.
 
 **2. Time based**
