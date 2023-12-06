@@ -18,6 +18,10 @@ However, you can also use them [via our web UI](#using-setup-and-teardown-script
 Setup and teardown scrips have a **maximum execution time of 10 seconds**.
 {{</info >}}
 
+Check the video below for a quick overview of using setup and teardown scripts through the web UI and  with the CLI.
+
+{{< youtube 38ZXJy-nlvI >}} 
+
 ## Setup scripts
 
 Setup scripts allow you to process test data and configure API check requests. A setup script executes before any requests 
