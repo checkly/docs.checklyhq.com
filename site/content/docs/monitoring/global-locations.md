@@ -31,6 +31,10 @@ Learn more about <a href="/docs/private-locations/private-locations-getting-star
 Checkly provides two scheduling strategies for running API, Browser or Multistep checks: Round-robin or Parallel scheduling. 
 To select a scheduling strategy go to ‘Scheduling and locations’ when creating or editing a check.
 
+{{< info >}}
+During **parallel scheduling beta**, when switching between scheduling strategies your home dashboard and check overview will only show results from the currently selected strategy.
+{{< /info >}}
+
 ### Round-robin
 
 Using round-robin, your check will run on one of the selected locations each time it is scheduled. The next check run will be scheduled on a different location from the list until all locations have been run once, and the check rotates back to the first location in the list.
