@@ -24,7 +24,7 @@ Based on the user's selection, the metrics in the summary will also be updated t
 
 ### Time ribbon
 
-Single check runs can be accessed by selecting them on the time ribbon or by hovering dots and clicking View Details. View Details will open the selected check run in a new browser tab; a simple click on a time ribbon dot will show a preview of the selected check run below it.
+Check run results can be accessed by selecting them on the time ribbon or by hovering dots and clicking View Details. View Details will open the selected check run in a new browser tab; a simple click on a time ribbon dot will show a preview of the selected check run below it.
 
 <img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-time-ribbon.png"/>
 
@@ -35,6 +35,8 @@ When retries are enabled, an additional icon highlights that the check result co
 The check retries ratio indicates how many of the total checks run were retried due to an initial failed attempt.
 
 <video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-overview-time-ribbon-with-retries.mp4"></video>
+
+If you are using the [parallel scheduling strategy](/docs/monitoring/global-locations), instead of individual locations you will see an aggregated result for all check locations in the time ribbon tooltip. Below the ribbon all locations & their respective status will be displayed as a group. You can select *All locations* to see an overview of all check runs, or select an individual location to go directly to that check result.
 
 {{< info >}}
 For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.

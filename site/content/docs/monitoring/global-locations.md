@@ -1,5 +1,5 @@
 ---
-title: Global locations
+title: Global locations & scheduling strategies
 weight: 3
 menu:
   platform:
@@ -25,3 +25,26 @@ Current locations in Checkly are
 {{< info >}}
 Learn more about <a href="/docs/private-locations/private-locations-getting-started/">private locations</a> to monitor your private and segregated applications and APIs.
 {{< /info >}}
+
+## Scheduling strategies
+
+Checkly provides two scheduling strategies for running API, Browser or Multistep checks: Round-robin or Parallel scheduling. 
+To select a scheduling strategy go to ‘Scheduling and locations’ when creating or editing a check.
+
+{{< info >}}
+During **parallel scheduling beta**, when switching between scheduling strategies your home dashboard and check overview will only show results from the currently selected strategy.
+{{< /info >}}
+
+### Round-robin
+
+Using round-robin, your check will run on one of the selected locations each time it is scheduled. The next check run will be scheduled on a different location from the list until all locations have been run once, and the check rotates back to the first location in the list.
+
+When using the round-robin strategy you can choose to have retries to run from a random location of the ones selected, or run it from the same location as the first attempt
+
+Use round-robin when the service you are monitoring can be considered available as long as at least one location is available and detecting a regional outage is not critical.
+
+### Parallel
+
+With parallel scheduling, each time the check is scheduled it will run once from each selected location. When running a check in parallel, retries will always be run from the same location as the first attempt.
+
+Use parallel scheduling to reduce detection times for regional outages and reduce time to detect service degradations that impact the customer experience.
