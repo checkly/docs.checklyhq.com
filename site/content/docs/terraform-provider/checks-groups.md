@@ -26,7 +26,7 @@ resource "checkly_check" "e2e-login" {
   double_check              = true            // Whether the check should be run once more on failure
   ssl_check                 = true            // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true            // Whether to use account level alert setting instead of the alert setting defined on this check
-  runParallel               = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
+  run_parallel              = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
 
   locations = [                               // Which locations the check should run from (if not in a group)
     "us-west-1",
@@ -90,7 +90,7 @@ resource "checkly_check" "get-books" {
   double_check              = true      // Whether the check should be run once more on failure
   ssl_check                 = true      // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true      // Whether to use account level alert setting instead of the alert setting defined on this check
-  runParallel               = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
+  run_parallel              = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
 
   locations = [                         // Which locations the check should run from (if not in a group)
     "us-west-1",
@@ -184,7 +184,7 @@ resource "checkly_check_group" "key-shop-flows" {
   double_check              = true  // Whether to re-run a failed check from a different location
   use_global_alert_settings = false // Whether to use global alert settings or group-specific ones
 
-  runParallel               = true  // Whether the check would run in a single location at time (round-robin) or all locations on each run
+  run_parallel              = true  // Whether the check would run in a single location at time (round-robin) or all locations on each run
 }
 ```
 
