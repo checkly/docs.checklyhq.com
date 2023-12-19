@@ -16,9 +16,12 @@ All of Checkly's monitoring traffic comes from a fixed source of IP addresses. A
 
 To get the current list of IP addresses, you can use the following three endpoints ([API spec](https://api.checklyhq.com/#/Static%20IPs)):
 
-- `https://api.checklyhq.com/v1/static-ips` - a JSON array of all IPs currently used
-- `https://api.checklyhq.com/v1/static-ips-by-region` - a JSON object with regions as keys and arrays of all IPs of that region as the value
-- `https://api.checklyhq.com/v1/static-ips.txt` - a simple txt file. One IP per line.
+- `https://api.checklyhq.com/v1/static-ips` - a JSON array of all IPv4s currently used
+- `https://api.checklyhq.com/v1/static-ips-by-region` - a JSON object with regions as keys and arrays of all IPv4s of that region as the value
+- `https://api.checklyhq.com/v1/static-ips.txt` - a simple txt file. One IPv4 per line.
+- `https://api.checklyhq.com/v1/static-ipv6s` - a JSON array of all IPv6s currently used
+- `https://api.checklyhq.com/v1/static-ipv6s-by-region` - a JSON object with regions as keys and an IPv6 as value.
+- `https://api.checklyhq.com/v1/static-ipv6s.txt` - a simple txt file. One IPv6 per line.
 
 We update this list very infrequently (6 months or less) so querying it with at reasonable frequency is recommended.
 
