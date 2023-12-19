@@ -35,6 +35,10 @@ works by prompting the user to log in to Vercel with their normal Vercel user be
 
 You can tweak this setting in the Vercel dashboard under *Settings > General > Deployment Protection*.
 
+![vercel deployment protection](/docs/images/cicd/vercel/vercel_deployment_protection.png)
+
+
+
 #### How to make this work with Checkly?
 1. You can completely disable Standard Protection in the Vercel dashboard. This will make your deployments publicly accessible.
 2. You can add some extra code to a browser check to actually log in to Vercel. Here is an example of how that would work 
