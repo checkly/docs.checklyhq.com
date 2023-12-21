@@ -1,5 +1,9 @@
 ---
 title: Opsgenie
+description: >-
+  Learn how to integrate Checkly with Opsgenie and deliver failure, degradation, and recovery events to any Opsgenie team. Check our guide!
+metatags:
+    title: Opsgenie Integration with Checkly | How to Get Started
 weight: 57
 menu:
   integrations:

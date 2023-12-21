@@ -3,7 +3,7 @@ title: Alert notification log
 weight: 36
 menu:
   resources:
-    parent: "Retries & Alerting"
+    parent: "Alerting & retries"
 ---
  
 Checkly tries to deliver all your failure, degradation and recovery notifications as reliably as possible, but sometimes

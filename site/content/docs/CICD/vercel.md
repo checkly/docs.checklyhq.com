@@ -1,5 +1,9 @@
 ---
 title: Vercel
+description: >-
+  Integrate Checkly with Vercel for app development and deployment to benefit from automated browser checks and production deployment testing.
+metatags:
+  title: How to Integrate Vercel with Checkly? Step-by-Step Guide
 weight: 7
 menu:
   integrations:
@@ -14,6 +18,11 @@ The Vercel integration will help you by:
 
 1. Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
 2. Enabling you to run checks against preview and production deployments on Vercel.
+
+{{<info>}}
+Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-authentication/) on how to make this work with Checkly.
+{{</info>}}
+
 
 ## Installation
 
@@ -221,7 +230,3 @@ The Deployments tab lists all deployments on linked projects, including Vercel-b
 Selecting a deployment enables you to quickly determine whether it caused any check failures, and to drill into the relevant information in case it did.
 
 ![deployment detail](/docs/images/cicd/vercel/vercel_deployment.png)
-
-## Password-protected deployments
-
-If you're interested in using Checkly to bypass Vercel's [password-protected deployments](https://vercel.com/docs/concepts/deployments/deployment-protection#password-protection). You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios#username--password-login) or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).

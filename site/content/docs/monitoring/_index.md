@@ -21,10 +21,8 @@ There are two reasons for this:
 1. Redundancy: we might have an issue in one location, but not the other. 
 2. Retrying: if your check fails, we will execute its retry strategy where you have the option check from a different location. This location is picked from your configured locations.
 
-{{< info >}}
-Note that **we run checks sequentially**, not in parallel. For example, a 1 minute API check, with data center locations
-Paris and Frankfurt selected, will first run in Paris and 1 minute later in Frankfurt.
-{{< /info >}}
+You can choose to run your check in parallel or round-robin. [Read more about scheduling strategies here](/docs/monitoring/global-locations/).
+
 A picture is a thousand words:
 
 ![monitoring and alerting pipeline](/docs/images/monitoring/monitoring-alerting-pipeline.svg)

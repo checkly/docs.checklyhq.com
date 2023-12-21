@@ -17,6 +17,10 @@ This guide gives you all the info needed to get started with Checkly heartbeat c
 Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
 {{< /info >}}
 
+Check out this video for a quick explainer:
+
+{{< youtube 7I_NfCjYCmo >}}
+
 ## What is a heartbeat check?
 
 A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
@@ -38,7 +42,7 @@ Note the use of the retry option. We recommend always using retries when availab
 
 To create a new heartbeat check, click the `+` icon on the sidebar & select **heartbeat check**.
 
-Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting).
+Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting-and-retries/alert-settings/).
 
 Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using JavaScript, Python or in Bash in the quickstart section.
 
@@ -64,7 +68,12 @@ Use grace to compensate for variance in your jobs.
 ### Timer
 The check timer starts when it receives its first ping and will reset after each ping.
 If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
-> When a check is deactivated, and activated again the timer will start when the check is pinged, just as when first creating a check. This is also the case when changing the period of a check.
+
+![Explanation of timer resets. Every ping or alert resets the timer.](/docs/images/heartbeat-checks/heartbeats-grace.jpg)
+
+**Every ping or triggered alert will reset the timer of the next expected heartbeat ping.**
+
+> When a check is deactivated and activated again, the timer will start when the check is saved. This is also the case when changing the period of a check.
 
 ### Ping now
 Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.
@@ -77,9 +86,9 @@ Ping now is also available in the quick menu in the heartbeat overview page.
 > Please note that this list might change in the future.
 
 ### Alerting
-By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting/webhooks) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
+By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
 
-> Note that some alerting channels, like [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features)
+> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features)
 
 
 ## Reporting

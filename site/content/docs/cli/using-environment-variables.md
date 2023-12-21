@@ -1,6 +1,6 @@
 ---
 title: Using environment variables
-weight: 6
+weight: 5
 menu:
   platform:
     parent: "CLI"
@@ -10,6 +10,10 @@ There are two types of environment variables (env vars) in the Checkly CLI conte
 
 - Local environment variables.
 - Remote environment variables.
+
+To get a quick overview of when to use which, checkout this video 👇
+
+{{< youtube nEIOBRSbjAk >}}
 
 ## Local Environment Variables
 
@@ -100,17 +104,40 @@ You can reference that file in the `test` as follows:
 npx checkly test --env-file="./.env"
 ```
 
+You can also pull in the variables from your account and store them in a file using the `npx checkly env pull` command.
+See the examples below.
+
 ## Managing Remote Environment Variables using the CLI
 
-Manage your remote environment variables with the CLI using the `checkly env` command. You can list, add, update, remove and export your global variables.
+Manage your remote environment variables with the CLI using the `checkly env` command. You can list, add, update, remove 
+and export your global variables. Here are some examples:
 
-Exporting is very powerful, as you can:
+List all your stored variables and lock it.
 
-1. Pull in the variables from your account with `npx checkly env pull` to a `.env` file.
-2. Reference that file in your `test` command with `npx checkly test --env-file="./.env"`
+```bash
+npx checkly env ls
+```
 
-This way, you are always using the correct variables while hacking on a Checkly CLI project. [See the reference documentation
-for the `checkly env` command](/docs/cli/command-line-reference/#npx-checkly-env)
+Create a new variable.
+
+```bash
+npx checkly env add  MY_PASSWORD 123test --locked
+```
+
+Pull in the variables from your account and store them in a file.
+
+```bash
+npx checkly env pull .env.prod
+```
+
+Reference that file in your `test` command.
+
+```bash
+npx checkly test --env-file="./.env.prod"
+```
+
+
+[See the reference documentation for the `checkly env` command](/docs/cli/command-line-reference/#npx-checkly-env)
 
 ## Securing Environment Variables
 

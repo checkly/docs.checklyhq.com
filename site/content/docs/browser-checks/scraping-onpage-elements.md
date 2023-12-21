@@ -19,7 +19,14 @@ This is a two-step process:
 Playwright Test offers many ways to scrape elements like buttons, forms or any arbitrary HTML element. We've listed the most
 common ones below, together with some tips on how to use them effectively.
 
-When it comes to assertions, Playwright Test uses Jest's [expect](https://jestjs.io/docs/expect) library. Playwright also extends the `expect` library with it's own, recommended web-first assertions. These will re-fetch an element and check it until the condition is met or the test times out. The full list of web-first assertions can be found [here.](https://playwright.dev/docs/test-assertions#list-of-assertions)
+Check out this video for a quick explainer:
+
+{{< youtube 9RJMNU4eNEc >}}
+  
+
+When it comes to assertions, Playwright Test uses Jest's [expect](https://jestjs.io/docs/expect) library. Playwright also extends the `expect` 
+library with its own, recommended web-first assertions. These will re-fetch an element and check it until the 
+condition is met or the test times out. The full list of web-first assertions can be found [here.](https://playwright.dev/docs/test-assertions#list-of-assertions)
 
 ## Scraping text values
 

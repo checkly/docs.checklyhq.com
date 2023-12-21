@@ -10,7 +10,8 @@ Checks make up the most important unit of your Checkly monitoring setup. Groups 
 
 ## Checks
 
-[Browser checks](/docs/browser-checks), [API checks](/docs/api-checks) and [Heartbeat checks](/docs/heartbeat-checks) share many arguments, configuration-wise, but also have their own unique ones. The type of your check is controlled using the `type` argument.
+[Browser checks](/docs/browser-checks), [API checks](/docs/api-checks), [Heartbeat checks](/docs/heartbeat-checks) and [Multistep API checks](/docs/multistep-checks) share many arguments, configuration-wise, 
+but also have their own unique ones. The type of your check is controlled using the `type` argument.
 
 ### Browser checks
 
@@ -25,6 +26,7 @@ resource "checkly_check" "e2e-login" {
   double_check              = true            // Whether the check should be run once more on failure
   ssl_check                 = true            // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true            // Whether to use account level alert setting instead of the alert setting defined on this check
+  run_parallel              = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
 
   locations = [                               // Which locations the check should run from (if not in a group)
     "us-west-1",
@@ -88,6 +90,7 @@ resource "checkly_check" "get-books" {
   double_check              = true      // Whether the check should be run once more on failure
   ssl_check                 = true      // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true      // Whether to use account level alert setting instead of the alert setting defined on this check
+  run_parallel              = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
 
   locations = [                         // Which locations the check should run from (if not in a group)
     "us-west-1",
@@ -133,6 +136,35 @@ resource "checkly_check" "send-weekly-digest-v-2" {
 
 Upon applying your terraform configuration changes, you will be returned a read-only key value for the heartbeat ping token. The token is stored in your `tfstate` file.
 
+
+### Multistep API checks
+
+As with Browser checks, when constructing a Multistep API check it is possible to provide the script directly in-line, 
+but the recommended approach is to store scripts in separate files.
+
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
+For example, a Multistep check can look as follows:
+```terraform
+ resource "checkly_check" "e2e-shopping" {
+  name                      = "Shopping Flow"
+  type                      = "MULTI_STEP"
+  activated                 = true
+  should_fail               = false
+  frequency                 = 1
+  use_global_alert_settings = true
+  locations = [
+    "us-west-1",
+    "eu-central-1"
+  ]
+
+  script = file("${path.module}/scripts/shopping.js")
+}
+```
+
+
 ## Groups
 
 Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups) to keep things tidy:
@@ -151,6 +183,8 @@ resource "checkly_check_group" "key-shop-flows" {
   concurrency               = 3     // How many checks to run at once when triggering the group using CI/CD triggers
   double_check              = true  // Whether to re-run a failed check from a different location
   use_global_alert_settings = false // Whether to use global alert settings or group-specific ones
+
+  run_parallel              = true  // Whether the check would run in a single location at time (round-robin) or all locations on each run
 }
 ```
 

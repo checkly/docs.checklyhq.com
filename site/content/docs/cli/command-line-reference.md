@@ -58,6 +58,7 @@ between environments.
   match any of the `--tags` filters, i.e. `--tags production,webapp --tags staging,backend` will run checks with tags
   (production AND webapp) OR (staging AND backend).
 - `--timeout`: A fallback timeout (in seconds) to wait for checks to complete.
+- `--update-snapshots` or `-u`: Update the golden images / reference snapshots of your visual comparison and snapshot tests.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
 

@@ -8,6 +8,12 @@ menu:
 cli: true
 ---
 
+Here are some examples on how to address common authentication use cases with setup scripts. 
+
+{{<info>}}
+Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-authentication/) on how to make this work with Checkly.
+{{</info>}}
+
 ## Fetch an external token
 
 {{< tabs "fetch token" >}}
@@ -423,22 +429,3 @@ if (result.length > 1) {
 ```
 {{< /tab >}}
 {{< /tabs >}}
-
-## Dismiss password-protection prompt on Vercel deployment
-
-[Password-protected Vercel Deployments](https://vercel.com/blog/protecting-deployments) can be bypassed using a dedicated
-token in the `x-vercel-protection-bypass` header. [Full Vercel docs are here](https://vercel.com/docs/concepts/deployments/deployment-protection#protection-bypass-for-automation)
-
-{{< tabs "vercel password token" >}}
-{{< tab "TypeScript" >}}
-```ts
-request.headers['x-vercel-protection-bypass'] = process.env.VERCEL_BYPASS_TOKEN
-```
-{{< /tab >}}
-{{< tab "JavaScript" >}}
-```js
-request.headers['x-vercel-protection-bypass'] = process.env.VERCEL_BYPASS_TOKEN
-```
-{{< /tab >}}
-{{< /tabs >}}
-

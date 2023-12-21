@@ -62,25 +62,26 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports three Check types: API, Browser and Heartbeat Checks.
+The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep API Checks.
 
 These Check types share properties derived from the abstract class `Check`.
 
-| Property           | Description                                                                                                                    | Supported in                  |
-|--------------------|--------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| `name`             | A friendly name for your Check.                                                                                                | `API`, `Browser`, `Heartbeat` |
-| `frequency`        | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                              | `API`, `Browser`              |
-| `locations`        | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                        | `API`, `Browser`              |
-| `privateLocations` | an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.        | `API`, `Browser`              |
-| `activated`        | A boolean value if your Check is activated or not.                                                                             | `API`, `Browser`, `Heartbeat` |
-| `muted`            | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                           | `API`, `Browser`, `Heartbeat` |
-| `group`            | The `CheckGroup` object that this check is part of.                                                                            | `API`, `Browser`              |
-| `alertChannels`    | An array of `AlertChannel` objects to which to send alert notifications.                                                       | `API`, `Browser`, `Heartbeat` |
-| `tags`             | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                  | `API`, `Browser`, `Heartbeat` |
-| `runtimeId`        | The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.                               | `API`, `Browser`              |
-| `testOnly`         | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.              | `API`, `Browser`              |
-| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.             | `API`, `Browser`              |
-| `doubleCheck`      | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`. | `API`, `Browser`              |
+| Property           | Description                                                                                                                    | Supported in                               |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| `name`             | A friendly name for your Check.                                                                                                | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `frequency`        | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                              | `API`, `Browser`, `Multistep`              |
+| `locations`        | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                        | `API`, `Browser`, `Multistep`              |
+| `privateLocations` | an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.        | `API`, `Browser`, `Multistep`              |
+| `activated`        | A boolean value if your Check is activated or not.                                                                             | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `muted`            | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                           | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `group`            | The `CheckGroup` object that this check is part of.                                                                            | `API`, `Browser`, `Multistep`              |
+| `alertChannels`    | An array of `AlertChannel` objects to which to send alert notifications.                                                       | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `tags`             | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                  | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `runtimeId`        | The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.                               | `API`, `Browser`, `Multistep`              |
+| `testOnly`         | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.              | `API`, `Browser`, `Multistep`              |
+| `retryStrategy`    | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.             | `API`, `Browser`, `Multistep`              |
+| `runParallel`      | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                               | `API`, `Browser`, `Multistep`              |
+| `doubleCheck`      | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`. | `API`, `Browser`, `Multistep`              |
 
 > Note that most properties have sane default values and do not need to be specified.
 
@@ -271,6 +272,31 @@ new BrowserCheck('browser-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
+## `MultiStepCheck`
+
+Similar to Browser Checks, Multistep API checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
+
+{{< info >}}
+Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+{{< /info >}}
+
+```ts
+import { MultiStepCheck, Frequency } from 'checkly/constructs'
+import * as path from 'path'
+
+new MultiStepCheck('multistep-check-1', {
+  name: 'Multistep Check #1',
+  runtimeId: '2023.09',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'home.spec.ts')
+  },
+})
+```
+
+- `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
+raw JavaScript / TypeScript as a string.
 
 ## `CheckGroup`
 
@@ -333,9 +359,10 @@ new ApiCheck('check-group-api-check-1', {
 - `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true' }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
-- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/retries-and-alerting/) for failed check runs.
+- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
+- `runParallel`: A boolean value if check should run in parallel (all locations at the same time) or round-robin.
 
 > When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
 
@@ -363,14 +390,21 @@ property of a Project, CheckGroup or Check.
 ### Using `fromId()` to reference an existing channel
 
 You can reference an existing alert channel in your Checkly account using the `fromId()` method on any `AlertChannel`
-class. This enables you to share an alert channel resource between different projects living in different code repositories.
+class. When your CLI project is responsible for creating and managing alert channels, it integrates seamlessly with Checkly's deployment control mechanisms. This ensures that any changes made are thoroughly validated. 
+
+For users with multiple Checkly CLI projects: 
+- Alert channels can be set up through the Checkly UI or any other method, ensuring they remain intact and unaffected by individual CLI project operations.
+
+For users managing a single Checkly CLI project: 
+- The entire process of creating and subscribing to alert channels can be handled within that single project. This is made possible because the project references the logical ID of the alert channel, rather than an ID generated post-deployment.
+
+> If you attempt to deploy a project that references alert channels which have been removed or are no longer valid, the deployment process will not proceed. This feature helps maintain the integrity and reliability of your monitoring and alerting setup.
+
 
 ```ts
 export const emailChannel = EmailAlertChannel.fromId(20)
 ```
-
-You can fetch the ID for your alert channel from web UI or using our REST API.
-
+You can obtain the ID for your alert channel either from the Checkly web UI or by utilizing our [REST API](https://developers.checklyhq.com/reference/getv1alertchannels). 
 ![email channel id](/docs/images/cli/constructs_email_id@2x.jpg)
 
 
@@ -570,7 +604,7 @@ You can add custom CSS by referencing a CSS file. Note, this is only available o
 
 - `tags`: A list of one or more tags that filter what checks will be shown in the dashboard. All checks are included if no tag is specified.
 - `customUrl`: A subdomain name under "checklyhq.com". Needs to be unique across all users. This is required if `customDomain` is not specified.
-- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](docs/dashboards/dashboard-customization/#custom-domain).
+- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](/docs/dashboards/dashboard-customization/#custom-domain).
 This is required if `customUrl` is not specified.
 - `logo`: A URL pointing to an image file that will be used as logo in the dashboard header.
 - `favicon`: A URL pointing to an image file used as dashboard favicon.
@@ -653,7 +687,7 @@ project or created via the Web UI, you can pass in the `slugName` string.
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
 Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
-[Learn more about retry strategies](/docs/retries-and-alerting/).
+[Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
 As an example, you can configure a check to retry up to 4 times, in different regions, with waits of 30 seconds, 60 seconds, 90 seconds, and 120 seconds between attempts:

@@ -1,6 +1,6 @@
 ---
 title: Using NPM packages and local dependencies
-weight: 7
+weight: 8
 menu:
   platform:
     parent: "CLI"
@@ -90,8 +90,6 @@ After running [`npx checkly deploy`](/docs/cli/command-line-reference/#npx-check
 
 ![login check with helper file in dependencies](/docs/images/cli/github_login_helper_dependency.png)
 
-> Local dependencies are currently only supported for Browser checks. This feature isn't available for API check setup and teardown scripts.
-
 ## Why can't I import any NPM package or other 3rd party dependencies?
 
 Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)
@@ -99,5 +97,5 @@ Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#
 In short:
 
 1. Our runtime architecture is not a full CI platform for reasons of size, complexity and security.
-2. Having said that, [please comment on this pinned GitHub issue](https://checkly.featurebase.app/submissions/6464dc310f356460eca410d1)
-with a package you would love to see included in our Runtime.
+2. Having said that, please file a feature request over at [feedback.checklyhq.com](https://feedback.checklyhq.com/) if 
+you feel we are missing a crucial package.
