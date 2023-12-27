@@ -1,9 +1,18 @@
 .markdown {
+
+  @mixin code-in-headers {
+    letter-spacing: normal;
+  }
+
   h1 {
     font-size: 2rem;
     line-height: 3rem;
     margin-bottom: 1rem;
     letter-spacing: -0.04em;
+
+    & code {
+      @include code-in-headers;
+    }
   }
 
   h2 {
@@ -13,6 +22,10 @@
     font-weight: $font-weight-semi-bold;
     padding-bottom: 0.5rem;
     letter-spacing: -0.04em;
+
+    & code {
+      @include code-in-headers;
+    }
   }
 
   h3 {
@@ -22,6 +35,10 @@
     font-weight: $font-weight-semi-bold;
     padding-bottom: 0.3em;
     letter-spacing: -0.04em;
+
+    & code {
+      @include code-in-headers;
+    }
   }
 
   h4 {
@@ -31,6 +48,10 @@
     font-weight: $font-weight-semi-bold;
     padding-bottom: 0.3em;
     letter-spacing: -0.04em;
+
+    & code {
+      @include code-in-headers;
+    }
   }
 
   p {
