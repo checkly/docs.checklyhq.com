@@ -14,7 +14,7 @@ Checkly supports different kinds of checks which are billed slightly differently
 |------------|--------------------|---------------------|------------------------|
 | Browser    | Number of runs     | Each retry is a run | Each location is a run |
 | API        | Number of runs     | Each retry is a run | Each location is a run |
-| Multistep  | Number of requests | Retries x requests  | Locations x runs       |
+| Multistep  | Number of requests | Retries x requests  | Locations x requests   |
 | Heartbeat  | Number of checks   | -                   | -                      |
 
 ## API and Browser checks
