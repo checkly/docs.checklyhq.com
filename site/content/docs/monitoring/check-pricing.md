@@ -17,9 +17,7 @@ Checkly supports different kinds of checks which are billed slightly differently
 | Multistep  | Number of requests | Retries x requests  | Each location is a run |
 | Heartbeat  | Number of checks   | -                   | -                      |
 
-## Pricing by check type
-
-### API and Browser checks
+## API and Browser checks
 
 Browser checks and API checks have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.
 
@@ -27,7 +25,7 @@ Browser checks and API checks have a base price per check run. Always refer to o
 
 If you use features that multiply the number of check runs, such as parallel scheduling and retries, your cost will increase.
 
-#### Parallel scheduling
+### Parallel scheduling
 
 When a check is running in [parallel](/docs/monitoring/global-locations/#parallel), it will run once on each selected location per execution. If you change a check from using the round-robin scheduling method to running in parallel, be aware that the cost will multiply by the number of locations you have selected.
 
@@ -35,13 +33,13 @@ Balance the number of locations the check is using to ensure you are quickly mad
 
 > *Example:* Continuing our example from earlier, if we want our Browser check to run in parallel from 5 locations, the monthly cost will increase from $3,65 to $18,25.
 
-#### Retries
+### Retries
 
 When a check is [retried](/docs/alerting-and-retries/retries), this counts as a new check run. A flaky check can increase your check run costs above the expected. If you have problems with flaky checks, ask [our community](https://www.checklyhq.com/slack/) or our support for tips on how to improve check stability and reduce cost.
 
 > *Example:* If our check from earlier has a 20% retry rate, this will increase the cost from $3,65 to $4,40.
 
-### Multistep checks
+## Multistep checks
 
 [Multistep check](/docs/multistep-checks) pricing is slightly different from browser and API checks. A multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation. 
 
@@ -49,15 +47,15 @@ When a check is [retried](/docs/alerting-and-retries/retries), this counts as a 
 
 A multistep check with 0 requests is billed as if it has 1 request.
 
-#### Parallel scheduling 
+### Parallel scheduling 
 
 When a multistep check is run in [parallel](/docs/monitoring/global-locations/#parallel), the whole check (with any number of requests) is run from all included locations. That means that the cost is going to equal the number of locations the check is run from multiplied by the number of requests.
 
-#### Retries
+### Retries
 
 As a multistep check is retried as a whole, the final cost of a retried multistep check is based on the number of requests executed multiplied by the number of retries.
 
-### Heartbeat checks
+## Heartbeat checks
 
 A set number of [heartbeat checks](/docs/heartbeat-checks) are included in the team and enterprise plans. Checkly does not charge for heartbeat pings. 
 
