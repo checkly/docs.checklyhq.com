@@ -14,14 +14,14 @@ Checkly supports different kinds of checks which are billed slightly differently
 |------------|--------------------|---------------------|------------------------|
 | Browser    | Number of runs     | Each retry is a run | Each location is a run |
 | API        | Number of runs     | Each retry is a run | Each location is a run |
-| Multistep  | Number of requests | Retries x requests  | Each location is a run |
+| Multistep  | Number of requests | Retries x requests  | Locations x runs       |
 | Heartbeat  | Number of checks   | -                   | -                      |
 
 ## API and Browser checks
 
 Browser checks and API checks have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.
 
-> *Example:* If a browser check is running once per hour with a cost of $5 per 1000 check runs, the monthly base cost for the check would be $3,65.
+> *Example:* If a browser check is running once per hour with a cost of $5 per 1000 check runs, the monthly base cost for the check would be $3.65.
 
 If you use features that multiply the number of check runs, such as parallel scheduling and retries, your cost will increase.
 
@@ -37,7 +37,7 @@ Balance the number of locations the check is using to ensure you are quickly mad
 
 When a check is [retried](/docs/alerting-and-retries/retries), this counts as a new check run. A flaky check can increase your check run costs above the expected. If you have problems with flaky checks, ask [our community](https://www.checklyhq.com/slack/) or our support for tips on how to improve check stability and reduce cost.
 
-> *Example:* If our check from earlier has a 20% retry rate, this will increase the cost from $3,65 to $4,40.
+> *Example:* If our check from earlier has a 20% retry rate, this will increase the cost from $3.65 to $4.40.
 
 ## Multistep checks
 
@@ -53,7 +53,7 @@ When a multistep check is run in [parallel](/docs/monitoring/global-locations/#p
 
 ### Retries
 
-As a multistep check is retried as a whole, the final cost of a retried multistep check is based on the number of requests executed multiplied by the number of retries.
+As a multistep check is [retried](/docs/alerting-and-retries/retries) as a whole, the final cost of a retried multistep check is based on the number of requests executed multiplied by the number of retries.
 
 ## Heartbeat checks
 
