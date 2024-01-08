@@ -14,7 +14,7 @@ Checkly supports different kinds of checks which are billed slightly differently
 |------------|--------------------|------------------------|---------------------|
 | Browser    | $5 per 1k runs     | Each location is a run | Each retry is a run |
 | API        | $2 per 10k runs    | Each location is a run | Each retry is a run |
-| Multistep  | tbd                | Locations x requests   | Retries x requests  |
+| Multistep  | $2 per 10k requests| Locations x requests   | Retries x requests  |
 | Heartbeat  | -                  | -                      | -                   |
 
 {{< info >}}
