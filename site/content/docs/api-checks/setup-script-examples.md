@@ -11,7 +11,7 @@ cli: true
 Here are some examples on how to address common authentication use cases with setup scripts. 
 
 {{<info>}}
-Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-authentication/) on how to make this work with Checkly.
+Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/) on how to make this work with Checkly.
 {{</info>}}
 
 ## Fetch an external token
