@@ -20,7 +20,7 @@ The Vercel integration will help you by:
 2. Enabling you to run checks against preview and production deployments on Vercel.
 
 {{<info>}}
-Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-authentication/) on how to make this work with Checkly.
+Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/) on how to make this work with Checkly.
 {{</info>}}
 
 
