@@ -224,3 +224,13 @@ request.body = JSON.stringify(responseData) // set request body to stringified r
 We built a fully encapsulated check that fetches dynamic (random, in this case) test data from an external API and repurposes it for one of our webshop's endpoints.
 
 > There is a huge variety of cases in which setup scripts can be used. Stay tuned for more examples over the coming weeks!
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
+
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+
+{{< doc-card class="three-column-card" title="Monitoring as code" description="Why should the way we manage monitoring be any different?" link="/guides/monitoring-as-code/" >}}
+</div>
