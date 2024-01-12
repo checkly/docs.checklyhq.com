@@ -37,3 +37,13 @@ Puppeteer-based browser checks do not support IPv6 and will not in the future as
 All monitoring traffic from Checkly for all customers on all plans comes from a fixed set of source IPs. An up-to-date list can be requested unauthenticated through the API. See our [API spec](https://api.checklyhq.com/#/Static%20IPs) for more info.
 
 If you are looking to allowlist Checkly traffic, [see our docs on allowlisting](/docs/monitoring/allowlisting/).
+
+### Changelog for IP ranges
+
+#### 2024-01-12
+
+- reduce IPv4 lists
+
+#### 2023-12-19
+
+- initial release
