@@ -23,7 +23,7 @@ Check out this video for a quick explainer:
 
 ## What is a heartbeat check?
 
-A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
+A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
 When a ping is not received on time, the check will trigger any configured alerts.
 
 Use heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
@@ -55,6 +55,8 @@ Tags are used to create meaningful distinctions between check groups, making it 
 
 ### Ping URL
 The URL on which the check is listening for pings. The job or task monitored should make an HTTP request to the ping URL once per the period configured.
+
+The incoming request should be either a `GET` or `POST`. `PUT` and `DELETE` requests will not be recorded as pings, instead an error message will be returned.
 ![ping url](/docs/images/heartbeat-checks/getting-started-ping-url.png)
 
 ### Period and Grace
@@ -113,12 +115,16 @@ Selecting a single check result page from the check overview page will give a de
 The `source`  value is taken from the request parameter, if available, otherwise from the request `header.origin`, lastly from `headers.referer`. If none of these are available `source` defers to `null`.
 
 ## Ping examples
-Here you can find examples on how to ping a heartbeat check using various types of script or programming languages.
+Here you can find examples on how to ping a heartbeat check using various types of script or programming languages. 
+
+Most examples uses `GET` as the request method, but Heartbeat checks also accepts `POST` requests. Using `PUT` or `DELETE` will return an error message and the ping will not be recorded.
 
 ### Shell
 Adding a ping to a shell script only requires a single line. In this example we use [curl](https://github.com/curl/curl), and [wget](https://www.gnu.org/software/wget/).
 
-As mentioned earlier, we recommend using the `-m` and `--retry` options to specify timeout and retries to reduce the risk of false alerts or blocking the script. The corresponding options for wget are `-t` for retries and `-T` for timeout.
+As mentioned earlier, we recommend using the `-m` and `--retry` options to specify timeout and retries to reduce the risk of false alerts or blocking the script. The corresponding options for wget are `-t` for retries and `-T` for timeout. 
+
+The last example shows how to do a `POST` request instead of `GET` using Curl.
 {{< tabs "Shell" >}}
 {{< tab "Curl" >}}
 ```BASH
@@ -132,6 +138,13 @@ curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d
 # run_backup.sh
 
 wget -T 5 -t 3 https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4
+```
+{{< /tab >}}
+{{< tab "POST in Curl" >}}
+```BASH
+# run_backup.sh
+
+curl -X "POST" -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
 ```
 {{< /tab >}}
 {{< /tabs >}}
