@@ -358,3 +358,13 @@ As we increase our monitoring coverage across our APIs, we can also increase the
 1. Importing existing [Swagger/OpenAPI specs](https://www.checklyhq.com/docs/api-checks/request-settings/#import-a-swagger--openapi-specification) or even [cURL commands](https://www.checklyhq.com/docs/api-checks/request-settings/#import-a-curl-request) using built-in functionality.
 2. [Defining our API checks as code](/guides/monitoring-as-code/) to scale our setup while lowering maintenance needs.
 3. Combining our API checks with [E2E monitoring](/guides/end-to-end-monitoring/) for any website or web app service whose API we might be monitoring.
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
+
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+
+{{< doc-card class="three-column-card" title="OpenAPI/Swagger Monitoring" description="OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines." link="/guides/openapi-swagger/" >}}
+</div>

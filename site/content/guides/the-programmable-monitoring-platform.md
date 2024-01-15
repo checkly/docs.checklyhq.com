@@ -213,3 +213,13 @@ The example above fetches an API definition from the network via a `getAllEndpoi
 Monitoring as code is more than writing config files. Read project code, iterate, or fetch data — the CLI's JavaScript and TypeScript execution enables you to tailor your monitoring setup to your existing application code (and not the other way around).
 
 What are your preferred monitoring as code patterns? [Join the Checkly community](/slack), let me know and I'm happy to include your favorite pattern in this guide.
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
+
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+
+{{< doc-card class="three-column-card" title="OpenAPI/Swagger Monitoring" description="OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines." link="/guides/openapi-swagger/" >}}
+</div>

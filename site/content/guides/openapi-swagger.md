@@ -233,3 +233,13 @@ As we look to increase our endpoint coverage across our APIs, we might want to e
 1. Learning more about [API monitoring](/guides/api-monitoring) basics and best practices.
 2. Defining our [API checks as code](/guides/monitoring-as-code) to scale our setup.
 3. Integrating our API monitoring with [E2E monitoring](/guides/end-to-end-monitoring) for our websites.
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
+
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+
+{{< doc-card class="three-column-card" title="Monitoring as code" description="Why should the way we manage monitoring be any different?" link="/guides/monitoring-as-code/" >}}
+</div>
