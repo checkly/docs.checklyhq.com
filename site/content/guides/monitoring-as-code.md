@@ -480,3 +480,13 @@ As our setup expands, we might want to deploy additional tools to make our lives
 2. [Group checks together](/blog/scaling-puppeteer-playwright-on-checkly-with-terraform/#grouping-checks-together) to better handle them in large numbers.
 3. [Use code snippets](/blog/scaling-puppeteer-playwright-on-checkly-with-terraform/#reducing-code-duplication-with-snippets) to avoid code duplication and reduce maintenance.
 4. Move your workflow to {{< newtabref  href="https://www.terraform.io/cloud" title="Terraform Cloud" >}} to easily collaborate with your team when managing your Monitoring-as-Code configuration.
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
+
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+
+{{< doc-card class="three-column-card" title="Setup scripts for API monitoring" description="Setup scripts are a fundamental tool to tailor API checks to your own target endpoints." link="/guides/setup-scripts/" >}}
+</div>
