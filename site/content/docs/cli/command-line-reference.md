@@ -220,3 +220,12 @@ checkly env rm [KEY] [-f]
 
 - `KEY`: Environment variable key.
 - `--force` or `-f`: Skips the confirmation dialog when removing an environment.
+
+
+### `npx checkly sync-playwright`
+
+Copy Playwright config into the Checkly config file
+
+```bash
+npx checkly sync-playwright
+```

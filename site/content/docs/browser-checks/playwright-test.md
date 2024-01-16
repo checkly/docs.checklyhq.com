@@ -42,6 +42,7 @@ This is the list of Playwright Test Runner features that are currently supported
 | Visual comparisons       | Yes, [check the docs](/docs/browser-checks/visual-comparison-snapshot-testing/)                                               |
 | Test retry               | No <br> Enable Checkly's ["Double-check on failure"](/docs/alerting/#double-checking) in the check settings to retry a check. |
 | Parallelism and sharding | No                                                                                                                            |
+| Config                   | Yes, a subset of playwright config options                                                                                    |
 
 ### Browser check with multiple test cases
 One of the key benefits of using Playwright Test is that you can split your check into multiple independent test cases,
@@ -117,3 +118,162 @@ If you are structuring your test codebase following the [PageObject pattern](htt
 - your `testMatch` is pointing to the path(s) where your test specs live
 
 To see one way this can look like, see our [example repository](https://github.com/checkly/checkly-sample-pom).
+
+### Config
+
+{{< info >}}
+This feature is in Beta
+{{< /info >}}
+
+If you have a `playwright.config.ts` or `playwright.config.js` file, you can use a subset of its config options to run your tests.
+In order to get the allowed playwright config options on your checkly config file you can just simply run the [sync-playwright](/docs/cli/command-line-reference/#npx-checkly-sync-playwright)
+
+This command will add to your current `checkly.config.ts` file your playwright config.
+
+Once ran, the supported options of your playwright config will be added to your checkly config:
+
+{{< tabs "project config" >}}
+{{< tab "Typescript" >}}
+```typescript
+import { defineConfig } from 'checkly'
+
+export default defineConfig({
+  projectName: 'Website Monitoring',
+  logicalId: 'website-monitoring-1',
+  repoUrl: 'https://github.com/acme/website',
+  checks: {
+    checkMatch: '**/*.check.js',
+    browserChecks: {
+      testMatch: '**/*.spec.js',
+      playwrightConfig: {
+        timeout: 1234,
+        use: {
+          baseURL: 'https://www.checklyhq.com',
+          isMobile: true,
+        },
+        expect: {
+          toHaveScreenshot: {
+            maxDiffPixels: 10,
+          }
+        }
+      }
+    },
+  },
+  cli: {
+    runLocation: 'eu-west-1',
+    privateRunLocation: 'private-dc1'
+  }
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js
+const { defineConfig } = require('checkly')
+
+const config = defineConfig({
+  projectName: 'Website Monitoring',
+  logicalId: 'website-monitoring-1',
+  repoUrl: 'https://github.com/acme/website',
+  checks: {
+    checkMatch: '**/*.check.js',
+    browserChecks: {
+      testMatch: '**/*.spec.js',
+      playwrightConfig: {
+        timeout: 1234,
+        use: {
+          baseURL: 'https://www.checklyhq.com',
+          isMobile: true,
+        },
+        expect: {
+          toHaveScreenshot: {
+            maxDiffPixels: 10,
+          }
+        }
+      }
+    },
+  },
+  cli: {
+    runLocation: 'eu-west-1',
+    privateRunLocation: 'private-dc1'
+  }
+})
+
+module.exports = config;
+```
+{{< /tab >}}
+{{< /tabs  >}}
+
+#### Config options
+
+List of supported options of the playwright config file
+
+{{< tabs "config" >}}
+
+{{< tab "Global" >}}
+
+| Option           | Supported |
+|------------------|-----------|
+| `timeout`        | ✅         |
+| `use`            | ✅         |
+| `expect`         | ✅         |
+| `testDir`        | ❌         |
+| `fullyParallel`  | ❌         |
+| `forbidOnly`     | ❌         |
+| `retries`        | ❌         |
+| `workers`        | ❌         |
+| `reporter`       | ❌         |
+| `testMatch`      | ❌         |
+| `testIgnore`     | ❌         |
+| `outputDir`      | ❌         |
+| `globalSetup`    | ❌         |
+| `globalTeardown` | ❌         |
+| `projects`       | ❌         |
+| `webServer`      | ❌         |
+
+{{< /tab >}}
+{{< tab "Use" >}}
+
+| Option               | Supported |
+|----------------------|-----------|
+| `baseURL`            | ✅         |
+| `colorScheme`        | ✅         |
+| `geolocation`        | ✅         |
+| `locale`             | ✅         |
+| `permissions`        | ✅         |
+| `timezoneId`         | ✅         |
+| `viewport`           | ✅         |
+| `deviceScaleFactor`  | ✅         |
+| `hasTouch `          | ✅         |
+| `isMobile `          | ✅         |
+| `javaScriptEnabled ` | ✅         |
+| `extraHTTPHeaders`   | ✅         |
+| `httpCredentials`    | ✅         |
+| `ignoreHTTPSErrors`  | ✅         |
+| `offline`            | ✅         |
+| `actionTimeout`      | ✅         |
+| `navigationTimeout ` | ✅         |
+| `testIdAttribute`    | ✅         |
+| `launchOptions`      | ✅         |
+| `connectOptions`     | ✅         |
+| `contextOptions`     | ✅         |
+| `bypassCSP`          | ✅         |
+| `storageState`       | ❌         |
+| `browserName`        | ❌         |
+| `channel`            | ❌         |
+| `headless`           | ❌         |
+| `proxy`              | ❌         |
+| `screenshot`         | ❌         |
+| `trace`              | ❌         |
+| `video`              | ❌         |
+
+{{< /tab >}}
+{{< tab "Expect" >}}
+
+| Option              | Supported |
+|---------------------|-----------|
+| `timeout`           | ✅         |
+| `toHaveScreenshot ` | ✅         |
+| `toMatchSnapshot `  | ✅         |
+
+{{< /tab >}}
+{{< /tabs >}}
