@@ -266,6 +266,7 @@ test('Open the page and take a screenshot', async ({ page }) => {
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [creating reusable code snippets](/docs/browser-checks/partials-code-snippets/).
 - Run checks behind an [HTTP proxy](/docs/private-locations/proxy).
+- Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for browser checks.
 
 ## More Playwright resources
 
