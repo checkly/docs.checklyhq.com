@@ -1,14 +1,21 @@
 ---
-title: Visual comparison & snapshot testing
+title: Visual regression & snapshot testing
 weight: 25
 menu:
   resources: 
     parent: "Browser checks"
 cli: true
-beta: true
+aliases:
+   - "/docs/browser-checks/visual-comparison-snapshot-testing/"
 ---
-Playwright Test gives you the ability to do visual comparison testing (sometimes called visual regression testing) and
-snapshot testing. This is useful for testing the visual appearance of your application. The TL;DR is that you can:
+Playwright Test gives you the ability to do visual regression testing and snapshot testing. With Checkly, you can run these tests 
+against production, 24x7. 
+
+This is useful for testing the visual appearance of your applications and making sure production-specific issues like bad deploys,
+flaky 3rd party dependencies, CMS changes and user-generated content do not impact to general layout and visual consistency of your
+core screens on production.
+
+. The TL;DR is that you can:
 
 - Use the `.toHaveScreenshot()` assertion to visually compare a screenshot of your page to a golden image / reference snapshot.
 - Use the `.toMatchSnapshot()` assertion to compare any `string` or `Buffer` value to a golden image / reference snapshot.
@@ -19,13 +26,13 @@ This feature works with the following CLI and Checkly Agent versions:
 - [Checkly Agent v3.2.0 or later](https://hub.docker.com/layers/checkly/agent/3.2.0/images/sha256-714bbd7302d7c086ef1776014f919c1e9aacdfda450764295147e8f1ab99cb00?context=explore).
 
 {{< info >}}
-Visual comparison and snapshot testing is now in **beta**. During beta, this feature is free for all plans. 
-Any pricing or plans limits will be introduced after the beta.
+Visual regression & snapshot testing is available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
 {{< /info >}}
 
-## Visual comparison testing
 
-Starting with visual comparison testing takes just three easy steps:
+## Visual regression testing
+
+Starting with visual regression testing takes just three easy steps:
 
 1. Add a single `expect(page).toHaveScreenshot()` line of code to
    your browser check script, like the example below.
@@ -82,7 +89,7 @@ in your check result.
 <video alt="inspect visual diff" autoplay loop muted src="/docs/images/browser-checks/visual_comparison_diff_modal.mp4"></video>
 
 
-### Configuring visual comparison testing 
+### Configuring visual regression testing 
 
 To create accurate and actionable screenshot comparisons, Playwright gives you a ton of options to tweak how the `.toHaveScreenshot()`
 should behave. What are acceptable differences in color, size, position, etc.? Do you want to match the full screen, or ignore
@@ -200,7 +207,7 @@ You can disable any CSS animations and transitions using the `animations` option
 ## Snapshot testing
 
 Snapshot testing, using the `expect().toMatchSnapshot(snapshotName)` assertion, is a great way to test the output of
-any arbitrary `string` or `Buffer` value. Note that it is not optimized for visual comparison testing.
+any arbitrary `string` or `Buffer` value. Note that it is not optimized for visual regression testing.
 
 {{< tabs "Snapshot testing" >}}
 {{< tab "Typescript" >}}
@@ -225,19 +232,19 @@ any arbitrary `string` or `Buffer` value. Note that it is not optimized for visu
 {{< /tab >}}
 {{< /tabs >}}
 
-Creating or updating the golden image / reference snapshot works the same as with visual comparison testing.
+Creating or updating the golden image / reference snapshot works the same as with visual regression testing.
 
 Check [the official reference docs](https://playwright.dev/docs/api/class-snapshotassertions#snapshot-assertions-to-match-snapshot-1)
 for all options.
 
 ## Embedding in your CI/CD workflow
 
-Using the [Checkly CLI](/docs/cli/) you can code and configure visual comparison and snapshot testing on your local machine
+Using the [Checkly CLI](/docs/cli/) you can code and configure visual regression and snapshot testing on your local machine
 and deploy any changes either directly from your local machine or from your CI/CD pipeline of choice.
 
 In a typical scenario, you would follow the steps below:
 
-1. Create or update a browser check with visual comparison or snapshot testing on your local machine.
+1. Create or update a browser check with visual regression or snapshot testing on your local machine.
 2. Generate the golden image / reference snapshot(s).
    ```bash
    npx checkly test --update-snapshots
