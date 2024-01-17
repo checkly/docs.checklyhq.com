@@ -171,3 +171,4 @@ During the beta phase, multistep API checks comes with some limitations:
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
 - [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
 Playwright-related libraries, tips and resources.
+- Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for Multistep checks.
