@@ -230,6 +230,9 @@ List of supported options of the playwright config file
 | `projects`       | ❌         |
 | `webServer`      | ❌         |
 
+For more information about the `global` options you can check playwright official documentation [Test configuration](https://playwright.dev/docs/test-configuration)
+
+
 {{< /tab >}}
 {{< tab "Use" >}}
 
@@ -266,6 +269,8 @@ List of supported options of the playwright config file
 | `trace`              | ❌         |
 | `video`              | ❌         |
 
+For more information about the `use` options you can check playwright official documentation [Test use options](https://playwright.dev/docs/test-use-options)
+
 {{< /tab >}}
 {{< tab "Expect" >}}
 
@@ -274,6 +279,8 @@ List of supported options of the playwright config file
 | `timeout`           | ✅         |
 | `toHaveScreenshot ` | ✅         |
 | `toMatchSnapshot `  | ✅         |
+
+For more information about the `expect` options you can check playwright official documentation [Test Expect options](https://playwright.dev/docs/test-configuration#expect-options)
 
 {{< /tab >}}
 {{< /tabs >}}
