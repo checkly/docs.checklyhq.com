@@ -8,8 +8,6 @@ menu:
 cli: true
 ---
 
-WebSockets provide a way to establish a persistent, full-duplex communication channel that operates over a single, long-held request, enabling real-time data transfer between a client and a server.
-
 To create a WebSocket check in Checkly, you'll need to write a script that establishes a WebSocket connection, sends messages, and validates responses.
 
 ## Set Up the WebSocket Connection
@@ -64,10 +62,13 @@ Implement the logic for sending messages and processing the received responses.
 {{< tab "Javascript" >}}
 ```js
 function sendMessage(message) {
-  ws.send(message);
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(message);
+    console.log(`Message sent: ${message}`);
+  } else {
+    console.error('WebSocket is not open. Unable to send message.');
+  }
 }
-
-// Add logic to process received messages
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -87,14 +88,14 @@ ws.on('close', () => {
 {{< /tabs >}}
 
 ## Example: Monitoring a WebSocket Connection
-Here's the complete example script that demonstrates a WebSocket check. It sends a subscription message, prints out the echo'd response, handles different types of incoming messages and closes the connection after 5 seconds.
+Here's the complete example script that demonstrates a WebSocket check. It sends a subscription message, prints out the echo'd response, handles different types of incoming messages and closes the connection after 5 seconds. We've also added an object assertion to check the data returned from the WebSocket is correct. If the message does not match, the script will throw an error, indicating a discrepancy in the expected data.
 
 {{< tabs "Full WebSocket Script" >}}
 {{< tab "Javascript" >}}
 ```js
-const WebSocket = require('ws');
+import { WebSocket } from 'ws';
+import { expect } from 'expect';
 
-// Replace with your WebSocket server URL
 const url = 'wss://echo.websocket.org';
 const ws = new WebSocket(url);
 
@@ -116,17 +117,17 @@ ws.on('error', (error) => {
 });
 
 ws.on('message', (data) => {
-  if (isFirstMessage) {
-    // Handle the first non-JSON message here
+  if (isFirstMessage) { // Handle the first non-JSON message here
     const messageString = data.toString('utf-8'); // or 'ascii' if you know it's ASCII
     console.log('First message (non-JSON):', messageString);
     isFirstMessage = false; // Update the flag after handling the first message
-  } else {
-    // Process JSON messages
+  } else { // Process JSON echo response
     try {
       const message = JSON.parse(data);
       if (message) {
         console.log('Notification received:', message);
+        // Add an assertion to confirm the JSON returned is the same as what we sent
+        expect(message).toMatchObject({ "action": "subscribe", "channel": "updates" })
       }
     } catch (error) {
       console.error('Error parsing received message:', error);
@@ -146,7 +147,6 @@ function sendMessage(message) {
     console.error('WebSocket is not open. Unable to send message.');
   }
 }
-
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -154,7 +154,5 @@ function sendMessage(message) {
 Don't forget the essentials:
 
 - Error Handling: Implement robust error handling for scenarios like connection failures and timeouts.
-- Message Validation: Add logic to validate incoming messages to ensure the data integrity.
+- Message Validation: Add logic to validate incoming messages to ensure data integrity.
 - Closing Connections: Always close the WebSocket connection gracefully to avoid resource leaks.
-
-Monitoring WebSocket connections is crucial for real-time applications. With Checkly, you can easily set up checks to ensure your WebSocket connections are reliable and performant. Adjust the example script to fit your specific use case and continuously monitor your WebSocket interactions.
