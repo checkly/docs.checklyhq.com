@@ -11,11 +11,15 @@ aliases:
 Playwright Test gives you the ability to do visual regression testing and snapshot testing. With Checkly, you can run these tests 
 against production, 24x7. 
 
-This is useful for testing the visual appearance of your applications and making sure production-specific issues like bad deploys,
+Visual regression testing is useful for testing the visual appearance of your applications and making sure production-specific issues like bad deploys,
 flaky 3rd party dependencies, CMS changes and user-generated content do not impact to general layout and visual consistency of your
 core screens on production.
 
-. The TL;DR is that you can:
+Have a look at this video for a quick explainer:
+
+{{< youtube uTm40YOtj_g >}}
+
+The TL;DR is that you can:
 
 - Use the `.toHaveScreenshot()` assertion to visually compare a screenshot of your page to a golden image / reference snapshot.
 - Use the `.toMatchSnapshot()` assertion to compare any `string` or `Buffer` value to a golden image / reference snapshot.
@@ -28,7 +32,6 @@ This feature works with the following CLI and Checkly Agent versions:
 {{< info >}}
 Visual regression & snapshot testing is available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
 {{< /info >}}
-
 
 ## Visual regression testing
 
