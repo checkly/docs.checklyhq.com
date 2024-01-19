@@ -138,7 +138,7 @@ you can simply run the [sync-playwright](/docs/cli/command-line-reference/#npx-c
 npx checkly sync-playwright
 ```
 
-This command will all currently supported Playwright config option to your `checkly.config.ts` file.
+This command will add currently supported Playwright config option to your `checkly.config.ts` file.
 
 {{< tabs "project config" >}}
 {{< tab "Typescript" >}}
