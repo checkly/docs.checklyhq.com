@@ -125,7 +125,7 @@ configure your Playwright tests in a single place, instead of having to repeat t
 This feature is in **beta** and is only available when using the Checkly CLI to manage your checks and associated `.spec.ts|js` files.
 {{< /info >}}
 
-There three things you should be aware of:
+There are three things you should be aware of:
 1. You can only use a subset of the Playwright config options. See the [supported configuration options](#supported-configuration-options) section for more information.
 2. You need to add the `playwrightConfig` section to your `checkly.config.ts` file, nested under the `browserChecks` section.
 3. We explicitly do not read from the existing `playwright.config.ts` or `playwright.config.js` file in your project. This is to avoid any confusion about which config file is used to run your tests and to prevent any unexpected behaviour.
