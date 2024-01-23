@@ -75,7 +75,7 @@
     "buildTags": "extended"
   },
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
