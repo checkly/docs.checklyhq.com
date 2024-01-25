@@ -224,7 +224,7 @@ checkly env rm [KEY] [-f]
 
 ## `npx checkly sync-playwright`
 
-Copy Playwright config into the Checkly config file
+Copy Playwright config into the Checkly config file.
 
 ```bash
 npx checkly sync-playwright
