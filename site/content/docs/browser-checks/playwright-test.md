@@ -151,20 +151,20 @@ export default defineConfig({
   repoUrl: 'https://github.com/acme/website',
   checks: {
     checkMatch: '**/*.check.js',
-    browserChecks: {
-      testMatch: '**/*.spec.js',
-      playwrightConfig: {         // note the extra playwrightConfig section
-        timeout: 1234,
-        use: {
-          baseURL: 'https://www.checklyhq.com',
-          isMobile: true,
-        },
-        expect: {
-          toHaveScreenshot: {
-            maxDiffPixels: 10,
-          }
+    playwrightConfig: {         // note the extra playwrightConfig section
+      timeout: 1234,
+      use: {
+        baseURL: 'https://www.checklyhq.com',
+        isMobile: true,
+      },
+      expect: {
+        toHaveScreenshot: {
+          maxDiffPixels: 10,
         }
       }
+    },
+    browserChecks: {
+      testMatch: '**/*.spec.js',
     },
   },
   cli: {
@@ -184,20 +184,20 @@ const config = defineConfig({
   repoUrl: 'https://github.com/acme/website',
   checks: {
     checkMatch: '**/*.check.js',
-    browserChecks: {
-      testMatch: '**/*.spec.js',
-      playwrightConfig: {           // note the extra playwrightConfig section
-        timeout: 1234,
-        use: {
-          baseURL: 'https://www.checklyhq.com',
-          isMobile: true,
-        },
-        expect: {
-          toHaveScreenshot: {
-            maxDiffPixels: 10,
-          }
+    playwrightConfig: {           // note the extra playwrightConfig section
+      timeout: 1234,
+      use: {
+        baseURL: 'https://www.checklyhq.com',
+        isMobile: true,
+      },
+      expect: {
+        toHaveScreenshot: {
+          maxDiffPixels: 10,
         }
       }
+    },
+    browserChecks: {
+      testMatch: '**/*.spec.js',
     },
   },
   cli: {
