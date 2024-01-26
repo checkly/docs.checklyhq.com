@@ -15,7 +15,7 @@ To get the most power out of API checks with setup and teardown scripts, we advi
 However, you can also use them [via our web UI](#using-setup-and-teardown-scripts-via-the-ui)
 
 {{<info >}}
-Setup and teardown scrips have a **maximum execution time of 10 seconds**.
+Setup and teardown scripts have a **maximum execution time of 10 seconds**.
 {{</info >}}
 
 Check the video below for a quick overview of using setup and teardown scripts through the web UI and  with the CLI.
