@@ -69,6 +69,11 @@ For API checks, a detailed response time breakdown is shown:
 A performance comparison by location will also be included for both types of check:
 <img class="screenshot-partial" alt="check overview location performance graph" src="/docs/images/monitoring/check-overview-locations.png"/>
 
+## Navigating individual check results
+The check result page will contain results from multiple locations when using [parallel scheduling](/docs/monitoring/global-locations/#scheduling-strategies). Navigate between each location using the sidebar.
+<img alt="Viewing multiple attempts from the dropdown" autoplay loop src="/docs/images/monitoring/location-select.gif"></img>
+
+
 ## Browser check results
 
 Individual browser check results contain:
@@ -123,11 +128,11 @@ These include:
 
 ## Check results with retries
 
-When checks are retried,  tabs will indicate that the check result contains multiple check runs:
+When checks are retried, a dropdown will indicate that the check result contains multiple check runs:
 1. The initial failed attempt
 2. The final result (which may have failed or succeeded)
 
 When selecting a check run, all data and assets are available for inspection for each attempt.
 
-<video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-results-tabs.mp4"></video>
+<img alt="Viewing multiple attempts from the dropdown" autoplay loop src="/docs/images/monitoring/check-retries.gif"></img>
 
