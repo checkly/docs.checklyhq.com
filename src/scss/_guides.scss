@@ -256,6 +256,50 @@
       }
     }
 	}
+	.cards-list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-top: 40px;
+
+		.text-wrap {
+			width: calc(100% - 58px);
+
+			h2 {
+				margin: 3px 0;
+				color: #0075ff;
+			}
+
+			h3 {
+				margin: 2px 0;
+				font-size: 20px;
+				line-height: 30px;
+			}
+
+			p {
+				font-size: 14px;
+				line-height: 20px;
+			}
+		}
+
+		.three-column-card {
+			width: calc((100% - 50px)/3);
+			display: flex;
+			background-color: #e7f2ff;
+			justify-content-space: space-between;
+			padding: 20px;
+			border-radius: 6px;
+
+			.text-wrap {
+				width: 100%;
+				h3 {
+					font-size: 16px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
 	&-page {
     min-width: 20rem;
     flex-grow: 1;

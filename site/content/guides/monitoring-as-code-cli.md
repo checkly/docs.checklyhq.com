@@ -375,3 +375,13 @@ Expanding our initial setup from here is easy, please follow these links if you 
 1. [Why we built Monitoring as Code blog post](https://blog.checklyhq.com/why-we-built-a-developer-first-typescript-cli-for-monitoring-as-code/)
 2. [Deep-dive & live coding session](https://www.youtube.com/watch?v=IcaMW2opx2U)
 3. [Checkly CLI Docs](https://www.checklyhq.com/docs/cli/)
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Monitoring as code" description="Why should the way we manage monitoring be any different?" link="/guides/monitoring-as-code/" >}}
+
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+
+{{< doc-card class="three-column-card" title="Setup scripts for API monitoring" description="Setup scripts are a fundamental tool to tailor API checks to your own target endpoints." link="/guides/setup-scripts/" >}}
+</div>

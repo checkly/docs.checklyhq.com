@@ -281,3 +281,13 @@ We learned things the hard way so you do not have to. When starting out, keep an
 * Long, unfocused tests: checking too much in a single test will make failures harder to debug. [Break it up instead](/learn/headless/valuable-tests/#keep-tests-focused), and enjoy the added parallelisation.
 
 * Messing up your own metrics, KPIs: remember, if you are not running against production, you want to make sure your E2E monitoring checks or tests are filtered out of your analytics. This is [rather easy to do](/docs/monitoring/allowlisting), with most headless browser tools normally identifying themselves as such from the start.
+
+## Read More
+
+<div class="cards-list">
+{{< doc-card class="three-column-card" title="Monitoring as code" description="Why should the way we manage monitoring be any different?" link="/guides/monitoring-as-code/" >}}
+
+{{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
+
+{{< doc-card class="three-column-card" title="Setup scripts for API monitoring" description="Setup scripts are a fundamental tool to tailor API checks to your own target endpoints." link="/guides/setup-scripts/" >}}
+</div>

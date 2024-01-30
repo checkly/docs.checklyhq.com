@@ -8,8 +8,7 @@ menu:
 cli: true
 ---
 
-You might want to use (binary) files in your Multistep checks. For example, you might want to upload a file to a
-an API endpoint using a binary body. Or, you might want to validate some aspect of a file that is available for download on your
+You might want to use (binary) files in your Multistep checks. For example, you might want to upload a file to an API endpoint using a binary body. Or, you might want to validate some aspect of a file that is available for download on your
 app.
 
 ## Testing uploads using HTTP POST requests
