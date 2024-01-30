@@ -79,3 +79,9 @@ new ApiCheck('hello-api-1', {
   }
 })
 ```
+
+## Unavailable private locations
+
+If a private location has had no Checkly agents connected for more than 10 minutes, it will be flagged as unavailable. Checkly will email account owners and admins that the location has become unavailable.
+
+While a location is unavailable, no checks will be scheduled to run on it. When a location becomes available, check scheduling and execution will resume automatically.
