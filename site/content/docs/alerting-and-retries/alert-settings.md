@@ -46,7 +46,7 @@ Whenever possible, use the alert settings at the account level. This keeps thing
 
 ### Escalation
 
-The escalation box allows you to decide when an alert should be triggered. We give you two options:
+The escalation box allows you to decide when an alert should be triggered. We give you two options that are applied to all checks:
 
 **1. Run based**
 
@@ -72,6 +72,16 @@ Here's an example. You want to be alerted if your check is failing for more than
 Your check runs every minute. It starts failing at 15:00. Failing check results come in and are visible in the dashboard.
 After 10 minutes, the clock strikes 15:10. Any failing check results that come in now trigger an alert. If the check has
 resolved, no alert are triggered.
+
+**Location failure threshold**
+
+This option can be selected in addition to the run or time-based escalation settings and only affect checks running in [parallel](/docs/monitoring/global-locations/#parallel) with two or more locations selected. 
+
+When enabled, alerts will only be sent when the specified percentage of locations are failing. Use this setting to reduce alert noise and fatigue for services that can handle being unavailable from some locations before action is required. 
+
+![escalation when a check is failing at more than 50% of locations](/docs/images/alerting/escalation-3.png)
+
+In the example above, an alert will only be sent when the check has failed once, and at least 50% of the locations the check is running from are failing during a check run. If the check is set to run from 10 locations, and it fails in 3, no alert will be sent. If it later fails in 7 of the 10 locations an alert will be sent.
 
 ### Reminders
 
