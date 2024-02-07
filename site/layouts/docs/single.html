@@ -19,20 +19,30 @@
         {{- .Content -}}
         {{if and (.NextInSection) (.PrevInSection)}}
         <div class="d-flex justify-content-between flex-wrap my-5">
-          <a href="{{.NextInSection.Permalink}}" class="nav-docs"> <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px">{{ .NextInSection.Title }}</a>
-          <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}<img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px"></a>
+          <a href="{{.NextInSection.Permalink}}" class="nav-docs">
+            <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
+            {{ .NextInSection.Title }}
+          </a>
+          <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}
+            <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="next">
+          </a>
         </div>
         {{ else if .PrevInSection }}
         <div class="d-flex justify-content-between flex-wrap my-5">
-            <a href="{{ .CurrentSection.Permalink }}" class="nav-docs"> <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px">{{ .CurrentSection.Title }}</a>
-          <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}<img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px"></a>
+            <a href="{{ .CurrentSection.Permalink }}" class="nav-docs">
+              <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
+              {{ .CurrentSection.Title }}
+            </a>
+          <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}
+            <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="previous">
+          </a>
         </div>
         {{ else if .NextInSection}}
         <div class="text-left my-5">
           <a href="{{.NextInSection.Permalink}}" class="nav-docs">
-          <svg class="mr-2" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.78033 10.5303C5.48744 10.8232 5.01256 10.8232 4.71967 10.5303L0.469668 6.28033C0.176777 5.98744 0.176777 5.51256 0.469668 5.21967L4.71967 0.969668C5.01256 0.676777 5.48744 0.676777 5.78033 0.969668C6.07322 1.26256 6.07322 1.73744 5.78033 2.03033L2.81066 5H10.25C10.6642 5 11 5.33579 11 5.75C11 6.16421 10.6642 6.5 10.25 6.5H2.81066L5.78033 9.4697C6.07322 9.7626 6.07322 10.2374 5.78033 10.5303Z" fill="#0075ff"/>
-          </svg>{{ .NextInSection.Title }}</a>
+            <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="next">
+            {{ .NextInSection.Title }}
+          </a>
         </div>
 
         {{ else }}
@@ -41,7 +51,7 @@
         {{end}}
 
         <hr class="pt-2 mb-2" />
-        <p class="contribute-doc"><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+        <p class="contribute-doc"><img src="/docs/images/icons/edit.png" width="14px" height="14px" alt="edit page">
           You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a></p>
       </article>
     </div>
