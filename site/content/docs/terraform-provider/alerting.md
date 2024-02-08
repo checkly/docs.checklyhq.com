@@ -43,7 +43,7 @@ resource "checkly_check" "get-books" {
 
     parallel_run_failure_threshold {
       enabled = true                // Applicable only for checks scheduled in parallel in multiple locations
-      percentage = 50               // What percentage of regions needs to fail to trigger a failure alert
+      percentage = 50               // What percentage of regions needs to fail to trigger a failure alert, supported values: 10, 20, 30, 40, 50, 60, 70, 80, 90 & 100
     }
   }
 
