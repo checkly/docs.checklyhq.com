@@ -740,7 +740,7 @@ import { AlertEscalationBuilder, ApiCheck } from 'checkly/constructs'
 
 new ApiCheck('alerting-check', {
   name: 'Check With Alert Policy',
-  alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(2, { interval: 2, amount: 5 }),
+  alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(2, { interval: 2, amount: 5 }, { enabled: true, percentage: 50 }),
   request: {
     method: 'GET',
     url: 'https://danube-web.shop/api/books'
@@ -751,10 +751,15 @@ new ApiCheck('alerting-check', {
 
 `AlertEscalationBuilder` supports the following methods:
 
-* `runBasedEscalation(failedRuns, reminder)`: Number of times the check has to fail consecutively to get alerted.
-* `timeBasedEscalation(minutesFailing, reminder)`:  Amount of time  (in minutes) it has to pass on failing checks to get alerted.
+* `runBasedEscalation(failedRuns, reminder, parallelRunFailureThreshold)`: Number of times the check has to fail consecutively to get alerted.
+* `timeBasedEscalation(minutesFailing, reminder, parallelRunFailureThreshold)`:  Amount of time  (in minutes) it has to pass on failing checks to get alerted.
 
 For all options above, the `reminders` argument can be used to configure reminders for the alert, it has the following properties:
 
 * `interval`: Amount of time (in minutes) it has to pass to get the reminder.
 * `amount`: Number of reminders.
+
+At the same time the `parallelRunFailureThreshold` argument can be used to configure the threshold error for checks running in parallel:
+
+* `enabled`: Applicable only for checks scheduled in parallel in multiple locations
+* `percentage`: What percentage of regions needs to fail to trigger a failure alert, supported values: 10, 20, 30, 40, 50, 60, 70, 80, 90 & 100
