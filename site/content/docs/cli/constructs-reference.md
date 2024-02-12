@@ -759,7 +759,7 @@ For all options above, the `reminders` argument can be used to configure reminde
 * `interval`: Amount of time (in minutes) it has to pass to get the reminder.
 * `amount`: Number of reminders.
 
-At the same time the `parallelRunFailureThreshold` argument can be used to configure the threshold error for checks running in parallel:
+At the same time the `parallelRunFailureThreshold` argument can be used to configure the threshold error for [checks running in parallel](/docs/monitoring/global-locations/#parallel):
 
 * `enabled`: Applicable only for checks scheduled in parallel in multiple locations
 * `percentage`: What percentage of regions needs to fail to trigger a failure alert, supported values: 10, 20, 30, 40, 50, 60, 70, 80, 90 & 100
