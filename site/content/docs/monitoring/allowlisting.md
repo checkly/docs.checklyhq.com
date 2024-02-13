@@ -100,7 +100,7 @@ Note that this will take some hours for this to take effect.
 
 This is what Checkly sends as user agent:
 
-- API checks: `Checkly/1.0 (https://www.checklyhq.com)`.
+- API & Multistep checks: `Checkly/1.0 (https://www.checklyhq.com)`.
 - Browser checks: `Checkly, https://www.checklyhq.com`.
 
 Changing the user agent of a check will not change the browser or browser version, it will simply set a new string for user agent.
