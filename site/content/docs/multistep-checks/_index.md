@@ -140,6 +140,8 @@ When creating a check using the web editor, after each test run you can open up 
 
 When viewing a multistep check run result, you can select any API request in the result tree to view the full response details. If you have your API request and related assertions in the same `test.step`, related requests and failing assertions will be grouped under the same header.
 
+The default request user-agent is `Checkly/1.0`. If you would like to use a different user-agent, you can do so with `test.use({userAgent: 'customerUserAgent'})`.
+
 Selecting the top node in the check report shows the full job log and the check configuration for the run.
 
 ## Built-in runtime variables
