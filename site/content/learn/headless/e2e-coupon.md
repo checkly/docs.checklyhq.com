@@ -59,5 +59,5 @@ node coupon.js
 ## Takeaways
 
 1. We can simply verify that coupons are accepted, or also check that they command the right discount.
-2. Assertion libraries are useful when non-trivial assertions are required.
+2. Assertion libraries are useful when non-trivial [assertions](https://www.checklyhq.com/docs/api-checks/assertions/) are required.
 
