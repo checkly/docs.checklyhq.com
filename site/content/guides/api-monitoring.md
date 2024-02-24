@@ -284,7 +284,7 @@ Instead of simply asserting against a specific response, we might want to set di
 
 ## API monitoring best practices
 
-Now that we are clear on the key requirements for setting up API checks, let's think about what and how we should monitor.
+Now that we are clear on the key requirements for setting up API checks, let's think about [what and how we should monitor](https://www.checklyhq.com/blog/what-is-api-monitoring/).
 
 ### Monitor every endpoint
 
