@@ -42,6 +42,15 @@ construct in a separate `.check.ts` file and set file path to the `.spec.ts` fil
 again the new `logicalId` will trigger a deletion of the "old" Check and a creation of this "new" Check and you will lose
 any historical metrics.
 
+## `multiStep.testMatch`
+
+The `testMatch` property for MultiStep checks work the same as for [Browser checks described above](/docs/cli/using-check-test-match/#browsercheckstestmatch).
+
+Some caveats:
+1. `browserChecks.testMatch` will have priority to resolve directories, we recommend to have clear definition for each browser and multistep
+to prevent loading the wrong check type. For example using `browserChecks.testMatch: ['__checks__/**/*.ts']` and `browserChecks.testMatch: ['__checks__/multistep/**/*.ts']` will result
+on all checks created as Browser.
+
 
 > Note that the recommended patterns are just conventions. You can set any glob pattern or turn off any globbing by setting
 `checkMatch: false` and / or `testMatch: false`. 

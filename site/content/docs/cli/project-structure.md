@@ -58,7 +58,10 @@ export default defineConfig({
     checkMatch: '**/*.check.js',
     browserChecks: {
       frequency: Frequency.EVERY_10M,
-      testMatch: '**/*.spec.js',
+      testMatch: 'browsers/**/*.spec.js',
+    },
+    multiStepChecks: {
+      testMatch: 'multistep/**/*.spec.js',
     },
   },
   cli: {
@@ -86,7 +89,10 @@ const config = defineConfig({
     checkMatch: '**/*.check.js',
     browserChecks: {
       frequency: Frequency.EVERY_10M,
-      testMatch: '**/*.spec.js',
+      testMatch: 'browsers/**/*.spec.js',
+    },
+    multiStepChecks: {
+      testMatch: 'multistep/**/*.spec.js',
     },
   },
   cli: {
