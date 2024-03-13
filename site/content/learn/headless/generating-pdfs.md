@@ -52,7 +52,7 @@ In certain cases, our webpage might look significantly different in our PDF comp
 
 ## Customising header and footer
 
-We can also have custom headers and footers added to our pages, displaying values such as title, page number and more. Let's see how this looks on your [favourite website](https://checklyhq.com):
+We can also have custom headers and footers added to our pages, displaying values such as title, page number and more. Let's see how this looks on your [favourite website](https://www.checklyhq.com/):
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
