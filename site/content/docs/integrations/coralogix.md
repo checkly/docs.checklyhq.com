@@ -73,6 +73,10 @@ between synthetic and real users.
 3. Create a new RUM integration in your Coralogix account, you can find these in the **Data Flow > Integrations > Real User Monitoring** section
    of your Coralogix dashboard. Copy and paste the integration API key.
 
+If you are targeting multiple applications with your checks, you can override the global application name by adding the
+environment variable `CORALOGIX_RUM_APP_NAME` to your Browser check. You can find the Browser check specific environment
+variables under "Settings" > "Environment variables" in the Browser check editor.
+
 {{<info>}}
 Note that you do not need to install the RUM SDK in your application, Checkly will automatically inject the necessary
 JavaScript snippet into your Browser checks. However, if you have installed the SDK we will use the existing installation
