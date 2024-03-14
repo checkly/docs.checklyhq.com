@@ -11,17 +11,18 @@ aliases:
 cli: true
 ---
 
-A Private Location is an additional location in Checkly. It acts exactly like any other location, but you run it on your own infrastructure. To operate a Private Location you need to run at least one Checkly Agent.
+A Private Location is a monitoring location that you set up and manage within your own network. The key difference is that you install a lightweight Checkly Agent on your own server or infrastructure.
 
-Private Locations allow you to run checks from within your own infrastructure, enabling testing and monitoring of both internal services (within your private network) and external services (publicly accessible).
+Running a check from a Private Location allows you to:
 
-1. Internal Monitoring: Test the availability and performance of services that aren't accessible externally.
-2. External Monitoring: Simulate user experience from specific geographic locations of your choosing
+- **Monitor internal systems**: Test the performance and reliability of applications and APIs that are only accessible from within your network (e.g., development environments, intranet tools)
 
-Checkly checks are configured and scheduled in the Checkly web UI or using the CLI as usual, but selecting a Private Location runs the check on the agent(s) in your infrastructure. As long as you have at least one operational Checkly Agent, checks will run in your Private Location. Adding more agents will distribute the load and improve resilience automatically.
+- **Test from anywhere**: Test the performance and reliability of applications and APIs from different parts of the world. Install your Checkly Agent(s) for location-based performance insights, that we don't cover with our [Global Locations](/docs/monitoring/global-locations/)
+
+Configure your checks to use your Private Location and that's it. As long as you have at least one operational Checkly Agent, checks will run in your Private Location. [Adding more agents](/docs/private-locations/scaling-and-redundancy/) will distribute the load and improve resilience automatically.
 
 {{< info >}}
-You must have the Owner or Admin role on your Checkly account to create Private Locations.
+Your Checkly user account must be either an **Owner** or **Admin** to create Private Locations.
 {{< /info >}}
 
 ## Requirements
@@ -30,7 +31,7 @@ Here are the requirements before you get started:
 
 - A container runtime (we test using Docker, but other runtimes should work)
 - Outbound internet access for the Agent to https://agent.checklyhq.com (proxy configuration is supported)
-- Access to your internal API- or browser-based applications and services
+- Access to your API or browser-based applications and services from the Private Location network
 
 ## Configuring a Private Location
 
