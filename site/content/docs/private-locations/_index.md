@@ -11,7 +11,7 @@ aliases:
 cli: true
 ---
 
-A Private Location is a monitoring location that you set up and manage within your own network. The key difference is that you install a lightweight Checkly Agent on your own server or infrastructure.
+A Private Location is a monitoring location that you manage by simply deploying a lightweight Checkly Agent.
 
 Running a check from a Private Location allows you to:
 
