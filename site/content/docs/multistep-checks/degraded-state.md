@@ -34,7 +34,7 @@ If your check is failing due to a timeout or failed non-soft assertion it will b
 **Usage**
 ```ts
     if (foo.length > 100) {
-      markCheckAsDegraded()
+      markCheckAsDegraded('Foo is too long.')
     }
 ```
 
@@ -47,7 +47,7 @@ Gets the reqeust response time.
 **Usage**
 ```ts
     if (getAPIResponseTime(response) > 100) {
-      markCheckAsDegraded()
+      markCheckAsDegraded('Response was too slow.')
     }
 ```
 
