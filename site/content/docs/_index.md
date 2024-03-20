@@ -65,7 +65,7 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="Create a multistep API check"
+	  title="Create a multistep check"
 	  img="/docs/images/icons/multistep-check-stroked.svg"
 	  description="Write Node.js scripts that run multiple API requests in sequence, with arbitrary code between requests and get all the data."
 	  link="/docs/multistep-checks/"

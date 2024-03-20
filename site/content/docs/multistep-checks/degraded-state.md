@@ -3,7 +3,7 @@ title: Degraded state and soft assertions
 weight: 19
 menu:
   resources:
-    parent: "Multistep API checks"
+    parent: "Multistep checks"
     identifier: "multistep-degraded-state-soft-asserts"
 cli: true
 ---
@@ -19,7 +19,7 @@ To catch errors that are relevant for a degraded scenario you can use soft asser
 To trigger a degraded state multistep checks use a helper library, `@checkly/playwright-helpers`, which is included in runtime `2023.09` and later. The helper library contains two methods, `markCheckAsDegraded` and `getAPIResponseTime`. 
 
 {{< info >}}
-`@checkly/playwright-helpers` and the degraded state is also available for use in browser checks, but requires the use of `requests` in your test.
+`@checkly/playwright-helpers` is also available for use in browser checks.
 {{< /info >}}
 
 ### markCheckAsDegraded

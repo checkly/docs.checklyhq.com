@@ -4,21 +4,20 @@ weight: 14
 slug: /
 menu:
   resources:
-    parent: "Multistep API checks"
+    parent: "Multistep checks"
     identifier: "multistep-checks"
 aliases:
     - /docs/multistep-checks/quickstart/
     - /docs/multistep-checks/getting-started/
 cli: true
-beta: true
 ---
 
-This guide gives you all the info to create your first Multistep API check with Checkly. You should have some prior
+This guide gives you all the info to create your first Multistep check with Checkly. You should have some prior
 knowledge of working with JavaScript and/or Node.js.
 
-## What is a Multistep API check?
+## What is a Multistep check?
 
-Multistep API checks enable you to write Node.js scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimick and test API user behavior. Multistep API checks ensure that combined API interactions lead to the correct results.
+Multistep checks enable you to write Node.js scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimick and test API user behavior. Multistep checks ensure that combined API interactions lead to the correct results.
 
 Examples of API sequences might be:
 
@@ -28,13 +27,13 @@ Examples of API sequences might be:
 
 Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole works as intended and that the expected interactions between API calls are functional.
 
-Multistep API checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API checks in the form of a programmable `@playwright/test` check.
+Multistep checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API checks in the form of a programmable `@playwright/test` check.
 
 {{< info >}}
-Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
 {{< /info >}}
 
-The following code is a valid Multistep API check using Playwright Test. It creates and deletes an API resource in a single run.
+The following code is a valid Multistep check using Playwright Test. It creates and deletes an API resource in a single run.
 
 ```ts
 import { test, expect } from '@playwright/test' // 1
@@ -68,7 +67,7 @@ test('create and delete a check group', async ({ request }) => { // 3
 })
 ```
 
-## Breaking down a Multistep API check
+## Breaking down a Multistep check
 
 Let's look at the code above step by step.
 
@@ -94,10 +93,10 @@ If you want to build on the above example, you can add additional assertions, en
 
 ## Creating a Multistep check
 
-A valid Multistep API check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](https://www.checklyhq.com/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
+A valid Multistep check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](https://www.checklyhq.com/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
 
 {{< info >}}
-Valid Playwright Test API scripts are the foundation of a valid Multistep API check. If the script passes, your check passes.
+Valid Playwright Test API scripts are the foundation of a valid Multistep check. If the script passes, your check passes.
 If the script fails, your check fails.
 {{< /info >}}
 
@@ -155,17 +154,11 @@ to figure out what check, check type etc. you are running.
 
 ## Pricing
 
-During beta, a multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
+A multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
 
-As an example, let's say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single multistep API check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same
+As an example, let's say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same
 
 A multistep check with 0 requests is billed as if it has 1 request.
-
-## Beta limitations
-
-During the beta phase, multistep API checks comes with some limitations:
- - Metrics from multistep API checks are not yet available via the [Checkly analytics API](/docs/analytics).
- - Multistep checks are not included in the weekly summary email.
 
 ## Resources
 
