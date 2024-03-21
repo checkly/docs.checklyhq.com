@@ -1,5 +1,5 @@
 ---
-title: Degraded state and soft assertions
+title: Degraded state with soft assertions
 weight: 19
 menu:
   resources:
