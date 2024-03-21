@@ -42,7 +42,7 @@ If your check is failing due to a timeout or failed non-soft assertion it will b
 - `reason` String *(optional)*. Logged when the method is called. Used to identify which method caused the degradation.
 
 ### getAPIResponseTime
-Gets the reqeust response time.
+Gets the request response time.
 
 **Usage**
 ```ts
