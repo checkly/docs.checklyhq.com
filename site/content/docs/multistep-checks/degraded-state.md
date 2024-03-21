@@ -8,7 +8,7 @@ menu:
 cli: true
 ---
 
-If you want to monitor your API for non-critical errors or performance degradations you can use the degraded check state. This allows you to signal that parts of a multistep check performed slower than expected, or that it triggered assertions that are of lower criticality. 
+If you want to monitor your API for non-critical errors or performance degradations you can use the degraded check state. This allows you to signal that parts of a Multistep check performed slower than expected, or that it triggered assertions that are of lower criticality. 
 
 The degraded state does not affect your check's success ratio like a failed state does. You can [configure alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) to notifiy you when a check has degraded. 
 
@@ -16,7 +16,7 @@ To catch errors that are relevant for a degraded scenario you can use soft asser
 
 ## Playwright-helpers library
 
-To trigger a degraded state multistep checks use a helper library, `@checkly/playwright-helpers`, which is included in runtime `2023.09` and later. The helper library contains two methods, `markCheckAsDegraded` and `getAPIResponseTime`. 
+To trigger a degraded state Multistep checks use a helper library, `@checkly/playwright-helpers`, which is included in runtime `2023.09` and later. The helper library contains two methods, `markCheckAsDegraded` and `getAPIResponseTime`. 
 
 {{< info >}}
 `@checkly/playwright-helpers` is also available for use in browser checks.

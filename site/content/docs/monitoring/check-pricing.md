@@ -55,21 +55,21 @@ When a check is [retried](/docs/alerting-and-retries/retries), this counts as a 
 
 ## Multistep checks
 
-[Multistep check](/docs/multistep-checks) pricing is slightly different from browser and API checks. A multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation. 
+[Multistep check](/docs/multistep-checks) pricing is slightly different from browser and API checks. A Multistep check is billed based on the number of requests done per check run. Each request in a Multistep check run is billed as a single regular API check run, as they are performing the same basic operation. 
 
 {{< info >}}
-**Example:** Let’s say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same.
+**Example:** Let’s say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single Multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same.
 {{< /info >}}
 
-A multistep check with 0 requests is billed as if it has 1 request.
+A Multistep check with 0 requests is billed as if it has 1 request.
 
 ### Parallel scheduling 
 
-When a multistep check is run in [parallel](/docs/monitoring/global-locations/#parallel), the whole check (with any number of requests) is run from all included locations. That means that the cost is going to equal the number of locations the check is run from multiplied by the number of requests.
+When a Multistep check is run in [parallel](/docs/monitoring/global-locations/#parallel), the whole check (with any number of requests) is run from all included locations. That means that the cost is going to equal the number of locations the check is run from multiplied by the number of requests.
 
 ### Retries
 
-As a multistep check is [retried](/docs/alerting-and-retries/retries) as a whole, the final cost of a retried multistep check is based on the number of requests executed multiplied by the number of retries.
+As a Multistep check is [retried](/docs/alerting-and-retries/retries) as a whole, the final cost of a retried Multistep check is based on the number of requests executed multiplied by the number of retries.
 
 ## Heartbeat checks
 

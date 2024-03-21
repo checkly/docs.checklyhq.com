@@ -24,7 +24,7 @@ Based on the user's selection, the metrics in the summary will also be updated t
 
 ### Monitoring results chart
 
-The monitoring results chart shows a summary of the run results in the selected time period where each bar representing a part of that time period. You can change the time period in the summary section. 
+The monitoring results chart shows a summary of the run results in the selected time period where each bar represents a part of that time period. You can change the time period in the summary section. 
 
 Hovering a bar in the chart will show the results of all check runs executed during that time. You can quickly filter the check run results in the right sidepanel by clicking a bar in the chart.
 
@@ -130,11 +130,13 @@ In the result tree the top node shows the check run log and the check run config
 
 Any errors encountered can be viewed in the 'Errors' node. 
 
-Each Playwright request done is shown as a separate node under the test step in which is was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available.
+Each Playwright request done is shown as a separate node under the test step in which it was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available.
+
+Currently, only requests done using the Playwright `request` are shown as nodes in the tree, requests done via e.g Axios or HTTPS are not.
 
 In the request details you will also find the result of any assertion done as part of the corresponding test step.
 
-<video alt="Using the multistep check results view" autoplay loop muted src="/docs/images/monitoring/check-results-multistep.mp4"></video>
+<video alt="Using the Multistep check results view" autoplay loop muted src="/docs/images/monitoring/check-results-multistep.mp4"></video>
 
 
 

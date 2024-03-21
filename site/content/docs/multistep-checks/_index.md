@@ -71,7 +71,7 @@ test('create and delete a check group', async ({ request }) => { // 3
 
 Let's look at the code above step by step.
 
-**1. Initial declarations:** To run any multistep check, import the Playwright test framework.
+**1. Initial declarations:** To run any Multistep check, import the Playwright test framework.
 
 **2. Define our headers:** In many cases you will have to authenticate when requesting data by providing authorization headers. Use [environment variables](/docs/browser-checks/variables/) to avoid having any confidential data in our test.
 
@@ -102,7 +102,7 @@ If the script fails, your check fails.
 
 ### Structuring a Multistep check
 
-To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on Playwright's [test.step](https://playwright.dev/docs/api/class-test#test-step) method. Your multistep test can have several test steps.
+To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on Playwright's [test.step](https://playwright.dev/docs/api/class-test#test-step) method. Your Multistep test can have several test steps.
 
 **API requests and assertions in the same test step will be presented under the same node in the reporting structure.**
 
@@ -137,7 +137,7 @@ When creating a check using the web editor, after each test run you can open up 
 
 ## Multistep result view
 
-When viewing a multistep check run result, you can select any API request in the result tree to view the full response details. If you have your API request and related assertions in the same `test.step`, related requests and failing assertions will be grouped under the same header.
+When viewing a Multistep check run result, you can select any API request in the result tree to view the full response details. If you have your API request and related assertions in the same `test.step`, related requests and failing assertions will be grouped under the same header.
 
 The default request user-agent is `Checkly/1.0 (https://www.checklyhq.com)`.
 If you would like to use a different user-agent, you can do so with `test.use({userAgent: 'customerUserAgent'})`.
@@ -154,11 +154,11 @@ to figure out what check, check type etc. you are running.
 
 ## Pricing
 
-A multistep check is billed based on the number of requests done per check run. Each request in a multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
+A Multistep check is billed based on the number of requests done per check run. Each request in a Multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
 
-As an example, let's say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same
+As an example, let's say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single Multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same
 
-A multistep check with 0 requests is billed as if it has 1 request.
+A Multistep check with 0 requests is billed as if it has 1 request.
 
 ## Resources
 
