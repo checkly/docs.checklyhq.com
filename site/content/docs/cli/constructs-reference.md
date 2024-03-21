@@ -277,7 +277,7 @@ raw JavaScript / TypeScript as a string.
 
 ## `MultiStepCheck`
 
-Similar to Browser Checks, Multistep checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
+Similar to Browser checks, Multistep checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
 
 {{< info >}}
 Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
