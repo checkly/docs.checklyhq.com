@@ -715,6 +715,7 @@ new ApiCheck('retrying-check', {
 
 `RetryStrategyBuilder` supports the following helper methods:
 
+* `noRetries()`: No retries are performed.
 * `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
 * `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
 * `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.
