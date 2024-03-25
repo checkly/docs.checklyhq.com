@@ -1,23 +1,5 @@
 /* eslint-env jquery */
 
-/**
- * START Navbar
- */
-$(document).ready(() => {
-  const location = window.location.href
-
-  // don't make the header sticky on docs pages.
-  if (!/\/docs\//.test(location)) {
-    $(document).on('scroll', () => {
-      if ($(document).scrollTop() > 100) {
-        $('nav.navbar').addClass('navbar-fixed-drop-shadow')
-      } else {
-        $('nav.navbar').removeClass('navbar-fixed-drop-shadow')
-      }
-    })
-  }
-})
-
 $(document).ready(() => {
 // Show the dashboard button is cookie is present
   if (document.cookie.split(';').filter((item) => item.trim().startsWith('checkly_has_account=')).length) {
