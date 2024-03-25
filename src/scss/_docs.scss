@@ -470,22 +470,29 @@
       }
 
       .text-wrap {
-        //width: calc(100% - 58px);
-
-
         h2 {
           margin: 3px 0;
+          img {
+            margin-right: 4px;
+            vertical-align: text-bottom;
+          }
         }
 
         h3 {
           margin: 2px 0;
           font-size: 20px;
           line-height: 30px;
+
+          img {
+            margin-right: 4px;
+            vertical-align: text-bottom;
+          }
         }
 
         p {
           font-size: 16px;
           line-height: 1.6;
+          margin-bottom: 8px;
         }
       }
 
