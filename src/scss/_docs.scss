@@ -22,7 +22,7 @@
 
   img.screenshot-partial {
     border-radius: 4px;
-    border: $gray-light 1px solid;
+    border: $gray-lightest 1px solid;
     margin: 16px 0;
   }
 
@@ -470,29 +470,37 @@
       }
 
       .text-wrap {
-        //width: calc(100% - 58px);
-
-
         h2 {
           margin: 3px 0;
+          img {
+            margin-right: 4px;
+            vertical-align: text-bottom;
+          }
         }
 
         h3 {
           margin: 2px 0;
           font-size: 20px;
           line-height: 30px;
+
+          img {
+            margin-right: 4px;
+            vertical-align: text-bottom;
+          }
         }
 
         p {
           font-size: 16px;
           line-height: 1.6;
+          margin-bottom: 8px;
         }
       }
 
       .basic-card {
-        transition: box-shadow .15s ease-out,transform .15s ease-out,opacity .15s ease-out;
+        transition: border-color .15s ease-out, box-shadow .15s ease-out,transform .15s ease-out,opacity .15s ease-out;
         &:hover {
           box-shadow: 0px 1px 2px rgba(2,8,20,.06),0px 2px 8px rgba(2,8,20,.08);
+          border-color: $blue;
         }
       }
 

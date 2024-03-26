@@ -3,10 +3,6 @@
   {{ partial "learn-menu" .}}
   <div class="learn-page">
     <article class="markdown">
-      <div class="welcome">
-        <h5>Welcome to the Headless Automation Guides!</h5>
-        <p>We gave theheadless.dev a new home and will publish fresh content around Playwright & Puppeteer in this guide.</p>
-      </div>
       <div class="d-flex search">
         <div class="mobile-toc-button" id="mobile-toc-button">
           <img src="/images/icons/toc-icon.svg" alt="table of contents" width="14" height="12" /> Table of contents
@@ -27,7 +23,10 @@
       </div>
     </article>
     {{end}}
-    <p class="contribute-doc"><img src="/docs/images/icons/edit.png" width="14px" height="14px">
+    <p class="contribute-doc">
+      {{ with .GitInfo }}
+        Last updated on {{ .CommitDate.Format "January 2, 2006" }}.
+      {{ end }}
       You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/learn/headless" target="_blank"> editing this page on Github </a></p>
   </div>
   <aside class="learn-toc mb-3">
