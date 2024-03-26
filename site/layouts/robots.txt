@@ -1,3 +1,4 @@
 User-agent: *
 
 Sitemap: https://www.checklyhq.com/sitemap.xml
+Disallow: /welcome$

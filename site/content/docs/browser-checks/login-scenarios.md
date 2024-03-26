@@ -12,9 +12,14 @@ cli: true
 Scenarios where a user provides credentials to get access to a web app are extremely common. They are also
 a great candidate for a browser check as these site transactions tend to be very crucial.
 
+
 {{<info>}}
 Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection#vercel-authentication) on how to make this work with Checkly.
 {{</info>}}
+
+To get started, check out the video below 👇
+
+{{<youtube R6ERKKr9D9Y >}}
 
 ## Username / password login
 

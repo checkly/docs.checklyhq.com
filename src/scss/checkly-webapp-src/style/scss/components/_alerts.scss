@@ -69,8 +69,8 @@
 
 .alert-cli {
   border: 1px solid $gray-light;
-  padding: 32px;
-  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0px 1px 2px rgba(2, 8, 20, .05), 0px 2px 8px rgba(2, 8, 20, .03);
   &-header {
     color: $gray-dark;
     font-size: $font-size-sm;
@@ -90,8 +90,8 @@
   }
 
   &-link {
-    margin-top: $spacer-y;
-    font-size: $font-size-xs;
+    margin-top: $spacer-y * 0.5;
+    font-size: $font-size-sm;
     display: block;
   }
 

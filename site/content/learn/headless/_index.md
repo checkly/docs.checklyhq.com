@@ -13,7 +13,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="What is Playwright"
+	  title="What is Playwright?"
 	  img="/learn/icons/playwright.png"
 	  description="Built on the experience of Puppeteer, Microsoft's Playwright offers unique features."
 	  link="/learn/headless/basics-playwright-intro/"

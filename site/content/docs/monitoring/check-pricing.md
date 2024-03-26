@@ -21,6 +21,10 @@ Checkly supports different kinds of checks which are billed slightly differently
 The check prices above are based on prepaid check bundles as shown on our [Pricing page](https://www.checklyhq.com/pricing/). If you are on a Checkly Enterprise contract, your checks' base cost might differ substantially from what is shown above.
 {{< /info >}}
 
+When configuring your check frequency and scheduling strategy, the cost helper will estimate the monthly cost for the check.
+<img class="screenshot-partial" alt="cost helper widget" src="/docs/images/monitoring/price-helper.png"/>
+
+
 ## API and Browser checks
 
 Browser checks and API checks have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.

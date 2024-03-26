@@ -20,6 +20,7 @@ You can add as many of the following alert channels as you want:
 - [Opsgenie]({{< ref "docs/integrations/opsgenie.md" >}})
 - [FireHydrant]({{< ref "docs/integrations/firehydrant.md" >}})
 - [Coralogix]({{< ref "docs/integrations/coralogix.md" >}})
+- [Incident.io]({{< ref "docs/integrations/incidentio.md" >}})
 - [ilert]({{< ref "docs/integrations/ilert.md" >}})
 - [Discord]({{< ref "docs/integrations/discord.md" >}})
 - [GitLab Alerts]({{< ref "docs/integrations/gitlab_alerts.md" >}})
