@@ -3,7 +3,7 @@ title: File uploads, downloads and the file system
 weight: 20
 menu:
   resources:
-    parent: "Multistep API checks"
+    parent: "Multistep checks"
     identifier: "multistep-checks-uploads"
 cli: true
 ---

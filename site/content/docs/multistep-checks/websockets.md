@@ -3,7 +3,7 @@ title: WebSockets
 weight: 20
 menu:
   resources:
-    parent: "Multistep API checks"
+    parent: "Multistep checks"
     identifier: "multistep-checks-websockets"
 cli: true
 ---
