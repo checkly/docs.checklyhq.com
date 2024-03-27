@@ -5,5 +5,5 @@ test('homepage', async ({ page }) => {
   const checklyPage = new ChecklySitePage(page)
   await checklyPage.goto('/docs')
   await checklyPage.screenshot('docs')
-  expect(await page.title()).toEqual('Introduction to Checkly | Checkly')
+  expect(await page.title()).toEqual('Get Started | Checkly')
 })
