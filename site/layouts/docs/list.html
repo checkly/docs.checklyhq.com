@@ -36,6 +36,9 @@
 
       <hr class="pt-2 mb-2" />
         <p class="contribute-doc">
+          {{ with .GitInfo }}
+            Last updated on {{ .CommitDate.Format "January 2, 2006" }}.
+          {{ end }}
           You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/docs" target="_blank"> editing this page on Github </a>
         </p>
     </article>

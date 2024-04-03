@@ -1,15 +1,11 @@
 ---
-title: Introduction to Checkly
+title: Get Started
+aliases:
+  - /docs/
 ---
 
-Checkly unites E2E testing and monitoring in one **monitoring as code (MaC)** workflow, enabled by the Checkly CLI.
-Monitoring as code is a methodology for managing your monitoring infrastructure using code. It consists of three key steps:
-
-1. **Code** — Define your monitoring setup as code, so you can version, automate and scale them with ease.
-2. **Test** — Run your monitors as E2E tests against production and staging from your CI pipeline.
-3. **Deploy** — Deploy and lifecycle your monitoring alongside your application deployments.
-
-With MaC, your synthetic monitoring is now programmable, testable, reviewable and works with your dev pipeline. From your IDE, via PR to CI.
+Checkly gives you code-first synthetic monitoring for modern DevOps. Monitor your APIs and apps at a fraction of the 
+price of legacy providers. Powered by Monitoring as Code and Playwright.
 
 ## Get started with monitoring as code
 
