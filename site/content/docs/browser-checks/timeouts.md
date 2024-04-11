@@ -59,8 +59,7 @@ test('add item to wishlist', async ({ page }) => {
 
 ### Your check run has reached the maximum run time of 240000 ms.
 
-In this case, your script is hitting Checkly's 120s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. Try to make your check shorter by following [best practices](/learn/headless/valuable-tests).
-No assets will be available for review after the check has gone over the maximum run time.
+In this case, your script is hitting Checkly's 240s total Browser check timeout. This can't be configured and is in place to prevent checks from running way longer than acceptable. No assets will be available for review after the check has gone over the maximum run time. If you encounter this, try to make your check shorter by following [best practices](/learn/headless/valuable-tests). Additionally, to ensure your assets are saved, please set a test timeout lower than the browser check execution timeout.
 
 ### Timeout 20000ms exceeded
 
