@@ -21,7 +21,7 @@ UnhandledPromiseRejectionWarning: Error: No node found for selector: ...
 ## Possible causes
 
 - **Obvious possible cause #1:** the selector is wrong. See [working with selectors](/learn/headless/basics-selectors/).
-- **Obvious possible cause #2:** the element is not on the page and the automation tool is not automatically waiting for it to appear. An [explicit wait](/learn/headless/basics-navigation) might fix the problem.
+- **Obvious possible cause #2:** the element is not on the page and the automation tool is not automatically waiting for it to appear. An [explicit wait](/learn/headless/basics-navigation/) might fix the problem.
 - **Not-so-obvious possible cause:** the click on the previous element [did not actually go through](/learn/headless/error-click-not-executed). From the perspective of our automation tool, everything went fine, but from ours what happened is more similar to a silent failure. We are now looking for the right element but are on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
 
 ## How to avoid confusion

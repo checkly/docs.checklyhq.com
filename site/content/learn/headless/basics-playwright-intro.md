@@ -21,7 +21,7 @@ You can import Playwright's provided [`test`](https://playwright.dev/docs/api/cl
 <!-- more -->
 ## Puppeteer vs Playwright
 
-The resemblance to Google's [Puppeteer](/learn/headless/basics-puppeteer-intro) is striking, and for good reason.
+The resemblance to Google's [Puppeteer](/learn/headless/basics-puppeteer-intro/) is striking, and for good reason.
 
 In the words of the authors:
 

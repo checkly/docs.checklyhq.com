@@ -30,7 +30,7 @@ More often than not, beginners will be looking for a solution to the "obvious" c
 
 To help avoid stressful and unsuccessful debugging sessions, it might help to consider different possible causes depending on the error you are confronted with:
 
-1. [Error: element not found](/learn/headless/error-element-not-found)
-2. [Error: element not visible](/learn/headless/error-element-not-visible)
-3. [Error: target closed](/learn/headless/error-target-closed)
-4. [Error: wait not respected](/learn/headless/error-wait-not-respected)
+1. [Error: element not found](/learn/headless/error-element-not-found/)
+2. [Error: element not visible](/learn/headless/error-element-not-visible/)
+3. [Error: target closed](/learn/headless/error-target-closed/)
+4. [Error: wait not respected](/learn/headless/error-wait-not-respected/)
