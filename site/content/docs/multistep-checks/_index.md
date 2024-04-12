@@ -151,6 +151,9 @@ to figure out what check, check type etc. you are running.
 
 {{< markdownpartial "/_shared/runtime-env-vars.md" >}}
 
+## Timeouts
+As with Browser checks, Checkly runs a Multistep Check for a maximum of 240s. Scripts exceeding this will timeout. For more information on how to work with the timeout limits for Multistep and Browser checks, see [Timeouts](/docs/browser-checks/timeouts).
+
 
 ## Pricing
 
