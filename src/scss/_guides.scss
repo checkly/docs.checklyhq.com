@@ -17,9 +17,6 @@
 	  border: 1px solid $gray-light;
 	  border-radius: 6px;
 	  margin-bottom: 30px;
-		&:hover{
-			background: $gray-lightest
-		}
 	  .guide-info {
 	  	padding: 20px 20px 24px 20px;
 
@@ -49,9 +46,8 @@
 	  }
 	  .write-info {
 	    padding: 20px;
-	    background: $gray-lightest;
 	    font-size: 14px;
-	    line-heigt: 20px;
+	    line-height: 20px;
 	    color: $gray-darkish;
 	    border-bottom-left-radius: 6px;
 	    border-bottom-right-radius: 6px;
@@ -235,7 +231,7 @@
           }
         }
       }
-    }  
+    }
 
 		nav ul ul {
       padding-left: 1rem;
@@ -286,10 +282,13 @@
 		.three-column-card {
 			width: calc((100% - 50px)/3);
 			display: flex;
-			background-color: #e7f2ff;
-			justify-content-space: space-between;
+			justify-content: space-between;
+			border: 1px solid $gray-light;
 			padding: 20px;
 			border-radius: 6px;
+			&:hover {
+				text-decoration: none;
+			}
 
 			.text-wrap {
 				width: 100%;

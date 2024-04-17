@@ -37,9 +37,6 @@
       padding: 20px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
-
-      border: 1px solid $gray-light;
-      border-radius: 5px;
       ul {
         list-style: none;
         font-size: 14px;
@@ -228,7 +225,7 @@
     font-size: .875rem;
     margin-right: auto;
     width: 232px;
-    padding-top: 8rem;
+    padding-top: 4rem;
 
     nav {
       width: $toc-width;
@@ -334,9 +331,19 @@
       width: 100%;
       margin-top: 40px;
 
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
       .image-wrap {
         width: 42px;
         margin-right: 1rem;
+
+        img {
+          border: none;
+        }
       }
 
       .text-wrap {
@@ -344,39 +351,65 @@
 
         h2 {
           margin: 3px 0;
+
+          img {
+            margin-right: 4px;
+            vertical-align: text-bottom;
+          }
         }
 
         h3 {
           margin: 2px 0;
           font-size: 20px;
           line-height: 30px;
+
+          img {
+            margin-right: 4px;
+            vertical-align: text-bottom;
+          }
         }
 
         p {
-          font-size: 14px;
-          line-height: 20px;
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 8px;
+
+        }
+      }
+
+      .basic-card {
+        transition: border-color .15s ease-out, box-shadow .15s ease-out,transform .15s ease-out,opacity .15s ease-out;
+        &:hover {
+          box-shadow: 0px 1px 2px rgba(2,8,20,.06),0px 2px 8px rgba(2,8,20,.08);
+          border-color: $red;
         }
       }
 
       .full-width-card {
         width: 100%;
         display: flex;
-        justify-content-space: space-between;
-        margin-bottom: 2rem;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding: 20px 24px;
+        border-radius: 6px;
+        border: 1px solid $gray-light;
       }
 
       .two-column-card {
-        width: 47%;
+        width: 49%;
         display: flex;
-        justify-content-space: space-between;
+        justify-content: space-between;
+        padding: 20px 24px;
+        border-radius: 6px;
+        border: 1px solid $gray-light;
       }
       .three-column-card {
         width: calc((100% - 50px)/3);
         display: flex;
-        justify-content-space: space-between;
-        padding: 20px;
-        background: url(/learn/icons/pattern@2x.png);
+        justify-content: space-between;
+        padding: 20px 24px;
         border-radius: 6px;
+        border: 1px solid $gray-light;
 
         .text-wrap {
           width: 100%;

@@ -29,11 +29,10 @@ disqusShortname = "checkly"
     name = "Learn"
     url = "/learn/headless/"
     weight = 30
-
-[[menu.started]]
-	name = "Introduction"
-	url = "/docs/"
-	weight = 1
+[[menu.topnav]]
+    name = "API Reference"
+    url = "https://developers.checklyhq.com"
+    weight = 40
 
 [[menu.platform]]
 	name = "Monitoring"
@@ -67,7 +66,7 @@ disqusShortname = "checkly"
 	weight = 35
 
 [[menu.resources]]
-	name = "Multistep API checks"
+	name = "Multistep checks"
 	url = "/docs/multistep-checks/"
 	weight = 40
 

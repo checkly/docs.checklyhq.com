@@ -64,7 +64,7 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep API Checks.
+The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep Checks.
 
 These Check types share properties derived from the abstract class `Check`.
 
@@ -277,10 +277,10 @@ raw JavaScript / TypeScript as a string.
 
 ## `MultiStepCheck`
 
-Similar to Browser Checks, Multistep API checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
+Similar to Browser checks, Multistep checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
 
 {{< info >}}
-Multistep API checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
 {{< /info >}}
 
 ```ts
@@ -715,6 +715,7 @@ new ApiCheck('retrying-check', {
 
 `RetryStrategyBuilder` supports the following helper methods:
 
+* `noRetries()`: No retries are performed.
 * `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
 * `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
 * `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.

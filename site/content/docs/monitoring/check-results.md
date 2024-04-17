@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-If you have API or Browser checks running, you can select them on the main Checkly dashboard and get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks) section
+You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks) section
 
 ## Check results overview
 
@@ -20,27 +20,21 @@ The summary at the top of the page allows for filtering based on the page's data
 
 <img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-summary.png"/>
 
-Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance. Single tabs in the summary can be clicked to skip to the related section of the page showing a more detailed breakdown of the relevant information.
+Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance.
 
-### Time ribbon
+### Monitoring results chart
 
-Check run results can be accessed by selecting them on the time ribbon or by hovering dots and clicking View Details. View Details will open the selected check run in a new browser tab; a simple click on a time ribbon dot will show a preview of the selected check run below it.
+The monitoring results chart shows a summary of the run results in the selected time period where each bar represents a part of that time period. You can change the time period in the summary section. 
 
-<img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-time-ribbon.png"/>
+Hovering a bar in the chart will show the results of all check runs executed during that time. You can quickly filter the check run results in the right sidepanel by clicking a bar in the chart.
 
-Selecting a check execution will take you to the dedicated check result page for it, which will look different based on whether you had been running a [Browser](#browser-check-results) or an [API check](#api-check-results).
+<img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-monitoring-result-chart.png"/>
 
-When retries are enabled, an additional icon highlights that the check result contains multiple check runs. All attempts as well as the final result are available to view.
+When retries are enabled, an additional icon highlights that the check result contains multiple check runs.
 
-The check retries ratio indicates how many of the total checks run were retried due to an initial failed attempt.
+### Monitoring results sidebar
 
-<video alt="Viewing multiple attempts via tabs" autoplay loop muted src="/docs/images/monitoring/check-overview-time-ribbon-with-retries.mp4"></video>
-
-If you are using the [parallel scheduling strategy](/docs/monitoring/global-locations), instead of individual locations you will see an aggregated result for all check locations in the time ribbon tooltip. Below the ribbon all locations & their respective status will be displayed as a group. You can select *All locations* to see an overview of all check runs, or select an individual location to go directly to that check result.
-
-{{< info >}}
-For self-service plans check results will only be [available in aggregate format](/docs/monitoring/how-we-store-data) after 30 days.
-{{< /info >}}
+On the right side you can view the check result broken down per check run and location for the selected time frame. If you select a bar in the monitoring results chart it will filter out the corresponding results in the sidebar. Click any result to navigate to the check results screen for detailed information about the check run.
 
 ### Performance
 
@@ -65,6 +59,9 @@ For Browser checks, several performance metrics are shown in separate charts:
 
 For API checks, a detailed response time breakdown is shown:
 <img class="screenshot-partial" alt="check overview api performance graph" src="/docs/images/monitoring/check-overview-performance-api.png"/>
+
+For Multistep checks, a response time breakdown is shown per step:
+<img class="screenshot-partial" alt="check overview api performance graph" src="/docs/images/monitoring/check-overview-performance-multistep.png"/>
 
 A performance comparison by location will also be included for both types of check:
 <img class="screenshot-partial" alt="check overview location performance graph" src="/docs/images/monitoring/check-overview-locations.png"/>
@@ -124,6 +121,23 @@ These include:
     d. First Byte
 
     e. Download
+
+## Multistep check results
+
+Multistep check results are navigated using the tree on the left side of the screen. If you are running checks in parallel, first select the location you are interested in.
+
+In the result tree the top node shows the check run log and the check run configuration. Both can be collapsed.
+
+Any errors encountered can be viewed in the 'Errors' node. 
+
+Each Playwright request done is shown as a separate node under the test step in which it was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available.
+
+Currently, only requests done using the Playwright `request` are shown as nodes in the tree, requests done via e.g Axios or HTTPS are not.
+
+In the request details you will also find the result of any assertion done as part of the corresponding test step.
+
+<video alt="Using the Multistep check results view" autoplay loop muted src="/docs/images/monitoring/check-results-multistep.mp4"></video>
+
 
 
 ## Check results with retries

@@ -163,7 +163,7 @@ With this feature, you can provide a secret in an HTTP header or query parameter
 ### How to make this work with Checkly?
 
 
-For any Playwright-powered check, like browser checks and multistep checks, you can add the secret to the required HTTP header 
+For any Playwright-powered check, like browser checks and Multistep checks, you can add the secret to the required HTTP header 
 using the `test.use()` method.
 
 ```ts
