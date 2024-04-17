@@ -230,9 +230,9 @@ For APIs medium and large, and for any that is already described with an OAS fil
 
 As we look to increase our endpoint coverage across our APIs, we might want to explore the following resources:
 
-1. Learning more about [API monitoring](/guides/api-monitoring) basics and best practices.
-2. Defining our [API checks as code](/guides/monitoring-as-code) to scale our setup.
-3. Integrating our API monitoring with [E2E monitoring](/guides/end-to-end-monitoring) for our websites.
+1. Learning more about [API monitoring](/guides/api-monitoring/) basics and best practices.
+2. Defining our [API checks as code](/guides/monitoring-as-code/) to scale our setup.
+3. Integrating our API monitoring with [E2E monitoring](/guides/end-to-end-monitoring/) for our websites.
 
 ## Read More
 

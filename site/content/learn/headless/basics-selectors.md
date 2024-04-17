@@ -192,4 +192,4 @@ The following *might* be good selectors:
 1. [W3C CSS spec](https://www.w3.org/TR/CSS21/selector.html%23id-selectors) for CSS selectors.
 2. [CSS selector intro](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) from Mozilla.
 3. [Playwright's selector documentation](https://playwright.dev/docs/selectors)
-4. [Using script recorders](/learn/headless/script-recorders)
+4. [Using script recorders](/learn/headless/script-recorders/)

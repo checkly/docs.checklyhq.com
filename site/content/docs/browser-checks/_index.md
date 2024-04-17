@@ -270,7 +270,7 @@ test('Open the page and take a screenshot', async ({ page }) => {
 
 ## More Playwright resources
 
-- [Headless Automation guides](/learn/headless), a free & open source knowledge base for Playwright and Puppeteer
+- [Headless Automation guides](/learn/headless/), a free & open source knowledge base for Playwright and Puppeteer
 (maintained by Checkly).
 - [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
