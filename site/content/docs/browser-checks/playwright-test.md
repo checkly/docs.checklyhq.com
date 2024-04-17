@@ -250,7 +250,7 @@ For more information about the `global` options you can check playwright officia
 
 | Option               | Supported |
 |----------------------|-----------|
-| `baseURL`            | ✅         |
+| `baseURL`            | ❌         |
 | `colorScheme`        | ✅         |
 | `geolocation`        | ✅         |
 | `locale`             | ✅         |
