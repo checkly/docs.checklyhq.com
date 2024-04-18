@@ -171,25 +171,22 @@ provide the "client_credentials" grant type.
 {{< tab "TypeScript" >}}
 ```ts
 import axios from 'axios'
-import btoa from 'btoa'
 
 // grab the necessary credentials set up earlier in your environment variables.
-const { ISSUER, TEST_CLIENT_ID, TEST_CLIENT_SECRET, DEFAULT_SCOPE } = process.env
-
-// assemble a token
-const token = btoa(`${TEST_CLIENT_ID}:${TEST_CLIENT_SECRET}`)
+const { AUDIENCE, CLIENT_SECRET, CLIENT_ID, ISSUER } = process.env;
 
 // fetch an access token
-const { data: { access_token }} = await axios.post({
-    uri: `${ISSUER}/v1/token`,
-    headers: {
-        authorization: `Basic ${token}`,
+const { data: { access_token } } = await axios.post(`${ISSUER}/oauth/token`,
+    {
+      grant_type: "client_credentials",
+      client_id: `${CLIENT_ID}`,
+      client_secret: `${CLIENT_SECRET}`,
+      audience: `${AUDIENCE}`,
     },
-    data: {
-        grant_type: 'client_credentials',
-        scope: DEFAULT_SCOPE,
-    },
-})
+    {
+      headers: { "content-type": "application/x-www-form-urlencoded" }
+    }
+)
 
 // set the Authorization header
 request.headers['Authorization'] = `Bearer ${access_token}`
@@ -197,26 +194,23 @@ request.headers['Authorization'] = `Bearer ${access_token}`
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 ```js
-const axios = require('axios').default
-const btoa = require('btoa')
+const axios = require('axios')
 
 // grab the necessary credentials set up earlier in your environment variables.
-const { ISSUER, TEST_CLIENT_ID, TEST_CLIENT_SECRET, DEFAULT_SCOPE } = process.env
-
-// assemble a token
-const token = btoa(`${TEST_CLIENT_ID}:${TEST_CLIENT_SECRET}`)
+const { AUDIENCE, CLIENT_SECRET, CLIENT_ID, ISSUER } = process.env;
 
 // fetch an access token
-const { data: { access_token }} = await axios.post({
-  uri: `${ISSUER}/v1/token`,
-  headers: {
-    authorization: `Basic ${token}`,
+const { data: { access_token } } = await axios.post(`${ISSUER}/oauth/token`,
+  {
+    grant_type: "client_credentials",
+    client_id: `${CLIENT_ID}`,
+    client_secret: `${CLIENT_SECRET}`,
+    audience: `${AUDIENCE}`,
   },
-  data: {
-    grant_type: 'client_credentials',
-    scope: DEFAULT_SCOPE,
-  },
-})
+  {
+    headers: { "content-type": "application/x-www-form-urlencoded" }
+  }
+)
 
 // set the Authorization header
 request.headers['Authorization'] = `Bearer ${access_token}`
@@ -234,25 +228,26 @@ provide the "password" grant type. We actually use this one ourselves for monito
 {{< tabs "oauth password" >}}
 {{< tab "TypeScript" >}}
 ```ts
-import axios from 'axios'
+import axios from "axios";
 
 // grab the necessary credentials set up earlier in your environment variables.
-const { ISSUER, USERNAME, PASSWORD, CLIENT_ID, CLIENT_SECRET, AUDIENCE } = process.env
-
+const { AUDIENCE, CLIENT_SECRET, CLIENT_ID, ISSUER, USERNAME, PASSWORD, SCOPE } = process.env;
 
 // fetch an access token
-const { data: { access_token }} = await axios({
-  url: ISSUER,
-  method: 'POST',
-  data: {
-    grant_type: 'password',
-    username: CHECKLY_USER,
-    password: CHECKLY_PWD,
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
-    audience: AUDIENCE
-  },
-})
+const { data: { access_token } } = await axios.post(`${ISSUER}/oauth/token`,
+    {
+        grant_type: 'password',
+        username: `${USERNAME}`,
+        password: `${PASSWORD}`,
+        audience: `${AUDIENCE}`,
+        scope: `${SCOPE}`,
+        client_id: `${CLIENT_ID}`,
+        client_secret: `${CLIENT_SECRET}`
+    },
+    {
+        headers: { "content-type": "application/x-www-form-urlencoded" }
+    }
+)
 
 // set the Authorization header
 request.headers['Authorization'] = `Bearer ${access_token}`
@@ -261,25 +256,26 @@ request.headers['Authorization'] = `Bearer ${access_token}`
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 ```js
-const axios = require('axios').default
+const axios = require('axios')
 
 // grab the necessary credentials set up earlier in your environment variables.
-const { ISSUER, USERNAME, PASSWORD, CLIENT_ID, CLIENT_SECRET, AUDIENCE } = process.env
-
+const { AUDIENCE, CLIENT_SECRET, CLIENT_ID, ISSUER, USERNAME, PASSWORD, SCOPE } = process.env;
 
 // fetch an access token
-const { data: { access_token }} = await axios({
-  url: ISSUER,
-  method: 'POST',
-  data: {
-    grant_type: 'password',
-    username: CHECKLY_USER,
-    password: CHECKLY_PWD,
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
-    audience: AUDIENCE
-  },
-})
+const { data: { access_token } } = await axios.post(`${ISSUER}/oauth/token`,
+    {
+      grant_type: 'password',
+      username: `${USERNAME}`,
+      password: `${PASSWORD}`,
+      audience: `${AUDIENCE}`,
+      scope: `${SCOPE}`,
+      client_id: `${CLIENT_ID}`,
+      client_secret: `${CLIENT_SECRET}`
+    },
+    {
+        headers: { "content-type": "application/x-www-form-urlencoded" }
+    }
+)
 
 // set the Authorization header
 request.headers['Authorization'] = `Bearer ${access_token}`
