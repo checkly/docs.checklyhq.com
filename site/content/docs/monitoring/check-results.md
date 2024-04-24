@@ -42,7 +42,7 @@ Depending on the type of check, different performance metrics will be shown in t
 
 For Browser checks, several performance metrics are shown in separate charts:
 
-1. The total duration of the browser session
+1. The total duration of the check run
 <img class="screenshot-partial" alt="check overview browser session duration graph" src="/docs/images/monitoring/check-overview-performance-browser.png"/>
 
 2. [Load timings](/docs/browser-checks/tracing-web-vitals/#first-contentful-paint) for the first page navigation
