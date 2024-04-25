@@ -1,5 +1,8 @@
 ---
 title: Telegram
+metatags:
+   title: Checkly Integration with Telegram - Enable Alert Channels
+description: Find out how Checkly integrates with Telegram to send failure, degradation, and recovery messages to any chat.
 weight: 58
 menu:
   integrations:
