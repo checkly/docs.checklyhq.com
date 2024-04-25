@@ -15,7 +15,9 @@
 						{{$title}}
 					</h3>
 				{{ end }}
-				<p>{{$description}}</p>
+				{{ if $description }}
+					<p>{{$description}}</p>
+				{{end}}
 			</div>
 	</div>
 </a>
