@@ -1,6 +1,6 @@
 ---
 title: PHP
-weight: 35
+weight: 34
 menu:
   integrations:
     parent: "Instrumenting your code with OpenTelemetry"

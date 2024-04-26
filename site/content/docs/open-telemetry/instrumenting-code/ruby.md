@@ -1,6 +1,6 @@
 ---
-title: Go
-weight: 35
+title: Ruby
+weight: 36
 menu:
   integrations:
     parent: "Instrumenting your code with OpenTelemetry"

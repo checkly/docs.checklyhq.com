@@ -1,19 +1,27 @@
 <div class="breadcrumb">
   {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
+  {{ $.Scratch.Add "path" .Site.BaseURL }}
+  {{ $.Scratch.Add "path" "/" }}
   {{ range $index, $element := split $url "/" }}
+    {{ $.Scratch.Add "path" $element }}
     {{ if ne $element "" }}
       {{ if eq $element "docs" }}
         <a href="/docs/">Docs</a>
       {{ else }}
         <span>/</span>
         {{ if eq $index 3 }}
-          <a href="/docs/{{ . }}/" class="DocSearch-lvl1" id="breadcrumb-{{anchorize .}}">
+          <a href='{{ $.Scratch.Get "path" }}' class="DocSearch-lvl1" id="breadcrumb-{{anchorize .}}">
             {{ humanize . }}
           </a>
-        {{ else }}
-          {{ humanize . }}
+        {{ else if eq $index 4 }}
+          <a href='{{ $.Scratch.Get "path" }}' class="DocSearch-lvl2" id="breadcrumb-{{anchorize .}}">
+            {{ humanize . }}
+          </a>
+          {{ else }}
+            {{ humanize . }}
         {{ end }}
       {{ end }}
+    {{ $.Scratch.Add "path" "/" }}
     {{ end }}
   {{ end }}
   <div class="ml-auto">

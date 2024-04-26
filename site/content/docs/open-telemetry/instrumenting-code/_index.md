@@ -42,13 +42,6 @@ Below you will find instructions on how to instrument your popular languages and
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
-	title=".NET"
-	img="/docs/images/integrations/otel/otel-languages/dot-net_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/dot-net/"
->}}
-{{< doc-card
-	class="three-column-card"
-	headerTag="h3"
 	title="PHP"
 	img="/docs/images/integrations/otel/otel-languages/php_icon.svg"
 	link="/docs/open-telemetry/instrumenting-code/php/"
@@ -60,10 +53,28 @@ Below you will find instructions on how to instrument your popular languages and
 	img="/docs/images/integrations/otel/otel-languages/go_icon.svg"
 	link="/docs/open-telemetry/instrumenting-code/go/"
 >}}
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title="Ruby"
+	img="/docs/images/integrations/otel/otel-languages/ruby_icon.svg"
+	link="/docs/open-telemetry/instrumenting-code/ruby/"
+>}}
 </div>
 <br>
 
 ## Frameworks
+
+<div class="cards-list">
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title=".NET"
+	img="/docs/images/integrations/otel/otel-languages/dot-net_icon.svg"
+	link="/docs/open-telemetry/instrumenting-code/dot-net/"
+>}}
+</div>
+<br>
 
 If you don't find the language or framework you are using in the list above, you can always reference the
 [OpenTelemetry Languages docs](https://opentelemetry.io/docs/languages/) directly.

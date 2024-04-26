@@ -1,6 +1,6 @@
 ---
 title: .NET
-weight: 34
+weight: 37
 menu:
   integrations:
     parent: "Instrumenting your code with OpenTelemetry"
