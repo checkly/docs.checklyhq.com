@@ -27,7 +27,7 @@ npm install --save \
 
 ## Step 2: Initialize the instrumentation
 
-Create a file called `tracing.js` at the root of your project and add the following code"
+Create a file called `tracing.js` at the root of your project and add the following code:
 
 ```javascript
 // tracing.js
@@ -38,6 +38,7 @@ const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base')
 const { Resource } = require('@opentelemetry/resources')
 const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions')
 const { SamplingDecision } = require('@opentelemetry/sdk-trace-base')
+const { trace } = require('@opentelemetry/api')
 
 const checklyExporter = new OTLPTraceExporter({
   url: process.env.CHECKLY_OTEL_API_ENDPOINT,
@@ -83,7 +84,7 @@ Export your API key and endpoint as environment variables in your shell.
 
 ```bash
 export CHECKLY_OTEL_API_ENDPOINT="https://otel.us-east-1.checklyhq.com/v1/traces" # US instance
-#export CHECKLY_OTEL_API_ENDPOINT="https://otel.us-east-1.checklyhq.com/v1/traces" # EU instance
+#export CHECKLY_OTEL_API_ENDPOINT="https://otel.eu-west-1.checklyhq.com/v1/traces" # EU instance
 export CHECKLY_OTEL_API_KEY="<your Checkly OTel API key>"
 ```
 Then start your app with the extra `-r` flag to load the `tracing.js` file before any other files are loaded.
