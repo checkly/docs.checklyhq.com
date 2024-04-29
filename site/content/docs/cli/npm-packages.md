@@ -17,13 +17,13 @@ Checks are able to use NPM packages that are defined in [our runtimes](/docs/run
 The JavaScript code for checks executes in a runtime environment managed by Checkly.
 Runtime versions can be selected by setting a `runtimeId`.
 This can be configured at the check and group level using constructs, and a default value for the project can be set in the [project configuration file](/docs/cli/project-structure/#global-configuration).
-The latest runtime is `2022.10` at the time of writing. This runtime contains among others:
+The latest runtime is `2024.02` at the time of writing. This runtime contains among others:
 
-- Nodejs 16.x
-- `@playwright/test 1.28.0`
-- `axios 0.27.2`
+- Nodejs 18.x
+- `@playwright/test 1.42.1`
+- `axios 0.28.0`
 - `lodash 4.17.21`
-- `moment 2.29.2`
+- `moment 2.30.1`
 
 ...and a range of other popular NPM package to help you write and assert checks.
 
