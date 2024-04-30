@@ -10,26 +10,20 @@ beta: true
 This guide will help you instrument the `net/http` stack of your Go application(s) with OpenTelemetry and send traces 
 to Checkly.
 
-## Step 1: Get the API endpoint and an API key
-
-{{< markdownpartial "/_shared/otel-prereqs.md" >}}
-
-## Step 2: Install the OpenTelemetry SDK
+## Step 1: Install the OpenTelemetry SDK
 
 Install the relevant OpenTelemetry packages:
 
 ```bash
 go get "go.opentelemetry.io/otel" \
   "go.opentelemetry.io/otel/propagation" \
-  "go.opentelemetry.io/otel/sdk/resource" \
   "go.opentelemetry.io/otel/sdk/trace" \
   "go.opentelemetry.io/otel/exporters/otlp/otlptrace" \
   "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp" \
-  "go.opentelemetry.io/otel/semconv/v1.24.0" \
   "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 ```
 
-## Step 3: Set up SDK
+## Step 2: Set up SDK
 
 Create a file called `tracing.go` at the root of your project and add the following code:
 
@@ -41,17 +35,15 @@ package main
 import (
 	"context"
 	"errors"
-	"os"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/propagation"
-	"go.opentelemetry.io/otel/sdk/resource"
 	"go.opentelemetry.io/otel/sdk/trace"
 )
 
-func SetupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
+func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
 	var shutdownFuncs []func(context.Context) error
 
 	shutdown = func(ctx context.Context) error {
@@ -89,14 +81,8 @@ func newPropagator() propagation.TextMapPropagator {
 }
 
 func newTraceProvider() (*trace.TracerProvider, error) {
-	headers := map[string]string{
-		"Authorization": "Bearer " + os.Getenv("CHECKLY_OTEL_API_KEY"),
-	}
 
-	traceClient := otlptracehttp.NewClient(
-		otlptracehttp.WithHeaders(headers),
-		otlptracehttp.WithEndpoint(os.Getenv("CHECKLY_OTEL_API_ENDPOINT")),
-	)
+	traceClient := otlptracehttp.NewClient()
 
 	var traceExporter, err = otlptrace.New(context.Background(), traceClient)
 	if err != nil {
@@ -104,24 +90,18 @@ func newTraceProvider() (*trace.TracerProvider, error) {
 	}
 
 	bsp := trace.NewBatchSpanProcessor(traceExporter)
-	
-	resource := resource.NewWithAttributes(
-		semconv.SchemaURL,
-		semconv.ServiceNameKey.String("my-go-app"),
-	)
 
-	
 	tracerProvider := trace.NewTracerProvider(
 		trace.WithSampler(trace.AlwaysSample()),
 		trace.WithSpanProcessor(bsp),
-		trace.WithResource(resource),
 	)
 
 	return tracerProvider, nil
 }
+
 ```
 
-## Step 4: Initialize the instrumentation
+## Step 3: Initialize the instrumentation
 
 Add or adapt the following code to your `main.go` file. The key parts are as follows:
 
@@ -194,7 +174,10 @@ func otelChecklyFilter(req *http.Request) bool {
 	return header != "" && strings.Contains(header, "checkly=true")
 }
 ```
-## Step 5: Start your app with the instrumentation
+## Step 4: Start your app with the instrumentation
+
+{{< markdownpartial "/_shared/otel-api-and-endpoint.md" >}}
+
 
 Export your API key and endpoint as environment variables in your shell. 
 
@@ -203,11 +186,6 @@ export CHECKLY_OTEL_API_ENDPOINT="otel.us-east-1.checklyhq.com" # US instance
 #export CHECKLY_OTEL_API_ENDPOINT="otel.eu-west-1.checklyhq.com # EU instance
 export CHECKLY_OTEL_API_KEY="<your Checkly OTel API key>"
 ```
-
-{{< warning >}}
-Note that we export only the hostname of the API endpoint. The Go library will add the protocol and port will append the `/v1/traces` path.
-{{< /warning >}}
-
 Then run you app as usual:
 
 ```bash

@@ -9,12 +9,7 @@ beta: true
 
 This guide will help you instrument your Node.js application(s) with OpenTelemetry and send traces to Checkly.
 
-## Step 1: Get the API endpoint and an API key
-
-{{< markdownpartial "/_shared/otel-prereqs.md" >}}
-
-
-## Step 2: Install the OpenTelemetry SDK
+## Step 1: Install the OpenTelemetry SDK
 
 Install the relevant OpenTelemetry packages:
 
@@ -22,7 +17,9 @@ Install the relevant OpenTelemetry packages:
 npm install --save \
     @opentelemetry/sdk-node \
     @opentelemetry/exporter-trace-otlp-proto \
-    @opentelemetry/auto-instrumentations-node
+    @opentelemetry/auto-instrumentations-node \
+    @opentelemetry/sdk-trace-base \
+    @opentelemetry/api
 ```
 
 ## Step 2: Initialize the instrumentation
@@ -34,25 +31,16 @@ Create a file called `tracing.js` at the root of your project and add the follow
 const { NodeSDK } = require('@opentelemetry/sdk-node')
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto')
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node')
-const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base')
-const { Resource } = require('@opentelemetry/resources')
-const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions')
-const { SamplingDecision } = require('@opentelemetry/sdk-trace-base')
+const { BatchSpanProcessor, SamplingDecision } = require('@opentelemetry/sdk-trace-base')
 const { trace } = require('@opentelemetry/api')
 
-const checklyExporter = new OTLPTraceExporter({
-  url: process.env.CHECKLY_OTEL_API_ENDPOINT,
-  headers: {
-    Authorization: `Bearer ${process.env.CHECKLY_OTEL_API_KEY}`,
-  }
+const exporter = new OTLPTraceExporter({
+  timeoutMillis: 2000,
 })
 
 const sdk = new NodeSDK({
-  resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: `my-node-app`,
-  }),
   instrumentations: [getNodeAutoInstrumentations()],
-  spanProcessors: new BatchSpanProcessor(checklyExporter),
+  spanProcessors: new BatchSpanProcessor(exporter),
   sampler: {
     shouldSample: (context, traceId, spanName, spanKind, attributes, links) => {
       const isChecklySpan = trace.getSpan(context)?.spanContext()?.traceState?.get('checkly')
@@ -80,13 +68,9 @@ inspecting the trace state. This way you only pay for the egress traffic generat
 
 ## Step 3: Start your app with the instrumentation
 
-Export your API key and endpoint as environment variables in your shell.
 
-```bash
-export CHECKLY_OTEL_API_ENDPOINT="https://otel.us-east-1.checklyhq.com/v1/traces" # US instance
-#export CHECKLY_OTEL_API_ENDPOINT="https://otel.eu-west-1.checklyhq.com/v1/traces" # EU instance
-export CHECKLY_OTEL_API_KEY="<your Checkly OTel API key>"
-```
+{{< markdownpartial "/_shared/otel-api-and-endpoint.md" >}}
+
 Then start your app with the extra `-r` flag to load the `tracing.js` file before any other files are loaded.
 
 ```bash
