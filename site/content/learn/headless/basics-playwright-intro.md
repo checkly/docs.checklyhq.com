@@ -1,5 +1,7 @@
 ---
 title: What is Playwright?
+description: 
+  Learn how Playwright, a browser automation tool, simplifies testing across Chrome, Firefox, and WebKit. Start building more reliable web applications today.
 date: 2020-06-29
 author: Giovanni Rago
 githubUser: ragog

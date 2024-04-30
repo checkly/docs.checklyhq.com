@@ -1,5 +1,8 @@
 ---
-title: Pagerduty
+title: PagerDuty
+description: Learn how Checkly integrates seamlessly with PagerDuty, delivering real-time failure and recovery alerts to your PagerDuty account.
+metatags: 
+  title: Checkly Integration with PagerDuty - Trigger & Resolve Alerts
 weight: 56
 menu:
   integrations:

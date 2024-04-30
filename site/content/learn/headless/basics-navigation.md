@@ -1,6 +1,10 @@
 ---
-title: Navigating & waiting
+title: Navigation & waiting
+metatags:
+  title: Navigation & Waiting Strategies in Puppeteer & Playwright
 subTitle: How to ensure elements are ready for interaction
+description:
+  Learn how to navigate web pages and implement effective waiting mechanisms. A guide ideal for developers looking to refine their automation scripts.
 date: 2020-06-15
 author: Tim Nolet
 githubUser: tnolet
