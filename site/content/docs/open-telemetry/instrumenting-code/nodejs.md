@@ -103,9 +103,6 @@ We use the following configuration to filter out some of the noise:
 
 ```javascript
 instrumentations: [getNodeAutoInstrumentations({
-  '@opentelemetry/instrumentation-hapi': {
-    enabled: false,
-  },
   '@opentelemetry/instrumentation-fs': {
     enabled: false,
   },

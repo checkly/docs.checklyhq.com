@@ -1,5 +1,5 @@
 ---
-title: Sending traces to 3rd party OpenTelemetry backends
+title: Sending traces from Checkly to 3rd party OpenTelemetry backends
 weight: 20
 menu:
   integrations:
@@ -34,7 +34,7 @@ Find all the details in the [NewRelic OpenTelemetry documentation](https://docs.
 
 
 1. Make sure you have Grafana Tempo installed, running and accessible. If you are running Grafana Cloud, the Tempo 
-datasource is already pre-configured. Find it at **Connections > **Datasources** > **Tempo**.
+datasource is already pre-configured. Find it at **Connections** > **Datasources** > **Tempo**.
 2. After installing, grab the Tempo endpoint URL. It should look like `https://tempo-eu-west-0.grafana.net/tempo`.
 3. Under the section **Authentication**, grab the user and password for the Tempo endpoint.
 4. As Tempo uses Basic Authentication, you need to provide the user and password in a `Authorization: Basic user:password` HTTP header in 

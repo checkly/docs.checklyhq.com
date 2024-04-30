@@ -18,13 +18,13 @@ to Checkly.
 
 Install the relevant OpenTelemetry packages:
 
-```
+```bash
 go get "go.opentelemetry.io/otel" \
   "go.opentelemetry.io/otel/propagation" \
   "go.opentelemetry.io/otel/sdk/resource" \
   "go.opentelemetry.io/otel/sdk/trace" \
   "go.opentelemetry.io/otel/exporters/otlp/otlptrace" \
-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp" \  
+  "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp" \
   "go.opentelemetry.io/otel/semconv/v1.24.0" \
   "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 ```
@@ -47,10 +47,11 @@ import (
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/propagation"
+	"go.opentelemetry.io/otel/sdk/resource"
 	"go.opentelemetry.io/otel/sdk/trace"
 )
 
-func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
+func SetupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
 	var shutdownFuncs []func(context.Context) error
 
 	shutdown = func(ctx context.Context) error {
@@ -103,9 +104,17 @@ func newTraceProvider() (*trace.TracerProvider, error) {
 	}
 
 	bsp := trace.NewBatchSpanProcessor(traceExporter)
+	
+	resource := resource.NewWithAttributes(
+		semconv.SchemaURL,
+		semconv.ServiceNameKey.String("my-go-app"),
+	)
+
+	
 	tracerProvider := trace.NewTracerProvider(
 		trace.WithSampler(trace.AlwaysSample()),
 		trace.WithSpanProcessor(bsp),
+		trace.WithResource(resource),
 	)
 
 	return tracerProvider, nil
@@ -153,7 +162,7 @@ func run() (err error) {
 	}
 
 	defer func() {
-		err = errors.Join(err, otelShutdown(context.Background()))
+		err = otelShutdown(context.Background())
 	}()
 
 	handler := http.Handler(http.DefaultServeMux)
@@ -202,5 +211,5 @@ Note that we export only the hostname of the API endpoint. The Go library will a
 Then run you app as usual:
 
 ```bash
-go run .
+go run main.go
 ```
