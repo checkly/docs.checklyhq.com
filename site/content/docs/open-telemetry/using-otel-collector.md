@@ -1,6 +1,6 @@
 ---
 title: Using the OpenTelemetry collector
-weight: 50
+weight: 40
 menu:
   integrations:
     parent: "OpenTelemetry (beta)"
@@ -14,18 +14,13 @@ In this guide we assume you already have an OTel collector running and configure
 Open Telemetry Collector getting started documentation](https://opentelemetry.io/docs/collector/installation/)
 
 
-## Step 1: Get the API endpoint and an API key
-
-{{< markdownpartial "/_shared/otel-prereqs.md" >}}
-
-
-## Step 2: Sending traces to Checkly
+## Step 1: Update your config
 
 Sending trace to Checkly is very simple with the OpenTelemetry collector. There are three sections you need to add
 to your collector configuration file:
 
 1. Create a `filter` that will remove all spans that don't have `checkly=true` in the trace state.
-2. Create a new `exporter` with the Checkly API endpoint and API key.
+2. Create a new `exporter` with the Checkly API endpoint and API key as environment variables.
 3. Hook the `exporter` and `filter` into a new trace pipeline.
 
 ```yaml
@@ -45,12 +40,10 @@ processors:
         - 'trace_state["checkly"] != "true"'
 
 exporters:
-  logging:
-    loglevel: debug
   otlp/checkly:
-    endpoint: otel.eu-west-1.checklyhq.com:443
+    endpoint: "${env:CHECKLY_OTEL_API_ENDPOINT}"
     headers:
-      authorization: Bearer ot_132966335ad74b18bf424b737e9abc26
+      authorization: "Bearer ${env:CHECKLY_OTEL_API_KEY}"
       "Content-Type": "application/json"
 
 service:
@@ -58,6 +51,34 @@ service:
     traces:
       receivers: [otlp]
       processors: [filter/checkly, batch]
-      exporters: [logging, otlp/checkly]
+      exporters: [otlp/checkly]
 ```
 
+## Step 2: Restart your collector
+
+Grab your **OTel API key** in the *Send traces* section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).  
+Now, export your API key in your shell by setting the `CHECKLY_OTEL_API_KEY` environment variable.
+
+```bash
+export CHECKLY_OTEL_API_KEY="<your-api-key>"
+```
+
+Next, export the endpoint for the region you want to use:
+```bash
+export CHECKLY_OTEL_API_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
+# export CHECKLY_OTEL_API_ENDPOINT="https://otel.us-east-1.checklyhq.com"
+```
+
+Now, restart your collector with the updated configuration file. If you are using a Dockerized version of the OTel collector,
+don't forget to pass in the environment variables, e.g.
+
+```bash
+docker run \
+-e CHECKLY_OTEL_API_KEY \
+-e CHECKLY_OTEL_API_ENDPOINT \
+...
+```
+
+## Step 3: Verify your setup
+
+You are done. Any traces ingested by your collector that are triggered by a Checkly synthetic check will now be sent to Checkly via the new pipeline.

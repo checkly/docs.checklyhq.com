@@ -1,5 +1,5 @@
 ---
-title: Sending traces from Checkly to 3rd party OpenTelemetry backends
+title: Sending traces to 3rd party backends
 weight: 20
 menu:
   integrations:
@@ -17,16 +17,18 @@ backend. Done.
 After you've set this up, Checkly will instrument every HTTP request with a proper `traceparent` and `tracestate` header
 and send every check run as a trace to your 3rd party OpenTelemetry backend.
 
-## Example configuration
+## Popular 3rd party OTel backends
 
 To help you get started, we collected some example configurations for popular OpenTelemetry vendors below.
 
 ### NewRelic
 
 1. Make sure you have the **Traces** feature enabled in your NewRelic account.
-2. Grab your NewRelic LICENSE KEY in the **Administration** > **API keys** section.
+2. Create an *Ingest - License* type API key in the **Administration** > **API keys** section.
 3. Grab the right endpoint URL for your NewRelic account. It should look like `https://otlp.nr-data.net`. 
 Check [the full list of all NewRelic OTel endpoints](https://docs.newrelic.com/docs/more-integrations/open-source-telemetry-integrations/opentelemetry/get-started/opentelemetry-set-up-your-app/#ports-and-endpoints).
+4. Add the endpoint and the API key to the Checkly integration settings. The API key is added as an HTTP header named 
+`api-key` with the value of your API key.
 
 Find all the details in the [NewRelic OpenTelemetry documentation](https://docs.newrelic.com/docs/more-integrations/open-source-telemetry-integrations/opentelemetry/get-started/opentelemetry-set-up-your-app/).
 
