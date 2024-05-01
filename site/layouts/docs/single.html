@@ -60,8 +60,10 @@
     </div>
     <aside class="docs-toc mb-3">
       <div id="tocMenu">
-        <div class="docs-toc-header">On this page</div>
-        {{ .Page.TableOfContents }}
+        <div class="docs-toc-on-this-page">
+          <div class="docs-toc-header">On this page</div>
+          {{ .Page.TableOfContents }}
+        </div>
         {{ partial "toc-sidebar-community" .}}
         {{ partial "toc-sidebar-support" .}}
       </div>
