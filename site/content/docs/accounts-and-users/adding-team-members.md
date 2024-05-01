@@ -11,7 +11,7 @@ aliases:
 You can invite team members to join your Checkly account to view and manage all checks and related settings.
 Team members can have different [roles](/docs/accounts-and-users).
 
-## Inviting team member
+## Inviting team members
 
 Go to the **Members** section of your account overview. Add the email address of each user you want to invite. A pending invite will be added to your list of users. The invite is valid for 30 days, and you can retract it at any moment.
 
