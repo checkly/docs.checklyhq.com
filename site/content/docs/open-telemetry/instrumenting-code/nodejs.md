@@ -9,7 +9,7 @@ beta: true
 
 This guide will help you instrument your Node.js application(s) with OpenTelemetry and send traces to Checkly.
 
-## Step 1: Install the OpenTelemetry SDK
+## Step 1: Install the OpenTelemetry packages
 
 Install the relevant OpenTelemetry packages:
 

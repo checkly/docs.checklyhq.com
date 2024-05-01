@@ -1,6 +1,6 @@
 ---
 title: Instrumenting your code with OpenTelemetry
-weight: 30
+weight: 60
 menu:
   integrations:
     parent: "OpenTelemetry (beta)"
@@ -66,6 +66,13 @@ Below you will find instructions on how to instrument your popular languages and
 ## Frameworks
 
 <div class="cards-list">
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title="Next.js"
+	img="/docs/images/integrations/otel/otel-languages/nextjs_icon.svg"
+	link="/docs/open-telemetry/instrumenting-code/nextjs/"
+>}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
