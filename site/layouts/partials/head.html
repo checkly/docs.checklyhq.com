@@ -1,5 +1,5 @@
 <head>
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | Checkly {{ end }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.head.title }}{{ .Params.head.title }}{{ else }}{{ .Title }} | Checkly {{ end }}</title>
   <meta charset="utf-8" />
   <meta name="description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
   <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" />

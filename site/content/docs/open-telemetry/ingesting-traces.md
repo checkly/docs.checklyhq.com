@@ -1,5 +1,10 @@
 ---
 title: Ingesting traces into Checkly with the OpenTelemetry collector
+
+metatags:
+  title: "Ingesting traces into Checkly with the OpenTelemetry collector"
+  description: "Send traces to Checkly using the OpenTelemetry collector."
+  keywords: "OpenTelemetry, OpenTelemetry Collector, tracing, monitoring, observability"
 weight: 40
 menu:
   integrations:

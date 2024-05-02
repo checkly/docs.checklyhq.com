@@ -1,5 +1,11 @@
 ---
 title: Python
+head:
+  title: "Instrumenting Python with OpenTelemetry"
+metatags:
+  title: "Instrumenting Python with OpenTelemetry"
+  description: "Instrument your Python application with OpenTelemetry and send traces to Checkly."
+  keywords: "OpenTelemetry, Python, tracing, monitoring, observability"
 weight: 32
 menu:
   integrations:

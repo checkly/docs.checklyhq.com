@@ -1,5 +1,11 @@
 ---
 title: Go
+head:
+  title: "Instrumenting Go with OpenTelemetry"
+metatags:
+  title: "Instrumenting Go with OpenTelemetry"
+  description: "Instrument your Go application with OpenTelemetry and send traces to Checkly."
+  keywords: "OpenTelemetry, Go, Golang, tracing, monitoring, observability"
 weight: 35
 menu:
   integrations:
