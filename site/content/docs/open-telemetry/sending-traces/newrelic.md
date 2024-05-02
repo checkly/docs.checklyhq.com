@@ -5,7 +5,6 @@ head:
   metatags:
     title: "Sending traces to New Relic from Checkly"
     description: "Send traces from Checkly to New Relic for better observability."
-    keywords: "OpenTelemetry, New Relic, tracing, monitoring, observability"
 weight: 21
 menu:
   integrations:

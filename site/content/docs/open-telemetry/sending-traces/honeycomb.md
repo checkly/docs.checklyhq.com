@@ -5,7 +5,6 @@ head:
   metatags:
     title: "Sending traces to Honeycomb from Checkly"
     description: "Send traces from Checkly to Honeycomb for better observability."
-    keywords: "OpenTelemetry, Honeycomb, tracing, monitoring, observability"
 weight: 23
 menu:
   integrations:

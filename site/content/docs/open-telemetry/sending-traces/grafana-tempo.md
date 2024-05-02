@@ -5,7 +5,6 @@ head:
 metatags:
   title: "Sending traces to Grafana Tempo from Checkly"
   description: "Send traces from Checkly to Grafana Tempo for better observability."
-  keywords: "OpenTelemetry, Grafana Tempo, tracing, monitoring, observability
 weight: 22
 menu:
   integrations:

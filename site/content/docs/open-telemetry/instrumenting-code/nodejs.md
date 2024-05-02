@@ -5,7 +5,6 @@ head:
 metatags:
   title: "Instrumenting Node.js with OpenTelemetry"
   description: "Instrument your Node.js application with OpenTelemetry and send traces to Checkly."
-  keywords: "OpenTelemetry, Node.js, JavaScript, tracing, monitoring, observability"
 weight: 31
 menu:
   integrations:

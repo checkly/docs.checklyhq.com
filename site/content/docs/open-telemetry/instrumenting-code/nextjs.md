@@ -5,7 +5,6 @@ head:
 metatags:
   title: "Instrumenting Next.js with OpenTelemetry"
   description: "Instrument your Next.js application with OpenTelemetry and send traces to Checkly."
-  keywords: "OpenTelemetry, Next.js, tracing, monitoring, observability"
 weight: 37
 menu:
   integrations:
