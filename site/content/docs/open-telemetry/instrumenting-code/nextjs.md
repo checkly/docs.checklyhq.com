@@ -14,7 +14,7 @@ beta: true
 
 Next.js is now shipping with an experimental OpenTelemetry integration. This guide will help you instrument your Next.js 
 application(s) with OpenTelemetry and send traces to Checkly.
-
+<!--more-->
 ## Step 1: Install the `@vercel/otel` package
 
 For Next.js, Vercel has created a wrapper that should get you going very quickly. We're just adding some extra packages

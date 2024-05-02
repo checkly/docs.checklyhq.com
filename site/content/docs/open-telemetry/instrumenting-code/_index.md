@@ -12,7 +12,7 @@ beta: true
 
 If you are completely new to OpenTelemetry, you should start by instrumenting your web facing application code with the 
 relevant OTel libraries. This will allow you to send traces directly to Checkly without setting up a 3rd party OpenTelemetry collector.
-
+<!--more-->
 Below you will find instructions on how to instrument your popular languages and frameworks, and how to send traces to Checkly.
 
 ## Languages

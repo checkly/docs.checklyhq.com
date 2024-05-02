@@ -13,7 +13,7 @@ beta: true
 
 Using the OpenTelemetry collector is the best way to manage and route telemetry data from / to Checkly. It requires
 a little setting up, but it's worth it.
-
+<!--more-->
 In this guide we assume you already have an OTel collector running and configured. If you don't, please reference [the
 Open Telemetry Collector getting started documentation](https://opentelemetry.io/docs/collector/installation/)
 

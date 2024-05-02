@@ -13,7 +13,7 @@ beta: true
 ---
 
 This guide will help you instrument your Python application(s) with OpenTelemetry and send traces to Checkly.
-
+<!--more-->
 ## Step 1: Install the OpenTelemetry SDK
 
 Install the relevant OpenTelemetry packages:
