@@ -41,7 +41,7 @@ to any Opsgenie team. You can add as many Opsgenie channels as you wish. After s
 save your changes.  
     ![setup checkly opsgenie integration step 3](/docs/images/integrations/opsgenie/opsgenie_step3.png)
 
-4. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings).
+4. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/).
 Click the "Add more channels" button, find Opsgenie on the list, and click "Add channel" next to it to
 create a new Opsgenie channel.
     ![setup checkly opsgenie integration step 4](/docs/images/integrations/opsgenie/opsgenie_step4.png)
@@ -52,7 +52,7 @@ customers, `US` for the rest of the world).
     > 💡 In OpsGenie you can configure other options like
     [alert priority](https://docs.opsgenie.com/docs/alert-priority-settings).
 
-    > 💡 On Checkly, you can specify which [check events](/docs/alerting/alert-channels) will be sent over to Opsgenie.
+    > 💡 On Checkly, you can specify which [check events](/docs/alerting/alert-channels/) will be sent over to Opsgenie.
 
     ![setup checkly opsgenie integration step 5](/docs/images/integrations/opsgenie/opsgenie_step5.png)
 

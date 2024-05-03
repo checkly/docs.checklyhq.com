@@ -280,7 +280,7 @@ raw JavaScript / TypeScript as a string.
 Similar to Browser checks, Multistep checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
 
 {{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 {{< /info >}}
 
 ```ts
@@ -538,7 +538,7 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 - `account`: The name of your Pagerduty account.
 - `serviceName`: The name of your service defined in Pagerduty under which the alerts should be nested.
 - `serviceKey`: The API key created by installing the Checkly integration in Pagerduty. We advise you to [install the
-  Pagerduty alert channel first from our UI](https://app.checklyhq.com/alerts/settings/channels/new/pagerduty) to grab
+  Pagerduty alert channel first from our UI](https://app.checklyhq.com/alerts/settings/channels/new/pagerduty/) to grab
   the `serviceKey`.
 
 [Learn more about Pagerduty alert channels](/docs/integrations/pagerduty/)
@@ -570,7 +570,7 @@ new MaintenanceWindow('maintenance-window-1', {
 - `repeatEndsAt`: The end date and time when the maintenance window should stop repeating  as an ISO 8601 timestamp
 `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`
 
-[Learn more about maintenance windows in our docs](https://www.checklyhq.com/docs/maintenance-windows)
+[Learn more about maintenance windows in our docs](https://www.checklyhq.com/docs/maintenance-windows/)
 
 ## `Dashboard`
 
@@ -630,7 +630,7 @@ This is required if `customUrl` is not specified.
 - `showP95`: Show or hide the P95 stats on the dashboard. Default: `true`.
 - `showP99`: Show or hide the P99 stats on the dashboard. Default: `true`.
 
-[Learn more about dashbaords in our docs](https://www.checklyhq.com/docs/dashboards)
+[Learn more about dashbaords in our docs](https://www.checklyhq.com/docs/dashboards/)
 
 ## `PrivateLocation`
 
@@ -685,7 +685,7 @@ project or created via the Web UI, you can pass in the `slugName` string.
 - `icon`: An icon to distinguish the location in our UI. You can pick any [Octicons](https://primer.style/design/foundations/icons) name.
 - `proxyUrl`: Define a proxy for outgoing API check HTTP calls from your private location.
 
-[Learn more about private locations in our docs](https://www.checklyhq.com/docs/private-locations)
+[Learn more about private locations in our docs](https://www.checklyhq.com/docs/private-locations/)
 
 ## `RetryStrategy`
 
@@ -731,7 +731,7 @@ For all of the methods above, the `options` argument can be used to customize th
 
 `AlertEscalationPolicy` objects can be used to configure alert settings for the check runs.
 Alert escalation policies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
-[Learn more about alert settings](/docs/alerting-and-retries/alert-settings).
+[Learn more about alert settings](/docs/alerting-and-retries/alert-settings/).
 
 To build `AlertEscalationPolicy` objects you should use the `AlertEscalationBuilder`, which provides helper methods for configuring alert settings.
 As an example, you can configure an alert policy to notify you when a check run has failed twice consecutively, and with 2 reminders each 5 minutes apart.

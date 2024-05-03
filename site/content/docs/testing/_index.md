@@ -46,7 +46,7 @@ While test session git details are automatically detected you can also configure
 
 {{< markdownpartial "/_shared/cli-env-vars.md" >}}
 
-[Read more about using git with the CLI](/docs/cli/using-git)
+[Read more about using git with the CLI](/docs/cli/using-git/)
 
 For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful 
 when using our `@playwright/test` powered browser checks.

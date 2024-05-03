@@ -26,7 +26,7 @@ deliver failure, degradation, and recovery messages to any routing key in any te
     > For more details, [see the Splunk  / VictorOps knowledge base](https://help.victorops.com/knowledge-base/routing-keys/) 
    
 
-3. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings).
+3. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/).
    Click the "Add more channels" button, find Splunk On-Call on the list, and click "Add channel".
 
    ![setup checkly splunk integration step 3](/docs/images/integrations/splunk/splunk_step3.png)

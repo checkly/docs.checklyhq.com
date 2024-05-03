@@ -45,7 +45,7 @@ monitoring in minutes.
 	  title="Create a Browser check"
 	  img="/docs/images/icons/browser-checks.svg"
 	  description="Use TS / JS with @playwright/test and Headless browsers to navigate, screenshot and assert your key webapp flows."
-	  link="/docs/browser-checks"
+	  link="/docs/browser-checks/"
 >}}
 {{< doc-card
 	  class="two-column-card"
@@ -92,6 +92,6 @@ monitoring in minutes.
 <div class="cards-list">
 {{< doc-card class="three-column-card" title="Dashboards" description="Whip up a status page on your own domain or create an internal dashboard." link="/docs/dashboards" >}}
 {{< doc-card class="three-column-card" title="Private Locations" description="Run your Checks wherever you want: inside your firewall, VPC or K8S cluster. " link="/docs/private-locations" >}}
-{{< doc-card class="three-column-card" title="Groups" description="Organize your checks and D.R.Y. up your code and configuration." link="/docs/groups" >}}
+{{< doc-card class="three-column-card" title="Groups" description="Organize your checks and D.R.Y. up your code and configuration." link="/docs/groups/" >}}
 </div>
 

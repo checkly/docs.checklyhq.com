@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks) section
+You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks/) section
 
 ## Check results overview
 
@@ -77,7 +77,7 @@ Individual browser check results contain:
 
 1. A short check summary, including errors broken down by category.
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
-2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test) about the additonal functionalities of Playwright Test.
+2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test/) about the additonal functionalities of Playwright Test.
 <img class="screenshot-partial" alt="check results browser playwright test report" src="/docs/images/monitoring/check-results-browser-pwt-report.png"/>
 3. An error log, only if your script failed.
 <img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>

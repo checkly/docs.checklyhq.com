@@ -229,7 +229,7 @@ If your application [has very specific requirements](https://playwright.dev/docs
 Checkly enables you to use `Google Chrome` with Playwright in runtimes `2023.02` and later. 
 In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
 
-Google Chrome is not available on [Private Locations](/docs/private-locations) running on ARM64 and Apple silicon.
+Google Chrome is not available on [Private Locations](/docs/private-locations/) running on ARM64 and Apple silicon.
 
 {{< tabs "Google Chrome with Playwright test" >}}
 {{< tab "TypeScript" >}}
@@ -265,7 +265,7 @@ test('Open the page and take a screenshot', async ({ page }) => {
 - Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [visual regression & snapshot testing](/docs/browser-checks/visual-regression-snapshot-testing/).
-- Run checks behind an [HTTP proxy](/docs/private-locations/proxy).
+- Run checks behind an [HTTP proxy](/docs/private-locations/proxy/).
 - Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for browser checks.
 
 ## More Playwright resources

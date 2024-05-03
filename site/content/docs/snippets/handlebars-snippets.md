@@ -7,7 +7,7 @@ menu:
 ---
 
 > We still support our legacy Handlebars syntax for referencing snippets in Browser check code but recommend using the **require**
-> syntax discussed [here](/docs/snippets).
+> syntax discussed [here](/docs/snippets/).
 
 Snippets may also be imported using the [Handlebars](https://handlebarsjs.com/guide/partials.html) partial notation `{{> my_code_snippet }}`. When using the partials notation, code snippets are copied inline.
 
