@@ -266,7 +266,7 @@ As soon as a check runs red, we are alerted in real time and can **intervene bef
 
 ## CI/CD
 
-Tests can be kicked off of CI pipelines. You might want to use different hooks (for e.g. smoke vs regression testing) in different stages and against different targets. [Checkly supports all major CI servers](https://www.checklyhq.com/docs/cicd).
+Tests can be kicked off of CI pipelines. You might want to use different hooks (for e.g. smoke vs regression testing) in different stages and against different targets. [Checkly supports all major CI servers](https://www.checklyhq.com/docs/cicd/).
 
 ## Develop-preview-test
 
@@ -280,7 +280,7 @@ We learned things the hard way so you do not have to. When starting out, keep an
 
 * Long, unfocused tests: checking too much in a single test will make failures harder to debug. [Break it up instead](/learn/headless/valuable-tests/#keep-tests-focused), and enjoy the added parallelisation.
 
-* Messing up your own metrics, KPIs: remember, if you are not running against production, you want to make sure your E2E monitoring checks or tests are filtered out of your analytics. This is [rather easy to do](/docs/monitoring/allowlisting), with most headless browser tools normally identifying themselves as such from the start.
+* Messing up your own metrics, KPIs: remember, if you are not running against production, you want to make sure your E2E monitoring checks or tests are filtered out of your analytics. This is [rather easy to do](/docs/monitoring/allowlisting/), with most headless browser tools normally identifying themselves as such from the start.
 
 ## Read More
 

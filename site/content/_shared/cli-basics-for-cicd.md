@@ -16,4 +16,4 @@ by using environment variables.
 
 {{< markdownpartial "/_shared/cli-env-vars.md" >}}
 
-Check the [CLI command line reference](/docs/cli/command-line-reference) for more options.
+Check the [CLI command line reference](/docs/cli/command-line-reference/) for more options.

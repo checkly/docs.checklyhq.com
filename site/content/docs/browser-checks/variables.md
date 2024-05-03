@@ -24,7 +24,7 @@ Check variables are added on the **Variables** tab for each browser check.
 
 ![add local variables](/docs/images/browser-checks/add-local-variable.png)
 
-Group variables are added on the **Variables** tab in a [group](/docs/groups). The variables stored here are accessible
+Group variables are added on the **Variables** tab in a [group](/docs/groups/). The variables stored here are accessible
 only in the group context.
 
 ![add group variables](/docs/images/browser-checks/add-group-variable.png)

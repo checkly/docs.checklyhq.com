@@ -21,7 +21,7 @@ You can set two thresholds:
 The benefit of using the degraded state is that it does not affect your check's success ratio like a failed state does. 
 
 You can enable alerts to be send when an API checks is degraded. This way you are notified of possible problems before things
-get out of hand. See [alerting](/docs/alerting) for more details.
+get out of hand. See [alerting](/docs/alerting/) for more details.
 
 
 > All API checks are hard capped at a timeout of **30 seconds**, this means the **"Fail at"** threshold has a maximum value of 30 seconds.

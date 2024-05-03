@@ -47,7 +47,7 @@ Balance the number of locations the check is using to ensure you are quickly mad
 
 ### Retries
 
-When a check is [retried](/docs/alerting-and-retries/retries), this counts as a new check run. A flaky check can increase your check run costs above the expected. If you have problems with flaky checks, ask [our community](https://www.checklyhq.com/slack/) or our support for tips on how to improve check stability and reduce cost.
+When a check is [retried](/docs/alerting-and-retries/retries/), this counts as a new check run. A flaky check can increase your check run costs above the expected. If you have problems with flaky checks, ask [our community](https://www.checklyhq.com/slack/) or our support for tips on how to improve check stability and reduce cost.
 
 {{< info >}}
 **Example:** If our check from earlier has a 20% retry rate, this will increase the cost from $3.65 to $4.40.
@@ -55,7 +55,7 @@ When a check is [retried](/docs/alerting-and-retries/retries), this counts as a 
 
 ## Multistep checks
 
-[Multistep check](/docs/multistep-checks) pricing is slightly different from browser and API checks. A Multistep check is billed based on the number of requests done per check run. Each request in a Multistep check run is billed as a single regular API check run, as they are performing the same basic operation. 
+[Multistep check](/docs/multistep-checks/) pricing is slightly different from browser and API checks. A Multistep check is billed based on the number of requests done per check run. Each request in a Multistep check run is billed as a single regular API check run, as they are performing the same basic operation. 
 
 {{< info >}}
 **Example:** Let’s say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single Multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same.
@@ -69,11 +69,11 @@ When a Multistep check is run in [parallel](/docs/monitoring/global-locations/#p
 
 ### Retries
 
-As a Multistep check is [retried](/docs/alerting-and-retries/retries) as a whole, the final cost of a retried Multistep check is based on the number of requests executed multiplied by the number of retries.
+As a Multistep check is [retried](/docs/alerting-and-retries/retries/) as a whole, the final cost of a retried Multistep check is based on the number of requests executed multiplied by the number of retries.
 
 ## Heartbeat checks
 
-A set number of [heartbeat checks](/docs/heartbeat-checks) are included in the team and enterprise plans. Checkly does not charge for heartbeat pings. 
+A set number of [heartbeat checks](/docs/heartbeat-checks/) are included in the team and enterprise plans. Checkly does not charge for heartbeat pings. 
 
 {{< info >}}
 **Example:** If you decide to change the frequency of one of your heartbeat checks from 5 minutes to 30 seconds, there is no change in the cost you will incur.

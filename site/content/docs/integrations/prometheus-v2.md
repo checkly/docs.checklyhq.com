@@ -47,7 +47,7 @@ The Prometheus metrics endpoint has a rate limit of 8 requests per 5 minutes. We
 
 ## Check Metrics
 
-The Prometheus exporter exposes several metrics you can use to monitor the status of your checks, as well as to inspect detailed information such as [Web Vitals](/docs/browser-checks/tracing-web-vitals).
+The Prometheus exporter exposes several metrics you can use to monitor the status of your checks, as well as to inspect detailed information such as [Web Vitals](/docs/browser-checks/tracing-web-vitals/).
 
 The following metrics are available to monitor checks:
 

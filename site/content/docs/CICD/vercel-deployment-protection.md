@@ -196,7 +196,7 @@ request.headers['x-vercel-protection-bypass'] = process.env.VERCEL_BYPASS_TOKEN
 ## Password Protection
 Vercel's [Password Protection](https://vercel.com/docs/concepts/deployments/deployment-protection#password-protection) is a paid
 addon that allows you to set a dedicated password for your deployments and specifically bypass protection for E2E tests / automation.
-You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios#username--password-login) 
+You can accomplish this using the resources referenced in the docs for [browser checks](/docs/browser-checks/login-scenarios/#username--password-login) 
 or [API requests](https://www.checklyhq.com/docs/api-checks/setup-script-examples/#dismiss-password-protection-prompt-on-vercel-deployment).
 
 

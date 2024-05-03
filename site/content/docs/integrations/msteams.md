@@ -28,7 +28,7 @@ To enable the MS Teams alert channel, take the following steps:
    ![setup checkly msteams integration step 4](/docs/images/integrations/msteams/msteams_step4.png)
 
    
-5. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings). 
+5. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/). 
    Click the "Add more channels" button, find MS Teams on the list, and click "Add channel".
 
    ![setup checkly msteams integration step 5](/docs/images/integrations/msteams/msteams_step5.png)
