@@ -85,18 +85,7 @@ inspecting the trace state. This way you only pay for the egress traffic generat
 
 ## Step 3: Start your app with the instrumentation
 
-Grab your **OTel API key** in the *Send traces* section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).  
-Now, export your API key in your shell by setting the `CHECKLY_OTEL_API_KEY` environment variable.
-
-```bash
-export CHECKLY_OTEL_API_KEY="<your-api-key>"
-```
-
-Next, export the endpoint for the region you want to use and give your service a name.
-```bash
-export CHECKLY_OTEL_ENDPOINT="https://otel.eu-west-1.checklyhq.com/v1/traces"   
-# export CHECKLY_OTEL_ENDPOINT="https://otel.us-east-1.checklyhq.com/v1/traces"
-```
+{{< markdownpartial "/_shared/otel-api-and-endpoint.md" >}}
 
 If you are using Vercel for hosting your Next.js app, add the above environment variables to your Vercel project settings,
 e.g. 👇
