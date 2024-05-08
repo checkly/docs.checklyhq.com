@@ -8,7 +8,7 @@ menu:
 cli: true
 ---
 
-Below are a number of checks showcasing how to use Multistep checks. These are similar to the templates provided in Checkly when creating a new Multistep check and should give you an idea of how to get started building various types of API monitors.
+Below are a number of checks showcasing how to use Multistep checks. These are similar to the templates provided in Checkly when creating a new Multistep check and should give you an idea of how to get started building various types of checks.
 
 Some of the examples require setting up authentication tokens to function.
 
