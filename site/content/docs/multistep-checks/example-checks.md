@@ -153,7 +153,7 @@ test("Todo List", async ({ request }) => {
 ```
 
 ### Verifying binary payloads
-One way to ensure that e.g CDN endpoints are serving images correctly is by verifying its binary. 
+One way to ensure that e.g. CDN endpoints are serving images correctly is by verifying its binary. 
 
 Here is an example of how to verify several images in a loop, checking each image against a unique binary.
 
@@ -193,4 +193,4 @@ test("Verify Binary Payloads", async ({ request }) => {
 })
 ```
 
-If you have suggestions for additional check examples to add here, please do not hesitate to reach out to our [support](mailto:support@checklyhq.com), or join our [Slack community](https://www.checklyhq.com/slack/).
+If you have suggestions for additional check examples to add here, please do not hesitate to reach out to our [support](mailto:support@checklyhq.com), join our [Slack community](https://www.checklyhq.com/slack/) or submit a PR to our [public Docs repository](https://github.com/checkly/docs.checklyhq.com/).
