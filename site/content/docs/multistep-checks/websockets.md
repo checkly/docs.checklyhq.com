@@ -1,6 +1,6 @@
 ---
 title: WebSockets
-weight: 20
+weight: 21
 menu:
   resources:
     parent: "Multistep checks"
