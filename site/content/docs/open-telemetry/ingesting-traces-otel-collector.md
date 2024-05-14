@@ -70,7 +70,6 @@ export CHECKLY_OTEL_API_KEY="<your-api-key>"
 Next, export the endpoint for the region you want to use:
 ```bash
 export CHECKLY_OTEL_API_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
-# export CHECKLY_OTEL_API_ENDPOINT="https://otel.us-east-1.checklyhq.com"
 ```
 
 Now, restart your collector with the updated configuration file. If you are using a Dockerized version of the OTel collector,

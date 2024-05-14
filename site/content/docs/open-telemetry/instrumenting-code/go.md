@@ -187,8 +187,7 @@ func otelChecklyFilter(req *http.Request) bool {
 Export your API key and endpoint as environment variables in your shell. 
 
 ```bash
-export CHECKLY_OTEL_API_ENDPOINT="otel.us-east-1.checklyhq.com" # US instance
-#export CHECKLY_OTEL_API_ENDPOINT="otel.eu-west-1.checklyhq.com # EU instance
+export CHECKLY_OTEL_API_ENDPOINT="otel.eu-west-1.checklyhq.com # EU instance
 export CHECKLY_OTEL_API_KEY="<your Checkly OTel API key>"
 ```
 Then run you app as usual:

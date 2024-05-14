@@ -50,7 +50,7 @@ Create a file called `instrumentation.js` at the root of your project and add th
 
 import { registerOTel } from '@vercel/otel'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http'
-import { ConsoleSpanExporter, SimpleSpanProcessor, SamplingDecision } from '@opentelemetry/sdk-trace-base'
+import { ConsoleSpanExporter, BatchSpanProcessor, SamplingDecision } from '@opentelemetry/sdk-trace-base'
 import { trace } from '@opentelemetry/api'
 
 const checklyExporter = new OTLPTraceExporter({
@@ -58,8 +58,8 @@ const checklyExporter = new OTLPTraceExporter({
 })
 
 // export spans to console (useful for debugging)
-const consoleProcessor = new SimpleSpanProcessor(new ConsoleSpanExporter())
-const spanProcessors = new SimpleSpanProcessor(checklyExporter)
+const consoleProcessor = new BatchSpanProcessor(new ConsoleSpanExporter())
+const spanProcessors = new BatchSpanProcessor(checklyExporter)
 
 export function register() {
     registerOTel({

@@ -47,7 +47,6 @@ Note that the Python OTel library demands that header key/value pairs are URL en
 Next, export the endpoint for the region you want to use, give your service a name and set the protocol to `http/protobuf`
 ```bash
 export OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
-# export OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.us-east-1.checklyhq.com"
 export OTEL_SERVICE_NAME="your-service-name"
 export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf 
 ```

@@ -8,6 +8,10 @@ menu:
 beta: true
 ---
 
+{{< info >}}
+The OpenTelemetry integration is currently in **private beta**. If you are intestested in participating, please reach out to us at support@checklyhq.com.
+{{< /info >}}
+
 With the Checkly OpenTelemetry (OTel) integration, you can find out why your business critical checks are failing and resolve
 issues 10x faster than before. This works as follows:
 
