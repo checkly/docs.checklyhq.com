@@ -17,10 +17,10 @@ issues 10x faster than before. This works as follows:
 
 1. All HTTP requests made by your checks are automatically instrumented with W3C `traceparent` and 
 `tracestate` headers.
-2. **Send every check run to your 3rd party OTel backend as a span**, enabling you to correlate check runs 
+2. **Ingest traces into Checkly from your OTel setup** and display them in the Checkly UI, allowing you to correlate check results with traces.
+3. **Send every check run to your 3rd party OTel backend as a span**, enabling you to correlate check runs 
 and their metadata like check run location, check name etc. with other telemetry data.
-3. **Ingest traces into Checkly from your OTel setup** and display them in the Checkly UI, allowing you to 
-correlate check results with traces.
+
 
 To get started with the Checkly OpenTelemetry integration, pick a scenario that best fits your needs.
 
