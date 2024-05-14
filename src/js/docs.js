@@ -26,11 +26,11 @@ $(document).ready(() => {
 
 $(document).ready(() => {
   if ($('#TableOfContents ul').length >= 1) {
-    $('#tocMenu').css({
+    $('.docs-toc-on-this-page').css({
       display: 'block'
     })
   } else {
-    $('#tocMenu').css({
+    $('.docs-toc-on-this-page').css({
       display: 'none'
     })
   }

@@ -140,6 +140,12 @@ disqusShortname = "checkly"
 	url = "/docs/pulumi-provider/"
 	weight = 40
 
+[[menu.integrations]]
+	name = "OpenTelemetry (beta)"
+	url = "/docs/open-telemetry/"
+	weight = 50
+	beta = true
+
 
 [[menu.reference]]
     name = "CLI Commands"

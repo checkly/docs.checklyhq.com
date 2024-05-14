@@ -26,7 +26,7 @@
 
       {{ range first 1 .Pages }}
       <div class="text-right my-5">
-        <a href="{{ .Permalink }}">{{ .Title }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}
           <svg class="ml-2" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21967 0.969668C5.51256 0.676777 5.98744 0.676777 6.28033 0.969668L10.5303 5.21967C10.8232 5.51256 10.8232 5.98744 10.5303 6.28033L6.28033 10.5303C5.98744 10.8232 5.51256 10.8232 5.21967 10.5303C4.92678 10.2374 4.92678 9.7626 5.21967 9.4697L8.1893 6.5H0.75C0.33579 6.5 0 6.16421 0 5.75C0 5.33579 0.33579 5 0.75 5H8.1893L5.21967 2.03033C4.92678 1.73744 4.92678 1.26256 5.21967 0.969668Z" fill="#0075ff"/>
           </svg>
@@ -45,8 +45,10 @@
   </div>
   <aside class="docs-toc mb-3">
     <div id="tocMenu">
-      <div class="docs-toc-header">On this page</div>
-      {{ .Page.TableOfContents }}
+      <div class="docs-toc-on-this-page">
+        <div class="docs-toc-header">On this page</div>
+        {{ .Page.TableOfContents }}
+      </div>
       {{ partial "toc-sidebar-community" .}}
       {{ partial "toc-sidebar-support" .}}
     </div>
