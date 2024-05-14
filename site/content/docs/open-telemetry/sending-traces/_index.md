@@ -10,8 +10,8 @@ beta: true
 Sending your checks as traces to a 3rd party OpenTelemetry backend is a great way to correlate check runs with other
 telemetry data. It's also very simple to set up.
 <!--more-->
-1. Flip the **"Basic HTTP instrumentation"** toggle in the OpenTelemetry integration in your Checkly account.
-2. Flip the **"Send traces"** toggle and provide the trace endpoint URL and API key for your preferred 3rd party OpenTelemetry
+1. Flip the **Basic HTTP instrumentation** toggle in [the OpenTelemetry integration in your Checkly account](https://app.checklyhq.com/settings/account/open-telemetry).
+2. Provide the trace endpoint URL and HTTP header with an API key for your preferred 3rd party OpenTelemetry
    backend. Done.
 
 After you've set this up, Checkly will instrument every HTTP request with a proper `traceparent` and `tracestate` header

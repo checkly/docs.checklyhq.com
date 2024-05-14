@@ -33,7 +33,14 @@ opentelemetry-bootstrap --action=install
 
 ## Step 3: Start your app with the instrumentation
 
-Grab your **OTel API key** in the *Send traces* section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).  
+First, make sure to switch on the **Basic HTTP Instrumentation**. This will add the necessary headers to your HTTP requests.
+
+![Checkly basic OTEL http instrumentation](/docs/images/integrations/otel/otel_basic_instrumentation.png)
+
+Then, flip on the "Ingest Traces" section, grab your OTel API key in the **Ingest traces** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).
+
+![Checkly OTEL API keys](/docs/images/integrations/otel/otel_ingest_traces.png)
+
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 
 ```bash
