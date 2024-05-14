@@ -79,6 +79,13 @@ Below you will find instructions on how to instrument your popular languages and
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
+	title="Express.js"
+	img="/docs/images/integrations/otel/otel-languages/expressjs_icon.svg"
+	link="/docs/open-telemetry/instrumenting-code/express/"
+>}}
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
 	title=".NET"
 	img="/docs/images/integrations/otel/otel-languages/dot-net_icon.svg"
 	link="/docs/open-telemetry/instrumenting-code/dot-net/"

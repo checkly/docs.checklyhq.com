@@ -1,5 +1,5 @@
 ---
-title: Go
+title: Go / Golang
 head:
   title: "Instrumenting Go with OpenTelemetry"
 metatags:
