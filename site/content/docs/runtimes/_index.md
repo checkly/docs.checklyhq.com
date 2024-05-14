@@ -10,7 +10,7 @@ aliases:
 cli: true
 ---
 
-Checkly allows you to use JavaScript code in your [Browser checks](/docs/browser-checks) and in the optional 
+Checkly allows you to use JavaScript code in your [Browser checks](/docs/browser-checks/) and in the optional 
 [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/) you can add to your API checks.
 
 This JavaScript code executes in a runtime environment that is managed by Checkly. This environment has access to specific 
@@ -20,7 +20,7 @@ Node.js versions and NPM packages, like the "latest Playwright version on Node 1
 
 It's pretty easy. You don't have to do anything most of the time.
 
-1. View all the available runtimes on the [runtimes tab in the account section](https://app.checklyhq.com/settings/account/runtimes). See the screenshot below.
+1. View all the available runtimes on the [runtimes tab in the account section](https://app.checklyhq.com/settings/account/runtimes/). See the screenshot below.
 2. There is always one runtime marked as **active**. This is the runtime all checks use, unless you decide to override this at the check or group level.
 4. Runtimes have a simple `YYYY.MM` name, e.g. `2021.06` Newer dates hold newer dependencies.   
 3. Pick the runtime you want and click "Save settings". This runtime now applies to all of your checks and any new checks you create.

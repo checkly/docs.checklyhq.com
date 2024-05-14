@@ -16,7 +16,7 @@ API checks consist of few parts:
 **1. Name and tags**
 
 Start as you mean to go on. Pick a sensible name, something that other members of your team are going to understand. A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide better a better alerting experience if your checks fall into an alert state.
-Tags can relate your checks together, they also determine which checks are shown on your public [dashboards](/docs/dashboards).
+Tags can relate your checks together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).
 ![http request](/docs/images/api-checks/overview-name-tag.png)
 
 **2. The HTTP request**
@@ -34,7 +34,7 @@ You can import a cURL command, Swagger.json or OpenAPI specification here too.
 Setup scripts allow you to do last minute processing of test data and request options. The scripts execute before any requests are made.
 Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. With a maximum execution time of 10 seconds, these scripts are really useful for things like signing HMAC requests, requesting tokens, setting up or cleaning up test data and scrubbing sensitive response data for regulatory reasons.
 
-[Read more about setup and teardown scripts](setup-teardown-scripts)
+[Read more about setup and teardown scripts](setup-teardown-scripts/)
 ![setup and teardown scripts](/docs/images/api-checks/overview-scripts.png)
 
 **4. Response time limits**
@@ -56,7 +56,7 @@ You can assert on different sources. These could be:
 
 **6. Locations**
 
-You can configure your checks to run from our ever-growing amount of global [public](/docs/monitoring/global-locations) locations or use a Checkly Agent to host your own [private](/docs/private-locations/private-locations-getting-started)
+You can configure your checks to run from our ever-growing amount of global [public](/docs/monitoring/global-locations/) locations or use a Checkly Agent to host your own [private](/docs/private-locations/private-locations-getting-started/)
 If you don't select more than one data center location, we will pick a random location when retrying checks if you have "double check" enabled.
 ![locations](/docs/images/api-checks/overview-locations.png)
 
@@ -68,7 +68,7 @@ The quickest schedule you can run is every 10 seconds and the slowest is every 2
 
 **8. Alerting**
 
-Our alerting is pretty flexible. You can configure any of our [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for whichever checks you like. If we don't have your preferred alert method, why not try out our [Webhooks](/docs/alerting/webhooks)?
-> [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls) alerts are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features) 
+Our alerting is pretty flexible. You can configure any of our [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for whichever checks you like. If we don't have your preferred alert method, why not try out our [Webhooks](/docs/alerting/webhooks/)?
+> [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls/) alerts are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features) 
 
 ![alerting](/docs/images/api-checks/overview-alerting.png)

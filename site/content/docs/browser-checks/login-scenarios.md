@@ -14,7 +14,7 @@ a great candidate for a browser check as these site transactions tend to be very
 
 
 {{<info>}}
-Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection#vercel-authentication) on how to make this work with Checkly.
+Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/#vercel-authentication) on how to make this work with Checkly.
 {{</info>}}
 
 To get started, check out the video below 👇

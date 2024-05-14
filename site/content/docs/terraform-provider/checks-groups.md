@@ -10,7 +10,7 @@ Checks make up the most important unit of your Checkly monitoring setup. Groups 
 
 ## Checks
 
-[Browser checks](/docs/browser-checks), [API checks](/docs/api-checks), [Heartbeat checks](/docs/heartbeat-checks) and [Multistep checks](/docs/multistep-checks) share many arguments, configuration-wise, 
+[Browser checks](/docs/browser-checks/), [API checks](/docs/api-checks/), [Heartbeat checks](/docs/heartbeat-checks/) and [Multistep checks](/docs/multistep-checks/) share many arguments, configuration-wise, 
 but also have their own unique ones. The type of your check is controlled using the `type` argument.
 
 ### Browser checks
@@ -143,7 +143,7 @@ As with Browser checks, when constructing a Multistep check it is possible to pr
 but the recommended approach is to store scripts in separate files.
 
 {{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 {{< /info >}}
 
 For example, a Multistep check can look as follows:
@@ -167,7 +167,7 @@ For example, a Multistep check can look as follows:
 
 ## Groups
 
-Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups) to keep things tidy:
+Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups/) to keep things tidy:
 
 ```terraform
 resource "checkly_check_group" "key-shop-flows" {

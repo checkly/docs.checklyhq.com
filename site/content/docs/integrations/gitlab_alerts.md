@@ -27,7 +27,7 @@ and select the **HTTP Endpoint** integration type
    ![setup checkly gitlab integration step 3](/docs/images/integrations/gitlab/gitlab_step3.png)
 
 
-4. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings).
+4. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/).
    Click the "Add more channels" button, find GitLab Alerts on the list, and click "Add channel".
 
    ![setup checkly gitlab_integration step 5](/docs/images/integrations/gitlab/gitlab_step4.png)

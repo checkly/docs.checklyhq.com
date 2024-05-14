@@ -30,7 +30,7 @@ Monitoring your API user flows instead of individual endpoints gives confidence 
 Multistep checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API checks in the form of a programmable `@playwright/test` check.
 
 {{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes) for more details.
+Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 {{< /info >}}
 
 The following code is a valid Multistep check using Playwright Test. It creates and deletes an API resource in a single run.

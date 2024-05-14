@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks) section
+You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks/) section
 
 ## Check results overview
 
@@ -42,7 +42,7 @@ Depending on the type of check, different performance metrics will be shown in t
 
 For Browser checks, several performance metrics are shown in separate charts:
 
-1. The total duration of the browser session
+1. The total duration of the check run
 <img class="screenshot-partial" alt="check overview browser session duration graph" src="/docs/images/monitoring/check-overview-performance-browser.png"/>
 
 2. [Load timings](/docs/browser-checks/tracing-web-vitals/#first-contentful-paint) for the first page navigation
@@ -77,7 +77,7 @@ Individual browser check results contain:
 
 1. A short check summary, including errors broken down by category.
 <img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
-2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test) about the additonal functionalities of Playwright Test.
+2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test/) about the additonal functionalities of Playwright Test.
 <img class="screenshot-partial" alt="check results browser playwright test report" src="/docs/images/monitoring/check-results-browser-pwt-report.png"/>
 3. An error log, only if your script failed.
 <img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>

@@ -42,7 +42,7 @@ You can also select which types of alerts should be send to your channel:
 - **Recovery**: When a check recovers from either failing or being degraded.
 - [**SSL certificate expirations**](/docs/alerting/ssl-expiration/)
 
-Configuring alert channels is mostly self explanatory except for our [advanced webhook builder](/docs/alerting/webhooks).
+Configuring alert channels is mostly self explanatory except for our [advanced webhook builder](/docs/alerting/webhooks/).
 
 After adding the channels, you either **edit** or **delete** them, or change which checks are subscribed to that specific channel.
 

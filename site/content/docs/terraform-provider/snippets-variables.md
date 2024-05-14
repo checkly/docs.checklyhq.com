@@ -10,7 +10,7 @@ Checkly exposes handy resources to avoid code duplication and reduce the mainten
 
 ## Code snippets
 
-[Code snippets](/docs/browser-checks/partials-code-snippets) are useful for reusing bits of code without duplication. They can be used for [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets) in API checks, as well as in [browser checks](/docs/browser-checks/partials-code-snippets/) and come as standalone resources:
+[Code snippets](/docs/browser-checks/partials-code-snippets/) are useful for reusing bits of code without duplication. They can be used for [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets) in API checks, as well as in [browser checks](/docs/browser-checks/partials-code-snippets/) and come as standalone resources:
 
 ```terraform
 resource "checkly_snippet" "procedure-login" {
@@ -34,7 +34,7 @@ resource "checkly_snippet" "procedure-login" {
 
 ## Environment variables
 
-[Environment variables](/docs/browser-checks/variables) help you store data (like credentials or other strings) on Checkly that you might need to use in one or more checks and groups. They can exist as arguments in check or group type resources:
+[Environment variables](/docs/browser-checks/variables/) help you store data (like credentials or other strings) on Checkly that you might need to use in one or more checks and groups. They can exist as arguments in check or group type resources:
 
 ```terraform
 // In a check:
