@@ -13,7 +13,7 @@ Team members can have different [roles](/docs/accounts-and-users).
 
 ## Inviting team members
 
-Go to the [**Members**](https://app.checklyhq.com/settings/account/members) section of your account overview. Add the email address of each user you want to invite. A pending invite will be added to your list of users. The invite is valid for 30 days, and you can retract it at any moment.
+Go to the [Members section](https://app.checklyhq.com/settings/account/members) of your account overview. Add the email address of each user you want to invite. A pending invite will be added to your list of users. The invite is valid for 30 days, and you can retract it at any moment.
 
 ![Checkly teams](/docs/images/teams/team.png)
 
