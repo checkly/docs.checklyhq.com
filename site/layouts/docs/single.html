@@ -19,27 +19,27 @@
         {{- .Content -}}
         {{if and (.NextInSection) (.PrevInSection)}}
         <div class="d-flex justify-content-between flex-wrap my-5">
-          <a href="{{.NextInSection.Permalink}}" class="nav-docs">
+          <a href="{{.NextInSection.RelPermalink}}" class="nav-docs">
             <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
             {{ .NextInSection.Title }}
           </a>
-          <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}
+          <a href="{{.PrevInSection.RelPermalink}}" class="nav-docs">{{ .PrevInSection.Title }}
             <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="next">
           </a>
         </div>
         {{ else if .PrevInSection }}
         <div class="d-flex justify-content-between flex-wrap my-5">
-            <a href="{{ .CurrentSection.Permalink }}" class="nav-docs">
+            <a href="{{ .CurrentSection.RelPermalink }}" class="nav-docs">
               <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
               {{ .CurrentSection.Title }}
             </a>
-          <a href="{{.PrevInSection.Permalink}}" class="nav-docs">{{ .PrevInSection.Title }}
+          <a href="{{.PrevInSection.RelPermalink}}" class="nav-docs">{{ .PrevInSection.Title }}
             <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="previous">
           </a>
         </div>
         {{ else if .NextInSection}}
         <div class="text-left my-5">
-          <a href="{{.NextInSection.Permalink}}" class="nav-docs">
+          <a href="{{.NextInSection.RelPermalink}}" class="nav-docs">
             <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="next">
             {{ .NextInSection.Title }}
           </a>
@@ -60,8 +60,10 @@
     </div>
     <aside class="docs-toc mb-3">
       <div id="tocMenu">
-        <div class="docs-toc-header">On this page</div>
-        {{ .Page.TableOfContents }}
+        <div class="docs-toc-on-this-page">
+          <div class="docs-toc-header">On this page</div>
+          {{ .Page.TableOfContents }}
+        </div>
         {{ partial "toc-sidebar-community" .}}
         {{ partial "toc-sidebar-support" .}}
       </div>

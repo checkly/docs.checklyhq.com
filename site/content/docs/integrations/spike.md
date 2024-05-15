@@ -25,7 +25,7 @@ deliver failure, degradation, and recovery messages to any service in your Spike
 
    ![setup checkly spikesh step 4](/docs/images/integrations/spikesh/spike_step4_frame.png)
 
-5. Next, log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings).
+5. Next, log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/).
    Click the "Add more channels" button, find Spike.sh on the list, and click "Add channel".
 
    ![setup checkly spikesh step 5](/docs/images/integrations/spikesh/spike_step5_frame.png)

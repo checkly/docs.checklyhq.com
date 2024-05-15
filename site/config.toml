@@ -87,7 +87,7 @@ disqusShortname = "checkly"
 
 [[menu.resources]]
     name = "Dashboards"
-    url = "/docs/dashboards"
+    url = "/docs/dashboards/"
     weight = 80
 
 [[menu.resources]]
@@ -140,15 +140,21 @@ disqusShortname = "checkly"
 	url = "/docs/pulumi-provider/"
 	weight = 40
 
+[[menu.integrations]]
+	name = "OpenTelemetry (beta)"
+	url = "/docs/open-telemetry/"
+	weight = 50
+	beta = true
+
 
 [[menu.reference]]
     name = "CLI Commands"
-    url = "/docs/cli/command-line-reference"
+    url = "/docs/cli/command-line-reference/"
     weight = 170
 
 [[menu.reference]]
     name = "CLI Constructs"
-    url = "/docs/cli/constructs-reference"
+    url = "/docs/cli/constructs-reference/"
     weight = 180
 
 [[menu.reference]]

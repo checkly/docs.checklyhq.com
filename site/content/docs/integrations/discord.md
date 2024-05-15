@@ -19,7 +19,7 @@ deliver failure, degradation, and recovery messages to any project in your Disco
    ![setup checkly discord integration step 2](/docs/images/integrations/discord/discord_step2.png)
 
 
-3. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings).
+3. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/).
    Click the "Add more channels" button, find Discord on the list, and click "Add channel".
 
    ![setup checkly discord integration step 3](/docs/images/integrations/discord/discord_step3.png)

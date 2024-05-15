@@ -53,7 +53,7 @@ Alternatively, we can use the API token we generated with the bot earlier and qu
 
 With the (1) **HTTP API Token** and (2) **Chat ID** in hand, we can go back to Checkly and create a new Telegram alert channel.
 
-1. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings). 
+1. Log in to Checkly and navigate to [Alert Settings](https://app.checklyhq.com/alert-settings/). 
    Click the "Add more channels" button, find Telegram on the list, and click "Add channel".
 
    ![setup checkly telegram_bot step 6](/docs/images/integrations/telegram/telegram_step6.png)
@@ -71,4 +71,4 @@ Congratulations! You have successfully integrated Checkly with Telegram!
 
 ## Alternatives
 
-Telegram also accepts messages via an HTTP `GET` request. Therefore, you can use the API Token and Chat ID to create a custom Telegram alert channel by leveraging our [**webhook alert channel**](/docs/alerting/webhooks). The webhook should use the `GET` method and target this URL, `https://api.telegram.org/bot<API_TOKEN>/sendMessage?chat_id=<CHAT_ID>&text=Your%20Alert%20Title`. More information about sending messages via Telegram bots and the API can be found [here](https://core.telegram.org/bots/api#sendmessage).
+Telegram also accepts messages via an HTTP `GET` request. Therefore, you can use the API Token and Chat ID to create a custom Telegram alert channel by leveraging our [**webhook alert channel**](/docs/alerting/webhooks/). The webhook should use the `GET` method and target this URL, `https://api.telegram.org/bot<API_TOKEN>/sendMessage?chat_id=<CHAT_ID>&text=Your%20Alert%20Title`. More information about sending messages via Telegram bots and the API can be found [here](https://core.telegram.org/bots/api#sendmessage).

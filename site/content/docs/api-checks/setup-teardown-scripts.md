@@ -26,7 +26,7 @@ Check the video below for a quick overview of using setup and teardown scripts t
 
 Setup scripts allow you to process test data and configure API check requests. A setup script executes before any requests 
 are made. You have access to a set of [built-in variables](#built-in-variables) to tweak the HTTP request (URL, headers etc.)
-and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs). Popular use cases are signing HMAC requests, 
+and a set of [3rd party libraries available in each runtime](/docs/runtimes/specs/). Popular use cases are signing HMAC requests, 
 requesting tokens and setting up test data.
 
 Some simple examples are below:
@@ -215,7 +215,7 @@ next to the "generic" runtime variables like `process.env.CHECK_NAME` you find i
 All setup and teardown scripts run in a sandboxed environment on our cloud backend. You do not have full access to the 
 Node.js standard library or to arbitrary npm packages.
 
-Check out [our runtimes documentation](/docs/runtimes/specs) for a full specification of which modules are included.
+Check out [our runtimes documentation](/docs/runtimes/specs/) for a full specification of which modules are included.
 
 ## Technical limitations
 
@@ -245,7 +245,7 @@ Once created, just select any snippets from the drop down menu in setup and tear
 
 It's also possible to import snippets from your setup or teardown scripts. This can be valuable if setup and teardown 
 scripts are similar across checks, but still require some customization.
-Find more information in the [snippet documentation](/docs/snippets).
+Find more information in the [snippet documentation](/docs/snippets/).
 
 ### Using environment variables via Handlebars
 
