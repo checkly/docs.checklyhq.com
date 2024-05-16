@@ -7,4 +7,8 @@ menu:
 beta: true
 ---
 
-Go docs coming soon.
+Ruby docs coming soon.
+
+For now, check the canonical OpenTelemetry Ruby documentation at [opentelemetry.io](https://opentelemetry.io/docs/languages/ruby/getting-started/)
+or the great content from [signoz.io](https://signoz.io/docs/instrumentation/ruby-on-rails/).
+
