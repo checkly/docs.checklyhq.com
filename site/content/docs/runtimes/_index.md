@@ -77,6 +77,6 @@ NPM dependencies living in `node_modules`.
 potentially each Check across multiple Node.js versions, greatly reducing complexity.
 4. Our provided Runtime packages are tested with our sandboxing for extra runtime security.
 
-If you want to see a package included in the Checkly Runtime, [please comment on this pinned GitHub issue](https://github.com/checkly/public-roadmap/issues/291)
-with a package name.
+If you want to see a package included in the Checkly Runtime, [please add a post on our feedback board](https://feedback.checklyhq.com/)
+with a package name, and your use case. 
 
