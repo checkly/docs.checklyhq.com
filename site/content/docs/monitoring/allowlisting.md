@@ -14,14 +14,43 @@ There are cases in which you might have to allowlist Checkly traffic in your fir
 
 All of Checkly's monitoring traffic comes from a fixed source of IP addresses. Allowlisting Checkly traffic by IP address is possible by configuring your network to only allow traffic from these IPs.
 
-To get the current list of IP addresses, you can use the following three endpoints ([API spec](https://api.checklyhq.com/#/Static%20IPs)):
+To get the current list of IP addresses, you can use the following endpoints ([API spec](https://api.checklyhq.com/#/Static%20IPs)):
 
-- `https://api.checklyhq.com/v1/static-ips` - a JSON array of all IPv4s currently used
-- `https://api.checklyhq.com/v1/static-ips-by-region` - a JSON object with regions as keys and arrays of all IPv4s of that region as the value
-- `https://api.checklyhq.com/v1/static-ips.txt` - a simple txt file. One IPv4 per line.
-- `https://api.checklyhq.com/v1/static-ipv6s` - a JSON array of all IPv6s currently used
-- `https://api.checklyhq.com/v1/static-ipv6s-by-region` - a JSON object with regions as keys and an IPv6 as value.
-- `https://api.checklyhq.com/v1/static-ipv6s.txt` - a simple txt file. One IPv6 per line.
+1. A JSON array of all IPv4s currently used
+
+```bash
+curl https://api.checklyhq.com/v1/static-ips
+```
+
+2. A JSON object with regions as keys and arrays of all IPv4s of that region as the value
+
+```bash
+curl https://api.checklyhq.com/v1/static-ips-by-region
+````
+
+3. A simple txt file. One IPv4 per line.
+
+```bash
+curl https://api.checklyhq.com/v1/static-ips.txt
+```
+
+4. A JSON array of all IPv6s currently used
+
+```bash
+curl https://api.checklyhq.com/v1/static-ipv6s
+```
+
+5. A JSON object with regions as keys and an IPv6 as value.
+
+```bash
+curl https://api.checklyhq.com/v1/static-ipv6s-by-region
+```
+
+6. A simple txt file. One IPv6 per line.
+
+```bash
+curl https://api.checklyhq.com/v1/static-ipv6s.txt
+```
 
 We update this list very infrequently (6 months or less) so querying it with at reasonable frequency is recommended.
 
