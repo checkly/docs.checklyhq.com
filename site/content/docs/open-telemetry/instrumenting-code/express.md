@@ -1,6 +1,11 @@
 ---
 title: Express
 weight: 38
+head:
+  title: "Instrumenting Express.js with OpenTelemetry"
+metatags:
+  title: "Instrumenting Express.js with OpenTelemetry"
+  description: "Instrument your Express.js application with OpenTelemetry and send traces to Checkly."
 menu:
   integrations:
     parent: "Instrumenting your code with OpenTelemetry"
