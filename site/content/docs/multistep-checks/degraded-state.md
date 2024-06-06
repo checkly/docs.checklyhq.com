@@ -16,43 +16,7 @@ To catch errors that are relevant for a degraded scenario you can use soft asser
 
 ## Playwright-helpers library
 
-To trigger a degraded state Multistep checks use a helper library, `@checkly/playwright-helpers`, which is included in runtime `2023.09` and later. The helper library contains two methods, `markCheckAsDegraded` and `getAPIResponseTime`. 
-
-{{< info >}}
-`@checkly/playwright-helpers` is also available for use in browser checks.
-{{< /info >}}
-
-### markCheckAsDegraded
-Marks a check as degraded if:
-- The check is failing with soft assertions, or
-- The check has no failures
-
-{{< info >}}
-If your check is failing due to a timeout or failed non-soft assertion it will be considered failing, even if `markCheckAsDegraded` is called.
-{{< /info >}}
-
-**Usage**
-```ts
-    if (foo.length > 100) {
-      markCheckAsDegraded('Foo is too long.')
-    }
-```
-
-**Arguments**
-- `reason` String *(optional)*. Logged when the method is called. Used to identify which method caused the degradation.
-
-### getAPIResponseTime
-Gets the request response time.
-
-**Usage**
-```ts
-    if (getAPIResponseTime(response) > 100) {
-      markCheckAsDegraded('Response was too slow.')
-    }
-```
-
-**Arguments**
-- `response` [APIResponse](https://playwright.dev/docs/api/class-apiresponse) *(required)*. A response from a Playwright API request.
+{{< markdownpartial "/_shared/checkly-playwright-helpers.md" >}}
 
 ## Triggering a degraded state
 
