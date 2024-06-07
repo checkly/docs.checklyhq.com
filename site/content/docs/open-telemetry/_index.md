@@ -23,6 +23,17 @@ The Checkly OpenTelemetry (OTel) integration allows you to correlate synthetic m
 
 ![Check result with OpenTelemetry trace](/docs/images/integrations/otel/otel_check_result.png)
 
+With OpenTelemetry enabled, you will have access to traces in all the places where it matters to more quickly resolve issues:
+- **Check results:** resolve production outages faster by correlating failing checks with backend traces.
+- **Test sessions:** understand any failures during test session execution.
+- **Check Editors** get a live trace while building, editing and debugging check code.
+
+See this in action in the video below:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/30c143388ba54e9ba6b665dfbfe0d295?sid=8ad8d273-b0bb-48ca-b456-1b137384b9de" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
+<br>
 To get started with the Checkly OpenTelemetry integration, pick a scenario that best fits your needs.
 
 <div class="cards-list">
