@@ -14,7 +14,7 @@
           {{ range $index, $element := split $url "/" }}
             {{ if ne $element "learn" }}
               {{ if eq $index 3 }}
-                <a href="/learn/headless">Headless Automation Guides</a>
+                <a href="/learn/headless/">Headless Automation Guides</a>
                 <span>/</span>
               {{ else }}
                 {{ if eq $index 3 }}
@@ -66,7 +66,7 @@
         {{ with .GitInfo }}
           Last updated on {{ .CommitDate.Format "January 2, 2006" }}.
         {{ end }}
-        You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/learn/headless" target="_blank"> editing this page on Github </a></p>
+        You can contribute to this documentation by <a href="https://github.com/checkly/checklyhq.com/tree/main/site/content/learn/headless/" target="_blank"> editing this page on Github </a></p>
     </div>
     <aside class="learn-toc mb-3">
       <div id="tocMenu">
