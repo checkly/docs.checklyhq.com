@@ -1,6 +1,6 @@
 ---
 title: Creating an API key
-weight: 52
+weight: 53
 menu:
   resources:
     parent: "Accounts & Users"

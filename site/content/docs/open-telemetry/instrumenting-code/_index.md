@@ -56,13 +56,6 @@ Below you will find instructions on how to instrument your popular languages and
 	img="/docs/images/integrations/otel/otel-languages/go_icon.svg"
 	link="/docs/open-telemetry/instrumenting-code/go/"
 >}}
-{{< doc-card
-	class="three-column-card"
-	headerTag="h3"
-	title="Ruby"
-	img="/docs/images/integrations/otel/otel-languages/ruby_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/ruby/"
->}}
 </div>
 <br>
 
@@ -86,9 +79,9 @@ Below you will find instructions on how to instrument your popular languages and
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
-	title=".NET"
-	img="/docs/images/integrations/otel/otel-languages/dot-net_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/dot-net/"
+	title="Ruby on Rails"
+	img="/docs/images/integrations/otel/otel-languages/ruby_on_rails_icon.svg"
+	link="/docs/open-telemetry/instrumenting-code/ruby-on-rails/"
 >}}
 </div>
 <br>
