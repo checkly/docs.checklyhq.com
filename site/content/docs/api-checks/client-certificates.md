@@ -12,7 +12,7 @@ any other authentication scheme where the requester needs to provide a certifica
 Each client certificate is specific to a domain name, e.g. `acme.com` and will be used automatically by any API checks 
 targeting that domain.
 
-> Client certificates are available on the [**Enterprise** plan](/pricing) only
+> Client certificates are available on the [**Enterprise** plan](/pricing/) only
 
 ## Adding a certificate
 

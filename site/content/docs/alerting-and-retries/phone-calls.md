@@ -42,5 +42,5 @@ If your country is not supported feel free to reach out to our [support team](ma
 Phone call alerts always use the following number: +18142508623. You can save the number as a contact to allow alerts bypassing any do-not-disturb settings.
 
 {{< info >}}
-For limits and other phone call related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing#features).
+For limits and other phone call related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing/#features).
 {{< /info >}}

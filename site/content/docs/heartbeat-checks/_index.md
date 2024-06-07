@@ -14,7 +14,7 @@ cli: true
 
 This guide gives you all the info needed to get started with Checkly heartbeat checks.
 {{< info >}}
-Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
+Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features).
 {{< /info >}}
 
 Check out this video for a quick explainer:
@@ -90,7 +90,7 @@ Ping now is also available in the quick menu in the heartbeat overview page.
 ### Alerting
 By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
 
-> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features)
+> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features)
 
 
 ## Reporting

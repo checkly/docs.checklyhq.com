@@ -30,7 +30,7 @@ This feature works with the following CLI and Checkly Agent versions:
 - [Checkly Agent v3.2.0 or later](https://hub.docker.com/layers/checkly/agent/3.2.0/images/sha256-714bbd7302d7c086ef1776014f919c1e9aacdfda450764295147e8f1ab99cb00?context=explore).
 
 {{< info >}}
-Visual regression & snapshot testing is available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing#features).
+Visual regression & snapshot testing is available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features).
 {{< /info >}}
 
 ## Visual regression testing
