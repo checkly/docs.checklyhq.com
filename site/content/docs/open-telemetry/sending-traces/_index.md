@@ -30,9 +30,9 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
-	title="New Relic"
-	img="/docs/images/integrations/otel/backends/newrelic_icon.svg"
-	link="/docs/open-telemetry/sending-traces/newrelic/"
+	title="Coralogix"
+	img="/docs/images/integrations/otel/backends/coralogix_icon.svg"
+	link="/docs/integrations/coralogix/"
 >}}
 {{< doc-card
 	class="three-column-card"
@@ -47,5 +47,14 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 	title="Honeycomb"
 	img="/docs/images/integrations/otel/backends/honeycomb_icon.svg"
 	link="/docs/open-telemetry/sending-traces/honeycomb/"
+>}}
+</div>
+<div class="cards-list">
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title="New Relic"
+	img="/docs/images/integrations/otel/backends/newrelic_icon.svg"
+	link="/docs/open-telemetry/sending-traces/newrelic/"
 >}}
 </div>
