@@ -12,12 +12,12 @@ cli: true
 By default, all our runners have their timezone set to UTC, regardless of their location.
 
 ## Resource limitations
-Each Browser and Multistep check can use up to `3.6GB` of memory and `2 CPU` cores. 
+Each Browser and Multistep check can use up to `2.9 GiB` of memory and `2 CPU` cores. 
 This limit applies to all processes spawned by the check, including the browser, the test framework, and the test code itself.
 The limit is enforced by the runner and is not configurable. 
 
 > When the memory limit is exceeded, 
-the check will automatically fail with a relevant error message, for example: `Your check has reached the maximum memory usage of 3.6GB`.
+the check will automatically fail with a relevant error message, for example: `Your check has reached the maximum memory usage of 2.9 GiB`.
 
 ## Built-in Node.js modules
 
