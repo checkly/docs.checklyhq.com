@@ -16,9 +16,41 @@ so we can validate your preview branches before they reach production and contin
 
 Vercel has a few different ways to authenticate your deployments. Each work a bit different. We will go over each of them below.
 
-{{<info>}}
-You can bypass any Vercel deployment protection using their [protection bypass for automation feature](#bypass-for-automation).
-{{</info>}}
+## Bypass for Automation
+
+You can fully bypass any deployment protection using Vercel's [Protection Bypass for Automation feature](https://vercel.com/docs/security/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation).
+With this feature, you can provide a secret in an HTTP header or query parameter to bypass any deployment protection.
+
+### How to make this work with Checkly?
+
+For any Playwright-powered check, like Browser checks and Multistep checks, you can add the secret to the required HTTP header 
+using the `test.use()` method.
+
+```ts
+test.use({
+    extraHTTPHeaders: {
+        'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN
+    }
+})
+```
+
+Alternatively, when using the `request` API, you can add the header to the request.
+
+```ts
+await request.get('https://my-production-url.vercel.app/', {
+  'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN
+})
+```
+
+For an API check you can do something similar
+
+1. Just add a `x-vercel-protection-bypass` header to the request with the token
+2. Add a query parameter to the request with the token.
+3. Or use a setup script to manipulate the request before it is sent.
+
+```bash
+request.headers['x-vercel-protection-bypass'] = process.env.VERCEL_BYPASS_TOKEN
+```
 
 ## Vercel Authentication
 
@@ -28,6 +60,7 @@ to make them work with Checkly.
 {{<info>}}
 Vercel enables **Standard Protection** by default on all new deployments.
 {{</info>}}
+
 
 ### Standard Protection
 [Standard Protection](https://vercel.com/docs/concepts/deployments/deployment-protection#vercel-authentication)
@@ -154,43 +187,6 @@ test('visit protected deployment', async ({ page }) => {
 If you have 2FA enabled on your GitHub or other Vercel authentication methods, the above example will not work. You can
 explore bypassing 2FA using the `otpauth` library. [Check our blog post for more info](https://www.checklyhq.com/blog/how-to-bypass-totp-based-2fa-login-flows-with-playwright/).
 {{</warning>}}
-
-## Bypass for Automation
-
-You can fully bypass any deployment protection using Vercel's [Protection Bypass for Automation feature](https://vercel.com/docs/security/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation).
-With this feature, you can provide a secret in an HTTP header or query parameter to bypass any deployment protection.
-
-### How to make this work with Checkly?
-
-
-For any Playwright-powered check, like browser checks and Multistep checks, you can add the secret to the required HTTP header 
-using the `test.use()` method.
-
-```ts
-test.use({
-    extraHTTPHeaders: {
-        'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN
-    }
-})
-```
-
-Alternatively, when using the `request` API, you can add the header to the request.
-
-```ts
-await request.get('https://my-production-url.vercel.app/', {
-  'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN
-})
-```
-
-For an API check you can do something similar
-
-1. Just add a `x-vercel-protection-bypass` header to the request with the token
-2. Add a query parameter to the request with the token.
-3. Or use a setup script to manipulate the request before it is sent.
-
-```bash
-request.headers['x-vercel-protection-bypass'] = process.env.VERCEL_BYPASS_TOKEN
-```
 
 
 ## Password Protection
