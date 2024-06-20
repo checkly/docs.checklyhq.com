@@ -37,9 +37,9 @@ First, make sure to switch on the **Basic HTTP Instrumentation**. This will add 
 
 ![Checkly basic OTEL http instrumentation](/docs/images/integrations/otel/otel_basic_instrumentation.png)
 
-Then, flip on the "Ingest Traces" section, grab your OTel API key in the **Ingest traces** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).
+Then, toggle on **Send Traces** and grab your OTel API key in the **OTel API keys** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).
 
-![Checkly OTEL API keys](/docs/images/integrations/otel/otel_ingest_traces.png)
+![Checkly OTEL API keys](/docs/images/integrations/otel/otel_send_traces.png)
 
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 

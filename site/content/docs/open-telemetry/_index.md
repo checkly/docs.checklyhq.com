@@ -49,7 +49,7 @@ To get started with the Checkly OpenTelemetry integration, pick a scenario that 
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="I have an OpenTelemetry setup"
-	  description="Send traces to your 3rd party OTel backend and ingest them into Checkly too."
+	  description="Send traces to your 3rd party OTel backend and send them into Checkly too."
 	  img="/docs/images/icons/opentelemetry.svg"
 	  link="/docs/open-telemetry/sending-traces/"
 >}}
