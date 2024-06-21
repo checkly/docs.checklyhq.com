@@ -39,14 +39,14 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 	headerTag="h3"
 	title="Grafana Tempo"
 	img="/docs/images/integrations/otel/backends/grafana-tempo_icon.svg"
-	link="/docs/open-telemetry/sending-traces/grafana-tempo/"
+	link="/docs/open-telemetry/exporting-traces/grafana-tempo/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Honeycomb"
 	img="/docs/images/integrations/otel/backends/honeycomb_icon.svg"
-	link="/docs/open-telemetry/sending-traces/honeycomb/"
+	link="/docs/open-telemetry/exporting-traces/honeycomb/"
 >}}
 </div>
 <div class="cards-list">
@@ -55,6 +55,6 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 	headerTag="h3"
 	title="New Relic"
 	img="/docs/images/integrations/otel/backends/newrelic_icon.svg"
-	link="/docs/open-telemetry/sending-traces/newrelic/"
+	link="/docs/open-telemetry/exporting-traces/newrelic/"
 >}}
 </div>

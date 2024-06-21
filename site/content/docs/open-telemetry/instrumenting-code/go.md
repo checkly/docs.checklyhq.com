@@ -183,15 +183,8 @@ func otelChecklyFilter(req *http.Request) bool {
 
 {{< markdownpartial "/_shared/otel-api-and-endpoint.md" >}}
 
-
-Export your API key and endpoint as environment variables in your shell. 
-
-```bash
-export CHECKLY_OTEL_API_ENDPOINT="otel.eu-west-1.checklyhq.com # EU instance
-export CHECKLY_OTEL_API_KEY="<your Checkly OTel API key>"
-```
 Then run you app as usual:
 
 ```bash
-go run main.go
+go run .
 ```
