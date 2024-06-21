@@ -34,7 +34,7 @@ receivers:
   otlp:
     protocols:
       http:
-
+      grpc:
 processors:
   batch:
   filter/checkly:
@@ -44,14 +44,11 @@ processors:
         # remove all spans that the trace state doesn't have an object
         # which key is "tracetest" and value is "true"
         - 'trace_state["checkly"] != "true"'
-
 exporters:
   otlp/checkly:
-    endpoint: "${env:CHECKLY_OTEL_API_ENDPOINT}"
+    endpoint: "otel.eu-west-1.checklyhq.com:4317"
     headers:
-      authorization: "Bearer ${env:CHECKLY_OTEL_API_KEY}"
-      "Content-Type": "application/json"
-
+      authorization: "${env:CHECKLY_OTEL_API_KEY}"
 service:
   pipelines:
     traces:
@@ -59,7 +56,6 @@ service:
       processors: [filter/checkly, batch]
       exporters: [otlp/checkly]
 ```
-
 ## Step 2: Restart your collector
 
 Grab your **OTel API key** in the *Send traces* section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).  
@@ -67,11 +63,6 @@ Now, export your API key in your shell by setting the `CHECKLY_OTEL_API_KEY` env
 
 ```bash
 export CHECKLY_OTEL_API_KEY="<your-api-key>"
-```
-
-Next, export the endpoint for the region you want to use:
-```bash
-export CHECKLY_OTEL_API_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
 ```
 
 Now, restart your collector with the updated configuration file. If you are using a Dockerized version of the OTel collector,

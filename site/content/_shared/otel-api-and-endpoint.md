@@ -14,7 +14,7 @@ take a note of the endpoint for the region you want to use.
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 
 ```bash
-export OTEL_EXPORTER_OTLP_HEADERS="authorization=Bearer <your-api-key>"
+export OTEL_EXPORTER_OTLP_HEADERS="authorization=<your-api-key>"
 ```
 
 Next, export the endpoint for the region you want to use and give your service a name.
@@ -29,8 +29,8 @@ During the beta we only have one region available: `eu-west-1`. We will expand t
 
 We are using the standard OpenTelemetry environment variables here to configure the OTLP exporter.
 
-| Variable                      | Description                                                                               |
-|-------------------------------|-------------------------------------------------------------------------------------------|
-| `OTEL_EXPORTER_OTLP_HEADERS`  | The `Authorization` HTTP header containing your Checkly OTel API key as a `Bearer` token. |
-| `OTEL_EXPORTER_OTLP_ENDPOINT` | The Checkly OTel API endpoint for the region you want to use.                             |
-| `OTEL_SERVICE_NAME`           | The name of your service to identify it among the spans in the web UI.                    |
+| Variable                      | Description                                                             |
+|-------------------------------|-------------------------------------------------------------------------|
+| `OTEL_EXPORTER_OTLP_HEADERS`  | The `Authorization` HTTP header containing your Checkly OTel API key.   |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | The Checkly OTel API endpoint for the region you want to use.           |
+| `OTEL_SERVICE_NAME`           | The name of your service to identify it among the spans in the web UI.  |
