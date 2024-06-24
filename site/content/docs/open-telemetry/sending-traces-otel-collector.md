@@ -71,7 +71,6 @@ don't forget to pass in the environment variables, e.g.
 ```bash
 docker run \
 -e CHECKLY_OTEL_API_KEY \
--e CHECKLY_OTEL_API_ENDPOINT \
 ...
 ```
 
