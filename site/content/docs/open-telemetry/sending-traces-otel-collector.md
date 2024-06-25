@@ -42,7 +42,7 @@ processors:
     traces:
       span:
         # remove all spans that the trace state doesn't have an object
-        # which key is "tracetest" and value is "true"
+        # which key is "checkly" and value is "true"
         - 'trace_state["checkly"] != "true"'
 exporters:
   otlp/checkly:
