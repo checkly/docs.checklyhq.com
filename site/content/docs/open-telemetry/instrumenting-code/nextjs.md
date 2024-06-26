@@ -78,7 +78,6 @@ export function register() {
       },
     },
   })
-}
 ```
 
 Notice that we are using the default exporter and span processor from the `@vercel/otel` package, which is configured by using the `auto` value.
