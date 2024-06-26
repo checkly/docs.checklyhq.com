@@ -22,10 +22,10 @@ so we can filter out the Checkly traces.
 
 ```bash
 npm install --save \
-    @vercel/otel \
-    @opentelemetry/api \
-    @opentelemetry/sdk-trace-base \
-    @opentelemetry/exporter-trace-otlp-http    
+  @vercel/otel \
+  @opentelemetry/api \
+  @opentelemetry/sdk-trace-base \
+  @opentelemetry/exporter-trace-otlp-http    
 ```
 
 {{< warning >}}
@@ -39,11 +39,11 @@ Set the `instrumentationHook` flag to `true` in your Next.js configuration file.
 
 ```js
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    experimental: {
-      instrumentationHook: true
-    }
+const nextConfig = { 
+  experimental: { 
+    instrumentationHook: true 
   }
+}
 
 module.exports = nextConfig
 ```
@@ -57,24 +57,27 @@ import { SamplingDecision } from '@opentelemetry/sdk-trace-base'
 import { trace, Context } from '@opentelemetry/api'
 
 export function register() {
-    registerOTel({
-        serviceName: 'acme-next-app',
-        traceExporter: 'auto',
-        spanProcessors: ['auto'],
-        traceSampler: {
-            shouldSample: (context: Context) => {
-                const isChecklySpan = trace.getSpan(context)?.spanContext()?.traceState?.get('checkly')
-                if (isChecklySpan) {
-                    console.log('Sampling decision for Checkly span:', SamplingDecision.RECORD_AND_SAMPLED)
-                    return { decision: SamplingDecision.RECORD_AND_SAMPLED }
-                } else {
-                    console.log('Sampling decision for non-Checkly span:', SamplingDecision.NOT_RECORD)
-                    return { decision: SamplingDecision.NOT_RECORD }
-                }
-            },
-        },
-    })
-}
+  registerOTel({
+    serviceName: 'acme-next-app',
+    traceExporter: 'auto',
+    spanProcessors: ['auto'],
+    traceSampler: {
+      shouldSample: (context: Context) => {
+        const isChecklySpan = trace.getSpan(context)?.spanContext()?.traceState?.get('checkly')
+        if (isChecklySpan) {
+          console.log('Sampling decision for Checkly span:', SamplingDecision.RECORD_AND_SAMPLED)
+          return {
+            decision: SamplingDecision.RECORD_AND_SAMPLED
+          }
+        } else {
+          console.log('Sampling decision for non-Checkly span:', SamplingDecision.NOT_RECORD)
+          return {
+            decision: SamplingDecision.NOT_RECORD
+          }
+        }
+      },
+    },
+  })
 ```
 
 Notice that we are using the default exporter and span processor from the `@vercel/otel` package, which is configured by using the `auto` value.
