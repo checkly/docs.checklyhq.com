@@ -53,12 +53,7 @@ when using our `@playwright/test` powered browser checks.
 
 ## Testing with the CLI
 
-The preferred way to achieve a full [monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/
-
-
-
-
-) workflow is to use the Checkly CLI. This workflow uses the best
+The preferred way to achieve a full [monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/) workflow is to use the Checkly CLI. This workflow uses the best
 practices from standard testing frameworks like Playwright and Jest and extends them so you can `deploy` your checks
 to Checkly's global infrastructure and run them as monitors.
 
