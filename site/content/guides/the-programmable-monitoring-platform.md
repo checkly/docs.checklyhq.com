@@ -210,7 +210,7 @@ The example above fetches an API definition from the network via a `getAllEndpoi
 
 ## Conclusion
 
-Monitoring as code is more than writing config files. Read project code, iterate, or fetch data — the CLI's JavaScript and TypeScript execution enables you to tailor your monitoring setup to your existing application code (and not the other way around).
+[Monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/) is more than writing config files. Read project code, iterate, or fetch data — the CLI's JavaScript and TypeScript execution enables you to tailor your monitoring setup to your existing application code (and not the other way around).
 
 What are your preferred monitoring as code patterns? [Join the Checkly community](/slack), let me know and I'm happy to include your favorite pattern in this guide.
 
