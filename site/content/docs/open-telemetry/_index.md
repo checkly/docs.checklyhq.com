@@ -12,7 +12,7 @@ beta: true
 The OpenTelemetry integration is currently in **beta** and available for free on all plans. 
 Need help getting started? We offer a **free, 1:1 valet onboarding service** to help you instrument your stack with the 
 correct OpenTelemetry SDKs and enable tracing inside Checkly. 
-[Book an onboarding session right here](https://calendly.com/tim-nolet/checkly-open-telemetry)
+[Book an onboarding session right here](https://calendly.com/maria-checkly/traces-onboarding)
 {{< /info >}}
 
 With OpenTelemetry enabled, you will have access to traces in all the places where it matters to more quickly resolve issues:
