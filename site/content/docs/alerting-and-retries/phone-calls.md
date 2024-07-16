@@ -30,6 +30,7 @@ You can add as many phone number channels as you like.
 | Netherlands |
 | Norway |
 | Vietnam |
+| United Arab Emirates |
 | United Kingdom |
 | United States |
 
