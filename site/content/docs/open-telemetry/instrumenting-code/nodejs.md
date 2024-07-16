@@ -45,7 +45,7 @@ const exporter = new OTLPTraceExporter({
 
 const sdk = new NodeSDK({
   instrumentations: [getNodeAutoInstrumentations()],
-  spanProcessors: new BatchSpanProcessor(exporter),
+  spanProcessors: [new BatchSpanProcessor(exporter)],
   sampler: {
     shouldSample: (context, traceId, spanName, spanKind, attributes, links) => {
       const isChecklySpan = trace.getSpan(context)?.spanContext()?.traceState?.get('checkly')

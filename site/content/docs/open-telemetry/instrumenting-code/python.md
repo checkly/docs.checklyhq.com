@@ -37,35 +37,29 @@ First, make sure to switch on the **Basic HTTP Instrumentation**. This will add 
 
 ![Checkly basic OTEL http instrumentation](/docs/images/integrations/otel/otel_basic_instrumentation.png)
 
-Then, flip on the "Ingest Traces" section, grab your OTel API key in the **Ingest traces** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).
+Then, toggle on **Send Traces** and grab your OTel API key in the **OTel API keys** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).
 
-![Checkly OTEL API keys](/docs/images/integrations/otel/otel_ingest_traces.png)
+![Checkly OTEL API keys](/docs/images/integrations/otel/otel_send_traces.png)
 
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 
 ```bash
-export OTEL_EXPORTER_OTLP_HEADERS="authorization=Bearer%20<your-api-key>"
+export OTEL_EXPORTER_OTLP_HEADERS="authorization=<your-api-key>"
 ```
 
-{{< warning >}}
-Note that the Python OTel library demands that header key/value pairs are URL encoded. This is why we use `%20` instead of a space.
-{{< /warning >}}
-
-Next, export the endpoint for the region you want to use, give your service a name and set the protocol to `http/protobuf`
+Next, export the endpoint for the region you want to use and give your service a name.
 ```bash
 export OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
 export OTEL_SERVICE_NAME="your-service-name"
-export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf 
 ```
 
 We are using the standard OpenTelemetry environment variables here to configure the OTLP exporter.
 
-| Variable                      | Description                                                                               |
-|-------------------------------|-------------------------------------------------------------------------------------------|
-| `OTEL_EXPORTER_OTLP_HEADERS`  | The `Authorization` HTTP header containing your Checkly OTel API key as a `Bearer` token. |
-| `OTEL_EXPORTER_OTLP_ENDPOINT` | The Checkly OTel API endpoint for the region you want to use.                             |
-| `OTEL_SERVICE_NAME`           | The name of your service to identify it among the spans in the web UI.                    |
-| `OTEL_EXPORTER_OTLP_PROTOCOL` | Sets the protocol to use, which is gRPC by default in Python. Checkly only supports HTTP  |
+| Variable                      | Description                                                                              |
+|-------------------------------|------------------------------------------------------------------------------------------|
+| `OTEL_EXPORTER_OTLP_HEADERS`  | The `Authorization` HTTP header containing your Checkly OTel API key.                    |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | The Checkly OTel API endpoint for the region you want to use.                            |
+| `OTEL_SERVICE_NAME`           | The name of your service to identify it among the spans in the web UI.                   |
 
 Then start your app with the extra `opentelemetry-instrument` command before the regular start command.
 

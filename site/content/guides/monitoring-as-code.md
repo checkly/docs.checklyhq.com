@@ -2,35 +2,58 @@
 title: Monitoring as code
 description: >-
   The trend of declaring infrastructure as code has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of Monitoring-as-Code on Checkly.
+metatags:
+  title: "Monitoring as Code: Guide to Code Monitoring With Checkly"
+  description: "Discover how Monitoring as Code transforms cloud infrastructure management with a hands-on Checkly case study. Start optimizing your workflow today!"
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
+The trend of declaring infrastructure as code has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage, monitor and scale cloud infrastructure. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of Monitoring-as-Code on Checkly.
+
+## What is Monitoring as Code?
+
+Monitoring as Code is a transformative approach to maintaining the reliability and performance of modern web applications by integrating monitoring processes directly into the software development lifecycle. This method is fully compatible with Infrastructure as Code (IaC) and configuration management tools, allowing your monitoring solution to be managed alongside other infrastructure components.
+
+### Key Aspects of Monitoring as Code:
+
+1. Developer-First Monitoring:
+
+  * Seamless Integration: Checkly allows developers to define and manage their monitoring configurations alongside their application code. This means monitoring scripts and configurations can be version-controlled, reviewed, and tested just like any other part of the codebase.
+
+  * CI/CD Pipeline Support: With Checkly, you can embed monitoring checks directly into your CI/CD pipelines. This ensures that every deployment is automatically verified against your monitoring criteria, reducing the risk of undetected issues reaching production and enabling hassle-free continuous delivery.
+
+2. Programmatic Configuration:
+
+  * Infrastructure as Code (IaC) Compatibility: Checkly's API and CLI tools make it easy to programmatically set up and manage monitoring. This aligns with the principles of IaC, allowing teams to define their monitoring infrastructure using code, ensuring consistency and reproducibility across environments.
+
+  * Programmable Monitoring Checks: Define advanced monitoring checks using JavaScript and TypeScript. This flexibility enables you to create highly specific and complex checks tailored to your application's unique requirements.
+
+Let's dive deeper into Checkly's Monitoring as Code solution powered by the Checkly CLI.
 
 ## Infrastructure-as-Code (IaC)
 
-{{<warning>}}
 We've released our brand new CLI and recommend giving it a try for the best [Monitoring as Code experience](/guides/monitoring-as-code-cli/).
 
-Please visit our [documentation](/docs/cli/cli-vs-terraform-pulumi/) if you want to learn more about the pros & cons of the Terraform provider vs. the CLI.{{</warning>}}
+Please visit our [documentation](/docs/cli/cli-vs-terraform-pulumi/) if you want to learn more about the pros & cons of the Terraform provider vs. the CLI for code monitoring automation.
 
 
-Historically, IT infrastructure has been provisioned manually, both on premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files as code.
+Historically, IT infrastructure has been provisioned manually, both on-premise and in the cloud. This presented several challenges, including fragmented workflows, lack of transparency, and scalability issues. In response to these problems, the last few years have seen a shift to the Infrastructure-as-Code (IaC) paradigm, in which large-scale systems are declared in configuration files, a method that code monitoring adopts to enhance operational efficiency.
 
-A new generation of tools has emerged to serve this use case, the most notable example of which is {{< newtabref  href="https://www.terraform.io/" title="HashiCorp Terraform" >}}. Terraform provides a CLI workflow allowing users to specify what the final infrastructure setup should look like, and then takes care of all the intermediate steps needed to get there.
+A new generation of tools has emerged to serve this use case, the most notable example of which is {{< newtabref  href="https://www.terraform.io/" title="HashiCorp Terraform" >}}. Terraform provides a CLI workflow that allows users to specify the desired final infrastructure setup, handling all the intermediate steps and processes needed to achieve it, embodying the principle of **monitoring as code**.
 
 {{< figure src="/guides/images/guides-terraform-aws.png" alt="provisioning aws infrastructure - code snippet" title="Provisioning AWS infrastructure via Terraform" >}}
 
-Terraform can be used to provision infrastructure on many different cloud vendors thanks to its provider ecosystem: each provider maps to the vendor's API, exposing different resources in a domain-specific language known as {{< newtabref  href="https://www.terraform.io/docs/language/syntax/configuration.html" title="HCL" >}}.
+Terraform can provision infrastructure on many cloud vendors thanks to its provider ecosystem. Each provider maps to the vendor's API, offering resources in a domain-specific language known as {{< newtabref  href="https://www.terraform.io/docs/language/syntax/configuration.html" title="HCL" >}}, a cornerstone for both IaC and code monitoring operations.
 
 ## Monitoring the IaC way
 
-Setting up monitoring can present some of the same issues as provisioning infrastructure. This becomes apparent when we move past the initial rollout or proof-of-concept and onboard multiple products and/or teams, and see our monitoring setup rapidly grow in scope - along with its maintenance needs, that is.
+Setting up monitoring tools and monitoring in general can present some of the same issues as provisioning infrastructure. This becomes apparent when scaling beyond the initial rollout or proof-of-concept phase, as monitoring as code helps manage the growing scope and maintenance needs efficiently.
 
 Monitoring-as-Code learns from IaC and brings your monitoring config closer to your application and your development workflows. How? By having it also declared as code, much like you would do with any kind of IT infrastructure.
 
 ## Why Monitoring-as-Code
 
-What does one gain when moving from a manual to a Monitoring-as-Code approach? The **main advantages** are:
+What does one gain when moving from a manual process to a Monitoring-as-Code approach? The **main advantages** are:
 
 1. Better scalability through faster provisioning and easier maintenance.
 2. Better history and documentation: config files can be checked into source control.
@@ -38,7 +61,7 @@ What does one gain when moving from a manual to a Monitoring-as-Code approach? T
 
 ## Monitoring-as-Code with Checkly
 
-Users who have just started out will be familiar with creating checks, groups, alert channels and other resources through the Checkly UI. The official Terraform provider enables them to instead declare exactly what their active monitoring setup should look like, and have it provisioned by Terraform in just a few seconds - regardless of whether that means creating tens, hundreds or thousands of resources.
+Users who have just started out will be familiar with creating checks, groups, alert channels and other resources through the Checkly UI. However, the official Terraform provider for Checkly allows for these elements to be declared as code, streamlining the provisioning and deployment of active monitoring setups, a practice central to code monitoring.
 
 You can {{< newtabref  href="https://registry.terraform.io/providers/checkly/checkly/latest" title="find the Checkly Terraform provider" >}} on the official Terraform registry.
 
@@ -46,7 +69,7 @@ You can {{< newtabref  href="https://registry.terraform.io/providers/checkly/che
 
 ## Monitoring an e-commerce website - as code
 
-How does this all look like in practice? Let's find out by creating a small monitoring setup for our {{< newtabref  href="https://danube-web.shop/" title="demo e-commerce website" >}}.
+Exploring code monitoring in practice, we set up a small monitoring configuration for our {{< newtabref  href="https://danube-web.shop/" title="demo e-commerce website" >}} using Terraform and Playwright scripts, showcasing the efficiency, reliability and scalability of monitoring as code.
 
 ### Setting up our Terraform project
 
@@ -185,11 +208,11 @@ const { chromium } = require("playwright");
 
 Let's start off by creating a brand new folder:
 
-```mkdir checkly-terraform-example && cd $_```
+`mkdir checkly-terraform-example && cd $_`
 
 To keep things easy, we create a subdirectory...
 
-```mkdir scripts```
+`mkdir scripts`
 
 ...and copy all our scripts from above into separate files, for example `login.js`.
 
@@ -218,11 +241,11 @@ provider "checkly" {
 
 We are ready to initialise our project and have the Checkly Terraform provider set up for us. That is achieved by running:
 
-```terraform init```
+`terraform init`
 
 After a few seconds, you should see a similar message to the following:
 
-```
+```bash
 ragog@macpro learn-terraform % terraform init
 
 Initializing the backend...
@@ -318,11 +341,11 @@ resource "checkly_check" "checkout" {
 
 Now that our Terraform project has been initialised and we have added some resources, we can generate a Terraform plan by running `terraform plan`.
 
-Terraform will determine all the needed changes to be performed to replicate our monitoring configuration on Checkly. In doing so, we will be asked for our Checkly API key, which we can find under our account settings as shown below. Not on Checkly yet? [Register a free account](https://app.checklyhq.com/signup) and enjoy your free monthly checks!
+Terraform will determine all the needed changes to be performed to replicate our monitoring software configuration on Checkly. In doing so, we will be asked for our Checkly API key, which we can find under our account settings as shown below. Not on Checkly yet? [Register a free account](https://app.checklyhq.com/signup) and enjoy your free monthly checks!
 
 {{< figure src="/guides/images/guides-terraform-api.png" alt="screenshot of how to get api key from checkly dashboard" title="Retrieving the Checkly API KEY" >}}
 
- We can expose this as an environment variable in order to avoid having to copy-paste it all the time: `export TF_VAR_checkly_api_key=<YOUR_API_KEY>`.
+ We can expose this as an environment variable in order to spare developers from having to copy-paste it all the time: `export TF_VAR_checkly_api_key=<YOUR_API_KEY>`.
 
 ```
 ragog@macpro learn-terraform % terraform plan
@@ -356,7 +379,7 @@ Plan: 3 to add, 0 to change, 0 to destroy.
 
 We can now finally apply our changes with `terraform apply`. We might be asked for one final confirmation in the command prompt, after which we will be greeted by the following confirmation message:
 
-```
+```bash
 ...
 
 checkly_check.checkout: Creating...
@@ -369,7 +392,7 @@ checkly_check.search: Creation complete after 4s [id=xxxxxxxx-xxxx-xxxx-xxxx-xxx
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 ```
 
-Logging in to our Checkly account, we will see the dashboard has been populated with our three checks, which will soon start executing on their set schedules.
+Logging in to our Checkly account, we will see the dashboard has been populated with data from our three checks, which will soon start executing on their set schedules.
 
 {{< figure src="/guides/images/guides-terraform-checks.png" alt="terraform-created checks on checkly dashboard" title="Terraform-provisioned checks on Checkly" >}}
 
@@ -468,7 +491,7 @@ Going through the usual `terraform plan` and `terraform apply` sequence will app
 
 {{< figure src="/guides/images/guides-terraform-alerts.png" alt="terraform-created alert on checkly" title="Terraform-provisioned alert on Checkly" >}}
 
-We are now fully up and running with our monitoring-as-code setup. Our checks will run on a schedule, informing us promptly if anything were to go wrong. Rapidly getting to know about failures in our API and key website flows will allow us to react fast and mitigate impact on our users, ensuring a better experience with our product.
+We are now fully up and running with our monitoring-as-code setup. Our checks will run on a schedule, informing us promptly if critical anything were to go wrong. Rapidly getting to know about failures in our API and key website flows will allow us to react fast and mitigate impact on our users, ensuring a better experience with our product.
 
 You can find the complete setup described in this guide on our {{< newtabref  href="https://github.com/checkly/guides-monitoring-as-code" title="dedicated repository" >}}.
 

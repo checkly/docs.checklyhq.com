@@ -3,7 +3,7 @@ title: Instrumenting your code with OpenTelemetry
 metatags:
   title: "Instrumenting your code with OpenTelemetry"
   description: "Instrument your application code with OpenTelemetry and send traces to Checkly."
-weight: 60
+weight: 30
 menu:
   integrations:
     parent: "OpenTelemetry (beta)"

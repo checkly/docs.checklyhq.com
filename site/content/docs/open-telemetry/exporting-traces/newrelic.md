@@ -1,14 +1,14 @@
 ---
 title: New Relic
 head:
-  title: "Sending traces to New Relic from Checkly"
+  title: "Exporting traces to New Relic from Checkly"
   metatags:
-    title: "Sending traces to New Relic from Checkly"
-    description: "Send traces from Checkly to New Relic for better observability."
+    title: "Exporting traces to New Relic from Checkly"
+    description: "Export traces from Checkly to New Relic for better observability."
 weight: 21
 menu:
   integrations:
-    parent: "Sending traces to 3rd party backends"
+    parent: "Exporting traces to 3rd party backends"
 beta: true
 ---
 

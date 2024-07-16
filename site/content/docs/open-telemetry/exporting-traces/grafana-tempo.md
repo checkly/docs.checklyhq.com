@@ -1,14 +1,14 @@
 ---
 title: Grafana Tempo
 head:
-  title: "Sending traces to Grafana Tempo from Checkly"
+  title: "Exporting traces to Grafana Tempo from Checkly"
 metatags:
-  title: "Sending traces to Grafana Tempo from Checkly"
-  description: "Send traces from Checkly to Grafana Tempo for better observability."
+  title: "Exporting traces to Grafana Tempo from Checkly"
+  description: "Export traces from Checkly to Grafana Tempo for better observability."
 weight: 22
 menu:
   integrations:
-    parent: "Sending traces to 3rd party backends"
+    parent: "Exporting traces to 3rd party backends"
 beta: true
 ---
 

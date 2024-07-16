@@ -1,13 +1,13 @@
 ---
-title: Sending traces to 3rd party backends
-weight: 20
+title: Exporting traces to 3rd party backends
+weight: 40
 menu:
   integrations:
     parent: "OpenTelemetry (beta)"
 beta: true
 ---
 
-Sending your checks as traces to a 3rd party OpenTelemetry backend is a great way to correlate check runs with other
+Exporting your check results as traces to a 3rd party OpenTelemetry backend is a great way to correlate check runs with other
 telemetry data. It's also very simple to set up.
 <!--more-->
 
@@ -19,7 +19,7 @@ telemetry data. It's also very simple to set up.
 2. Provide the trace endpoint URL and HTTP header with an API key for your preferred 3rd party OpenTelemetry
    backend. Done.
 
-   ![Provide URL and header with authentication](/docs/images/integrations/otel/otel_send_traces.png)
+   ![Provide URL and header with authentication](/docs/images/integrations/otel/otel_export_traces_settings.png)
 
 After you've set this up, Checkly will instrument every HTTP request with a proper `traceparent` and `tracestate` header
 and send every check run as a trace to your 3rd party OpenTelemetry backend.
@@ -39,14 +39,14 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 	headerTag="h3"
 	title="Grafana Tempo"
 	img="/docs/images/integrations/otel/backends/grafana-tempo_icon.svg"
-	link="/docs/open-telemetry/sending-traces/grafana-tempo/"
+	link="/docs/open-telemetry/exporting-traces/grafana-tempo/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Honeycomb"
 	img="/docs/images/integrations/otel/backends/honeycomb_icon.svg"
-	link="/docs/open-telemetry/sending-traces/honeycomb/"
+	link="/docs/open-telemetry/exporting-traces/honeycomb/"
 >}}
 </div>
 <div class="cards-list">
@@ -55,6 +55,6 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 	headerTag="h3"
 	title="New Relic"
 	img="/docs/images/integrations/otel/backends/newrelic_icon.svg"
-	link="/docs/open-telemetry/sending-traces/newrelic/"
+	link="/docs/open-telemetry/exporting-traces/newrelic/"
 >}}
 </div>

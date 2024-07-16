@@ -1,14 +1,14 @@
 ---
 title: Honeycomb
 head:
-  title: "Sending traces to Honeycomb from Checkly"
+  title: "Exporting traces to Honeycomb from Checkly"
   metatags:
-    title: "Sending traces to Honeycomb from Checkly"
-    description: "Send traces from Checkly to Honeycomb for better observability."
+    title: "Exporting traces to Honeycomb from Checkly"
+    description: "Export traces from Checkly to Honeycomb for better observability."
 weight: 23
 menu:
   integrations:
-    parent: "Sending traces to 3rd party backends"
+    parent: "Exporting traces to 3rd party backends"
 beta: true
 ---
 
