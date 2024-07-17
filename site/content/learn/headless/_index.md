@@ -1,6 +1,8 @@
 ---
-Title: Learn Playwright & Puppeteer
-description: 
+title: Learn Playwright & Puppeteer Browser Automation Frameworks
+displayTitle: Learn Playwright & Puppeteer
+description: Learn more about Playwright & Puppeteer with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
+displayDescription: 
   Learn more about Playwright & Puppeteer with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 metatags:
   title: Learn Playwright & Puppeteer - Browser Automation Frameworks
