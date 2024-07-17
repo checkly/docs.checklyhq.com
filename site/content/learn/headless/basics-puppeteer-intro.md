@@ -1,9 +1,8 @@
 ---
-Title: What is Puppeteer?
+Title: What is Puppeteer? Definition & Main Use Cases
+displayTitle: What is Puppeteer?
 description: >-
   Puppeteer is a Node library for controlling Chrome or Chromium via the DevTools Protocol, with headless and full-browser modes. Learn more in our guide!
-metatags:
-  title: What is Puppeteer? Definition & Main Use Cases
 Date: 2020-06-19
 Author: "Giovanni Rago"
 

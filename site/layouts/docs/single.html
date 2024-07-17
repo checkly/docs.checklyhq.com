@@ -11,7 +11,13 @@
 
         {{ partial "docs-breadcrumb" .}}
 
-        <h1 id="{{ anchorize .Title }}">{{ .Title }}</h1>
+        <h1 id="{{ anchorize .Title }}">
+        {{ if .Params.displayTitle}}
+          {{.Params.displayTitle}}
+        {{else}}
+          {{.Title}}
+        {{end}}
+        </h1>
         <div class="docs-toc-mobile mb-5 pt-3">
           <div class="docs-toc-header mb-3 pt-3">On this page</div>
           {{ .Page.TableOfContents }}
