@@ -1,34 +1,34 @@
 ---
-title: Getting started with OpenTelemetry
+title: Getting started with Checkly Traces and OpenTelemetry
 weight: 1
 menu:
   integrations:
-    parent: "OpenTelemetry (beta)"
-    identifier: getting-started-otel
+    parent: "Traces (beta)"
+    identifier: getting-started-traces-otel
 beta: true
 ---
 
 {{< info >}}
-The OpenTelemetry integration is currently in **beta** and available for free on all plans. 
-Need help getting started? We offer a **free, 1:1 valet onboarding service** to help you instrument your stack with the 
+Checkly traces are OpenTelemetry native. Currently in **beta** and available for free on all plans. 
+Need help getting started? We offer a **free, 1:1 onboarding service** to help you instrument your stack with the 
 correct OpenTelemetry SDKs and enable tracing inside Checkly. 
 [Book an onboarding session right here](https://calendly.com/maria-checkly/traces-onboarding)
 {{< /info >}}
 
-With OpenTelemetry enabled, you will have access to traces in all the places where it matters to more quickly resolve issues:
+With Traces configured, you will have access to traces in all the places where it matters to more quickly resolve issues:
 - **Check results:** resolve production outages faster by correlating failing checks with backend traces.
 - **Test sessions:** understand any failures during test session execution.
-- **Check Editors** get a live trace while building, editing and debugging check code.
+- **Check Editors:** get a live trace while building, editing and debugging check code.
 
 ![Check result with OpenTelemetry trace](/docs/images/integrations/otel/otel_check_result.png)
 
 
 <br>
-To get started with the Checkly OpenTelemetry integration, pick a scenario that best fits your needs.
+To get started with Checkly Traces using OpenTelemetry, pick the scenario that best fits your needs.
 
 <div class="cards-list">
 {{< doc-card
-	  class="two-column-card"
+	  class="three-column-card"
 	  headerTag="h3"
 	  title="I don't have an OpenTelemetry setup"
 	  description="Instrument your app and send traces directly to Checkly. No need for a 3rd party OTel backend."
@@ -36,10 +36,18 @@ To get started with the Checkly OpenTelemetry integration, pick a scenario that 
 	  link="/docs/open-telemetry/instrumenting-code/"
 >}}
 {{< doc-card
-	  class="two-column-card"
+	  class="three-column-card"
 	  headerTag="h3"
-	  title="I have an OpenTelemetry setup"
-	  description="Export traces to your 3rd party OTel backend and send them into Checkly too."
+	  title="I want to import my backend OpenTelemetry traces into Checkly"
+	  description="Import your backend traces into Checkly to get contextualized check failure analysis."
+	  img="/docs/images/icons/opentelemetry.svg"
+	  link="/docs/open-telemetry/importing-traces/"
+>}}
+{{< doc-card
+	  class="three-column-card"
+	  headerTag="h3"
+	  title="I want to export Check results to my OpenTelemetry setup"
+	  description="Export check results as traces for your 3rd party OTel tooling"
 	  img="/docs/images/icons/opentelemetry.svg"
 	  link="/docs/open-telemetry/exporting-traces/"
 >}}

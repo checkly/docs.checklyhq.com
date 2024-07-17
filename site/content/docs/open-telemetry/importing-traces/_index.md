@@ -1,5 +1,5 @@
 ---
-title: Exporting traces to 3rd party backends
+title: Importing your backend traces to Checkly
 weight: 40
 menu:
   integrations:

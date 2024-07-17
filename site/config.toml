@@ -49,6 +49,12 @@ disqusShortname = "checkly"
     url = "/docs/cli/"
     weight = 30
 
+[[menu.platform]]
+	name = "Traces (beta)"
+	url = "/docs/traces-open-telemetry/"
+	weight = 50
+	beta = true
+
 
 [[menu.resources]]
 	name = "API checks"
@@ -139,13 +145,6 @@ disqusShortname = "checkly"
 	name = "Pulumi provider"
 	url = "/docs/pulumi-provider/"
 	weight = 40
-
-[[menu.integrations]]
-	name = "OpenTelemetry (beta)"
-	url = "/docs/open-telemetry/"
-	weight = 50
-	beta = true
-
 
 [[menu.reference]]
     name = "CLI Commands"
