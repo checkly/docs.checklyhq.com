@@ -1,6 +1,6 @@
 ---
 title: Single Sign-on
-weight: 54
+weight: 55
 aliases:
 - "/docs/single-sign-on/"
 menu:
