@@ -1,10 +1,12 @@
 ---
-title: How Checkly tracing works under the hood
+title: Understanding Checkly Traces
 weight: 70
 menu:
-  Platform:
+  platform:
     parent: "Traces (beta)"
 beta: true
+aliases:
+  - "/docs/open-telemetry/how-it-works"
 ---
 
 To help you understand how the Checkly OpenTelemetry integration works, have a look at the diagram below that details

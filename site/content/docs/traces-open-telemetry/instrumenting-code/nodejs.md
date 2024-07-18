@@ -7,9 +7,11 @@ metatags:
   description: "Instrument your Node.js application with OpenTelemetry and send traces to Checkly."
 weight: 31
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/nodejs"
 ---
 
 This guide will help you instrument your Node.js application(s) with OpenTelemetry and send traces to Checkly.

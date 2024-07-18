@@ -7,10 +7,11 @@ metatags:
 weight: 20
 menu:
   platform:
-    parent: "Import your backend traces into Checkly"
+    parent: "Send your traces to Checkly"
 beta: true
 aliases:
   - "/docs/open-telemetry/ingesting-traces-otel-collector/"
+  - "/docs/open-telemetry/sending-traces-otel-collector/"
 ---
 
 Using the OpenTelemetry collector is the best way to manage and route telemetry data to Checkly. It requires

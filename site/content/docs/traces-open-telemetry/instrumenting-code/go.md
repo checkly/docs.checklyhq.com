@@ -7,9 +7,11 @@ metatags:
   description: "Instrument your Go application with OpenTelemetry and send traces to Checkly."
 weight: 35
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/go"
 ---
 
 This guide will help you instrument the `net/http` stack of your Go application(s) with OpenTelemetry and send traces 

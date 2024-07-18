@@ -1,5 +1,5 @@
 ---
-title: Import your backend traces into Checkly
+title: Send your traces to Checkly
 weight: 40
 menu:
   platform:

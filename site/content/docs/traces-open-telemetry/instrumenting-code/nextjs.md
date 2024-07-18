@@ -7,9 +7,11 @@ metatags:
   description: "Instrument your Next.js application with OpenTelemetry and send traces to Checkly."
 weight: 37
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/nextjs"
 ---
 
 Next.js is now shipping with an experimental OpenTelemetry integration. This guide will help you instrument your Next.js 

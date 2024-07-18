@@ -8,8 +8,10 @@ metatags:
 weight: 60
 menu:
   platform:
-    parent: "Traces (beta)"
+    parent: "Send your traces to Checkly"
 beta: true
+aliases:
+  - "/docs/open-telemetry/http-vs-grpc-protocols/"
 ---
 Checkly's OTel ingestion endpoint supports both HTTP and gRPC protocols. The gRPC protocol is the "native"
 protocol for OTel, but in 2020 an alternative HTTP protocol was introduced due to some of the downsides gRPC has:

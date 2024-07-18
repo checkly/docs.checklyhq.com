@@ -1,10 +1,12 @@
 ---
-title: Exporting traces to 3rd party backends
+title: Export traces to 3rd party tools
 weight: 40
 menu:
   platform:
     parent: "Traces (beta)"
 beta: true
+aliases:
+  - "/docs/open-telemetry/exporting-traces/"
 ---
 
 Exporting your check results as traces to a 3rd party OpenTelemetry backend is a great way to correlate check runs with other

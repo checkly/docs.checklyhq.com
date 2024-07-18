@@ -1,13 +1,15 @@
 ---
-title: Instrumenting your code with OpenTelemetry
+title: Instrument your code with OpenTelemetry
 metatags:
-  title: "Instrumenting your code with OpenTelemetry"
+  title: "Instrument your code with OpenTelemetry"
   description: "Instrument your application code with OpenTelemetry and send traces to Checkly."
 weight: 30
 menu:
   platform:
     parent: "Traces (beta)"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/"
 ---
 
 If you are completely new to OpenTelemetry, you should start by instrumenting your web facing application code with the 

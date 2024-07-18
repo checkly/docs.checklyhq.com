@@ -7,9 +7,11 @@ metatags:
   description: "Instrument your Python application with OpenTelemetry and send traces to Checkly."
 weight: 32
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/python"
 ---
 
 This guide will help you instrument your Python application(s) with OpenTelemetry and send traces to Checkly.

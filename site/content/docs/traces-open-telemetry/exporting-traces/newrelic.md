@@ -8,8 +8,10 @@ head:
 weight: 21
 menu:
   integrations:
-    parent: "Exporting traces to 3rd party backends"
+    parent: "Export traces to 3rd party tools"
 beta: true
+aliases:
+  - "/docs/open-telemetry/exporting-traces/newrelic/"
 ---
 
 1. Make sure you have the **Traces** feature enabled in your New Relic account.

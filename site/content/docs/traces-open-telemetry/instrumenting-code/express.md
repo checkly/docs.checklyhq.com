@@ -7,9 +7,11 @@ metatags:
   title: "Instrumenting Express.js with OpenTelemetry"
   description: "Instrument your Express.js application with OpenTelemetry and send traces to Checkly."
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/express"
 ---
 
 This guide will help you instrument your Express application(s) with OpenTelemetry and send traces to Checkly.
