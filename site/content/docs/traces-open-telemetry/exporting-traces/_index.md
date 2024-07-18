@@ -2,7 +2,7 @@
 title: Exporting traces to 3rd party backends
 weight: 40
 menu:
-  integrations:
+  platform:
     parent: "Traces (beta)"
 beta: true
 ---

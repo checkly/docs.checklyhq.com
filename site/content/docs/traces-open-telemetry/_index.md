@@ -2,7 +2,7 @@
 title: Getting started with Checkly Traces and OpenTelemetry
 weight: 1
 menu:
-  integrations:
+  platform:
     parent: "Traces (beta)"
     identifier: getting-started-traces-otel
 beta: true

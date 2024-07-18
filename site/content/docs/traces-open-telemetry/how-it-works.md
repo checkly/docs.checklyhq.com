@@ -2,8 +2,8 @@
 title: How Checkly tracing works under the hood
 weight: 70
 menu:
-  integrations:
-    parent: "OpenTelemetry (beta)"
+  Platform:
+    parent: "Traces (beta)"
 beta: true
 ---
 
@@ -13,25 +13,24 @@ the (possible) dataflows and how they connect to Checkly's monitoring and alerti
 ![checkly open telemetry diagram](/docs/images/integrations/otel/checkly_otel_diagram.png)
 
 1. When enabling the integration, Checkly will automatically instrument all HTTP requests made by your checks with `traceparent`
-   and `tracestate` headers. These HTTP requests hit your web application and / or API as normal.
+   and `tracestate` headers. These HTTP requests hit your web application and / or API when running checks.
 
-   We do this for all of our synthetic check types, including API, Browser and Multistep checks. For the `traceparent`
+   All of the synthetic check types, including API, Browser and Multistep checks will include these headers. For the `traceparent`
    we generate a [W3C compliant trace ID](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) for
    each HTTP request that is part of a check. This means that for Browser checks and Multistep checks, there can be multiple
    requests instrumented.
 
-   Similarly, we add the `tracestate` header to identify Checkly as the vendor that generated the trace by setting it
+   Similarly, the `tracestate` header identifies Checkly as the vendor that generated the trace by setting it
    to `checkly=true`. Together with the `traceparent` header, these headers are used to propagate the trace context
    along the request chain.
 
    This is the most basic way of tying a synthetic check to your backend traces. It will however not give you a ton
    of **context** about the check run itself, like the check name, location etc.
 
-2. You can configure your 3rd party backend in the Checkly UI, so we can also send every check result as a span to your
+2. You can configure your 3rd party backend in the Checkly UI, so we can also export every check result as a span to your
    backend. The result is that now all backend spans are correlated to the check run that triggered them, together with a
    full context of the check run, like the run location, check name, check type etc. These items are stored in the `checkly`
    namespace as attributes on the span i.e.
-
 
     ```yaml
       checkly.check.name: "ACME homepage"

@@ -6,8 +6,8 @@ metatags:
   description: "Send traces to Checkly using the OpenTelemetry collector."
 weight: 20
 menu:
-  integrations:
-    parent: "OpenTelemetry (beta)"
+  platform:
+    parent: "Traces (beta)"
 beta: true
 aliases:
   - "/docs/open-telemetry/ingesting-traces-otel-collector/"

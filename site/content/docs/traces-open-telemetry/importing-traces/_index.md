@@ -2,7 +2,7 @@
 title: Importing your backend traces to Checkly
 weight: 40
 menu:
-  integrations:
+  platform:
     parent: "Traces (beta)"
 beta: true
 ---

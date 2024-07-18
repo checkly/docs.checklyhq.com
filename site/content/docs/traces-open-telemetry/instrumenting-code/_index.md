@@ -5,7 +5,7 @@ metatags:
   description: "Instrument your application code with OpenTelemetry and send traces to Checkly."
 weight: 30
 menu:
-  integrations:
+  platform:
     parent: "OpenTelemetry (beta)"
 beta: true
 ---
