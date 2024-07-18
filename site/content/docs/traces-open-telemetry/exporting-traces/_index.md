@@ -1,6 +1,6 @@
 ---
 title: Export traces to 3rd party tools
-weight: 40
+weight: 30
 menu:
   platform:
     parent: "Traces (beta)"

@@ -1,6 +1,6 @@
 ---
 title: Send your traces to Checkly
-weight: 40
+weight: 20
 menu:
   platform:
     parent: "Traces (beta)"
