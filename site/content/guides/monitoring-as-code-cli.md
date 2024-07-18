@@ -1,6 +1,10 @@
 ---
-title: Monitoring as code with the Checkly CLI
-description: >-
+title: What is End to End Monitoring? Overview with Examples
+displayTitle: Monitoring as code with the Checkly CLI
+metatags:
+  title: What is End to End Monitoring? Overview with Examples
+description: Discover how Monitoring as Code transforms cloud infrastructure management with a hands-on Checkly case study. Start optimizing your workflow today!
+displayDescription: >-
   The as code movement has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure, security and other ressources. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of monitoring as code (MaC) via our Checkly CLI.
 author: Hannes Lenke
 avatar: 'images/avatars/hannes-lenke.png'
