@@ -33,7 +33,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  title="I don't have an OpenTelemetry setup"
 	  description="Instrument your app and send traces directly to Checkly. No need for a 3rd party OTel backend."
 	  img="/docs/images/icons/opentelemetry_gray.svg"
-	  link="/docs/open-telemetry/instrumenting-code/"
+	  link="/docs/traces-open-telemetry/instrumenting-code/"
 >}}
 {{< doc-card
 	  class="three-column-card"
@@ -41,7 +41,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  title="I want to import my backend OpenTelemetry traces into Checkly"
 	  description="Import your backend traces into Checkly to get contextualized check failure analysis."
 	  img="/docs/images/icons/opentelemetry.svg"
-	  link="/docs/open-telemetry/importing-traces/"
+	  link="/docs/traces-open-telemetry/importing-traces/"
 >}}
 {{< doc-card
 	  class="three-column-card"
@@ -49,7 +49,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  title="I want to export Check results to my OpenTelemetry setup"
 	  description="Export check results as traces for your 3rd party OTel tooling"
 	  img="/docs/images/icons/opentelemetry.svg"
-	  link="/docs/open-telemetry/exporting-traces/"
+	  link="/docs/traces-open-telemetry/exporting-traces/"
 >}}
 </div>
 
