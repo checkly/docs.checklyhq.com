@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure AD
-weight: 56
+weight: 57
 menu:
   resources:
     parent: "Single Sign-on"

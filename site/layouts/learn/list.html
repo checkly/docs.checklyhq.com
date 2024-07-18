@@ -8,7 +8,13 @@
           <img src="/images/icons/toc-icon.svg" alt="table of contents" width="14" height="12" /> Table of contents
         </div>
       </div>
-      <h1>{{ .Title }}</h1>
+      <h1>
+        {{ if .Params.displayTitle}}
+          {{.Params.displayTitle}}
+        {{else}}
+          {{.Title}}
+        {{end}}
+      </h1>
       <div class="learn-toc-mobile mb-5 pt-3">
         <div class="learn-toc-header mb-3 pt-3">On this page</div>
         {{ .Page.TableOfContents }}
