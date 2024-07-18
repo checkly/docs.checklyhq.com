@@ -1,7 +1,6 @@
 ---
-title: Working with selectors
-metatags:
-    title: UI Selectors - A Guide for Puppeteer & Playwright | Checkly
+title: UI Selectors - A Guide for Puppeteer & Playwright | Checkly
+displayTitle: Working with selectors
 description: 
   Learn to write solid scripts using Puppeteer, Playwright, and other UI selectors. Discover how to choose stable selectors and start enhancing your skills today.
 subTitle: Techniques and pointers
