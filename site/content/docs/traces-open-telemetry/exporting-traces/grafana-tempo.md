@@ -7,7 +7,7 @@ metatags:
   description: "Export traces from Checkly to Grafana Tempo for better observability."
 weight: 22
 menu:
-  integrations:
+  platform:
     parent: "Export traces to 3rd party tools"
 beta: true
 aliases:

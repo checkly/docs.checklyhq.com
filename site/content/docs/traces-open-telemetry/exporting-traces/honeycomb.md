@@ -7,7 +7,7 @@ head:
     description: "Export traces from Checkly to Honeycomb for better observability."
 weight: 23
 menu:
-  integrations:
+  platform:
     parent: "Export traces to 3rd party tools"
 beta: true
 aliases:

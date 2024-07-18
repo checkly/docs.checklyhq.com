@@ -7,7 +7,7 @@ head:
     description: "Export traces from Checkly to New Relic for better observability."
 weight: 21
 menu:
-  integrations:
+  platform:
     parent: "Export traces to 3rd party tools"
 beta: true
 aliases:
