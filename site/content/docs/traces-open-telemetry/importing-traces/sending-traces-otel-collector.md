@@ -1,13 +1,13 @@
 ---
-title: Sending traces to Checkly with the OpenTelemetry collector
+title: Setting up the OpenTelemetry collector
 
 metatags:
-  title: "Sending traces to Checkly with the OpenTelemetry collector"
-  description: "Send traces to Checkly using the OpenTelemetry collector."
+  title: "Setting up the OpenTelemetry collector"
+  description: "Set up the OpenTelemetry collector and send traces to Checkly."
 weight: 20
 menu:
   platform:
-    parent: "Traces (beta)"
+    parent: "Import your backend traces into Checkly"
 beta: true
 aliases:
   - "/docs/open-telemetry/ingesting-traces-otel-collector/"
@@ -16,8 +16,12 @@ aliases:
 Using the OpenTelemetry collector is the best way to manage and route telemetry data to Checkly. It requires
 a little setting up, but it's worth it.
 <!--more-->
-In this guide we assume you already have an OTel collector running and configured. If you don't, please reference [the
-Open Telemetry Collector getting started documentation](https://opentelemetry.io/docs/collector/installation/)
+
+## Pre-requisites
+
+* An OpenTelemetry collector running and configured.
+
+If you need to set up OpenTelemetry for the first time, please use [the Open Telemetry Collector getting started documentation](https://opentelemetry.io/docs/collector/installation/)
 
 
 ## Step 1: Update your config

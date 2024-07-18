@@ -6,7 +6,7 @@ metatags:
 weight: 30
 menu:
   platform:
-    parent: "OpenTelemetry (beta)"
+    parent: "Traces (beta)"
 beta: true
 ---
 

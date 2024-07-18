@@ -38,8 +38,8 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 {{< doc-card
 	  class="three-column-card"
 	  headerTag="h3"
-	  title="I want to import my backend OpenTelemetry traces into Checkly"
-	  description="Import your backend traces into Checkly to get contextualized check failure analysis."
+	  title="I want to see traces in Checkly"
+	  description="Send your backend traces to Checkly to get contextualized check failure analysis."
 	  img="/docs/images/icons/opentelemetry.svg"
 	  link="/docs/traces-open-telemetry/importing-traces/"
 >}}
