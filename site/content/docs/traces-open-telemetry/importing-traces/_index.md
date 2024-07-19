@@ -10,7 +10,7 @@ beta: true
 Send your 3rd party backend OpenTelemetry traces to Checkly. Inspect and drill down to why a check failed or degraded.
 <!--more-->
 
-In [the Traces tab your Checkly account settings](https://app.checklyhq.com/settings/account/traces): 
+In [the Traces tab in your Checkly account settings](https://app.checklyhq.com/settings/account/traces): 
 
 1. Flip the **Basic HTTP instrumentation** toggle: 
 
