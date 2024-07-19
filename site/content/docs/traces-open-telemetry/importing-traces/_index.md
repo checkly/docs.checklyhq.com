@@ -30,6 +30,6 @@ In [the Traces tab in your Checkly account settings](https://app.checklyhq.com/s
 
 ---
 
-After you've set this up, you should see traces coming in the [Traces page](https://app.checklyhq.com/traces). Moreover, when opening a check, you'll see a Traces section within it. 
+After you've set this up, you should start seeing traces on the [Traces page](https://app.checklyhq.com/traces). Moreover, when opening a check, you'll see a Traces section within it.
 
    ![Check result with OpenTelemetry trace](/docs/images/integrations/otel/otel_check_result.png)
