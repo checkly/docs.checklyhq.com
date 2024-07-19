@@ -22,7 +22,7 @@ a little setting up, but it's worth it.
 
 * An OpenTelemetry collector running and configured.
 
-If you need to set up OpenTelemetry for the first time, please use [the Open Telemetry Collector getting started documentation](https://opentelemetry.io/docs/collector/installation/)
+If you need to set up OpenTelemetry for the first time, please use [the Open Telemetry Collector getting started documentation](https://opentelemetry.io/docs/collector/installation/).
 
 
 ## Step 1: Update your config
