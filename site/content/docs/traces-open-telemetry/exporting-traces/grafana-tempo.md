@@ -7,9 +7,11 @@ metatags:
   description: "Export traces from Checkly to Grafana Tempo for better observability."
 weight: 22
 menu:
-  integrations:
-    parent: "Exporting traces to 3rd party backends"
+  platform:
+    parent: "Export traces to 3rd party tools"
 beta: true
+aliases:
+  - "/docs/open-telemetry/exporting-traces/grafana-tempo/"
 ---
 
 1. Make sure you have Grafana Tempo installed, running and accessible. If you are running Grafana Cloud, the Tempo

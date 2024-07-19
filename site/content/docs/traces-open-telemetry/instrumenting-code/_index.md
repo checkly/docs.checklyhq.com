@@ -1,13 +1,15 @@
 ---
-title: Instrumenting your code with OpenTelemetry
+title: Instrument your code with OpenTelemetry
 metatags:
-  title: "Instrumenting your code with OpenTelemetry"
+  title: "Instrument your code with OpenTelemetry"
   description: "Instrument your application code with OpenTelemetry and send traces to Checkly."
-weight: 30
+weight: 35
 menu:
-  integrations:
-    parent: "OpenTelemetry (beta)"
+  platform:
+    parent: "Traces (beta)"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/"
 ---
 
 If you are completely new to OpenTelemetry, you should start by instrumenting your web facing application code with the 
@@ -22,22 +24,22 @@ Below you will find instructions on how to instrument your popular languages and
 	class="three-column-card"
 	headerTag="h3"
 	title="Node.js"
-	img="/docs/images/integrations/otel/otel-languages/nodejs_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/nodejs/"
+	img="/docs/images/otel/otel-languages/nodejs_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/nodejs/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Python"
-	img="/docs/images/integrations/otel/otel-languages/python_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/python/"
+	img="/docs/images/otel/otel-languages/python_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/python/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Java"
-	img="/docs/images/integrations/otel/otel-languages/java_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/java/"
+	img="/docs/images/otel/otel-languages/java_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/java/"
 >}}
 </div>
 
@@ -46,15 +48,15 @@ Below you will find instructions on how to instrument your popular languages and
 	class="three-column-card"
 	headerTag="h3"
 	title="PHP"
-	img="/docs/images/integrations/otel/otel-languages/php_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/php/"
+	img="/docs/images/otel/otel-languages/php_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/php/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Go"
-	img="/docs/images/integrations/otel/otel-languages/go_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/go/"
+	img="/docs/images/otel/otel-languages/go_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/go/"
 >}}
 </div>
 <br>
@@ -66,22 +68,22 @@ Below you will find instructions on how to instrument your popular languages and
 	class="three-column-card"
 	headerTag="h3"
 	title="Next.js"
-	img="/docs/images/integrations/otel/otel-languages/nextjs_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/nextjs/"
+	img="/docs/images/otel/otel-languages/nextjs_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/nextjs/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Express.js"
-	img="/docs/images/integrations/otel/otel-languages/expressjs_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/express/"
+	img="/docs/images/otel/otel-languages/expressjs_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/express/"
 >}}
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
 	title="Ruby on Rails"
-	img="/docs/images/integrations/otel/otel-languages/ruby_on_rails_icon.svg"
-	link="/docs/open-telemetry/instrumenting-code/ruby-on-rails/"
+	img="/docs/images/otel/otel-languages/ruby_on_rails_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/ruby-on-rails/"
 >}}
 </div>
 <br>

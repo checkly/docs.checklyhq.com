@@ -2,9 +2,11 @@
 title: Java
 weight: 33
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/java"
 ---
  
 Java docs coming soon.

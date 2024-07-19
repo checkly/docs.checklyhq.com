@@ -7,9 +7,11 @@ head:
     description: "Export traces from Checkly to Honeycomb for better observability."
 weight: 23
 menu:
-  integrations:
-    parent: "Exporting traces to 3rd party backends"
+  platform:
+    parent: "Export traces to 3rd party tools"
 beta: true
+aliases:
+  - "/docs/open-telemetry/exporting-traces/honeycomb/"
 ---
 
 1. Grab the relevant API endpoint from [the Honeycomb documentation](https://docs.honeycomb.io/send-data/opentelemetry/#using-the-honeycomb-opentelemetry-endpoint). It should look like `https://api.honeycomb.io/v1/traces`.
