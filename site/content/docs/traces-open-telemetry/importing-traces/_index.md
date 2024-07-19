@@ -12,15 +12,11 @@ Send your 3rd party backend OpenTelemetry traces to Checkly. Inspect and drill d
 
 In [the Traces tab, in your Checkly account settings](https://app.checklyhq.com/settings/account/traces): 
 
-1. Flip the **Basic HTTP instrumentation** toggle: 
-
-   ![Enable basic instrumentation](/docs/images/otel/otel_basic_instrumentation.png)
-
+1. Flip the toggle to import traces in the [Traces settings page](https://app.checklyhq.com/settings/account/traces).
    
-2. Get the trace endpoint URL and the API key. Provide them to your preferred 3rd party OpenTelemetry backend.
+2. Get the trace endpoint URL and the API key. Provide them to your OpenTelemetry collector so that it sends traces back to Checkly.
 
    ![Provide URL and header with authentication](/docs/images/otel/otel_import_traces_settings.png)
-
 
 
 3. Set up your OpenTelemetry collector to only send relevant traces to Checkly. 

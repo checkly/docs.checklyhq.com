@@ -12,11 +12,8 @@ aliases:
 Exporting your check results as traces to a 3rd party OpenTelemetry backend is a great way to correlate check runs with other
 telemetry data. It's also very simple to set up.
 <!--more-->
-
-1. Flip the **Basic HTTP instrumentation** toggle in [the OpenTelemetry integration in your Checkly account](https://app.checklyhq.com/settings/account/open-telemetry).
-
-   ![Enable basic instrumentation](/docs/images/otel/otel_basic_instrumentation.png)
-
+   
+1. Flip the toggle to export traces in the [Traces settings page](https://app.checklyhq.com/settings/account/traces).
    
 2. Provide the trace endpoint URL and HTTP header with an API key for your preferred 3rd party OpenTelemetry
    backend. Done.
