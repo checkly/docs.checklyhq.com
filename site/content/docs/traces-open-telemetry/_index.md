@@ -6,6 +6,8 @@ menu:
     parent: "Traces (beta)"
     identifier: getting-started-traces-otel
 beta: true
+aliases:
+  - "/docs/open-telemetry/"
 ---
 
 {{< info >}}
