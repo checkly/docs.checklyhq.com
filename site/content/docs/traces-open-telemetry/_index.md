@@ -18,7 +18,7 @@ correct OpenTelemetry SDKs and enable tracing inside Checkly.
 With Traces configured, you will have access to traces in all the places where it matters to more quickly resolve issues:
 - **Check results:** resolve production outages faster by correlating failing checks with backend traces.
 - **Test sessions:** understand any failures during test session execution.
-- **Check Editors:** get a live trace while building, editing and debugging check code.
+- **Check editors:** get a live trace while building, editing and debugging check code.
 
 ![Check result with OpenTelemetry trace](/docs/images/integrations/otel/otel_check_result.png)
 
