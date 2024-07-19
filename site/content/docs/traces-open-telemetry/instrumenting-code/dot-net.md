@@ -10,7 +10,7 @@ aliases:
 ---
 .NET docs coming soon.
 
-* Check the canonical OpenTelemetry .NET documentation at [opentelemetry.io](https://opentelemetry.io/docs/languages/net/getting-started/)
+* Check the canonical OpenTelemetry .NET documentation at [opentelemetry.io](https://opentelemetry.io/docs/languages/net/getting-started/).
 
 * And the great content from [signoz.io](https://signoz.io/docs/instrumentation/dotnet/).
 
