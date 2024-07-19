@@ -47,7 +47,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  class="three-column-card"
 	  headerTag="h3"
 	  title="I want to export Check results to my OpenTelemetry setup"
-	  description="Export check results as traces for your 3rd party OTel tooling"
+	  description="Export check results as traces to your 3rd party OTel tooling"
 	  img="/docs/images/icons/opentelemetry.svg"
 	  link="/docs/traces-open-telemetry/exporting-traces/"
 >}}
@@ -59,5 +59,5 @@ See this in action in the video below:
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/30c143388ba54e9ba6b665dfbfe0d295?sid=8ad8d273-b0bb-48ca-b456-1b137384b9de" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-If you want to learn more about how this all works, check out the [How it works under the hood](/docs/open-telemetry/how-it-works/) section.
+If you want to learn more about how this all works, check out the [Understand Checkly Traces](/docs/open-telemetry/how-it-works/) section.
 

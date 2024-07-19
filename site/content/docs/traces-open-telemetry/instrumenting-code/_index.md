@@ -32,7 +32,7 @@ Below you will find instructions on how to instrument your popular languages and
 	headerTag="h3"
 	title="Python"
 	img="/docs/images/otel/otel-languages/python_icon.svg"
-	link="/docs/trces-open-telemetry/instrumenting-code/python/"
+	link="/docs/traces-open-telemetry/instrumenting-code/python/"
 >}}
 {{< doc-card
 	class="three-column-card"
