@@ -16,7 +16,7 @@ telemetry data. It's also very simple to set up.
 1. Flip the toggle to export traces in the [Traces settings page](https://app.checklyhq.com/settings/account/traces).
    
 2. Provide the trace endpoint URL and HTTP header with an API key for your preferred 3rd party OpenTelemetry
-   backend. Done.
+   backend.
 
    ![Provide URL and header with authentication](/docs/images/otel/otel_export_traces_settings.png)
 
