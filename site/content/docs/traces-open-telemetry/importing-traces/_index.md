@@ -25,7 +25,7 @@ In [the Traces tab in your Checkly account settings](https://app.checklyhq.com/s
 
 3. Set up your OpenTelemetry collector to send only send Checkly relevant traces to Checkly. 
 
-   * [Setting up the OpenTelemetry Collector](/docs/importing-traces/sending-traces-otel-collector/) 
+   * [Setting up the OpenTelemetry Collector](/docs/traces-open-telemetry/importing-traces/sending-traces-otel-collector/) 
 
 
 ---
