@@ -7,9 +7,11 @@ metatags:
   description: "Instrument your Python application with OpenTelemetry and send traces to Checkly."
 weight: 32
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/python"
 ---
 
 This guide will help you instrument your Python application(s) with OpenTelemetry and send traces to Checkly.
@@ -35,11 +37,11 @@ opentelemetry-bootstrap --action=install
 
 First, make sure to switch on the **Basic HTTP Instrumentation**. This will add the necessary headers to your HTTP requests.
 
-![Checkly basic OTEL http instrumentation](/docs/images/integrations/otel/otel_basic_instrumentation.png)
+![Checkly basic OTEL http instrumentation](/docs/images/otel/otel_basic_instrumentation.png)
 
 Then, toggle on **Send Traces** and grab your OTel API key in the **OTel API keys** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/open-telemetry).
 
-![Checkly OTEL API keys](/docs/images/integrations/otel/otel_send_traces.png)
+![Checkly OTEL API keys](/docs/images/otel/otel_send_traces.png)
 
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 

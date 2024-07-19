@@ -1,20 +1,21 @@
 ---
-title: Express
-weight: 38
+title: Node.js
 head:
-  title: "Instrumenting Express.js with OpenTelemetry"
+  title: "Instrumenting Node.js with OpenTelemetry"
 metatags:
-  title: "Instrumenting Express.js with OpenTelemetry"
-  description: "Instrument your Express.js application with OpenTelemetry and send traces to Checkly."
+  title: "Instrumenting Node.js with OpenTelemetry"
+  description: "Instrument your Node.js application with OpenTelemetry and send traces to Checkly."
+weight: 31
 menu:
-  integrations:
-    parent: "Instrumenting your code with OpenTelemetry"
+  platform:
+    parent: "Instrument your code with OpenTelemetry"
 beta: true
+aliases:
+  - "/docs/open-telemetry/instrumenting-code/nodejs"
 ---
 
-This guide will help you instrument your Express application(s) with OpenTelemetry and send traces to Checkly.
+This guide will help you instrument your Node.js application(s) with OpenTelemetry and send traces to Checkly.
 <!--more-->
-The steps are largely the same as instrumenting any Node.js application with OpenTelemetry.
 ## Step 1: Install the OpenTelemetry packages
 
 Install the relevant OpenTelemetry packages:
@@ -46,7 +47,7 @@ const exporter = new OTLPTraceExporter({
 
 const sdk = new NodeSDK({
   instrumentations: [getNodeAutoInstrumentations()],
-  spanProcessors: new BatchSpanProcessor(exporter),
+  spanProcessors: [new BatchSpanProcessor(exporter)],
   sampler: {
     shouldSample: (context, traceId, spanName, spanKind, attributes, links) => {
       const isChecklySpan = trace.getSpan(context)?.spanContext()?.traceState?.get('checkly')
@@ -77,26 +78,17 @@ inspecting the trace state. This way you only pay for the egress traffic generat
 
 {{< markdownpartial "/_shared/otel-api-and-endpoint.md" >}}
 
-Then start your app with the extra `-r` flag to load the `tracing.js` file before any other files are loaded. In this case
-the `index.js` file holds your Express app and typically starts with code like:
-
-```javascript
-// index.js
-const express = require('express')
-const PORT = process.env.PORT || '5555'
-const app = express()
-// etc.
-```
+Then start your app with the extra `-r` flag to load the `tracing.js` file before any other files are loaded.
 
 ```bash
 node -r ./tracing.js index.js
 ```
-🎉 You are done. Any interactions with your app that are triggered by a Checkly synthetic monitoring check will now generate
+🎉 You are done. Any interactions with your app that are triggered by a Checkly synthetic monitoring check will now generate 
 traces, which are sent back to Checkly and displayed in the Checkly UI.
 
 ## Reducing noise in the auto Node.js instrumentation
 
-We found the Node.js auto-instrumentation a bit noisy. There can be a lot of file i/o and a ton of DNS calls you might not
+We found the Node.js auto-instrumentation a bit noisy. There can be a lot of file i/o and a ton of DNS calls you might not 
 be interested in. Luckily, you can easily tweak that by providing some extra options to the `getNodeAutoInstrumentations()` function.
 We use the following configuration to filter out some of the noise:
 
