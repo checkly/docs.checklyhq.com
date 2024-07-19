@@ -1,9 +1,8 @@
 ---
-title: End to end monitoring
+title: What is End to End Monitoring? Overview with Examples
+displayTitle: End to end monitoring
 description: >-
   Learn end-to-end monitoring with puppeteer and playwright to test key website flows. Follow our guide that gets you up and running in 10 minutes.
-metatags:
-  title: What is End to End Monitoring? Overview with Examples
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
