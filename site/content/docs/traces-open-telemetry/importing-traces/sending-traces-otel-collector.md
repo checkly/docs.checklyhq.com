@@ -18,7 +18,7 @@ Using the OpenTelemetry collector is the best way to manage and route telemetry 
 a little setting up, but it's worth it.
 <!--more-->
 
-## Pre-requisites
+## Prerequisites
 
 * An OpenTelemetry collector running and configured.
 
