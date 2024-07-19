@@ -1,5 +1,5 @@
 ---
-title: Understanding Checkly Traces
+title: Understand Checkly Traces
 weight: 70
 menu:
   platform:
@@ -9,10 +9,10 @@ aliases:
   - "/docs/open-telemetry/how-it-works"
 ---
 
-To help you understand how the Checkly OpenTelemetry integration works, have a look at the diagram below that details
+To help you understand how Checkly Traces work using OpenTelemetry, have a look at the diagram below that details
 the (possible) dataflows and how they connect to Checkly's monitoring and alerting pipeline.
 
-![checkly open telemetry diagram](/docs/images/integrations/otel/checkly_otel_diagram.png)
+![checkly open telemetry diagram](/docs/images/otel/checkly_otel_diagram.png)
 
 1. When enabling the integration, Checkly will automatically instrument all HTTP requests made by your checks with `traceparent`
    and `tracestate` headers. These HTTP requests hit your web application and / or API when running checks.
@@ -50,7 +50,7 @@ the (possible) dataflows and how they connect to Checkly's monitoring and alerti
 
    **No 3rd party backend needed. 😲**
 
-   Checkly's trace ingestion endpoint is a standard OTel backend endpoint, but we only accept traces that are related
+   Checkly's trace ingestion endpoint is a standard OTel backend endpoint, but only accepts traces that are related
    to synthetic checks, e.g. those marked with `tracestate: checkly=true`. This way, you can keep your OTel setup lean and mean
    and still get all the benefits of correlating check results with backend traces.
 

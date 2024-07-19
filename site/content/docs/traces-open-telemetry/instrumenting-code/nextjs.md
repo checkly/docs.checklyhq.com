@@ -99,7 +99,7 @@ inspecting the trace state. This way you only pay for the egress traffic generat
 If you are using Vercel for hosting your Next.js app, add the above environment variables to your Vercel project settings,
 e.g. 👇
 
-![Vercel project OTEL variables](/docs/images/integrations/otel/otel-languages/otel_vercel_env_vars.png)
+![Vercel project OTEL variables](/docs/images/otel/otel-languages/otel_vercel_env_vars.png)
 
 
 ## Further reading

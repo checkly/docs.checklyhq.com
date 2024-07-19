@@ -20,7 +20,7 @@ With Traces configured, you will have access to traces in all the places where i
 - **Test sessions:** understand any failures during test session execution.
 - **Check editors:** get a live trace while building, editing and debugging check code.
 
-![Check result with OpenTelemetry trace](/docs/images/integrations/otel/otel_check_result.png)
+![Check result with OpenTelemetry trace](/docs/images/otel/otel_check_result.png)
 
 
 <br>
