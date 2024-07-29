@@ -2,11 +2,7 @@
 sitemapExclude: true
 ---
 
-First, make sure to switch on the **Basic HTTP Instrumentation**. This will add the necessary headers to your HTTP requests.
-
-![Checkly basic OTEL http instrumentation](/docs/images/otel/otel_basic_instrumentation.png)
-
-Then, toggle on **Send Traces**, grab your OTel API key in the **OTel API keys** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/traces) and
+First, toggle on **Send Traces**, grab your OTel API key in the **OTel API keys** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/traces) and
 take a note of the endpoint for the region you want to use.
 
 ![Checkly OTEL API keys](/docs/images/otel/otel_send_traces.png)
