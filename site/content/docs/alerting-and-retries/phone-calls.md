@@ -20,19 +20,19 @@ You can add as many phone number channels as you like.
 
 | Country |
 | ------ |
-| Australia |
-| Brazil |
-| Canada |
-| France |
-| Germany |
-| India |
-| Lithuania |
-| Netherlands |
-| Norway |
-| Vietnam |
-| United Arab Emirates |
-| United Kingdom |
-| United States |
+| Australia (+61)             |
+| Brazil (+55)                |
+| Canada (+1)                 |
+| France (+33)                |
+| Germany (+49)               |
+| India (+91)                 |
+| Lithuania (+370)            |
+| Netherlands (+31)           |
+| Norway (+47)                |
+| Vietnam (+84)               |
+| United Arab Emirates (+971) |
+| United Kingdom (+44)        |
+| United States (+1)          |
 
 {{< warning >}}
 If your country is not supported feel free to reach out to our [support team](mailto:support@checklyhq.com).
