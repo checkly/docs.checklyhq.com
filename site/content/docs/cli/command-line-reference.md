@@ -57,7 +57,8 @@ between environments.
   they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they
   match any of the `--tags` filters, i.e. `--tags production,webapp --tags staging,backend` will run checks with tags
   (production AND webapp) OR (staging AND backend).
-- `--timeout`: A fallback timeout (in seconds) to wait for checks to complete.
+- `--retries`: How many times to retry a failing check run. 0 by default and maximum 3.
+- `--timeout`: A fallback timeout (in seconds) to wait for checks to complete. 600 seconds by default.
 - `--update-snapshots` or `-u`: Update the golden images / reference snapshots of your visual comparison and snapshot tests.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
@@ -134,7 +135,8 @@ they contain all the specified tags. Multiple `--tags` flags can be passed, in w
 match any of the `--tag`s filters, i.e. `--tags production,webapp --tags staging,backend` will run checks with tags
 (production AND webapp) OR (staging AND backend).
 - `--test-session-name` A name to use when storing results in Checkly with `--record`.
-- `--timeout`: A fallback timeout (in seconds) to wait for checks to complete. Default 240.
+- `--retries`: How many times to retry a failing check run. 0 by default and maximum 3.
+- `--timeout`: A fallback timeout (in seconds) to wait for checks to complete. 600 seconds by default.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
 ## `npx checkly login`
