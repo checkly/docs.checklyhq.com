@@ -38,8 +38,9 @@ export default defineConfig({
   },
   cli: {
     runLocation: 'eu-west-1',
-    privateRunLocation: 'private-dc1'
-  }
+    privateRunLocation: 'private-dc1',
+    retries: 0,
+  },
 })
 ```
 
@@ -59,8 +60,9 @@ settings apply to your Checks. Takes all [Check properties](#check)
 dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 - `cli`: Defaults for CLI commands.
-  - `runLocation`: The default run location when running `npx checkly test`.
-  - `privateRunLocation`: The default private run location when running `npx checkly test`.
+  - `runLocation`: The default run location when running `npx checkly test` and `npx checkly trigger`.
+  - `privateRunLocation`: The default private run location when running `npx checkly test` and `npx checkly trigger`.
+  - `retries`: The number of times to retry a failing check run when running `npx checkly test` and `npx checkly trigger`.
 
 ## `Check`
 
