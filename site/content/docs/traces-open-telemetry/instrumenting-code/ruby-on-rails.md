@@ -11,7 +11,7 @@ menu:
     parent: "Instrument your code with OpenTelemetry"
 beta: true
 aliases:
-  - "/docs/open-telemetry/instrumenting-code/ruby"
+  - "/docs/open-telemetry/instrumenting-code/ruby-on-rails"
 ---
 
 This guide will help you instrument your Ruby on Rails application(s) with OpenTelemetry and send traces to Checkly.
