@@ -35,9 +35,9 @@ On top of the time between attempts, you can also set:
 * **maximum total retry duration** - the maximum time a check can be in a retrying state. 
 This is a timeout to ensure the check finishes on a timely manner.
     
-    {{<info >}}
-    Make sure to include the time your check needs to run when setting the **maximum total retry duration**. For example, if you set a maximum to 2 minutes, and your check takes 1.5 minutes, you have 30 seconds left for retries.
-    {{</info >}}
+  {{<info >}}
+  Make sure to include the time your check needs to run when setting the **maximum total retry duration**. For example, if you set a maximum to 2 minutes, and your check takes 1.5 minutes, you have 30 seconds left for retries.
+  {{</info >}}
 
 #### How often should I retry?
 
