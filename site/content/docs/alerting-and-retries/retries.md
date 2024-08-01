@@ -17,7 +17,9 @@ Use **Retries** instead of the deprecated "double check" option.
 
 ## Check retry strategies
 
-All check types and check groups, except for Heartbeat checks, have a **Retries & Alerting** section under **Edit > Check settings**, where you can define the number of retries and which retry strategy your check or check group uses.
+All check types and check groups, except for Heartbeat checks, have a **Retries & Alerting** section available, where you can define the number of retries and which retry strategy your check or check group uses.
+
+Click **Edit check** or **Edit group** on the 3-dot menu on your [Checkly Home page](https://app.checklyhq.com/) and select the **Retries & Alerting** tab:
 
 ![configure retry strategy](/docs/images/alerting/retries.png)
 
@@ -27,12 +29,12 @@ There are three distinct retry strategies based on the time between retry attemp
 
 - **Fixed** — a fixed time between retries, e.g. 5s, 5s, 5s etc.
 - **Linear** — a linearly increasing time between retries, e.g. 5s, 10s, 15s etc.
-- **Exponential** — an exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s)  etc. 
+- **Exponential** — an exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s)  etc.
 
-On top of the time between attempts, you can also set: 
+On top of the time between attempts, you can also set:
 
-* **maximum number of retries** - the maximum number of retries for this check or check group. 
-* **maximum total retry duration** - the maximum time a check can be in a retrying state. 
+* **maximum number of retries** - the maximum number of retries for this check or check group.
+* **maximum total retry duration** - the maximum time a check can be in a retrying state.
 This is a timeout to ensure the check finishes on a timely manner.
     
   {{<info >}}
@@ -64,7 +66,7 @@ You can decide if a check should be retried from the same location or not with t
 There are some tradeoffs to consider:
 
 - Retrying from the same location makes sense if you care strongly about the uptime of your app in one specific location, compared to other locations.
-- Retrying from a different location makes sense, if you want to make sure your app is up in at least one location. 
+- Retrying from a different location makes sense, if you want to make sure your app is up in at least one location.
 
 
 ## Test sessions retries
@@ -74,7 +76,7 @@ Sporadically failing tests may be caused by a variety of reasons such as issues 
 Use retries to reduce noise in your [test session results](/docs/testing/#test-sessions) while providing information about the retry attempts.
 
 
-Specify the number of retries between 0 and 3 that you’d like Checkly to attempt when running `npx checkly test` or `npx checkly trigger`. 
+Specify the number of retries between 0 and 3 that you’d like Checkly to attempt when running `npx checkly test` or `npx checkly trigger`.
 
 The default number of retries is 0.
 
