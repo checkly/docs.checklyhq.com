@@ -58,7 +58,7 @@ Of course, picking the right strategy depends on your use case, tolerance for in
 
 ### Location-based check retries
 
-You can decide if a check should be retried from the same location or not with the toggle: 
+You can decide if a check should be retried from the same location or not with the checkbox: 
 **Always retry from the same location the check failed in**
 - If enabled, a check that fails will be retried in the same location. 
 - If disabled, a check that fails will be retried in a different location, from the locations your check runs at.
