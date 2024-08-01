@@ -21,7 +21,7 @@ All check types and check groups, except for Heartbeat checks, have a **Retries 
 
 ![configure retry strategy](/docs/images/alerting/retries.png)
 
-### Check retries: on a schedule
+### Scheduled check retries
 
 There are three distinct retry strategies based on the time between retry attempts, and each one comes with different retry/backoff characteristics.
 
@@ -54,7 +54,7 @@ If in that ~3-minute period your app / system recovers, and this was just a fluk
 
 Of course, picking the right strategy depends on your use case, tolerance for intermittent failures, SLO levels and other factors.
 
-## Check retries: location strategy
+### Location-based check retries
 
 You can decide if a check should be retried from the same location or not with the toggle: 
 **Always retry from the same location the check failed in**
