@@ -238,7 +238,7 @@ After completing the installation steps, open a terminal in the directory of you
 `npm create checkly`
 This command will bootstrap your repository with the basics needed to start using Checkly MaC in your project.
 
-{{< figure src="guides-checkly-install.jpg" alt="Checkly CLI project setup screenshot" title="Creating a project in the Checkly CLI" >}}
+{{< figure src="/guides/images/guides-checkly-install.jpg" alt="Checkly CLI project setup screenshot" title="Creating a project in the Checkly CLI" >}}
 
 In your project directory, you will find a folder named “__checks__” containing the following check templates:
 ```
@@ -282,28 +282,35 @@ Now that we have our test scripts ready, let’s execute them. We can use the Ch
 The `--record` flag is optional, you can use it if you want to record a test session with git info, full logging, videos and traces. `--record` sessions can be reviewed within the Checkly web interface.
 Here is the result of the test we just executed:
 
-{{< figure src="guides-checkly-cli-check-run.jpg" alt="Running tests from the CLI" title="Running tests from the CLI" >}}
+{{< figure src="/guides/images/guides-checkly-cli-check-run.jpg" alt="Running tests from the CLI" title="Running tests from the CLI" >}}
 
 There are also links to the detailed summary of the test at the end of the result in the terminal. Here is an example of the test summary:
 
-{{< figure src="guides-checkly-test-summary.png" alt="A test summary in the Checkly web interface" title="A test summary in the Checkly web interface" >}}
+{{< figure src="/guides/images/guides-checkly-test-summary.jpg" alt="A test summary in the Checkly web interface" title="A test summary in the Checkly web interface" >}}
 
 As seen in the result, the test failed because if you browse the URL (https://www.checklyhq.com/docs/browser-checks/) the title of the site is “Getting started | Checkly” and not “Introduction to Checkly | Checkly” as expected in the test case.
 If we update the test case to expect “Getting started | Checkly” we will have a passed test. Here is the result of the test after updating the correct title:
-
-{{< figure src="guides-checkly-cli-passed-test.jpg" alt="A passing test" title="A passing test" >}}
+{{< figure src="/guides/images/guides-checkly-cli-passed-test.jpg" alt="A passing test" title="A passing test" >}}
 
 If you check the detailed summary, we should have a passed test too:
 
+{{< figure src="/guides/images/guides-checkly-ui-passed-test.jpg" alt="A passing test" title="A passing test" >}}
+
 Step 5: Deploying Checks
 Now that you've reviewed and updated your tests, you can proceed to deploy your MaC workflow and related resources, such as alerts and dashboards. Run the following command in your project terminal to deploy the tests to your Checkly account:
-npx checkly deploy
+`npx checkly deploy`
 Once the deployment is complete, you'll see a success message in your terminal, indicating that the project has been deployed to your Checkly account.
+
 To verify this, navigate to the home section on the left side of the Checkly UI, and you'll find the project with the name of the test script from your local repository.
+{{< figure src="/guides/images/guides-checkly-dashboard-passed-test.jpg" alt="A passing test" title="A passing test" >}}
+
+
 
 Step 6: Setting up Alerts
 Checkly offers alert services to notify you whenever a check fails. Various alert channels are available, including Slack, SMS, webhook, phone call, email, Opsgenie, PagerDuty, etc.
 To set up alerts for your check, go to the specific project, in this case, "homepage.spec.ts." At the top right corner of the code editor, click the "Settings" button. In the revealed side panel, access "Alert Settings" under "Retries & alerting."
+
+{{< figure src="/guides/images/guides-checkly-alert-settings.jpg" alt="A passing test" title="A passing test" >}}
 
 Here, configure monitoring parameters according to your needs, including check frequency, locations, retries and alerting. You can also set up your preferred alert channel using the Checkly CLI. Learn more about the alert channels from the official documentation.
 
