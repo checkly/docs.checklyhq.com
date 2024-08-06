@@ -70,12 +70,24 @@ between synthetic and real users.
 
 1. Click **Enable Coralogix RUM** and pick the region of your tenant.
 2. Set the global name of the application you will be targeting with your checks, e.g. "Acme webshop".
-3. Create a new RUM integration in your Coralogix account, you can find these in the **Data Flow > Integrations > Real User Monitoring** section
-   of your Coralogix dashboard. Copy and paste the integration API key.
+3. Create a new RUM integration in your Coralogix account via **Data Flow > Integrations > Real User Monitoring**
+
+![rum api key area](/docs/images/integrations/coralogix/cx_rum_api_creation.png)
+
+4. You will need to create an **Integration Key** and a **SourceMap Upload Key**. 
+Copy and paste the integration key into Checkly.
+
+{{<info>}}
+Only the integration key is needed for the Checkly integration.
+{{</info>}}
+
+5. As Checkly automatically injects the Coralogix RUM SDK to each browser check run, uploading and setting up the SourceMap is not required. You can **skip** the **Install & setup Browser SDK Package** step and finish the set up there.
 
 If you are targeting multiple applications with your checks, you can override the global application name by adding the
 environment variable `CORALOGIX_RUM_APP_NAME` to your Browser check. You can find the Browser check specific environment
 variables under "Settings" > "Environment variables" in the Browser check editor.
+
+After enabling the RUM integration, Checkly will start sending RUM data to Coralogix for all Browser checks.
 
 {{<info>}}
 Note that you do not need to install the RUM SDK in your application, Checkly will automatically inject the necessary
@@ -83,9 +95,7 @@ JavaScript snippet into your Browser checks. However, if you have installed the 
 and not inject the snippet.
 {{</info>}}
 
-After enabling the RUM integration, Checkly will start sending RUM data to Coralogix for all Browser checks.
-
-## Alerting integration → Coralogix Logs integration
+## Alert Channel → Coralogix Logs integration
 
 You can set up Coralogix as an alert channel destination, so Coralogix receives any alert notifications you have set up as logs.
 Note that you can use this integration separately from the other two integrations mentioned above.
@@ -93,7 +103,7 @@ Note that you can use this integration separately from the other two integration
 1. In Checkly, navigate to [alert settings](https://app.checklyhq.com/alerts/settings/). Click the **Add more channels** 
 button, find Coralogix on the list, and click **Add channel**.
 
-![coralogix integration step 3](/docs/images/integrations/coralogix/coralogix_step3.png)
+![coralogix alert channels](/docs/images/integrations/coralogix/coralogix_alert_channels.png)
 
 2. Create a "Send Your Data" API key in your Coralogix account, you can find these in the **Data Flow > API Keys** section
 of your Coralogix dashboard. Copy and paste the API key.
