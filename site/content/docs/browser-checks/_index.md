@@ -258,14 +258,12 @@ test('Open the page and take a screenshot', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-### Static Analysis Requirement
 {{< info >}}
-Checkly performs static analysis on the checks code to determine which browsers are used, 
-it is crucial that the `channel: 'chrome'` or `channel: "chrome"` option is included **directly as a string literal**
-(whitespace is ignored) in your code. This means you should not configure this option dynamically, 
-such as using variables or any other dynamic methods. 
-The explicit inclusion of the `channel: 'chrome'` string literal allows our regular expressions to accurately identify 
-and process the configuration.
+Checkly inspects your code to detect which browser is used. To use chrome please include
+`channel: 'chrome'` or `channel: "chrome"` (whitespace is ignored) in your code, 
+without any intermediate variables or functions.
+For example, using a variable like `test.use({ channel: chromeChannel })` can cause Checkly to fail to detect that 
+Chrome is being used.
 {{< /info >}}
 
 ## Next Steps
