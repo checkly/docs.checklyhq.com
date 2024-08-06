@@ -238,7 +238,7 @@ After completing the installation steps, open a terminal in the directory of you
 `npm create checkly`
 This command will bootstrap your repository with the basics needed to start using Checkly MaC in your project.
 
-{{< figure src="/guides/images/guides-checkly-install.jpg" alt="Checkly CLI project setup screenshot" title="Creating a project in the Checkly CLI" >}}
+{{< figure src="/guides/images/guides-checkly-install.png" alt="Checkly CLI project setup screenshot" title="Creating a project in the Checkly CLI" >}}
 
 In your project directory, you will find a folder named “__checks__” containing the following check templates:
 ```
