@@ -265,7 +265,7 @@ it is crucial that the `channel: 'chrome'` or `channel: "chrome"` option is incl
 (whitespace is ignored) in your code. This means you should not configure this option dynamically, 
 such as using variables or any other dynamic methods. 
 The explicit inclusion of the `channel: 'chrome'` string literal allows our regular expressions to accurately identify 
-and process the configuration, ensuring seamless integration and operation within our platform.
+and process the configuration.
 {{< /info >}}
 
 ## Next Steps
