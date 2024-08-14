@@ -36,11 +36,11 @@ your checks in the web UI first. To help you pick your own journey, we will disc
 Regardless of how you run / trigger your test runs, every batch of test runs is recorded as a **test session** and displayed
 in your [test sessions page](https://app.checklyhq.com/test-sessions).
 
-![test sessions overview](/docs/images/testing/test_session_overview@2x.jpg)
+![test sessions overview](/docs/images/testing/test_session_overview@2x.png)
 
 The test session overview provides insights into where a test session was triggered from and who triggered it.
 
-![test sessions detail](/docs/images/testing/test_session_detail@2x.jpg)
+![test sessions detail](/docs/images/testing/test_session_detail@2x.png)
 
 While test session git details are automatically detected you can also configure them by setting environment variables.
 
@@ -50,6 +50,13 @@ While test session git details are automatically detected you can also configure
 
 For each test session, we record all logging, videos, traces, screenshots and other telemetry. This specifically powerful 
 when using our `@playwright/test` powered browser checks.
+
+### Searching and filtering
+You can use search and filtering to find a specific test session quickly. The free text search supports the *Project*, *Environment*, *Branch*, *Commit* and *User* columns. The minimum required length of a search string is 3 characters. Note that special characters are excluded from the search query; e.g., searching for `/main` will generate the same result as searching for `main`.
+
+The branch and user filters will suggest branches and users from recent test sessions. To find additional options in the selected date range, use the search in the filter drop-down.
+
+Commonly used filters can be saved as a **quick filter**. Quick filters are user account-specific. To share a quick filter with a colleague, activate it and share the URL.
 
 ## Testing with the CLI
 
@@ -133,8 +140,6 @@ There are some tradeoffs to be aware of when comparing `trigger` to `test`:
 
 You can trigger test sessions using our [Vercel](/docs/cicd/vercel/) and / or [GitHub Deployments](/docs/cicd/github/)
 integrations.
-
-![test sessions vercel and github](/docs/images/testing/test_session_vercel_gh@2x.jpg)
 
 These integrations work based on webhooks triggered by deployment events in either vendor's platforms. In general, this is
 a great way to get started, but less flexible and powerful than the "full" monitoring as code approach.
