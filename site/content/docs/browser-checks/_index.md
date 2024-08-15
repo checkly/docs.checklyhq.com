@@ -258,6 +258,13 @@ test('Open the page and take a screenshot', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
+{{< info >}}
+Checkly inspects your code to detect which browser is used. To use Chrome please include
+`channel: 'chrome'` or `channel: "chrome"` (whitespace is ignored) in your code, 
+without any intermediate variables or functions.
+For example, using a variable like `test.use({ channel: chromeChannel })` can cause Checkly to fail to detect that 
+Chrome is being used.
+{{< /info >}}
 
 ## Next Steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).

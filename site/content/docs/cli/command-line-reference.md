@@ -52,7 +52,8 @@ between environments.
 - `--location <location>` or `-l`: Run checks against a specified location, e.g. `eu-west-1`. Defaults to `us-east-1`.
 - `--private-location <private location ID>`: Run checks against the specified private location.
 - `--record:` Record tests results in Checkly as a test session.
-- `--reporter` or `-r`: A list of custom reporters for the test output. Options are: list|dot|ci|github.
+- `--reporter` or `-r`: One or more reporters for the test output. Options are: `list|dot|ci|github|json`. You can
+  use multiple reporters by specifying the flag multiple times, e.g. `--reporter=list --reporter=json`.
 - `--tags` or `-t`: Filter the checks using a comma separated list of tags. Checks will only be run if
   they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they
   match any of the `--tags` filters, i.e. `--tags production,webapp --tags staging,backend` will run checks with tags
@@ -129,7 +130,8 @@ npx checkly trigger --record --test-session-name="Adhoc test run" --location=eu-
 - `--location <location>` or `-l`: Run checks against a specified location, e.g. `eu-west-1`. Defaults to `us-east-1`.
 - `--private-location <private location ID>`: Run checks against the specified private location.
 - `--record:` Record tests results in Checkly as a test session.
-- `--reporter` or `-r`: A list of custom reporters for the test output. Options are: list|dot|ci|github.
+- `--reporter` or `-r`: One or more reporters for the test output. Options are: `list|dot|ci|github|json`. You can
+use multiple reporters by specifying the flag multiple times, e.g. `--reporter=list --reporter=json`.
 - `--tags` or `-t`: Filter the checks to be triggered using a comma separated list of tags. Checks will only be run if
 they contain all the specified tags. Multiple `--tags` flags can be passed, in which case checks will be run if they
 match any of the `--tag`s filters, i.e. `--tags production,webapp --tags staging,backend` will run checks with tags
