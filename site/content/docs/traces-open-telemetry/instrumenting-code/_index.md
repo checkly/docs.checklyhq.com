@@ -30,20 +30,10 @@ Below you will find instructions on how to instrument your popular languages and
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
-	title="Python"
-	img="/docs/images/otel/otel-languages/python_icon.svg"
-	link="/docs/traces-open-telemetry/instrumenting-code/python/"
->}}
-{{< doc-card
-	class="three-column-card"
-	headerTag="h3"
 	title="Java"
 	img="/docs/images/otel/otel-languages/java_icon.svg"
 	link="/docs/traces-open-telemetry/instrumenting-code/java/"
 >}}
-</div>
-
-<div class="cards-list">
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
@@ -51,6 +41,8 @@ Below you will find instructions on how to instrument your popular languages and
 	img="/docs/images/otel/otel-languages/php_icon.svg"
 	link="/docs/traces-open-telemetry/instrumenting-code/php/"
 >}}
+</div>
+<div class="cards-list">
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
@@ -84,6 +76,22 @@ Below you will find instructions on how to instrument your popular languages and
 	title="Ruby on Rails"
 	img="/docs/images/otel/otel-languages/ruby_on_rails_icon.svg"
 	link="/docs/traces-open-telemetry/instrumenting-code/ruby-on-rails/"
+>}}
+</div>
+<div class="cards-list">
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title="Flask"
+	img="/docs/images/otel/otel-languages/flask_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/flask/"
+>}}
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title="Django"
+	img="/docs/images/otel/otel-languages/django_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/django/"
 >}}
 </div>
 <br>
