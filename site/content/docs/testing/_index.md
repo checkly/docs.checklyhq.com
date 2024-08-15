@@ -54,7 +54,7 @@ when using our `@playwright/test` powered browser checks.
 ### Searching and filtering
 You can use search and filtering to find a specific test session quickly. The free text search supports the *Project*, *Environment*, *Branch*, *Commit* and *User* columns. The minimum required length of a search string is 3 characters. Note that special characters are excluded from the search query; e.g., searching for `/main` will generate the same result as searching for `main`.
 
-The branch and user filters will suggest branches and users from recent test sessions. To find additional options in the selected date range, use the search in the filter drop-down.
+The branch and user filters will suggest branches and users from recent test sessions. To find additional options use the search in the filter drop-down.
 
 Commonly used filters can be saved as a **quick filter**. Quick filters are user account-specific. To share a quick filter with a colleague, activate it and share the URL.
 
