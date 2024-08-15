@@ -36,19 +36,17 @@ npx checkly test
 This should report the following output to your terminal 
 
 ```
-Running 5 checks in eu-west-1.
+Running 4 checks in eu-west-1.
 
-src/__checks__/group.check.ts
-  ✔ Homepage - fetch stats (43ms)
+src/__checks__/api.check.ts
+  ✔ Books API (222ms)
 src/__checks__/home.check.ts
-  ✔ 404 page (7s)
-  ✔ Homepage (7s)
-src/services/api/api.check.ts
-  ✔ Homepage - fetch stats (50ms)
-src/services/docs/__checks__/docs-search.spec.ts
-  ✔ docs-search.spec.ts (11s)
+  ✔ Home page (24s)
+  ✔ Login Check (5s)
+src/__checks__/multi-step-spacex.check.ts
+  ✔ SpaceX MS (4s)
 
-5 passed, 5 total
+4 passed, 4 total
 ```
 
 Lastly, you deploy your Checks and related alert channels to Checkly, so we run your checks around the clock.
