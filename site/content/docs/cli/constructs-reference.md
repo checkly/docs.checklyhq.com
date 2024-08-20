@@ -632,7 +632,7 @@ This is required if `customUrl` is not specified.
 - `showP95`: Show or hide the P95 stats on the dashboard. Default: `true`.
 - `showP99`: Show or hide the P99 stats on the dashboard. Default: `true`.
 
-[Learn more about dashbaords in our docs](https://www.checklyhq.com/docs/dashboards/)
+[Learn more about dashboards in our docs](https://www.checklyhq.com/docs/dashboards/)
 
 ## `PrivateLocation`
 
