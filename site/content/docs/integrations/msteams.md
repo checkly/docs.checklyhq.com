@@ -38,6 +38,11 @@ which alerts you want to be notified of and which checks or check groups should 
 
    ![setup checkly msteams integration step 6](/docs/images/integrations/msteams/msteams_step6.png)
 
+7. Save your alert channel. The next time checks subscribed to this channel triggers an alert, the integration will post a message to the configured Channel. 
+Below is an example of an alert message using the default configuration.
+
+   ![checkly msteams integration example](/docs/images/integrations/msteams/msteams_step7.png)
+
    > Note that we provide a preconfigured message payload but you are free to edit the payload and add more or different
    > variables. Just click the "Edit payload" button and reference the "Help & variables tab".
 
