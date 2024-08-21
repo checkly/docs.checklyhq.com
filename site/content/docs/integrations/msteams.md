@@ -10,7 +10,7 @@ Checkly integrates with [Microsoft Teams](https://www.microsoft.com/en/microsoft
 deliver failure, degradation, and recovery messages to any channel in any team. You can add as many Teams channels as you wish.
 To enable the MS Teams alert channel, take the following steps:
 
-1. First, create an **Incoming Webhook**. Log in to your MS Teams account, go to Apps and search for *workflows*.
+1. First, create a **Workflow**. Log in to your MS Teams account, go to Apps and search for *workflows*.
    
    ![setup checkly msteams_integration step 1](/docs/images/integrations/msteams/msteams_step1.png)
 
