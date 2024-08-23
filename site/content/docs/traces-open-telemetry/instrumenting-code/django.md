@@ -122,7 +122,7 @@ Then, toggle on **Send Traces** and grab your OTel API key in the **OTel API key
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 
 ```bash
-export OTEL_EXPORTER_OTLP_HEADERS="authorization=<your-api-key>"
+export OTEL_EXPORTER_OTLP_HEADERS="authorization=Bearer <your-api-key>"
 ```
 
 Next, export the endpoint for the region you want to use and give your service a name.
@@ -141,7 +141,7 @@ We are using the standard OpenTelemetry environment variables here to configure 
 
 | Variable                      | Description                                                            |
 |-------------------------------|------------------------------------------------------------------------|
-| `OTEL_EXPORTER_OTLP_HEADERS`  | The `Authorization` HTTP header containing your Checkly OTel API key.  |
+| `OTEL_EXPORTER_OTLP_HEADERS`  | The `Authorization` HTTP header containing your Checkly OTel API key as bearer token.  |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | The Checkly OTel API endpoint for the region you want to use.          |
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | The protocol to use for the OTLP exporter.                             |
 | `OTEL_SERVICE_NAME`           | The name of your service to identify it among the spans in the web UI. |
