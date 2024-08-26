@@ -37,15 +37,6 @@ Below you will find instructions on how to instrument your popular languages and
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
-	title="PHP"
-	img="/docs/images/otel/otel-languages/php_icon.svg"
-	link="/docs/traces-open-telemetry/instrumenting-code/php/"
->}}
-</div>
-<div class="cards-list">
-{{< doc-card
-	class="three-column-card"
-	headerTag="h3"
 	title="Go"
 	img="/docs/images/otel/otel-languages/go_icon.svg"
 	link="/docs/traces-open-telemetry/instrumenting-code/go/"
