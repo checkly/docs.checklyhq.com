@@ -93,6 +93,13 @@ Below you will find instructions on how to instrument your popular languages and
 	img="/docs/images/otel/otel-languages/django_icon.svg"
 	link="/docs/traces-open-telemetry/instrumenting-code/django/"
 >}}
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
+	title="Laravel"
+	img="/docs/images/otel/otel-languages/laravel_icon.svg"
+	link="/docs/traces-open-telemetry/instrumenting-code/laravel/"
+>}}
 </div>
 <br>
 
