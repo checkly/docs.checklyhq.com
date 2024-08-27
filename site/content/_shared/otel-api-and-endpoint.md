@@ -2,10 +2,10 @@
 sitemapExclude: true
 ---
 
-First, toggle on **Send Traces**, grab your OTel API key in the **OTel API keys** section of the [Open Telemetry Integration page in the Checkly app](https://app.checklyhq.com/settings/account/traces) and
+Toggle on **Import Traces** and grab your OTel API key in the **OTel API keys** section of the [Traces page in the Checkly app](https://app.checklyhq.com/settings/account/traces) and
 take a note of the endpoint for the region you want to use.
 
-![Checkly OTEL API keys](/docs/images/otel/otel_send_traces.png)
+![Checkly OTEL API keys](/docs/images/otel/traces_import_api_keys.png)
 
 Now, export your API key in your shell by setting the `OTEL_EXPORTER_OTLP_HEADERS` environment variable.
 
