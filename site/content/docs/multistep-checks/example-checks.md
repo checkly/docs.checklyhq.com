@@ -17,7 +17,7 @@ This check will monitor the functionality of the Checkly check groups API. It wi
 
 The Checkly Public API uses API keys to authenticate requests. [You can generate a key for your account here](https://app.checklyhq.com/settings/user/api-keys). 
 
-This example uses environment variables to avoid sharing secrets in clear text. You can learn more about how to use evironment variables in Checkly [here](https://www.checklyhq.com/docs/browser-checks/variables/).
+This example uses environment variables to avoid sharing secrets in clear text. You can learn more about how to use evironment variables in Checkly [here](/docs/browser-checks/variables/).
 
 ```ts
 import { test, expect } from "@playwright/test"
