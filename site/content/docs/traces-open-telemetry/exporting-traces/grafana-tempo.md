@@ -30,13 +30,12 @@ You can connect the Traces export to Grafana using the OpenTelemetry Integration
 1. Head back to the [Traces Settings page](https://app.checklyhq.com/settings/account/traces) on Checkly.
 
   * Enable exporting traces and add the endpoint URL from step 3.
-  * and in the **Headers** section, specify the HTTP Header: on the left column `Authorization` and `Basic instance:token`, where `instance:token` is base64 encoded.
+  * and in the **Headers** section, specify the HTTP Header:  `Authorization` and `Basic instance:token`, where `instance:token` is base64 encoded.
     You can use an online tool like [base64encode.net](https://www.base64encode.net/)
    to encode your instance and token.
     ![Export Traces configuration](/docs/images/otel/export-traces/export-traces-to-grafana-config.png)
 
-
-1. Back in your Grafana Cloud Instance (for example danube.grafana.net), head over to "Explore", select the *Tempo* source that is named `grafanacloud-yourOrganization-traces`:
+2. Back in your Grafana Cloud Instance (for example danube.grafana.net), head over to "Explore", select the *Tempo* source that is named `grafanacloud-yourOrganization-traces`:
   ![Select Tempo traces data source](/docs/images/otel/export-traces/grafana-cloud-tempo-source.png)
 
     Now, click **Search** to see the table of Traces received. The ones exported by Checkly, have `checkly` in the service column.
