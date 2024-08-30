@@ -39,7 +39,7 @@ You can connect the Traces export to Grafana using the OpenTelemetry Integration
 1. Back in your Grafana Cloud Instance (for example danube.grafana.net), head over to "Explore", select the *Tempo* source that is named `grafanacloud-yourOrganization-traces`:
   ![Select Tempo traces data source](/docs/images/otel/export-traces/grafana-cloud-tempo-source.png)
 
-    Now, click **Search** to see the table of Traces received. The ones exported, have `checkly` as their service. 
+    Now, click **Search** to see the table of Traces received. The ones exported by Checkly, have `checkly` in the service column.
     ![See Checkly Traces in Grafana](/docs/images/otel/export-traces/grafana-explore-checkly-traces.png)
 
 
