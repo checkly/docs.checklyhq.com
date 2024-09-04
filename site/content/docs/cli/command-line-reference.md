@@ -167,7 +167,7 @@ Manage the global environment variables of a Checkly account. You can list, add,
 
 ### `npx checkly env pull`
 
-Export global environment variables from your Checkly account to a local `.env` file or a different file of your choice.
+Export global environment variables from your Checkly account to a local `.env` file or a different file of your choice. For secrets, only the key will be exported, not the value.
 
 ```bash
 checkly env pull [FILENAME] [-f]
@@ -183,7 +183,7 @@ Pull all environment variables to the `.env` file and overwrite it if it already
 
 ### `npx checkly env ls`
 
-List global environment variables. This command does not list environment variables on group or check level.
+List global environment variables. This command does not list environment variables on group or check level. For secrets, only the key will be shown, not the value.
 
 ```bash
 checkly env ls
@@ -194,12 +194,13 @@ checkly env ls
 Add a global environment variable.
 
 ```bash
-checkly env add [KEY] [VALUE] [-l]
+checkly env add [KEY] [VALUE] [-l | -s] 
 ```
 
 - `KEY`: Environment variable key.
 - `VALUE`: Environment variable value.
 - `--locked` or `-l`: Indicate that the environment variable will be locked, making it private to all read only users.
+- `--secret` or `-s`: Indicate that the environment variable will be created as a secret. 
 
 
 ### `npx checkly env update`

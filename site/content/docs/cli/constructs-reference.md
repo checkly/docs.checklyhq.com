@@ -361,7 +361,7 @@ new ApiCheck('check-group-api-check-1', {
 - `muted`: A boolean value if alert notifications from the Checks in the group are muted, i.e. not sent out.
 - `tags`: An array of tags. Group tags trickle down to tags on the individual Checks. i.e. `['product', 'api']`
 - `runtimeId`: The ID of which [runtime](/docs/runtimes/specs/) to use for the Checks in the group.
-- `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true' }]`
+- `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true', secret: 'true' | locked: 'true' }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.
