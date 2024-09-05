@@ -12,7 +12,7 @@ When creating browser checks, you probably run some code locally, store it in a 
 a bit. This means the credentials in the script are at risk of being exposed.
 You should therefore **replace any confidential data in your check scripts with environment variables or secrets.**
 
-## Variables and Secrets
+## Variables and secrets
 There are two ways to store configuration information in Checkly: Environment variables and secrets. Both variables and secrets are encrypted at rest and in flight.
 - **Environment variables** are used to store non-sensitive information. Variables are shown in plaintext when being edited, on the check result page and in logs. Variables can be accessed via the CLI and API.
 - **Environment secrets** allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.
