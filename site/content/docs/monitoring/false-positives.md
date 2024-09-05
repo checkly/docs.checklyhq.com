@@ -6,18 +6,20 @@ menu:
     parent: "Monitoring"
 ---
 
-At Checkly, we provide a reliable and performant solution for running synthetic monitoring and API checks across 22 regions. Our infrastructure is designed to be robust, but sometimes, unforeseen issues like server or network problems can crop up—whether on our side or yours. Often, these issues show up as isolated incidents that resolve on their own. However, in the worst cases, they can cause false positives in your check results, where Checkly might report that your site or server is slow or unavailable, even though you know it's up and running.
+Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. But the truth is, false positives can happen for various reasons. A check might be affected by harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, everything is functioning normally.
 
-In this section, we’ll take a closer look at why these intermittent issues can occur and how you can protect your monitoring setup from them.
+The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them.
+
+In this section, we'll dive into why these issues happen and share strategies on minimizing the impact of false positives, allowing you to more clearly distinguish between a real problem and a simple network blip.
 
 ## Common Causes of Performance Variations
 
-Networking is complex, and hiccups happen. These can occur anywhere—within our infrastructure, on your end, or somewhere in between—and don’t necessarily mean that your server or site is actually down. Here are some common factors that can affect performance:
+When setting up your monitoring strategy, it's important to consider a few common factors that can affect networking performance:
 
 - **Network Latency:** The time it takes for data to travel between points. This can vary due to distance, routing, or congestion.
-- **Packet Loss:** Sometimes data packets don’t make it to their destination and need to be resent, causing delays.
-- **Server Response Time:** Both our servers and yours might occasionally take a bit longer to respond.
-- **Infrastructure Issues:** Temporary problems like routing errors, server load spikes, or scheduled maintenance.
+- **Packet Loss:** Sometimes data packets don’t reach their destination and need to be resent, leading to delays.
+- **Server Response Time:** Servers might occasionally take longer to respond, or load balancers and backend services could be at capacity.
+- **Infrastructure Issues:** Temporary issues like routing errors, server load spikes, or scheduled maintenance can also impact performance.
 
 While these factors are generally well-managed, they can’t be completely avoided. However, you can take steps to make your monitoring setup more resilient.
 
@@ -27,27 +29,34 @@ While these factors are generally well-managed, they can’t be completely avoid
 
 At Checkly, we understand that perfect infrastructure performance is unrealistic. That’s why we define an "accepted failure rate," which is a small percentage of checks that might be impacted by by server- and network anomalies.
 
-Our goal is to keep this failure rate below **X%**, so fewer than **X** out of every 1,000 checks are affected. We continually optimize our infrastructure to keep this rate as low as possible.
+Our goal is to keep this failure rate below 0.002% here. We continually optimize our infrastructure to keep this rate as low as possible.
 
 ## Best Practices to Minimize False Positives
 
-False positives can lead to alert fatigue, but you can keep them to a minimum by following these best practices:
+False positives can lead to unnecessary alerts, but you can keep them to a minimum by following these best practices:
 
 ### Use Retries
 
 Retries are your first line of defense against transient issues. By setting up retries, your checks can automatically try again if the first attempt fails because of a temporary glitch. This reduces the impact of brief disruptions and helps prevent false positives.
 
+<!--- Official recommendation: at least one retry per check --->
+
 Learn more about implementing retries: [Retries at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/retries/#retries).
 
 ### Run Checks from Multiple Locations
 
-A temporary issue in one location might cause a check to fail, but that doesn't necessarily mean your application is down. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously. This helps you spot the difference between a localized network problem and a real issue with your app.
+A temporary issue from one location might cause a check to fail, but that doesn't necessarily mean your application is down. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously. This helps you spot the difference between a localized network problem and a real issue with your app.
+
+<!--- Official recommendation: at least from two locations --->
 
 Learn more about setting up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
 
 ### Fine-Tune Your Alerting
 
-Once you’ve implemented retries and multi-location checks, you can adjust your alert settings to avoid unnecessary notifications. For example, you can require failures in multiple locations or after several retries before triggering an alert. This helps you avoid alerts for short-lived, isolated failures that don’t require immediate attention.
+Once you’ve implemented retries and multi-location checks, you can adjust your alert settings to avoid unnecessary notifications. For example, you can require failures from multiple locations or after several retries before triggering an alert. This helps you avoid alerts for short-lived, isolated failures that don’t require immediate attention.
+
+<!--- Official recommendation: at least from two locations --->
+
 
 Learn more about configuring alerting: [Alert Settings at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/alert-settings/).
 
