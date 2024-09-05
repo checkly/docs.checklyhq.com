@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. But the truth is, false positives can happen for various reasons. A check might be affected by harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, it is running perfectly fine.
+Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. However, the reality is that false positives can occur for various reasons. A check might be affected by harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, it is running perfectly fine.
 
 The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them.
 
