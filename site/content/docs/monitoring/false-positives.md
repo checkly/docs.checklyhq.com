@@ -25,6 +25,8 @@ While these factors are generally well-managed, they can’t be completely avoid
 
 ## What Is an Accepted Failure Rate?
 
+<!-- This section needs to be refined further with the help of the platform team to specify what metrics exactly we're talking about here -->
+
 At Checkly, our team works with accepted failure rates to ensure we're operating within a normal, expected range of performance. An accepted failure rate acts as a threshold, allowing for a small percentage of checks to fail due to temporary issues like server fluctuations or network anomalies. Our goal is to keep this rate below 0.002%, and we continually optimize our infrastructure to minimize disruptions.
 
 ## Best Practices to Minimize False Positives
