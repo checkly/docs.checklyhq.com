@@ -6,7 +6,7 @@ menu:
     parent: "Monitoring"
 ---
 
-Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. But the truth is, false positives can happen for various reasons. A check might be affected by harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, everything is functioning normally.
+Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. But the truth is, false positives can happen for various reasons. A check might be affected by harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, it is running perfectly fine.
 
 The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them.
 
@@ -25,11 +25,7 @@ While these factors are generally well-managed, they can’t be completely avoid
 
 ## What Is an Accepted Failure Rate?
 
-<!--- This section would need to be refined more if we want to keep it i.e. specifiy which specific metrics we are talking about --->
-
-At Checkly, we understand that perfect infrastructure performance is unrealistic. That’s why we define an "accepted failure rate," which is a small percentage of checks that might be impacted by by server- and network anomalies.
-
-Our goal is to keep this failure rate below 0.002% here. We continually optimize our infrastructure to keep this rate as low as possible.
+At Checkly, our team works with accepted failure rates to ensure we're operating within a normal, expected range of performance. An accepted failure rate acts as a threshold, allowing for a small percentage of checks to fail due to temporary issues like server fluctuations or network anomalies. Our goal is to keep this rate below 0.002%, and we continually optimize our infrastructure to minimize disruptions.
 
 ## Best Practices to Minimize False Positives
 
@@ -39,24 +35,17 @@ False positives can lead to unnecessary alerts, but you can keep them to a minim
 
 Retries are your first line of defense against transient issues. By setting up retries, your checks can automatically try again if the first attempt fails because of a temporary glitch. This reduces the impact of brief disruptions and helps prevent false positives.
 
-<!--- Official recommendation: at least one retry per check --->
-
 Learn more about implementing retries: [Retries at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/retries/#retries).
 
 ### Run Checks from Multiple Locations
 
 A temporary issue from one location might cause a check to fail, but that doesn't necessarily mean your application is down. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously. This helps you spot the difference between a localized network problem and a real issue with your app.
 
-<!--- Official recommendation: at least from two locations --->
-
-Learn more about setting up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
+Learn more about configuring up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
 
 ### Fine-Tune Your Alerting
 
 Once you’ve implemented retries and multi-location checks, you can adjust your alert settings to avoid unnecessary notifications. For example, you can require failures from multiple locations or after several retries before triggering an alert. This helps you avoid alerts for short-lived, isolated failures that don’t require immediate attention.
-
-<!--- Official recommendation: at least from two locations --->
-
 
 Learn more about configuring alerting: [Alert Settings at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/alert-settings/).
 
