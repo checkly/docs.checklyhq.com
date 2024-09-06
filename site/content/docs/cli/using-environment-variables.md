@@ -74,7 +74,7 @@ test('Check Home Page', async ({ page }) => {
   await page.screenshot({ path: 'home.jpg' })
 })
 ```
-Here is an example of a Checkly [ApiCheck construct](https://www.checklyhq.com/docs/cli/constructs-reference/#apicheck) using an `ENVIRONMENT_URL` variable to define the page to visit. Notice the `{{ENVIRONMENT_URL}}` is wrapped in double handlebars and must be written this way for a remote environment variable to be parsed within an ApiCheck construct.
+Here is an example of a Checkly [ApiCheck construct](/docs/cli/constructs-reference/#apicheck) using an `ENVIRONMENT_URL` variable to define the page to visit. Notice the `{{ENVIRONMENT_URL}}` is wrapped in double handlebars and must be written this way for a remote environment variable to be parsed within an ApiCheck construct.
 
 ```ts
 import * as path from 'path'

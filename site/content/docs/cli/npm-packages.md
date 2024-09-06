@@ -57,7 +57,7 @@ export async function gitHubLogin (page, username, password) {
 }
 ```
 
-In `login.spec.ts` we define the actual Playwright test. This file can import the `gitHubLogin` function from `login-helper.ts`. It also reads the username and password from [remote environment variables](https://www.checklyhq.com/docs/cli/using-environment-variables/#remote-environment-variables).
+In `login.spec.ts` we define the actual Playwright test. This file can import the `gitHubLogin` function from `login-helper.ts`. It also reads the username and password from [remote environment variables](/docs/cli/using-environment-variables/#remote-environment-variables).
 ```ts
 // login.spec.ts
 

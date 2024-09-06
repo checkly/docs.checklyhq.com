@@ -75,13 +75,13 @@ These Check types share properties derived from the abstract class `Check`.
 | `name`                  | A friendly name for your Check.                                                                                                     | `API`, `Browser`, `Heartbeat`, `Multistep` |
 | `frequency`             | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                                   | `API`, `Browser`, `Multistep`              |
 | `locations`             | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                             | `API`, `Browser`, `Multistep`              |
-| `privateLocations`      | an array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.             | `API`, `Browser`, `Multistep`              |
+| `privateLocations`      | an array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.             | `API`, `Browser`, `Multistep`              |
 | `activated`             | A boolean value if your Check is activated or not.                                                                                  | `API`, `Browser`, `Heartbeat`, `Multistep` |
 | `muted`                 | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                                | `API`, `Browser`, `Heartbeat`, `Multistep` |
 | `group`                 | The `CheckGroup` object that this check is part of.                                                                                 | `API`, `Browser`, `Multistep`              |
 | `alertChannels`         | An array of `AlertChannel` objects to which to send alert notifications.                                                            | `API`, `Browser`, `Heartbeat`, `Multistep` |
 | `tags`                  | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                       | `API`, `Browser`, `Heartbeat`, `Multistep` |
-| `runtimeId`             | The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for this Check.                                    | `API`, `Browser`, `Multistep`              |
+| `runtimeId`             | The ID of which [runtime](/docs/runtimes/specs/) to use for this Check.                                    | `API`, `Browser`, `Multistep`              |
 | `testOnly`              | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.                   | `API`, `Browser`, `Multistep`              |
 | `retryStrategy`         | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.                  | `API`, `Browser`, `Multistep`              |
 | `runParallel`           | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                                    | `API`, `Browser`, `Multistep`              |
@@ -355,12 +355,12 @@ new ApiCheck('check-group-api-check-1', {
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
 - `frequency`: How often to run the Checks within the group, i.e. `Frequency.EVERY_15M` for every fifteen minutes.
 - `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1']`.
-- `privateLocations`: An array of [Private Locations](https://www.checklyhq.com/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
+- `privateLocations`: An array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
 - `activated`: A boolean value if all the Checks in the group are activated.
 - `muted`: A boolean value if alert notifications from the Checks in the group are muted, i.e. not sent out.
 - `tags`: An array of tags. Group tags trickle down to tags on the individual Checks. i.e. `['product', 'api']`
-- `runtimeId`: The ID of which [runtime](https://www.checklyhq.com/docs/runtimes/specs/) to use for the Checks in the group.
+- `runtimeId`: The ID of which [runtime](/docs/runtimes/specs/) to use for the Checks in the group.
 - `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true' }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
@@ -377,7 +377,7 @@ new ApiCheck('check-group-api-check-1', {
 
 ## `AlertChannel`
 
-Alert channels let you get alert notifications when a Check fails. [Learn more about alerting in our docs](https://www.checklyhq.com/docs/alerting/)
+Alert channels let you get alert notifications when a Check fails. [Learn more about alerting in our docs](/docs/alerting/)
 All alert channels share a set of common properties to define when / how they should alert derived from the abstract class
 `AlertChannel`
 
@@ -572,7 +572,7 @@ new MaintenanceWindow('maintenance-window-1', {
 - `repeatEndsAt`: The end date and time when the maintenance window should stop repeating  as an ISO 8601 timestamp
 `"YYYY-MM-DDTHH:mm:ss.sssZ"` as returned by `new Date()`
 
-[Learn more about maintenance windows in our docs](https://www.checklyhq.com/docs/maintenance-windows/)
+[Learn more about maintenance windows in our docs](/docs/maintenance-windows/)
 
 ## `Dashboard`
 
@@ -632,7 +632,7 @@ This is required if `customUrl` is not specified.
 - `showP95`: Show or hide the P95 stats on the dashboard. Default: `true`.
 - `showP99`: Show or hide the P99 stats on the dashboard. Default: `true`.
 
-[Learn more about dashboards in our docs](https://www.checklyhq.com/docs/dashboards/)
+[Learn more about dashboards in our docs](/docs/dashboards/)
 
 ## `PrivateLocation`
 
@@ -687,7 +687,7 @@ project or created via the Web UI, you can pass in the `slugName` string.
 - `icon`: An icon to distinguish the location in our UI. You can pick any [Octicons](https://primer.style/design/foundations/icons) name.
 - `proxyUrl`: Define a proxy for outgoing API check HTTP calls from your private location.
 
-[Learn more about private locations in our docs](https://www.checklyhq.com/docs/private-locations/)
+[Learn more about private locations in our docs](/docs/private-locations/)
 
 ## `RetryStrategy`
 

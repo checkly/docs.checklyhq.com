@@ -66,7 +66,7 @@ You can make the header and/or user agent specific to your own Checkly user acco
 
 To allowlist API checks, allow traffic that contains a cookie in the shape of `Cookie: "checkly-account:<UUID>"`, with `<UUID>` being your shortened Checkly ID or other chosen value.
 
-You can then [set the Cookie header](https://checklyhq.com/docs/api-checks/request-settings/#headers) while editing your check.
+You can then [set the Cookie header](/docs/api-checks/request-settings/#headers) while editing your check.
 
 {{<info>}}
 You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every API check in the group.

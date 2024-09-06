@@ -93,7 +93,7 @@ If you want to build on the above example, you can add additional assertions, en
 
 ## Creating a Multistep check
 
-A valid Multistep check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](https://www.checklyhq.com/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
+A valid Multistep check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
 
 {{< info >}}
 Valid Playwright Test API scripts are the foundation of a valid Multistep check. If the script passes, your check passes.
