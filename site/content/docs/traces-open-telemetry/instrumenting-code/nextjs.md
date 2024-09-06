@@ -20,7 +20,7 @@ application(s) with OpenTelemetry and send traces to Checkly.
 ## Step 1: Install the `@vercel/otel` package
 
 For Next.js, Vercel has created a wrapper that should get you going very quickly. We're just adding some extra packages
-so we can filter out the Checkly traces.
+so we can filter out the Checkly Traces.
 
 ```bash
 npm install --save \
