@@ -1,5 +1,5 @@
 ---
-title: Environment variables and secrets
+title: Global variables and secrets
 weight: 9
 menu:
   resources:
