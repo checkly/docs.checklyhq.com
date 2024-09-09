@@ -8,7 +8,9 @@ menu:
 cli: true
 ---
 
-Similar to setting environment variables and secrets at the account level, you can set them at the group level. For browser and multistep checks, you can even set variables at the check level. See [browser check environment variables and secrets](/docs/browser-checks/variables) for more details.
+You can set both variables and secrets for a Group of checks.
+
+For browser and multistep checks, you can set variables at the check level. See [browser check variables and secrets](/docs/browser-checks/variables) for more details.
 
 ## Variable hierarchy
 
