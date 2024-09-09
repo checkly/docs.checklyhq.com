@@ -2,7 +2,7 @@
 sitemapExclude: true
 ---
 
-Group variables are added on the Variables tab in a group. The variables stored here are accessible only in the group context.
+Add Group variables on the Variables tab in a check group. Group variables are only accessible in the context of a group, which includes the checks within the group and their configuration.
 
 ![set group environment variable](/shared/images/group-environment-variables.png)
 
