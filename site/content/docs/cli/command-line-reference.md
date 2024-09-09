@@ -183,7 +183,7 @@ Pull all environment variables to the `.env` file and overwrite it if it already
 
 ### `npx checkly env ls`
 
-List global environment variables. This command does not list environment variables on group or check level. For secrets, only the key will be shown, not the value.
+List global variables. This command does not list  variables on group or check level. For secrets, only the key name will be shown, not its value.
 
 ```bash
 checkly env ls
