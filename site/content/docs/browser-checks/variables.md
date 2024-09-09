@@ -45,7 +45,7 @@ If you want to avoid team members with Read Only access from viewing environment
 
 ## Accessing variables
 
-Check, group and global environment variables are accessible in your code using the standard Node.js `process.env.MY_VAR` notation.
+Check, group and global variables are accessible in your code using the standard Node.js `process.env.MY_VAR` notation.
 For example, the code snippet below show how you can log into GitHub. We have more [examples of login scenarios on this page.](/docs/browser-checks/login-scenarios/)
 
 {{< tabs "Variables example" >}}
