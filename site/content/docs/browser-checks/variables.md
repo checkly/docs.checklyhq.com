@@ -21,7 +21,7 @@ From here on, in this document, we refer to both variables and secrets as 'varia
 
 ## Managing variables
 
-You can create environment variables at three hierarchical levels:
+You can create variables at three hierarchical levels:
 
 - **Check** level - Browser and multistep check supported.
 - **Group** level - API, browser and multistep check supported.
