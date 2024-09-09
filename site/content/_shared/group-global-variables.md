@@ -6,7 +6,7 @@ Add Group variables on the Variables tab in a check group. Group variables are o
 
 ![set group environment variable](/shared/images/group-environment-variables.png)
 
-Global variables are added on the Variables tab. The variables stored here are globally accessible throughout Checkly.
+Add Global variables clicking "Global variables" on the left-side menu. Global variables are available throughout Checkly, that includes checks, tests, and global configuration options.
 
 ![set global environment variable](/shared/images/global-environment-variables.png)
 
