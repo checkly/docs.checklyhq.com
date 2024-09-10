@@ -208,12 +208,13 @@ checkly env add [KEY] [VALUE] [-l | -s]
 Update a global variable.
 
 ```bash
-checkly env update [KEY] [VALUE] [-l]
+checkly env update [KEY] [VALUE] [-l | -s]
 ```
 
 - `KEY`: Variable key.
 - `VALUE`: Variable value.
-- `--locked` or `-l`: Indicate that the variable will be locked,  making it private to all read only users.
+- `--locked` or `-l`: Indicate that the variable will be locked, making it private to all read only users.
+- `--secret` or `-s`: Indicate that the variable will be changed to a secret. Note that secrets cannot be changed to variables. When updating a secret always pass the `-s` flag.
 
 ### `npx checkly env rm`
 
