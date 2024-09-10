@@ -27,7 +27,7 @@ While these factors are generally well-managed, they can’t be completely avoid
 
 At Checkly, we work with an accepted failure rate to ensure we're running within the normal, expected range of performance. This rate accounts for flaky checks—network anomalies between Checkly and your check target that aren’t caused by either party.
 
-We aim to keep this rate below 0.002%. To illustrate: out of A checks, B may result in false positives. Or, if your check runs every C, you might experience an abnormal result D every E.
+We aim to keep this rate below 0.002%. To illustrate: out of 100,000 checks, 2 may result in false positives. Or, if your check runs every minute, you might experience an abnormal result once every 5 weeks.
 
 ## Best Practices to Minimize False Positives
 
