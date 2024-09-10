@@ -53,7 +53,7 @@ Learn more about configuring up multi-location checks: [Global Location and Sche
 
 Once you’ve implemented retries and multi-location checks, you can adjust your alert settings to avoid unnecessary notifications. For example, you can require failures in multiple regions or after several retries before firing off an alert. This helps you avoid alerts for short-lived, isolated failures that don’t need immediate attention.
 
-A good starting point set alerts to trigger only after a check has failed at least twice (or after two intervals) and has failed in more than one region.
+A good starting point is to set alerts to trigger only after a check has failed at least twice (or after two intervals) and has failed in more than one region.
 
 Learn more about fine-tuning your alerts: [Alert Settings at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/alert-settings/).
 
