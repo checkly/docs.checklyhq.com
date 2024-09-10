@@ -1,6 +1,6 @@
 ---
-title: Understanding and managing false positives
-weight: 10
+title: Managing false positives
+weight: 4
 menu:
   platform:
     parent: "Monitoring"
@@ -25,7 +25,7 @@ While these factors are generally well-managed, they can’t be completely avoid
 
 ## What Is an Accepted Failure Rate?
 
-At Checkly, we work with an accepted failure rate to ensure we're operating within the normal, expected range of performance. This rate accounts for flaky tests—network anomalies between Checkly and your check target that aren’t caused by either party.
+At Checkly, we work with an accepted failure rate to ensure we're running within the normal, expected range of performance. This rate accounts for flaky checks—network anomalies between Checkly and your check target that aren’t caused by either party.
 
 We aim to keep this rate below 0.002%. To illustrate: out of A checks, B may result in false positives. Or, if your check runs every C, you might experience an abnormal result D every E.
 
@@ -45,7 +45,7 @@ Learn more about implementing retries: [Retries at Checkly](https://www.checklyh
 
 A temporary issue from one location might cause a check to fail, but that doesn't always mean your application is down. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously. This helps you spot the difference between a localized network problem and a real issue with your app.
 
-We recommend starting with checks from at least two different regions to get a clearer picture and reduce the chance of a false positive caused by a regional glitch.
+We recommend running checks from at least two different regions to get a clearer picture and reduce the chance of a false positive caused by a regional failure.
 
 Learn more about setting up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
 
@@ -59,4 +59,4 @@ Learn more about fine-tuning your alerts: [Alert Settings at Checkly](https://ww
 
 ## Need Help?
 
-If you’re not sure what’s going on or if an issue keeps popping up without a clear reason, don’t hesitate to reach out. Our support team is here to help you troubleshoot any unusual check performance.
+If you’re not sure what’s going on or if an issue keeps popping up without a clear reason, don’t hesitate to reach out. Our support team is here to help you troubleshoot any unusual check performance. You can contact us at support@checklyhq.com.
