@@ -47,7 +47,7 @@ A temporary issue from one location might cause a check to fail, but that doesn'
 
 We recommend starting with checks from at least two different regions to get a clearer picture and reduce the chance of a false positive caused by a regional glitch.
 
-Learn more about configuring up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
+Learn more about setting up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
 
 ### Fine-Tune Your Alerting
 
