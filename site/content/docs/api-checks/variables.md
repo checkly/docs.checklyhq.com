@@ -1,5 +1,5 @@
 ---
-title: Global variables and secrets
+title: Variables and secrets
 weight: 9
 menu:
   resources:
@@ -9,15 +9,10 @@ cli: true
 ---
 
 Multiple API checks can target the same server/service. In this case, your checks might need the same configuration item
-like an authentication token, a specific user name or even just some specific part of the URL. You can use global variables to
+like an authentication token, a specific user name or even just some specific part of the URL. You can use variables to
 'DRY' up your checks and store these variables in just one place.
 
-## Variables and Secrets
-There are two ways to store configuration information in Checkly: Environment variables and secrets. Both variables and secrets are encrypted at rest and in flight.
-- **Environment variables** are used to store non-sensitive information. Variables are shown in plaintext when being edited, on the check result page and in logs. Variables can be accessed via the CLI and API.
-- **Environment secrets** allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.
-
-From here on, in this document, we refer to both variables and secrets as 'variables' for ease of reading, unless explicitly mentioned.
+{{< markdownpartial "_shared/variables-and-secrets.md" >}}
 
 ## Managing variables
 

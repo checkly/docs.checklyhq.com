@@ -1,5 +1,5 @@
 ---
-title: Environment variables and secrets
+title: Variables and secrets
 weight: 21
 menu:
   resources:
@@ -10,14 +10,9 @@ cli: true
 
 When creating browser checks, you probably run some code locally, store it in a Git repo or copy and paste it around
 a bit. This means the credentials in the script are at risk of being exposed.
-You should therefore **replace any confidential data in your check scripts with environment variables or secrets.**
+You should therefore **replace any confidential data in your check scripts with variables or secrets.**
 
-## Variables and secrets
-There are two ways to store configuration information in Checkly: Environment variables and secrets. Both variables and secrets are encrypted at rest and in flight.
-- **Environment variables** are used to store non-sensitive information. Variables are shown in plaintext when being edited, on the check result page and in logs. Variables can be accessed via the CLI and API.
-- **Environment secrets** allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.
-
-From here on, in this document, we refer to both variables and secrets as 'variables' for ease of reading, unless explicitly mentioned.
+{{< markdownpartial "_shared/variables-and-secrets.md" >}}
 
 ## Managing variables
 
@@ -27,7 +22,7 @@ You can create variables at three hierarchical levels:
 - **Group** level - API, browser and multistep check supported.
 - **Global** level - API, browser and multistep check supported.
 
-Check variables are added on the **Variables** tab for each browser and multistep check.
+Add variables specific to a Check variables on the **Variables** tab for each browser and multistep check.
 
 ![add local variables](/docs/images/browser-checks/check-environment-variables.png)
 

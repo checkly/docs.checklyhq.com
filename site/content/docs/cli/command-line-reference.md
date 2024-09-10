@@ -163,11 +163,11 @@ List all available runtimes and their dependencies.
 
 ## `npx checkly env`
 
-Manage the global environment variables of a Checkly account. You can list, add, remove, update and export environment variables.
+Manage the global variables of a Checkly account. You can list, add, remove, update and export environment variables.
 
 ### `npx checkly env pull`
 
-Export global environment variables from your Checkly account to a local `.env` file or a different file of your choice. For secrets, only the key will be exported, not the value.
+Export global variables from your Checkly account to a local `.env` file or a different file of your choice. For secrets, only the key will be exported, not the value.
 
 ```bash
 checkly env pull [FILENAME] [-f]
@@ -179,7 +179,7 @@ checkly env pull [FILENAME] [-f]
 ```bash
 npx checkly env pull -f
 ```
-Pull all environment variables to the `.env` file and overwrite it if it already exists.
+Pull all global variables to the `.env` file and overwrite it if it already exists.
 
 ### `npx checkly env ls`
 
@@ -191,7 +191,7 @@ checkly env ls
 
 ### `npx checkly env add`
 
-Add a global environment variable.
+Add a global variable.
 
 ```bash
 checkly env add [KEY] [VALUE] [-l | -s] 
@@ -205,26 +205,26 @@ checkly env add [KEY] [VALUE] [-l | -s]
 
 ### `npx checkly env update`
 
-Update a global environment variable.
+Update a global variable.
 
 ```bash
 checkly env update [KEY] [VALUE] [-l]
 ```
 
-- `KEY`: Environment variable key.
-- `VALUE`: Environment variable value.
-- `--locked` or `-l`: Indicate that the environment variable will be locked,  making it private to all read only users.
+- `KEY`: Variable key.
+- `VALUE`: Variable value.
+- `--locked` or `-l`: Indicate that the variable will be locked,  making it private to all read only users.
 
 ### `npx checkly env rm`
 
-Remove a global environment variable.
+Remove a global variable.
 
 ```bash
 checkly env rm [KEY] [-f]
 ```
 
-- `KEY`: Environment variable key.
-- `--force` or `-f`: Skips the confirmation dialog when removing an environment.
+- `KEY`: Variable key.
+- `--force` or `-f`: Skips the confirmation dialog when removing a variable.
 
 
 ## `npx checkly sync-playwright`
