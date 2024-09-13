@@ -42,7 +42,7 @@ Below is an example running against our [test site](https://danube-web.shop/), g
 {{< /tab >}}
 {{< /tabs >}}
 
-As an alternative, it is also possible to retrieve an [ElementHandle](hhttps://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
+As an alternative, it is also possible to retrieve an [ElementHandle](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}

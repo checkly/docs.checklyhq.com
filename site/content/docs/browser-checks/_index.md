@@ -117,7 +117,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 
 **4. Fill out input fields and submit:** Using the `page.type()` method we enter our email address and
 password. You would normally use environment variables here to keep sensitive data
-out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-and-secrets/) for more info.
+out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-scenarios/) for more info.
 
 **5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
@@ -268,7 +268,7 @@ Chrome is being used.
 
 ## Next Steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
-- Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-and-secrets/).
+- Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-scenarios/).
 - Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
 - Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
 - Learn more about [visual regression & snapshot testing](/docs/browser-checks/visual-regression-snapshot-testing/).
