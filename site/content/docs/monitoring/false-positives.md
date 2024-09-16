@@ -23,12 +23,6 @@ When setting up your monitoring strategy, it's important to consider a few commo
 
 While these factors are generally well-managed, they can’t be completely avoided. However, you can take steps to make your monitoring setup more resilient.
 
-## What Is an Accepted Failure Rate?
-
-At Checkly, we work with an accepted failure rate to ensure we're running within the normal, expected range of performance. This rate accounts for flaky checks—network anomalies between Checkly and your check target that aren’t caused by either party.
-
-We aim to keep this rate below 0.002%. To illustrate: out of 50,000 checks, 1 may result in a false positive. Or, if your check runs every minute, you might experience an abnormal result once every 5 weeks.
-
 ## Best Practices to Minimize False Positives
 
 False positives can lead to unnecessary alerts, but you can keep them under control by following these best practices:
