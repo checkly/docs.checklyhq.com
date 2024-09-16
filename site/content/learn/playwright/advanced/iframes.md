@@ -6,10 +6,10 @@ author: Stefan Judis
 githubUser: stefanjudis
 tags:
   - iframes
-weight: 17
+weight: 1
 menu:
   learn:
-    parent: "Pages & frames"
+    parent: "Advanced"
 ---
 
 Puppeteer and Playwright enable us to access and interact with iframes.

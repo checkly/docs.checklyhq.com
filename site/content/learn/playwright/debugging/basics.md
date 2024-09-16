@@ -6,10 +6,10 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - debugging
-weight: 9
+weight: 1
 menu:
   learn:
-    parent: "Getting started"
+    parent: "Debugging"
 ---
 
 Understanding why a script does not work as expected and finding the failure root cause are automation key skills. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention.

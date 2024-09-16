@@ -8,6 +8,7 @@ tags:
   - e2e
   - file upload
 weight: 9
+navTitle: Account settings
 menu:
   learn:
     parent: "E2E examples"

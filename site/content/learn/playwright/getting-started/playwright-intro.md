@@ -8,7 +8,7 @@ githubUser: ragog
 tags:
   - basics
 
-weight: 2
+weight: 1
 
 menu:
   learn:

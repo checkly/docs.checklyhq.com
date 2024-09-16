@@ -6,10 +6,10 @@ githubUser: ragog
 tags:
   - best practices
   - waiting
-weight: 24
+weight: 5
 menu:
   learn:
-    parent: "Best practices"
+    parent: "Basics"
 ---
 
 Looking to solve the issue of a page or element not being loaded, many take the shortcut of waiting for a fixed amount of time - adding a hard wait, in other words. This is regarded as an anti-pattern, as it lowers performance and increases the chances of a script breaking (possibly intermittently). Let's explore how those issues arise and what better solutions we can use to avoid them.

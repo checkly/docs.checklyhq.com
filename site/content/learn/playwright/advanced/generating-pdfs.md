@@ -6,10 +6,10 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - pdf
-weight: 34
+weight: 2
 menu:
   learn:
-    parent: "Miscellaneous"
+    parent: "Advanced"
 ---
 
 Playwright and Puppeteer can be used to create PDFs from webpages. This opens up interesting automation scenarios for tasks such as archiving, generating invoices, writing manuals, books and more.

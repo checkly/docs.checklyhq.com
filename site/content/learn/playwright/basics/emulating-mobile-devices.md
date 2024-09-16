@@ -11,11 +11,11 @@ githubUser:
 tags:
   - basics
 
-weight: 8
+weight: 6
 
 menu:
   learn:
-    parent: "Getting started"
+    parent: "Basics"
 ---
 
 Puppeteer and Playwright control headless desktop browsers that can also emulate mobile devices. And while device emulation can't replace testing on mobile devices entirely, it's a practical and quick-to-setup approach to testing mobile scenarios.

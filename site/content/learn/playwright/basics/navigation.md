@@ -12,11 +12,11 @@ githubUser: tnolet
 tags:
   - basics
 
-weight: 4
+weight: 2
 
 menu:
   learn:
-    parent: "Getting started"
+    parent: "Basics"
 ---
 
 Every script that we will write will almost certainly do three key things:

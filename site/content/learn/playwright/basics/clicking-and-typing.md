@@ -11,11 +11,11 @@ githubUser:
 tags:
   - basics
 
-weight: 6
+weight: 1
 
 menu:
   learn:
-    parent: "Getting started"
+    parent: "Basics"
 ---
 
 Users normally access most website functionality through clicks, keystrokes etc. Playwright and Puppeteer allow us to replicate these events by referencing elements on the page using [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors).
