@@ -51,7 +51,7 @@ customers, `US` for the rest of the world).
     > 💡 In OpsGenie you can configure other options like
     [alert priority](https://docs.opsgenie.com/docs/alert-priority-settings).
 
-    > 💡 On Checkly, you can specify which [check events](/docs/alerting/alert-channels/) will be sent over to Opsgenie.
+    > 💡 On Checkly, you can specify which [check events](/docs/alerting-and-retries/alert-channels/) will be sent over to Opsgenie.
 
     ![setup checkly opsgenie integration step 5](/docs/images/integrations/opsgenie/opsgenie_step5.png)
 
