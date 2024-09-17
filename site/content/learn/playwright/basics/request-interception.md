@@ -10,10 +10,10 @@ githubUser:
   - thompsonjonm
 tags:
   - network
-weight: 19
+weight: 4
 menu:
   learn:
-    parent: "Advanced"
+    parent: "Basics"
 ---
 
 When we browse the web, a series of HTTP requests and responses are exchanged between our browser and the pages we are visiting. There are scenarios in which it is useful to monitor or manipulate this traffic.

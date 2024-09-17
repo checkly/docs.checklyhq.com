@@ -7,10 +7,11 @@ githubUser: ragog
 tags:
   - multi-tab
   - testing
-weight: 18
+weight: 6
+navTitle: Multi-tab flows
 menu:
   learn:
-    parent: "Pages & frames"
+    parent: "Basics"
 ---
 
 Both Puppeteer and Playwright enable us to control multiple browser tabs, albeit in different ways. 

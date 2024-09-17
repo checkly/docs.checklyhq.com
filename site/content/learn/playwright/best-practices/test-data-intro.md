@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - test data
   - testing
-weight: 26
+weight: 5
 menu:
   learn:
     parent: "Best practices"

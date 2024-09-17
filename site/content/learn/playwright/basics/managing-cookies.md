@@ -6,7 +6,7 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - cookies
-weight: 4
+weight: 5
 navTitle: Managing cookies & state
 menu:
   learn:

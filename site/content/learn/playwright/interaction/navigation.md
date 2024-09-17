@@ -12,11 +12,11 @@ githubUser: tnolet
 tags:
   - basics
 
-weight: 2
-
+weight: 1
+navTitle: Navigation
 menu:
   learn:
-    parent: "Basics"
+    parent: "Interaction"
 ---
 
 Every script that we will write will almost certainly do three key things:

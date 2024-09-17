@@ -7,7 +7,8 @@ githubUser: tnolet
 tags:
   - login
   - e2e
-weight: 16
+navTitle: Google login
+weight: 9
 menu:
   learn:
     parent: "E2E examples"

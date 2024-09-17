@@ -6,7 +6,8 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - e2e
-weight: 10
+weight: 1
+navTitle: Checkout scenarios
 menu:
   learn:
     parent: "E2E examples"

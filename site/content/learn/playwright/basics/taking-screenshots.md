@@ -7,11 +7,11 @@ githubUser: ragog
 tags:
   - basics
 
-weight: 3
+weight: 1
 
 menu:
   learn:
-    parent: "Advanced"
+    parent: "Basics"
 ---
 
 Headless browsers are fully capable of taking screenshots, which is very useful in troubleshooting failures or faulty scripts. Using additional libraries and tools, it is also possible to automate visual comparisons.

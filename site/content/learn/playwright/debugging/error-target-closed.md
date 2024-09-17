@@ -5,7 +5,8 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - debugging
-weight: 32
+weight: 6
+navTitle: Target closed
 menu:
   learn:
     parent: "Debugging"

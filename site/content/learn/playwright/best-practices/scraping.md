@@ -9,11 +9,11 @@ tags:
   - scraping
   - assertions
 
-weight: 21
+weight: 6
 
 menu:
   learn:
-    parent: "Scraping"
+    parent: "Best practices"
 ---
 
 We call the action of extracting data from web pages _web scraping_. Scraping is useful for a variety of use cases:

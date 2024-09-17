@@ -7,7 +7,8 @@ githubUser: ragog
 tags:
   - e2e
   - signup
-weight: 14
+navTitle: Standard signup
+weight: 6
 menu:
   learn:
     parent: "E2E examples"

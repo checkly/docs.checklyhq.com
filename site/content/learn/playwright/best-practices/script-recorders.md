@@ -6,10 +6,10 @@ author: Hannes Lenke
 githubUser: hlenke
 tags:
   - script generation
-weight: 35
+weight: 8
 menu:
   learn:
-    parent: "Miscellaneous"
+    parent: "Best practices"
 ---
 
 With Playwright and Puppeteer, writing scripts manually is not the only option. Since browser automation became possible, there have always been tools trying to simplify script creation. Such instruments aim to help users with little or no scripting skills use automation tools, while also saving more expert users time when creating brand new scripts.

@@ -7,7 +7,8 @@ githubUser: ragog
 tags:
   - e2e
   - file download
-weight: 12
+navTitle: Downloading files
+weight: 4
 menu:
   learn:
     parent: "E2E examples"

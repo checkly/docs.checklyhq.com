@@ -7,8 +7,10 @@ githubUser: ragog
 tags:
   - e2e
   - file upload
-weight: 9
+weight: 2
+
 navTitle: Account settings
+
 menu:
   learn:
     parent: "E2E examples"

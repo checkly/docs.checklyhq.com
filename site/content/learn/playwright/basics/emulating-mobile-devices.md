@@ -10,8 +10,8 @@ githubUser:
   - stefanjudis
 tags:
   - basics
-
-weight: 6
+navTitle: Emulating mobile devices
+weight: 5
 
 menu:
   learn:

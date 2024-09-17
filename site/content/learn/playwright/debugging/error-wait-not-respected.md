@@ -5,7 +5,8 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - debugging
-weight: 33
+weight: 7
+navTitle: Wait not respected
 menu:
   learn:
     parent: "Debugging"

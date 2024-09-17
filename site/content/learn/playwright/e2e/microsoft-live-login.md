@@ -7,7 +7,8 @@ githubUser: tnolet
 tags:
   - login
   - e2e
-weight: 17
+navTitle: Microsoft Live login
+weight: 8
 menu:
   learn:
     parent: "E2E examples"

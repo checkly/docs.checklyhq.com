@@ -169,32 +169,33 @@ disqusShortname = "checkly"
 [[menu.learn]]
 	name = "Getting started"
 	pre = "/learn/icons/getting-started.svg"
-	weight = 10
+	weight = 300
 
 [[menu.learn]]
 	name = "Basics"
 	pre = "/learn/icons/misc.svg"
-	weight = 20
+	weight = 310
 
 [[menu.learn]]
-	name = "E2E examples"
-	pre = "/learn/icons/e2e.svg"
-	weight = 30
-
-[[menu.learn]]
-	name = "Pages & frames"
+	name = "Interaction"
 	pre = "/learn/icons/pages.svg"
-	weight = 40
+	weight = 320
 
 [[menu.learn]]
 	name = "Best practices"
 	pre = "/learn/icons/best-practices.svg"
-	weight = 50
+	weight = 330
+
+[[menu.learn]]
+	name = "E2E examples"
+	pre = "/learn/icons/e2e.svg"
+	weight = 340
+
 
 [[menu.learn]]
 	name = "Debugging"
 	pre = "/learn/icons/errors.svg"
-	weight = 60
+	weight = 350
 
 
 [markup.goldmark.renderer]

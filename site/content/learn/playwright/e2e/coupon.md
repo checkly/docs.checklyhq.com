@@ -7,7 +7,8 @@ githubUser: ragog
 tags:
   - e2e
   - assertions
-weight: 11
+weight: 3
+navTitle: Dealing with discounts
 menu:
   learn:
     parent: "E2E examples"

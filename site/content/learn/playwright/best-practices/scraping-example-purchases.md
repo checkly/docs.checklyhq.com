@@ -6,10 +6,10 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - scraping
-weight: 22
+weight: 7
 menu:
   learn:
-    parent: "Scraping"
+    parent: "Best practices"
 ---
 
 Playwright and Puppeteer can be particularly useful when scraping data accessible only behind a login wall. This article shows a practical example of such a case.

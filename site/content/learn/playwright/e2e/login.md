@@ -7,7 +7,8 @@ githubUser: ragog
 tags:
   - e2e
   - login
-weight: 13
+navTitle: Standard login
+weight: 7
 menu:
   learn:
     parent: "E2E examples"

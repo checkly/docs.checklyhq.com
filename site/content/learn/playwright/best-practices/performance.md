@@ -8,11 +8,11 @@ tags:
   - basics
   - performance
 
-weight: 23
+weight: 3
 
 menu:
   learn:
-    parent: "Performance"
+    parent: "Best practices"
 ---
 
 The need for fast and responsive applications has never been greater because of the move from [desktop to mobile](https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide/). Still, web applications have been increasing in [complexity and size](https://httparchive.org/reports/page-weight). It is clear why the topic of webpage performance is more popular today than it ever was.
