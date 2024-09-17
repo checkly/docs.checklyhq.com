@@ -48,7 +48,7 @@ Here are the requirements before you get started:
     ![private location key](/docs/images/private-locations/pl_started_3.png)
 
 4. Start the Checkly agent by running the following command in a terminal, making sure to replace the `API_KEY` with the key you just received.
-For more configuration options, check the detailed instructions in the [installing Checkly agent guide](/docs/private-locations/checkly-agent-guide/).
+For more configuration options, check the detailed instructions in the [installing Checkly agent guide](/docs/private-locations/checkly-agent-configuration/).
 
 ```bash
 docker run -e API_KEY="pl_...." -d checkly/agent:latest`

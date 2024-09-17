@@ -23,7 +23,7 @@ Current locations in Checkly are
 |                              | Cape Town (af-south-1)    | Jakarta (ap-southeast-3)   |
 
 {{< info >}}
-Learn more about <a href="/docs/private-locations/private-locations-getting-started/">private locations</a> to monitor your private and segregated applications and APIs.
+Learn more about <a href="/docs/private-locations/">private locations</a> to monitor your private and segregated applications and APIs.
 {{< /info >}}
 
 ## Scheduling strategies
