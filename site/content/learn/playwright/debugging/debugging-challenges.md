@@ -1,12 +1,12 @@
 ---
-title: Debugging challenges
+title: Common challenges
 subTitle: Recurring non-trivial debugging situations and how to solve them
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog
 tags:
   - debugging
-weight: 28
+weight: 2
 menu:
   learn:
     parent: "Debugging"

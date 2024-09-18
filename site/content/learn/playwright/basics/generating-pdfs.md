@@ -1,12 +1,13 @@
 ---
-title: Generating PDFs
+title: Generating PDFs with Playwright
 subTitle: Creating invoices, books and more from a web page
 date: 2020-11-19
 author: Giovanni Rago
 githubUser: ragog
 tags:
   - pdf
-weight: 3
+weight: 2
+navTitle: Generating PDFs
 menu:
   learn:
     parent: "Basics"

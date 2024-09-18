@@ -1,12 +1,12 @@
 ---
-title: Avoiding hard waits
+title: Dealing with waits and timesouts in Playwright
 date: 2021-11-26
 author: Giovanni Rago
 githubUser: ragog
 tags:
   - best practices
   - waiting
-navTitle: Waits
+navTitle: Waits and timeouts
 weight: 5
 menu:
   learn:

@@ -1,5 +1,5 @@
 ---
-title: Clicking and typing
+title: Clicking, typing and hovering with Playwright
 subTitle: Basic page interactions
 date: 2020-06-15
 author:

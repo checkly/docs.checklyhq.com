@@ -1,5 +1,5 @@
 ---
-title: Handling test data
+title: Handling test data with Playwright
 subTitle: Introduction to fixture handling
 date: 2020-07-16
 author: Giovanni Rago
@@ -7,7 +7,8 @@ githubUser: ragog
 tags:
   - test data
   - testing
-weight: 5
+weight: 3
+navTitle: Test data
 menu:
   learn:
     parent: "Best practices"

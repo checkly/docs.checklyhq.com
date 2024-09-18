@@ -1,5 +1,5 @@
 ---
-title: E2E Signup
+title: Using Playwright to simulate a user signup
 subTitle: Handling signups flows
 date: 2020-06-30
 author: Giovanni Rago
@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
   - signup
-navTitle: Standard signup
+navTitle: User signup
 weight: 6
 menu:
   learn:

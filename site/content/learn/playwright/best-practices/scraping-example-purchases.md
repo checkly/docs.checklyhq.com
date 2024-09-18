@@ -1,12 +1,13 @@
 ---
-title: Scraping behind a login
+title: Scraping behind a login using Playwright
 subTitle: An example in accessing account-specific information
 date: 2020-12-23
 author: Giovanni Rago
 githubUser: ragog
 tags:
   - scraping
-weight: 7
+weight: 6
+navTitle: Scraping behind a login
 menu:
   learn:
     parent: "Best practices"

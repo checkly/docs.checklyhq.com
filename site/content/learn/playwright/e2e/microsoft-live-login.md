@@ -1,13 +1,13 @@
 ---
-title: Microsoft Live login
-subTitle: Logging in to a Microsoft account
+title: How to login with Microsoft Live using Playwright
+subTitle: Dealing with Microsoft authentication
 date: 2020-06-22
 author: Tim Nolet
 githubUser: tnolet
 tags:
   - login
   - e2e
-navTitle: Microsoft Live login
+navTitle: Microsoft Live Auth
 weight: 8
 menu:
   learn:

@@ -1,5 +1,5 @@
 ---
-title: Intercepting requests
+title: Intercepting requests with Playwright
 subTitle: Monitoring and manipulating web traffic
 date: 2020-09-03
 author:
@@ -11,6 +11,7 @@ githubUser:
 tags:
   - network
 weight: 4
+navTitle: Intercepting requests
 menu:
   learn:
     parent: "Basics"

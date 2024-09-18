@@ -1,13 +1,13 @@
 ---
-title: Login with Google
-subTitle: An example of social login
+title: How to login with Google using Playwright
+subTitle: Dealing with Google authentication
 date: 2020-06-22
 author: Tim Nolet
 githubUser: tnolet
 tags:
   - login
   - e2e
-navTitle: Google login
+navTitle: Google Auth
 weight: 9
 menu:
   learn:

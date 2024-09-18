@@ -1,5 +1,5 @@
 ---
-title: Emulating mobile devices
+title: Emulating mobile devices with Playwright
 subTitle: Learn how to emulate mobile devices
 date: 2022-07-19
 author:

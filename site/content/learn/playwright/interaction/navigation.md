@@ -1,6 +1,6 @@
 ---
-title: Navigation & Waiting Strategies in Puppeteer & Playwright
-displayTitle: Navigation & waiting
+title: Navigating websites and apps with Playwright
+displayTitle: Navigating with Playwright
 metatags:
   title: Navigation & Waiting Strategies in Puppeteer & Playwright
 subTitle: How to ensure elements are ready for interaction

@@ -1,5 +1,5 @@
 ---
-title: E2E Login
+title: How to login and authenticate with Playwright
 subTitle: Automating one of the most common scenarios
 date: 2020-06-25
 author: Giovanni Rago
@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
   - login
-navTitle: Standard login
+navTitle: Standard authentication
 weight: 7
 menu:
   learn:

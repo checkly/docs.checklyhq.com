@@ -1,5 +1,5 @@
 ---
-title: E2E File Download
+title: How to download files with Playwright
 subTitle: Different ways of handling downloads
 date: 2020-09-09
 author: Giovanni Rago

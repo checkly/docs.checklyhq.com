@@ -1,5 +1,5 @@
 ---
-title: E2E Search
+title: How to search with Playwright
 subTitle: Verifying core platform functionality
 date: 2020-07-15
 author: Giovanni Rago

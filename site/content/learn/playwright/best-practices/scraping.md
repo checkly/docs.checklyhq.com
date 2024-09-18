@@ -1,5 +1,5 @@
 ---
-title: Scraping pages
+title: Scraping pages with Playwright
 subTitle: Extracting valuable information through automation
 date: 2020-08-26
 author: Giovanni Rago
@@ -9,8 +9,8 @@ tags:
   - scraping
   - assertions
 
-weight: 6
-
+weight: 5
+navTitle: Scraping
 menu:
   learn:
     parent: "Best practices"

@@ -1,5 +1,5 @@
 ---
-title: Error - Element not found
+title: Playwright error - Element not found
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

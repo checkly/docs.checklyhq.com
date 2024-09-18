@@ -14,11 +14,12 @@
           {{ range $index, $element := split $url "/" }}
             {{ if ne $element "learn" }}
               {{ if eq $index 3 }}
-                <a href="/learn/headless/">Headless Automation Guides</a>
+                <a href="/learn/playwright/">Playwright Automation Guide</a>
                 <span>/</span>
               {{ else }}
                 {{ if eq $index 3 }}
                 <a href="/learn/{{ . }}/">{{ humanize . }}</a>
+                <span>/</span>
                 {{ else }}
                 {{ humanize . }}
                 {{ end }}

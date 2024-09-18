@@ -1,5 +1,5 @@
 ---
-title: Keeping tests valuable
+title: Writing valuable tests with Playwright
 subTitle: Principles for sustainable automated testing
 date: 2020-07-16
 author: Giovanni Rago
@@ -7,7 +7,8 @@ githubUser: ragog
 tags:
   - e2e
   - testing
-weight: 4
+weight: 2
+navTitle: Testing
 menu:
   learn:
     parent: "Best practices"

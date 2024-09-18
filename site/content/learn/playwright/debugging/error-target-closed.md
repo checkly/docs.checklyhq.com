@@ -1,5 +1,5 @@
 ---
-title: Error - Target closed
+title: Playwright error - Target closed
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

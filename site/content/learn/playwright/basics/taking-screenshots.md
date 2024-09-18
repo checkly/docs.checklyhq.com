@@ -1,5 +1,5 @@
 ---
-title: Taking screenshots
+title: Taking screenshots with Playwright
 subTitle: Leveraging images for troubleshooting and more
 date: 2020-06-23
 author: Giovanni Rago
@@ -8,7 +8,7 @@ tags:
   - basics
 
 weight: 1
-
+navTitle: Taking screenshots
 menu:
   learn:
     parent: "Basics"

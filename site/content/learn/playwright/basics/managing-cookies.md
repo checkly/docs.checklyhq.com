@@ -1,12 +1,12 @@
 ---
-title: Setting state using cookies
+title: Managing cookies & state with Playwright
 subTitle: Speeding up tests by skipping login, and more
 date: 2020-10-14
 author: Giovanni Rago
 githubUser: ragog
 tags:
   - cookies
-weight: 5
+weight: 3
 navTitle: Managing cookies & state
 menu:
   learn:

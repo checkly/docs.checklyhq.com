@@ -1,5 +1,5 @@
 ---
-title: Multi-tab flows
+title: Handling multiple tabs with Playwright
 subTitle: Controlling multiple tabs
 date: 2021-08-29
 author: Giovanni Rago
@@ -8,7 +8,7 @@ tags:
   - multi-tab
   - testing
 weight: 6
-navTitle: Multi-tab flows
+navTitle: Multiple tabs
 menu:
   learn:
     parent: "Basics"

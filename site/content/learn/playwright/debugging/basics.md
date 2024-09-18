@@ -1,5 +1,5 @@
 ---
-title: Debugging scripts
+title: Debugging Playwright scripts
 subTitle: How to go about fixing what is not working
 date: 2021-07-26
 author: Giovanni Rago

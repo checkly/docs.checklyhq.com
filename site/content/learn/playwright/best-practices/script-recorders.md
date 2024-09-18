@@ -1,12 +1,13 @@
 ---
-title: Using script recorders
+title: Using script recorders with Playwright
 subTitle: Generating scripts for beginners and pros
 date: 2020-09-16
 author: Hannes Lenke
 githubUser: hlenke
 tags:
   - script generation
-weight: 8
+weight: 7
+navTitle: Script recorders
 menu:
   learn:
     parent: "Best practices"

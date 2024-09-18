@@ -1,5 +1,5 @@
 ---
-title: Error - Wait not respected
+title: Playwright error - Wait not respected
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

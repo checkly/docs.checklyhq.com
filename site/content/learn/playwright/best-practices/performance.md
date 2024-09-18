@@ -1,5 +1,5 @@
 ---
-title: Measuring page performance
+title: Measuring page performance using Playwright
 subTitle: Explaining why it matters and how to assess it
 date: 2020-09-30
 author: Giovanni Rago
@@ -8,8 +8,8 @@ tags:
   - basics
   - performance
 
-weight: 3
-
+weight: 1
+navTitle: Performance
 menu:
   learn:
     parent: "Best practices"

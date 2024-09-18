@@ -1,12 +1,13 @@
 ---
-title: Challenging automation flows
+title: Dealing with complex automation flows
 subTitle: Automation countermeasures and shortcomings
 date: 2020-07-23
 author: Giovanni Rago
 githubUser: ragog
 tags:
   - security
-weight: 6
+weight: 4
+navTitle: Complex workflows
 menu:
   learn:
     parent: "Best practices"

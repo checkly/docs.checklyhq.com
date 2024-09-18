@@ -1,5 +1,5 @@
 ---
-title: E2E Checkout
+title: Testing checkout scenarios with Playwright
 subTitle: Filling a basket and completing the transaction
 date: 2020-07-02
 author: Giovanni Rago
@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
 weight: 1
-navTitle: Checkout scenarios
+navTitle: Checkout
 menu:
   learn:
     parent: "E2E examples"

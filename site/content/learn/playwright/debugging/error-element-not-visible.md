@@ -1,5 +1,5 @@
 ---
-title: Error - Element not visible
+title: Playwright error - Element not visible
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

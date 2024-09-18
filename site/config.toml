@@ -27,7 +27,7 @@ disqusShortname = "checkly"
     weight = 20
 [[menu.topnav]]
     name = "Learn"
-    url = "/learn/headless/"
+    url = "/learn/playwright/"
     weight = 30
 [[menu.topnav]]
     name = "API Reference"

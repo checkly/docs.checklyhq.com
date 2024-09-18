@@ -1,5 +1,5 @@
 ---
-title: E2E Account Settings
+title: Testing account settings with Playwright
 subTitle: Modifying account settings with a file upload
 date: 2020-07-22
 author: Giovanni Rago

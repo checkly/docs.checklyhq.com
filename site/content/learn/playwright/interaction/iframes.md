@@ -1,5 +1,5 @@
 ---
-title: Interacting with iframes
+title: Interacting with iframes using Playwright
 subTitle: Accessing and interacting with iframes
 date: 2022-08-25
 author: Stefan Judis
@@ -7,6 +7,7 @@ githubUser: stefanjudis
 tags:
   - iframes
 weight: 6
+navTitle: Interacting with iframes
 menu:
   learn:
     parent: "Interaction"

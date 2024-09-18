@@ -1,5 +1,5 @@
 ---
-title: E2E Coupon
+title: Testing discounts & coupons with Playwright
 subTitle: Applying and verifying a discount
 date: 2020-07-13
 author: Giovanni Rago
@@ -8,7 +8,7 @@ tags:
   - e2e
   - assertions
 weight: 3
-navTitle: Dealing with discounts
+navTitle: Discounts & coupons
 menu:
   learn:
     parent: "E2E examples"

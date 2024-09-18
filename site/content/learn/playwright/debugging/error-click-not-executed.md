@@ -1,5 +1,5 @@
 ---
-title: Error - Click not executed
+title: Playwright error - Click not executed
 date: 2021-11-18
 author: Giovanni Rago
 githubUser: ragog
