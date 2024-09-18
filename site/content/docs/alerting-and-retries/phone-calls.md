@@ -21,12 +21,14 @@ You can add as many phone number channels as you like.
 | Country |
 | ------ |
 | Australia (+61)             |
+| Belgium (+32)               |
 | Brazil (+55)                |
 | Canada (+1)                 |
 | France (+33)                |
 | Germany (+49)               |
 | India (+91)                 |
 | Lithuania (+370)            |
+| Malta (+356)                |
 | Netherlands (+31)           |
 | Norway (+47)                |
 | Vietnam (+84)               |
