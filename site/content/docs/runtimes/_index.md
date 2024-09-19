@@ -50,7 +50,7 @@ We ship new runtimes with a regular cadence. This is what you can expect from us
 
 **1. Major & minor version upgrades of core packages and Node.js versions**
   
-We aim to release a new runtime that holds the major and minor upgrades of Playwright, Puppeteer and Node.js **every quarter**.
+We aim to release a new runtime that holds the major and minor upgrades of Playwright and Node.js **every quarter**.
 This will result in a new, named runtime e.g. `2023.03` available in the Checkly webapp and in our API.
 
 **2. Patch releases and security patches**

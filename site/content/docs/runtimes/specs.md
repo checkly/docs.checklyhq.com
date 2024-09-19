@@ -47,7 +47,7 @@ See the built-in module documentation on the official Node.js site:
 
 These are the currently available runtimes and the included external NPM dependencies.
 
-> The packages below are included for **setup and teardown scripts** as well, with the exclusion of Puppeteer, Playwright and Mocha.
+> The packages below are included for **setup and teardown scripts** as well, with the exclusion of Playwright and Mocha.
 
 > We are planning to deprecate `mocha` in the future. Please use `@playwright/test` as a test framework instead.
 

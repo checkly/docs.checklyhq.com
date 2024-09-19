@@ -13,7 +13,7 @@ menu:
     parent: "Basics"
 ---
 
-Playwright and Puppeteer can be used to create PDFs from webpages. This opens up interesting automation scenarios for tasks such as archiving, generating invoices, writing manuals, books and more.
+Playwright can be used to create PDFs from webpages. This opens up interesting automation scenarios for tasks such as archiving, generating invoices, writing manuals, books and more.
 
 This article introduces this functionality and shows how we can customise the PDF to fit our needs.
 
@@ -27,22 +27,18 @@ After loading a page, we use the `page.pdf()` command to convert it to a PDF.
 {{< tab "Playwright" >}}
 ```js {hl_lines=[7]}
 {{< readfile filename="samples/playwright/pdf-minimal.js" >}}
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js {hl_lines=[7]}
-{{< readfile filename="samples/puppeteer/pdf-minimal.js" >}}
-```
+``` 
 {{< /tab >}}
 {{< /tabs >}}
 
+
 Note that we need to pass the `path` option to have the PDF file actually saved to disk.
 
-> ⚠️  This feature is currently only supported in Chromium headless in both Playwright and Puppeteer.
+> ⚠️  This feature is currently only supported in Chromium headless in Playwright.
 
 ## Tweaking the result
 
-It is important to take a quick look at the official docs for `page.pdf()` ([Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pagepdfoptions) or [Playwright](https://playwright.dev/docs/api/class-page#page-pdf)), as it is almost certain that we will want to tweak the appearance of our page in the resulting PDF.
+It is important to take a quick look at the official docs for `page.pdf()` from [Playwright](https://playwright.dev/docs/api/class-page#page-pdf), as it is almost certain that we will want to tweak the appearance of our page in the resulting PDF.
 
 In certain cases, our webpage might look significantly different in our PDF compared to our browser. Depending on the case, it can pay off to experiment with the following:
 
@@ -55,15 +51,11 @@ In certain cases, our webpage might look significantly different in our PDF comp
 
 We can also have custom headers and footers added to our pages, displaying values such as title, page number and more. Let's see how this looks on your [favourite website](https://www.checklyhq.com/):
 
+
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
 ```js {hl_lines=["11-12","18-31"]}
 {{< readfile filename="samples/playwright/pdf-hd.js" >}}
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js {hl_lines=["11-12","20-33"]}
-{{< readfile filename="samples/puppeteer/pdf-hd.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -144,7 +136,6 @@ The first page of the generated PDF looks as follows:
 
 ![generated pdf example](/samples/images/pdf-generation-hd.png)
 
-> Chromium sets a default padding for header and footer. You will need to [override it](https://github.com/puppeteer/puppeteer/issues/4132#issuecomment-475110167) in your CSS.</style>
 
 Run the above examples as follows:
 ```sh
@@ -155,10 +146,3 @@ node generate-pdf.js
 
 We can easily transform existing web pages into PDF format, just as we have shown in our example. An even more interesting use case is about generating a brand new document: now we can use our existing HTML and CSS skills to produce high-quality PDFs, often eliminating the need for LaTeX or similar tools.
 
-See points 2 and 3 of the following section for practical examples of this approach.
-
-## Further reading
-
-1. Pocket Admin's article on [generating PDF from HTML](https://pocketadmin.tech/en/puppeteer-generate-pdf/).
-2. Florian Mößle's guide to [generating invoices with Puppeteer](https://medium.com/@fmoessle/use-html-and-puppeteer-to-create-pdfs-in-node-js-566dbaf9d9ca)
-3. A great example of Puppeteer's PDF generation feature: [Li Haoyi](https://twitter.com/li_haoyi)'s [Hands On Scala](https://www.handsonscala.com/index.html) book. See the [build pipeline](https://github.com/handsonscala/build) behind it.

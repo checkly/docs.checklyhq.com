@@ -168,7 +168,7 @@ disqusShortname = "checkly"
 
 [[menu.learn]]
 	name = "Getting started"
-	pre = "/learn/icons/getting-started.svg"
+	pre = "/learn/icons/playwright-logo.svg"
 	weight = 300
 
 [[menu.learn]]

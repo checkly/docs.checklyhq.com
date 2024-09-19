@@ -32,12 +32,6 @@ Request interception enables us to observe which requests and responses are bein
 ```
 {{< run-in-checkly "/samples/playwright/request-interception-read.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/request-interception-read.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/request-interception-read.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< /tabs >}}
 
 We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/headless/basics-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
@@ -50,13 +44,6 @@ In the following snippet we are going to abort all requests for images on our te
 {{< readfile filename="samples/playwright/request-interception-block.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/request-interception-block.js" "playwright"  >}}
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js {hl_lines=[13,14, "17-21"]}
-{{< readfile filename="samples/puppeteer/request-interception-block.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/request-interception-block.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< /tabs >}}
 
  As a result, you will see the website logo not being loaded.
@@ -81,12 +68,6 @@ Every time we load it, our test website is sending a request to its backend to f
 {{< readfile filename="samples/playwright/response-interception.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/response-interception.js" "playwright"  >}}
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js {hl_lines=[18,26]}
-{{< readfile filename="samples/puppeteer/response-interception.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/response-interception.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 

@@ -1,20 +1,18 @@
 ---
 title: Learn Playwright Testing & Automation Framework
 displayTitle: Learn Playwright
-description: Learn more about Playwright & Puppeteer with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
+description: Learn more about Playwright & monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 displayDescription: 
-  Learn more about Playwright & Puppeteer with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
+  Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 metatags:
-  title: Learn Playwright & Puppeteer - Browser Automation Frameworks
+  title: Learn Playwright & Checkly - Browser Automation
 
 ---
 
-Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation frameworks, Playwright and Puppeteer.
+Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation framework, Playwright .
 This guide provides detailed information and examples how you can write high-quality scripts for testing and synthetic monitoring.
 
 ## Getting Started
-
-Have a look at how Playwright & Puppeteer work, what similarities they share, as well as the noticeable differences.
 
 <div class="cards-list">
 {{< doc-card
@@ -22,7 +20,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 	  headerTag="h3"
 	  title="What is Playwright?"
 	  img="/learn/icons/playwright.png"
-	  description="Built on the experience of Puppeteer, Microsoft's Playwright offers unique features."
+	  description="Microsoft's Playwright offers unique features for automation and user simulation."
 	  link="/learn/playwright/getting-started/intro"
 >}}
 {{< doc-card
@@ -38,7 +36,7 @@ Have a look at how Playwright & Puppeteer work, what similarities they share, as
 
 ## Diving Deeper
 
-Playwright and Puppeteer are extremely powerful and serve a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
+Playwright and is extremely powerful and serves a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
 
 <div class="cards-list">
 {{< doc-card
@@ -70,7 +68,7 @@ Playwright and Puppeteer are extremely powerful and serve a wide range of use ca
 	headerTag="h3"
 	title="Performance"
 	img="/learn/icons/performance.svg"
-	description="Learn how you can use Playwright & Puppeteer to measure page performances."
+	description="Learn how you can use Playwright to measure page performance."
 	link="/learn/headless/basics-performance/"
 >}}
 </div>
