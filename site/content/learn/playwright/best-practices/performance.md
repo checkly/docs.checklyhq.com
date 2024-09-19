@@ -17,7 +17,7 @@ menu:
 
 The need for fast and responsive applications has never been greater because of the move from [desktop to mobile](https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide/). Still, web applications have been increasing in [complexity and size](https://httparchive.org/reports/page-weight). It is clear why the topic of webpage performance is more popular today than it ever was.
 
-This article gives a practical introduction to the whys and hows of web performance without getting lost in the depth of this massive topic. It also explains how to measure performance and gather metrics such as the Web Vitals with headless tools such as Puppeteer and Playwright.
+This article gives a practical introduction to the whys and hows of web performance without getting lost in the depth of this massive topic.
 
 <!-- more -->
 
@@ -58,7 +58,7 @@ Not all of Google's Web Vitals are suitable for synthetic monitoring and perform
 {{</ warning >}}
 ## Web Performance evaluation with headless tools
 
-As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Playwright and Puppeteer provide a great toolkit to power synthetic monitoring and performance testing.
+As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Playwright provides a great toolkit to power synthetic monitoring and performance testing.
 
 1. Access to the Web Performance APIs.
 2. Whenever testing against Chromium, access to the Chrome DevTools Protocol for traffic inspection, network emulation and more.
@@ -82,12 +82,6 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 {{< readfile filename="samples/playwright/basic-performance-navigation.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-navigation.js" "playwright"  >}}
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-navigation.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-navigation.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -139,12 +133,7 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-resource.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-resource.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-resource.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 <details class="console-output">
@@ -187,12 +176,7 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-paint-timing.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-paint-timing.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-paint-timing.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 <details class="console-output">
@@ -220,12 +204,7 @@ To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-content
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-largest-contentful-paint.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-largest-contentful-paint.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-largest-contentful-paint.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 #### Layout Instability API (`layout-shift`)
 
@@ -242,12 +221,7 @@ Layout shifts are no single event but event streams. To calculate CLS initialize
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-layout-shift.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-layout-shift.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-layout-shift.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 #### Long Task API (`longtask`)
@@ -265,17 +239,12 @@ Long Tasks are no single event but event streams. To calculate TBT initialize a 
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-long-task.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-long-task.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-long-task.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 ### Chrome DevTools for performance
 
-If the browser performance APIs are not enough, the Chrome DevTools Protocol offers many great performance tools for us to leverage with Playwright and Puppeteer.
+If the browser performance APIs are not enough, the Chrome DevTools Protocol offers many great performance tools for us to leverage with Playwright.
 
 One important example is network throttling, through which we can simulate the experience of users accessing our page with different network conditions.
 
@@ -286,29 +255,19 @@ One important example is network throttling, through which we can simulate the e
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-emulation.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-emulation.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-performance-emulation.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 The DevTools Protocol is quite extensive. We recommend exploring the [documentation](https://chromedevtools.github.io/devtools-protocol/) and getting a comprehensive overview of its capabilities.
 
 ### Additional performance libraries
 
-Lighthouse can easily be used programmatically with Playwright and Puppeteer to gather values and scores for different metrics, like [Time To Interactive (TTI)](https://web.dev/interactive/):
+Lighthouse can easily be used programmatically with Playwright to gather values and scores for different metrics, like [Time To Interactive (TTI)](https://web.dev/interactive/):
 
 {{< tabs "8" >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-performance-lighthouse.js" >}}
-```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-performance-lighthouse.js" >}}
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -320,7 +279,7 @@ $ node measure-performance.js
 
 ## Further reading
 1. The comprehensive [MDN Web Performance documentation](https://developer.mozilla.org/en-US/docs/Web/Performance)
-2. [web.dev's performance section](https://web.dev/learn/#performance)
-3. [Web Performance Recipes With Puppeteer](https://addyosmani.com/blog/puppeteer-recipes/) by Addy Osmani
+2. [Automatically finding accessibility issues with Playwright](https://www.checklyhq.com/blog/integrating-accessibility-checks-in-playwright-tes/)
+3. [web.dev's performance section](https://web.dev/learn/#performance)
 4. [Getting started with Chrome DevTools Protocol](https://github.com/aslushnikov/getting-started-with-cdp) by Andrey Lushnikov
 5. [Get Started with Google Lighthouse](https://developers.google.com/web/tools/lighthouse#get-started)

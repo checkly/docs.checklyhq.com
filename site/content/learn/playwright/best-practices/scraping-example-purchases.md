@@ -13,7 +13,7 @@ menu:
     parent: "Best practices"
 ---
 
-Playwright and Puppeteer can be particularly useful when scraping data accessible only behind a login wall. This article shows a practical example of such a case.
+Playwright can be particularly useful when scraping data accessible only behind a login wall. This article shows a practical example of such a case.
 
 <!-- more -->
 
@@ -29,11 +29,7 @@ A combination of UI automation and scraping will allow us to first log in to the
 {{< readfile filename="samples/playwright/scraping-example-purchases.js" >}}
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/scraping-example-purchases.js" >}}
-```
-{{< /tab >}}
+
 {{< /tabs >}}
 
 > ⚠️ This example is only intended for learning purposes. Always make sure the website you are planning to scrape allows such behaviour.
@@ -63,8 +59,8 @@ node scraping-example-purchases.js
 > ⚠️ Websites might [restrict headless browser traffic](/learn/headless/challenging-flows/) in order to protect their users from fraud. 2FA will also interfere with the script if enabled.
 
 ## Takeaways
-1. We can scrape information available behind a login wall with Playwright and Puppeteer.
+1. We can scrape information available behind a login wall with Playwright.
 2. Some websites might not allow scraping. Always make sure you check their terms of service beforehand.
 
 ## Further reading
-1. [Basic scraping](/learn/headless/basics-scraping/) with Playwright and Puppeteer
+1. [Basic scraping](/learn/headless/basics-scraping/) with Playwright

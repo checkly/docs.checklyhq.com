@@ -14,11 +14,11 @@ menu:
     parent: "Basics"
 ---
 
-Both Puppeteer and Playwright enable us to control multiple browser tabs, albeit in different ways. 
+Playwright enables us to control multiple browser tabs, albeit in different ways. 
 
 ## Opening tabs directly
 
-If we are looking to open brand new tabs with which to interact, the setup is rather straightforward for both Puppeteer and Playwright.
+If we are looking to open brand new tabs with which to interact, the setup is rather straightforward.
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
@@ -27,12 +27,7 @@ If we are looking to open brand new tabs with which to interact, the setup is ra
 ```
 {{< run-in-checkly "/samples/playwright/multitab-open.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/multitab-open.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/multitab-open.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 ## Handling links that open a new tab
@@ -41,7 +36,6 @@ Controlling tabs that are opened after a click on an element on the page can be 
 
 By allowing us to wait for the creation of a child tab with `page.waitForEvent`, Playwright enables us to "catch" it following a click on an element with `target="_blank"`, and then seamlessly interact with any of the currently open tabs. 
 
-With Puppeteer we need to follow a different procedure, using `page.waitForTarget` to grab the new tab once it has been opened.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
@@ -50,24 +44,10 @@ With Puppeteer we need to follow a different procedure, using `page.waitForTarge
 ```
 {{< run-in-checkly "/samples/playwright/multitab-flows.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/multitab-flows.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/multitab-flows.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
-Note that, if running Puppeteer in headful mode, you will have to manually bring focus to the new tab, either by bringing it to the front or closing the old one:
 
-{{< tabs "3" >}}
-{{< tab "Puppeteer" >}}
-```js {hl_lines=["18-21"]}
-{{< readfile filename="samples/puppeteer/multitab-headful.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/multitab-headful.js" "puppeteer"  >}}
-{{< /tab >}}
-{{< /tabs >}}
 
 ## Further reading
 

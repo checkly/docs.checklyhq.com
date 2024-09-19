@@ -32,11 +32,7 @@ On our [test site](https://danube-web.shop/), such a test could look as follows:
 {{< readfile filename="samples/playwright/file-upload.js" >}}
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js {hl_lines=["25-28"]}
-{{< readfile filename="samples/puppeteer/file-upload.js" >}}
-```
-{{< /tab >}}
+
 {{< /tabs >}}
 
 {{< tabs "2">}}

@@ -34,15 +34,9 @@ Below is an example running against our [test site](https://danube-web.shop/), g
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-href-value.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js 7
-{{< readfile filename="samples/puppeteer/basic-get-href-value.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-href-value.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< /tabs >}}
 
-As an alternative, it is also possible to retrieve an [ElementHandle](hhttps://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
+As an alternative, it is also possible to retrieve an [ElementHandle](https://playwright.dev/docs/api/class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
@@ -51,12 +45,7 @@ As an alternative, it is also possible to retrieve an [ElementHandle](hhttps://p
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-href-handle.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js 7,8
-{{< readfile filename="samples/puppeteer/basic-get-href-handle.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-href-handle.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 > The `innerText` property is often used in tests to assert that some element on the page contains the expected text.
@@ -72,12 +61,6 @@ Scraping element lists is just as easy. For example, let's grab the `innerText` 
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-text-values.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js 7-9
-{{< readfile filename="samples/puppeteer/basic-get-text-values.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-text-values.js" "puppeteer"  >}}
-{{< /tab >}}
 {{< /tabs >}}
 
 ## Scraping images
@@ -90,12 +73,6 @@ Scraping images from a page is also possible. For example, we can easily get the
 {{< readfile filename="samples/playwright/basic-get-image.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-image.js" "playwright"  >}}
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js [9,11,12]
-{{< readfile filename="samples/puppeteer/basic-get-image.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-image.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -115,12 +92,6 @@ The code for that could look like this:
 {{< readfile filename="samples/playwright/basic-get-data-json.js" >}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-data-json.js" "playwright"  >}}
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-get-data-json.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-get-data-json.js" "puppeteer"  >}}
 {{< /tab >}}
 {{< /tabs >}}
 

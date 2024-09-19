@@ -36,7 +36,6 @@ Request interception enables us to observe which requests and responses are bein
 
 We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/headless/basics-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
 
-In the following snippet we are going to abort all requests for images on our test website. We will identify them based off of their [`resourceType`](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-httprequestresourcetype), while letting all other requests through without modification.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
@@ -58,7 +57,7 @@ In the following snippet we are going to abort all requests for images on our te
 
 Isolating one or more software components from their dependencies makes them easier to test. We can do so by substituting interactions with such dependencies with simulated, simplified ones. This is also known as _stubbing_.
 
-Both Playwright and Puppeteer make it easy for us, as for every request we can intercept we also can stub a response.
+Playwright makes it easy for us, as for every request we can intercept we also can stub a response.
 
 Every time we load it, our test website is sending a request to its backend to fetch a list of best selling books. For our example, we are going to intercept this response and modify it to return a single book we define on the fly.
 

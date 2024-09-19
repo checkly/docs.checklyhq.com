@@ -2,7 +2,7 @@
 title: What is End to End Monitoring? Overview with Examples
 displayTitle: End to end monitoring
 description: >-
-  Learn end-to-end monitoring with puppeteer and playwright to test key website flows. Follow our guide that gets you up and running in 10 minutes.
+  Learn end-to-end monitoring with playwright to test key website flows. Follow our guide that gets you up and running in 10 minutes.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
@@ -37,7 +37,7 @@ The industry has learned to struggle with the challenges this approach presents:
 
 **All of the above lead to higher costs and slower delivery.**
 
-The appearance of mature **headless browser automation tools, such as {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}}, offers a response** to many of the above issues by allowing testing in the browser without its GUI, which yields higher speed and stability coupled with lower resource consumption.
+The appearance of mature **headless browser automation tools, such as {{< newtabref  href="https://playwright.dev" title="Playwright" >}}, offer a response** to many of the above issues by allowing testing in the browser without its GUI, which yields higher speed and stability coupled with lower resource consumption.
 
 ## E2E monitoring examples
 

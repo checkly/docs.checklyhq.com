@@ -44,8 +44,7 @@ Given that Headless browser scripts will run without a GUI, a visual assessment 
 
 One possibility is to adding screenshots in specific parts of the script, to validate our assumptions on what might be happening at a given moment of the execution. For example, before and after a problematic click or page transition:
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
+
 ```js
 ...
 await page.screenshot({ path: 'before_click.png' })
@@ -53,37 +52,17 @@ await page.click('#button')
 await page.screenshot({ path: 'after_click.png' })
 ...
 ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-...
-await page.screenshot({ path: 'before_click.png' })
-await page.waitForSelector('#button')
-await page.click('#button')
-await page.screenshot({ path: 'after_click.png' })
-...
-```
-{{< /tab >}}
-{{< /tabs >}}
+
 
 Another way to better observe our script's execution is to run in headful mode:
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
+
 ```js
 ...
 const browser = await chromium.launch({ headless: false, slowMo: 20 })
 ...
 ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-...
-const browser = await puppeteer.launch({ headless: false, slowMo: 20 })
-...
-```
-{{< /tab >}}
-{{< /tabs >}}
+
 
 We can then tweak the `slowMo` option, which adds a delay in milliseconds between interactions, to make sure the execution is not too fast for us to follow.
 
@@ -91,18 +70,10 @@ We can then tweak the `slowMo` option, which adds a delay in milliseconds betwee
 
 Sometimes we need to try and see the execution through our automation tool's eyes. Added logging can help by taking us step-by-step through every command as it is executed.
 
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
 ```shell
 DEBUG=pw:api node script.js
 ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```shell
-DEBUG="puppeteer:*" node script.js
-```
-{{< /tab >}}
-{{< /tabs >}}
+
 
 ![verbose playwright logs](/samples/images/debugging-logging.png)
 
