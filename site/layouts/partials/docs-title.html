@@ -1,6 +1,7 @@
 {{ $title := "" }}
-
-{{ if .Page.Params.displayTitle}}
+{{ if .Page.Params.navTitle}}
+  {{ $title = .Page.Params.navTitle}}
+{{ else if .Page.Params.displayTitle}}
   {{ $title = .Page.Params.displayTitle}}
 {{ else if .Title }}
   {{ $title = .Title }}
