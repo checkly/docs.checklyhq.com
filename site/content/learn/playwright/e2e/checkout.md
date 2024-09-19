@@ -33,12 +33,7 @@ Modelled on the above structure is the following example running against our tes
 ```
 {{< run-in-checkly "/samples/playwright/checkout.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/checkout.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/checkout.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 Run this example as follows:

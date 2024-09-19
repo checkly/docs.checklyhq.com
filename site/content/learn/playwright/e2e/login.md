@@ -37,11 +37,7 @@ On our [test site](https://danube-web.shop/) this could look like the following:
 {{< readfile filename="samples/playwright/login.js" >}}
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/login.js" >}}
-```
-{{< /tab >}}
+
 {{< /tabs >}}
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.

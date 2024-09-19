@@ -1,12 +1,12 @@
 ---
-title: UI Selectors - A Guide for Playwright | Checkly
+title: User-first UI selectors - A Guide for Playwright | Checkly
 displayTitle: Working with UI selectors in Playwright
 description: 
-  Learn to write solid scripts using Puppeteer, Playwright, and other UI selectors. Discover how to choose stable selectors and start enhancing your skills today.
+  Learn to write solid scripts using Playwright. Discover how to choose stable selectors and start enhancing your skills today.
 subTitle: Techniques and pointers
 date: 2020-06-22
-author: Giovanni Rago
-githubUser: ragog
+author: Nočnica Mellifera
+githubUser: serverless-mom
 tags:
   - basics
 
@@ -17,182 +17,107 @@ menu:
     parent: "Interaction"
 ---
 
-Puppeteer, Playwright and most other UI automation tools reference UI elements through selectors. Becoming proficient in the use of selectors is a hard requirement for writing scripts. An eye for good, solid selectors can make the difference between unstable (or "flaky") high-maintenace scripts and solid, reliable ones.
+When testing and monitoring websites end to end with Playwright, choosing the right locators is crucial. Proper locators help create tests that are less flaky and more reliable. Let's explore user-first locators and how to filter locators for more robust tests.
 
-This guide aims to get new users started with selectors, and to serve a refresher for more experienced automators. Even though some content will be specific to Puppeteer and Playwright, most principles will apply to most, if not all, UI automation tools.
+## Example Scenario
 
-<!-- more -->
+Consider a simple web page with a headline, a button, and a status update box. Clicking the button updates the status and throws confetti. Here's how we can test this.
 
-## Different types of selectors
+![a demo page](/samples/images/user-first1.png)
 
-Depending on the tool and the application being tested, different kind of selectors might be available. Puppeteer and Playwright share two main selector types:
+## Why we don't want to find a page element with CSS selectors
+If you're used to some older systems for automation and page manipulation like JQuery, we might be tempted to use CSS selectors. If we inspect this page we'll find, sure enough, that there is a class applied to this button that should select it in the page.
 
-1. [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-2. [XPath selectors](https://developer.mozilla.org/en-US/docs/Web/XPath)
+![examining the page with an inspector](/samples/images/user-first2.png)
 
-In addition, Playwright also supports
+We could click this button in a test with a line like `await page.locator("button.button-frontpage-style").click()` and that would work, but it's not recommended.
 
-1. Text selectors, allowing users to select an element based on its text content
-2. Playwright-specific selectors, which are implemented in Playwright directly (and might be unofficial proposed or pseudo-CSS selectors)
-3. Chained selectors, in which one selector is run relatively to the previous one(s)
+What is the problem with this approach?
 
-Let's look at each type of selector a little closer.
+Our users look at the page and want to find a button, they don't look for a CSS class, so our test is no longer emulating a user path.
+If a frontend engineer changes the class for style reasons to read `button-hero-panel-style` then our test will return a false positive: showing a problem where there is none.
+If our button text is coming from a CMS, and it breaks, the button text could change to "HEROBUTTON_TXT" and our test would still pass, despite the UI being broken for the user, a false negative.
+Due to the reasons above, the Playwright project encourages you to not use CSS locators, and it's a good idea to follow the standards set down in the project!
 
-> Note that Playwright also lets you define [your own selector engine](https://playwright.dev/docs/extensibility#custom-selector-engines).
+### Instead of CSS selectors, try User-First Locators
+Playwright offers a number of locators that are based on page role, a more functional view of the page than finding by CSS or HTML. Use built-in locators like `getByRole`, `getByText`, and `getByLabel`, which will all work the same in the test that they will for the user, even if the user is using an unusual browser build, mobile device, or even a screen reader!
 
-### CSS selectors
+## User-First Locators in Action
+Let's replace `page.locator` with `getByRole` to locate the button by its role and accessible name:
 
-Originally used to target HTML elements for [applying CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS), CSS selectors are the go-to for referencing web UI elements across automation tools. Powerful and flexible, they should enable you to reference most, if not all, elements on the page.
+```js
+await page.getByRole('button', { name: 'click me' }).click();
+```
 
-Examples:
-1. `#add-to-cart` selects the item with id `add-to-cart`, e.g. `<button id="add-to-cart">Buy</button>`
-2. `.preview` selects the item with class `preview`, e.g. `<li data-v-5ad54829="" class="preview">...</li>`
-3. `.preview .preview-price` selects the item with class `preview-price` within the element with class `preview`
-4. `[data-test=login-button]` selects the item with attribute `data-test` equal to `login-button`, e.g. `<button id="btn-login" aria-label="Log in" data-test="login-button">Log in</button>`
-5. `a.preview-link` selects the item of type `a` with class `preview-link`, e.g. `<a href="https://example.com/ class="preview-link">Example</a>"`
-6. `#navbar > .button-cart` selected the item with class `button-cart` within the item with id `navbar`
+Inspect elements using Chrome DevTools to find their accessibility roles and names.
 
-> Note that there might be multiple items corresponding to one selector. Make sure you are referencing the right one in your script.
+![showing the element's role](/samples/images/user-first3.png)
 
-### XPath selectors
+This method ensures that tests remain stable even if class names or HTML structure change.
 
-XPath was coinceived to reference nodes within an XML document. It can also be used to reference HTML elements, just like CSS. The different ways it can be used to traverse the DOM, as well as its ability to support multiple boolean conditions and reference elements via text content make it a useful backup option for CSS selectors.
+As an added bonus, the name matching done by Playwright is case-insensitive, and matches by substring so you could change your selector to `{ name: 'click' }` and the test would pass, with no failures even if your marketing team relabels the button to read "Click me now!"
 
-Examples:
-1. `//button` selects the item of type `button`, e.g. `<button id="btn-signup">Sign up</button>`
-2. `//*[@id="add-to-cart"]` selects the item of any type with id `add-to-cart`, e.g. `<a href ="" id="add-to-cart">Buy</a>`
-3. `//li/a` selects the item of type `a` which is a child of item of type `li`
-4. `//div[3]` selects the third item of type `div`
-5. `//button[text()="Submit"]` selects the item of type `button` with text `Submit`
-6. `//div[@data-testid="cta" and text()="Configure"]` selects the item of type `div` that has attribute `data-testid` equal to `cta` and contains text `Configure`
+This change means that if the button label changes to something like "HEROBUTTON_TXT" the test will fail as expected.
 
-### Text selectors
+### What to do when `getByRole` and `getByLabel` won't work on your page
 
-Text selectors allow selecting an element via its text content directly. They are Playwright-specific.
+One of the reasons I support using user-first locators is what happens when you realize that these selectors don't work on your page. If role and label aren't set for many of your page items, or you find that all your page items have the same labels and roles, it indicates that your page has some serious accessibility issues. After all, if nothing has unique labels it means that screen readers and keyboard navigation tools won't work correctly on the page, meaning many users won't be able to navigate your pages. That should start a conversation among developers and QA people about improving the structure of your pages, which will fix testing and the experience for all users.
 
-Examples:
-1. `text=Add` selects the element containing text `Add`, `add` or similar (case insensitive)
-2. `text="Add to cart"` selects the element containing exactly the text `Add to cart`
+In the short term, take a look at all of Playwright's locators, as there are definitely techniques that will find any element on your page, but I encourage you to use this as a jumping off point for tech debt conversations in the future.
 
-### Playwright-specific selectors
+### Handling Multiple Matching Elements
+If a locator matches multiple elements, Playwright's strict mode will fail. For example, using `getByRole('button')` might match several buttons. You'll get an error that reads something like:
 
-Playwright-specific selectors are implemented in Playwright directly, and can fill in the gaps where CSS and XPath selectors might fall short.
+`Error: locator.click: Error: strict mode violation: getByRole('button', { name: 'click' }) resolved to 2 elements:`
 
-Examples:
-1. `:nth-match(:text("Details"), 2)` selects the second element containing text `Details`
 
-### Chained selectors
+Note that in strict mode this test will fail even if the first result, or all the results, passes the rest of the test. Resolve this by specifying the position or filtering elements.
 
-With Playwright, multiple selectors of different types can be combined to reference elements relative to other elements.
+### Position-Based Selection
+When we first run into this error, the easiest solution is just to specify a position in a list. The simplest being to take the first result:
 
-Examples:
-1. `css=preview >> text=In stock` selects the item with class `preview` and text content `In stock`, `in stock` or similar (case insensitive)
+```js
+await page.getByRole('button').first().click();
+```
 
-## Finding selectors
+I run into the error listed above so often, I get in the habit of adding first() to my locators almost every time I write a locator. 😅
 
-There are different ways one can go about finding a selector for one or more UI elements. Let's take a look at each one.
+If you want to be more specific about list position, use:
 
-### Looking at the page's source code
+```js
+await page.getByRole('button').nth(3).click();
+```
 
-Once you know enough about selectors, looking at a page's HTML will be enough to start writing your own. For each page you load in your browser, you will be able to see the source code:
+The .nth() funciton is zero-indexed, so .nth(3) will select the fourth item in the results. Positional selectors work, but they can be brittle, if we have dynamic page content, selecting anything but the first result may present a false positive. To be really sure that we're pointing to the correct element in a dynamic list, do a bit of element filtering.
 
-![selectors from page source](/samples/images/selectors-source.png)
+## Element Filtering in Playwright
+If we imagine an e-store interface, with a number of results only some of which are available, we can see that a position selector isn't going to test reliably.
 
-### Inspecting the page
+![too many matches](/samples/images/user-first4.png)
 
-You can also use your browser's inspector tool, as found e.g. in the [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/dom), to highlight elements on the page and see their attributes.
+If we inspect the page we'll see that these are list items, so a selector that makes sure the item is available before checking for the button would read as follows:
 
-![getting selectors via the browser inspector](/samples/images/selectors-inspector.png)
+```js
+const button = page.getByRole('listitem')
+.filter({ hasText: 'available' })
+.getByRole('button', { name: 'buy' });
+await button.click();
+```
 
-In the case of the Chrome DevTools, you can also generate different kinds of selector straight from the Elements tab:
+This test would now fail about when the user would expect it to: when they see a list of items, all marked as sold out.
 
-![generate selectors in devtools](/samples/images/selectors-generate.png)
+## Best Practices for Page Locators
 
-> Auto-generated selectors can be brittle. Always make sure the selectors you end up deploying in your finished scripts [follow best practices](#choosing-selectors).
+There is no one-size-fits-all solution for locators. Here are some tips:
 
-### Recording scripts
+- **Avoid Implementation Details**: Use locators that reflect user actions rather than HTML structure.
+- **Use Built-In Locators**: `getByRole`, `getByText`, and similar locators improve test stability and maintainability.
+- **Data Test IDs**: For complex scenarios, using data test IDs can simplify locators and improve test reliability.
 
-If you are looking to generate an entire script and don't feel like finding selectors for your elements one by one, you can try an automated recording tool, e.g. the open-source [Headless Recorder](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda).
+## See user-first locators in action
 
-![record selectors with recorder](/samples/images/selectors-recorder.png)
+Putting all these pieces together, [check out Stefan’s video for a demonstration of user-first locators.](https://www.youtube.com/watch?v=9RJMNU4eNEc)
 
-A recorder will output a script based on a sequence of page interactions in your browser, complete with auto-generated (in most cases CSS) selectors. You will always want to double check the selectors one by one and potentially tweak them to ensure they follow [best practices](#choosing-selectors).
+### Conclusion
 
-### The Playwright Inspector
-
-The Playwright Inspector's Explore feature can be used to select elements in the browser and generate selectors.
-
-![playwright inspector explore feature](/samples/images/selectors-explore.png)
-
-## Testing selectors
-
-No matter how a selector is obtained, it is always a good idea to test it out on the target page to make sure it works consistently.
-
-Writing scripts in small increments and running after each new selector is introduced is a good way to quickly spot selectors that either do not work or reference a different element from the one we intended.
-
-We can also test our selectors directly in the browser, before touching our script. In the Chrome DevTools, for example, we are able to test CSS selectors using commands such as
-1. `document.querySelector(<selector>)`, or its shorter form `$(<selector>)`, which will return the first element matching the specified criteria
-2. `querySelectorAll(<selector>)`, or its shorter form `$$(<selector>)`, which will return all the elements matching the specified criteria)
-
-Similarly, we can test XPath selectors using `$x(<selector>)`, which will return all the element matching our criteria.
-
-The Playwright-specific selectors can be tested by running the Playwright Inspector, which provisions an accessible `playwright` object in the console.
-
-![playwright inspector object in console](/samples/images/selectors-pwobject.png)
-
-## Choosing selectors
-
-The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
-
-The attributes of a good selector are:
-
-- **Uniqueness**: choose a selector that will identify the target element, and nothing else; [IDs](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors#ID_Selectors) are the natural choice, when available.
-- **Stability**: use an attribute that is unlikely to change as the page gets updated lowers the chances that you will need to manually update it.
-- **Conciseness**: prefer short selectors that are easier to read, understand and possibly replace if a script breaks.
-
-### Examples of bad selectors
-
-Avoid this kind of selector *whenever possible:*
-
-1. `.A8SBwf > .RNNXgb > .SDkEP > .a4bIc > .gLFyf`
-    - not concise
-    - likely not stable: class names are auto-generated, they could change rapidly
-2. `.g:nth-child(3) > .rc`
-    - likely not stable: is the third child of `.g` always going to be present?
-    - likely not unique: is it always going to be the right element?
-3. `a[data-v-9a19ef14]`
-    - not stable: attribute is [auto-generated](https://vue-loader.vuejs.org/guide/scoped-css.html#scoped-css) and changes between deployments
-    - likely not unique: is it always going to be the right element?
-4. `//div[1]/table[1]/tbody/tr[7]/td/a`
-    - not concise
-    - likely not stable: reliant on a precise page structure; extremely brittle
-5. `text=Continue`
-    - likely not stable: the text might change for multiple reasons (restyling, localisation...)
-    - likely not unique: is it always going to be the right element?
-
-### Examples of (potentially) good selectors
-
-The following *might* be good selectors:
-
-1. `#elementId`
-    - concise
-    - unique, as long as the page contains [valid HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
-    - generally stable
-2. `a[data-something=value]`
-    - concise
-    - unique, as long as `value` is
-    - potentially stable, as long as `value` does not change very often
-3. `#overlay.close-button`
-    - concise
-    - unique, as long as only one element has class `.close-button`
-    - potentially stable, as long as `.close-button` does not change very often
-4. `div[@data-testid="cta"]`
-    - concise
-    - unique, as long as only one element has attribute `data-testid` equal to `cta`
-    - potentially stable, as long as `data-testid` is not changed often
-
-## Further reading
-1. [W3C CSS spec](https://www.w3.org/TR/CSS21/selector.html%23id-selectors) for CSS selectors.
-2. [CSS selector intro](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) from Mozilla.
-3. [Playwright's selector documentation](https://playwright.dev/docs/selectors)
-4. [Using script recorders](/learn/headless/script-recorders/)
+Choosing the right locators is key to creating stable and maintainable Playwright tests. User-first locators reduce flakiness and encourage good development practices. If you're interested in joining a community of Playwright developers, join us on the [Checkly Slack](https://www.checklyhq.com/slack/).  And if you use Playwright for end-to-end testing, consider using Checkly for monitoring your production site, we’ve got a great story for empowering your developers with [Monitoring as Code](https://www.checklyhq.com/docs/cli/).

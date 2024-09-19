@@ -32,11 +32,7 @@ Social login using your personal Google or Google Gsuite account is a common use
 {{< readfile filename="samples/playwright/google-login.js" >}}
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/google-login.js" >}}
-```
-{{< /tab >}}
+
 {{< /tab >}}:
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.

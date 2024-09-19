@@ -13,7 +13,7 @@ menu:
     parent: "Interaction"
 ---
 
-Puppeteer and Playwright enable us to access and interact with iframes.
+Playwright enables us to access and interact with iframes.
 
 ## Locate an iframe and its elements
 
@@ -25,11 +25,7 @@ To access iframe elements, locate the iframe and query the DOM elements as if yo
 {{< readfile filename="samples/playwright/iframe-access.js" >}}
 ```
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/iframe-access.js" >}}
-```
-{{< /tab >}}
+
 {{< /tabs >}}
 
 ## Further reading

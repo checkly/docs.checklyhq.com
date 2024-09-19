@@ -83,22 +83,12 @@ A wealth of information is available through the Chrome Developer Tools. We can 
 
 ![debugging with chrome devtools](/samples/images/debugging-devtools.png)
 
-{{< tabs "4" >}}
-{{< tab "Playwright" >}}
 ```js
 ...
 await chromium.launch({ devtools: true })
 ...
 ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-...
-await browser.launch({ devtools: true })
-...
-```
-{{< /tab >}}
-{{< /tabs >}}
+
 
 We can also use the console to directly try out a selector on the page in its current state, e.g. with `document.querySelector` or `document.querySelectorAll`.
 

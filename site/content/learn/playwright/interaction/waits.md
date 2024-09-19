@@ -56,7 +56,7 @@ Our aim should be to wait just long enough for the element to appear. We want to
 
 ![playwright smart wait](/learn/images/smart_wait_01@2x.png)
 
-Different tools approach the broad topic of waiting in different ways. Both Puppeteer and Playwright offer many different kinds of smart waits, but Playwright takes things one step further and introduces an auto-waiting mechanism on most page interactions.
+Different tools approach the broad topic of waiting in different ways. Playwright not only offers many forms of smart waits, but takes things one step further and introduces an auto-waiting mechanism on most page interactions.
 
 Let's take a look at different smart waiting techniques and how they are used.
 
@@ -66,24 +66,23 @@ Playwright comes with built-in waiting mechanisms on {{< newtabref title="naviga
 
 ## Explicit waits
 
-Explicit waits are a type of smart wait we invoke explicitly as part of our script. We will want to use them more or less often depending on whether our automation tool has a built-in waiting mechanism (e.g. Playwright) or requires us to handle all the waiting (e.g. Puppeteer).
+Explicit waits are a type of smart wait we invoke explicitly as part of our script. We will want to use them more or less often in Playwright since it includes auto-waiting.
 
 If you can rely on automatic waits, use explicit waits only when necessary. An auto-wait system failing once is no good reason for ditching the approach completely and adding explicit waits before every page load and element interaction. If the tool you are using does not do auto-waiting, you will be using explicit waits quite heavily (possibly after each navigation and before each element interaction), and that is fine - there is just less work being done behind the scenes, and you are therefore expected to take more control into your hands.
 
-### Waiting on navigations and network conditions
+### Waiting on navigations and network conditions in Playwright
 
 On a page load, we can use the following:
 
 1. `{{< newtabref title="page.waitForNavigation" href="https://playwright.dev/docs/api/class-page#page-wait-for-navigation" >}}` to wait until a page navigation (new URL or page reload) has completed.
-2. `{{< newtabref title="page.waitForLoadState" href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" >}}` for Playwright, waits until the required load state has been reached (defaults to `load`); `{{< newtabref title="page.waitForNetworkIdle" href="https://pptr.dev/#?product=Puppeteer&show=api-pagewaitfornetworkidleoptions" >}}` with Puppeteer, a narrower method to wait until all network calls have ended.
-3. `{{< newtabref title="page.waitForURL" href="https://playwright.dev/docs/api/class-page#page-wait-for-url" >}}` with Playwright, waits until a navigation to the target URL.
+2. `{{< newtabref title="page.waitForLoadState" href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" >}}` waits until the required load state has been reached (defaults to `load`); 
+3. `{{< newtabref title="page.waitForURL" href="https://playwright.dev/docs/api/class-page#page-wait-for-url" >}}` waits until a navigation to the target URL.
 
 All the above default to waiting for the `{{< newtabref title="load" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" >}}` event, but can also be set to wait for:
 * the `{{< newtabref title="DOMContentLoaded" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event" >}}` event.
-* Playwright only: `networkidle`, raised when there are no network connections for at least 500 ms.
-* Playwright only: `commit`, when the network response is received and the document starts loading (Playwright only).
-* Puppeteer only: `networkidle0`, raised when there are no network connections for at least 500 ms.
-* Puppeteer only: `networkidle2`, raise when the there are no more than 2 network connections for at least 500 ms.
+* `networkidle`, raised when there are no network connections for at least 500 ms.
+* `commit`, when the network response is received and the document starts loading (Playwright only).
+
 
 > {{< newtabref title="Lazy-loaded pages" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading" >}} might require extra attention when waiting for the content to load, often demanding explicitly waiting for specific UI elements. See the following section.
 
@@ -91,7 +90,7 @@ Additionally, we can also wait until a specific request is sent out or a specifi
 
 ### Waiting for an element
 
-We can also explicitly wait for a specific element to appear on the page. This is normally done via `{{< newtabref title="page.waitForSelector" href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" >}}` or a similar method, like `{{< newtabref title="page.waitForXPath" href="https://pptr.dev/#?product=Puppeteer&show=api-pagewaitforxpathxpath-options" >}}` (Puppeteer only). A good knowledge of [selectors](/learn/headless/basics-selectors/) is key to enable us to select precisely the element we need to wait for.
+We can also explicitly wait for a specific element to appear on the page. This is normally done via `{{< newtabref title="page.waitForSelector" href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" >}}`. A good knowledge of [selectors](/learn/headless/basics-selectors/) is key to enable us to select precisely the element we need to wait for.
 
 ### Waiting on page events
 

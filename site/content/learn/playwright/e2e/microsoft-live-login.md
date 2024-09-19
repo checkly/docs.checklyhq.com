@@ -14,7 +14,7 @@ menu:
     parent: "E2E examples"
 ---
 
-Playwright and Puppeteer also allow us to automate logging in to a Microsoft Live account.
+Playwright allows us to automate logging in to a Microsoft Live account.
 
 <!-- more -->
 
@@ -28,12 +28,6 @@ Playwright and Puppeteer also allow us to automate logging in to a Microsoft Liv
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/mslive-login.js" >}}
-```
-{{< /tab >}}
-
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/mslive-login.js" >}}
 ```
 {{< /tab >}}
 {{< /tab >}}

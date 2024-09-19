@@ -18,7 +18,7 @@ menu:
     parent: "Interaction"
 ---
 
-Users normally access most website functionality through clicks, keystrokes etc. Playwright and Puppeteer allow us to replicate these events by referencing elements on the page using [CSS selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors).
+Users normally access most website functionality through clicks, keystrokes etc. Playwright allows us to replicate these events by referencing elements on the page using [User-first Selectors](https://www.checklyhq.com/blog/playwright-user-first-selectors/).
 
 <!-- more -->
 
@@ -26,39 +26,15 @@ Users normally access most website functionality through clicks, keystrokes etc.
 
 Clicking is the default way of selecting and activating elements on web pages, and will appear very often in most headless scripts.
 
-{{< tabs "1">}}
-{{< tab "Playwright" >}}
  ```js
-const { chromium } = require('playwright')
+import { test, expect } from '@playwright/test';
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.click('#login')
-
-  await browser.close()
-})()
+test('can click log in', async ({ page }) => {
+  await page.goto('https://danube-web.shop/');
+  await page.getByRole('button', { name: 'Log in' }).click();
+});
  ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
 
-;(async () => {
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.waitForSelector('#login')
-  await page.click('#login')
-
-  await browser.close()
-})()
- ```
-{{< /tab >}}
-{{< /tabs >}}
 
 For the times when even the humble click fails, you can try the following alternatives:
 1. `await page.click('#login', { force: true });` to force the click even if the selected element appears not to be accessible
@@ -69,118 +45,47 @@ For the times when even the humble click fails, you can try the following altern
 
 A popular pattern among web pages is exposing additional information or functionality when the user hovers the mouse cursor over a specific item. Examples include, menus, previews and dialogs containing extra information on the item.
 
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
+
  ```js
-const { chromium } = require('playwright')
-
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.hover('a')
-
-  await browser.close()
-})()
+test('hover over sign in', async ({ page }) => {
+  await page.goto('https://danube-web.shop/');
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await page.getByRole('button', { name: 'Sign In' }).hover();
+});
  ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
-
-;(async () => {
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.waitForSelector('a')
-  await page.hover('a')
-
-  await browser.close()
-})()
- ```
-{{< /tab >}}
-{{< /tabs >}}
+*Note that in this example we're not asserting anything, since our web example doesn't do any element updates on hover.*
 
 ## Focussing
 
 Focussing on specific UI elements allows the user to interact with them without clicks. It can also result in a proactive reaction from the webapp, such as displaying suggestions.
 
-{{< tabs "4" >}}
-{{< tab "Playwright" >}}
+
  ```js
-const { chromium } = require('playwright')
-
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.focus('input')
-
-  await browser.close()
-})()
+test('Focus on email field', async ({ page }) => {
+  await page.goto('https://danube-web.shop/');
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await page.getByPlaceholder('Email').focus()
+});
  ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
 
-;(async () => {
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.waitForSelector('input')
-  await page.focus('input')
-
-  await browser.close()
-})()
- ```
-{{< /tab >}}
-{{< /tabs >}}
 
 ## Typing
 
 We can simulate typing on a real keyboard using `page.type()`:
 
-{{< tabs "5" >}}
-{{< tab "Playwright" >}}
+
  ```js
-const { chromium } = require('playwright')
-
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.fill('input', 'some search terms')
-
-  await browser.close()
-})()
+test('testAlpha', async ({ page }) => {
+  await page.goto('https://danube-web.shop/');
+  await page.getByRole('textbox').focus();
+  await page.getByRole('textbox').fill('catcher');
+  await page.getByRole('button', { name: 'Search' }).click();
+  await expect(page.locator('#app-content')).toContainText('Rye');
+});
  ```
-{{< /tab >}}
-{{< tab "Puppeteer" >}}
- ```js
-const puppeteer = require('puppeteer')
 
-;(async () => {
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()
-  await page.goto('https://danube-web.shop/')
-
-  await page.waitForSelector('input')
-  await page.type('input', 'some search terms')
-
-  await browser.close()
-})()
- ```
-{{< /tab >}}
-{{< /tabs >}}
 
 Single key presses can also be executed. For example, to press the Enter key:
-- Puppeteer: `await page.keyboard.press('Enter');`
 - Playwright: `await page.press('Enter');`
 
 Key presses can also be sent to a specific element:
@@ -201,5 +106,5 @@ $ node basic-click-type.js
 ```
 
 ## Further reading
-1. The related official documentation of [Playwright](https://playwright.dev/docs/input#mouse-click) and [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pageclickselector-options)
+1. The related official documentation of [Playwright](https://playwright.dev/docs/input#mouse-click) 
 2. [Finding effective selectors](/learn/headless/basics-selectors/)

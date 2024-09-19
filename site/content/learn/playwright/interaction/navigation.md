@@ -2,7 +2,7 @@
 title: Navigating websites and apps with Playwright
 displayTitle: Navigating with Playwright
 metatags:
-  title: Navigation & Waiting Strategies in Puppeteer & Playwright
+  title: Navigation & Waiting Strategies in Playwright
 subTitle: How to ensure elements are ready for interaction
 description:
   Learn how to navigate web pages and implement effective waiting mechanisms. A guide ideal for developers looking to refine their automation scripts.
@@ -23,8 +23,6 @@ Every script that we will write will almost certainly do three key things:
 1. Navigating to some web page
 2. Waiting for something
 3. Possibly getting a timeout 😐
-
-> Both frameworks handle these scenarios in very similar ways but [Playwright explicitly differentiates itself from Puppeteer by having a "built-in" waiting mechanism](https://playwright.dev/docs/actionability) that covers many common scenarios.
 
 <!-- more -->
 
@@ -48,12 +46,7 @@ In the example below we trigger two navigations:
 ```
 {{< run-in-checkly "/samples/playwright/basic-browser-navigation.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-browser-navigation.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-browser-navigation.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 Run this example as follows:
@@ -76,22 +69,15 @@ This method waits for an element to appear in the page. This is your bread and b
 needs to be loaded after clicking, hovering, navigating etc. You can pass it an object with a `timeout` attribute
 to override the default 30 seconds.
 
-In the example below, we type an email address into an input field on a login modal. Notice the difference between
-the Playwright and Puppeteer example. Playwright's `fill` method comes with built-in waiting functionality.
+In the example below, we type an email address into an input field on a login modal. Playwright's `fill` method comes with built-in waiting functionality.
 
 {{< tabs "2" >}}
 {{< tab "Playwright" >}}
 ```js
 {{< readfile filename="samples/playwright/basic-browser-waiting.js" >}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-browser-waiting.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/basic-browser-waiting.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/basic-browser-waiting.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 Run this example as follows:
@@ -103,23 +89,6 @@ $ node basic-browser-waiting.js
 
 This works exactly the same for the `page.waitForXpath()` function is you are using XPath selectors instead of CSS selectors.
 
-**page.waitForNavigation()**
-
-In your scripts you can click on a link that triggers a navigation to a new page. You can use Puppeteer's `page.waitForNavigation()`
-method here to explicitly wait for this event to happen and then continue your script. The accepted notation in Puppeteer's
-case is by using the `Promise.all()` method to wait for the click to happen and the navigation to happen before continuing.
-
-```js
-const [response] = await Promise.all([
-  page.waitForNavigation(),
-  page.click('a.some-link')
-]);
-```
-
-Interestingly, Playwright offers pretty much the same API for waiting on events and elements but again stresses its automatic handling
-of the wait states under the hood.
-
-> Playwright handles a lot of the common waiting scenario's using its built-in "auto waiting". Depending on your use case, it might serve all your needs
 
 
 ## Timeouts
@@ -138,7 +107,7 @@ using this if you do not explicitly need to.
 **2a. DOM event based**
 
 These two options are directly related to the events your browser emits when it has reached a certain loading stage.
-These events are not specific to Puppeteer and are used in almost all browsers.
+
 
 - `load`: This is the default and very strict: your whole page including all dependent resources, i.e. images, scripts, css etc.
 - `domcontentloaded`: less strict: when your HTML has loaded.
@@ -169,5 +138,4 @@ Now that we know how to start a browser and navigate to a URL, the clear next st
 
 ## Further reading
 1. [Playwright general navigation docs](https://playwright.dev/docs/navigations)
-2. [Puppeteer page.goto() docs](https://pptr.dev/#?product=Puppeteer&version=v10.2.0&show=api-pagegotourl-options)
-3. [Playwright auto waiting](https://playwright.dev/docs/actionability)
+2. [Playwright auto waiting](/learn/playwright/interaction/waits/)

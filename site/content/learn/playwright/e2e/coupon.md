@@ -33,12 +33,7 @@ The following example, running against our [test site](https://danube-web.shop/)
 ```
 {{< run-in-checkly "/samples/playwright/coupon.js" "playwright"  >}}
 {{< /tab >}}
-{{< tab "Puppeteer" >}}
-```js
-{{< readfile filename="samples/puppeteer/coupon.js" >}}
-```
-{{< run-in-checkly "/samples/puppeteer/coupon.js" "puppeteer"  >}}
-{{< /tab >}}
+
 {{< /tabs >}}
 
 Run this example as follows:
