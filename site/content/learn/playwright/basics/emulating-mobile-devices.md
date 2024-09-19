@@ -77,10 +77,9 @@ const { chromium } = require("playwright")
 
 ### Use built-in device registries
 
-Playwright and Puppeteer include a built-in device registry to access mobile device characteristics quickly.
+Playwright includes a built-in device registry to access mobile device characteristics quickly.
 
 - [Playwright devices](https://playwright.dev/docs/emulation#devices)
-- [Puppeteer devices](https://pptr.dev/api/puppeteer.devices)
 
 Leverage the pre-defined devices to emulate mobile devices.
 

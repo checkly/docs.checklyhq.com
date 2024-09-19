@@ -148,11 +148,11 @@ node managing-cookies.js
 
 ## Takeaways
 
-1. We can use cookies and Web Storage APIs through Playwright and Puppeteer to set test state and speed up test suites.
-2. The Playwright and Puppeteer APIs for handling cookies are slightly different but achieve the same goals.
+1. We can use cookies and Web Storage APIs through Playwright to set test state and speed up test suites.
+2. The Playwright API for handling cookies are slightly different but achieve the same goals.
 
 ## Further reading
 
 1. The official MDN docs for [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).
 2. A practical guide to the [Web Storage APIs](https://javascript.info/localstorage), sessionStorage and localStorage.
-2. Official [Puppeteer](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pagecookiesurls) and [Playwright](https://playwright.dev/docs/api/class-browsercontext#browser-context-add-cookies) docs around cookies.
+2. Official [Playwright](https://playwright.dev/docs/api/class-browsercontext#browser-context-add-cookies) docs around cookies.
