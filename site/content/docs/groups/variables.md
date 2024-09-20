@@ -1,5 +1,5 @@
 ---
-title: Environment variables
+title: Environment variables and secrets
 weight: 29
 menu:
   resources:
@@ -8,8 +8,9 @@ menu:
 cli: true
 ---
 
-Similar to setting variables at the account level, you can set variables at the group level. For browser checks, you can 
-even set variables at the check level! 
+You can set both variables and secrets for a Group of checks.
+
+For browser and multistep checks, you can set variables at the check level. See [browser check variables and secrets](/docs/browser-checks/variables) for more details.
 
 ## Variable hierarchy
 

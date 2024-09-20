@@ -5,6 +5,7 @@ menu:
   platform:
     parent: "Traces (beta)"
     identifier: getting-started-traces-otel
+navTitle: Getting started
 beta: true
 aliases:
   - "/docs/open-telemetry/"

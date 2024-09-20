@@ -20,7 +20,7 @@ nutshell, you can:
 
 The example above shows a webhook configured to create a Jira ticket on each event. Notice the following:
 
-- We use the variable `JIRA_INSTANCE_URL` in the URL. We previously stored this variable in the [environment variables section](https://app.checklyhq.com/environment-variables).
+- We use the variable `JIRA_INSTANCE_URL` in the URL. We previously stored this variable in the [environment variables section](https://app.checklyhq.com/environment-variables). Alerting configurations only support the use of environment variables, secrets are not supported.
 - We use the variable `CHECK_ID` in the payload. This is one of many event-based variables that will change with each call. See below for the complete list.
 
 In both cases we use the familiar Handlebars templating braces, i.e. `{{ }}` to insert the variable.
