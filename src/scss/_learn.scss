@@ -622,4 +622,39 @@
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 14px;
+
+  
+}
+
+.sidebar-dropdown {
+  margin-bottom: 20px;
+  background-color: #EDF0F3;
+  padding: 8px;
+  margin-left: -20px;
+  padding-left: 20px;
+}
+
+.sidebar-dropdown select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 0px;
+  background: transparent;
+  color: #60758a;
+}
+
+.sidebar-dropdown select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: white; /* Background of dropdown items */
+}
+
+/* Dropdown on hover/focus */
+.sidebar-dropdown select:focus {
+  outline: none;
+  border-color: #007bff; /* Blue border on focus */
+}
+
+.sidebar-dropdown select:hover {
+  border-color: #007bff; /* Change border on hover */
 }

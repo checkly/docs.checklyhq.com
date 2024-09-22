@@ -1,16 +1,18 @@
 <aside class="learn-menu">
   <!-- Dropdown Menu Added Here -->
-  <div class="sidebar-dropdown">
-    <select onchange="if (this.value) window.location.href=this.value">
-      <option value="">Select an option</option>
-      <option value="/learn/playwright">Playwright</option>
-      <option value="/learn/monitoring">Monitoring</option>
-      <option value="/learn/tracing">Tracing</option>
-    </select>
-  </div>
-
+ 
   <!-- Existing Sidebar Menu -->
   <nav id="sideMenu" class="left-transform right-transform">
+
+    <div class="sidebar-dropdown">
+      <select onchange="if (this.value) window.location.href=this.value">
+        <option value="">Choose a topic</option>
+        <option value="/learn/playwright">Playwright</option>
+        <option value="/learn/monitoring">Monitoring</option>
+        <option value="/learn/tracing">Tracing</option>
+      </select>
+    </div>
+  
     <ul class="learn-menu-content">
       {{ $currentPage := . }}
       {{ range $index, $element := .Site.Menus.learn }}
