@@ -18,4 +18,4 @@ way you can reuse secrets in multiple scripts and rotate them as needed.
 **3. Checkly encrypts your secrets**: at rest in the database and in flight as we transport it to the check locations. 
 Decryption is only done when we need to read it.
 
-To learn how to create and manage variables and secrets in Checkly see see [variables and secrets](/docs/browser-checks/variables).
+To learn how to create and manage variables and secrets in Checkly see [variables and secrets](/docs/browser-checks/variables).
