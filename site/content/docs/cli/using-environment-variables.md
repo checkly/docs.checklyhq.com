@@ -146,7 +146,7 @@ npx checkly env ls
 Create a new variable.
 
 ```bash
-npx checkly env add  MY_PASSWORD 123test --secret
+npx checkly env add  MY_PASSWORD 123test [--secret OR --locked]
 ```
 
 Pull in the variables from your account and store them in a file.
