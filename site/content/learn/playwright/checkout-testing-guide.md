@@ -1,5 +1,5 @@
 ---
-title: Mastering E2E Checkout Testing Using Playwrigh
+title: Mastering E2E Checkout Testing Using Playwright
 subTitle: Filling a basket and completing the transaction
 date: 2020-07-02
 author: Giovanni Rago
