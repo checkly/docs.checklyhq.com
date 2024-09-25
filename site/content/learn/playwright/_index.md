@@ -42,44 +42,44 @@ Playwright and is extremely powerful and serves a wide range of use cases. We ha
 {{< doc-card
 	class="full-width-card"
 	headerTag="h3"
-	title="End to end scenarios"
+	title="Monitoring an eCommerce checkout flow"
 	img="/learn/icons/e2e.svg"
-	description="Learn how to script complete user scenarios from signup to checkout."
-	link="/learn/playwright/e2e/login/"
+	description="Learn how to automate realistic user scenarios from signup to checkout."
+	link="/learn/playwright/checkout-testing-guide/"
 >}}
 {{< doc-card
 	class="full-width-card"
 	headerTag="h3"
-	title="Network & state"
-	img="/learn/icons/network.svg"
-	description="Learn how to use cookies to set state and simplify your scripts."
-	link="/learn/playwright/basics/managing-cookies/"
->}}
-{{< doc-card
-	class="full-width-card"
-	headerTag="h3"
-	title="Best Practices"
+	title="Navigating user interfaces"
 	img="/learn/icons/best-practices.svg"
 	description="Learn about guidelines to write quality automation scripts."
-	link="/learn/headless/challenging-flows/"
+	link="/learn/playwright/navigation/"
 >}}
 {{< doc-card
 	class="full-width-card"
 	headerTag="h3"
-	title="Performance"
+	title="Managing cookies and state"
+	img="/learn/icons/network.svg"
+	description="Learn how to use cookies to set state and simplify your scripts."
+	link="/learn/playwright/managing-cookies/"
+>}}
+{{< doc-card
+	class="full-width-card"
+	headerTag="h3"
+	title="Measuring page performance"
 	img="/learn/icons/performance.svg"
 	description="Learn how you can use Playwright to measure page performance."
-	link="/learn/headless/basics-performance/"
+	link="/learn/playwright/performance/"
 >}}
 </div>
 
 ## Popular Posts
 
 <div class="cards-list">
-{{< doc-card class="three-column-card" title="Basic Navigation" description="Working with navigation and waits are the fundamental of any script." link="/learn/headless/basics-navigation/" >}}
+{{< doc-card class="three-column-card" title="Debugging errors" description="Learn how to debug common errors and bugs in your Playwright scripts." link="/learn/playwright/debugging/" >}}
 
-{{< doc-card class="three-column-card" title="Request Interception" description="Learn how to control HTTP requests and responses." link="/learn/headless/request-interception/" >}}
+{{< doc-card class="three-column-card" title="Request Interception" description="Learn how to control HTTP requests and responses." link="/learn/playwright/intercept-requests/" >}}
 
-{{< doc-card class="three-column-card" title="Basic Selectors" description="Working with selectors is key for writing high quality scripts." link="/learn/headless/basics-selectors/" >}}
+{{< doc-card class="three-column-card" title="Basic Selectors" description="Working with selectors is key for writing high quality scripts." link="/learn/playwright/selectors/" >}}
 
 </div>
