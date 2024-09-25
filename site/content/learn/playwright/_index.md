@@ -9,8 +9,7 @@ metatags:
 
 ---
 
-Tips, tricks, and in-depth guides from the trenches. Learn how to use the popular open-source browser automation framework, Playwright .
-This guide provides detailed information and examples how you can write high-quality scripts for testing and synthetic monitoring.
+Playwright serves as the foundation for Checkly's synthetic monitoring and automation. Learn Playwright through these detailed tips, in-depth guides, and examples so that you can write high-quality automation scripts for testing and synthetic monitoring.
 
 ## Getting Started
 
