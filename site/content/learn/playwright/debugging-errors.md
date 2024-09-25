@@ -7,6 +7,9 @@ githubUser: ragog
 tags:
   - debugging
 weight: 2
+
+navTitle: Common issues
+
 menu:
   learn:
     parent: "Debugging"

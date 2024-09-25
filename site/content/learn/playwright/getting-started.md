@@ -9,7 +9,7 @@ tags:
   - basics
 
 weight: 1
-
+navTitle: Getting started
 menu:
   learn:
     parent: "Getting started"
