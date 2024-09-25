@@ -1,5 +1,5 @@
 ---
-title: Testing account settings with Playwright
+title: How to Test Account Settings with Playwright
 subTitle: Modifying account settings with a file upload
 date: 2020-07-22
 author: Giovanni Rago

@@ -1,5 +1,5 @@
 ---
-title: Handling multiple tabs with Playwright
+title: Handling Multiple Tabs with Playwright
 subTitle: Controlling multiple tabs
 date: 2021-08-29
 author: Giovanni Rago

@@ -1,5 +1,5 @@
 ---
-title: How to login with Microsoft Live using Playwright
+title: How to Automate Microsoft Live Login with Playwright
 subTitle: Dealing with Microsoft authentication
 date: 2020-06-22
 author: Tim Nolet

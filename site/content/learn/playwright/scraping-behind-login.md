@@ -1,5 +1,5 @@
 ---
-title: Scraping behind a login using Playwright
+title: How to Scrape Data Behind a Login with Playwright
 subTitle: An example in accessing account-specific information
 date: 2020-12-23
 author: Giovanni Rago

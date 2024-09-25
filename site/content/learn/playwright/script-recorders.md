@@ -1,5 +1,5 @@
 ---
-title: Using script recorders with Playwright
+title: Using Script Recorders with Playwright
 subTitle: Generating scripts for beginners and pros
 date: 2020-09-16
 author: Hannes Lenke

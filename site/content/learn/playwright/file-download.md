@@ -1,5 +1,5 @@
 ---
-title: How to download files with Playwright
+title: How to Download Files with Playwright
 subTitle: Different ways of handling downloads
 date: 2020-09-09
 author: Giovanni Rago

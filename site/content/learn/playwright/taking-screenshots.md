@@ -1,5 +1,5 @@
 ---
-title: Taking screenshots with Playwright
+title: Playwright Screenshots: How to Take and  Automate Screenshots
 subTitle: Leveraging images for troubleshooting and more
 date: 2020-06-23
 author: Giovanni Rago

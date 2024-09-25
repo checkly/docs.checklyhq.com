@@ -1,5 +1,5 @@
 ---
-title: Interacting with iframes using Playwright
+title: How to Handle iFrames in Playwright
 subTitle: Accessing and interacting with iframes
 date: 2022-08-25
 author: Stefan Judis

@@ -1,5 +1,5 @@
 ---
-title: Playwright error - Element not visible
+title: How to Fix "Element Not Visible" Error in Playwright
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

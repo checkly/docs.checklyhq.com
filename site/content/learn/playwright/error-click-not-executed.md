@@ -1,5 +1,5 @@
 ---
-title: Playwright error - Click not executed
+title: How to Fix the "Click Not Executed" Error in Playwright
 date: 2021-11-18
 author: Giovanni Rago
 githubUser: ragog

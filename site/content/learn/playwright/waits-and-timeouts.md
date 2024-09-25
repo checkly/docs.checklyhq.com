@@ -1,5 +1,5 @@
 ---
-title: Dealing with waits and timesouts in Playwright
+title: Dealing with waits and timeouts in Playwright
 date: 2021-11-26
 author: Giovanni Rago
 githubUser: ragog

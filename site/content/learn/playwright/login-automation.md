@@ -1,5 +1,5 @@
 ---
-title: How to login and authenticate with Playwright
+title: How to Automate Login with Playwright
 subTitle: Automating one of the most common scenarios
 date: 2020-06-25
 author: Giovanni Rago

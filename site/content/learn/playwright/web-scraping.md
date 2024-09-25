@@ -1,5 +1,5 @@
 ---
-title: Scraping pages with Playwright
+title: Playwright Web Scraping: How to Extract Data from Websites
 subTitle: Extracting valuable information through automation
 date: 2020-08-26
 author: Giovanni Rago

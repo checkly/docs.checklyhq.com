@@ -1,5 +1,5 @@
 ---
-title: Generating PDFs with Playwright
+title: How to Generate PDFs with Playwright
 subTitle: Creating invoices, books and more from a web page
 date: 2020-11-19
 author: Giovanni Rago

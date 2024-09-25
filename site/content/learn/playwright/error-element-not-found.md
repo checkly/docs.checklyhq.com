@@ -1,5 +1,5 @@
 ---
-title: Playwright error - Element not found
+title: How to Fix 'Element Not Found' Errors in Playwright
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

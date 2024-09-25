@@ -1,5 +1,5 @@
 ---
-title: Navigating websites and apps with Playwright
+title: How to Use Playwright to Navigate and Interact with Web Pages
 displayTitle: Navigating with Playwright
 metatags:
   title: Navigation & Waiting Strategies in Playwright

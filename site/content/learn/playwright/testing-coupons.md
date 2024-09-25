@@ -1,5 +1,5 @@
 ---
-title: Testing discounts & coupons with Playwright
+title: How to Test Coupons and Discounts with Playwright
 subTitle: Applying and verifying a discount
 date: 2020-07-13
 author: Giovanni Rago

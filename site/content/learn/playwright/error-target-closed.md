@@ -1,5 +1,5 @@
 ---
-title: Playwright error - Target closed
+title: How to Fix "Target Closed" Error in Playwright
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

@@ -1,5 +1,5 @@
 ---
-title: Playwright error - Wait not respected
+title: How to Fix "Wait Not Respected" Error in Playwright
 date: 2021-08-05
 author: Giovanni Rago
 githubUser: ragog

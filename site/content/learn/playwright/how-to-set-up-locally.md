@@ -1,5 +1,5 @@
 ---
-title: Setting up Playwright locally
+title: How to Set Up Playwright Locally
 date: 2020-06-20
 author: Giovanni Rago
 githubUser: ragog

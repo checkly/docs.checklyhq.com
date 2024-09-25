@@ -1,5 +1,5 @@
 ---
-title: Dealing with complex automation flows
+title: How to Handle Challenging Automation Flows in Playwright
 subTitle: Automation countermeasures and shortcomings
 date: 2020-07-23
 author: Giovanni Rago

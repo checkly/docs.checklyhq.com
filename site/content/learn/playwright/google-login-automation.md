@@ -1,5 +1,5 @@
 ---
-title: How to login with Google using Playwright
+title: How to Automate Google Login with Playwright
 subTitle: Dealing with Google authentication
 date: 2020-06-22
 author: Tim Nolet

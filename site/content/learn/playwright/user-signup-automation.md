@@ -1,5 +1,5 @@
 ---
-title: Using Playwright to simulate a user signup
+title: Automating User Signup with Playwright
 subTitle: Handling signups flows
 date: 2020-06-30
 author: Giovanni Rago

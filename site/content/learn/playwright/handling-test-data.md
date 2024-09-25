@@ -1,5 +1,5 @@
 ---
-title: Handling test data with Playwright
+title: How to Handle Test Data with Playwright
 subTitle: Introduction to fixture handling
 date: 2020-07-16
 author: Giovanni Rago

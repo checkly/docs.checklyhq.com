@@ -1,6 +1,6 @@
 ---
-title: User-first UI selectors - A Guide for Playwright | Checkly
-displayTitle: Working with UI selectors in Playwright
+title: How to Work with Selectors in Playwright | Checkly
+displayTitle: How to Work with Selectors in Playwright
 description: 
   Learn to write solid scripts using Playwright. Discover how to choose stable selectors and start enhancing your skills today.
 subTitle: Techniques and pointers
