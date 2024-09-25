@@ -1,5 +1,5 @@
 ---
-title: Intercepting requests with Playwright
+title: How to Intercept Requests in Playwright
 subTitle: Monitoring and manipulating web traffic
 date: 2020-09-03
 author:
