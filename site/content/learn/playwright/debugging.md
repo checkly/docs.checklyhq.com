@@ -1,5 +1,5 @@
 ---
-title: Playwright Debugging: Techniques for Script Troubleshooting
+title: Playwright Debugging - Techniques for Script Troubleshooting
 subTitle: How to go about fixing what is not working
 date: 2021-07-26
 author: Giovanni Rago

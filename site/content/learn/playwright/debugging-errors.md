@@ -1,5 +1,5 @@
 ---
-title: Playwright Debugging Errors: Common Issues and Solutions
+title: Playwright Debugging Errors - Common Issues and Solutions
 subTitle: Recurring non-trivial debugging situations and how to solve them
 date: 2021-08-05
 author: Giovanni Rago

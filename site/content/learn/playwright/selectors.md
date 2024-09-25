@@ -1,5 +1,5 @@
 ---
-title: How to Work with Selectors in Playwright | Checkly
+title: How to Work with Selectors in Playwright
 displayTitle: How to Work with Selectors in Playwright
 description: 
   Learn to write solid scripts using Playwright. Discover how to choose stable selectors and start enhancing your skills today.
