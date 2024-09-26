@@ -9,7 +9,7 @@ metatags:
 
 ---
 
-Playwright serves as the foundation for Checkly's synthetic monitoring and automation. Learn Playwright through these detailed tips, in-depth guides, and examples so that you can write high-quality automation scripts for testing and synthetic monitoring.
+Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*. To get the most from Checkly, we put together a series of guides and examples to help you get started with Playwright.
 
 ## Getting Started
 
