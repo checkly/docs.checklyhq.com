@@ -35,7 +35,7 @@ Playwright serves as the foundation for Checkly's synthetic monitoring and autom
 
 ## Diving Deeper
 
-Playwright and is extremely powerful and serves a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
+Playwright is extremely powerful and serves a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
 
 <div class="cards-list">
 {{< doc-card
