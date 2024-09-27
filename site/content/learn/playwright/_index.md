@@ -20,7 +20,7 @@ Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*
 	  title="What is Playwright?"
 	  img="/learn/icons/playwright.png"
 	  description="Microsoft's Playwright offers unique features for automation and user simulation."
-	  link="/learn/playwright/getting-started/intro"
+	  link="/learn/playwright/getting-started/"
 >}}
 {{< doc-card
 	  class="two-column-card"
@@ -28,7 +28,7 @@ Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*
 	  title="Installing Playwright"
 	  img="/learn/icons/playwright.png"
 	  description="Learn how to install Playwright and get started with your first script."
-	  link="/learn/playwright/getting-started/local-setup/"
+	  link="/learn/playwright/how-to-set-up-locally/"
 >}}
 </div>
 
