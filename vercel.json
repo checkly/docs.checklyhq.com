@@ -81,6 +81,7 @@
     { "source": "/learn/headless/valuable-tests(/)?", "destination": "/learn/playwright/writing-tests", "permanent": true },
     { "source": "/learn/playwright/intercept-request(/)?", "destination": "/learn/playwright/intercept-requests/", "permanent": true },
     { "source": "/learn/playwright/interaction/waits(/)?", "destination": "/learn/playwright/waits-and-timeouts/", "permanent": true },
+    { "source": "/learn/headless/basics-puppeteer-intro(/)?", "destination": "/learn/playwright/", "permanent": true },
     { "source": "/learn/headless(/)?", "destination": "/learn/playwright/", "permanent": true }
   ]
 }
