@@ -200,10 +200,7 @@ For more info on the **Virtual Experience Score** [check the documentation on th
 ## Skipping Performance checks
 
 In some cases, Checkly will completely skip performance checks. You will see the "skipped" status in your Vercel deployment overview.
-Checkly skips performance checks when...
-
-1. A check doesn't report any Web Vitals. They are all `null`. For example, this happens when using Puppeteer based checks.
-2. Or, the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
+Checkly skips performance checks when the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
 
 
 ## Vercel-linked check results 

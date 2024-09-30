@@ -1,3 +1,4 @@
----
-sitemapExclude: true
+--- 
+sitemap: 
+  priority: 0.7
 ---
