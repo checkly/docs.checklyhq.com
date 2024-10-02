@@ -11,7 +11,7 @@ There are two ways to store configuration information in Checkly: Variables and 
 Note that for browser checks, secrets are only hidden in the Checkly native UI, not in any generated Playwright artifacts, such as Traces, Screenshots or Videos.
 {{< /warning >}}
 {{<info>}}
-Secrets are available for [Private Locations](/docs/private-locations/) on agent version `3.3.4` and later.
+Secrets are available for [Private Locations](/docs/private-locations/) on agent version `3.3.4` and later. Secrets are available on [CLI](/docs/cli/) version `4.9.0` and later.
 {{</info>}}
 
 From here on, in this document, we refer to both variables and secrets as 'variables' for ease of reading, unless explicitly mentioned.
