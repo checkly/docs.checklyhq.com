@@ -51,6 +51,14 @@ A good starting point is to set alerts to trigger only after a check has failed 
 
 Learn more about fine-tuning your alerts: [Alert Settings at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/alert-settings/).
 
+### Allowlist Checkly Traffic
+
+In some cases, firewalls, load balancers, or security solutions might inadvertently block Checkly's monitoring traffic, which could interfer with running checks successfully. This can happen if your system detects Checkly’s requests as suspicious or treats them as unwanted traffic.
+
+To prevent this, we recommend reviewing your security settings to ensure that Checkly’s IP ranges are included in your allowlist.
+
+You can find Checkly’s current IP ranges here: [Allowlisting & filtering traffic](https://www.checklyhq.com/docs/monitoring/allowlisting/#ip-range-allowlisting).
+
 ## Need Help?
 
 If you’re not sure what’s going on or if an issue keeps popping up without a clear reason, don’t hesitate to reach out. Our support team is here to help you troubleshoot any unusual check performance. You can contact us at support@checklyhq.com.
