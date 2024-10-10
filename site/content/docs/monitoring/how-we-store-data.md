@@ -1,6 +1,6 @@
 ---
 title: How we store data
-weight: 4
+weight: 5
 menu:
   platform:
     parent: "Monitoring"
