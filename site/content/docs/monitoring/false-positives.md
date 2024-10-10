@@ -20,6 +20,7 @@ When setting up your monitoring strategy, it's important to consider a few commo
 - **Packet Loss:** Sometimes data packets don’t reach their destination and need to be resent, leading to delays.
 - **Server Response Time:** Servers might occasionally take longer to respond, or load balancers and backend services could be at capacity.
 - **Infrastructure Issues:** Temporary issues like routing errors, server load spikes, or scheduled maintenance can also impact performance.
+- **Security-Related Blockages:** Firewalls, DDoS protection, or other security measures might prevent Checkly’s monitoring traffic from reaching your servers if flagged as suspicious. This can disrupt checks and result in false positives.
 
 While these factors are generally well-managed, they can’t be completely avoided. However, you can take steps to make your monitoring setup more resilient.
 
@@ -53,7 +54,7 @@ Learn more about fine-tuning your alerts: [Alert Settings at Checkly](https://ww
 
 ### Allowlist Checkly Traffic
 
-In some cases, firewalls, load balancers, or security solutions might inadvertently block Checkly's monitoring traffic, which could interfer with running checks successfully. This can happen if your system detects Checkly’s requests as suspicious or treats them as unwanted traffic.
+In some cases, firewalls, load balancers, or security solutions might inadvertently block Checkly's monitoring traffic, which could interfere with running checks successfully. This can happen if your system detects Checkly’s requests as suspicious or treats them as unwanted traffic.
 
 To prevent this, we recommend reviewing your security settings to ensure that Checkly’s IP ranges are included in your allowlist.
 
