@@ -8,8 +8,8 @@ aliases:
 - "/docs/teams/adding-team-members/"
 ---
 
-You can invite team members to join your Checkly account to view and manage all checks and related settings.
-Team members can have different [roles](/docs/accounts-and-users/).
+You can invite team members to join your Checkly account to view and manage all checks and related settings;
+team members can have different [roles](/docs/accounts-and-users/).
 
 ## Inviting team members
 
