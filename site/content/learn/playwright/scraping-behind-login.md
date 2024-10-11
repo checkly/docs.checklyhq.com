@@ -56,11 +56,11 @@ node scraping-example-purchases.js
 
 > Under the hood, Amazon can change quite quickly. You might need to adjust the locators and/or flow slightly to have the script work for you.
 
-> ⚠️ Websites might [restrict headless browser traffic](/learn/headless/challenging-flows/) in order to protect their users from fraud. 2FA will also interfere with the script if enabled.
+> ⚠️ Websites might [restrict headless browser traffic](/learn/playwright/challenging-flows/) in order to protect their users from fraud. 2FA will also interfere with the script if enabled.
 
 ## Takeaways
 1. We can scrape information available behind a login wall with Playwright.
 2. Some websites might not allow scraping. Always make sure you check their terms of service beforehand.
 
 ## Further reading
-1. [Basic scraping](/learn/headless/basics-scraping/) with Playwright
+1. [Basic scraping](/learn/playwright/web-scraping/) with Playwright

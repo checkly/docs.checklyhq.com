@@ -52,7 +52,7 @@ node checkout.js
 {{< /tab >}}
 {{< /tabs >}}
 
-Note: In some cases, users will need to [log in](/learn/headless/e2e-login/) before they can proceed to a purchase. When users are allowed to buy both with and without having a pre-existing account on the platform, it might be worthwhile to test both flows separately.
+Note: In some cases, users will need to [log in](/learn/playwright/login-auto/) before they can proceed to a purchase. When users are allowed to buy both with and without having a pre-existing account on the platform, it might be worthwhile to test both flows separately.
 
 ## Limitations
 

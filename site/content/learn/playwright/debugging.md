@@ -34,7 +34,7 @@ When approaching a debugging session, make sure the above points are taken care 
 
 Error messages are not present in every scenario: we might be trying to understand why a script _passes_, or why it takes longer than expected. But when we have access to an error message, we can use it to guide us.
 
-The error, in and of its own, is not always enough to understand what is going wrong with your script. Oftentimes, there can be multiple degrees of separation between the error and its root cause. For example: an ["Element not found"](/learn/headless/error-element-not-found/) error might be alerting you to the fact that an element is not being found on the page, but that itself might be because the browser was made to load the wrong URL in the first place.
+The error, in and of its own, is not always enough to understand what is going wrong with your script. Oftentimes, there can be multiple degrees of separation between the error and its root cause. For example: an ["Element not found"](/learn/playwright/error-element-not-found/) error might be alerting you to the fact that an element is not being found on the page, but that itself might be because the browser was made to load the wrong URL in the first place.
 
 Do not fall into the easy trap of reading the error message and immediately jumping to conclusions. Rather, take the error message, research it if needed, combine it with your [knowledge of script and app under test](#awareness-comes-first) and treat it as the first piece to the puzzle, rather than the point of arrival of your investigation.
 
@@ -104,7 +104,7 @@ If we are using Playwright, we can also run in debug mode with `PWDEBUG=console 
 
 The Playwright Inspector is a GUI tool which exposes additional debugging functionality, and can be launched using `PWDEBUG=1 npm run test`.
 
-The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in [getting to the root cause](/learn/headless/debugging-challenges/) of some of the more generic errors.
+The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in [getting to the root cause](/learn/playwright/debugging-errors/) of some of the more generic errors.
 
 ![playwright inspector debugging](/samples/images/debugging-inspector.png)
 
@@ -112,5 +112,5 @@ The Inspector allows us to easily step through each instruction of our script, w
 
 ## Further reading
 
-1. [Debugging challenges](/learn/headless/debugging-challenges/)
-2. [Working with selectors](/learn/headless/basics-selectors/)
+1. [Debugging challenges](/learn/playwright/debugging-errors/)
+2. [Working with selectors](/learn/playwright/selectors/)

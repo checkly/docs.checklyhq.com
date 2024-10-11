@@ -104,5 +104,5 @@ const iPhone = devices['iPhone SE'];
 
 ## Further reading
 
-1. [Measuring page performance](/learn/headless/basics-performance/)
+1. [Measuring page performance](/learn/playwright/performance/)
 2. [Playwright's emulation documentation](https://playwright.dev/docs/emulation)
