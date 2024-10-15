@@ -32,7 +32,7 @@ False positives can lead to unnecessary alerts, but you can keep them under cont
 
 Retries are your first line of defense against transient issues. By setting up retries, your checks can automatically try again if the first attempt fails because of a temporary glitch. This reduces the impact of brief disruptions and helps prevent false positives.
 
-While you might want to adjust based on specific use cases, we suggest implementing at least one retry for checks with a high escalation impact as a standard best practice.
+While you might want to adjust based on specific use cases, we suggest implementing retries for checks with a high escalation impact as a standard best practice.
 
 Learn more about implementing retries: [Retries at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/retries/#retries).
 
