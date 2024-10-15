@@ -8,9 +8,9 @@ menu:
 
 Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. However, the reality is that false positives can occur for various reasons. A check might be affected by a harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, it is running perfectly fine.
 
-The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them.
+The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them. At Checkly, we aim to help you achieve the lowest false positive rate in the market, ensuring you are alerted only when it truly matters.
 
-In this section, we'll dive into why these issues happen and share strategies on minimizing the impact of false positives, allowing you to more clearly distinguish between a real problem and a simple network blip.
+In this guide, we’ll dive into common causes of performance variations and provide strategies to minimize false positives, allowing you to more clearly distinguish between a real problem and a simple network blip.
 
 ## Common Causes of Performance Variations
 
@@ -36,11 +36,11 @@ While you might want to adjust based on specific use cases, we suggest implement
 
 Learn more about implementing retries: [Retries at Checkly](https://www.checklyhq.com/docs/alerting-and-retries/retries/#retries).
 
-### Run Checks from Multiple Locations
+### Optimize Your Regional Monitoring
 
-A temporary issue from one location might cause a check to fail, but that doesn't always mean your application is down. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously. This helps you spot the difference between a localized network problem and a real issue with your app.
+Running checks from a specific region is important when you need to monitor your app’s performance in that area. To identify localized failures, implementing retries can help confirm whether the issue is temporary or persistent. However, if you want to understand whether an issue is more widespread, running checks from multiple regions can help you determine if it’s a broader problem with your app. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously.
 
-We recommend running checks from at least two different regions to get a clearer picture and reduce the chance of a false positive caused by a regional failure.
+Depending on your use case, we recommend running checks from at least two different regions to more accurately differentiate between a regional network issue and a genuine application problem.
 
 Learn more about setting up multi-location checks: [Global Location and Scheduling Strategies](https://www.checklyhq.com/docs/monitoring/global-locations/).
 
