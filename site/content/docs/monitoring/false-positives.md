@@ -10,7 +10,7 @@ Effective monitoring stands and falls with its accuracy. You want to be alerted-
 
 The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them. At Checkly, we aim to help you achieve the lowest false positive rate in the market, ensuring you are alerted only when it truly matters.
 
-In this guide, we’ll dive into common causes of performance variations and provide strategies to minimize false positives, allowing you to more clearly distinguish between a real problem and a simple network blip.
+In this guide, we’ll dive into common causes of performance variations and provide strategies to minimize false positives.
 
 ## Common Causes of Performance Variations
 
@@ -38,7 +38,7 @@ Learn more about implementing retries: [Retries at Checkly](https://www.checklyh
 
 ### Optimize Your Regional Monitoring
 
-Running checks from a specific region is important when you need to monitor your app’s performance in that area. To identify localized failures, implementing retries can help confirm whether the issue is temporary or persistent. However, if you want to understand whether an issue is more widespread, running checks from multiple regions can help you determine if it’s a broader problem with your app. With 22 available regions, Checkly lets you run checks from multiple locations simultaneously.
+Running checks from a specific region is important when you need to monitor your app’s performance in that area. To identify localized failures, implementing retries can help confirm whether the issue is temporary or persistent. However, if you want to understand whether an issue is more widespread, running checks from multiple regions can help you determine if it’s a broader problem with your app.
 
 Depending on your use case, we recommend running checks from at least two different regions to more accurately differentiate between a regional network issue and a genuine application problem.
 
@@ -46,7 +46,7 @@ Learn more about setting up multi-location checks: [Global Location and Scheduli
 
 ### Fine-Tune Your Alerting
 
-Once you’ve implemented retries and multi-location checks, you can adjust your alert settings to avoid unnecessary notifications. For example, you can require failures in multiple regions or after several retries before firing off an alert. This helps you avoid alerts for short-lived, isolated failures that don’t need immediate attention.
+Adjust your alert settings to avoid unnecessary notifications. For example, you can require failures in multiple regions or after several retries before firing off an alert. This helps you avoid alerts for short-lived, isolated failures that don’t need immediate attention.
 
 A good starting point is to set alerts to trigger only after a check has failed at least twice (or after two intervals) and has failed in more than one region.
 
