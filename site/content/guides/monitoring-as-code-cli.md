@@ -385,7 +385,7 @@ Expanding our initial setup from here is easy, please follow these links if you 
 <div class="cards-list">
 {{< doc-card class="three-column-card" title="Monitoring as code" description="Why should the way we manage monitoring be any different?" link="/guides/monitoring-as-code/" >}}
 
-{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
 
 {{< doc-card class="three-column-card" title="Setup scripts for API monitoring" description="Setup scripts are a fundamental tool to tailor API checks to your own target endpoints." link="/guides/setup-scripts/" >}}
 </div>

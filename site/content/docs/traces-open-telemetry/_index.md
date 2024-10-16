@@ -5,13 +5,14 @@ menu:
   platform:
     parent: "Traces (beta)"
     identifier: getting-started-traces-otel
+navTitle: Getting started
 beta: true
 aliases:
   - "/docs/open-telemetry/"
 ---
 
 {{< info >}}
-Checkly traces are OpenTelemetry native. Currently in **beta** and available for free on all plans. 
+Checkly Traces are OpenTelemetry native. Currently in **beta** and available for free on all plans. 
 Need help getting started? We offer a **free, 1:1 onboarding service** to help you instrument your stack with the 
 correct OpenTelemetry SDKs and enable tracing inside Checkly. 
 [Book an onboarding session right here](https://calendly.com/maria-checkly/traces-onboarding).

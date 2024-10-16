@@ -25,7 +25,7 @@ When inviting a team member to join your account you can assign one of three rol
 4. **Read Only**
     - Look, no touch.
 
-Only the initial account creator has the **Owner** role. You can always change any assigned roles after a team mate has
+Only the initial account creator has the **Owner** role. You can always change any assigned roles after a teammate has
 joined your team.
 
 {{< info >}}

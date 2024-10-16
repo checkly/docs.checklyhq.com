@@ -509,7 +509,7 @@ As our setup expands, we might want to deploy additional tools to make our lives
 <div class="cards-list">
 {{< doc-card class="three-column-card" title="Checkly CLI" description="Understand monitoring as code (MaC) via our Checkly CLI." link="/guides/monitoring-as-code-cli/" >}}
 
-{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with puppeteer and playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
+{{< doc-card class="three-column-card" title="End to end monitoring" description="Learn end-to-end monitoring with playwright to test key website flows." link="/guides/end-to-end-monitoring/" >}}
 
 {{< doc-card class="three-column-card" title="Setup scripts for API monitoring" description="Setup scripts are a fundamental tool to tailor API checks to your own target endpoints." link="/guides/setup-scripts/" >}}
 </div>
