@@ -36,8 +36,8 @@ Regardless of your chosen approach, you will want to inspect the output scripts 
 
 Double-check the newly created scripts and tweak it when necessary, especially keeping an eye out for:
 
-1. Selectors, which should be in line with common [best practices](/learn/headless/basics-selectors/).
-2. [Waits](/learn/headless/basics-navigation/), which should ensure the right element is present and/or ready for interaction at the right time; also, make sure you get rid of unnecessary waits.
+1. Selectors, which should be in line with common [best practices](/learn/playwright/selectors/).
+2. [Waits](/learn/playwright/navigation/), which should ensure the right element is present and/or ready for interaction at the right time; also, make sure you get rid of unnecessary waits.
 3. Any sort of needless duplication.
 
 ## Takeaways

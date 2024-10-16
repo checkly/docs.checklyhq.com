@@ -36,7 +36,7 @@ In such a situation, the following can happen:
 
 ![playwright hard wait time too short](/learn/images/over_assumption_01@2x.png)
 
-In this case, our hard wait terminates and our click action is attempted too early. The script terminates with an error, possibly of the ["Element not found"](/learn/headless/error-element-not-found/) sort.
+In this case, our hard wait terminates and our click action is attempted too early. The script terminates with an error, possibly of the ["Element not found"](/learn/playwright/error-element-not-found/) sort.
 
 2. The element can load before our hard wait has expired.
 
@@ -86,11 +86,11 @@ All the above default to waiting for the `{{< newtabref title="load" href="https
 
 > {{< newtabref title="Lazy-loaded pages" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading" >}} might require extra attention when waiting for the content to load, often demanding explicitly waiting for specific UI elements. See the following section.
 
-Additionally, we can also wait until a specific request is sent out or a specific response is received with `{{< newtabref title="page.waitForRequest" href="https://playwright.dev/docs/api/class-page#page-wait-for-request" >}}` and `{{< newtabref title="page.waitForResponse" href="https://playwright.dev/docs/api/class-page#page-wait-for-response" >}}`. These two methods are key for implementing [request and response interception](/learn/headless/request-interception/).
+Additionally, we can also wait until a specific request is sent out or a specific response is received with `{{< newtabref title="page.waitForRequest" href="https://playwright.dev/docs/api/class-page#page-wait-for-request" >}}` and `{{< newtabref title="page.waitForResponse" href="https://playwright.dev/docs/api/class-page#page-wait-for-response" >}}`. These two methods are key for implementing [request and response interception](/learn/playwright/intercept-requests/).
 
 ### Waiting for an element
 
-We can also explicitly wait for a specific element to appear on the page. This is normally done via `{{< newtabref title="page.waitForSelector" href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" >}}`. A good knowledge of [selectors](/learn/headless/basics-selectors/) is key to enable us to select precisely the element we need to wait for.
+We can also explicitly wait for a specific element to appear on the page. This is normally done via `{{< newtabref title="page.waitForSelector" href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" >}}`. A good knowledge of [selectors](/learn/playwright/selectors/) is key to enable us to select precisely the element we need to wait for.
 
 ### Waiting on page events
 

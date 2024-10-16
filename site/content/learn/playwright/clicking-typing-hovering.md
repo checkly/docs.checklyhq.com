@@ -107,4 +107,4 @@ $ node basic-click-type.js
 
 ## Further reading
 1. The related official documentation of [Playwright](https://playwright.dev/docs/input#mouse-click) 
-2. [Finding effective selectors](/learn/headless/basics-selectors/)
+2. [Finding effective selectors](/learn/playwright/selectors/)

@@ -34,7 +34,7 @@ Request interception enables us to observe which requests and responses are bein
 {{< /tab >}}
 {{< /tabs >}}
 
-We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/headless/basics-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
+We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/playwright/web-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
 
 
 {{< tabs "2" >}}
