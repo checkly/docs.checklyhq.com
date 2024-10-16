@@ -1,4 +1,4 @@
-{{ $Runtimes := getJSON "https://api-dev.checklyhq.com/v1/runtimes" }}
+{{ $Runtimes := getJSON "https://api.checklyhq.com/v1/runtimes" }}
 
 {{ range $Runtimes }}
   {{ if ne .stage "BETA" }}
