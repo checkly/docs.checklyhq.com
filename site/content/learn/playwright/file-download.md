@@ -26,9 +26,9 @@ This example runs against our [test webshop](https://danube-web.shop/) and proce
 2. Navigating to the account page
 3. Downloading a linked file
 
-We will check that the downloaded file is as expected by comparing it to a [fixture file](/learn/headless/test-data-intro/) in our final assertion.
+We will check that the downloaded file is as expected by comparing it to a [fixture file](/learn/playwright/handling-test-data/) in our final assertion.
 
-We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/headless/basics-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
+We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/playwright/web-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
 
 {{< tabs "1" >}}
 {{< tab "Playwright" >}}
