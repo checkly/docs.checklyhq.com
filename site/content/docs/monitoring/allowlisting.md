@@ -109,7 +109,7 @@ test('my user agent test', async ({ page }) => {
 
 ## Filtering Google Analytics
 
-You might want to filter Checkly traffic in Google Analytics to prevent Checkly browser checks from skewing your results,
+You might want to filter Checkly traffic in Google Analytics to prevent Checkly browser checks from skewing your results.
 
 If you are using Google Analytics 4 or newer, Checkly traffic is [already being excluded](https://support.google.com/analytics/answer/9888366?hl=en) as it is recognized as coming from a known bot-traffic source.
 
