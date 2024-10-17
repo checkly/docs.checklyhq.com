@@ -18,7 +18,7 @@ menu:
 
 ## Puppeteer vs Playwright
 
-The resemblance to Google's [Puppeteer](/learn/headless/basics-puppeteer-intro/) is striking, and for good reason.
+The resemblance to Google's [Puppeteer](https://developer.chrome.com/docs/puppeteer) is striking, and for good reason.
 
 In the words of the authors:
 

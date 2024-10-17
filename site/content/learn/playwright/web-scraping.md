@@ -130,5 +130,5 @@ $ node scraping.js
 
 ## Further reading
 1. [Playwright](https://playwright.dev/docs/assertions#text-content)'s official API reference on the topic
-2. An [E2E example test](/learn/headless/e2e-coupon/) asserting agains an element's `innerText`
+2. An [E2E example test](/learn/playwright/testing-coupons/) asserting agains an element's `innerText`
 
