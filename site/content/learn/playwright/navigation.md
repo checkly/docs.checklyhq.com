@@ -134,7 +134,7 @@ Which of these options is useful to you depends on your situation:
 - You server render and load in some non-crucial element in a lazy fashion? go for one of the `networkidle` variant.
 
 
-Now that we know how to start a browser and navigate to a URL, the clear next step is to learn how to [interact with a webpage](/learn/headless/basics-clicking-typing/).
+Now that we know how to start a browser and navigate to a URL, the clear next step is to learn how to [interact with a webpage](/learn/playwright/clicking-typing-hovering/).
 
 ## Further reading
 1. [Playwright general navigation docs](https://playwright.dev/docs/navigations)
