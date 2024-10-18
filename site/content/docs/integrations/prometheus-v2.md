@@ -1,5 +1,6 @@
 ---
-title: Prometheus v2
+title: Exporting Metrics & Data via Prometheus and Checkly
+navTitle: Prometheus v2
 weight: 65
 aliases:
   - "/docs/integrations/prometheus/"

@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Checkly Dashboards
+navTitle: Overview
 weight: 46
 slug: /
 menu:

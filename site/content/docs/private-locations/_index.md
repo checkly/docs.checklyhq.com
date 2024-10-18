@@ -1,5 +1,6 @@
 ---
 title: Getting started with Private Locations
+navTitle: Getting started
 weight: 51
 slug: /
 menu:

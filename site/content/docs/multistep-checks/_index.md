@@ -1,5 +1,6 @@
 ---
-title: Getting started
+title: Getting started with Multistep API Checks
+navTitle: Getting started
 weight: 14
 slug: /
 menu:
