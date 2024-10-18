@@ -1,5 +1,6 @@
 ---
-title: API Monitoring for the Jamstack
+title: How to monitor the Stripe customer API with Checkly | API Monitoring Examples
+displayTitle: How to monitor the Stripe customer API with Checkly
 description: >-
   Application Programming Interfaces (APIs) are used throughout software to define interactions between different software applications. In this article we focus on web APIs specifically, taking a look at how they fit in the Jamstack architecture and how we can set up API monitoring in order to make sure they don't break and respond fast.
 author: Giovanni Rago
@@ -8,7 +9,7 @@ avatar: 'images/avatars/giovanni-rago.png'
 
 {{< figure src="/guides/images/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="Jamstack applications heavily rely on APIs" >}}
 
-## APIs and the Jamstack
+## The rise of APIs
 
 With the rise of the {{< newtabref  href="https://jamstack.org/" title="Jamstack" >}}, the already broadly used web APIs have been brought further into the spotlight and explicitly named as cornerstone of a new way of building web applications. In the Jamstack paradigm, applications rely on APIs returning structured data (JSON or XML) when queried via a build process or Javascript-based frontend.
 
