@@ -1,5 +1,5 @@
 ---
-title: Managing false positives & performance variations
+title: Optimizing your monitoring for reliability
 weight: 4
 menu:
   platform:
