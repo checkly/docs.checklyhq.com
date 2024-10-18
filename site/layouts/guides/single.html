@@ -2,8 +2,26 @@
   <div class="d-flex container-fluid guides">
     <div class="guides-page">
       <div class="col-sm-12 col-lg-11">
+        <div class="guides-header">
+          <a href="/guides/">Back to guides</a>
+        </div>
       	<div class="guides__label">
-      		<a href="/guides/">Checkly Guides</a>
+      		<span class="guides-tag"> 
+            
+            {{ with .Params.tag }}
+              {{ if (in (printf "%T" .) "string") }}
+                {{ $tags := split . "," }}
+                {{ range $tags }}
+                  <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index $tags (sub (len $tags) 1))) }}, {{ end }}
+                {{ end }}
+              {{ else }}
+                {{ range . }}
+                  <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index . (sub (len .) 1))) }}, {{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+      </span>
+      
       	</div>
       	<h1 class="guides__title">
           {{ if .Params.displayTitle}}
@@ -28,6 +46,7 @@
         <div class="write-info">
           <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}"  width="24" height="24" />
           <span>{{ .Params.author }} </span>
+          
         </div>
         <span class="markdown">{{.Content}}</span>
       </div>

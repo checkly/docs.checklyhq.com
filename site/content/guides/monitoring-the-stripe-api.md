@@ -1,6 +1,6 @@
 ---
 title: How to monitor the Stripe customer API with Checkly | API Monitoring Examples
-displayTitle: How to monitor the Stripe customer API with Checkly
+displayTitle: How to monitor the Stripe customer API with Checklymoni
 description: >-
   Application Programming Interfaces (APIs) are used throughout software to define interactions between different software applications. In this article we focus on web APIs specifically, taking a look at how they fit in the Jamstack architecture and how we can set up API monitoring in order to make sure they don't break and respond fast.
 author: Giovanni Rago

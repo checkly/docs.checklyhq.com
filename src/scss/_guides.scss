@@ -1,8 +1,11 @@
 .guides__list {
-	max-width: 910px;
-	width: 100%;
-	margin: auto;
-	margin-bottom: -60px;
+    width: 100%;
+    margin-bottom: -60px;
+	margin-top: 2rem;
+    display: flex;
+    flex-direction: row ;
+	flex-wrap: wrap;
+    gap: 2rem;
 	.display-3 {
 	  text-align: center;
 	  margin-bottom: 10px;
@@ -13,19 +16,27 @@
 	  font-size: 18px;
 	  margin-bottom: 40px;
 	}
+	
 	.guide-card {
 	  border: 1px solid $gray-light;
 	  border-radius: 6px;
 	  margin-bottom: 30px;
+	  max-width: 340px;
+	  display: flex;
+	  flex-direction: column;
+	  float: left;
+	  margin-right: 16px;
+	  min-height: 300px;
 	  .guide-info {
 	  	padding: 20px 20px 24px 20px;
 
 	  	h2 {
-	  	  font-size: 24px;
-	  	  line-height: 36px;
-	  	  letter-spacing: 0.3px;
+	  	  font-size: 20px;
+	  	  line-height: 24px;
+	  	  letter-spacing: -1px;
 	  	  margin-bottom: 10px;
 	  	  color: $black;
+		  min-height: 3rem;
 
 	  	  a {
 	  	    color: $black;
@@ -37,11 +48,12 @@
 	  	}
 	  	p {
 	  	  margin-bottom: 0;
-	  	  -webkit-line-clamp: 2;
-		    text-overflow: ellipsis;
-		    overflow: hidden;
-		    display: -webkit-box;
-		    -webkit-box-orient: vertical;
+			-webkit-line-clamp: 4;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			font-size: 14px;
 	  	}
 	  }
 	  .write-info {
@@ -92,6 +104,10 @@
 		}
 	}
 }
+.guides-header {
+	margin-bottom: 2rem;
+}
+
 .guides {
 	$toc-width: 14rem;
 	margin-top: 50px;
@@ -101,13 +117,13 @@
 	  height: 30px;
 	  padding: 5px 0;
 	  margin-bottom: 15px;
-	  font-size: 14px;
+	  font-size: 16px;
 	  font-weight: 600;
 	  line-height: 20px;
-	  color: $blue;
+	  color: $dark-blue;
 	  text-align: center;
 	  text-transform: uppercase;
-		background: $blue-light;
+		background: $blue-dark;
 		border-radius: 3px;
 	}
 	&__title {

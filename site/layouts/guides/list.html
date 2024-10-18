@@ -1,37 +1,100 @@
 {{ define "main" }}
   <div class="main py-5">
-  	<div class="container">
-  		<div class="guides__list">
-  			<h1 class="display-3">{{ .Title }}</h1>
-  			<p class="lead-text">{{ .Params.description }}</p>
-  			{{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "guides" }}
-  				<div class="guide-card">
-  					<div>
-						<div class="guide-info">
-							<h2><a href="{{ .RelPermalink }}">          
-							{{ if .Params.displayTitle}}
-								{{.Params.displayTitle}}
-							  {{else}}
-								{{.Title}}
-							  {{end}}
-							</a></h2>
-							<p>
-								{{ if .Params.displayDescription}}
-									{{.Params.displayDescription}}
-								{{else}}
-									{{.Description}}
-								{{end}}
-							</p>
-						</div>
-						<div class="write-info">
-							<img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}"  width="24" height="24" />
-							<span>{{ .Params.author }} </span>
-							<a href="{{ .RelPermalink }}" class="cta-link">Read the guide</a>
-						</div>
-					</div>
-  				</div>
-  			{{ end }}
-  		</div>
-  	</div>
+    <div class="container-fluid docs w-100">
+      <h1 class="display-3">{{ .Title }}</h1>
+      <p class="lead-text">{{ .Params.description }}</p>
+
+      <!-- Tags Filter -->
+      <div class="tags-filter">
+        <strong>Filter by tags:</strong>
+        <div class="tags">
+          {{ $tags := slice }}
+          {{ range .Site.RegularPages.ByLastmod.Reverse }}
+            {{ with .Params.tag }}
+              {{ if (in (printf "%T" .) "string") }}
+                {{ $tags = $tags | append . }}
+              {{ else }}
+                {{ range . }}
+                  {{ if not (in $tags .) }}
+                    {{ $tags = $tags | append . }}
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          
+          <!-- Display all unique tags -->
+          {{ range $tags }}
+            <button class="tag-btn" data-tag="{{ . }}">{{ . }}</button>
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- Guides List -->
+      <div class="guides__list">
+        {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "guides" }}
+          <div class="guide-card" data-tags="{{ with .Params.tag }}{{ delimit . ", " }}{{ end }}">
+            <div>
+              <div class="guide-info">
+                <h2>
+                  <a href="{{ .RelPermalink }}">
+                    {{ if .Params.displayTitle }}
+                      {{ .Params.displayTitle }}
+                    {{ else }}
+                      {{ .Title }}
+                    {{ end }}
+                  </a>
+                </h2>
+                <p>
+                  {{ if .Params.displayDescription }}
+                    {{ .Params.displayDescription }}
+                  {{ else }}
+                    {{ .Description }}
+                  {{ end }}
+                </p>
+                <p>
+                  {{ with .Params.tag }}
+                    <span class="guides-tag">{{ delimit . ", " }}</span>
+                  {{ end }}
+                </p>
+              </div>
+              <div class="write-info">
+                <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}" width="24" height="24" />
+                <span>{{ .Params.author }}</span>
+                <a href="{{ .RelPermalink }}" class="cta-link">Read the guide</a>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
   </div>
-{{end}}
+
+  <!-- JavaScript for Filtering -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tagButtons = document.querySelectorAll(".tag-btn");
+      const guides = document.querySelectorAll(".guide-card");
+
+      tagButtons.forEach(button => {
+        button.addEventListener("click", function () {
+          const tag = this.getAttribute("data-tag");
+
+          // Toggle active state
+          tagButtons.forEach(btn => btn.classList.remove("active"));
+          this.classList.add("active");
+
+          // Filter guides
+          guides.forEach(guide => {
+            const guideTags = guide.getAttribute("data-tags").split(", ");
+            if (guideTags.includes(tag)) {
+              guide.style.display = "block";
+            } else {
+              guide.style.display = "none";
+            }
+          });
+        });
+      });
+    });
+  </script>
+{{ end }}
