@@ -1,16 +1,16 @@
 ---
-title: Managing false positives
+title: Managing false positives & performance variations
 weight: 4
 menu:
   platform:
     parent: "Monitoring"
 ---
 
-Effective monitoring stands and falls with its accuracy. You want to be alerted-and, if it comes to it, woken up in the middle of the night-only when there's a real issue. However, the reality is that false positives can occur for various reasons. A check might be affected by a harmless glitch in the network connection between Checkly and your check target, causing your site to be flagged as slow or unreachable, when, in fact, it is running perfectly fine.
+Reliable monitoring depends on delivering accurate alerts, ensuring that you're notified—and if it comes to it, woken up in the middle of the night—only when there’s a real issue. However, false positives can happen for various reasons. In this guide, we focus on one of the most common causes: unpredictable network behavior.
 
-The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them. At Checkly, we aim to help you achieve the lowest false positive rate in the market, ensuring you are alerted only when it truly matters.
+A harmless glitch in the network connection between Checkly and your check target might cause your site to be flagged as slow or unreachable, even when it's running perfectly fine. The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them. At Checkly, we aim to help you achieve the lowest false positive rate in the market, ensuring you are alerted only when it truly matters.
 
-In this guide, we’ll dive into common causes of performance variations and provide strategies to minimize false positives.
+Below, we’ll dive into common causes of performance variations and provide strategies to minimize false positives that can result from them.
 
 ## Common Causes of Performance Variations
 
@@ -26,7 +26,7 @@ While these factors are generally well-managed, they can’t be completely avoid
 
 ## Best Practices to Minimize False Positives
 
-False positives can lead to unnecessary alerts, but you can keep them under control by following these best practices:
+False positives caused by network variations can lead to unnecessary alerts, but you can keep them under control by following these best practices:
 
 ### Use Retries
 
