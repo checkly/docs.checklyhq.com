@@ -3,7 +3,7 @@
     <div class="guides-page">
       <div class="col-sm-12 col-lg-11">
       	<div class="guides__label">
-      		Checkly Guides
+      		<a href="/guides/">Checkly Guides</a>
       	</div>
       	<h1 class="guides__title">
           {{ if .Params.displayTitle}}
@@ -25,6 +25,10 @@
           {{end}}
         </p>
       	{{ end }}
+        <div class="write-info">
+          <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}"  width="24" height="24" />
+          <span>{{ .Params.author }} </span>
+        </div>
         <span class="markdown">{{.Content}}</span>
       </div>
     </div>

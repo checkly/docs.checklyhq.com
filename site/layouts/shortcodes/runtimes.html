@@ -11,8 +11,10 @@
     This runtime will be available until {{ .runtimeEndOfLife }}. Please update your checks' runtimes and account settings
     to avoid failures due to automatic change to the next supported runtime.
   {{ end }}
-  {{ .description }}
 
+  Node.js Version: `{{ .nodeJsVersion }}`
+
+  {{ .description }}
 
   {{ range $key, $value := .dependencies }}
   - [{{ $key }}](https://npmjs.com/package/{{ $key }}/v/{{ $value }}) {{ $value }}

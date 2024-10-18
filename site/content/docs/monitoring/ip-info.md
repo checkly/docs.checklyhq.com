@@ -28,10 +28,6 @@ test('Set host resolver to IPv4', async () => {
 });
 ```
 
-### Known limitations
-
-Puppeteer-based browser checks do not support IPv6 and will not in the future as we are deprecating Puppeteer support.
-
 ## Static IP ranges
 
 All monitoring traffic from Checkly for all customers on all plans comes from a fixed set of source IPs. An up-to-date list can be requested unauthenticated through the API. See our [API spec](https://api.checklyhq.com/#/Static%20IPs) for more info.

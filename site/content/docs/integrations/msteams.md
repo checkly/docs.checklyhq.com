@@ -1,5 +1,6 @@
 ---
-title: Microsoft Teams
+title: Send Alerts to Microsoft Teams with Checkly
+navTitle: Microsoft Teams
 weight: 58
 menu:
   integrations:

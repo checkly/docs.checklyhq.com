@@ -1,5 +1,6 @@
 ---
-title: Getting started
+title: Getting started with the Terraform provider for Checkly
+navTitle: Overview
 weight: 1
 menu:
   integrations:

@@ -1,5 +1,6 @@
 ---
-title: Example checks
+title: Multistep check examples
+navTitle: Examples
 weight: 22
 menu:
   resources:

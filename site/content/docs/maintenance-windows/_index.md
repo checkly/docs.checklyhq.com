@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Setting Maintenance Windows in Checkly
+navTitle: Overview
 weight: 46
 slug: /
 menu:

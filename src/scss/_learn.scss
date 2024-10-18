@@ -623,3 +623,30 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
+.learn-cta-wrapper {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid $gray-light;
+  border-radius: 6px;
+  background: $blue-dark;
+  max-width: 200px;
+}
+
+.learn-cta-wrapper h4 {
+  margin-top: 0;
+  line-height: 1.6rem;
+  font-weight: 700;
+  color: $white;
+  font-size: 1.2rem;
+}
+
+.learn-cta-wrapper p {
+  font-weight:500;
+  line-height: 1.2rem;
+  color: $white;
+}
+
+.learn-cta-wrapper .btn {
+  font-size: .8rem;
+}

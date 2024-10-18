@@ -1,5 +1,6 @@
 ---
-title: Getting started
+title: Heartbeat Monitoring
+navTitle: Getting started
 weight: 14
 slug: /
 menu:

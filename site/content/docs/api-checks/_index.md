@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Monitoring APIs with Checks
+navTitle: Overview
 weight: 7
 slug: /
 menu:
