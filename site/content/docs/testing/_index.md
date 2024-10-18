@@ -1,5 +1,6 @@
 ---
-title: Getting started with testing
+title: Getting started with testing in Checkly
+navTitle: Getting started
 weight: 1
 slug: /
 aliases:

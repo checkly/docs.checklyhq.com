@@ -1,5 +1,6 @@
 ---
-title: Discord
+title: Send Alerts to Discord with Checkly
+navTitle: Discord
 weight: 61
 menu:
   integrations:

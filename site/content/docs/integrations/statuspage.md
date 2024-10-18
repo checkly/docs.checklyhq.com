@@ -1,5 +1,6 @@
 ---
-title: StatusPage
+title: Integrating StatusPage and Checkly
+navTitle: StatusPage
 weight: 64
 menu:
   integrations:

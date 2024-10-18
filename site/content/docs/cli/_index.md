@@ -1,5 +1,6 @@
 ---
-title: Getting Started
+title: Getting started with the Checkly CLI
+navTitle: Getting started
 weight: 1
 slug: /
 menu:

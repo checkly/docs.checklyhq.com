@@ -1,6 +1,6 @@
 ---
-title: How to Integrate Vercel with Checkly? Step-by-Step Guide
-displayTitle: Vercel
+title: Integrating Vercel with Checkly
+navTitle: Vercel
 description: >-
   Integrate Checkly with Vercel for app development and deployment to benefit from automated browser checks and production deployment testing.
 weight: 7
