@@ -1,12 +1,12 @@
 ---
-title: OpenAPI/Swagger Monitoring
+title: How to create an API monitor using an OpenAPI (Swagger) spec
 description: >-
   OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring? After a brief first look at OpenAPI and Swagger, this article will show how we can quickly use them to monitor a new or existing API.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
 ---
 
-## The OpenAPI Specification
+## What is the OpenAPI Specification?
 
 The {{< newtabref  href="https://spec.openapis.org/oas/v3.1.0" title="OpenAPI Specification (OAS)" >}} specifies a standard, language-agnostic and machine-readable format to describe a web API in one or more files. Nowadays, it acts as a vendor-neutral standard for describing the structure and behaviour of HTTP-based APIs, and exists as part of the {{< newtabref  href="https://www.openapis.org/" title="OpenAPI Initiative (OAI)" >}}.
 
