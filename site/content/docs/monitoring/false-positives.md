@@ -8,9 +8,11 @@ menu:
 
 Reliable monitoring depends on delivering accurate alerts, ensuring that you're notified—and if it comes to it, woken up in the middle of the night—only when there’s a real issue. However, false positives can happen for various reasons. In this guide, we focus on one of the most common causes: unpredictable network behavior.
 
-A harmless glitch in the network connection between Checkly and your check target might cause your site to be flagged as slow or unreachable, even when it's running perfectly fine. The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them. At Checkly, we aim to help you achieve the lowest false positive rate in the market, ensuring you are alerted only when it truly matters.
+The public internet, with its millions of networks and nodes, can be unpredictable, making occasional hiccups unavoidable. A harmless glitch in the network connection between Checkly and your check target might cause your site to be flagged as slow or unreachable, even when it's running perfectly fine. Thankfully, many of these are just isolated incidents that resolve on their own, and there are ways to protect your monitoring setup from them.
 
-Below, we’ll dive into common causes of performance variations and provide strategies to minimize false positives that can result from them.
+At Checkly, we aim to help you achieve the lowest false positive rate in the market, ensuring you are alerted only when it truly matters.
+
+Read on to learn more about common causes of performance variations and strategies to minimize the false positives they can cause.
 
 ## Common Causes of Performance Variations
 
