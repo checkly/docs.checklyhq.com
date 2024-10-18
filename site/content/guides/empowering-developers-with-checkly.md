@@ -1,5 +1,5 @@
 ---
-title: Streamlining Complex Monitoring with Checkly: Empowering Developers and Platform Teams
+title: Streamlining Complex Monitoring with Checkly - Empowering Developers and Platform Teams
 displayTitle: Streamline Monitoring, Empower Developers and Platform Teams
 description: >-
   Discover how Checkly empowers developers and platform teams to streamline complex monitoring through a code-first approach. Learn how collaboration, automation, and integrated alerts improve reliability and reduce bottlenecks in modern software delivery workflows.
