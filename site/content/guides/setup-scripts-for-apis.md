@@ -145,7 +145,7 @@ Note that the check might still fail due to an issue with an endpoint other than
 
 ### Fetching dynamic test data
 
-There are several scenarios in which we might want to fetch test data from an external source. It might be out of convience, or because the data itself is changing often and we want to always grab the newest version, or maybe even because we want to make our check more dynamic to ensure our target system can handle different inputs.
+There are several scenarios in which we might want to fetch test data from an external source. It might be out of convenience, or because the data itself is changing often and we want to always grab the newest version, or maybe even because we want to make our check more dynamic to ensure our target system can handle different inputs.
 
 Our example will be about creating a new product for our webshop using its API. Specifically, we will
 

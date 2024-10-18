@@ -206,7 +206,7 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-Note that we are using Playwright Tests's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text.
+Note that we are using Playwright Test's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text.
 
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
@@ -216,7 +216,7 @@ alerting channels will be triggered, notifying your team that something is up.
 
 ## Using other browsers
 {{< info >}}
-We strongly recommend using the default `chromium` browser for all your checks [as per the offcial Playwright documentation](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge).
+We strongly recommend using the default `chromium` browser for all your checks [as per the official Playwright documentation](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge).
 {{< /info >}}
 
 If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
