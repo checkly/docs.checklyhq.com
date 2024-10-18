@@ -1,5 +1,5 @@
 ---
-title: Migrating from Puppeteer to Playwright
+title: The Complete Guide to Migrating from Puppeteer to Playwright
 description: >-
   The switch from Puppeteer to Playwright is easy. But is it worth it? And how exactly does one migrate existing scripts from one tool to another? What are the required code-level changes, and what new features and approaches does the switch enable?
 author: Giovanni Rago

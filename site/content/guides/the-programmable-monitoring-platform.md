@@ -1,5 +1,5 @@
 ---
-title: Monitoring as code — the programmable monitoring platform
+title: A Guide to Checkly — The Programmable Monitoring Platform
 description: >-
   The monitoring as code workflow enables developers to code, test and deploy your entire monitoring infrastructure. This guide explains how to leverage TypeScript/JavaScript to configure your monitoring setup dynamically.
 author: Stefan Judis
