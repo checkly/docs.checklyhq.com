@@ -22,7 +22,7 @@ While Cypress is a testing tool, Playwright is an automation solution.
 
 This distinction is important when you compare these solutions to the present day realities of automation.
 
-Playwright is a tool focused on developer productivity with more robust built-in features, the ability to use async/await, built in parallelization, a much lighter weight in CI. Playwright is also less opinionated because it doesn’t have to be, you can use it however you want. Scraping content for a LLM model? Check! Have a nested app in an iframe you want to test? Go wild! *Three different browser sessions in the same chat instance? Sounds cool! Re-use your tests to monitor production? Absolutely.*
+Playwright is a tool focused on developer productivity with more robust built-in features, the ability to use async/await, built in parallelization, a much lighter weight in CI. Playwright is also less opinionated because it doesn’t have to be, you can use it however you want. Playwright can [monitor your APIs](https://www.checklyhq.com/blog/test-apis-with-playwright/) just as well as it can your frontend web pages. Scraping content for a LLM model? Check! Have a nested app in an iframe you want to test? Go wild! *Three different browser sessions in the same chat instance? Sounds cool! Re-use your tests to monitor production? Absolutely.*
 
 ## Playwright Key Features
 - Supports multiple languages: JavaScript, TypeScript, Python, Java, C#
@@ -87,7 +87,7 @@ The architectural differences between Playwright and Cypress reflect distinct de
 ### **Impact of Architectural Differences**
 
 1. **Browser and Platform Support**  
-   - Playwright supports all modern browsers (Chromium, Firefox, WebKit) and can run on multiple operating systems with little configuration. (sidenote: Checkly currently supports using Chromium or Chrome with Playwright Test and Playwright library, with Chromium being the default browser for all checks. [Read more about using Chrome](https://www.checklyhq.com/docs/browser-checks/#using-other-browsers).)
+   - Playwright supports all modern browsers (Chromium, Firefox, WebKit) and can run on multiple operating systems with little configuration (sidenote: Checkly currently supports using Chromium or Chrome with Playwright Test and Playwright library, with Chromium being the default browser for all checks. [Read more about using Chrome](https://www.checklyhq.com/docs/browser-checks/#using-other-browsers)).
    - Cypress, with its Electron-based architecture, requires adaptation for each browser and does not support Safari or tabs.
 
 2. **Testing Flexibility**  
@@ -169,6 +169,7 @@ describe('Multiple API Requests Test', () => {
 With Cypress, we're using their custom syntax, which is a bit more compact but still has it's own specialized field of knowledge. If you're pursuing a monitoring as code strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
 
 Further, Cypress asynchrony may not act as expected if we're used to asynchrony from Node.js. In Cypress, each `cy.request()` runs asynchronously, but Cypress queues them sequentially. This ensures that the second request only executes after the first one completes, making this pattern simple and effective for making multiple assertions across async requests.
+
 ---
 
 ## Playwright vs Cypress: Pros & Cons

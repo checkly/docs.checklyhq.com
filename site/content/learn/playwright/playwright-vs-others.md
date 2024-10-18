@@ -14,7 +14,7 @@ menu:
   learn:
     parent: "Getting started"
 ---
-
+There are a number of options when for [frameworks for end-to-end testing](https://www.checklyhq.com/blog/cypress-vs-selenium-vs-playwright-vs-puppeteer-speed-comparison/). If you're thinking about using Checkly, you're likely aware of a few.
 
 ## Puppeteer vs Playwright
 
@@ -36,4 +36,4 @@ Long the dominant framework for (at the time) modern end-to-end testing, Cypress
 
 Due to architectural differences, Playwright can support multiple languages for writing tests, and run more browsers for testing. Due to Playwright's status as a free and open source project, users don't have to deal with new features being paywalled, a significant issue for Cypress users since 2023.
 
-[Read more about Playwright vs. Cypress.](https://www.checklyhq.com/learn/playwright/playwright-vs-cypress/)
+[Read more about Playwright vs. Cypress.](/learn/playwright/playwright-vs-cypress/)
