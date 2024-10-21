@@ -1,26 +1,24 @@
 {{ define "main" }}
   <div class="d-flex container-fluid guides">
     <div class="guides-page">
-      <div class="col-sm-12 col-lg-11">
+      <div class="">
         <div class="guides-header">
           <a href="/guides/">Back to guides</a>
         </div>
       	<div class="guides__label">
-      		<span class="guide-tag"> 
-            
-            {{ with .Params.tag }}
-              {{ if (in (printf "%T" .) "string") }}
-                {{ $tags := split . "," }}
-                {{ range $tags }}
-                  <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index $tags (sub (len $tags) 1))) }}, {{ end }}
-                {{ end }}
-              {{ else }}
-                {{ range . }}
-                  <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index . (sub (len .) 1))) }}, {{ end }}
-                {{ end }}
-              {{ end }}
+          {{ with .Params.tags }}
+          {{ if (in (printf "%T" .) "[]string") }}
+            {{ range $index, $tag := . }}
+              {{ $tag }}
             {{ end }}
-      </span>
+          {{ else }}
+            <!-- Optional: Handle the case where tags is not an array -->
+            <span>No tags available or invalid format</span>
+          {{ end }}
+        {{ else }}
+          <span>No tags available.</span>
+        {{ end }}
+        </div>
       
       	</div>
       	<h1 class="guides__title">

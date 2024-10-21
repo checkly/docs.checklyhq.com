@@ -4,29 +4,27 @@
       <h1 class="display-3">{{ .Title }}</h1>
       <p class="lead-text">{{ .Params.description }}</p>
 
-   
-
       <!-- Guides List -->
       <div class="guides__list">
         {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "guides" }}
-          <div class="guide-card" data-tags="{{ with .Params.tag }}{{ delimit . ", " }}{{ end }}">
+          <div class="guide-card" data-tags="{{ delimit .Params.tags ", " }}">
             <div>
               <div class="guide-info">
-                <div class="guide-tag"> 
-            
-                  {{ with .Params.tag }}
-                    {{ if (in (printf "%T" .) "string") }}
-                      {{ $tags := split . "," }}
-                      {{ range $tags }}
-                        <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index $tags (sub (len $tags) 1))) }}, {{ end }}
+                <div class="guide-tag">
+                  {{ with .Params.tags }}
+                    {{ if (in (printf "%T" .) "[]string") }}
+                      {{ range $index, $tag := . }}
+                        {{ $tag }}
                       {{ end }}
                     {{ else }}
-                      {{ range . }}
-                        <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index . (sub (len .) 1))) }}, {{ end }}
-                      {{ end }}
+                      <!-- Optional: Handle the case where tags is not an array -->
+                      <span>No tags available or invalid format</span>
                     {{ end }}
+                  {{ else }}
+                    <span>No tags available.</span>
                   {{ end }}
                 </div>
+
                 <h2>
                   <a href="{{ .RelPermalink }}">
                     {{ if .Params.displayTitle }}
@@ -36,6 +34,7 @@
                     {{ end }}
                   </a>
                 </h2>
+
                 <p>
                   {{ if .Params.displayDescription }}
                     {{ .Params.displayDescription }}
@@ -43,8 +42,8 @@
                     {{ .Description }}
                   {{ end }}
                 </p>
-               
               </div>
+
               <div class="write-info">
                 <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}" width="24" height="24" />
                 <span>{{ .Params.author }}</span>
@@ -56,40 +55,4 @@
       </div>
     </div>
   </div>
-
-  <ul>
-    {{ range where .Site.RegularPages.ByLastmod.Reverse ".Param.tags" "intersect" (slice "API") }}
-    <li>
-      <span>{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-      <a href="{{ .URL }}">{{ .Title }}</a>
-    </li>
-    {{ end }}
-  </ul>
-  <!-- JavaScript for Filtering -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tagButtons = document.querySelectorAll(".tag-btn");
-      const guides = document.querySelectorAll(".guide-card");
-
-      tagButtons.forEach(button => {
-        button.addEventListener("click", function () {
-          const tag = this.getAttribute("data-tag");
-
-          // Toggle active state
-          tagButtons.forEach(btn => btn.classList.remove("active"));
-          this.classList.add("active");
-
-          // Filter guides
-          guides.forEach(guide => {
-            const guideTags = guide.getAttribute("data-tags").split(", ");
-            if (guideTags.includes(tag)) {
-              guide.style.display = "block";
-            } else {
-              guide.style.display = "none";
-            }
-          });
-        });
-      });
-    });
-  </script>
 {{ end }}

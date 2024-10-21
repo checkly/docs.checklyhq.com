@@ -5,17 +5,7 @@
     flex-direction: row ;
 	flex-wrap: wrap;
     gap: 2rem;
-	.guide-tag {
-		border: 1px solid #0075ff;
-		padding:5px 10px;
-		border-radius:4px;
-		margin-bottom:16px;
-		width: fit-content;
-		a {
-			color: #0075ff;
-			font-size: 14px;
-		}
-	}
+	
 	.display-3 {
 	  text-align: center;
 	  margin-bottom: 10px;
@@ -116,7 +106,20 @@
 	margin-bottom: 2rem;
 }
 
-
+.guide-tag {
+	border: 1px solid #0075ff;
+	background-color: #0075ff;
+	padding:5px 10px;
+	border-radius:4px;
+	margin-bottom:16px;
+	width: fit-content;
+	color: #fff;
+	font-size: 14px;
+	a {
+		color: #fff;
+		font-size: 14px;
+	}
+}
 
 .guides {
 	$toc-width: 14rem;
@@ -130,10 +133,11 @@
 	  font-size: 16px;
 	  font-weight: 600;
 	  line-height: 20px;
-	  color: #fff;;
+	  background-color: #0075ff;
+	  color: #fff;
 	  text-align: center;
 	  text-transform: uppercase;
-		background: $blue-dark;
+		background: #0075ff;
 		border-radius: 3px;
 		a {
 			color: #fff;

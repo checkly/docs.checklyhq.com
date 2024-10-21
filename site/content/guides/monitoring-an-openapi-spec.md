@@ -4,7 +4,8 @@ description: >-
   OpenAPI and Swagger help users design and document APIs in a way that is readable from both humans and machines. As a consequence, they can also be used to generate the code that will run the specified API - both on the provider and consumer side. Can we leverage this same principle to simplify API monitoring? After a brief first look at OpenAPI and Swagger, this article will show how we can quickly use them to monitor a new or existing API.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
-tag: API
+tags: 
+  - API
 ---
 
 ## What is the OpenAPI Specification?

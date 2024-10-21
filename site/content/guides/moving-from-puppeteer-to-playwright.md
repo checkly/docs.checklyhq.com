@@ -4,7 +4,8 @@ description: >-
   The switch from Puppeteer to Playwright is easy. But is it worth it? And how exactly does one migrate existing scripts from one tool to another? What are the required code-level changes, and what new features and approaches does the switch enable?
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
-tag: Playwright
+tags:
+  - Playwright
 ---
 
 > **UPDATE**: _you can use our {{< newtabref  href="https://github.com/checkly/puppeteer-to-playwright" title="puppeteer-to-playwright" >}} conversion script to quickly migrate your Puppeteer codebase to Playwright._

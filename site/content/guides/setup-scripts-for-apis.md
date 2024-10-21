@@ -5,7 +5,8 @@ description: >-
   Setup scripts are a fundamental tool to tailor API checks to your own target endpoints. Their power and flexibility can intimidate beginners, who might struggle to understand how the different parts fit together. This guide will present and break down different real-world examples to help you master this game-changing tool.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
-tag: API
+tags:
+  - API
 ---
 
 ## The importance of self-contained checks

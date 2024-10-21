@@ -4,7 +4,8 @@ description: >-
   The trend of declaring infrastructure as code has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage and scale cloud infrastructure. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of Monitoring-as-Code on Checkly.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
-tag: Terraform
+tags:
+  - Terraform
 ---
 The trend of declaring infrastructure as code has been picking up steam over the last few years, offering a way for DevOps teams to transparently manage, monitor and scale cloud infrastructure. Why should the way we manage monitoring be any different? In this article, we address this point and illustrate it with a practical example of Monitoring-as-Code on Checkly.
 

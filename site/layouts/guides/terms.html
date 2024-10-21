@@ -1,0 +1,28 @@
+<!-- layouts/_default/terms.html -->
+{{ define "main" }}
+  <div class="main py-5">
+    <div class="container">
+      <h1 class="display-3">{{ .Title }}</h1>
+      <ul class="taxonomy-list">
+        {{ range .Params.tags }}
+          <li>
+            <div class="guide-tag">
+                {{ with .Params.tags }}
+                  {{ if (in (printf "%T" .) "[]string") }}
+                    {{ range $index, $tag := . }}
+                      <a href="/guides/tags/{{ $tag | urlize }}">{{ $tag }}</a>{{ if lt (add $index 1) (len .) }} {{ end }}
+                    {{ end }}
+                  {{ else }}
+                    <!-- Optional: Handle the case where tags is not an array -->
+                    <span>No tags available or invalid format</span>
+                  {{ end }}
+                {{ else }}
+                  <span>No tags available.</span>
+                {{ end }}
+              </div>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+{{ end }}

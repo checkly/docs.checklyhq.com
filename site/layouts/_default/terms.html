@@ -1,0 +1,15 @@
+<!-- layouts/_default/terms.html -->
+{{ define "main" }}
+  <div class="main py-5">
+    <div class="container">
+      <h1 class="display-3">{{ .Title }}</h1>
+      <ul class="taxonomy-list">
+        {{ range .Data.Terms }}
+          <li>
+            <a href="{{ .Permalink }}">{{ .Title }} ({{ .Count }})</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+{{ end }}
