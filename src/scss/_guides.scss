@@ -1,8 +1,11 @@
 .guides__list {
-	max-width: 910px;
-	width: 100%;
-	margin: auto;
-	margin-bottom: -60px;
+    width: 100%;
+	margin-top: 3rem;
+    display: flex;
+    flex-direction: row ;
+	flex-wrap: wrap;
+    gap: 2rem;
+	
 	.display-3 {
 	  text-align: center;
 	  margin-bottom: 10px;
@@ -17,13 +20,19 @@
 	  border: 1px solid $gray-light;
 	  border-radius: 6px;
 	  margin-bottom: 30px;
+	  max-width: 360px;
+	  display: flex;
+	  flex-direction: column;
+	  float: left;
+	  margin-right: 16px;
+	  min-height: 300px;
 	  .guide-info {
 	  	padding: 20px 20px 24px 20px;
 
 	  	h2 {
-	  	  font-size: 24px;
-	  	  line-height: 36px;
-	  	  letter-spacing: 0.3px;
+	  	  font-size: 20px;
+	  	  line-height: 24px;
+	  	  letter-spacing: -1px;
 	  	  margin-bottom: 10px;
 	  	  color: $black;
 
@@ -37,11 +46,12 @@
 	  	}
 	  	p {
 	  	  margin-bottom: 0;
-	  	  -webkit-line-clamp: 2;
-		    text-overflow: ellipsis;
-		    overflow: hidden;
-		    display: -webkit-box;
-		    -webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			font-size: 14px;
 	  	}
 	  }
 	  .write-info {
@@ -92,6 +102,29 @@
 		}
 	}
 }
+.guides-header {
+	margin-bottom: 2rem;
+}
+
+.guides-page{
+	width: 90%;
+}
+
+.guide-tag {
+	border: 1px solid #0075ff;
+	background-color: #0075ff;
+	padding:5px 10px;
+	border-radius:4px;
+	margin-bottom:16px;
+	width: fit-content;
+	color: #fff;
+	font-size: 14px;
+	a {
+		color: #fff;
+		font-size: 14px;
+	}
+}
+
 .guides {
 	$toc-width: 14rem;
 	margin-top: 50px;
@@ -101,14 +134,18 @@
 	  height: 30px;
 	  padding: 5px 0;
 	  margin-bottom: 15px;
-	  font-size: 14px;
+	  font-size: 16px;
 	  font-weight: 600;
 	  line-height: 20px;
-	  color: $blue;
+	  background-color: #0075ff;
+	  color: #fff;
 	  text-align: center;
 	  text-transform: uppercase;
-		background: $blue-light;
+		background: #0075ff;
 		border-radius: 3px;
+		a {
+			color: #fff;
+		}
 	}
 	&__title {
     font-size: 48px;
@@ -196,6 +233,7 @@
     }
 		&-page {
 			padding: 0px !important;
+			width: 90%;
 		}
 	}
 	&-toc {
@@ -350,4 +388,12 @@
       }
     }
   }
+}
+
+.guides__container {
+	padding-right: 10%
+}
+
+.guides__back {
+	margin-bottom:2rem;
 }

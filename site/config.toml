@@ -2,7 +2,7 @@ baseurl = "https://www.checklyhq.com"
 languageCode = "en-us"
 languageLang = "en"
 title = "Build and Run Synthetics That Scale"
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+disableKinds = ["RSS"]
 enableGitInfo = true
 enableRobotsTXT = true
 
@@ -10,6 +10,10 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 disqusShortname = "checkly"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
 
 [permalinks]
   blog = "/blog/:year/:month/:title/"
