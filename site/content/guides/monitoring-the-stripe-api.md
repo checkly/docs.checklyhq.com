@@ -47,7 +47,7 @@ There is a large variety of valid requests that a user might make to a given end
 
 1. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" title="Methods" >}}, like `GET`, `PUT`, `POST`, `DELETE`, etc
 2. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" title="Headers" >}}, like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
-3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query" title="Query parameters" >}}
+3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams" title="Query parameters" >}}
 
 {{< figure src="/guides/images/guides-checkly-swagger.png" alt="swagger api documentation" title="Swagger is a popular tool for generating API documentation" >}}
 
@@ -211,7 +211,7 @@ curl -v https://api.stripe.com/v1/customers \
   -d description="My First Test Customer (created for API docs)"
 ```
 
-Within the lengthy output we find the respose (in curl denoted by the '<' symbol), and in it all the important details we need for our assertions.
+Within the lengthy output we find the response (in curl denoted by the '<' symbol), and in it all the important details we need for our assertions.
 
 First, we notice the successful status code:
 
@@ -298,7 +298,7 @@ The above count as two separate endpoints, even though the URL is the same.
 
 ### Cover key API parameters
 
-Some parameters can change the endpoint's response significantly. We shoud strive to have separate checks verifying that the endpoint is behaving correctly across different configurations.
+Some parameters can change the endpoint's response significantly. We should strive to have separate checks verifying that the endpoint is behaving correctly across different configurations.
 
 ### Keep checks focused & independent
 
