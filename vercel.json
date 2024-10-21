@@ -86,7 +86,6 @@
     { "source": "/guides/api-monitoring(/)?", "destination": "/guides/monitoring-the-stripe-api/", "permanent": true },
     { "source": "/guides/puppeteer-to-playwright(/)?", "destination": "/guides/moving-from-puppeteer-to-playwright/", "permanent": true },
     { "source": "/guides/monitoring-as-code-cli(/)?", "destination": "/guides/monitoring-ecommerce-apps-using-playwright/", "permanent": true },
-    { "source": "/guides/monitoring-as-code(/)?", "destination": "/guides/monitoring-ecommerce-apps-using-terraform/", "permanent": true },
     { "source": "/guides/setup-scripts(/)?", "destination": "/guides/setup-scripts-for-apis/", "permanent": true },
     { "source": "/guides/openapi-swagger(/)?", "destination": "/guides/monitoring-an-openapi-spec/", "permanent": true },
     { "source": "/docs/private-locations/private-locations-getting-started(/)?", "destination": "/docs/private-locations/private-locations-getting-started/", "permanent": true },
