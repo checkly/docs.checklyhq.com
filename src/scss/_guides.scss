@@ -106,6 +106,10 @@
 	margin-bottom: 2rem;
 }
 
+.guides-page{
+	width: 90%;
+}
+
 .guide-tag {
 	border: 1px solid #0075ff;
 	background-color: #0075ff;
@@ -229,6 +233,7 @@
     }
 		&-page {
 			padding: 0px !important;
+			width: 90%;
 		}
 	}
 	&-toc {
@@ -383,4 +388,12 @@
       }
     }
   }
+}
+
+.guides__container {
+	padding-right: 10%
+}
+
+.guides__back {
+	margin-bottom:2rem;
 }

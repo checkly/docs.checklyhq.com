@@ -1,54 +1,55 @@
 {{ define "main" }}
-  <div class="d-flex container-fluid guides">
-    <div class="guides-page">
-      <div class="">
-        <div class="guides-header">
-          <a href="/guides/">Back to guides</a>
-        </div>
-      	<div class="guides__label">
-          {{ with .Params.tags }}
-          {{ if (in (printf "%T" .) "[]string") }}
-            {{ range $index, $tag := . }}
-              {{ $tag }}
+  <div class="d-flex container-fluid guides gap-6">
+    <div class="d-flex guides-page">
+      <div class="guides__container">
+        <div class="guides__header">
+          <div class="guides__back"><a href="/guides/">Back to guides</a></div>
+          <div class="guides__label">
+              {{ with .Params.tags }}
+              {{ if (in (printf "%T" .) "[]string") }}
+                {{ range $index, $tag := . }}
+                  {{ $tag }}
+                {{ end }}
+              {{ else }}
+                <!-- Optional: Handle the case where tags is not an array -->
+                <span>No tags available or invalid format</span>
+              {{ end }}
+            {{ else }}
+              <span>No tags available.</span>
             {{ end }}
-          {{ else }}
-            <!-- Optional: Handle the case where tags is not an array -->
-            <span>No tags available or invalid format</span>
-          {{ end }}
-        {{ else }}
-          <span>No tags available.</span>
-        {{ end }}
+          </div>
+          <h1 class="guides__title">
+            {{ if .Params.displayTitle}}
+              {{.Params.displayTitle}}
+            {{else}}
+              {{.Title}}
+            {{end}}
+          </h1>
         </div>
-      
-      	</div>
-      	<h1 class="guides__title">
-          {{ if .Params.displayTitle}}
-            {{.Params.displayTitle}}
-          {{else}}
-            {{.Title}}
-          {{end}}
-        </h1>
         <div class="guides-toc-mobile mb-5 pt-3">
           <div class="guides-toc-header mb-3 pt-3">On this page</div>
           {{ .Page.TableOfContents }}
         </div>
-      	{{ if or (.Description) (.Params.displayDescription) }}
+      	
       	<p class="guides__description">
+          {{ if or (.Description) (.Params.displayDescription) }}
           {{ if .Params.displayDescription}}
             {{.Params.displayDescription}}
           {{else}}
             {{.Description}}
           {{end}}
+          {{ end }}
         </p>
-      	{{ end }}
+      	
         <div class="write-info">
           <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}"  width="24" height="24" />
           <span>{{ .Params.author }} </span>
           
         </div>
+        
         <span class="markdown">{{.Content}}</span>
       </div>
-    </div>
+   
     
     <aside class="guides-toc mb-3">
       <div id="tocMenu">
