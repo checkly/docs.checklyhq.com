@@ -30,6 +30,9 @@ Monitors and alerts configured in code can be reused across teams, workflows, an
 ### Fully programmable within your stack
 Use the same tools you use for testing and observability to create monitors. Checkly natively supports Playwright and OpenTelemetry, so you can use the same libraries and tools you use for testing to create monitors. Then integrate your oTel traces with Checkly traces for a faster, more accurate mean time to resolution.
 
+### Unify Your Testing and Monitoring
+
+Build and run your test and monitoring setup from the same code base. Create tests locally with Playwright, test and monitor deployments in CI, then deploy them as monitors on our global infrastructure or deploy them to your own infrastructure.
 
 ## Use cases of monitoring as code
 
