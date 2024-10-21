@@ -4,31 +4,7 @@
       <h1 class="display-3">{{ .Title }}</h1>
       <p class="lead-text">{{ .Params.description }}</p>
 
-      <!-- Tags Filter -->
-      <div class="tags-filter">
-        <strong>Filter by tags:</strong>
-        <div class="tags">
-          {{ $tags := slice }}
-          {{ range .Site.RegularPages.ByLastmod.Reverse }}
-            {{ with .Params.tag }}
-              {{ if (in (printf "%T" .) "string") }}
-                {{ $tags = $tags | append . }}
-              {{ else }}
-                {{ range . }}
-                  {{ if not (in $tags .) }}
-                    {{ $tags = $tags | append . }}
-                  {{ end }}
-                {{ end }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-          
-          <!-- Display all unique tags -->
-          {{ range $tags }}
-            <button class="tag-btn" data-tag="{{ . }}">{{ . }}</button>
-          {{ end }}
-        </div>
-      </div>
+   
 
       <!-- Guides List -->
       <div class="guides__list">
@@ -36,6 +12,21 @@
           <div class="guide-card" data-tags="{{ with .Params.tag }}{{ delimit . ", " }}{{ end }}">
             <div>
               <div class="guide-info">
+                <div class="guide-tag"> 
+            
+                  {{ with .Params.tag }}
+                    {{ if (in (printf "%T" .) "string") }}
+                      {{ $tags := split . "," }}
+                      {{ range $tags }}
+                        <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index $tags (sub (len $tags) 1))) }}, {{ end }}
+                      {{ end }}
+                    {{ else }}
+                      {{ range . }}
+                        <a href="/tags/{{ . | urlize }}">{{ . }}</a>{{ if not (eq . (index . (sub (len .) 1))) }}, {{ end }}
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+                </div>
                 <h2>
                   <a href="{{ .RelPermalink }}">
                     {{ if .Params.displayTitle }}
@@ -52,11 +43,7 @@
                     {{ .Description }}
                   {{ end }}
                 </p>
-                <p>
-                  {{ with .Params.tag }}
-                    <span class="guides-tag">{{ delimit . ", " }}</span>
-                  {{ end }}
-                </p>
+               
               </div>
               <div class="write-info">
                 <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}" width="24" height="24" />
@@ -70,6 +57,14 @@
     </div>
   </div>
 
+  <ul>
+    {{ range where .Site.RegularPages.ByLastmod.Reverse ".Param.tags" "intersect" (slice "API") }}
+    <li>
+      <span>{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+      <a href="{{ .URL }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
   <!-- JavaScript for Filtering -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {

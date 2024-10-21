@@ -81,6 +81,7 @@
     { "source": "/learn/headless/valuable-tests(/)?", "destination": "/learn/playwright/writing-tests", "permanent": true },
     { "source": "/learn/playwright/intercept-request(/)?", "destination": "/learn/playwright/intercept-requests/", "permanent": true },
     { "source": "/learn/playwright/interaction/waits(/)?", "destination": "/learn/playwright/waits-and-timeouts/", "permanent": true },
+<<<<<<< Updated upstream
     { "source": "/learn/headless/basics-puppeteer-intro(/)?", "destination": "/learn/playwright/", "permanent": true },
     { "source": "/learn/headless(/)?", "destination": "/learn/playwright/", "permanent": true },
     { "source": "/guides/api-monitoring(/)?", "destination": "/guides/monitoring-the-stripe-api/", "permanent": true },
@@ -88,5 +89,8 @@
     { "source": "/guides/monitoring-as-code-cli(/)?", "destination": "/guides/monitoring-ecommerce-apps-using-playwright/", "permanent": true },
     { "source": "/guides/setup-scripts(/)?", "destination": "/guides/setup-scripts-for-apis/", "permanent": true },
     { "source": "/guides/openapi-swagger(/)?", "destination": "/guides/monitoring-an-openapi-spec/", "permanent": true }
+=======
+    { "source": "/learn/headless(/)?", "destination": "/learn/playwright/", "permanent": true }
+>>>>>>> Stashed changes
   ]
 }

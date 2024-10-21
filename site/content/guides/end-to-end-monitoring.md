@@ -5,6 +5,7 @@ description: >-
   Learn end-to-end monitoring with playwright to test key website flows. Follow our guide that gets you up and running in 10 minutes.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
+tag: FAQ
 ---
 ## An overview of end-to-end monitoring
 

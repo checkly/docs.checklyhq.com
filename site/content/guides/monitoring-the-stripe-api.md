@@ -5,6 +5,7 @@ description: >-
   Application Programming Interfaces (APIs) are used throughout software to define interactions between different software applications. In this article we focus on web APIs specifically, taking a look at how they fit in the Jamstack architecture and how we can set up API monitoring in order to make sure they don't break and respond fast.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
+tag: API
 ---
 
 {{< figure src="/guides/images/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="Jamstack applications heavily rely on APIs" >}}

@@ -6,7 +6,7 @@
           <a href="/guides/">Back to guides</a>
         </div>
       	<div class="guides__label">
-      		<span class="guides-tag"> 
+      		<span class="guide-tag"> 
             
             {{ with .Params.tag }}
               {{ if (in (printf "%T" .) "string") }}
@@ -51,6 +51,7 @@
         <span class="markdown">{{.Content}}</span>
       </div>
     </div>
+    
     <aside class="guides-toc mb-3">
       <div id="tocMenu">
         <div class="guides-toc-header">On this page</div>
