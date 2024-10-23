@@ -29,7 +29,7 @@ Using contextual span data, about the trace it belongs to, and it's parent span;
 
 Missing spans can happen due to various reasons.  Wether you're sending data to Checkly directly from your applications and services, or through the OpenTelemetry Collector, these are steps to confirm everything is properly setup.
 
-### 1. Verify your sampling strategy
+### Verify your sampling strategy
 
    Using Checkly Traces, we recommend sampling for the tracestate header `checkly=true`, which will reduce your Egress/Ingress costs and ensure that all the spans that were originated through a check are there.
 
@@ -58,7 +58,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
 
    * Sampling in your applications' code. Choose the specific [instrumentation language guide](docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
 
-### 1. Review your OpenTelemetry Exporter configuration
+### Review your OpenTelemetry Exporter configuration
   
    Ensure the right Authorization keys and endpoints are in use.
 
@@ -91,7 +91,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
       OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
       ```
 
-### 1. Checkly Private Location setup
+### Checkly Private Location setup
    When setting up Traces with a [Checkly Private Location](docs/private-locations/#configuring-a-private-location):
  * **Step 1**. Ensure your [Checkly Agent](https://hub.docker.com/r/checkly/agent) version is at least 3.3.5.
   
@@ -108,7 +108,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
       ```
 
 
-### 1. Incomplete instrumentation
+### Incomplete instrumentation
    
-   To see the full picture, and identify the root cause of a problem faster; ensure [your application is instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
+   To see the full picture, and identify the root cause of a problem faster; ensure [your applications and services are instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
     
