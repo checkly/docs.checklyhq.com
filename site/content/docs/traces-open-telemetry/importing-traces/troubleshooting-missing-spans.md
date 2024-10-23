@@ -29,7 +29,7 @@ Using contextual span data, about the trace it belongs to, and it's parent span;
 
 Missing spans can happen due to various reasons.  Wether you're sending data to Checkly directly from your applications and services, or through the OpenTelemetry Collector, these are steps to confirm everything is properly setup.
 
-### Verify your sampling strategy
+### Verify sampling strategy
 
    Using Checkly Traces, we recommend sampling for the tracestate header `checkly=true`, which will reduce your Egress/Ingress costs and ensure that all the spans that were originated through a check are there.
 
@@ -58,7 +58,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
 
    * Sampling in your applications' code. Choose the specific [instrumentation language guide](docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
 
-### Review your OpenTelemetry Exporter configuration
+### Review OpenTelemetry Exporter configuration
   
    Ensure the right Authorization keys and endpoints are in use.
 
