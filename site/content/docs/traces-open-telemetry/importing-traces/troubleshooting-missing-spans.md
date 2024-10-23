@@ -25,11 +25,11 @@ Using contextual span data, about the trace it belongs to, and it's parent span;
 ![Trace with missing spans](/docs/images/otel/traces-missing-spans.png)
 
 
-### Troubleshooting missing spans
+## Troubleshooting missing spans
 
-Missing spans can happen due to various reasons.  Wether you're sending data to Checkly directly from your applications and services, or through the OpenTelemetry Collector, these are possible reasons for missing spans to happen.
+Missing spans can happen due to various reasons.  Wether you're sending data to Checkly directly from your applications and services, or through the OpenTelemetry Collector, these are steps to confirm everything is properly setup.
 
-1. Verify your sampling strategy.
+### 1. Verify your sampling strategy
 
    Using Checkly Traces, we recommend sampling for the tracestate header `checkly=true`, which will reduce your Egress/Ingress costs and ensure that all the spans that were originated through a check are there.
 
@@ -58,12 +58,13 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
 
    * Sampling in your applications' code. Choose the specific [instrumentation language guide](docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
 
-2. Exporter configuration
+### 1. Review your OpenTelemetry Exporter configuration
   
    Ensure the right Authorization keys and endpoints are in use.
-   * Exporting through the OpenTelemetry Collector
+
+   #### Exporting through the OpenTelemetry Collector
       
-      a. Make sure that your exporter uses the right endpoint authorization:
+   * **Step 1**. Make sure that your exporter uses the right endpoint authorization:
 
       ```yaml
       exporters:
@@ -72,7 +73,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
             headers:
                authorization: "${env:CHECKLY_OTEL_API_KEY}"
       ``` 
-      b. Confirm that your Collector pipeline uses this exporter:
+   * **Step 2**. Confirm that your Collector pipeline uses this exporter:
 
       ```yaml
       service:
@@ -90,17 +91,24 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
       OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
       ```
 
-3. Restrictions in your Private Location
-   When using [Checkly Private Location](docs/private-locations/#configuring-a-private-location):
-  * Ensure your Checkly Agent version is at least 3.3.5.
+### 1. Checkly Private Location setup
+   When setting up Traces with a [Checkly Private Location](docs/private-locations/#configuring-a-private-location):
+ * **Step 1**. Ensure your [Checkly Agent](https://hub.docker.com/r/checkly/agent) version is at least 3.3.5.
   
-  * Review your internal Firewall rules. a. Identify the ports used by OpenTelemetry, commonly:
+  * **Step 2**. Review your internal Firewall rules: 
+    * Identify the ports used by OpenTelemetry, commonly:
       * Port 4317 for gRPC protocol
       * Port 4318 for HTTP protocol
-  b. Access your firewall settings and add rules to allow outgoing traffic on the identified port. For example, to allow HTTP traces to be sent out: `A OUTPUT -p tcp --dport 4318 -j ACCEPT`
+  
+    * Access your firewall settings and add rules to allow outgoing traffic on the identified port.
+  
+      For example, to allow HTTP traces to be sent out: 
+      ```bash
+      A OUTPUT -p tcp --dport 4318 -j ACCEPT
+      ```
 
 
-4. Incomplete instrumentation
+### 1. Incomplete instrumentation
    
    To see the full picture, and identify the root cause of a problem faster; ensure [your application is instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
     
