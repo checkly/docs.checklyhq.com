@@ -33,7 +33,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
 
    Using Checkly Traces, we recommend sampling for the tracestate header `checkly=true`, which will reduce your Egress/Ingress costs and ensure that all the spans that were originated through a check are there.
 
-   * Sampling in the OpenTelemetry Collector
+   #### Sampling in the OpenTelemetry Collector
 
       a. Make sure that you're filtering out non-checkly spans:
 
@@ -56,7 +56,8 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
                processors: [filter/checkly, batch]
       ```
 
-   * Sampling in your applications' code. Choose the specific [instrumentation language guide](docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
+   #### Sampling directly in your applications' code. 
+   Choose the specific [instrumentation language guide](docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
 
 ### Review OpenTelemetry Exporter configuration
   
@@ -82,7 +83,7 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
                exporters: [otlp/checkly]
       ```
 
-   * Exporting directly from your Application's code
+   #### Exporting directly from your Application's code
       Confirm the environment variables use the right endpoint and authorization:
 
       ```bash
