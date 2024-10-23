@@ -4,6 +4,8 @@ description: >-
   Monitoring as code is the practice of managing monitoring configurations and alerts through code. This approach offers several benefits for engineering teams at scale, including codified, version-controlled, and reusable monitoring configurations.
 author: Daniel Giordano
 avatar: 'images/avatars/daniel-giordano.png'
+tags:
+  - FAQ
 ---
 
 ## An overview of monitoring as code

@@ -5,6 +5,8 @@ description: >-
   Discover how Checkly empowers developers and platform teams to streamline complex monitoring through a code-first approach. Learn how collaboration, automation, and integrated alerts improve reliability and reduce bottlenecks in modern software delivery workflows.
 author: Daniel Giordano
 avatar: 'images/avatars/daniel-giordano.png'
+tags:
+  - FAQ
 ---
 ## An overview of end-to-end monitoring
 
