@@ -43,7 +43,10 @@ Here is an example
 Now restart Prometheus and you should see metrics coming in.
 
 {{< warning >}}
-The Prometheus metrics endpoint has a rate limit of 8 requests per 5 minutes. We recommend using a scrape interval of 60 seconds.
+The Prometheus metrics endpoint has a rate limit of 50 requests per minute.
+The responses from this endpoint are cached during 60 seconds.
+Any request made to this endpoint within 60 seconds of the initial request will receive the cached response. 
+We recommend using a scrape interval of 60 seconds.
 {{</ warning >}}
 
 ## Check Metrics

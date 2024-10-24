@@ -4,6 +4,7 @@ title: Setting up the OpenTelemetry collector
 metatags:
   title: "Setting up the OpenTelemetry collector"
   description: "Set up the OpenTelemetry collector and send traces to Checkly."
+navTitle: OpenTelemetry Collector configuration
 weight: 20
 menu:
   platform:
