@@ -35,7 +35,7 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
 
    #### Sampling in the OpenTelemetry Collector
 
-      a. Make sure that you're filtering out non-checkly spans:
+   * **Step 1**. Make sure that you're filtering out non-checkly spans:
 
       ```yaml
       processors:
@@ -47,7 +47,7 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
                # filter out spans in which tracestate is not "checkly=true"
                - 'trace_state["checkly"] != "true"'
       ``` 
-      b. Confirm that your Collector pipeline uses this processor:
+   * **Step 2**. Confirm that your Collector pipeline uses this processor:
 
       ```yaml
       service:
@@ -61,7 +61,7 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
 
 ### Review OpenTelemetry Exporter configuration
   
-   Ensure the right Authorization keys and endpoints are in use.
+Ensure the right Authorization keys and endpoints are in use.
 
    #### Exporting through the OpenTelemetry Collector
       
@@ -83,8 +83,9 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
                exporters: [otlp/checkly]
       ```
 
-   #### Exporting directly from your Application's code
-      Confirm the environment variables use the right endpoint and authorization:
+#### Exporting directly from your Application's code
+   
+   Confirm your environment variables use the correct endpoint and authorization:
 
       ```bash
       OTEL_EXPORTER_OTLP_HEADERS="authorization=<your-api-key>"
@@ -94,7 +95,7 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
 
 ### Checkly Private Location setup
    When setting up Traces with a [Checkly Private Location](docs/private-locations/#configuring-a-private-location):
- * **Step 1**. Ensure your [Checkly Agent](https://hub.docker.com/r/checkly/agent) version is at least 3.3.5.
+  * **Step 1**. Ensure your [Checkly Agent](https://hub.docker.com/r/checkly/agent) version is at least 3.3.5.
   
   * **Step 2**. Review your internal Firewall rules: 
     * Identify the ports used by OpenTelemetry, commonly:
@@ -103,7 +104,8 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
   
     * Access your firewall settings and add rules to allow outgoing traffic on the identified port.
   
-      For example, to allow HTTP traces to be sent out: 
+      For example, to allow HTTP traces to be sent out:
+
       ```bash
       A OUTPUT -p tcp --dport 4318 -j ACCEPT
       ```
@@ -111,5 +113,5 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
 
 ### Incomplete instrumentation
    
-   To see the full picture, and identify the root cause of a problem faster, ensure [your applications and services are instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
+   To see the full picture, and identify the root cause of a problem faster, ensure your applications and services are [instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
     
