@@ -9,7 +9,7 @@ tags:
   - basics
 
 weight: 1
-navTitle: Getting started
+navTitle: What is Playwright?
 menu:
   learn:
     parent: "Getting started"

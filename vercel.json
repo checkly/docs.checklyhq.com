@@ -94,6 +94,7 @@
     { "source": "/docs/integrations/terraform(/)?", "destination": "/docs/terraform-provider/", "permanent": true },
     { "source": "/docs/browser-checks/runner-specification(/)?", "destination": "/docs/runtimes/specs/", "permanent": true },
     { "source": "/docs/browser-checks/login-and-secrets(/)?", "destination": "/docs/browser-checks/login-scenarios/", "permanent": true },
-    { "source": "/docs/integrations/prometheus-v1(/)?", "destination": "/docs/integrations/prometheus/", "permanent": true }
+    { "source": "/docs/integrations/prometheus-v1(/)?", "destination": "/docs/integrations/prometheus/", "permanent": true },
+    { "source": "/learn/playwright/getting-started(/)?", "destination": "/learn/playwright/what-is-playwright/", "permanent": true }
   ]
 }
