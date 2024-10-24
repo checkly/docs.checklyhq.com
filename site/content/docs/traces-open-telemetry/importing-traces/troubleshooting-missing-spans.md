@@ -19,7 +19,6 @@ An instrumented distributed system will emit spans, creating a hierarchical chai
 
 When a span is missing, they create a hole in this chain, making it difficult to diagnose issues and understand the full picture. If this happens, you will notice a span missing from the visualization in Checkly.
 
-When viewing trace details, a span might be missing in the Checkly visualization. 
 Checkly uses contextual span data—such as the trace it belongs to and its parent span—to display any missing pieces in the span chain. This helps you identify which application or service may be incorrectly instrumented.
 
 ![Trace with missing spans](/docs/images/otel/traces-missing-spans.png)
