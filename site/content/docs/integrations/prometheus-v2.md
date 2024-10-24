@@ -26,13 +26,13 @@ Activating this integration is simple.
 2. We directly create an endpoint for you and provide its URL and the required Bearer token.
 ![Prometheus integration step 2](/docs/images/integrations/prometheus_v2_step2.png)
 
-3. Create a new job in your Prometheus `prometheus.yml` config and set up a scraping interval. The scrape interval should be above 60 seconds. Add the URL (divided into `metrics_path`, `scheme` and `target`) and `bearer_token`.
+3. Create a new job in your Prometheus `prometheus.yml` config and set up a scraping interval. The scrape interval should be above 2 seconds. Add the URL (divided into `metrics_path`, `scheme` and `target`) and `bearer_token`.
 Here is an example
 
 ```yaml
 # prometheus.yml
 - job_name: 'checkly'
-  scrape_interval: 60s
+  scrape_interval: 20s
   metrics_path: '/accounts/993adb-8ac6-3432-9e80-cb43437bf263/v2/prometheus/metrics'
   bearer_token: 'lSAYpOoLtdAa7ajasoNNS234'
   scheme: https
@@ -43,7 +43,7 @@ Here is an example
 Now restart Prometheus and you should see metrics coming in.
 
 {{< warning >}}
-The Prometheus metrics endpoint has a rate limit of 8 requests per 5 minutes. We recommend using a scrape interval of 60 seconds.
+The Prometheus metrics endpoint has a rate limit of 50 requests per minute. We recommend using a scrape interval equal or above 2 seconds.
 {{</ warning >}}
 
 ## Check Metrics
