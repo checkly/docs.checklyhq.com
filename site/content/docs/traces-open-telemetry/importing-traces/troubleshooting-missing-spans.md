@@ -15,19 +15,19 @@ This guide will walk you through the process of identifying missing spans, under
 
 Missing spans, also known as orphan spans, are segments of a trace that are disconnected from either their parent spans or from the root span.
 
-An instrumented distributed system, will emit spans creating a hierarchical chain that follows the flow of the request through the different components and services.
+An instrumented distributed system will emit spans, creating a hierarchical chain that follows the flow of the request through the different components and services.
 
-When a span is missing, they create a whole in this chain, making it difficult to diagnose issue and understand the full picture.
+When a span is missing, they create a hole in this chain, making it difficult to diagnose issues and understand the full picture. If this happens, you will notice a span missing from the visualization in Checkly.
 
 When viewing trace details, a span might be missing in the Checkly visualization. 
-Using contextual span data, about the trace it belongs to, and it's parent span; Checkly displays any missing pieces on the span chain, so that you can identify which application or service might be incorrectly instrumented. 
+Checkly uses contextual span data—such as the trace it belongs to and its parent span—to display any missing pieces in the span chain. This helps you identify which application or service may be incorrectly instrumented.
 
 ![Trace with missing spans](/docs/images/otel/traces-missing-spans.png)
 
 
 ## Troubleshooting missing spans
 
-Missing spans can happen due to various reasons.  Wether you're sending data to Checkly directly from your applications and services, or through the OpenTelemetry Collector, these are steps to confirm everything is properly setup.
+Missing spans can happen due to various reasons. Whether you're sending data to Checkly directly from your applications and services, or through the OpenTelemetry Collector, these are steps to confirm everything is properly set up.
 
 ### Verify sampling strategy
 
@@ -111,5 +111,5 @@ Missing spans can happen due to various reasons.  Wether you're sending data to 
 
 ### Incomplete instrumentation
    
-   To see the full picture, and identify the root cause of a problem faster; ensure [your applications and services are instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
+   To see the full picture, and identify the root cause of a problem faster, ensure [your applications and services are instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
     
