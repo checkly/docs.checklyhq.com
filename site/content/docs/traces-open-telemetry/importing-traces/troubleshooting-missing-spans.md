@@ -87,11 +87,11 @@ Ensure the right Authorization keys and endpoints are in use.
    
    Confirm your environment variables use the correct endpoint and authorization:
 
-      ```bash
-      OTEL_EXPORTER_OTLP_HEADERS="authorization=<your-api-key>"
+   ```bash
+   OTEL_EXPORTER_OTLP_HEADERS="authorization=<your-api-key>"
          
-      OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
-      ```
+   OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
+   ```
 
 ### Checkly Private Location setup
    When setting up Traces with a [Checkly Private Location](docs/private-locations/#configuring-a-private-location):
