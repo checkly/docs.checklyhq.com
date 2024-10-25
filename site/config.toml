@@ -201,6 +201,10 @@ disqusShortname = "checkly"
 	pre = "/learn/icons/errors.svg"
 	weight = 350
 
+[[menu.learn]]
+	name = "OpenTelemetry"
+	pre = "/learn/icons/opentelemetry.svg"
+	weight = 360
 
 [markup.goldmark.renderer]
 unsafe = true
