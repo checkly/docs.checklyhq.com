@@ -1,12 +1,14 @@
 ---
-title: What is End to End Monitoring? Overview with Examples
-displayTitle: End to end monitoring
+title: What is End to End Monitoring? An Overview with Examples
+displayTitle: What is End to End Monitoring?
 description: >-
-  Learn end-to-end monitoring with puppeteer and playwright to test key website flows. Follow our guide that gets you up and running in 10 minutes.
+  Learn end-to-end monitoring with playwright to test key website flows. Follow our guide that gets you up and running in 10 minutes.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
+tags:
+  - FAQ
 ---
-## What is end-to-end monitoring?
+## An overview of end-to-end monitoring
 
 End-to-end monitoring is a comprehensive strategy designed to assess the overall health and performance of a service by examining the entire lifecycle of requests to an application. By simulating a user request, including the browser rendering and user experience, an operations or development professional tests all parts of an application at once; hence the name ‘end-to-end.’ End-to-end monitoring is an outgrowth of end-to-end testing, where rather than sending test request once, with monitoring tests are run on a cadence, and the results automatically compiled.
 
@@ -14,7 +16,7 @@ By aligning monitoring insights with the user experience, end-to-end monitoring 
 
 This inclusive monitoring strategy often involves multiple teams, including developers, network engineers, and non-technical stakeholders, fostering a collaborative effort to maintain optimal system performance and enhance the digital experience for users.
 
-### End-to-end monitoring vs traditional monitoring approaches
+## End-to-end monitoring vs traditional monitoring approaches
 
 Unlike traditional testing, which focuses on isolated components and only tests occasionally, end-to-end monitoring provides a holistic view of a product or service.
 
@@ -37,7 +39,7 @@ The industry has learned to struggle with the challenges this approach presents:
 
 **All of the above lead to higher costs and slower delivery.**
 
-The appearance of mature **headless browser automation tools, such as {{< newtabref  href="https://pptr.dev" title="Puppeteer" >}} and {{< newtabref  href="https://playwright.dev" title="Playwright" >}}, offers a response** to many of the above issues by allowing testing in the browser without its GUI, which yields higher speed and stability coupled with lower resource consumption.
+The appearance of mature **headless browser automation tools, such as {{< newtabref  href="https://playwright.dev" title="Playwright" >}}, offer a response** to many of the above issues by allowing testing in the browser without its GUI, which yields higher speed and stability coupled with lower resource consumption.
 
 ## E2E monitoring examples
 

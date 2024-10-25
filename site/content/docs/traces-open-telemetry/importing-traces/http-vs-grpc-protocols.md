@@ -2,6 +2,7 @@
 title: HTTP vs. gRPC OpenTelemetry protocols
 head:
   title: "Choosing between HTTP and gRPC OpenTelemetry protocols"
+navTitle: HTTP vs gRPC OpenTelemetry protocols
 metatags:
   title: "Choosing between HTTP and gRPC OpenTelemetry protocols"
   description: "Learn about the trade-offs between using HTTP and gRPC for sending data to an OpenTelemetry backend."

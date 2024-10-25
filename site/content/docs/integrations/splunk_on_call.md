@@ -1,5 +1,6 @@
 ---
-title: Splunk On-Call
+title: Send Alerts via Splunk On-Call and Checkly
+navTitle: Splunk On-Call
 weight: 63
 menu:
   integrations:

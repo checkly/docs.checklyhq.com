@@ -1,5 +1,6 @@
 ---
-title: Customization
+title: Customizing your dashboard
+navTitle: Customization
 weight: 47
 menu:
   resources:

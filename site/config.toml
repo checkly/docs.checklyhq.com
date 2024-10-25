@@ -2,7 +2,7 @@ baseurl = "https://www.checklyhq.com"
 languageCode = "en-us"
 languageLang = "en"
 title = "Build and Run Synthetics That Scale"
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+disableKinds = ["RSS"]
 enableGitInfo = true
 enableRobotsTXT = true
 
@@ -10,6 +10,10 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 disqusShortname = "checkly"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
 
 [permalinks]
   blog = "/blog/:year/:month/:title/"
@@ -27,7 +31,7 @@ disqusShortname = "checkly"
     weight = 20
 [[menu.topnav]]
     name = "Learn"
-    url = "/learn/headless/"
+    url = "/learn/playwright/"
     weight = 30
 [[menu.topnav]]
     name = "API Reference"
@@ -168,48 +172,35 @@ disqusShortname = "checkly"
 
 [[menu.learn]]
 	name = "Getting started"
-	pre = "/learn/icons/getting-started.svg"
-	weight = 10
+	pre = "/learn/icons/playwright-logo.svg"
+	weight = 300
 
 [[menu.learn]]
-	name = "E2E examples"
-	pre = "/learn/icons/e2e.svg"
-	weight = 20
+	name = "Basics"
+	pre = "/learn/icons/misc.svg"
+	weight = 310
 
 [[menu.learn]]
-	name = "Pages & frames"
+	name = "Interaction"
 	pre = "/learn/icons/pages.svg"
-	weight = 30
-
-[[menu.learn]]
-	name = "Network & state"
-	pre = "/learn/icons/network.svg"
-	weight = 32
+	weight = 320
 
 [[menu.learn]]
 	name = "Best practices"
 	pre = "/learn/icons/best-practices.svg"
-	weight = 60
+	weight = 330
 
 [[menu.learn]]
-	name = "Performance"
-	pre = "/learn/icons/performance.svg"
-	weight = 50
+	name = "E2E examples"
+	pre = "/learn/icons/e2e.svg"
+	weight = 340
 
-[[menu.learn]]
-	name = "Scraping"
-	pre = "/learn/icons/scraping.svg"
-	weight = 45
 
 [[menu.learn]]
 	name = "Debugging"
 	pre = "/learn/icons/errors.svg"
-	weight = 60
+	weight = 350
 
-[[menu.learn]]
-	name = "Miscellaneous"
-	pre = "/learn/icons/misc.svg"
-	weight = 1000
 
 [markup.goldmark.renderer]
 unsafe = true

@@ -1,5 +1,6 @@
 ---
-title: Installation
+title: Installing the Checkly CLI
+navTitle: Installation
 weight: 2
 menu:
   platform:

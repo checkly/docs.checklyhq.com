@@ -1,5 +1,6 @@
 ---
-title: 'Overview'
+title: Checkly Integrations
+navTitle: Overview
 weight: 53
 slug: /
 menu:

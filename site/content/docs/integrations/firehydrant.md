@@ -1,5 +1,6 @@
 ---
-title: FireHydrant
+title: Send Alerts to FireHydrant with Checkly
+navTitle: FireHydrant
 weight: 68
 menu:
   integrations:

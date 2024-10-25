@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Integrating Checkly in your CI/CD pipeline
+navTitle: Overview
 weight: 1
 slug: /
 menu:

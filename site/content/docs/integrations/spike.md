@@ -1,5 +1,6 @@
 ---
-title: Spike.sh
+title: Integrating Spike.sh and Checkly
+navTitle: Spike.sh
 weight: 62
 menu:
   integrations:

@@ -1,5 +1,6 @@
 ---
-title: Dashboard
+title: Reporting Dashboard
+navTitle: Overview
 weight: 68
 slug: /
 aliases:
