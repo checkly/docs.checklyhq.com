@@ -1,5 +1,7 @@
 ---
-title: Send your traces to Checkly
+title: Importing your traces to Checkly - Checkly Docs
+displayTitle: Importing your traces to Checkly
+navTitle: Importing traces
 weight: 20
 menu:
   platform:

@@ -1,5 +1,7 @@
 ---
-title: Changing your email or password
+title: Changing your email or password in Checkly - Checkly Docs
+displayTitle: Changing your email or password in Checkly
+navTitle: Changing email or password
 weight: 52
 menu:
   resources:

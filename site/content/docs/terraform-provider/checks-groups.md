@@ -1,5 +1,7 @@
 ---
-title: Checks and groups
+title: Checks and groups for Terraform - Checkly Docs
+displayTitle: Checks and groups for Terraform
+navTitle: Checks and groups
 weight: 2
 menu:
   integrations:

@@ -1,5 +1,6 @@
 ---
-title: Snippets and environment variables
+title: Snippets and environment variables in Terraform - Checkly Docs
+displayTitle: Snippets and environment variables in Terraform
 weight: 4
 menu:
   integrations:

@@ -1,5 +1,7 @@
 ---
-title: Using environment variables
+title: Using environment variables - Checkly Docs
+displayTitle: Using environment variables
+navTitle: Environment variables
 weight: 5
 menu:
   platform:

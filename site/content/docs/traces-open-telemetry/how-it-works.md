@@ -1,9 +1,12 @@
 ---
-title: Understand Checkly Traces
+title: Understand Checkly Traces and OpenTelemetry - Checkly Docs
+displayTitle: Understand Checkly Traces and OpenTelemetry
+navTitle: How it works
 weight: 70
 menu:
   platform:
     parent: "Traces (beta)"
+    identifier: how-it-works
 beta: true
 aliases:
   - "/docs/open-telemetry/how-it-works"

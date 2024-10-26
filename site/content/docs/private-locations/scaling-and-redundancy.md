@@ -1,5 +1,7 @@
 ---
-title: Scaling and Redundancy
+title: Scaling and Redundancy on Private Locations - Checkly Docs
+displayTitle: Scaling and Redundancy on Private Locations
+navTitle: Scaling and Redundancy
 weight: 55
 menu:
   resources:

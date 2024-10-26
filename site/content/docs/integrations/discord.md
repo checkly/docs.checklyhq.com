@@ -1,5 +1,6 @@
 ---
-title: Send Alerts to Discord with Checkly
+title: Send Alerts to Discord with Checkly - Checkly Docs
+displayTitle: Send Alerts to Discord
 navTitle: Discord
 weight: 61
 menu:

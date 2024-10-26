@@ -1,5 +1,7 @@
 ---
-title: Using git metadata
+title: Using git metadata - Checkly Docs
+displayTitle: Using git metadata
+navTitle: Using Git
 weight: 8
 menu:
   platform:

@@ -1,5 +1,7 @@
 ---
-title: Dashboards
+title: Dashboards in Terraform - Checkly Docs
+displayTitle: Dashboards in Terraform
+navTitle: Dashboards
 weight: 5
 menu:
   integrations:

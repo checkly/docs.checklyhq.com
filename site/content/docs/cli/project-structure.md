@@ -1,5 +1,7 @@
 ---
-title: Project Structure
+title: Project Structure - Checkly Docs
+displayTitle: Structuring your project in Checkly
+navTitle: Project structure
 weight: 3
 menu:
   platform:

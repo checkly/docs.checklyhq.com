@@ -1,5 +1,7 @@
 ---
-title: Variables and secrets
+title: Handling variables and secrets - Checkly Docs
+displayTitle: Handling variables and secrets
+navTitle: Variables and secrets
 weight: 21
 menu:
   resources:

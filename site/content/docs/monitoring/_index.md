@@ -1,5 +1,7 @@
 ---
-title: How we run checks
+title: How Checkly runs checks - Checkly Docs
+displayTitle: How Checkly runs checks 
+navTitle: How Checkly runs checks
 weight: 1
 slug: /
 aliases:

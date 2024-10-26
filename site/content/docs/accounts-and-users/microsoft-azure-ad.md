@@ -1,5 +1,7 @@
 ---
-title: Microsoft Azure AD
+title: Using Microsoft Azure AD for Single Sign-on in Checkly - Checkly Docs
+displayTitle: Using Microsoft Azure AD for Single Sign-on in Checkly
+navTitle: Microsoft Azure AD
 weight: 57
 menu:
   resources:

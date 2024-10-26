@@ -1,5 +1,7 @@
 ---
-title: How runtimes work
+title: How runtimes work - Checkly Docs
+displayTitle: How runtimes work
+navTitle: Overview
 weight: 69
 slug: /
 menu:

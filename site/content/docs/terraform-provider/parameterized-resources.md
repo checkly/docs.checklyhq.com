@@ -1,5 +1,6 @@
 ---
-title: Parameterized resources
+title: Parameterized resources in Terraform - Checkly Docs
+displayTitle: Parameterized resources in Terraform
 weight: 9
 menu:
   integrations:

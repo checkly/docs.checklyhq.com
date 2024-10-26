@@ -1,5 +1,7 @@
 ---
-title: Vercel Deployment Protection
+title: Vercel Deployment Protection - Checkly Docs
+displayTitle: Vercel Deployment Protection  
+navTitle: Vercel Deployment Protection
 weight: 1
 menu:
   integrations:

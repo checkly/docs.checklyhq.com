@@ -1,6 +1,7 @@
 ---
-title: Heartbeat Monitoring
-navTitle: Getting started
+title: Heartbeat Monitoring - Checkly Docs
+displayTitle: Heartbeat Monitoring
+navTitle: Overview
 weight: 14
 slug: /
 menu:

@@ -1,5 +1,7 @@
 ---
-title: 'Alert settings'
+title: Alert settings in Checkly - Checkly Docs
+displayTitle: Alert settings in Checkly
+navTitle: Alert settings
 weight: 30
 menu:
   resources:

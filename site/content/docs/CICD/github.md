@@ -1,5 +1,7 @@
 ---
-title: GitHub deployments
+title: Integrating Checkly with GitHub deployments - Checkly Docs
+displayTitle: Integrating Checkly with GitHub deployments
+navTitle: GitHub deployments
 weight: 9
 menu:
   integrations:

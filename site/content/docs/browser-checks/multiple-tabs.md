@@ -1,5 +1,7 @@
 ---
-title: Multiple tabs
+title: Monitoring a scenario with multiple tabs - Checkly Docs
+displayTitle: Monitoring a scenario with multiple tabs
+navTitle: Multiple tabs
 weight: 21
 aliases:
 - multiple-tabs

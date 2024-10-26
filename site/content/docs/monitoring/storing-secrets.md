@@ -1,5 +1,7 @@
 ---
-title: Storing secrets
+title: Storing secrets - Checkly Docs
+displayTitle: Storing secrets 
+navTitle: Storing secrets
 weight: 5
 menu:
   platform:

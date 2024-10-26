@@ -1,5 +1,6 @@
 ---
-title: Customizing your dashboard
+title: Customizing your dashboard - Checkly Docs
+displayTitle: Customizing your dashboard
 navTitle: Customization
 weight: 47
 menu:

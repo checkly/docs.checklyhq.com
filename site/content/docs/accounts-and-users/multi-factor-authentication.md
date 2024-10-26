@@ -1,5 +1,7 @@
 ---
-title: Multi-Factor Authentication
+title: Multi-Factor Authentication in Checkly - Checkly Docs
+displayTitle: Multi-Factor Authentication in Checkly
+navTitle: Multi-Factor Authentication
 weight: 53
 menu:
   resources:

@@ -1,5 +1,6 @@
 ---
-title: Setting Maintenance Windows in Checkly
+title: Setting Maintenance Windows in Checkly - Checkly Docs
+displayTitle: Setting Maintenance Windows 
 navTitle: Overview
 weight: 46
 slug: /

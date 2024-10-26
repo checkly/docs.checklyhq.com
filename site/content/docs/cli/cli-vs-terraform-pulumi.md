@@ -1,5 +1,6 @@
 ---
-title: CLI vs. Terraform & Pulumi
+title: CLI vs. Terraform & Pulumi - Checkly Docs
+displayTitle: CLI vs. Terraform & Pulumi
 weight: 9
 menu:
   platform:

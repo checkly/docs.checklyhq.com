@@ -1,5 +1,7 @@
 ---
-title: CI/CD pipelines
+title: CI/CD pipelines for Terraform - Checkly Docs
+displayTitle: CI/CD pipelines for Terraform
+navTitle: CI/CD pipelines
 weight: 12
 menu:
   integrations:
