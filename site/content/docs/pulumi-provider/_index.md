@@ -1,5 +1,6 @@
 ---
-title: Getting started with the Pulumi provider for Checkly
+title: Getting started with the Pulumi provider for Checkly - Checkly Docs
+displayTitle: Getting started with the Pulumi provider for Checkly
 navTitle: Overview
 weight: 10
 menu:

@@ -1,5 +1,6 @@
 ---
-title: Using The Playwright Test Runner With Checkly
+title: Using The Playwright Test Runner With Checkly - Checkly Docs
+displayTitle: Using The Playwright Test Runner With Checkly
 navTitle: Using Playwright Test Runner
 description: How to use Playwright Test Runner natively within browser checks at Checkly
 weight: 14

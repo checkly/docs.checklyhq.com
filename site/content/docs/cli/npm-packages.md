@@ -1,5 +1,7 @@
 ---
-title: Using NPM packages and local dependencies
+title: Using NPM packages and local dependencies - Checkly Docs
+displayTitle: Using NPM packages and local dependencies
+navTitle: NPM packages & local dependencies
 weight: 8
 menu:
   platform:

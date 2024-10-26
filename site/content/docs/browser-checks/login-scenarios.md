@@ -1,5 +1,7 @@
 ---
-title: Login scenarios
+title: Monitoring a login scenario with browser checks - Checkly Docs
+displayTitle: Monitoring a login scenario with browser checks
+navTitle: Login scenarios
 weight: 20
 aliases:
 - login-and-secrets

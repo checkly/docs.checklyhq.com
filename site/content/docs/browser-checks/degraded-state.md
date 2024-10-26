@@ -1,5 +1,7 @@
 ---
-title: Degraded state with soft assertions
+title: Degraded state with soft assertions - Checkly Docs
+displayTitle: Degraded state with soft assertions
+navTitle: Degraded state
 weight: 26
 menu:
   resources:

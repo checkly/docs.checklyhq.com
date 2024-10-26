@@ -1,5 +1,7 @@
 ---
-title: Dynamic check creation
+title: Dynamic monitor creation - Checkly Docs
+displayTitle: Dynamic monitor creation
+navTitle: Dynamic monitor creation
 weight: 6
 menu:
   platform:

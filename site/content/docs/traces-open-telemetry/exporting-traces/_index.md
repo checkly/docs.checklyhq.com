@@ -1,5 +1,8 @@
 ---
-title: Export traces to 3rd party tools
+title: Export traces to 3rd party tools with Checkly - Checkly Docs
+displayTitle: Export traces to 3rd party tools with Checkly
+navTitle: Exporting traces
+identifier: exporting-traces
 weight: 30
 menu:
   platform:

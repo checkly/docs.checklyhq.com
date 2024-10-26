@@ -1,6 +1,7 @@
 ---
-title: Getting started with Browser Monitoring
-navTitle: Getting started
+title: Getting started with Browser Monitoring - Checkly Docs
+displayTitle: Getting started with Browser Monitoring
+navTitle: Overview
 weight: 14
 slug: /
 menu:

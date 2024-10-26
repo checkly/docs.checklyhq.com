@@ -1,5 +1,7 @@
 ---
-title: HTTP request settings
+title: HTTP request settings - Checkly Docs
+displayTitle: HTTP request settings
+navTitle: HTTP request settings
 weight: 8
 menu:
   resources:

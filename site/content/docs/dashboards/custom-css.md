@@ -1,5 +1,7 @@
 ---
-title: Using Custom CSS
+title: Customizing Your Dashboard with Custom CSS - Checkly Docs
+displayTitle: Customizing Your Dashboard with Custom CSS
+navTitle: Custom CSS
 weight: 49
 menu:
   resources:

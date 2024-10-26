@@ -1,5 +1,7 @@
 ---
-title: Check results
+title: Check results - Checkly Docs
+displayTitle: Check results 
+navTitle: Results
 weight: 2
 menu:
    platform:

@@ -1,5 +1,7 @@
 ---
-title: Alert channels
+title: Available alerting channels in Checkly - Checkly Docs
+displayTitle: Available alerting channels in Checkly
+navTitle: Alert channels
 weight: 31
 menu:
   resources:

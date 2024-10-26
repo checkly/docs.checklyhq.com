@@ -1,5 +1,7 @@
 ---
-title: Alert channels and settings
+title: Alert channels and settings for Terraform - Checkly Docs
+displayTitle: Alert channels and settings for Terraform
+navTitle: Alert channels and settings
 weight: 3
 
 menu:

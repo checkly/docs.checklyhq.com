@@ -1,5 +1,7 @@
 ---
-title: Visual regression & snapshot testing
+title: Visual regression & snapshot testing - Checkly Docs
+displayTitle: Visual regression & snapshot testing
+navTitle: Visual regression & snapshot testing
 weight: 25
 menu:
   resources: 

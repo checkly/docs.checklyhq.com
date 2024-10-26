@@ -1,5 +1,7 @@
 ---
-title: SMS delivery
+title: Alerting with SMS in Checkly - Checkly Docs
+displayTitle: Alerting with SMS in Checkly
+navTitle: SMS
 weight: 34
 menu:
   resources:

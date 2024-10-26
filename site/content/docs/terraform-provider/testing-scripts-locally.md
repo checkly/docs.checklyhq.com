@@ -1,5 +1,6 @@
 ---
-title: Testing scripts locally
+title: Testing Terraform scripts locally - Checkly Docs
+displayTitle: Testing Terraform scripts locally
 weight: 8
 menu:
   integrations:

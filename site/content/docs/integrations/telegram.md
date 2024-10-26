@@ -1,5 +1,6 @@
 ---
-title: Send Alerts via Telegram with Checkly
+title: Send Alerts via Telegram with Checkly - Checkly Docs
+displayTitle: Send Alerts via Telegram
 navTitle: Telegram
 description: Find out how Checkly integrates with Telegram to send failure, degradation, and recovery messages to any chat.
 weight: 58

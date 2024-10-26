@@ -1,10 +1,12 @@
 ---
-title: Getting started with Checkly Traces and OpenTelemetry
+title: Getting started with Checkly Traces and OpenTelemetry - Checkly Docs
+displayTitle: Getting started with Checkly Traces and OpenTelemetry
+navTitle: Overview
 weight: 1
 menu:
   platform:
     parent: "Traces (beta)"
-    identifier: getting-started-traces-otel
+    identifier: traces-open-telemetry
 navTitle: Getting started
 beta: true
 aliases:

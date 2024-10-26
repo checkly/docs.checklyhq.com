@@ -1,5 +1,6 @@
 ---
-title: Send Alerts to PagerDuty with Checkly
+title: Send Alerts to PagerDuty with Checkly - Checkly Docs
+displayTitle: Send Alerts to PagerDuty
 navTitle: PagerDuty
 description: Learn how Checkly integrates seamlessly with PagerDuty, delivering real-time failure and recovery alerts to your PagerDuty account.
 metatags: 

@@ -1,5 +1,7 @@
 ---
-title: Check pricing
+title: Pricing & Billing - Checkly Docs
+displayTitle: Pricing & Billing
+navTitle: Pricing & Billing
 weight: 9
 menu:
    platform:

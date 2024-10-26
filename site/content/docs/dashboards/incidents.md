@@ -1,5 +1,7 @@
 ---
-title: Incident & Maintenance messages
+title: Incident & Maintenance messages - Checkly Docs
+displayTitle: Incident & Maintenance messages 
+navTitle: Incidents
 weight: 50
 menu:
   resources:

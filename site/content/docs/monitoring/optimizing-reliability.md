@@ -1,5 +1,7 @@
 ---
-title: Optimizing your monitoring for reliability
+title: Optimizing your monitoring for reliability - Checkly Docs
+displayTitle: Optimizing your monitoring for reliability  
+navTitle: Optimizing reliability
 weight: 4
 menu:
   platform:

@@ -1,5 +1,7 @@
 ---
-title: Command Line triggers
+title: Command Line triggers - Checkly Docs
+displayTitle: Command Line triggers 
+navTitle: Command Line triggers
 weight: 10
 aliases:
     - /api-checks/triggers

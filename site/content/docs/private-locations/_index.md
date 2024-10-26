@@ -1,6 +1,7 @@
 ---
-title: Getting started with Private Locations
-navTitle: Getting started
+title: Getting started with Private Locations - Checkly Docs
+displayTitle: Getting started with Private Locations
+navTitle: Overview
 weight: 51
 slug: /
 menu:

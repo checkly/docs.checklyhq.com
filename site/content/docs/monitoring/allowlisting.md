@@ -1,5 +1,7 @@
 ---
-title: Allowlisting & filtering traffic
+title: Allowlisting & filtering traffic - Checkly Docs
+displayTitle: Allowlisting & filtering traffic  
+navTitle: Allowlisting traffic
 weight: 6
 menu:
   platform:

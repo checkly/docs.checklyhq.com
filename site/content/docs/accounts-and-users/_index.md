@@ -1,5 +1,6 @@
 ---
-title: About roles
+title: About Roles in Checkly - Checkly Docs
+displayTitle: About Roles in Checkly
 weight: 50
 slug: /
 menu:

@@ -1,6 +1,7 @@
 ---
-title: Getting started with Multistep API Checks
-navTitle: Getting started
+title: Getting started with Multistep API Checks - Checkly Docs
+displayTitle: Getting started with Multistep API Checks 
+navTitle: Overview
 weight: 14
 slug: /
 menu:
