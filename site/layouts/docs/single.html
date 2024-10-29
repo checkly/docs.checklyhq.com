@@ -23,38 +23,56 @@
           {{ .Page.TableOfContents }}
         </div>
         {{- .Content -}}
-        {{if and (.NextInSection) (.PrevInSection)}}
-        <div class="d-flex justify-content-between flex-wrap my-5">
-          <a href="{{.NextInSection.RelPermalink}}" class="nav-docs">
-            <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
-            {{ .NextInSection.Title }}
-          </a>
-          <a href="{{.PrevInSection.RelPermalink}}" class="nav-docs">{{ .PrevInSection.Title }}
-            <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="next">
-          </a>
-        </div>
-        {{ else if .PrevInSection }}
-        <div class="d-flex justify-content-between flex-wrap my-5">
-            <a href="{{ .CurrentSection.RelPermalink }}" class="nav-docs">
-              <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
-              {{ .CurrentSection.Title }}
-            </a>
-          <a href="{{.PrevInSection.RelPermalink}}" class="nav-docs">{{ .PrevInSection.Title }}
-            <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="previous">
-          </a>
-        </div>
-        {{ else if .NextInSection}}
-        <div class="text-left my-5">
-          <a href="{{.NextInSection.RelPermalink}}" class="nav-docs">
-            <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="next">
-            {{ .NextInSection.Title }}
-          </a>
-        </div>
-
-        {{ else }}
-
-        {{end}}
-
+        {{ if and (.NextInSection) (.PrevInSection) }}
+<div class="d-flex justify-content-between flex-wrap my-5">
+  <a href="{{.NextInSection.RelPermalink}}" class="nav-docs">
+    <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
+    {{ if .NextInSection.Params.displayTitle }}
+      {{ .NextInSection.Params.displayTitle }}
+    {{ else }}
+      {{ .NextInSection.Title }}
+    {{ end }}
+  </a>
+  <a href="{{.PrevInSection.RelPermalink}}" class="nav-docs">
+    {{ if .PrevInSection.Params.displayTitle }}
+      {{ .PrevInSection.Params.displayTitle }}
+    {{ else }}
+      {{ .PrevInSection.Title }}
+    {{ end }}
+    <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="next">
+  </a>
+</div>
+{{ else if .PrevInSection }}
+<div class="d-flex justify-content-between flex-wrap my-5">
+  <a href="{{ .CurrentSection.RelPermalink }}" class="nav-docs">
+    <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="previous">
+    {{ if .CurrentSection.Params.displayTitle }}
+      {{ .CurrentSection.Params.displayTitle }}
+    {{ else }}
+      {{ .CurrentSection.Title }}
+    {{ end }}
+  </a>
+  <a href="{{.PrevInSection.RelPermalink}}" class="nav-docs">
+    {{ if .PrevInSection.Params.displayTitle }}
+      {{ .PrevInSection.Params.displayTitle }}
+    {{ else }}
+      {{ .PrevInSection.Title }}
+    {{ end }}
+    <img src="/docs/images/icons/right-arrow.svg" class="ml-2" width="10px" height="10px" alt="previous">
+  </a>
+</div>
+{{ else if .NextInSection }}
+<div class="text-left my-5">
+  <a href="{{.NextInSection.RelPermalink}}" class="nav-docs">
+    <img src="/docs/images/icons/left-arrow.svg" class="mr-2" width="10px" height="10px" alt="next">
+    {{ if .NextInSection.Params.displayTitle }}
+      {{ .NextInSection.Params.displayTitle }}
+    {{ else }}
+      {{ .NextInSection.Title }}
+    {{ end }}
+  </a>
+</div>
+{{ end }}
         <hr class="pt-2 mb-2" />
         <p class="contribute-doc">
           {{ with .GitInfo }}
