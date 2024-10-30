@@ -33,7 +33,7 @@ OpenTelemetry traces capture how individual operations within your system intera
    - Helps track related spans across multiple services or components.
 
 3. **Automatic Instrumentation:**  
-   - Some languages and frameworks allow tracing without code changes by using instrumentation agents.
+   - Most languages and frameworks allow tracing without code changes by using instrumentation agents.
    - This approach quickly provides a basic trace structure, capturing incoming requests and outgoing responses.
 
 4. **Manual Instrumentation:**  
@@ -44,17 +44,15 @@ OpenTelemetry traces capture how individual operations within your system intera
 
 Though OpenTelemetry is often associated with microservices, its principles apply equally to monoliths. Even when working with a single application, external dependencies like databases, message queues, or third-party services make distributed tracing beneficial. Instrumenting a monolith provides visibility into which operations are slow, how many database calls occur per request, and which API calls contribute to latency.
 
-### Example: Intercom’s Tracing Journey
-
-Intercom, a company that offers customer communication tools, transitioned from using structured logs to adopting tracing incrementally. They started by instrumenting API and database calls, which provided immediate value. Over time, they instrumented more of their service, improving their understanding of internal workflows and onboarding processes.
-
 ## Logs and Traces: A Complementary Approach
 
-Organizations often have an existing logging infrastructure when adopting tracing. OpenTelemetry’s logs bridge allows integration between structured logs and traces by wrapping logs with trace identifiers. This ensures logs and traces remain correlated without requiring a complete overhaul of existing logging practices.
+Organizations often have an existing logging infrastructure when adopting tracing. OpenTelemetry’s logs bridge allows integration between structured logs and traces by wrapping logs with trace identifiers. This ensures logs and traces remain correlated without requiring a complete overhaul of existing logging practices. The vision of OpenTelemetry logging remains unfinished, but there's hope in coming years that more tools will exist to connect logs and traces more consistently.
+
+Further, until tracing coverage is perfect and well-annotated, logs will be part of the solution to finding the root cause of the problem, after tracing has given strong clues as to the cause (for example with a particularly long and slow span).
 
 ### Gradual Migration with Logs Bridge
 
-Organizations can slowly convert significant logs into spans, as seen with Loan Market, an Australian financial services company. This approach allows gradual adoption of tracing without interrupting existing workflows, ensuring a smooth transition.
+Organizations can slowly convert significant logs into spans, by processing either within their datastore or at logging time. This approach allows gradual adoption of tracing without interrupting existing workflows, ensuring a smooth transition. 
 
 ## Benefits of OpenTelemetry Tracing
 
@@ -65,6 +63,6 @@ Organizations can slowly convert significant logs into spans, as seen with Loan 
 
 ## Getting Started
 
-To begin, select your language and follow the documentation to add automatic instrumentation or use the OpenTelemetry API to create spans. Many libraries already support tracing out-of-the-box, making it easier to adopt tracing incrementally.
+To begin, select your language and follow the documentation to add [automatic instrumentation](learn/opentelemetry/otel-instrument/). All major web development language libraries already support tracing out-of-the-box, making it easier to adopt tracing incrementally.
 
 Incorporating OpenTelemetry traces helps developers detect problems earlier, understand their systems better, and respond effectively to user issues. Whether your application is a monolith, a microservice, or somewhere in between, traces provide the insight you need to optimize and troubleshoot your software.

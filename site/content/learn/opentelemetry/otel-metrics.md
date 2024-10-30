@@ -30,13 +30,12 @@ Metrics represent **quantitative measurements** of your system’s health and be
 Metrics are lightweight and highly efficient to collect, aggregate, and query. They help identify patterns and anomalies without burdening storage, making them suitable for continuous monitoring at scale.
 
 ### Types of Metrics in OpenTelemetry:
-
+Some of the most basic metric types in OpenTelemetry include:
 - **Counter**: Measures occurrences or events, such as the number of requests handled.
 - **Gauge**: Captures values that fluctuate, like memory usage.
 - **Histogram**: Measures the distribution of values, such as response time percentiles.
 
-Explore further in the [OpenTelemetry Metrics Documentation](https://opentelemetry.io/docs/concepts/signals/metrics/).
-
+Note that these are metric types *at the time of reporting*, not analysis done later on the datastore. Therefore if you choose to report a histogram of a particular value like in-store sales for your e-commerce shop, only sending a histogram means you won't have recorded the value of individual sales, only the averages and distributions. Thinking about metric types early saves a huge amount of network ingress later, but can remove data that you will find out later would have been helpful.
 
 ## Why Metrics Matter
 
@@ -58,10 +57,10 @@ Should you use metrics instead of traces to monitor your service? Absolutely not
 
 ### Auto-Instrumentation vs. Manual Instrumentation
 
-1. **Auto-Instrumentation**: Many popular frameworks and libraries come with automatic OpenTelemetry instrumentation, requiring minimal setup.
-2. **Manual Instrumentation**: Developers can manually add metrics within the application code by using SDKs to track specific business metrics (e.g., purchases per hour).
+1. **Auto-Instrumentation**: For all the popular web framework languages, there exists an OpenTelemetry library that can automatically trace requests through a standard web application. These libraries generally report some metrics, but there's no guarantees that these will be the metrics you need. The advantage of automatic instrumentation is that it generally comes with a standardized configuration for communicating with your datastore (or an intermediate like the [OpenTelemetry Collector](learn/opentelemetry/otel-collector/), and batching your data effeciently)
+2. **Manual Instrumentation**: Developers can manually add metrics within the application code by using SDKs to track specific business metrics (e.g., purchases per hour). This is required for any business intelligence metrics, and is recommended for most performance data you really care about. As mentioned above starting with automatic tracing may save you some time in reporting metrics.
 
-Learn more about instrumentation options in the [OpenTelemetry SDK Guide](https://opentelemetry.io/docs/instrumentation/).
+Learn more about instrumentation options in our [guide to OpenTelemetry Instrumentation](learn/opentelemetry/otel-instrument/).
 
 ## Example Metric Pipeline
 
@@ -73,7 +72,7 @@ With OpenTelemetry, you can collect, process, and export metrics using **Collect
 
 Learn how to configure a collector in the [OpenTelemetry Collector Guide](learn/opentelemetry/otel-collector/).
 
-
+Note that the collector is a powerful tool but it is stateless, so doing something like averaging metrics over a long time period won't be possible by default.
 
 ## Best Practices for Metrics in OpenTelemetry
 
