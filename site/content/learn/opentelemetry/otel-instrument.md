@@ -83,7 +83,7 @@ Learn how to configure a collector in the [OpenTelemetry Collector Guide](learn/
 - **Standardize naming early**: While OpenTelemetry defines standard language for a number of concepts, actual metric naming is not standardized. As such it's possible to report `total-web-shop-checkout-time` and `webShopCheckoutTime_total` as two totally separate metrics even though they should be aggregated. No standard is perfect, of course, and to normalize data before it's stored, use the [filtering tools in the OpenTelemetry collector](learn/opentelemetry/otel-filtering/).
 
 
-OpenTelemetry metrics provide a robust foundation for observability, helping teams proactively monitor performance and detect issues before they escalate. With the right setup and tooling, you can gain comprehensive insights into your applications, enabling faster resolution times and improved reliability.## Blog Post: Comparing Direct and Auto-Instrumentation in OpenTelemetry
+OpenTelemetry metrics provide a robust foundation for observability, helping teams proactively monitor performance and detect issues before they escalate. With the right setup and tooling, you can gain comprehensive insights into your applications, enabling faster resolution times and improved reliability.
 
 OpenTelemetry offers two main strategies for adding observability to your application: **direct instrumentation** and **auto-instrumentation**. Each method serves specific use cases, allowing developers to capture telemetry data efficiently while balancing flexibility and simplicity.
 
@@ -99,7 +99,7 @@ Direct instrumentation involves **manually adding code** to your application to 
     2. **Contextual Richness**: Since code is written by hand, you can include detailed metadata relevant to your business logic.
     3. **Customization**: Allows for intricate tracking of custom events, metrics, and logs that fit your specific needs.
 
-This approach ensures deeper insights but requires more engineering effort upfront and ongoing maintenance to ensure proper coverage and updates as the code evolves. 
+This approach ensures deeper insights but requires more engineering effort upfront and ongoing maintenance to ensure proper coverage and updates as the code evolves. There are of course 1,001 ways that a clever developer could ensure that the intervention needed even for direct instrumentation was miniman. For example, by wrapping the function that first receives a request, and the function class to ensure that future function calls are reported to a tracer. Direct instrumentation doesn't mean modifying n+1 lines of code, but it does require a fair amount of effort to get launched the first time, no matter how clever your developers are. 
 
 ### Auto-Instrumentation
 
