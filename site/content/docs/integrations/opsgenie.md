@@ -1,6 +1,7 @@
 ---
-title: Opsgenie Integration with Checkly | How to Get Started
-displayTitle: Opsgenie
+title: Send Alerts to Opsgenie with Checkly - Checkly Docs
+displayTitle: Send Alerts to Opsgenie
+navTitle: Opsgenie
 description: >-
   Learn how to integrate Checkly with Opsgenie and deliver failure, degradation, and recovery events to any Opsgenie team. Check our guide!
 weight: 57

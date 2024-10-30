@@ -1,5 +1,7 @@
 ---
-title: Command Line Reference
+title: Command Line Reference - Checkly Docs
+displayTitle: Command Line Reference
+navTitle: Command Line Reference
 weight: 99
 menu:
   platform:

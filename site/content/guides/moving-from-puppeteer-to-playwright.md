@@ -1,9 +1,11 @@
 ---
-title: Migrating from Puppeteer to Playwright
+title: The Complete Guide to Migrating from Puppeteer to Playwright
 description: >-
   The switch from Puppeteer to Playwright is easy. But is it worth it? And how exactly does one migrate existing scripts from one tool to another? What are the required code-level changes, and what new features and approaches does the switch enable?
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
+tags:
+  - Playwright
 ---
 
 > **UPDATE**: _you can use our {{< newtabref  href="https://github.com/checkly/puppeteer-to-playwright" title="puppeteer-to-playwright" >}} conversion script to quickly migrate your Puppeteer codebase to Playwright._
@@ -21,7 +23,7 @@ While a comprehensive comparison of each tool's strengths and weaknesses could f
 1. As of the writing of this guide, Playwright has been frequently and consistently adding game changing features (see [below](#new-possibilities-to-be-aware-of) for a partial list) for many months, with Puppeteer releasing in turn mostly smaller changes and bug fixes. This led to a reversal of the feature gap that had once separated the two tools.
 2. Playwright maintains an edge in performance in real-world E2E scenarios (see benchmark linked above), resulting in lower execution times for test suites and faster monitoring checks.
 3. Playwright scripts seem to run even more stable than their already reliable Puppeteer counterparts.
-4. The Playwright community on {{< newtabref  href="https://github.com/microsoft/playwright/discussions" title="GitHub" >}}, {{< newtabref  href="https://twitter.com/playwrightweb" title="Twitter" >}}, {{< newtabref  href="https://aka.ms/playwright-slack" title="Slack" >}} and beyond has gotten very vibrant, while Puppeteer's has gone more and more quiet. 
+4. The Playwright community on {{< newtabref  href="https://github.com/microsoft/playwright/issues" title="GitHub" >}}, {{< newtabref  href="https://twitter.com/playwrightweb" title="Twitter" >}}, {{< newtabref  href="https://aka.ms/playwright-slack" title="Slack" >}} and beyond has gotten very vibrant, while Puppeteer's has gone more and more quiet. 
 
 ## What to change in your scripts - short version
 
@@ -80,7 +82,7 @@ const { chromium } = require('playwright');
 ```
 
 Playwright offers cross-browser support out of the box, and you can choose which browser to run with just by changing the first line, e.g. to `const { webkit } = require('playwright');`
-In Puppeteer, this would have been done throught the browser's launch options:
+In Puppeteer, this would have been done through the browser's launch options:
 
 ```js
   const browser = await puppeteer.launch({ product: 'firefox' })
@@ -125,7 +127,7 @@ In this area, Playwright brings about several changes you want to be mindful of:
 
 3. Puppeteer's `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforxpathxpath-options" title="page.waitForXPath" >}}` has been incorporated into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}`, which recognises XPath expressions automatically.
 
-4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptions" title="page.waitForFileChooser" >}}` been removed removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
+4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptions" title="page.waitForFileChooser" >}}` been removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
 
 5. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitfornetworkidleoptions" title="page.waitForNetworkIdle" >}}` has been generalised into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" title="page.waitForLoadState" >}}` (see the `networkidle` state to recreate previous behaviour)
 
@@ -232,7 +234,7 @@ When moving from Puppeteer to Playwright, make sure you inform yourself about th
 
 ### New selector engines
 
-Playwright brings with it added flexibility when referencing UI elements via selectors by exposing {{< newtabref href="https://playwright.dev/docs/selectors" title="different selector engines" >}}. Aside from CSS and XPath, it adds:
+Playwright brings with it added flexibility when referencing UI elements via selectors by exposing {{< newtabref href="https://playwright.dev/docs/api/class-selectors" title="different selector engines" >}}. Aside from CSS and XPath, it adds:
 
 1. Playwright-specific selectors, e.g.: `:nth-match(:text("Buy"), 3)`
 2. Text selectors, e.g.: `text=Add to Cart`
@@ -256,7 +258,7 @@ This is particularly helpful if you are structuring your setup according to the 
 
 ### Playwright Inspector
 
-The {{< newtabref href="https://playwright.dev/docs/inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more easily identify the cause of a failure.
+The {{< newtabref href="https://playwright.dev/docs/codegen#generate-tests-with-the-playwright-inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more easily identify the cause of a failure.
 
 {{< figure src="/guides/images/guides-migration-playwright-inspector.png" alt="playwright inspector" title="Playwright Inspector" >}}
 

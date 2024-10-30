@@ -1,5 +1,7 @@
 ---
-title: Using HTTP proxies
+title: Using HTTP proxies on Private Locations - Checkly Docs
+displayTitle: Using HTTP proxies
+navTitle: Using HTTP proxies
 weight: 56
 menu:
   resources:

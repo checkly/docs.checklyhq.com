@@ -1,5 +1,7 @@
 ---
-title: Response time limits
+title: API Response time limits - Checkly Docs
+displayTitle: API Response time limits
+navTitle: Response time limits
 weight: 11
 menu:
   resources:

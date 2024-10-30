@@ -1,5 +1,7 @@
 ---
-title: Phone Calls
+title: Alerting with phone calls in Checkly - Checkly Docs
+displayTitle: Alerting with phone calls in Checkly
+navTitle: Phone Calls
 weight: 35
 menu:
   resources:

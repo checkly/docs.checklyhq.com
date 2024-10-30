@@ -1,5 +1,7 @@
 ---
-title: SSL certificate expiration
+title: Monitoring SSL certificate expiration in Checkly - Checkly Docs
+displayTitle: Monitoring SSL certificate expiration in Checkly
+navTitle: SSL Cert expiration
 weight: 33
 menu:
   resources:

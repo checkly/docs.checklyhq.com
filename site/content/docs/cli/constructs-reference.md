@@ -1,5 +1,7 @@
 ---
-title: Constructs Reference
+title: Constructs Reference - Checkly Docs
+displayTitle: Constructs Reference
+navTitle: Constructs Reference
 weight: 98
 menu:
   platform:

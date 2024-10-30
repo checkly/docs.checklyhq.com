@@ -9,7 +9,7 @@ tags:
   - basics
 
 weight: 1
-navTitle: Getting started
+navTitle: What is Playwright?
 menu:
   learn:
     parent: "Getting started"
@@ -19,7 +19,7 @@ The [official documentation](https://playwright.dev/) for Playwright reads:
 
 
 
-Playwright is an open-source framework for cross-browser automation and end-to-end web application testing. It was designed to be a fast, reliable, robust, and evergreen test automation framework. Playwright provides a set of APIs to automate Chromium, Firefox and WebKit browsers. By using the Playwright API, you can write JavaScript, Typescript [and other languages](https://playwright.dev/docs/languages) to create new browser pages, navigate to URLs and then interact with elements on a page. Our focus in this guide will be on the Javascript & Typescript side of things.
+> Playwright is an open-source framework for cross-browser automation and end-to-end web application testing. It was designed to be a fast, reliable, robust, and evergreen test automation framework. Playwright provides a set of APIs to automate Chromium, Firefox and WebKit browsers. By using the Playwright API, you can write JavaScript, Typescript [and other languages](https://playwright.dev/docs/languages) to create new browser pages, navigate to URLs and then interact with elements on a page. Our focus in this guide will be on the Javascript & Typescript side of things.
 
 You can import Playwright's provided [`test`](https://playwright.dev/docs/api/class-test) and [`expect`](https://jestjs.io/docs/expect) functions to declare tests and add assertions. We'll be using these throughout our e2e examples as a best practice. 
 <!-- more -->

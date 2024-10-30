@@ -1,5 +1,7 @@
 ---
-title: Setup script examples
+title: API setup script examples - Checkly Docs
+displayTitle: API setup script examples
+navTitle: Setup script examples
 weight: 1
 menu:
   resources:

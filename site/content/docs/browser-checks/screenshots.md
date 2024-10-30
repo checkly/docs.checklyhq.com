@@ -1,5 +1,7 @@
 ---
-title: Taking screenshots
+title: Taking screenshots - Checkly Docs
+displayTitle: Taking screenshots
+navTitle: Screenshots
 weight: 19
 menu:
   resources:

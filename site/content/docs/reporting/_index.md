@@ -1,5 +1,7 @@
 ---
-title: Dashboard
+title: Reporting Dashboard - Checkly Docs
+displayTitle: Reporting Dashboard
+navTitle: Overview
 weight: 68
 slug: /
 aliases:

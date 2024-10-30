@@ -1,5 +1,7 @@
 ---
-title: Coralogix
+title: Export Metrics & Data via Coralogix with Checkly - Checkly Docs
+displayTitle: Export Metrics & Data via Coralogix
+navTitle: Coralogix
 weight: 69
 menu:
   integrations:

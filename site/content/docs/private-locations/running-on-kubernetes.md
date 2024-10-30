@@ -1,5 +1,7 @@
 ---
-title: Running on Kubernetes
+title: Running Checkly on Kubernetes - Checkly Docs
+displayTitle: Running Checkly on Kubernetes 
+navTitle: Running on Kubernetes
 weight: 54
 menu:
   resources:

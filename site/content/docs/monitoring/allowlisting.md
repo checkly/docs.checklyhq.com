@@ -1,5 +1,7 @@
 ---
-title: Allowlisting & filtering traffic
+title: Allowlisting & filtering traffic - Checkly Docs
+displayTitle: Allowlisting & filtering traffic  
+navTitle: Allowlisting traffic
 weight: 6
 menu:
   platform:
@@ -109,8 +111,13 @@ test('my user agent test', async ({ page }) => {
 
 ## Filtering Google Analytics
 
-If you want to filter Checkly traffic in Google Analytics to prevent Checkly browser checks from skewing your
-numbers, here is one way to do it:
+You might want to filter Checkly traffic in Google Analytics to prevent Checkly browser checks from skewing your results.
+
+If you are using Google Analytics 4 or newer, Checkly traffic is [already being excluded](https://support.google.com/analytics/answer/9888366?hl=en) as it is recognized as coming from a known bot-traffic source.
+
+### Older Google Analytics versions
+
+If you want to filter Checkly traffic in older Google Analytics versions, here is one way to do it:
 
 1. Add a UTM source tag to the URLs your requesting, i.e.:
 

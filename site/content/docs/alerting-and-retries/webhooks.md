@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Alerting with webhooks in Checkly - Checkly Docs
+displayTitle: Alerting with webhooks in Checkly
+navTitle: Webhooks
 weight: 35
 menu:
   resources:
@@ -37,7 +39,7 @@ You can use the following event-related variables in both URL and payload.
 | `CHECK_ID`          | The UUID of the check                                        |
 | `CHECK_TYPE`        | The check type, i.e. API or BROWSER.                         |
 | `ALERT_TITLE`       | Human readable title, e.g. 'Check "My API check" has failed' |
-| `ALERT_TYPE`        | Type of alert, either "ALERT_FAIL", "ALERT_RECOVERY", "ALERT_DEGRADED" or  "ALERT_DEGRADED_RECOVERY" |
+| `ALERT_TYPE`        | Type of alert, e.g. "ALERT_FAILURE", "ALERT_RECOVERY", "ALERT_DEGRADED", "ALERT_DEGRADED_RECOVERY". See [alert states](/docs/alerting-and-retries/alert-states/#alert-states--transitions) for all options. |
 | `CHECK_RESULT_ID`   | The UUID of the result that triggered this message           |
 | `RESPONSE_TIME`     | The reported response time for this result                   |
 | `API_CHECK_RESPONSE_STATUS_CODE`     | The response status code, e.g. 200. Only populated for API checks.                  |

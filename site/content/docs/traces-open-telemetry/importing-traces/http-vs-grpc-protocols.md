@@ -1,14 +1,14 @@
 ---
-title: HTTP vs. gRPC OpenTelemetry protocols
-head:
-  title: "Choosing between HTTP and gRPC OpenTelemetry protocols"
+title: HTTP vs. gRPC OpenTelemetry protocols - Checkly Docs
+displayTitle: HTTP vs gRPC OpenTelemetry protocols
+navTitle: HTTP vs gRPC
 metatags:
   title: "Choosing between HTTP and gRPC OpenTelemetry protocols"
   description: "Learn about the trade-offs between using HTTP and gRPC for sending data to an OpenTelemetry backend."
 weight: 60
 menu:
   platform:
-    parent: "Send your traces to Checkly"
+    parent: Importing your traces to Checkly - Checkly Docs
 beta: true
 aliases:
   - "/docs/open-telemetry/http-vs-grpc-protocols/"

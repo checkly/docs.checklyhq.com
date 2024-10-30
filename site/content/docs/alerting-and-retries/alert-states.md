@@ -1,5 +1,7 @@
 ---
-title: Alert states
+title: Alert states in Checkly - Checkly Docs
+displayTitle: Alert states in Checkly
+navTitle: Alert states
 weight: 34
 menu:
   resources:

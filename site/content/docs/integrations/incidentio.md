@@ -1,5 +1,7 @@
 ---
-title: Incident.io
+title: Send Alerts to Incident.io with Checkly - Checkly Docs
+displayTitle: Send Alerts to Incident.io
+navTitle: Incident.io
 weight: 58
 menu:
   integrations:

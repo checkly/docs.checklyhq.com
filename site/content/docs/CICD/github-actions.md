@@ -1,5 +1,7 @@
 ---
-title: GitHub Actions
+title: Integrating Checkly in GitHub Actions - Checkly Docs
+displayTitle: Integrating Checkly in GitHub Actions
+navTitle: GitHub Actions
 weight: 2
 menu:
   integrations:

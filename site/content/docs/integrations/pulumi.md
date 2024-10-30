@@ -1,5 +1,7 @@
 ---
-title: Pulumi
+title: Integrating Pulumi and Checkly - Checkly Docs
+displayTitle: Integrating Pulumi with Checkly
+navTitle: Pulumi
 weight: 67
 menu:
   integrations:
@@ -255,7 +257,7 @@ Congratulations! Head to the Checkly dashboard to see the newly created checks.
 ![Checkly dashboard showing created checks](/docs/images/integrations/pulumi/pulumi-created-checks.png)
 
 {{<warning>}}
-Checkly resources should be managed _either_ through Pulumi _or_ the Checkly UI, not both. Modifying Pulumi-managed resources via the UI, and viceversa, is likely to cause issues.
+Checkly resources should be managed _either_ through Pulumi _or_ the Checkly UI, not both. Modifying Pulumi-managed resources via the UI, and vice-versa, is likely to cause issues.
 {{</warning>}}
 
 ## Additional resources

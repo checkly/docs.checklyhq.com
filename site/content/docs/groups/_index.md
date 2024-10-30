@@ -1,5 +1,7 @@
 ---
-title: Overview
+title: Organizing checks with groups - Checkly Docs
+displayTitle: Organizing checks with groups
+navTitle: Overview
 weight: 26
 slug: /
 menu:

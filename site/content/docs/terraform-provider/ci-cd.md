@@ -1,5 +1,7 @@
 ---
-title: CI/CD pipelines
+title: CI/CD pipelines for Terraform - Checkly Docs
+displayTitle: CI/CD pipelines for Terraform
+navTitle: CI/CD pipelines
 weight: 12
 menu:
   integrations:
@@ -51,7 +53,7 @@ provider "checkly" {
 // Your resources here
 ```
 
-While you can apply your Terraform configuration on-demand by clicking `Actions` and `Start new plan`, you will likely want to have your workspace set up to automatically apply it on every push to the default branch of the linked repository. You can enable that throught the `Auto apply` option under the `General` settings panel of your Terraform Cloud workspace.
+While you can apply your Terraform configuration on-demand by clicking `Actions` and `Start new plan`, you will likely want to have your workspace set up to automatically apply it on every push to the default branch of the linked repository. You can enable that through the `Auto apply` option under the `General` settings panel of your Terraform Cloud workspace.
 
 ![terraform cloud auto apply](/docs/images/terraform-provider/cicd-2.png)
 

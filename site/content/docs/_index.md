@@ -1,5 +1,7 @@
 ---
-title: Get Started
+title: Getting started with Checkly - Checkly Docs
+displayTitle: Getting started with Checkly
+navTitle: Get Started
 aliases:
   - /docs/
 ---

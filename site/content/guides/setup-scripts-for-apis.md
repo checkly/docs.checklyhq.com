@@ -1,9 +1,12 @@
 ---
-title: Setup scripts for API monitoring
+title: How to use setup scripts for better API monitoring
+displayTitle: How to use setup scripts for better API monitoring
 description: >-
   Setup scripts are a fundamental tool to tailor API checks to your own target endpoints. Their power and flexibility can intimidate beginners, who might struggle to understand how the different parts fit together. This guide will present and break down different real-world examples to help you master this game-changing tool.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
+tags:
+  - API
 ---
 
 ## The importance of self-contained checks
@@ -144,7 +147,7 @@ Note that the check might still fail due to an issue with an endpoint other than
 
 ### Fetching dynamic test data
 
-There are several scenarios in which we might want to fetch test data from an external source. It might be out of convience, or because the data itself is changing often and we want to always grab the newest version, or maybe even because we want to make our check more dynamic to ensure our target system can handle different inputs.
+There are several scenarios in which we might want to fetch test data from an external source. It might be out of convenience, or because the data itself is changing often and we want to always grab the newest version, or maybe even because we want to make our check more dynamic to ensure our target system can handle different inputs.
 
 Our example will be about creating a new product for our webshop using its API. Specifically, we will
 

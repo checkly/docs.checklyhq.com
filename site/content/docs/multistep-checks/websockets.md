@@ -1,5 +1,7 @@
 ---
-title: WebSockets
+title: WebSockets on Multistep checks - Checkly Docs
+displayTitle: WebSockets on Multistep checks
+navTitle: WebSockets
 weight: 21
 menu:
   resources:

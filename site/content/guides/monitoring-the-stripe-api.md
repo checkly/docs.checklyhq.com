@@ -1,14 +1,17 @@
 ---
-title: API Monitoring for the Jamstack
+title: How to monitor the Stripe customer API with Checkly | API Monitoring Examples
+displayTitle: How to monitor the Stripe customer API with Checkly
 description: >-
   Application Programming Interfaces (APIs) are used throughout software to define interactions between different software applications. In this article we focus on web APIs specifically, taking a look at how they fit in the Jamstack architecture and how we can set up API monitoring in order to make sure they don't break and respond fast.
 author: Giovanni Rago
 avatar: 'images/avatars/giovanni-rago.png'
+tags:
+  - API
 ---
 
 {{< figure src="/guides/images/guides-checkly-jamstack-header.png" alt="jamstack architecture diagram" title="Jamstack applications heavily rely on APIs" >}}
 
-## APIs and the Jamstack
+## The rise of APIs
 
 With the rise of the {{< newtabref  href="https://jamstack.org/" title="Jamstack" >}}, the already broadly used web APIs have been brought further into the spotlight and explicitly named as cornerstone of a new way of building web applications. In the Jamstack paradigm, applications rely on APIs returning structured data (JSON or XML) when queried via a build process or Javascript-based frontend.
 
@@ -46,7 +49,7 @@ There is a large variety of valid requests that a user might make to a given end
 
 1. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" title="Methods" >}}, like `GET`, `PUT`, `POST`, `DELETE`, etc
 2. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" title="Headers" >}}, like `Accept`, `Authorization`, `Content-Type`, `Cookie`, `User-Agent`, etc
-3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query" title="Query parameters" >}}
+3. {{< newtabref  href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams" title="Query parameters" >}}
 
 {{< figure src="/guides/images/guides-checkly-swagger.png" alt="swagger api documentation" title="Swagger is a popular tool for generating API documentation" >}}
 
@@ -210,7 +213,7 @@ curl -v https://api.stripe.com/v1/customers \
   -d description="My First Test Customer (created for API docs)"
 ```
 
-Within the lengthy output we find the respose (in curl denoted by the '<' symbol), and in it all the important details we need for our assertions.
+Within the lengthy output we find the response (in curl denoted by the '<' symbol), and in it all the important details we need for our assertions.
 
 First, we notice the successful status code:
 
@@ -297,7 +300,7 @@ The above count as two separate endpoints, even though the URL is the same.
 
 ### Cover key API parameters
 
-Some parameters can change the endpoint's response significantly. We shoud strive to have separate checks verifying that the endpoint is behaving correctly across different configurations.
+Some parameters can change the endpoint's response significantly. We should strive to have separate checks verifying that the endpoint is behaving correctly across different configurations.
 
 ### Keep checks focused & independent
 

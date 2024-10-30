@@ -1,5 +1,7 @@
 ---
-title: Client certificates
+title: Client certificates - Checkly Docs
+displayTitle: Client certificates
+navTitle: Client certificates
 weight: 14
 menu:
   resources:

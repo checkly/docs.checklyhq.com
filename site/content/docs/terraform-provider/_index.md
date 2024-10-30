@@ -1,5 +1,7 @@
 ---
-title: Getting started
+title: Getting started with the Terraform provider for Checkly - Checkly Docs
+displayTitle: Getting started with the Terraform provider for Checkly
+navTitle: Overview
 weight: 1
 menu:
   integrations:
@@ -253,5 +255,5 @@ Congratulations! You have created your first Checkly monitoring setup using Terr
 
 {{<warning>}}
 Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both.
-Modifying Terraform-managed resources via the UI, and viceversa, is likely to cause issues.
+Modifying Terraform-managed resources via the UI, and , is likely to cause issues.
 {{</warning>}}

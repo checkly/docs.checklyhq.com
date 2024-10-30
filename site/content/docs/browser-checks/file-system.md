@@ -1,5 +1,7 @@
 ---
-title: File uploads, downloads and the file system
+title: File uploads, downloads and the file system - Checkly Docs
+displayTitle: File uploads, downloads and the file system
+navTitle: File system
 weight: 20
 menu:
   resources:

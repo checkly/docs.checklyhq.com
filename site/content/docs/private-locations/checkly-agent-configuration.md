@@ -1,5 +1,7 @@
 ---
-title: Checkly Agent Configuration
+title: Checkly Agent Configuration - Checkly Docs
+displayTitle: Checkly Agent Configuration
+navTitle: Checkly Agent Configuration
 weight: 52
 menu:
   resources:
