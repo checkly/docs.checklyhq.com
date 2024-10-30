@@ -72,6 +72,7 @@ The tool is part of the Cloud Native Computing Foundation (CNCF), indicating its
 
 Take a look at the example checks from the [Kuberhealthy readme](https://github.com/kuberhealthy/kuberhealthy/blob/master/README.md):
 
+---
 
 - [SSL Handshake Check](https://github.com/kuberhealthy/kuberhealthy/blob/master/cmd/ssl-handshake-check/README.md) - checks SSL certificate validity and warns when certs are about to expire.
 - [CronJob Scheduling Failures](https://github.com/kuberhealthy/kuberhealthy/blob/master/cmd/cronjob-checker/README.md) - checks for events indicating that a CronJob has failed to create Job pods.
@@ -79,6 +80,8 @@ Take a look at the example checks from the [Kuberhealthy readme](https://github.
 - [Deployment Check](https://github.com/kuberhealthy/kuberhealthy/blob/master/cmd/deployment-check/README.md) - verifies that a fresh deployment can run, deploy multiple pods, pass traffic, do a rolling update (without dropping connections), and clean up successfully.
 - [Daemonset Check](https://github.com/kuberhealthy/kuberhealthy/blob/master/cmd/daemonset-check/README.md) - verifies that a daemonset can be created, fully provisioned, and torn down. This checks the full kubelet functionality of every node in your Kubernetes cluster.
 - [Storage Provisioner Check](https://github.com/ChrisHirsch/kuberhealthy-storage-check) - verifies that a pod with persistent storage can be configured on every node in your cluster.
+
+---
 
 We can see some overlap with Prometheus Blackbox exporter, but clearly Kuberhealthy goes deeper than the Blackbox exporter. Making sure that pulls are possible of a particular remote repository is a more complex test than just seeing a response from an API endpoint. 
 
@@ -89,6 +92,8 @@ However, notice what’s not included in this basic set of examples: nothing abo
 As it is a system to create pods, run some script with those pods, check the response, and then clean up the pods, Kuberhealthy is a generic system to run nearly any code. If you want to write your page checks in WebAssembly, it’s possible to run those checks with Kuberhealthy. This puts a lot of power in your hands! Of course any request, interaction, and validation will be yours to write, and this can lead to unexpected problems. Only recently at Checkly we found a [Node core bug that interfered with some of our checks](https://www.checklyhq.com/blog/how-a-tcpdump-led-us-to-a-bug-in-nodes-ipv6-handli/).  
 
 ## Kuberhealthy vs. Prometheus Blackbox Exporter
+
+Here's a table of features and use cases side-by-side
 
 | Feature | Kuberhealthy | Prometheus Blackbox Exporter |
 | --- | --- | --- |
@@ -104,5 +109,7 @@ As it is a system to create pods, run some script with those pods, check the res
 | **Strengths** | Deep integration with Kubernetes, flexible custom tests | Simple setup for endpoint health checks |
 | **Limitations** | Focuses on cluster components, limited external validation, limited fronted tests | No UI testing, limited to connection-based checks |
 | **When to Use** | When verifying the operational health of Kubernetes clusters | When monitoring uptime and availability of external endpoints |
+
+---
 
 Both tools will tell you whether endpoints are responding, and check the availability of public services. To dive deeper, you'll want a tool that supports an automation framework like [Playwright](https://www.checklyhq.com/learn/playwright/what-is-playwright/).
