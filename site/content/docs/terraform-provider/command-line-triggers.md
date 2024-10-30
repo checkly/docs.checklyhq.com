@@ -1,5 +1,7 @@
 ---
-title: Command line triggers
+title: Command line triggers for Terraform - Checkly Docs
+displayTitle: Command line triggers for Terraform
+navTitle: Command line triggers
 weight: 7
 menu:
   integrations:

@@ -1,5 +1,7 @@
 ---
-title: How we store data
+title: How we store data - Checkly Docs
+displayTitle: How we store data 
+navTitle: How we store data
 weight: 5
 menu:
   platform:

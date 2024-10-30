@@ -1,5 +1,7 @@
 ---
-title: Environment variables and secrets
+title: Environment variables and secrets at the Group level - Checkly Docs
+displayTitle: Environment variables and secrets at the Group level
+navTitle: Variables
 weight: 29
 menu:
   resources:

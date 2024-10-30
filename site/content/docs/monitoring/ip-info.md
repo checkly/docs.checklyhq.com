@@ -1,5 +1,7 @@
 ---
-title: IP information & versions
+title: IP information & versions - Checkly Docs
+displayTitle: IP information & versions 
+navTitle: IP information & versions
 weight: 8
 menu:
   platform:

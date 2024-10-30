@@ -1,11 +1,12 @@
 ---
-title: Troubleshooting missing or orphan spans
+title: Troubleshooting missing or orphan spans - Checkly Docs
+displayTitle: Troubleshooting missing or orphan spans 
+navTitle: Missing spans
 weight: 20
 menu:
   platform:
-    parent: "Send your traces to Checkly"
+    parent: Importing your traces to Checkly - Checkly Docs
     identifier: troubleshooting-missing-spans
-navTitle: Missing spans
 beta: true
 ---
 

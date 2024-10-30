@@ -1,7 +1,11 @@
 {{ define "main" }}
   <div class="main py-5">
     <div class="container-fluid docs w-100">
-      <h1 class="display-3">{{ .Title }}</h1>
+      <h1 class="display-3">{{ if .Params.displayTitle}}
+        {{.Params.displayTitle}}
+      {{else}}
+        {{.Title}}
+      {{end}}</h1>
       <p class="lead-text">{{ .Params.description }}</p>
 
       <!-- Guides List -->

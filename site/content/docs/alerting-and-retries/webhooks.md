@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Alerting with webhooks in Checkly - Checkly Docs
+displayTitle: Alerting with webhooks in Checkly
+navTitle: Webhooks
 weight: 35
 menu:
   resources:

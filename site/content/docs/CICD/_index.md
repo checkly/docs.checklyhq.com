@@ -1,5 +1,6 @@
 ---
-title: Integrating Checkly in your CI/CD pipeline
+title: Integrating Checkly in your CI/CD pipeline - Checkly Docs
+displayTitle: Integrating Checkly in your CI/CD pipeline
 navTitle: Overview
 weight: 1
 slug: /

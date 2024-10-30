@@ -1,5 +1,7 @@
 ---
-title: Single Sign-on
+title: Single Sign-on in Checkly - Checkly Docs
+displayTitle: Single Sign-on in Checkly
+navTitle: Single Sign-on
 weight: 55
 aliases:
 - "/docs/single-sign-on/"

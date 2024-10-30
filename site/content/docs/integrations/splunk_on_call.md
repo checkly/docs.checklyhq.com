@@ -1,7 +1,8 @@
 ---
-title: Send Alerts via Splunk On-Call and Checkly
+title: Send Alerts via Splunk On-Call and Checkly - Checkly Docs
+displayTitle: Send Alerts via Splunk On-Call
 navTitle: Splunk On-Call
-weight: 63
+weight: 63     
 menu:
   integrations:
     parent: "Integrations"

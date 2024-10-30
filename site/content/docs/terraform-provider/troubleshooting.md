@@ -1,5 +1,7 @@
 ---
-title: Common issues
+title: Common issues with the Terraform provider - Checkly Docs
+displayTitle: Common issues with the Terraform provider
+navTitle: Common issues
 weight: 100
 menu:
   integrations:

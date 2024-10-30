@@ -1,5 +1,7 @@
 ---
-title: Responsible use
+title: Responsible use - Checkly Docs
+displayTitle: Responsible use 
+navTitle: Responsible use
 weight: 8
 menu:
   platform:

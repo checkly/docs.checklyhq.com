@@ -1,5 +1,6 @@
 ---
-title: Integrating GitLab Alerts and Checkly
+title: Integrating GitLab Alerts and Checkly - Checkly Docs
+displayTitle: Integrating GitLab Alerts
 navTitle: GitLab Alerts
 weight: 60
 menu:

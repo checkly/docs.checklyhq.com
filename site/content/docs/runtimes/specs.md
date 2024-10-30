@@ -1,5 +1,7 @@
 ---
-title: Runtime specification
+title: Runtime specification - Checkly Docs
+displayTitle: Runtime specification
+navTitle: Runtime specification
 weight: 70
 menu:
   resources:

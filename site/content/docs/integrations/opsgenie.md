@@ -1,5 +1,6 @@
 ---
-title: Send Alerts to Opsgenie with Checkly
+title: Send Alerts to Opsgenie with Checkly - Checkly Docs
+displayTitle: Send Alerts to Opsgenie
 navTitle: Opsgenie
 description: >-
   Learn how to integrate Checkly with Opsgenie and deliver failure, degradation, and recovery events to any Opsgenie team. Check our guide!

@@ -1,5 +1,7 @@
 ---
-title: Private Dashboards
+title: Private Dashboards - Checkly Docs
+displayTitle: Creating Private Dashboards  
+navTitle: Private Dashboards
 weight: 48
 menu:
   resources:

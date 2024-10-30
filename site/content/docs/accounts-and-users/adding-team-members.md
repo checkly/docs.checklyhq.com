@@ -1,5 +1,7 @@
 ---
-title: Adding team members
+title: Adding team members to your Checkly account - Checkly Docs
+displayTitle: Adding team members to your Checkly account
+navTitle: Adding team members
 weight: 51
 menu:
   resources:

@@ -1,5 +1,7 @@
 ---
-title: Tracing and Web Vitals
+title: Tracing and Web Vitals - Checkly Docs
+displayTitle: Tracing and Web Vitals
+navTitle: Tracing and Web Vitals
 weight: 25
 menu:
   resources: 

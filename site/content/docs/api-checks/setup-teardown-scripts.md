@@ -1,5 +1,7 @@
 ---
-title: Setup & teardown scripts
+title: API setup & teardown scripts - Checkly Docs
+displayTitle: API setup & teardown scripts
+navTitle: Setup & teardown scripts
 weight: 12
 menu:
   resources:

@@ -1,14 +1,15 @@
 ---
-title: Setting up the OpenTelemetry collector
+title: Setting up the OpenTelemetry collector - Checkly Docs
+displayTitle: Setting up the OpenTelemetry collector
 
 metatags:
   title: "Setting up the OpenTelemetry collector"
   description: "Set up the OpenTelemetry collector and send traces to Checkly."
-navTitle: OpenTelemetry Collector configuration
+navTitle: From OpenTelemetry
 weight: 20
 menu:
   platform:
-    parent: "Send your traces to Checkly"
+    parent: Importing your traces to Checkly - Checkly Docs
 beta: true
 aliases:
   - "/docs/open-telemetry/ingesting-traces-otel-collector/"

@@ -1,5 +1,7 @@
 ---
-title: SAML
+title: SAML for Single Sign-on in Checkly - Checkly Docs
+displayTitle: SAML for Single Sign-on in Checkly
+navTitle: SAML
 weight: 56
 menu:
   resources:

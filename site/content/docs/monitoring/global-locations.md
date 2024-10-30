@@ -1,5 +1,7 @@
 ---
-title: Global locations & scheduling strategies
+title: Global locations & scheduling strategies - Checkly Docs
+displayTitle: Global locations & scheduling strategies
+navTitle: Global locations
 weight: 3
 menu:
   platform:

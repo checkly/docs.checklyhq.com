@@ -1,14 +1,12 @@
 ---
-title: Honeycomb
-head:
-  title: "Exporting traces to Honeycomb from Checkly"
-  metatags:
-    title: "Exporting traces to Honeycomb from Checkly"
-    description: "Export traces from Checkly to Honeycomb for better observability."
+title: Exporting traces to Honeycomb - Checkly Docs   
+displayTitle: Exporting traces to Honeycomb from Checkly
+navTitle: To Honeycomb
+description: "Export traces from Checkly to Honeycomb for better observability."
 weight: 23
 menu:
   platform:
-    parent: "Export traces to 3rd party tools"
+    parent: Export traces to 3rd party tools with Checkly - Checkly Docs
 beta: true
 aliases:
   - "/docs/open-telemetry/exporting-traces/honeycomb/"

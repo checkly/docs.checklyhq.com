@@ -1,5 +1,7 @@
 ---
-title: Timeouts and timing phases
+title: API timeouts and timing phases - Checkly Docs
+displayTitle: API timeouts and timing phases
+navTitle: Timeouts and timing phases
 weight: 13
 menu:
   resources:

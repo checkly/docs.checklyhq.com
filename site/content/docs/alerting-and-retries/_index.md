@@ -1,5 +1,6 @@
 ---
-title: Alerting and retries with Checkly
+title: Alerting and retries with Checkly - Checkly Docs
+displayTitle: Alerting and retries with Checkly
 navTitle: Overview
 weight: 29
 slug: /

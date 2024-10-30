@@ -1,5 +1,6 @@
 ---
-title: Integrating Pulumi and Checkly
+title: Integrating Pulumi and Checkly - Checkly Docs
+displayTitle: Integrating Pulumi with Checkly
 navTitle: Pulumi
 weight: 67
 menu:
