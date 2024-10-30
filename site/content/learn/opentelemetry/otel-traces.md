@@ -1,9 +1,9 @@
 ---
-title: OpenTelemetry metrics
-subTitle: An introduction to OpenTelemetry's most data-efficient signal
-displayTitle: OpenTelemetry Metrics
-description: OpenTelemetry Metrics play a critical role in monitoring applications by offering a way to capture and analyze key metrics in a standardized, scalable manner. Whether you're managing a complex microservices architecture or a simpler system, OpenTelemetry helps track essential statistics that reveal the health and performance of your services.
-date: 2024-10-18
+title: OpenTelemetry traces
+subTitle: An introduction to OpenTelemetry's most readable tool
+displayTitle: OpenTelemetry Traces
+description: OpenTelemetry traces capture how individual operations within your system interact over time. A trace follows a request as it flows through a system, recording the relationships between different operations. Traces are particularly useful in distributed systems, where multiple services or components interact. However, they are equally valuable for monolithic applications, providing insights even when everything runs in a single process.
+date: 2024-10-30
 author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
@@ -11,76 +11,60 @@ displayDescription:
 menu:
   learn:
     parent: "OpenTelemetry"
-weight: 3
+weight: 4
 ---
 
-**OpenTelemetry Metrics** play a critical role in monitoring applications by offering a way to capture and analyze key metrics in a standardized, scalable manner. Whether you're managing a complex microservices architecture or a simpler system, OpenTelemetry helps track essential statistics that reveal the health and performance of your services.
+# An Introduction to OpenTelemetry Traces
 
----
+## What Are OpenTelemetry Traces?
 
-## What are Metrics?
+OpenTelemetry traces capture how individual operations within your system interact over time. A trace follows a request as it flows through a system, recording the relationships between different operations. Traces are particularly useful in distributed systems, where multiple services or components interact. However, they are equally valuable for monolithic applications, providing insights even when everything runs in a single process.
 
-Metrics represent **quantitative measurements** of your system’s health and behavior. They provide insights into performance trends, such as:
+## Key Concepts in OpenTelemetry Traces
 
-- **CPU usage** over time
-- **Request rates** per endpoint
-- **Error counts** or failure rates
-- **Latency** in handling requests
+1. **Spans:**  
+   - The core unit in a trace.
+   - Represents an individual operation.
+   - Each span has a name, a start and end time, and metadata (attributes) as key-value pairs.
+   - Spans can be nested to reflect parent-child relationships.
 
-Metrics are lightweight and highly efficient to collect, aggregate, and query. They help identify patterns and anomalies without burdening storage, making them suitable for continuous monitoring at scale.
+2. **Trace Context:**  
+   - Propagates trace identifiers across process boundaries.
+   - Helps track related spans across multiple services or components.
 
-### Types of Metrics in OpenTelemetry:
+3. **Automatic Instrumentation:**  
+   - Some languages and frameworks allow tracing without code changes by using instrumentation agents.
+   - This approach quickly provides a basic trace structure, capturing incoming requests and outgoing responses.
 
-- **Counter**: Measures occurrences or events, such as the number of requests handled.
-- **Gauge**: Captures values that fluctuate, like memory usage.
-- **Histogram**: Measures the distribution of values, such as response time percentiles.
+4. **Manual Instrumentation:**  
+   - Developers use OpenTelemetry APIs to create spans where deeper insights are needed.
+   - Useful for tracking specific application logic or attaching custom attributes.
 
-Explore further in the [OpenTelemetry Metrics Documentation](https://opentelemetry.io/docs/concepts/signals/metrics/).
+## Tracing in Monolithic vs. Distributed Systems
 
+Though OpenTelemetry is often associated with microservices, its principles apply equally to monoliths. Even when working with a single application, external dependencies like databases, message queues, or third-party services make distributed tracing beneficial. Instrumenting a monolith provides visibility into which operations are slow, how many database calls occur per request, and which API calls contribute to latency.
 
-## Why Metrics Matter
+### Example: Intercom’s Tracing Journey
 
-In a **microservices** environment, metrics are indispensable for:
+Intercom, a company that offers customer communication tools, transitioned from using structured logs to adopting tracing incrementally. They started by instrumenting API and database calls, which provided immediate value. Over time, they instrumented more of their service, improving their understanding of internal workflows and onboarding processes.
 
-- **Performance monitoring**: Identifying bottlenecks or degraded performance.
-- **Capacity planning**: Forecasting when additional resources are required.
-- **Incident detection**: Alerting teams about abnormal system behavior.
+## Logs and Traces: A Complementary Approach
 
-Metrics are often **the first step** in identifying that something has gone wrong. If a metric shows unusual values (e.g., a spike in response time), you can investigate further by drilling into traces or logs to find the root cause.
+Organizations often have an existing logging infrastructure when adopting tracing. OpenTelemetry’s logs bridge allows integration between structured logs and traces by wrapping logs with trace identifiers. This ensures logs and traces remain correlated without requiring a complete overhaul of existing logging practices.
 
-## Metrics vs. Traces
+### Gradual Migration with Logs Bridge
 
-Metrics have a number of advantages over tracing. Metrics are much more data efficient, generally at the collector level it’s possible to compress hundreds of individual metrics reported to a single packet of data sent on to the metrics backend. Further, metrics show broad trends whereas a trace, no matter how interesting, will always cover only a single request.
+Organizations can slowly convert significant logs into spans, as seen with Loan Market, an Australian financial services company. This approach allows gradual adoption of tracing without interrupting existing workflows, ensuring a smooth transition.
 
-Should you use metrics instead of traces to monitor your service? Absolutely not. Metrics will always present average performance, and the specific information needed to really understand root causes will be elusive. Further, even with high resolution timeseries metrics it’s very hard to go from worrying metrics to find matching log data of a problem. Finally, modern traces can effectively show information about asynchronous requests as they contribute to overall request time, something that’s very hard to tease out of bare metrics.
+## Benefits of OpenTelemetry Tracing
 
-## Setting up OpenTelemetry Metrics
+- **Visibility:** Quickly identify slow or failing operations.
+- **Efficiency:** Diagnose complex issues by tracking dependencies and relationships.
+- **Onboarding:** Help new developers understand system behavior through visualized traces.
+- **Adaptability:** Works across monoliths, microservices, and hybrid systems.
 
-### Auto-Instrumentation vs. Manual Instrumentation
+## Getting Started
 
-1. **Auto-Instrumentation**: Many popular frameworks and libraries come with automatic OpenTelemetry instrumentation, requiring minimal setup.
-2. **Manual Instrumentation**: Developers can manually add metrics within the application code by using SDKs to track specific business metrics (e.g., purchases per hour).
+To begin, select your language and follow the documentation to add automatic instrumentation or use the OpenTelemetry API to create spans. Many libraries already support tracing out-of-the-box, making it easier to adopt tracing incrementally.
 
-Learn more about instrumentation options in the [OpenTelemetry SDK Guide](https://opentelemetry.io/docs/instrumentation/).
-
-## Example Metric Pipeline
-
-With OpenTelemetry, you can collect, process, and export metrics using **Collectors**. Here’s a high-level example of a typical metric pipeline:
-
-1. **Data Collection**: Metrics are generated by instrumented services.
-2. **Processing**: The OpenTelemetry Collector aggregates and processes the data (e.g., batching or filtering metrics).
-3. **Exporting**: Metrics are sent to observability platforms like **Prometheus** or **Grafana**.
-
-Learn how to configure a collector in the [OpenTelemetry Collector Guide](learn/opentelemetry/otel-collector/).
-
-
-
-## Best Practices for Metrics in OpenTelemetry
-
-- **Optimize cardinality**: Avoid creating too many distinct labels, as this can overwhelm storage and query systems.
-- **Set appropriate aggregation intervals**: Batch data intelligently to balance between real-time insights and system load.
-- **Use meaningful names**: Clearly describe the purpose of each metric to make dashboards and alerts easier to understand.
-- **Standardize naming early**: While OpenTelemetry defines standard language for a number of concepts, actual metric naming is not standardized. As such it's possible to report `total-web-shop-checkout-time` and `webShopCheckoutTime_total` as two totally separate metrics even though they should be aggregated. No standard is perfect, of course, and to normalize data before it's stored, use the [filtering tools in the OpenTelemetry collector](learn/opentelemetry/otel-filtering/).
-
-
-OpenTelemetry metrics provide a robust foundation for observability, helping teams proactively monitor performance and detect issues before they escalate. With the right setup and tooling, you can gain comprehensive insights into your applications, enabling faster resolution times and improved reliability.
+Incorporating OpenTelemetry traces helps developers detect problems earlier, understand their systems better, and respond effectively to user issues. Whether your application is a monolith, a microservice, or somewhere in between, traces provide the insight you need to optimize and troubleshoot your software.
