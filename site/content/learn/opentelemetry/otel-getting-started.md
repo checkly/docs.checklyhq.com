@@ -1,6 +1,5 @@
 ---
 title: Learn How to Observe and Monitor your Software with OpenTelemetry
-subTitle: A beginner's guide to OpenTelemetry
 displayTitle: Getting started with OpenTelemetry
 description: Learn OpenTelemetry with Checkly. Add monitoring to every piece of your stack with the open standards and open-source tools.
 date: 2024-10-17
@@ -12,8 +11,9 @@ menu:
   learn:
     parent: "OpenTelemetry"
 weight: 1
-
 ---
+
+## A beginner's guide
 
 **Observability** is the practice of understanding the internal state of a system by examining the outputs it generates—such as logs, metrics, and traces. OpenTelemetry (OTel) plays a key role in modern observability by offering open standards for instrumenting code, gathering telemetry data, and managing this data through centralized collectors.
 
