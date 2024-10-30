@@ -16,7 +16,7 @@ weight: 5
 
 ## Introduction to the OpenTelemetry Collector
 
-The OpenTelemetry Collector is a stand-alone service designed to collect, process, and export telemetry data such as logs, metrics, and traces. It provides a vendor-neutral way to manage this data, offering flexibility in configuration and deployment.
+The OpenTelemetry Collector is a stand-alone service designed to collect, process, and export telemetry data such as logs, metrics, and traces. It provides a vendor-neutral way to manage this data, offering flexibility in configuration and deployment. The collector is extremely lightweight, and can run in almost any environment without significant infrastructure overhead.
 
 ## Setting Up Observability with OpenTelemetry
 
@@ -26,20 +26,26 @@ To begin, you need to instrument your code with OpenTelemetry client libraries. 
 
 ### Data Collection and Processing
 
-Once the telemetry data is generated, it can be exported directly to a backend or processed through the OpenTelemetry Collector. Using a collector helps offload the responsibility of data management from the application, making it easier to handle different data pipelines.
+Once the telemetry data is generated, it can be exported directly to a backend or processed through the OpenTelemetry Collector. Using a collector helps offload the responsibility of data management from the application, making it easier to handle different data pipelines. To use the collector, after setting up your first collector instance, you'll configure your application's OpenTelemetry installation to send data to your collector, generally via the OpenTelemetry protocol or OTLP.
 
-## Deployment Options
+### Deployment Options
 
 The OpenTelemetry Collector can be deployed in multiple ways:
 
-- **As an agent:** Installed on individual hosts to collect host metrics like CPU, memory, and I/O metrics.
-- **As a standalone service:** Runs independently, receiving telemetry from multiple sources.
+- **As an agent:** Installed on the same host as the application reporting data. Generally one collector per application
+![the agent model for the Otel collector](/learn/images/otel_collector_agent_model.png)
+- **As a standalone service with a gateway:** Runs independently, receiving telemetry from multiple sources, possibly with a load balancer.
+![the gateway model for the Otel collector](/learn/images/otel_collector_agent_model.png)
+*There may be a load balancer between all applications and multiple collectors, but this is the simplest version*
 
 In larger deployments, a combination of agents and standalone services may be employed to manage scale.
 
-## OpenTelemetry Architecture
+### Data Storage
+The OpenTelemetry collector is fully stateless, it produces no dashboards and stores no data. It doesn't even create an API endpoint to get status information. The collector is only useful when transmitting data, so your OpenTelemetry data needs somewhere to go. SaaS tools like Coralogix can receive your data, or you'll need to set up your own datastore with something like Prometheus.
 
-The OpenTelemetry framework is part of the Cloud Native Computing Foundation (CNCF) and aims to standardize the handling of telemetry data. It provides a consistent interface to collect and export data across many programming languages.
+## OpenTelemetry and the CNCF
+
+The OpenTelemetry framework is part of the Cloud Native Computing Foundation (CNCF) and aims to standardize the handling of telemetry data. It provides a consistent interface to collect and export data across many programming languages. The collector is an important part of this mission, since a standardized proxy for all OpenTelemetry data helps different teams in different languages form a shared understanding of how their data is collected, processed, and transmitted.
 
 ### Key Functions of the OpenTelemetry Collector
 
@@ -76,12 +82,16 @@ receivers:
     protocols:
       grpc:
       http:
-  jaeger:
-    protocols:
-      grpc:
-      thrift_http:
+    prometheus:
+      config:
+        scrape_configs:
+          - job_name: 'otel-collector'
+            scrape_interval: 5s
+            static_configs:
+              - targets: ['0.0.0.0:8888']
 
 ```
+There are a large number of receivers for multiple formats of data coming in to an OpenTelemetry system. Note that, sadly, not all Prometheus data can be translated 1:1 into OTLP. The Prometheus receiver on Github is [currently listed as a work in progress](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/prometheusreceiver/README.md).
 
 ### Processors
 
@@ -97,8 +107,8 @@ processors:
   queued_retry:
     num_workers: 4
     retry_on_failure: true
-
 ```
+Processors are the most diverse component within a collector, with a processor doing anything from removing sensitive data, batching data for transmission, or filtering unwanted information. These examples are all about how data will be batched, the max memory to use (after which data will be thrown out in this reporting cycle), and retries for sending data.
 
 ### Exporters
 
@@ -108,24 +118,23 @@ exporters:
     endpoint: "localhost:9090"
   jaeger:
     endpoint: "localhost:14250"
-
 ```
+At their most basic, exporters will contain where the data is headed.
 
-### Service and Pipelines
+### Pipelines
 
 ```yaml
-service:
-  pipelines:
-    traces:
-      receivers: [jaeger, otlp]
-      processors: [batch, memory_limiter]
-      exporters: [jaeger]
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [prometheus]
-
+pipelines:
+  traces:
+    receivers: [jaeger, otlp]
+    processors: [batch, memory_limiter]
+    exporters: [jaeger]
+  metrics:
+    receivers: [otlp]
+    processors: [batch]
+    exporters: [prometheus]
 ```
+Pipelines a path from receiver to exporter, and any data will go through the processors listed in order, left to right. 
 
 ## Backend Options for OpenTelemetry Metrics and Traces
 
@@ -151,7 +160,9 @@ You don't have to use a collector to gather OpenTelemetry data. In the simplest 
 
 ### What is the difference between the OpenTelemetry Agent and Collector?
 
-The agent is deployed close to the application to collect local data, while the collector is a centralized service that gathers telemetry data from multiple agents or systems.
+There isn't an 'agent' as such that's part of the OpenTelemetry model. As mentioned above the collector may be deployed in an 'agent' pattern where the collector is running on the same host as the application, but the term 'agent' is a little overloaded in observibility and requires brief disambugation. The other part of observability sometimes called an 'agent' is a process running within an application that receives data on the sytem. For example, automatic instrumentation of Java applications is made possible by the standard `javaagent` jvm argument. Using an agent to observe your application will depend on your language library's implementation. 
+
+The collector is not an 'agent' running within an application, it runs outside your application and collects and forwards data.
 
 ### How does OpenTelemetry compare with Prometheus?
 
@@ -159,7 +170,7 @@ Prometheus is focused on metrics, using a pull model for data collection. OpenTe
 
 ### What is OpenTelemetry's collector-contrib?
 
-The `collector-contrib` repository offers community-contributed components that extend the capabilities of the core OpenTelemetry Collector. These additions provide more receivers, processors, and exporters to handle different telemetry scenarios.
+The `collector-contrib` repository offers [community-contributed components](https://github.com/open-telemetry/opentelemetry-collector-contrib) that extend the capabilities of the core OpenTelemetry Collector. These additions provide more receivers, processors, and exporters to handle different telemetry scenarios.
 
 ## Conclusion
 
