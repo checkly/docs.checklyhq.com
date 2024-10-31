@@ -1,7 +1,7 @@
 ---
 title: Advanced Data Filtering with the OpenTelemetry Collector
 subTitle: Route, filter, and control your data with the collector
-displayTitle: Filtering with the collector
+displayTitle: Collector - filtering
 description: The OpenTelemetry Collector is a stand-alone service designed to collect, process, and export telemetry data such as logs, metrics, and traces. You can filter this data with the collector.
 date: 2024-10-18
 author: Nocnica Mellifera

@@ -1,7 +1,7 @@
 ---
 title: Introduction to the OpenTelemetry Collector
 subTitle: What the collector does, why it exists, and whether you can get by without it.
-displayTitle: Collector basics
+displayTitle: Collector - setup
 description: The OpenTelemetry Collector is a stand-alone service designed to collect, process, and export telemetry data such as logs, metrics, and traces. It provides a vendor-neutral way to manage this data, offering flexibility in configuration and deployment.
 date: 2024-10-18
 author: Nocnica Mellifera
