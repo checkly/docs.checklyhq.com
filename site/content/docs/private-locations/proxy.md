@@ -9,7 +9,7 @@ menu:
 cli: true
 ---
 
-If you are operating our [Checkly Agent](/docs/private-locations/private-locations-getting-started/) behind an HTTP proxy, 
+If you are operating our [Checkly Agent](/docs/private-locations/) behind an HTTP proxy, 
 for example in an enterprise environment, you can use an outgoing proxy for all check traffic. We recommend using the following
 setup.
 
