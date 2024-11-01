@@ -6,7 +6,7 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 tags:
   - basics
-weight: 4
+weight: 5
 displayTitle: Playwright vs Selenium
 navTitle: Playwright vs Selenium
 menu:
