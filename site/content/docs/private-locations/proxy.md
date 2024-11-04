@@ -25,7 +25,7 @@ so you can easily reuse it in your Private Location configuration and checks. In
 
 ![private location proxy url](/docs/images/private-locations/private_location_proxy_url.png)
 
-After this, you can reference this variable using `{{PROXY_URL}}` in the Private Location configuration.
+After this, you can reference this variable using `{{PROXY_URL}}` in the [Private Locations tab](https://app.checklyhq.com/private-locations).
 
 ![private location proxy url](/docs/images/private-locations/private_locations_proxy_config.png)
 
