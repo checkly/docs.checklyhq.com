@@ -23,11 +23,11 @@ your telemetry and management events. See [the environment variables available t
 We recommend storing the URL of your proxy in a [global environment variable](https://app.checklyhq.com/environment-variables)
 so you can easily reuse it in your Private Location configuration and checks. In the example below we store it as `PROXY_URL`
 
-![private location proxy url](/docs/images/private-locations/private_location_proxy_url.png)
+![private location proxy url](/docs/images/private-locations/proxy_private_locations_1.png)
 
 After this, you can reference this variable using `{{PROXY_URL}}` in the Private Location configuration.
 
-![private location proxy url](/docs/images/private-locations/private_locations_proxy_config.png)
+![private location proxy url](/docs/images/private-locations/proxy_private_locations_2.png)
 
 ## Using an HTTP proxy with API checks
 
