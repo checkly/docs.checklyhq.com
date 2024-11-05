@@ -1,60 +1,67 @@
 {{ define "main" }}
   <div class="main py-5">
     <div class="container-fluid docs w-100">
-      <h1 class="display-3">{{ if .Params.displayTitle}}
-        {{.Params.displayTitle}}
-      {{else}}
-        {{.Title}}
-      {{end}}</h1>
-      <p class="lead-text">{{ .Params.description }}</p>
+      <h1 class="display-3">
+        {{ if .Params.displayTitle}}
+          {{.Params.displayTitle}}
+        {{else}}
+          {{.Title}}
+        {{end}}
+      </h1>
+      <p class="lead-text">
+        {{ .Params.description }}
+      </p>
 
       <!-- Guides List -->
       <div class="guides__list">
         {{ range where .Site.RegularPages.ByLastmod.Reverse "Section" "guides" }}
-          <div class="guide-card" data-tags="{{ delimit .Params.tags ", " }}">
-            <div>
-              <div class="guide-info">
-                <div class="guide-tag">
-                  {{ with .Params.tags }}
-                    {{ if (in (printf "%T" .) "[]string") }}
-                      {{ range $index, $tag := . }}
-                        {{ $tag }}
-                      {{ end }}
-                    {{ else }}
-                      <!-- Optional: Handle the case where tags is not an array -->
-                      <span>No tags available or invalid format</span>
+          <a href="{{ .RelPermalink }}" class="guide-card" data-tags="{{ delimit .Params.tags ", " }}" >
+            <div class="guide-info">
+              <div class="guide-tag">
+                {{ with .Params.tags }}
+                  {{ if (in (printf "%T" .) "[]string") }}
+                    {{ range $index, $tag := . }}
+                      {{ $tag }}
                     {{ end }}
                   {{ else }}
-                    <span>No tags available.</span>
+                    <!-- Optional: Handle the case where tags is not an array -->
+                    <span>
+                      No tags available or invalid format
+                    </span>
                   {{ end }}
-                </div>
+                {{ else }}
+                  <span>
+                    No tags available.
+                  </span>
+                {{ end }}
+              </div>
 
-                <h2>
-                  <a href="{{ .RelPermalink }}">
-                    {{ if .Params.displayTitle }}
-                      {{ .Params.displayTitle }}
-                    {{ else }}
-                      {{ .Title }}
-                    {{ end }}
-                  </a>
-                </h2>
-
-                <p>
-                  {{ if .Params.displayDescription }}
-                    {{ .Params.displayDescription }}
+              <h2>
+                  {{ if .Params.displayTitle }}
+                    {{ .Params.displayTitle }}
                   {{ else }}
-                    {{ .Description }}
+                    {{ .Title }}
                   {{ end }}
-                </p>
-              </div>
+              </h2>
 
-              <div class="write-info">
-                <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}" width="24" height="24" />
-                <span>{{ .Params.author }}</span>
-                <a href="{{ .RelPermalink }}" class="cta-link">Read the guide</a>
-              </div>
+              <p>
+                {{ if .Params.displayDescription }}
+                  {{ .Params.displayDescription }}
+                {{ else }}
+                  {{ .Description }}
+                {{ end }}
+              </p>
             </div>
-          </div>
+            <div class="write-info">
+              <img src="{{ .Params.avatar | relURL }}" alt="{{ .Params.author }}" width="24" height="24" />
+              <span>
+                {{ .Params.author }}
+              </span>
+              <span class="cta-link">
+                Read the guide
+              </span>
+            </div>
+          </a>
         {{ end }}
       </div>
     </div>
