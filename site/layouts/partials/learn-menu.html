@@ -16,6 +16,7 @@
   
     <ul class="learn-menu-content">
       {{ $currentPage := . }}
+<<<<<<< HEAD
       {{ range $index, $element := .Site.Menus.learn }}
         {{ if .HasChildren }}
           <li class='learn-menu-item'>
@@ -33,6 +34,19 @@
                 </li>
               {{ end }}
             </ul>
+=======
+      {{ range $index, $element:=.Site.Menus.learn }} {{ if .HasChildren }}
+      <li class='learn-menu-item'>
+        <div class='learn-menu-title{{ if $currentPage.HasMenuCurrent "learn" . }} active{{ end }}' id="{{$index}}">
+          {{.Name}}
+        </div>
+        <ul class='learn-menu-sub {{ if $currentPage.HasMenuCurrent "learn" . }}menu-display{{ end }}' id="learn-menu-{{$index}}">
+          {{range .Children}} {{ $has := $currentPage.IsMenuCurrent "learn" . }}
+          <li class="learn-menu-sub-item {{if $has}}active{{end}}">
+            <a href="{{.URL}}">
+              {{ partial "docs-title" . }}
+            </a>
+>>>>>>> cb84e3d5fd85cfe4a13ee70774e7ccbb5905bc88
           </li>
         {{ else }}
           <li class="learn-menu-item" id="learn-menu-{{ $index }}">

@@ -1,8 +1,10 @@
 .learn {
   $top: 1rem;
-  $menu-width: 15rem;
+  $menu-width: 17rem;
   $toc-width: 14rem;
-  max-width: 90rem;
+  $menu-item-padding-spacer: 6px;
+  $menu-line-height: 18px;
+  max-width: 1440px;
   margin: 0 auto;
 
   .algolia-autocomplete .ds-dropdown-menu {
@@ -24,17 +26,15 @@
     margin-left: auto;
 
     &-content {
-      max-height: 78vh;
       overflow-y: auto;
-      margin-left: -6px !important;
-      padding-right: 20px !important;
+      overflow-x: hidden;
     }
 
     nav {
+      height: calc(100vh - 1rem);
       position: relative;
       width: $menu-width;
-      margin: $top 0 $top;
-      padding: 20px 0 20px 20px;
+      padding: 30px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
       ul {
@@ -70,14 +70,23 @@
     &-title {
       display: flex;
       align-items: center;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 14px;
       line-height: 17px;
       color: $gray-darkish !important;
-      margin-bottom: 10px;
-      margin-top: 10px;
+      padding: $menu-item-padding-spacer 0;
       img {
         margin-right: 5px;
+      }
+      &::before {
+        width: 3 * $menu-item-padding-spacer;
+        height: 3 * $menu-item-padding-spacer;
+        background: url(/images/icons/svg/chevron.svg);
+        background-size: 100%;
+        margin: 0 $menu-item-padding-spacer 0 0;
+        content: '';
+        display: inline-block;
+        transition: .15s transform ease;
       }
       &:hover {
         cursor: pointer;
@@ -85,6 +94,9 @@
     }
     .active {
       color: $gray-dark !important;
+      &::before {
+        transform: rotate(90deg);
+      }
     }
     .menu-display {
       display: block;
@@ -100,12 +112,10 @@
       }
 
       &-item {
-        margin-bottom: 10px;
-        margin-left: 6px;
-
         a {
+          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 4 * $menu-item-padding-spacer;
+          display: block;
           color: $gray-darkish;
-          padding: 0;
         }
         &.active {
           a {
@@ -118,7 +128,6 @@
 
     &-item {
       padding-left: 0;
-      margin-bottom: .75rem;
       h3 {
         color: $gray-dark;
         font-size: $font-size-base;
@@ -163,11 +172,54 @@
       padding-right: 30px;
 
       .breadcrumb {
-        background: $white;
+        display: flex;
+        align-items: center;
+        margin: 20px 0 20px;
         padding: 0;
+        background: none;
+        font-size: 14px;
 
-        a {
+        & a {
           color: $gray;
+          &:hover {
+            text-decoration: none;
+            color: $gray-dark;
+          }
+        }
+
+        & a:last-child {
+          color: $gray-dark;
+        }
+
+        & span {
+          margin: 0 5px;
+          color: $gray;
+        }
+
+        .badge-cli {
+          margin-left: auto;
+          color: $gray-darkish;
+          background: $gray-lighter;
+          font-weight: 600;
+          text-transform: capitalize;
+          &::before {
+            width: 14px;
+            height: 14px;
+            background: url(/images/icons/terminal_gray.svg);
+            background-size: 100%;
+            margin: 0 $menu-item-padding-spacer 0 0;
+            content: '';
+            display: inline-block;
+            vertical-align: -24%;
+          }
+        }
+
+        .badge-beta {
+          margin-left: auto;
+          color: $white;
+          background: $pink;
+          font-weight: 600;
+          text-transform: capitalize;
         }
       }
 
@@ -225,11 +277,10 @@
     font-size: .875rem;
     margin-right: auto;
     width: 232px;
-    padding-top: 4rem;
+    padding-top: 6rem;
 
     nav {
       width: $toc-width;
-      padding: 1rem 0 1rem 0;
       bottom: 0;
       overflow-x: hidden;
       overflow-y: auto
@@ -261,9 +312,10 @@
     }
 
     &-header {
+      padding-left: 2 * $menu-item-padding-spacer + 2px;
       color: $gray-dark;
       font-weight: 600;
-      text-transform: uppercase;
+      margin-bottom: $menu-item-padding-spacer;
     }
 
     &-mobile {
