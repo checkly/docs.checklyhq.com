@@ -30,26 +30,17 @@ We will check that the downloaded file is as expected by comparing it to a [fixt
 
 We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/playwright/web-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=["23-28"]}
-{{< readfile filename="samples/playwright/file-download.js" >}}
+{{% readfile filename="samples/playwright/file-download.js" %}}
 ```
-{{< /tab >}}
-
-{{< /tabs >}}
 
 We could also click the link directly and wait for the download event, then proceed with the comparison.
 
 Note that in this case, we need to enable downloads in the browser context before proceeding.
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=["8", "23-26"]}
-{{< readfile filename="samples/playwright/file-download-alt.js" >}}
+{{% readfile filename="samples/playwright/file-download-alt.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 Both examples can be run as follows:
 {{< tabs "3" >}}

@@ -35,7 +35,6 @@ Playwright is a relatively new browser automation framework that has gained popu
     
     ```bash
     npm install --save-dev playwright
-    
     ```
     
 2. Set up a test script using `@playwright/test`:
@@ -48,14 +47,12 @@ Playwright is a relatively new browser automation framework that has gained popu
       const title = await page.title();
       expect(title).toBe('Example Domain');
     });
-    
     ```
     
 3. Run the test with the Playwright CLI:
     
     ```bash
     npx playwright test
-    
     ```
     
 
@@ -127,7 +124,6 @@ Here’s how to run a Selenium test in NodeJS
     
     // Run the test
     exampleTest();
-    
     ```
     
 
@@ -244,7 +240,6 @@ async function loginAndCaptureScreenshot() {
 
 // Run the test
 loginAndCaptureScreenshot();
-
 ```
 
 Some key differences in the two examples:

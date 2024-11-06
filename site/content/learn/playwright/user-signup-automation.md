@@ -30,13 +30,9 @@ The flow will often match the following:
 
 We will likely want to also check that some change occurred in the UI to confirm that the registration worked.
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/signup.js" >}}
+{{% readfile filename="samples/playwright/signup.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 Run this example as follows:
 {{< tabs "2" >}}
