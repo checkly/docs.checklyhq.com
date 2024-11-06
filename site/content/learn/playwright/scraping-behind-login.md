@@ -23,14 +23,9 @@ For our example, we will be logging in to our Amazon account and scraping the pr
 
 A combination of UI automation and scraping will allow us to first log in to the platform, and then to retrieve the information about all our orders.
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/scraping-example-purchases.js" >}}
+{{% readfile filename="samples/playwright/scraping-example-purchases.js" %}}
 ```
-{{< /tab >}}
-
-{{< /tabs >}}
 
 > ⚠️ This example is only intended for learning purposes. Always make sure the website you are planning to scrape allows such behaviour.
 

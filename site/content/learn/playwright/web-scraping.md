@@ -27,26 +27,17 @@ We call the action of extracting data from web pages _web scraping_. Scraping is
 
 Below is an example running against our [test site](https://danube-web.shop/), getting and printing out the `href` attribute of the first `a` element on the homepage. That just happens to be our logo, which links right back to our homepage, and therefore will have an `href` value equal to the URL we navigate to using `page.goto()`:
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
-```js 7
-{{< readfile filename="samples/playwright/basic-get-href-value.js" >}}
+```js {hl_lines=["8"]}
+{{% readfile filename="samples/playwright/basic-get-href-value.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-href-value.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
 
 As an alternative, it is also possible to retrieve an [ElementHandle](https://playwright.dev/docs/api/class-elementhandle) and then retrieve a property value from it. Following is an example printing the `href` value of the first `a` element of our homepage:
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
-```js 7,8
-{{< readfile filename="samples/playwright/basic-get-href-handle.js" >}}
+```js {hl_lines=["7-8"]}
+{{% readfile filename="samples/playwright/basic-get-href-handle.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-href-handle.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 > The `innerText` property is often used in tests to assert that some element on the page contains the expected text.
 
@@ -54,27 +45,20 @@ As an alternative, it is also possible to retrieve an [ElementHandle](https://pl
 
 Scraping element lists is just as easy. For example, let's grab the `innerText` of each product category shown on the homepage:
 
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
-```js 7-9
-{{< readfile filename="samples/playwright/basic-get-text-values.js" >}}
+```js {hl_lines=["7-9"]}
+{{% readfile filename="samples/playwright/basic-get-text-values.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-text-values.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
 
 ## Scraping images
 
 Scraping images from a page is also possible. For example, we can easily get the logo of our test website and save it as a file:
 
-{{< tabs "4" >}}
-{{< tab "Playwright" >}}
-```js [9,11,12]
-{{< readfile filename="samples/playwright/basic-get-image.js" >}}
+```js {hl_lines=["10", "12-13"]}
+{{% readfile filename="samples/playwright/basic-get-image.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-image.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
+
 
 We are using [axios](https://github.com/axios/axios) to make a `GET` request against the source URL of the image. The response body will contain the image itself, which can be written to a file using [fs](https://nodejs.org/api/fs.html).
 
@@ -86,14 +70,10 @@ Once we start scraping more information, we might want to have it stored in a st
 
 The code for that could look like this:
 
-{{< tabs "5" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-get-data-json.js" >}}
+{{% readfile filename="samples/playwright/basic-get-data-json.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-get-data-json.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
 
 The resulting `books.json` file will look like the following:
 

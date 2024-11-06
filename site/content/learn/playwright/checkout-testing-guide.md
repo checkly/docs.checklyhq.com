@@ -26,15 +26,10 @@ Checkout procedures can vary dramatically depending on what is being bought or s
 
 Modelled on the above structure is the following example running against our test website. We will add a few products to the shopping cart, then proceed until the summary screen shows up and verify that the transaction has been confirmed. Here we can get creative and, for example, iterate through a number of products to fill the cart:
 
-{{< tabs "1">}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/checkout.js" >}}
+{{% readfile filename="samples/playwright/checkout.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/checkout.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Run this example as follows:
 
