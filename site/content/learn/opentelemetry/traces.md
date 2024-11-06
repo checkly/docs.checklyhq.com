@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry traces
-subTitle: An introduction to OpenTelemetry's most readable tool
-displayTitle: Traces
+displayTitle: An introduction to OpenTelemetry Traces
+navTitle: Traces
 description: OpenTelemetry traces capture how individual operations within your system interact over time. A trace follows a request as it flows through a system, recording the relationships between different operations. Traces are particularly useful in distributed systems, where multiple services or components interact. However, they are equally valuable for monolithic applications, providing insights even when everything runs in a single process.
 date: 2024-10-30
 author: Nocnica Mellifera

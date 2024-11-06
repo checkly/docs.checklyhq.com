@@ -1,6 +1,7 @@
 ---
-title: The OpenTelemetry Trace API - a guide - Checkly
-displayTitle: Trace API
+title: A guide to the OpenTelemetry Trace API
+displayTitle: A guide to the OpenTelemetry Trace API
+navTitle: Trace API
 description: The OpenTelemetry Trace API provides developers with the tools needed to create, manage, and analyze traces, a critical component of observability.
 date: 2024-10-30
 author: Nocnica Mellifera

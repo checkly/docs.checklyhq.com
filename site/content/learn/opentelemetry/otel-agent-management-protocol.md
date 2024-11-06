@@ -1,6 +1,7 @@
 ---
 title: OpenTelemetry Agent Management Protocol
-displayTitle: OpAMP
+displayTitle: OpenTelemetry Agent Management Protocol
+navTitle: OpAMP
 description: The OpenTelemetry Open Agent Management Protocol (OpAMP) is an emerging standard aimed at managing telemetry agents, such as the OpenTelemetry Collector, at scale.
 date: 2024-10-30
 author: Nocnica Mellifera

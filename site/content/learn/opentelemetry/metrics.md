@@ -1,7 +1,7 @@
 ---
-title: OpenTelemetry metrics
-subTitle: An introduction to OpenTelemetry's most data-efficient signal
-displayTitle: Metrics
+title: What are OpenTelemetry Metrics?
+displayTitle: An introduction to OpenTelemetry Metrics
+navTitle: Metrics
 description: OpenTelemetry Metrics play a critical role in monitoring applications by offering a way to capture and analyze key metrics in a standardized, scalable manner. Whether you're managing a complex microservices architecture or a simpler system, OpenTelemetry helps track essential statistics that reveal the health and performance of your services.
 date: 2024-10-18
 author: Nocnica Mellifera

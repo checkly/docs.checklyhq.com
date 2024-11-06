@@ -1,7 +1,8 @@
 ---
 title: How to instrument your application with OpenTelemetry
 subTitle: An introduction to the instrumentation process
-displayTitle: Instrument your application
+displayTitle: How to instrument your application with OpenTelemetry
+navTitle: Instrumentation
 description: OpenTelemetry offers two main strategies for adding observability to your application - **direct instrumentation** and **auto-instrumentation**. Each method serves specific use cases, allowing developers to capture telemetry data efficiently while balancing flexibility and simplicity.
 date: 2024-10-30
 author: Nocnica Mellifera
