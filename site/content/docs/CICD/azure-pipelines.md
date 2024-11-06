@@ -70,7 +70,7 @@ stages:
 
           # Run Checkly tests
           - script: |
-              npx checkly test --record
+              npx checkly test --record --reporter=ci
             displayName: 'Run Checkly Tests'
 
       - job: E2EProduction
@@ -93,7 +93,7 @@ stages:
 
           # Run Checkly tests
           - script: |
-              npx checkly test --record
+              npx checkly test --record --reporter=ci
             displayName: 'Run Checkly Tests'
 
   - stage: ChecklyDeploy
