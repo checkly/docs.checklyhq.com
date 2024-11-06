@@ -1,0 +1,24 @@
+<div class="breadcrumb">
+  {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
+  {{ $.Scratch.Add "path" .Site.BaseURL }}
+  {{ $.Scratch.Add "path" "/" }}
+  {{ range $index, $element := split $url "/" }}
+    {{ $.Scratch.Add "path" $element }}
+    {{ if ne $element "" }}
+
+      {{ if ne $element "learn" }}
+        {{ if eq $index 3 }}
+          <a href="/learn/playwright/">Playwright Automation Guide</a>
+        {{ else }}
+          <span>/</span>
+          {{ if eq $index 3 }}
+            <a href="/learn/{{ . }}/">{{ humanize . }}</a>
+          {{ else }}
+            {{ humanize . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ $.Scratch.Add "path" "/" }}
+    {{ end }}
+  {{ end }}
+</div>
