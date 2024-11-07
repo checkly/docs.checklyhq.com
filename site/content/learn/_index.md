@@ -17,9 +17,9 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  class="three-column-card"
 	  headerTag="h3"
 	  title="Monitoring"
-	  img="/learn/icons/playwright-logo.svg"
-	  description="Microsoft's Playwright offers unique features for automation and user simulation."
-	  link="/learn/playwright/getting-started/"
+	  img="/learn/icons/checkly-logo-light-mode-square.svg"
+	  description="Learn how to monitor your application with Checkly."
+	  link="/guides/monitoring-as-code/"
 >}}
 {{< doc-card
 	  class="three-column-card"
@@ -27,59 +27,18 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  title="Playwright"
 	  img="/learn/icons/playwright-logo.svg"
 	  description="Learn how to install Playwright and get started with your first script."
-	  link="/learn/playwright/how-to-set-up-locally/"
+	  link="/learn/playwright/"
 >}}
 {{< doc-card
 	  class="three-column-card"
 	  headerTag="h3"
 	  title="Open Telemetry"
-	  img="/learn/icons/playwright-logo.svg"
-	  description="Learn how to install Playwright and get started with your first script."
-	  link="/learn/playwright/how-to-set-up-locally/"
+	  img="/learn/icons/opentelemetry.svg"
+	  description="Learn how to instrument your application with OTel and get deep insights into your full stack."
+	  link="/learn/opentelemetry/getting-started-with-observability/"
 >}}
 </div>
 
-
-## Diving Deeper
-
-Playwright is extremely powerful and serves a wide range of use cases. We have collected in-depth articles for important scenarios and challenging automation flows.
-
-<div class="cards-list">
-{{< doc-card
-	class="two-column-card"
-	headerTag="h3"
-	title="Navigating user interfaces"
-	img="/learn/icons/best-practices.svg"
-	description="Learn about guidelines to write quality automation scripts."
-	link="/learn/playwright/navigation/"
->}}
-{{< doc-card
-	class="two-column-card"
-	headerTag="h3"
-	title="Waits and timeouts"
-	img="/learn/icons/pages.svg"
-	description="Learn how to automate realistic user scenarios from signup to checkout."
-	link="/learn/playwright/waits-and-timeouts/"
->}}
-</div>
-<div class="cards-list">
-{{< doc-card
-	class="two-column-card"
-	headerTag="h3"
-	title="Managing cookies and state"
-	img="/learn/icons/network.svg"
-	description="Learn how to use cookies to set state and simplify your scripts."
-	link="/learn/playwright/managing-cookies/"
->}}
-{{< doc-card
-	class="two-column-card"
-	headerTag="h3"
-	title="Measuring page performance"
-	img="/learn/icons/performance.svg"
-	description="Learn how you can use Playwright to measure page performance."
-	link="/learn/playwright/performance/"
->}}
-</div>
 
 ## Popular Posts
 
