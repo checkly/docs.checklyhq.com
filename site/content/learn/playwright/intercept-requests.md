@@ -25,25 +25,18 @@ When we browse the web, a series of HTTP requests and responses are exchanged be
 
 Request interception enables us to observe which requests and responses are being exchanged as part of our script's execution. For example, this is how we could print them out when we load our [test website](https://danube-web.shop/):
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/request-interception-read.js" >}}
+{{% readfile filename="samples/playwright/request-interception-read.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/request-interception-read.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
+
 
 We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/playwright/web-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
 
-
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=["11-13", "16-20"]}
-{{< readfile filename="samples/playwright/request-interception-block.js" >}}
+{{% readfile filename="samples/playwright/request-interception-block.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/request-interception-block.js" "playwright"  >}}
-{{< /tabs >}}
 
  As a result, you will see the website logo not being loaded.
 
@@ -61,14 +54,10 @@ Playwright makes it easy for us, as for every request we can intercept we also c
 
 Every time we load it, our test website is sending a request to its backend to fetch a list of best selling books. For our example, we are going to intercept this response and modify it to return a single book we define on the fly.
 
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=[18,23]}
-{{< readfile filename="samples/playwright/response-interception.js" >}}
+{{% readfile filename="samples/playwright/response-interception.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/response-interception.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
 
 Here is what the homepage will look like with our stubbed response:
 

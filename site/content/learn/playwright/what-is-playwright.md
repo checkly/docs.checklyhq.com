@@ -10,6 +10,8 @@ tags:
 
 weight: 1
 navTitle: What is Playwright?
+aliases:
+  - /learn/playwright/getting-started/
 menu:
   learn:
     parent: "Getting started"

@@ -76,14 +76,12 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 
 [The Navigation Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API) allows us to retrieve timestamps of key events in the page load timeline. A Navigation Timing entry includes metrics such as the navigation response time, the used protocol and document load time.
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
+
 ```js
-{{< readfile filename="samples/playwright/basic-performance-navigation.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-navigation.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-navigation.js" "playwright"  >}}
-{{< /tab >}}
-{{< /tabs >}}
+
 
 <details class="console-output">
   <summary>Console output</summary>
@@ -126,15 +124,11 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 
 [The Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) allows us to zoom in on single resources and get accurate information about how quickly they loaded. For example, we could specifically look at our website's logo:
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
+
 ```js
-{{< readfile filename="samples/playwright/basic-performance-resource.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-resource.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-resource.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 <details class="console-output">
   <summary>Console output</summary>
@@ -169,15 +163,10 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 
 [The Paint Timing API](https://developer.mozilla.org/en-US/docs/Web/API/PerformancePaintTiming) provides information on the first paint and the first contentful paint. Access the entries via `performance.getEntriesByType('paint')` or `performance.getEntriesByName('first-contentful-paint')`.
 
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-performance-paint-timing.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-paint-timing.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-paint-timing.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 <details class="console-output">
   <summary>Console output</summary>
@@ -197,15 +186,11 @@ Large contentful paints are not a single event but rather event streams. A large
 To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-contentful-paint` entries and access the last emitted paint.
 {{</ info >}}
 
-{{< tabs "4" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-performance-largest-contentful-paint.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-largest-contentful-paint.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-largest-contentful-paint.js" "playwright"  >}}
-{{< /tab >}}
 
-{{< /tabs >}}
 #### Layout Instability API (`layout-shift`)
 
 [The Layout Instability API](https://developer.mozilla.org/en-US/docs/Web/API/Layout_Instability_API) provides information on all layout shifts. Use this API to evaluate the Core Web Vital [Cumulative Layout Shift](https://web.dev/cls/) (CLS).
@@ -214,15 +199,10 @@ To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-content
 Layout shifts are no single event but event streams. To calculate CLS initialize a `PerformanceObserver`, observe `layout-shift` entries and sum all shifts.
 {{</ info >}}
 
-{{< tabs "5" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-performance-layout-shift.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-layout-shift.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-layout-shift.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 #### Long Task API (`longtask`)
 
@@ -232,15 +212,11 @@ Layout shifts are no single event but event streams. To calculate CLS initialize
 Long Tasks are no single event but event streams. To calculate TBT initialize a `PerformanceObserver`, observe `longtasks` entries and sum the differences to the maximal JavaScript execution time of 50 milliseconds.
 {{</ info >}}
 
-{{< tabs "6" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-performance-long-task.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-long-task.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-long-task.js" "playwright"  >}}
-{{< /tab >}}
 
-{{< /tabs >}}
 
 ### Chrome DevTools for performance
 
@@ -248,15 +224,10 @@ If the browser performance APIs are not enough, the Chrome DevTools Protocol off
 
 One important example is network throttling, through which we can simulate the experience of users accessing our page with different network conditions.
 
-{{< tabs "7" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-performance-emulation.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-emulation.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-performance-emulation.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 The DevTools Protocol is quite extensive. We recommend exploring the [documentation](https://chromedevtools.github.io/devtools-protocol/) and getting a comprehensive overview of its capabilities.
 
@@ -264,13 +235,9 @@ The DevTools Protocol is quite extensive. We recommend exploring the [documentat
 
 Lighthouse can easily be used programmatically with Playwright to gather values and scores for different metrics, like [Time To Interactive (TTI)](https://web.dev/interactive/):
 
-{{< tabs "8" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-performance-lighthouse.js" >}}
+{{% readfile filename="samples/playwright/basic-performance-lighthouse.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 All above examples can be run as follows:
 ```sh

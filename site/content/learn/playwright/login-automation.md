@@ -31,14 +31,9 @@ At the end of our test, we need to check if our login procedure has been success
 
 On our [test site](https://danube-web.shop/) this could look like the following:
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/login.js" >}}
+{{% readfile filename="samples/playwright/login.js" %}}
 ```
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.
 

@@ -10,7 +10,8 @@ weight: 3
 navTitle: Managing cookies & state
 menu:
   learn:
-    parent: "Basics"
+    parent: Basics
+category: Playwright
 ---
 
 The [HyperText Transfer Protocol (HTTP)](https://developer.mozilla.org/en-US/docs/Web/HTTP#:~:text=Hypertext%20Transfer%20Protocol%%20%28HTTP%29%20is,be%20used%20for%20other%20purposes.) is stateless, but cookies allow it to keep context consistent over the course of a session. In other words, by having our browser automatically exchange small amounts of data, we get to have websites recognise us and remember our preferences, the contents of our shopping baskets or the fact that we had just logged in to our account.
@@ -25,14 +26,9 @@ Reading or modifying cookies opens up useful possibilities. A practical example 
 
 The following examples show how we can save existing cookies after logging in to GitHub and reuse them later to skip login. First, let us perform login with our credentials, read the cookies and save them to a file.
 
-
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=[21,22,24]}
-{{< readfile filename="samples/playwright/cookies-reading.js" >}}
+{{% readfile filename="samples/playwright/cookies-reading.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 After a successful login, our saved cookies file will look something like this:
 
@@ -70,16 +66,9 @@ After a successful login, our saved cookies file will look something like this:
 
 We are now able to read the file later and load the cookies into our new browser session. Notice how we are logged in from the start, without having gone through the UI login procedure.
 
-
-
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=[9,11,12]}
-{{< readfile filename="samples/playwright/cookies-writing.js" >}}
+{{% readfile filename="samples/playwright/cookies-writing.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
-
 
 > Cookies come with an expiration date, so make sure the ones you are trying to reuse are still valid.
 
@@ -98,13 +87,9 @@ Our test site, [Danube](https://danube-web.shop/), actually uses localStorage to
 
 We will first fill the cart by adding three items, then we will copy the contents of localStorage to a file.
 
-{{< tabs "3" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=[17,18]}
-{{< readfile filename="samples/playwright/localstorage-reading.js" >}}
+{{% readfile filename="samples/playwright/localstorage-reading.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 In this case our file will look as follows:
 
@@ -116,14 +101,10 @@ In this case our file will look as follows:
 
 We can use the content of this file to set localStorage in a separate session. That way we will immediately start with the three items already in our shopping cart, potentially getting us closer to a specific scenario we want to test and thereby saving ourselves time.
 
-{{< tabs "4" >}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=[10,"12-17"]}
 
-{{< readfile filename="samples/playwright/localstorage-writing.js" >}}
+{{% readfile filename="samples/playwright/localstorage-writing.js" %}}
 ```
-{{< /tab >}}
-{{< /tabs >}}
 
 You can interact with sessionStorage very much like we did with localStorage.
 

@@ -6,7 +6,7 @@ displayDescription:
   Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 metatags:
   title: Learn Playwright & Checkly - Browser Automation
-
+toc: false
 ---
 
 Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*. To get the most from Checkly, we put together a series of guides and examples to help you get started with Playwright.
@@ -18,15 +18,15 @@ Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="What is Playwright?"
-	  img="/learn/icons/playwright.png"
+	  img="/learn/icons/playwright-logo.svg"
 	  description="Microsoft's Playwright offers unique features for automation and user simulation."
-	  link="/learn/playwright/getting-started/"
+	  link="/learn/playwright/what-is-playwright/"
 >}}
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="Installing Playwright"
-	  img="/learn/icons/playwright.png"
+	  img="/learn/icons/playwright-logo.svg"
 	  description="Learn how to install Playwright and get started with your first script."
 	  link="/learn/playwright/how-to-set-up-locally/"
 >}}
@@ -39,15 +39,7 @@ Playwright is extremely powerful and serves a wide range of use cases. We have c
 
 <div class="cards-list">
 {{< doc-card
-	class="full-width-card"
-	headerTag="h3"
-	title="Monitoring an eCommerce checkout flow"
-	img="/learn/icons/e2e.svg"
-	description="Learn how to automate realistic user scenarios from signup to checkout."
-	link="/learn/playwright/checkout-testing-guide/"
->}}
-{{< doc-card
-	class="full-width-card"
+	class="two-column-card"
 	headerTag="h3"
 	title="Navigating user interfaces"
 	img="/learn/icons/best-practices.svg"
@@ -55,7 +47,17 @@ Playwright is extremely powerful and serves a wide range of use cases. We have c
 	link="/learn/playwright/navigation/"
 >}}
 {{< doc-card
-	class="full-width-card"
+	class="two-column-card"
+	headerTag="h3"
+	title="Waits and timeouts"
+	img="/learn/icons/pages.svg"
+	description="Learn how to automate realistic user scenarios from signup to checkout."
+	link="/learn/playwright/waits-and-timeouts/"
+>}}
+</div>
+<div class="cards-list">
+{{< doc-card
+	class="two-column-card"
 	headerTag="h3"
 	title="Managing cookies and state"
 	img="/learn/icons/network.svg"
@@ -63,7 +65,7 @@ Playwright is extremely powerful and serves a wide range of use cases. We have c
 	link="/learn/playwright/managing-cookies/"
 >}}
 {{< doc-card
-	class="full-width-card"
+	class="two-column-card"
 	headerTag="h3"
 	title="Measuring page performance"
 	img="/learn/icons/performance.svg"

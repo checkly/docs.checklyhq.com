@@ -24,14 +24,9 @@ Playwright allows us to automate logging in to a Microsoft Live account.
 2. We provide the username and password, injected by using environment variables
 3. We are redirected to the main account page
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/mslive-login.js" >}}
+{{% readfile filename="samples/playwright/mslive-login.js" %}}
 ```
-{{< /tab >}}
-{{< /tab >}}
-
 Run this example as follows. Replace the username and password placeholder with your own credentials.
 
 {{< tabs "2" >}}

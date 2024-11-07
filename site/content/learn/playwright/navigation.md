@@ -39,15 +39,10 @@ In the example below we trigger two navigations:
 1. The initial load of the page.
 2. A navigation to the shopping cart by clicking a link
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-browser-navigation.js" >}}
+{{% readfile filename="samples/playwright/basic-browser-navigation.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-browser-navigation.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Run this example as follows:
 ```sh
@@ -71,15 +66,9 @@ to override the default 30 seconds.
 
 In the example below, we type an email address into an input field on a login modal. Playwright's `fill` method comes with built-in waiting functionality.
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-browser-waiting.js" >}}
+{{% readfile filename="samples/playwright/basic-browser-waiting.js" %}}
 ```
-{{< /tab >}}
-
-{{< /tabs >}}
-
 Run this example as follows:
 
 ```shell script
