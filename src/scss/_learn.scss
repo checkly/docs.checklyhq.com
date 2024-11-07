@@ -70,20 +70,20 @@
     &-title {
       display: flex;
       align-items: center;
-      font-weight: 400;
+      font-weight: 600;
       font-size: 14px;
       line-height: 17px;
       color: $gray-darkish !important;
       padding: $menu-item-padding-spacer 0;
       img {
-        margin-right: 5px;
+        margin-right: 8px;
       }
-      &::before {
+      &::after {
         width: 3 * $menu-item-padding-spacer;
         height: 3 * $menu-item-padding-spacer;
         background: url(/images/icons/svg/chevron.svg);
         background-size: 100%;
-        margin: 0 $menu-item-padding-spacer 0 0;
+        margin: 0 $menu-item-padding-spacer 0 auto;
         content: '';
         display: inline-block;
         transition: .15s transform ease;
@@ -94,7 +94,7 @@
     }
     .active {
       color: $gray-dark !important;
-      &::before {
+      &::after {
         transform: rotate(90deg);
       }
     }
@@ -113,7 +113,7 @@
 
       &-item {
         a {
-          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 4 * $menu-item-padding-spacer;
+          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 2 * $menu-item-padding-spacer;
           display: block;
           color: $gray-darkish;
         }
