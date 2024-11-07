@@ -76,7 +76,17 @@
       color: $gray-darkish !important;
       padding: $menu-item-padding-spacer 0;
       img {
-        margin-right: 5px;
+        margin-right: 8px;
+      }
+      &::after {
+        width: 3 * $menu-item-padding-spacer;
+        height: 3 * $menu-item-padding-spacer;
+        background: url(/images/icons/svg/chevron.svg);
+        background-size: 100%;
+        margin: 0 $menu-item-padding-spacer 0 auto;
+        content: '';
+        display: inline-block;
+        transition: .15s transform ease;
       }
       &::before {
         width: 3 * $menu-item-padding-spacer;
@@ -94,7 +104,7 @@
     }
     .active {
       color: $gray-dark !important;
-      &::before {
+      &::after {
         transform: rotate(90deg);
       }
     }
@@ -113,7 +123,7 @@
 
       &-item {
         a {
-          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 4 * $menu-item-padding-spacer;
+          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 2 * $menu-item-padding-spacer;
           display: block;
           color: $gray-darkish;
         }
@@ -664,7 +674,7 @@
 
 .run-in-checkly {
   position: absolute;
-  bottom: 47px;
+  translate: -20px -70px;
   background-color: #0075ff;
   z-index: 100000000;
   right: 22px;
@@ -674,41 +684,9 @@
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 14px;
-
-  
-}
-
-.sidebar-dropdown {
-  margin-bottom: 20px;
-  background-color: #EDF0F3;
-  padding: 8px;
-  margin-left: -20px;
-  padding-left: 20px;
-}
-
-.sidebar-dropdown select {
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 0px;
-  background: transparent;
-  color: #60758a;
-}
-
-.sidebar-dropdown select option {
-  padding: 10px;
-  font-size: 16px;
-  background-color: white; /* Background of dropdown items */
-}
-
-/* Dropdown on hover/focus */
-.sidebar-dropdown select:focus {
-  outline: none;
-  border-color: #007bff; /* Blue border on focus */
-}
-
-.sidebar-dropdown select:hover {
-  border-color: #007bff; /* Change border on hover */
+  @include media-breakpoint-down(md) {
+    translate: 10px -70px;
+  }
 }
 
 .learn-cta-wrapper {

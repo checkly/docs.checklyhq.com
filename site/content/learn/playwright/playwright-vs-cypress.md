@@ -144,7 +144,6 @@ test('Multiple API Requests Test', async ({ request }) => {
   const userResponse = await request.get('https://jsonplaceholder.typicode.com/users/1');
   expect(userResponse.status()).toBe(200);
 });
-
 ```
 
 Playwright uses the standard `await` syntax used in the rest of Node.js. 
@@ -164,7 +163,6 @@ describe('Multiple API Requests Test', () => {
       .should('eq', 200);
   });
 });
-
 ```
 With Cypress, we're using their custom syntax, which is a bit more compact but still has it's own specialized field of knowledge. If you're pursuing a monitoring as code strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
 

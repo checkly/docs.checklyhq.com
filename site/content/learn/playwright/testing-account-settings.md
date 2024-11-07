@@ -26,15 +26,9 @@ Account properties to verify can run the gamut from simple text to connected thi
 
 On our [test site](https://danube-web.shop/), such a test could look as follows:
 
-{{< tabs "1">}}
-{{< tab "Playwright" >}}
 ```js {hl_lines=["19-22"]}
-{{< readfile filename="samples/playwright/file-upload.js" >}}
+{{% readfile filename="samples/playwright/file-upload.js" %}}
 ```
-{{< /tab >}}
-
-{{< /tabs >}}
-
 {{< tabs "2">}}
 {{< tab "macOS" >}}
 ```sh

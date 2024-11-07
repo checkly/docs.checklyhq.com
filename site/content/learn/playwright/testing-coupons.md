@@ -26,15 +26,11 @@ While discount coupons will be applied in different ways depending on the servic
 
 The following example, running against our [test site](https://danube-web.shop/), will add a variable number of items to the cart, then proceed to compare the total price before and after applying the coupon. The coupon is reducing the price of the whole shopping cart by 20%, therefore we will be asserting that the discounted price is reduced by the right amount. For this step we have chosen [Chai](https://www.chaijs.com/api/assert/), but any solid assertion library will do.
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
+
 ```js
-{{< readfile filename="samples/playwright/coupon.js" >}}
+{{% readfile filename="samples/playwright/coupon.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/coupon.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Run this example as follows:
 

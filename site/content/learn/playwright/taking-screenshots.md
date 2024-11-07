@@ -22,14 +22,10 @@ Headless browsers are fully capable of taking screenshots, which is very useful 
 
 The `page.screenshot` command allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot depends on the viewport size:
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-screenshot.js" >}}
+{{% readfile filename="samples/playwright/basic-screenshot.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-screenshot.js" "playwright"  >}}
-{{< /tab >}}\s
-{{< /tabs >}}
 
 ## Full page screenshots
 
@@ -43,15 +39,10 @@ await page.screenshot({ path: 'my_screenshot.png', fullPage: true })
 
 Having our screenshot limited to a smaller portion of the viewport is also possible. All we need to do is specify the coordinates of the top left corner of the screenshot, plus `width` and `height`. We then pass these options to:
 
-{{< tabs "2" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-screenshot-clipped.js" >}}
+{{% readfile filename="samples/playwright/basic-screenshot-clipped.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-screenshot-clipped.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 The above examples can be run as follows:
 ```sh

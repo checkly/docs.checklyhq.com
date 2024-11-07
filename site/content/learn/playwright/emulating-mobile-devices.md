@@ -28,8 +28,6 @@ This guide explains how to define viewport sizes, device pixel ratio and  `user-
 
 If your site parses the user agent string to serve a different experience to mobile users, define the `userAgent` in your automation scripts.
 
-
-
 ```js
 const { chromium } = require("playwright")
 
@@ -48,11 +46,9 @@ const { chromium } = require("playwright")
 })()
 ```
 
-
 ## Defining viewport size and pixel density
 
 If your site follows responsive web design practices and renders elements depending on device viewport size, define a mobile viewport and pixel density.
-
 
 ```js
 const { chromium } = require("playwright")
@@ -100,7 +96,6 @@ const iPhone = devices['iPhone SE'];
   await browser.close()
 })()
 ```
-
 
 ## Further reading
 
