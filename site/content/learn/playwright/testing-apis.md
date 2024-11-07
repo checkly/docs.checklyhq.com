@@ -16,7 +16,7 @@ menu:
 
 You probably know that Microsoft’s Playwright is a solid tool for end-to-end testing, enabling you to control headless browsers and check essential user flows. But did you know that you can also use Playwright for API testing? If you didn’t, then this guide is for you.
 
-{{ youtube vuabXC46KkM}}
+{{< youtube vuabXC46KkM >}}
 
 In this post, we’ll explore how Playwright can be used to test a GraphQL API (but don’t worry if you’re using REST; Playwright can handle any HTTP-based API). Let's dive into an example using the countries.trevorblades.com GraphQL API.
 
