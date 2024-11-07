@@ -28,15 +28,10 @@ The example below, which is running against our [test webshop](https://danube-we
 
 We will use [Chai](https://www.chaijs.com/api/assert/) as an assertion library for points 2 and 3.
 
-{{< tabs "1" >}}
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/search.js" >}}
+{{% readfile filename="samples/playwright/search.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/search.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Run this example as follows:
 

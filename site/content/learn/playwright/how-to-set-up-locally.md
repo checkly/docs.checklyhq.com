@@ -24,16 +24,10 @@ $ npm i playwright
 
 Playwright comes bundled with a connected browser, so we now have all we need to run our first script. Let's create a script to navigate to our [test website](https://danube-web.shop/):
 
-{{< tabs "1" >}}
-
-{{< tab "Playwright" >}}
 ```js
-{{< readfile filename="samples/playwright/basic-navigation.js" >}}
+{{% readfile filename="samples/playwright/basic-navigation.js" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-navigation.js" "playwright"  >}}
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Run this example as follows:
 ```sh
@@ -47,15 +41,10 @@ Nothing much has happened, right? Remember: by default, Playwright will run in h
 
 When you are first writing and debugging your scripts, it is a good idea to disable headless mode, so you can have a look at what your script is doing:
 
-{{< tabs "2" >}}
 
-{{< tab "Playwright" >}}
 ```js
 const browser = await chromium.launch({ headless: false })
 ```
-{{< /tab >}}
-
-{{< /tabs >}}
 
 After executing the updated file, you will see Chromium starting up, only to shut down after an instant. Everything is working as expected! Our script is just so short, it runs almost instantaneously.
 

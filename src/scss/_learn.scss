@@ -664,7 +664,7 @@
 
 .run-in-checkly {
   position: absolute;
-  bottom: 47px;
+  translate: -20px -70px;
   background-color: #0075ff;
   z-index: 100000000;
   right: 22px;
@@ -674,6 +674,10 @@
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 14px;
+
+  @include media-breakpoint-down(md) {
+    translate: 10px -70px;
+  }
 }
 
 .learn-cta-wrapper {

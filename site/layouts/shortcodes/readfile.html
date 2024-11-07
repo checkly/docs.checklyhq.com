@@ -1,2 +1,2 @@
-{{ $filename := .Get "filename" }}
-{{ readFile $filename | safeHTML }}
+{{- $filename := .Get "filename" -}}
+{{- readFile $filename | safeHTML -}}
