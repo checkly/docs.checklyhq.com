@@ -14,7 +14,7 @@ menu:
     parent: "Best practices"
 ---
 
-In a previously released YouTube video, I explained how and why Playwright fixtures perfectly match with page object models. Combining the two allows you to hide setup instructions and keep your tests clean. Page object models no longer have to be initialized in every test case.
+In a previously [released YouTube video](https://www.youtube.com/watch?v=k488kAtT-Pw), I explained how and why Playwright fixtures perfectly match with page object models. Combining the two allows you to hide setup instructions and keep your tests clean. Page object models no longer have to be initialized in every test case.
 
 
 ```js
@@ -40,7 +40,7 @@ But let's take a step back first...
 
 Over time, more and more people have asked me how they should organize and structure complex Playwright projects. I don't believe there's a single silver bullet, however, I do like to establish some patterns that enable coding conventions and best practices.
 
-As mentioned above, one of these patterns is to rely on custom Playwright fixtures whenever possible. As the Playwright docs state, fixtures:
+As mentioned above, one of these patterns is to rely on [custom Playwright fixtures](https://playwright.dev/docs/test-fixtures#creating-a-fixture) whenever possible. As the Playwright docs state, fixtures:
 
 - help to encapsulate setup and teardown in a single place.
 - are reusable between tests.
