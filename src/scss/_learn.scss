@@ -70,7 +70,7 @@
     &-title {
       display: flex;
       align-items: center;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 14px;
       line-height: 17px;
       color: $gray-darkish !important;
@@ -84,6 +84,16 @@
         background: url(/images/icons/svg/chevron.svg);
         background-size: 100%;
         margin: 0 $menu-item-padding-spacer 0 auto;
+        content: '';
+        display: inline-block;
+        transition: .15s transform ease;
+      }
+      &::before {
+        width: 3 * $menu-item-padding-spacer;
+        height: 3 * $menu-item-padding-spacer;
+        background: url(/images/icons/svg/chevron.svg);
+        background-size: 100%;
+        margin: 0 $menu-item-padding-spacer 0 0;
         content: '';
         display: inline-block;
         transition: .15s transform ease;
@@ -674,7 +684,6 @@
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 14px;
-
   @include media-breakpoint-down(md) {
     translate: 10px -70px;
   }

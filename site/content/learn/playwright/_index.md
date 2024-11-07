@@ -6,7 +6,7 @@ displayDescription:
   Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 metatags:
   title: Learn Playwright & Checkly - Browser Automation
-
+toc: false
 ---
 
 Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*. To get the most from Checkly, we put together a series of guides and examples to help you get started with Playwright.
@@ -20,7 +20,7 @@ Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*
 	  title="What is Playwright?"
 	  img="/learn/icons/playwright-logo.svg"
 	  description="Microsoft's Playwright offers unique features for automation and user simulation."
-	  link="/learn/playwright/getting-started/"
+	  link="/learn/playwright/what-is-playwright/"
 >}}
 {{< doc-card
 	  class="two-column-card"
