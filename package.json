@@ -20,7 +20,7 @@
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.2.2",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-class-properties": "^6.10.2",
     "babel-plugin-transform-object-assign": "^6.8.0",
@@ -52,7 +52,7 @@
     "sass": "1.60.0",
     "sass-loader": "^8.0.0",
     "url-loader": "^0.6.2",
-    "webpack": "4.46.0",
+    "webpack": "5.96.1",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
@@ -75,7 +75,7 @@
     "buildTags": "extended"
   },
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
