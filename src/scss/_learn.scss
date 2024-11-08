@@ -78,16 +78,6 @@
       img {
         margin-right: 8px;
       }
-      &::after {
-        width: 3 * $menu-item-padding-spacer;
-        height: 3 * $menu-item-padding-spacer;
-        background: url(/images/icons/svg/chevron.svg);
-        background-size: 100%;
-        margin: 0 $menu-item-padding-spacer 0 auto;
-        content: '';
-        display: inline-block;
-        transition: .15s transform ease;
-      }
       &::before {
         width: 3 * $menu-item-padding-spacer;
         height: 3 * $menu-item-padding-spacer;
