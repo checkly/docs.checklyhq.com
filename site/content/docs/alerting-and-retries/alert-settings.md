@@ -6,7 +6,6 @@ weight: 30
 menu:
   resources:
    parent: "Alerting & retries"
-lastmod: 01-06-2020
 aliases:
 - /alerting/settings/
 - /alerting/

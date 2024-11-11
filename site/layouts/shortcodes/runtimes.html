@@ -1,4 +1,4 @@
-{{ $Runtimes := getJSON "https://api.checklyhq.com/v1/runtimes" }}
+{{ $Runtimes := resources.GetRemote "https://api.checklyhq.com/v1/runtimes" | transform.Unmarshal }}
 
 {{ range $Runtimes }}
   {{ if ne .stage "BETA" }}
