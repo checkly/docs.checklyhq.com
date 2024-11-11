@@ -18,7 +18,7 @@ With clusters consisting of multiple nodes and applications, maintaining clear a
 
 ### What is klog?
 
-klog is the logging library used within Kubernetes to manage logs across its various components, such as the API server, kubelet, and controller manager. Originally based on Google’s `glog`, klog introduces structured logging and integrates seamlessly with Kubernetes’ complex architecture. As Kubernetes clusters scale, klog’s ability to standardize log output is vital for efficient log collection, storage, and analysis.
+klog is the logging library used within Kubernetes to manage logs across its various components, such as the API server, kubelet, and controller manager. Originally based on Google’s `glog`, klog introduces structured logging and integrates with Kubernetes architecture. As Kubernetes clusters scale, klog’s ability to standardize log output is vital for efficient log collection, storage, and analysis.
 
 Starting with Kubernetes v1.19, klog adopted structured logging to make log entries easier to parse, search, and analyze. This change enables administrators to move away from unstructured plain text logs, which often require custom parsing and lead to inconsistencies across components. Structured logs also allow for better integration with logging tools like Elasticsearch, Fluent Bit, and Grafana, making it easier to monitor, alert, and troubleshoot.
 
