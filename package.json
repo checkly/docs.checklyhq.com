@@ -4,6 +4,7 @@
   "description": "Checkly public website",
   "repository": "checkly/checklyhq.com",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "hugo": "gulp --gulpfile gulpfile.mjs hugo",
     "build": "gulp --gulpfile gulpfile.mjs build",
