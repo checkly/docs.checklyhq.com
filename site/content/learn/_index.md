@@ -33,7 +33,7 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  class="three-column-card"
 	  headerTag="h3"
 	  title="Open Telemetry"
-	  img="/learn/icons/opentelemetry.svg"
+	  img="/learn/icons/opentelemetry-logo.svg"
 	  description="Learn how to instrument your application with OTel and get deep insights into your full stack."
 	  link="/learn/opentelemetry/getting-started-with-observability/"
 >}}
