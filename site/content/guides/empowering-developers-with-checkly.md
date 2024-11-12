@@ -13,14 +13,14 @@ In today’s fast-paced development environment, engineers are under pressure to
 
 Checkly solves this problem by providing a solution that bridges the gap between application developers and platform teams. By leveraging Checkly’s codified MaC approach, both groups can collaborate efficiently to create, configure, and manage monitors in a seamless way that fits within existing workflows.
 
-Empowering Developers with Code-First Monitoring
+## Empowering Developers with Code-First Monitoring
 With the rise of shift-left and the age of empowering engineers, more teams are using code to configure tests, infrastructure, and deployment models. They are finding benefits like increased collaboration, auditability, and automation in these new paradigms that are revolutionizing the way they ship software. 
 
 Checkly fits neatly into this trend, offering software teams a codified approach to building and configuring their monitors and alerts. This means that monitors can be:
 
-Created faster within the software delivery lifecycle
-Tested and reviewed in CI/CD pipelines
-Automated across services and teams
+* Created faster within the software delivery lifecycle
+* Tested and reviewed in CI/CD pipelines
+* Automated across services and teams
 
 No more throwing monitoring over the proverbial wall. Rather than relying on a separate platform or operations team to set up monitors, engineers can take full control of what gets monitored, when, and how. This can save time, reduce errors, and make the entire process more efficient. 
 
@@ -89,7 +89,7 @@ curl --request POST \
 ```
 As seen here, engineers can quickly configure an API check that runs every minute to ensure that the status code is 200. If there’s a failure, Checkly will immediately notify the team, allowing them to address the issue promptly.
 
-Collaboration Between Dev and Platform Teams
+## Collaboration Between Dev and Platform Teams
 While a code-first approach to monitoring empowers application engineers, many teams include both developers and platform engineers who work together to build and operate complex systems. This is where Checkly’s flexibility and extensibility truly shines.
 
 Platform teams often handle the configuration of complex alerts, thresholds, and scheduling across multiple environments. By codifying these aspects, platform engineers can provide a consistent monitoring “wrapper” around the application teams’ checks. This allows developers to focus on building and shipping code and adding simple checks without worrying about the operational intricacies of monitoring.
@@ -130,7 +130,7 @@ resource "checkly_check" "example_check_2" {
 ```
 In this example, the platform team has set up detailed monitoring parameters, including response time thresholds and a retry strategy in case of failure. By wrapping these details into reusable configurations, the platform team allows application engineers to create new monitors that are consistent with the organization’s standards—without having to worry about the operational details.
 
-Codified Alerts and Notifications
+### Codified Alerts and Notifications
 Checkly also integrates alert channels into the code, allowing teams to manage alerts for different monitors via a code-first approach. You can specify email alerts, Slack notifications, or other channels to ensure that the right team members are notified when something goes wrong.
 
 For instance, here’s how to set up email alerts for a check:
@@ -150,7 +150,7 @@ resource "checkly_check" "example_check" {
 }
 ```
 By codifying alert configurations, platform engineers can ensure that the organization’s monitoring rules and notification protocols are followed consistently, even as application teams create new monitors.
-Conclusion
+## Conclusion
 Checkly’s approach to monitoring via code gives engineering and operations teams the tools they need to keep applications running smoothly. Application engineers can take ownership of their monitors, ensuring that they’re set up efficiently and integrated into their workflows. Meanwhile, platform teams can manage and maintain a higher-level view, providing the necessary configurations and support for more complex systems.
 
 Whether your team is fully developer-led, or you have a more traditional split between development and platform engineering, Checkly’s code-first monitoring solution ensures that everyone can collaborate smoothly and efficiently. As modern applications continue to grow in complexity, tools like Checkly are becoming essential to manage the intricacies of monitoring in a fast-moving development environment.
