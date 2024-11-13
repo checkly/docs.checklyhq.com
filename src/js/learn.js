@@ -1,15 +1,14 @@
-
 /**
  * Learn Menu
  */
 
 $(document).ready(() => {
   const learnMenuTitleClass = '.learn-menu-title'
-  var learnMenuHeader = $(learnMenuTitleClass)
+  const learnMenuHeader = $(learnMenuTitleClass)
 
   learnMenuHeader.click(function () {
-    var id = $(this).attr('id')
-    var learnMenuId = '#learn-menu-' + id
+    const id = $(this).attr('id')
+    const learnMenuId = '#learn-menu-' + id
     if ($(this).attr('class') === 'learn-menu-title') {
       $(this).addClass('active')
       $(learnMenuId).addClass('menu-display')
@@ -91,7 +90,7 @@ $(document).ready(function () {
  * Sidemenu fixed position after some scroll-up
  */
 
-var sideMenuDistance = $('#sideMenu').offset().top - 10
+const sideMenuDistance = $('#sideMenu').offset().top - 10
 
 $(window).on('scroll', function () {
   if ($(window).scrollTop() >= sideMenuDistance) {
