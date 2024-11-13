@@ -63,6 +63,6 @@ Organizations can slowly convert significant logs into spans, by processing eith
 
 ## Getting Started
 
-To begin, select your language and follow the documentation to add [automatic instrumentation](learn/opentelemetry/otel-instrument/). All major web development language libraries already support tracing out-of-the-box, making it easier to adopt tracing incrementally.
+To begin, select your language and follow the documentation to add [automatic instrumentation](learn/opentelemetry/how-to-instrument/). All major web development language libraries already support tracing out-of-the-box, making it easier to adopt tracing incrementally.
 
 Incorporating OpenTelemetry traces helps developers detect problems earlier, understand their systems better, and respond effectively to user issues. Whether your application is a monolith, a microservice, or somewhere in between, traces provide the insight you need to optimize and troubleshoot your software.

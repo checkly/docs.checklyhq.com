@@ -17,8 +17,6 @@ menu:
     parent: "Getting started"
 ---
 
-The [official documentation](https://playwright.dev/) for Playwright reads:
-
 
 ## What is Playwright?
 Playwright is an open-source framework for cross-browser automation and end-to-end web application testing. It was designed to be a fast, reliable, robust, and evergreen test automation framework, and its API supports modern rendering engines that include Chromium, WebKit, and Firefox. Playwright tests run on Windows, Linux, and macOS, locally or on your continuous integration pipeline, and headless or headed. Playwright supports several programming languages, including TypeScript, JavaScript, Python, .NET, and Java.
