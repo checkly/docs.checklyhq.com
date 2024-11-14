@@ -178,13 +178,6 @@
         text-decoration: none;
         color: $brand-primary
       }
-
-      &:after {
-        margin-left: 1rem;
-        color: $gray;
-        font-family: Ionicons;
-        content: '\f39c'
-      }
     }
 
     .slack-link {

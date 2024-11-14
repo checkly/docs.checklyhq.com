@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  ignorePatterns: ['dist', 'node_modules','xml2json.js'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     sourceType: 'module',
