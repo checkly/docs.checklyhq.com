@@ -1,6 +1,6 @@
 ---
 title: How to Use Playwright to Navigate and Interact with Web Pages
-displayTitle: Navigating with Playwright
+displayTitle: How to Use Playwright for Navigation and Interaction
 metatags:
   title: Navigation & Waiting Strategies in Playwright
 subTitle: How to ensure elements are ready for interaction

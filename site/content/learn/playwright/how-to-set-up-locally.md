@@ -6,7 +6,7 @@ githubUser: ragog
 tags:
   - basics
 weight: 2
-displayTitle: Setting up Playwright locally
+displayTitle: How to Set Up Playwright Locally
 navTitle: Setting up Playwright
 menu:
   learn:
