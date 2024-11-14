@@ -1,6 +1,6 @@
 import gulp from 'gulp'
 import { spawn } from 'child_process'
-import hugoBin from 'hugo-bin'
+import hugoPath from 'hugo-bin'
 import postcss from 'gulp-postcss'
 import cssImport from 'postcss-import'
 import cssnext from 'postcss-cssnext'
@@ -17,12 +17,12 @@ import del from 'del'
 
 import BrowserSync from 'browser-sync'
 import webpack from 'webpack'
-import webpackConfig from './webpack.conf'
+import webpackConfig from './webpack.conf.js'
 
 const browserSync = BrowserSync.create()
 
 // Hugo arguments
-const hugoArgsDefault = ['-d', '../public', '-s', 'site', '-v']
+const hugoArgsDefault = ['-d', '../public', '-s', 'site']
 
 // Development tasks
 gulp.task('hugo', (cb) => buildSite(cb))
@@ -143,7 +143,7 @@ function buildSite (cb, options, environment = 'development') {
 
   process.env.NODE_ENV = environment
 
-  return spawn(hugoBin, args, { stdio: 'inherit' }).on('close', (code) => {
+  return spawn(hugoPath, args, { stdio: 'inherit' }).on('close', (code) => {
     if (code === 0) {
       browserSync.reload()
       cb()
