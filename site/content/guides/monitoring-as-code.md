@@ -54,4 +54,4 @@ Set highly configurable and customized alerting strategies that can be reused ac
 Generate customized dashboards and reports that can be deployed anywhere to improve collaboration and get the right information to the right people.
 
 ## Getting started
-Getting started with monitoring as code is straightforward with the [Checkly platform](https://checklyhq.com). To begin, sign up for a [free account of Checkly](https://app.checklyhq.com/signup) and start creating monitors and alerts using our CLI.
+Getting started with monitoring as code is straightforward with the [Checkly platform](https://www.checklyhq.com). To begin, sign up for a [free account of Checkly](https://app.checklyhq.com/signup) and start creating monitors and alerts using our CLI.

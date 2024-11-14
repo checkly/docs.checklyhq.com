@@ -88,7 +88,7 @@
     { "source": "/guides/monitoring-as-code-cli(/)?", "destination": "/guides/monitoring-ecommerce-apps-using-playwright/", "permanent": true },
     { "source": "/guides/setup-scripts(/)?", "destination": "/guides/setup-scripts-for-apis/", "permanent": true },
     { "source": "/guides/openapi-swagger(/)?", "destination": "/guides/monitoring-an-openapi-spec/", "permanent": true },
-    { "source": "/docs/private-locations/private-locations-getting-started(/)?", "destination": "/docs/private-locations/private-locations-getting-started/", "permanent": true },
+    { "source": "/docs/private-locations/private-locations-getting-started(/)?", "destination": "/docs/private-locations/", "permanent": true },
     { "source": "/docs/private-locations/checkly-agent-guide(/)?", "destination": "/docs/private-locations/checkly-agent-configuration/", "permanent": true },
     { "source": "/docs/browser-checks/partials-code-snippets(/)?", "destination": "/docs/snippets/", "permanent": true },
     { "source": "/docs/integrations/terraform(/)?", "destination": "/docs/terraform-provider/", "permanent": true },

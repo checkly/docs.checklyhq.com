@@ -1,5 +1,5 @@
 ---
-title: How to click, type, and hover with Playwright
+title: How to Click, Type, and Hover with Playwright
 subTitle: Basic page interactions
 date: 2020-06-15
 author:
