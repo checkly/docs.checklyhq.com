@@ -98,10 +98,14 @@ You can distinguish the old containers from the new ones by looking at the `CREA
 
 ### Automatic updates
 
-Since the Agent is stateless, it can also be updated by replacing or updating the image in place.
+{{< info >}}
+Use caution when enabling automatic updates in production. This could automatically update to a version with breaking changes, and upgrade to an agent version supporting a later runtime.
+{{< /info >}}
+
+Since the agent is stateless, it can also be updated by replacing or updating the image in place.
 If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.
-While this approach can be more convenient, it should be used with caution since new Agent versions may have breaking changes such as deprecating [runtimes](/docs/runtimes/).
-Breaking changes are communicated by increasing the major version of the image (e.g. from v1.3.8 to v2.0.0).
+
+Breaking changes are communicated by increasing the major version of the image (e.g. from v1.3.8 to v2.0.0). Each version of the agent only supports a single runtime. You can find a list of agent versions and corresponding runtimes [below](/docs/private-locations/checkly-agent-configuration/#agent-version-and-runtimes).
 
 You can use the [Watchtower tool](https://containrrr.dev/watchtower/) to do an in-place upgrade of an agent container. Ensure you have sufficient agent capacity as the agent container will have a short outage as it is upgraded. As agent shutdowns are graceful, no running checks will be lost:
 
@@ -151,6 +155,19 @@ To configure the agent to trust the certificate, first copy the certificate as a
 ```bash
 docker run -v ~/certificate.pem:/checkly/certificate.pem -e NODE_EXTRA_CA_CERTS=/checkly/certificate.pem -e API_KEY="pl_...." -d checkly/agent:latest
 ```
+
+## Agent Version and Runtimes
+Each Checkly Agent only supports a single [runtime](/docs/runtimes/). This is to keep the container image at an acceptable size. When you change the runtime a check uses, you also need to change to the corresponding agent version. Similarly, if you update the agent version to one using a different runtime you also need to update your checks to use the same runtime.
+
+| Runtime | Agent version |
+|---------|---------------|
+| 2024.09 | 4.0.0         |
+| 2024.02 | 3.4.0         |
+| 2023.09 | 3.2.0         |
+| 2023.02 | 2.0.0         |
+| 2022.10 | 1.3.9         |
+
+As each agent version only supports a single runtime we recommend pinning agent versions used in production.
 
 ## Troubleshooting
 

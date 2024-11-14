@@ -1,5 +1,5 @@
 ---
-title: What is Playwright? A Guide to Playwright Automation
+title: Beginner’s Guide to Playwright Automation
 description: 
   Learn how Playwright, a browser automation tool, simplifies testing across Chrome, Firefox, and WebKit. Start building more reliable web applications today.
 date: 2020-06-29
@@ -16,8 +16,6 @@ menu:
   learn:
     parent: "Getting started"
 ---
-
-The [official documentation](https://playwright.dev/) for Playwright reads:
 
 
 ## What is Playwright?

@@ -70,7 +70,7 @@ With OpenTelemetry, you can collect, process, and export metrics using **Collect
 2. **Processing**: The OpenTelemetry Collector aggregates and processes the data (e.g., batching or filtering metrics).
 3. **Exporting**: Metrics are sent to observability platforms like **Prometheus** or **Grafana**.
 
-Learn how to configure a collector in the [OpenTelemetry Collector Guide](learn/opentelemetry/otel-collector/).
+Learn how to configure a collector in the [OpenTelemetry Collector Guide](/learn/opentelemetry/what-is-the-otel-collector/).
 
 
 
@@ -79,7 +79,7 @@ Learn how to configure a collector in the [OpenTelemetry Collector Guide](learn/
 - **Optimize cardinality**: Avoid creating too many distinct labels, as this can overwhelm storage and query systems.
 - **Set appropriate aggregation intervals**: Batch data intelligently to balance between real-time insights and system load.
 - **Use meaningful names**: Clearly describe the purpose of each metric to make dashboards and alerts easier to understand.
-- **Standardize naming early**: While OpenTelemetry defines standard language for a number of concepts, actual metric naming is not standardized. As such it's possible to report `total-web-shop-checkout-time` and `webShopCheckoutTime_total` as two totally separate metrics even though they should be aggregated. No standard is perfect, of course, and to normalize data before it's stored, use the [filtering tools in the OpenTelemetry collector](learn/opentelemetry/otel-filtering/).
+- **Standardize naming early**: While OpenTelemetry defines standard language for a number of concepts, actual metric naming is not standardized. As such it's possible to report `total-web-shop-checkout-time` and `webShopCheckoutTime_total` as two totally separate metrics even though they should be aggregated. No standard is perfect, of course, and to normalize data before it's stored, use the [filtering tools in the OpenTelemetry collector](/learn/opentelemetry/otel-filtering/).
 
 
 OpenTelemetry metrics provide a robust foundation for observability, helping teams proactively monitor performance and detect issues before they escalate. With the right setup and tooling, you can gain comprehensive insights into your applications, enabling faster resolution times and improved reliability.
