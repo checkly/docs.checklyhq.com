@@ -1,15 +1,25 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  ignorePatterns: ['dist', 'node_modules','xml2json.js'],
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
+    requireConfigFile: false,
+    babelOptions: {
+      presets: ['@babel/preset-env']
+    }
   },
   env: {
     browser: true,
+    node: true,
+    es6: true
   },
   extends: 'standard',
   plugins: [
-    'html'
+    'html',
+    'import',
+    'node',
+    'promise'
   ],
   globals: {
     $: 'readonly',

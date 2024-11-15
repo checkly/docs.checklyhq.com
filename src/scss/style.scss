@@ -1,6 +1,4 @@
 @import 'variables';
-
-@import './checkly-webapp-src/style/fonts/fonts.scss';
 @import './checkly-webapp-src/style/scss/style.scss';
 
 @import 'common';
@@ -27,9 +25,6 @@ body {
   }
   color: $gray-dark;
 }
-
-@import '../css/vendor/ionicons/css/ionicons.min.css';
-
 
 .container {
 	padding-right: 24px;

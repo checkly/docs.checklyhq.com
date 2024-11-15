@@ -103,16 +103,19 @@
   cursor: pointer;
   background: transparent;
   border: none;
-  margin-top: 20px;
+  margin-top: 14px;
   margin-right: 12px;
   padding: 0;
   line-height: 0;
   transition: all 100ms ease-in-out;
-  &:after {
-    color: $gray;
-    font-family: Ionicons;
-    font-size: 20px;
-    content: '\f3ef'
+  &::after {
+    width: 16px;
+    height: 16px;
+    background-size: 100%;
+    background: url(/images/icons/copy.svg) no-repeat;
+    content: '';
+    display: inline-block;
+    transition: .15s transform ease;
   }
 }
 
@@ -120,9 +123,8 @@
   &.copy-code-button--copied {
     &:after {
       color: $green;
-      font-family: Ionicons;
-      font-size: 16px;
-      content: '\f122'
+      background: url(/images/icons/check.svg) no-repeat;
+
     }
     &:hover {
       &:after {
@@ -139,7 +141,7 @@
 .copy-code-button:active,
 
 .copy-code-button:active:hover {
-  &:after {
+  &::after {
     color: $gray-light;
   }
 }
