@@ -1,5 +1,6 @@
 ---
-title: Playwright vs Cypress - Detailed comparison
+title: Playwright vs Cypress - Detailed comparison [2024]
+description: Discover the differences between Playwright and Cypress. Explore key features, pros and cons, and how to pick the right framework.
 subTitle: Key features, and pros & cons of each framework
 date: 2024-10-17
 author: Nocnica Mellifera
