@@ -32,6 +32,9 @@ Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*
 >}}
 </div>
 
+## Check our Playwright Tips YouTube channel
+
+{{< youtube-playwright-tips-gallery >}}
 
 ## Diving Deeper
 
