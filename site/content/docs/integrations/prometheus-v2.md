@@ -1,6 +1,6 @@
 ---
 title: Exporting Metrics & Data via Prometheus V2 and Checkly - Checkly Docs
-displayTitle: Exporting Metrics & Data via Prometheus V2  
+displayTitle: Exporting Metrics & Data via Prometheus V2
 navTitle: Prometheus V2
 weight: 65
 aliases:
@@ -11,7 +11,7 @@ menu:
 ---
 
 If you are using [Prometheus](https://prometheus.io/) for monitoring and the popular [Grafana](https://grafana.com/) stack
-for dashboarding, you can expose Checkly's core metrics on a dedicated, secured endpoint. 
+for dashboarding, you can expose Checkly's core metrics on a dedicated, secured endpoint.
 
 {{< info >}}
 This page describes a new V2 version of the Prometheus exporter. For information about the old Prometheus exporter, see the [Prometheus V1 docs](/docs/integrations/prometheus-v1/).
@@ -46,7 +46,7 @@ Now restart Prometheus and you should see metrics coming in.
 {{< warning >}}
 The Prometheus metrics endpoint has a rate limit of 50 requests per minute.
 The responses from this endpoint are cached during 60 seconds.
-Any request made to this endpoint within 60 seconds of the initial request will receive the cached response. 
+Any request made to this endpoint within 60 seconds of the initial request will receive the cached response.
 We recommend using a scrape interval of 60 seconds.
 {{</ warning >}}
 
@@ -74,7 +74,7 @@ For example, if a check is passing the result will be:
 ```bash
 checkly_check_status{name="Passing Browser Check",status="passing"} 1
 checkly_check_status{name="Passing Browser Check",status="failing"} 0
-checkly_check_status{name="Passing Browser Check",status="degraded"} 0 
+checkly_check_status{name="Passing Browser Check",status="degraded"} 0
 ```
 
 `checkly_check_status` can be useful for viewing the current status of a check, whereas `checkly_check_result_total` can be useful for calculating overall statistics. For more information see the [recipes section](#recipes).
@@ -101,7 +101,7 @@ You can set `key:value` tags in your checks and groups and they will be exported
 {{</info>}}
 
 {{<info>}}
-The counter and histogram metrics are reset every hour. These resets can be handled in Prometheus by using the [rate](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) or [increase](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions. 
+The counter and histogram metrics are reset every hour. These resets can be handled in Prometheus by using the [rate](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) or [increase](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions.
 {{</info>}}
 
 ### PromQL Examples
@@ -125,7 +125,7 @@ To calculate the percentage of check runs that failed in the last 24 hours, use:
 increase(checkly_check_result_total{status="failing"}[24h]) / ignoring(status) sum without (status) (increase(checkly_check_result_total[24h]))
 ```
 
-The `checkly_check_result_total` counter is reset to `0` every hour. The [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) function will handle these resets automatically, though. `ignoring(status)` is needed so that Prometheus can perform [vector matching](https://prometheus.io/docs/prometheus/latest/querying/operators/#vector-matching) on the division operation. 
+The `checkly_check_result_total` counter is reset to `0` every hour. Prometheus handles resets automatically, so it is possible to use all functions like [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) or [`rate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) for these series.
 
 #### Histogram averages
 
