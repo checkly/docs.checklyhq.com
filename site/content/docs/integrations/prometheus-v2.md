@@ -125,7 +125,7 @@ To calculate the percentage of check runs that failed in the last 24 hours, use:
 increase(checkly_check_result_total{status="failing"}[24h]) / ignoring(status) sum without (status) (increase(checkly_check_result_total[24h]))
 ```
 
-The `checkly_check_result_total` counter is reset to `0` every hour. Prometheus handles resets automatically, so it is possible to use all functions like [`increase`](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) or [`rate`](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) for these series.
+The `checkly_check_result_total` counter is reset to `0` every hour. Prometheus handles resets automatically, so it is possible to use all its functions.
 
 #### Histogram averages
 
