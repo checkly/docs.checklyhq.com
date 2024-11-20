@@ -57,7 +57,7 @@ Missing spans can happen due to various reasons. Whether you're sending data to 
       ```
 
    #### Sampling directly in your applications' code. 
-   Choose the specific [instrumentation language guide](docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
+   Choose the specific [instrumentation language guide](/docs/traces-open-telemetry/instrumenting-code/) and review your configuration against Step 2 in the guides.
 
 ### Review OpenTelemetry Exporter configuration
   
@@ -94,7 +94,7 @@ Ensure the right Authorization keys and endpoints are in use.
    ```
 
 ### Checkly Private Location setup
-   When setting up Traces with a [Checkly Private Location](docs/private-locations/#configuring-a-private-location):
+   When setting up Traces with a [Checkly Private Location](/docs/private-locations/#configuring-a-private-location):
   * **Step 1**. Ensure your [Checkly Agent](https://hub.docker.com/r/checkly/agent) version is at least 3.3.5.
   
   * **Step 2**. Review your internal Firewall rules: 
@@ -113,5 +113,5 @@ Ensure the right Authorization keys and endpoints are in use.
 
 ### Incomplete instrumentation
    
-   To see the full picture, and identify the root cause of a problem faster, ensure your applications and services are [instrumented with the OpenTelemetry SDK](docs/traces-open-telemetry/instrumenting-code/).
+   To see the full picture, and identify the root cause of a problem faster, ensure your applications and services are [instrumented with the OpenTelemetry SDK](/docs/traces-open-telemetry/instrumenting-code/).
     
