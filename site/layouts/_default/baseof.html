@@ -8,8 +8,9 @@
 {{ else if .Params.heroDescription }}
   {{ .Scratch.Set "subtitle_text" .Params.heroDescription }}
 {{ end }}
-{{ partial "head" . }}
-
+<head>
+  {{ partial "head" . }}
+</head>
 <body>
   {{ block "main" . }}
   {{ end }}

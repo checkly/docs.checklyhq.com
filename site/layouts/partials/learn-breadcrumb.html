@@ -5,13 +5,17 @@
   {{ range $index, $element := split $url "/" }}
     {{ $.Scratch.Add "path" $element }}
     {{ if ne $element "" }}
-
       {{ if ne $element "learn" }}
-        {{ if eq $index 3 }}
-          <a href="/learn/playwright/">Playwright Automation Guide</a>
+        {{ if eq $index 2 }}
+            {{ if eq $element "playwright" }}
+              <a href="/learn/playwright/">Playwright Automation Guide</a>
+            {{ end }}
+            {{ if eq $element "opentelemetry" }}
+              <a href="/learn/playwright/">Open Telemetry Guide</a>
+            {{ end }}
         {{ else }}
           <span>/</span>
-          {{ if eq $index 3 }}
+          {{ if eq $index 2 }}
             <a href="/learn/{{ . }}/">{{ humanize . }}</a>
           {{ else }}
             {{ humanize . }}
