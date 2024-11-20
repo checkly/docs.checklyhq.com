@@ -1,6 +1,7 @@
 ---
-title: Playwright vs. Selenium - Detailed Comparison for 2024
+title: Playwright vs Selenium - Detailed Comparison for 2024
 subTitle: Key features, and pros & cons of each framework
+description: Explore the key differences between Playwright and Selenium in web testing. Discover the examples, pros and cons, and learn how to run the tests.
 date: 2024-10-17
 author: Nocnica Mellifera
 githubUser: serverless-mom
@@ -133,7 +134,7 @@ To run your test, execute `node test.js` in your terminal
 
 This command launches a browser, performs the specified actions, and then closes the browser. You should see any console output you added, such as the page title.
 
-## Playwright vs. Selenium: Key Differences
+## Playwright vs Selenium: Key Differences
 
 While Playwright and Selenium are both used for similar roles as test automation. And both are focused on operating a browser automatically, the difference in their backgrounds, core userbase, and ages show up in a number of implementation details.
 
@@ -247,7 +248,7 @@ Some key differences in the two examples:
 - Playwright uses modern css locators rather than finding by ID or class. ID and class can shift on an element when all that’s happening is a visual refresh of the site. We don’t want our tests to break in this situation!
 - Playwright includes auto-waiting, so there’s no need to add manual timeouts to our code.
 
-## Playwright vs. Selenium: Pros & Cons
+## Playwright vs Selenium: Pros & Cons
 
 ### Playwright
 
@@ -259,7 +260,7 @@ Some key differences in the two examples:
 **Pros**: Established tool with a large community, supports many languages, better integration with real device testing.
 **Cons**: More setup required, slower execution, higher learning curve for productivity.
 
-## Playwright vs. Selenium: Which Solution to Choose?
+## Playwright vs Selenium: Which Solution to Choose?
 
 ### When to Use Playwright
 
