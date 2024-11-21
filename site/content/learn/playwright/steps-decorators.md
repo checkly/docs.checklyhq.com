@@ -1,5 +1,5 @@
 ---
-title: Self-documenting tests - add automatic Playwright steps with Typescript Decorators
+title: Simplify Playwright debugging with self-documenting steps using Typescript Decorators
 subTitle: Understand tests better with steps
 date: 2024-11-15
 author: Stefan Judis
@@ -10,7 +10,7 @@ tags:
   - assertions
 
 weight: 7
-navTitle: Automatic Steps
+navTitle: Self-Documenting Test Steps
 menu:
   learn:
     parent: "Best practices"
