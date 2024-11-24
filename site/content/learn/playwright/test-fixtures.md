@@ -1,5 +1,5 @@
 ---
-title: Reuse your code with custom test fixtures in Playwright
+title: Reuse code with custom test fixtures in Playwright
 subTitle: Implement DRY practices by customizing your test environment
 date: 2024-03-16
 author: Nocnica Mellifera

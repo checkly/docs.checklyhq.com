@@ -1,5 +1,5 @@
 ---
-title: How to Bypass TOTP-Based 2FA Login Flows With Playwright
+title: How to Bypass Time-Based 2FA Login Flows With Playwright
 subTitle: Playwright for complex authentication tasks
 date: 2024-10-30
 author: Stefan Judis
