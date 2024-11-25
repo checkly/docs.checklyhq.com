@@ -108,7 +108,7 @@ Checkly can use soft assertions as part of a ‘degraded’ state for checks. If
 
 This is useful for distinguishing between partial service disruptions and complete outages, offering teams a more precise understanding of performance and reliability. If your Playwright test is running on Checkly, the check will enter a ‘degraded’ state when some soft assertions fail, or if you call `markCheckAsDegraded` in its execution.
 
-```jsx
+```js
 import { test, expect } from "@playwright/test"
 import { getAPIResponseTime, markCheckAsDegraded } from "@checkly/playwright-helpers"
 
@@ -176,7 +176,7 @@ Custom matchers can be added using `expect.extend`, allowing developers to defin
 
 Here's a quick example of how to create a custom matcher for checking specific conditions:
 
-```jsx
+```js
 expect.extend({
   toBeWithinRange(received, floor, ceiling) {
     const pass = received >= floor && received <= ceiling;

@@ -40,7 +40,7 @@ Playwright is a relatively new browser automation framework that has gained popu
     
 2. Set up a test script using `@playwright/test`:
     
-    ```jsx
+    ```js
     const { test, expect } = require('@playwright/test');
     
     test('example test', async ({ page }) => {
@@ -90,7 +90,7 @@ Here’s how to run a Selenium test in NodeJS
     
     In your test file (e.g., `test.js`), import the `selenium-webdriver` package:
     
-    ```jsx
+    ```js
     const { Builder, By, until } = require('selenium-webdriver');
     ```
     
@@ -98,7 +98,7 @@ Here’s how to run a Selenium test in NodeJS
     
     Use the `Builder` to configure your test environment. Here is a simple example:
     
-    ```jsx
+    ```js
     async function exampleTest() {
       // Initialize a new browser instance
       let driver = await new Builder().forBrowser('chrome').build();
@@ -168,7 +168,7 @@ While Playwright and Selenium are both used for similar roles as test automation
 
 Here’s a test that simulates a user logging in and loading recent transactions. The automation then takes a screenshot.
 
-```jsx
+```js
 const { Builder, By, until } = require('selenium-webdriver');
 const fs = require('fs');
 
@@ -218,7 +218,7 @@ loginAndCaptureScreenshot();
 
 Here’s the same test in Playwright:
 
-```jsx
+```js
 const { chromium } = require('playwright');
 
 async function loginAndCaptureScreenshot() {

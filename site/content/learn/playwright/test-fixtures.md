@@ -34,7 +34,7 @@ Puppeteer, developed by the Chrome DevTools team, focuses on simplicity and dire
 
 To use fixtures in Puppeteer, developers typically create helper functions or classes that encapsulate setup and teardown logic. This method requires more upfront work and a good understanding of asynchronous JavaScript patterns.
 
-```jsx
+```js
 async function withPage(test) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -62,7 +62,7 @@ Playwright, on the other hand, was designed with a broader testing scope and inc
 
 Playwright's test runner provides a rich set of predefined fixtures, such as browser, context, page, and request, and allows for easy customization and extension of these fixtures. This built-in support enables more structured and maintainable tests, with less manual setup required.
 
-```jsx
+```js
 import { test, expect } from '@playwright/test';
 
 test.use({ storageState: 'authenticated-state.json' });
@@ -94,7 +94,7 @@ To create a custom fixture, extend the test object provided by Playwright:
 
 
 
-```jsx
+```js
 //fixture.js
 import { test as baseTest } from '@playwright/test';
 
@@ -113,7 +113,7 @@ const test = baseTest.extend({
 
 With the fixture defined, you can use it in your tests. Replace the standard test with your extended version:
 
-```jsx
+```js
 test('My webApp test', async ({ webApp }) => { 
   // Your test code here, using the webApp fixture 
   });
@@ -130,7 +130,7 @@ Debugging is crucial to ensure your fixture works as expected. Playwright's insp
 To share your custom fixture across different test files, encapsulate it in a separate module:
 
 
-```jsx
+```js
 // setup.js
 import { test as baseTest, expect } from '@playwright/test';
 
