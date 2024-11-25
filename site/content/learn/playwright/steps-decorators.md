@@ -1,16 +1,14 @@
 ---
-title: Simplify Playwright debugging with self-documenting steps using Typescript Decorators
+title: Self-documenting tests - add automatic Playwright steps with Typescript Decorators
 subTitle: Understand tests better with steps
 date: 2024-11-15
 author: Stefan Judis
 githubUser: stefanjudis
 tags:
-  - basics
-  - scraping
-  - assertions
+  - typescript
 
 weight: 7
-navTitle: Self-Documenting Test Steps
+navTitle: Automatic Steps
 menu:
   learn:
     parent: "Best practices"
@@ -41,7 +39,7 @@ To solve this problem, you can group your actions in Playwright test steps.
 
 Here's [a snippet right from the Playwright docs](https://playwright.dev/docs/api/class-test#test-step).
 
-```jsx
+```js
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -61,7 +59,7 @@ test('test', async ({ page }) => {
 
 You define a step, give it a name and wrap your existing Playwright code in an async callback function. A complex test case becomes very readable with a few added test steps.
 
-```jsx
+```js
 test('Customer is able to create account', async ({
   page
 }) => {
@@ -91,7 +89,7 @@ It does, but wrapping every public class method in a test step isn't a great exp
 
 Here's an example `PlaywrightPage` POM to test the search on the official Playwright docs.
 
-```jsx
+```js
 export class PlaywrightPage {
   readonly page: Page
   readonly searchBtn: Locator
@@ -122,7 +120,7 @@ export class PlaywrightPage {
 
 Wrapping one method in a test step (`search` in this case) isn't a big deal, but wrapping every public POM method will quickly feel like unnecessary busy work.
 
-```jsx
+```js
 export class YourPageObject {
   async methodOne() {
     await test.step("methodOne", async () => { /* ... */ })
@@ -154,7 +152,7 @@ One of these modern JavaScript features is decorators. JavaScript Decorators are
 
 [The JavaScript decorator spec proposal](https://github.com/tc39/proposal-decorators) saw the light of day eight years ago and reached ECMAScript proposal stage three. Proposals on stage three are considered "ready to implement".
 
-```jsx
+```js
 @defineElement("my-class")
 class C extends HTMLElement {
   @reactive accessor clicked = false;
@@ -181,7 +179,7 @@ Wrapping class methods is what we need to avoid all these `test.step` instruct
 
 Let's look at our POM class again.
 
-```jsx
+```js
 class PlaywrightPage {
   constructor(page: Page) { /* ... */ }
 
@@ -202,7 +200,7 @@ If you look at the `search` method, we want to remove the `test.step` from w
 
 First, we must apply a new decorator.
 
-```jsx
+```js
 export class PlaywrightPage {
   constructor(page: Page) { /* ... */ }
 
@@ -225,7 +223,7 @@ To decorate a class method with a Playwright step, put a `@step` line before t
 
 Decorators are normal JavaScript functions. Let's define a new `step` function.
 
-```jsx
+```js
 // 1. Define the `step` decorator
 function step(target: Function, context: ClassMethodDecoratorContext) {
   // 2. Return a method that will replace the original class method
@@ -244,7 +242,7 @@ When found, the `step` decorator function will be called with a function refer
 
 When you now run your tests and call a decorated class method, nothing has changed yet, but we're ready to apply some compilation magic. Let's extend the decorator!
 
-```jsx
+```js
 function step(target: Function, context: ClassMethodDecoratorContext) {
   return function replacementMethod(...args: any) {
     // 2. Use the surrounding context to define the step name
@@ -267,7 +265,7 @@ If we rerun our test, the `@step` decorator will do its magic and automaticall
 
 You can now go wild and replace all these `test.step` calls with `@step` decorators!
 
-```jsx
+```js
 export class YourPageObject {
   @step
   async methodOne() { /* ... */ }
@@ -288,7 +286,7 @@ To pass a custom step name to your decorator, you must change how you decorate t
 
 This change allows you to hand in arguments like a possible step name.
 
-```jsx
+```js
 export class YourPage {
   @step("A great method")
   async methodOne() { /* ... */ }
@@ -298,7 +296,7 @@ export class YourPage {
 
 But you can't execute your decorator methods yet. Add another function level to your decorator to hand in arguments.
 
-```jsx
+```js
 // 1. Make `@step` executable to enable function arguments
 function step(stepName?: string) {
   // 2. Return the original decorator
@@ -324,7 +322,7 @@ Rename your original decorator and wrap it in another function that will return 
 
 Unfortunately, this approach has one downside. Once you make your step decorator function executable, you must execute it everywhere. `@step` must become `@step()`.
 
-```jsx
+```js
 export class PlaywrightPage {
   constructor(page: Page) { /* ... */ }
 
