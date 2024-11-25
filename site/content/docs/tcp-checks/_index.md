@@ -1,5 +1,5 @@
 ---
-title: Monitoring Your Services with TCP checks - Checkly Docs
+title: Monitoring your services with TCP checks - Checkly Docs
 displayTitle: Monitoring Your Services with TCP checks
 weight: 7
 menu:
@@ -18,7 +18,7 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 {{< tab "UI" >}}
 <br>
 
-* **Create a check:** Click the + icon on the sidebar and select **TCP check** from the list.
+* **Create a check:** Click the `+` icon on the sidebar and select **TCP check** from the list.
 
 * **Name & tags:** Choose a meaningful name for the check to easily identify it. Optionally, add one or more tags to further categorize or group the check.
 
@@ -33,7 +33,7 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 * **Retries & alerting:** Configure [retries & alerts](/docs/alerting-and-retries) by choosing from Checkly's retry strategies and alert channels, ensuring you’re notified through your preferred methods when an issue arises with one of your checks.
 
 {{< /tab >}}
-{{< tab "CLI" >}}
+<!-- {{< tab "CLI" >}}
 <br>
 Not yet supported by the CLI.
 {{< /tab >}}
@@ -44,7 +44,7 @@ Not yet supported by the Terraform Provider.
 {{< tab "Pulumi Provider" >}}
 <br>
 Not yet supported by the Pulumi Provider.
-{{< /tab >}}
+{{< /tab >}} -->
 {{< /tabs >}}
 
 ## Update or delete a TCP check
@@ -53,12 +53,12 @@ Not yet supported by the Pulumi Provider.
 {{< tab "UI" >}}
 <br>
 
-* **Update a TCP check:** To update a TCP check, click the kebab menu (three dots) next to the check on your [main dashboard](https://app.checklyhq.com) and select Edit, or click Edit in the top-right corner of the check's Reporting page.
+* **Update a TCP check:** To update a TCP check, click the kebab menu (three dots) next to the check on your [main dashboard](https://app.checklyhq.com) and select `Edit`, or click `Edit` in the top-right corner of the check's Reporting page.
 
-* **Delete a TCP check:** To delete a TCP check, use the kebab menu (three dots) on the [main dashboard](https://app.checklyhq.com) and select Delete.
+* **Delete a TCP check:** To delete a TCP check, use the kebab menu (three dots) on the [main dashboard](https://app.checklyhq.com) and select `Delete`.
 
 {{< /tab >}}
-{{< tab "CLI" >}}
+<!-- {{< tab "CLI" >}}
 <br>
 Not yet supported by the CLI.
 {{< /tab >}}
@@ -69,7 +69,7 @@ Not yet supported by the Terraform Provider.
 {{< tab "Pulumi Provider" >}}
 <br>
 Not yet supported by the Pulumi Provider.
-{{< /tab >}}
+{{< /tab >}} -->
 {{< /tabs >}}
 
 ## TCP check reporting
@@ -78,7 +78,7 @@ The [main dashboard](https://app.checklyhq.com/) provides an overview of all you
 
 Clicking on an individual check opens the check overview page, where you can find detailed monitoring results, alert history, and performance trends. For deeper insights, you can also view specific run results by clicking on any run. The run result page includes:
 
-* **Summary:** Displays the check target (URL and port), the check state (success - for passed and degraded runs - or error - for failed runs), and the total check run duration.
+* **Summary:** Displays the check target (URL and port), the check state (success for passed and degraded runs, or error for failed runs), and the total check run duration.
 
 * **Error details:** If the check failed, the error message log will be shown.
 
