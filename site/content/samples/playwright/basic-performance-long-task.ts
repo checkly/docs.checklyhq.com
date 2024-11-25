@@ -1,9 +1,9 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('basic performance long task', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
-  const totalBlockingTime = await page.evaluate(() => {
+  const totalBlockingTime: number = await page.evaluate(() => {
     return new Promise((resolve) => {
       let totalBlockingTime = 0
       new PerformanceObserver(function (list) {
@@ -17,7 +17,7 @@ test('basic performance long task', async ({ page }) => {
       // Resolve promise if there haven't been long tasks
       setTimeout(() => resolve(totalBlockingTime), 5000)
     })
-  })
+  }, 0)
 
-  console.log(parseFloat(totalBlockingTime)) // 0
+  console.log(parseFloat(totalBlockingTime.toString())) // 0
 })

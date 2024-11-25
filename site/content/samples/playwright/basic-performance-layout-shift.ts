@@ -1,9 +1,9 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('basic performance layout shift', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
-  const cummulativeLayoutShift = await page.evaluate(() => {
+  const cummulativeLayoutShift: string = await page.evaluate(() => {
     return new Promise((resolve) => {
       let CLS = 0
 
@@ -22,7 +22,7 @@ test('basic performance layout shift', async ({ page }) => {
         buffered: true
       })
     })
-  })
+  }, '0')
 
   console.log(parseFloat(cummulativeLayoutShift)) // 0.0001672498
 })

@@ -18,14 +18,16 @@ menu:
 
 We call the action of extracting data from web pages _web scraping_. Scraping is useful for a variety of use cases:
 
-1. In testing and monitoring, asserting against the state of one or more elements on a page
-2. In general, gathering data for a variety of different purposes
+1. In testing and monitoring, asserting against the state of one or more elements on a page.
+2. In general, gathering data for a variety of different purposes.
 
+You can use Playwright as a library to scrape data from web pages, without also using Playwright for testing.
 <!-- more -->
 
 ## Scraping element attributes & properties
 
-Below is an example running against our [test site](https://danube-web.shop/), getting and printing out the `href` attribute of the first `a` element on the homepage. That just happens to be our logo, which links right back to our homepage, and therefore will have an `href` value equal to the URL we navigate to using `page.goto()`:
+Below is an example running against our [test site](https://danube-web.shop/), getting and printing out the `href` attribute of the first `a` element on the homepage. 
+That just happens to be our logo, which links right back to our homepage, and therefore will have an `href` value equal to the URL we navigate to using `page.goto()`:
 
 ```js {hl_lines=["8"]}
 {{% readfile filename="samples/playwright/basic-get-href-value.js" %}}

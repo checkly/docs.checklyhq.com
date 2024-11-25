@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('basic performance emulation', async ({ page }) => {
   const client = await page.context().newCDPSession(page)

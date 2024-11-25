@@ -45,12 +45,17 @@ Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
 
 Bot detection could be deactivated for pre-production environments in order to allow automation. For production environments, a secret may be included in the User-Agent (or similar mechanism) for the system to recognize test bots and allow them through:
 
-```js
-const browser = await chromium.launch()
-const context = await browser.newContext({
+```ts
+import { test } from '@playwright/test'
+
+test.use({
   userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/79.0.3945.0 Safari 537.36 Secret/<MY_SECRET>'
 })
-const page = await context.newPage('https://example.com')
+
+test('my test', async ({ page }) => {
+  await page.goto('https://example.com')
+  // test code
+})
 ```
 
 ## Automation-resistant UIs

@@ -29,10 +29,9 @@ This is a GraphQL api, which is supported in Playwright. GraphQL works by sendin
 ## The Test Case
 To get started, let’s look at a basic test using Playwright. Below is an api.ts file that defines a test case doing little more than ensuring that our GraphQL API is responding with expected data.
 
-```js
+```ts
 // api.spec.ts
-
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test'
 
 test('the GraphQL API works', async ({ request }) => {
   const response = await request.post('https://countries.trevorblades.com/', {
@@ -50,11 +49,11 @@ test('the GraphQL API works', async ({ request }) => {
     },
   });
 
-  const body = await response.json();
-  console.log(body); // This logs the API response
+  const body = await response.json()
+  console.log(body) // This logs the API response
 
-  expect(body.data.countries).toHaveLength(250);
-});
+  expect(body.data.countries).toHaveLength(250)
+})
 ```
 
 In this test, we're using the `request` fixture instead of the usual `page` fixture. See a little documentation on [playwright.dev](https://playwright.dev/docs/test-fixtures) on the different fixture types available. Using `request` gives us a clean new API context with no special headers. We send a basic request, log the whole response, and then check the length of the response.
@@ -69,15 +68,15 @@ When running tests locally you’ll probably want to separate your API tests, th
 
 Previously we were just checking that the response had the correct length.
 
-`expect(body.data.countries).toHaveLength(250);`
+`expect(body.data.countries).toHaveLength(250)`
 
 To confirm that the assertion works, you can deliberately break the test by expecting 251 entries instead. This should trigger a failure.
 
 To go a bit deeper, let's compare the response to a stored JSON file:
-```js
-// api.spec.ts
 
-const { test, expect } = require('@playwright/test');
+```ts
+// api.spec.ts
+import { test, expect } from '@playwright/test'
 import countryData from './response.json'
 
 test('the GraphQL API works', async ({ request }) => {
@@ -94,18 +93,18 @@ test('the GraphQL API works', async ({ request }) => {
         }
       `,
     },
-  });
+  })
 
-  const body = await response.json();
-  expect(body).toEqual(countryData);
-});
+  const body = await response.json()
+  expect(body).toEqual(countryData)
+})
 ```
 
 This version requires that you provide a JSON file with the expected response (that response.json file that's imported at the top). That's not ideal, instead, let's use playwright's snapshot tool so that we can take an initial snapshot of the JSON and compare later runs to that initial version. We'll replace the line:
 
-`expect(body).toEqual(countryData);`
+`expect(body).toEqual(countryData)`
 with
-`expect(JSON.stringify(allCountries)).toMatchSnapshot();`
+`expect(JSON.stringify(allCountries)).toMatchSnapshot()`
 
 Now we'll need to run our test locally at least once with the -update-snapshots flag, and we'll save an initial version of the JSON to compare later:
 `npx playwright test -update-snapshots`
@@ -115,7 +114,7 @@ The nice thing about this method is, not having to fool around with the file sys
 
 While we could parse the JSON of the large response we got in our previous test, a more focused test would make a filtered request from the API, and just examine that response.
 
-```js
+```ts
 // api.spec.ts
 test('the GraphQL API works for one country', async ({ request }) => {
   const germanyResponse = await request.post('https://countries.trevorblades.com/', {
@@ -128,13 +127,13 @@ test('the GraphQL API works for one country', async ({ request }) => {
         }
       `,
     },
-  });
+  })
 
-  const germany = await germanyResponse.json();
+  const germany = await germanyResponse.json()
 
-  expect(germany.data.countries).toHaveLength(1);
-  expect(germany.data.countries[0].code).toBe('DE');
-});
+  expect(germany.data.countries).toHaveLength(1)
+  expect(germany.data.countries[0].code).toBe('DE')
+})
 ```
 
 This test now validates a filtered response, all within the same Playwright test case.

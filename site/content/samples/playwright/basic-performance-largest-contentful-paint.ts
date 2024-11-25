@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('basic performance largest contentful paint', async ({ page }) => {
   await page.goto('https://danube-web.shop/')

@@ -53,11 +53,11 @@ And I wholeheartedly agree with all these statements, but let me add one more po
 
 Let's look at a fixture example that hides the initialization of a page object model.
 
-```js
+```ts
 // BEFORE
 import { DashboardPage } from './poms/dashboard-page.ts'
 
-test("create check", async ({ page }) => {
+test('create check', async ({ page }) => {
   const dashboardPage = new DashboardPage(page, { 
     email: 'stefan@checklyhq.com', 
     password: '...'
@@ -67,7 +67,7 @@ test("create check", async ({ page }) => {
 })
 
 // AFTER
-test("create check", async ({ dashboardPage }) => {
+test('create check', async ({ dashboardPage }) => {
   await dashboardPage.createCheck()
 })
 ```
@@ -84,10 +84,10 @@ Suppose you haven't used fixtures before; here's all the magic.
 
 Instead of importing test and expect from @playwright/test, your tests can import these from a base file that extends Playwright's core functionality.
 
-```js
+```ts
 // 1. import `test` but rename it to `base`
-import { test as base } from "@playwright/test"
-import { DashboardPage, User } from "./poms/dashboard"
+import { test as base } from '@playwright/test'
+import { DashboardPage, User } from './poms/dashboard'
 
 // 2. extend `base` with your custom functionality
 // 3. export and use the returned value as `test` 
@@ -104,7 +104,7 @@ export const test = base.extend({
   },
 })
 
-export { expect } from "@playwright/test"
+export { expect } from '@playwright/test'
 ```
 
 Playwright's `test` method allows you to enrich Playwright's core functionality with your own custom fixtures and options. The trick is to import and rename `test`, extend it with your custom additions, and then export the returned value as `test` to be used in your test cases.
@@ -119,42 +119,42 @@ How could we make this fixture setup configurable?
 
 Similar to fixtures, Playwright allows you to define static values and options in our Playwright setup, and you can do it right next to your fixture definitions in the extend call.
 
-```js
+```ts
 // base.ts
-import { test as base } from "@playwright/test"
-import { DashboardPage} from "./poms/dashboard"
+import { test as base } from '@playwright/test'
+import { DashboardPage} from './poms/dashboard'
 
 export const test = base.extend({
   // define a new Playwright option
   user: [
-    { email: "stefan@checklyhq.com", password: "..." },
+    { email: 'stefan@checklyhq.com', password: '...' },
     { option: true },
   ],
 
   dashboardPage: async ({ page }, use) => { /* ... */ },
 })
 
-export { expect } from "@playwright/test"
+export { expect } from '@playwright/test'
 ```
 
 Now that you have defined a user in your new test object, tests can access this option.
 
-```js
-test("create check", async ({ dashboardPage, user }) => {
+```ts
+test('create check', async ({ dashboardPage, user }) => {
   // do something with the new `user` option
 })
 ```
 
 But it's not only your tests that can access this newly defined user; your fixtures can access it, too!
 
-```js
+```ts
 // base.ts
-import { test as base } from "@playwright/test"
-import { DashboardPage} from "./poms/dashboard"
+import { test as base } from '@playwright/test'
+import { DashboardPage} from './poms/dashboard'
 
 export const test = base.extend({
   user: [
-    { email: "stefan@checklyhq.com", password: "..." },
+    { email: 'stefan@checklyhq.com', password: '...' },
     { option: true },
   ],
 
@@ -165,7 +165,7 @@ export const test = base.extend({
   },
 })
 
-export { expect } from "@playwright/test"
+export { expect } from '@playwright/test'
 ```
 
 And this is great, but so far we only shuffled some code around, we didn't find a solution to change the user.
@@ -174,36 +174,36 @@ Did you notice the option: true? By marking the Playwright option as configurabl
 
 For example, you could now head into your `playwright.config.ts` to change the user object and set a different one in the global settings.
 
-```js
+```ts
 // playwright.config.ts
-import { defineConfig, devices } from "@playwright/test"
+import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig<TestOptions>({
   // more Playwright config here ...
 
   use: {
     // override your user in the global config
-    user: { email: "stefan@checklyhq.com", password: "..." }
+    user: { email: 'stefan@checklyhq.com', password: '...' }
   },
 })
 ```
 
 Or, if you want to leverage Playwright projects for different users, you could do that, too!
 
-```js
+```ts
 // playwright.config.ts
-import { defineConfig, devices } from "@playwright/test"
+import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig<TestOptions>({
   // more Playwright config here ...
 
   projects: [
     {
-      name: "user-a",
+      name: 'user-a',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
         // override the default user in a project
-        user: { email: "stefan@checklyhq.com", password: "..." },
+        user: { email: 'stefan@checklyhq.com', password: '...' },
       },
     },
   ],
@@ -212,14 +212,14 @@ export default defineConfig<TestOptions>({
 
 And for special occasions, if you only have one test requiring another user, you could even change it right in your test case with `test.use`.
 
-```js
+```ts
 // base.ts
-import { test } from "./base"
+import { test } from './base'
 
 // override the default user
-test.use({ user: { email: "hello@checklyhq.com", password: "" } })
+test.use({ user: { email: 'hello@checklyhq.com', password: '' } })
 
-test("create check", async ({ dashboardPage }) => {
+test('create check', async ({ dashboardPage }) => {
   // dashboardPage now uses the user defined above
   await dashboardPage.createCheck()
 })
