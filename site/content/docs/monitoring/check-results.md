@@ -140,7 +140,17 @@ In the request details you will also find the result of any assertion done as pa
 
 <video alt="Using the Multistep check results view" autoplay loop muted src="/docs/images/monitoring/check-results-multistep.mp4"></video>
 
+## TCP check results
 
+On the [check results overview page](/docs/monitoring/check-results/#check-results-overview), select a specific check run to review its results:
+
+* **Summary:** Displays the check target (URL and port), the check state (success for passed and degraded runs, or error for failed runs), and the total check run duration.
+
+* **Error details:** If the check failed, the error message log will be shown.
+
+* **Timing phases:** For each request, we capture the following timing metrics:
+  * DNS: Time taken to resolve the hostname to an IP address (if a hostname was provided).
+  * Connect: Time taken to establish the TCP connection (SYN, SYN-ACK, ACK)
 
 ## Check results with retries
 

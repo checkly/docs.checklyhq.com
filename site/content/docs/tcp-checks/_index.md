@@ -18,19 +18,19 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 {{< tab "UI" >}}
 <br>
 
-* **Create a check:** Click the `+` icon on the sidebar and select **TCP check** from the list.
+* **Create a check:** Click the `+` icon on the sidebar and select **TCP check** from the list. This will open the check creation page.
 
-* **Name & tags:** Choose a meaningful name for the check to easily identify it. Optionally, add one or more tags to further categorize or group the check.
+* **Name & tags:** On the check creation page, choose a meaningful name for the check to easily identify it. Optionally, add one or more tags to further categorize or group the check.
 
 * **The TCP request:** Configure the TCP endpoint to monitor by specifying a **hostname or IP address** (e.g., tcpbin.com or 192.168.1.1) and a **port** (e.g., 4242).
 
-* **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to handle cases where requests are slow (degraded) but not entirely broken (failed).
+* **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
 
 * **Scheduling strategy & locations:** Choose a [scheduling strategy](/docs/monitoring/global-locations#scheduling-strategies) and which [location](/docs/monitoring/global-locations) you would like to run your TCP check from. Please note that [private locations](/docs/private-locations) are not yet supported for TCP checks but will be available soon.
 
 * **Scheduling:** Schedule your checks to run at intervals between 10 seconds (minimum) and 24 hours (maximum).
 
-* **Retries & alerting:** Configure [retries & alerts](/docs/alerting-and-retries) by choosing from Checkly's retry strategies and alert channels, ensuring you’re notified through your preferred methods when an issue arises with one of your checks.
+* **Retries & alerting:** Configure [retries & alerts](/docs/alerting-and-retries) by choosing from Checkly's retry strategies and alert channels, ensuring you’re notified through your preferred methods when an issue arises with one of your TCP checks.
 
 {{< /tab >}}
 <!-- {{< tab "CLI" >}}
@@ -74,18 +74,8 @@ Not yet supported by the Pulumi Provider.
 
 ## TCP check reporting
 
-The [main dashboard](https://app.checklyhq.com/) provides an overview of all your checks, including TCP checks. Here, you can view recent check results and key metrics like availability and average response time over the last 24 hours.
+Learn more about analyzing your TCP check run results in our [check results documentation](/docs/monitoring/check-results#tcp-check-results).
 
-Clicking on an individual check opens the check overview page, where you can find detailed monitoring results, alert history, and performance trends. For deeper insights, you can also view specific run results by clicking on any run. The run result page includes:
-
-* **Summary:** Displays the check target (URL and port), the check state (success for passed and degraded runs, or error for failed runs), and the total check run duration.
-
-* **Error details:** If the check failed, the error message log will be shown.
-
-* **Timing phases:** For each request, we capture the following timing metrics:
-  * DNS: Time taken to resolve the hostname to an IP address (if a hostname was provided).
-  * Connect: Time taken to establish the TCP connection (SYN, SYN-ACK, ACK).
-
-## Pricing
+## TCP check pricing
 
 A TCP check is billed the same way as API checks. For more details, refer to our [pricing and billing documentation](/docs/monitoring/check-pricing).
