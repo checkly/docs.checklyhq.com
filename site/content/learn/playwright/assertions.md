@@ -108,21 +108,22 @@ Checkly can use soft assertions as part of a ‘degraded’ state for checks. If
 
 This is useful for distinguishing between partial service disruptions and complete outages, offering teams a more precise understanding of performance and reliability. If your Playwright test is running on Checkly, the check will enter a ‘degraded’ state when some soft assertions fail, or if you call `markCheckAsDegraded` in its execution.
 
-```jsx
-import { test, expect } from "@playwright/test"
-import { getAPIResponseTime, markCheckAsDegraded } from "@checkly/playwright-helpers"
+```ts
+import { test, expect } from '@playwright/test'
+import { getAPIResponseTime, markCheckAsDegraded } from '@checkly/playwright-helpers'
 
-const baseUrl = "https://api.spacexdata.com/v3"
+const baseUrl = 'https://api.spacexdata.com/v3'
 
 test("SpaceX-API Dragon Capsules & Next Launch", async ({ request }) => {
-  await test.step("get all capsules", async () => {
+  await test.step('get all capsules', async () => {
     const response = await request.get(`${baseUrl}/dragons`)
 
     // Hard assertion for a 200 status code, this passes!
     expect(response).toBeOK()
     
     // Soft assertion of a very fast response time
-    expect.soft(getAPIResponseTime(response), 'GET /dragons too slow').toBeLessThanOrEqual(200)
+    expect.soft(getAPIResponseTime(response), 'GET /dragons too slow')
+      .toBeLessThanOrEqual(200)
 
     return response.json()
   })
@@ -176,7 +177,7 @@ Custom matchers can be added using `expect.extend`, allowing developers to defin
 
 Here's a quick example of how to create a custom matcher for checking specific conditions:
 
-```jsx
+```ts
 expect.extend({
   toBeWithinRange(received, floor, ceiling) {
     const pass = received >= floor && received <= ceiling;
@@ -195,7 +196,7 @@ expect.extend({
 });
 
 // Usage
-expect(100).toBeWithinRange(90, 110);
+expect(100).toBeWithinRange(90, 110)
 ```
 
 This can be especially useful if we’re doing complex assertions, or specialized parsing of responses.
@@ -208,7 +209,7 @@ Understanding how to diagnose assertion failures can save significant debugging 
 
 *Hard waits should be avoided.* A ‘hard wait’ refers to giving an exact period of time before going on to the next step of a test. Generally using code like:
 
-```yaml
+```ts
 await page.waitForTimeout(3000);
 ```
 
@@ -220,14 +221,14 @@ After that fixed period, if the next step doesn’t work, the test will fail. Ha
 
 While a hard wait is problematic since it doesn’t benefit from Playwright’s auto-waiting, an improperly structured assertion doesn’t include waiting at all. By wrapping the `await` inside the `expect()` instead of vice versa, and by using a non-web-first assertion, we get no waiting. In this case we’re checking that there is some text inside an element.
 
-```
+```ts
 // expects the text to be visible instantly
 expect(await targetPage.locatorToSomeElement.innerText()).toBeTruthy();
 ```
 
-Use web-first assertions such as `toBeEmpty()` instead.
+Use web-first assertions such as `toBeEmpty()` instead.
 
-```
+```ts
 // uses auto-waiting, defaulting to five seconds max
 await expect(targetPage.locatorToSomeElement).not.toBeEmpty();
 ```

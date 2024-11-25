@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('access iframe content', async ({ page }) => {
   await page.goto('https://your-page-with-an-iframe.com')

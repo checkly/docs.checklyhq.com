@@ -39,42 +39,39 @@ In the example below we trigger two navigations:
 1. The initial load of the page.
 2. A navigation to the shopping cart by clicking a link
 
-```js
-{{% readfile filename="samples/playwright/basic-browser-navigation.js" %}}
+```ts
+{{% readfile filename="samples/playwright/basic-browser-navigation.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-browser-navigation.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-browser-navigation.ts" "playwright"  >}}
 
 Run this example as follows:
-```sh
-$ node basic-browser-navigation.js
+```bash
+$ npx playwright test basic-browser-navigation.ts
 ```
-
-
-We also add `await browser.close()` to ensure that we are shutting down our browser before terminating the session.
-Without it, our execution would not return after the page has loaded, keeping our test hanging indefinitely.
 
 ## Waiting
 
-In your code, you have a range of options to wait for different things to happen in your browser session. There are a couple
-that are very important:
+waiting for something to happen is a crucial part of any automation script. In most cases, this is handled automatically
+by Playwright. For example, when you click a button, Playwright will wait for that button to be clickable before it actually clicks it.
 
-**page.waitForSelector()**
+In the example below, we type an email address into an input field on a login modal. Playwright's `fill` method comes with 
+built-in waiting functionality.
+
+```ts
+{{% readfile filename="samples/playwright/basic-browser-waiting.ts" %}}
+```
+Run this example as follows:
+
+```bash
+$ npx playwright test basic-browser-waiting.ts
+```
+
+However, there are cases where you need to wait for something specific to happen. For example, you might want to wait for a specific element to appear on the page.
+In this case you may want to use the `page.waitForSelector()` method.
 
 This method waits for an element to appear in the page. This is your bread and butter and should be used whenever something
 needs to be loaded after clicking, hovering, navigating etc. You can pass it an object with a `timeout` attribute
 to override the default 30 seconds.
-
-In the example below, we type an email address into an input field on a login modal. Playwright's `fill` method comes with built-in waiting functionality.
-
-```js
-{{% readfile filename="samples/playwright/basic-browser-waiting.js" %}}
-```
-Run this example as follows:
-
-```shell script
-$ node basic-browser-waiting.js
-```
-
 
 This works exactly the same for the `page.waitForXpath()` function is you are using XPath selectors instead of CSS selectors.
 
@@ -126,5 +123,6 @@ Which of these options is useful to you depends on your situation:
 Now that we know how to start a browser and navigate to a URL, the clear next step is to learn how to [interact with a webpage](/learn/playwright/clicking-typing-hovering/).
 
 ## Further reading
-1. [Playwright general navigation docs](https://playwright.dev/docs/navigations)
-2. [Playwright auto waiting](/learn/playwright/interaction/waits/)
+1. [Waits and Timeouts](/learn/playwright/waits-and-timeouts/)
+2. [Playwright general navigation docs](https://playwright.dev/docs/navigations)
+3. [Playwright auto waiting](/learn/playwright/interaction/waits/)
