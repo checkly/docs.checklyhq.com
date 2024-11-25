@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('take a screenshot', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 })

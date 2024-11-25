@@ -22,10 +22,10 @@ Headless browsers are fully capable of taking screenshots, which is very useful 
 
 The `page.screenshot` command allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot depends on the viewport size:
 
-```js
-{{% readfile filename="samples/playwright/basic-screenshot.js" %}}
+```ts
+{{% readfile filename="samples/playwright/basic-screenshot.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-screenshot.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-screenshot.ts" "playwright"  >}}
 
 ## Full page screenshots
 
@@ -40,18 +40,26 @@ await page.screenshot({ path: 'my_screenshot.png', fullPage: true })
 Having our screenshot limited to a smaller portion of the viewport is also possible. All we need to do is specify the coordinates of the top left corner of the screenshot, plus `width` and `height`. We then pass these options to:
 
 ```js
-{{% readfile filename="samples/playwright/basic-screenshot-clipped.js" %}}
+{{% readfile filename="samples/playwright/basic-screenshot-clipped.ts" %}}
 ```
 {{< run-in-checkly "/samples/playwright/basic-screenshot-clipped.js" "playwright"  >}}
 
 The above examples can be run as follows:
 ```sh
-$ node basic-screenshots.js
+$ npx playwright test basic-screenshots.ts
 ```
 
-## Use in visual regression testing
+## Visual regression testing
 
-Screenshots can be fed to image comparison libraries, such as [Resemble.js](https://github.com/rsmbl/Resemble.js), [pixelmatch](https://github.com/mapbox/pixelmatch), [Rembrandt.js](http://rembrandtjs.com/) or others in order to determine whether our latest sets of screenshots contains significant differences when measured against a baseline.
+Playwright can be used to take screenshots of a page and compare them with a reference image. This is useful for visual 
+regression testing, where we can detect changes in the UI that may have been introduced by code changes.
+
+The `expect(page).toMatchSnapshot()` command is used to take a screenshot and compare it with a reference image. If the images are different, the test will fail.
+
+```ts
+{{% readfile filename="samples/playwright/visual-regression.ts" %}}
+```
+{{< run-in-checkly "/samples/playwright/visual-regression.ts" "playwright"  >}}
 
 
 ## Further reading

@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('take a clipped screenshot', async ({ page }) => {
   const options = {

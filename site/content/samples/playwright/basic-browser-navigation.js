@@ -1,9 +1,6 @@
-const { chromium } = require('playwright')
+const { test } = require('@playwright/test')
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
+test('basic navigation', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
   await page.click('#cart')
-  await browser.close()
-})()
+})

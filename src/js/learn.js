@@ -121,6 +121,7 @@ const isDev = window.location.host.includes('localhost')
 
 $('.run-in-checkly').on('click', function () {
   const data = $(this).data()
+  console.log(data)
   fetch(data.script)
     .then(response => response.text())
     .then(body => {
