@@ -88,7 +88,7 @@ When you run this command, it will open a new browser session, and all your inte
 
 Using codegen, you can record the first steps in a breath.
 
-```jsx
+```js
 // tests/2fa.spec.js
 import { test, expect } from '@playwright/test'
 
@@ -122,9 +122,9 @@ Install it via npm:
 
 Then, initialize a new totp instance in your Playwright script…
 
-```jsx
+```js
 // generate a new totp instance
-let totp = new OTPAuth.TOTP({
+const totp = new OTPAuth.TOTP({
   issuer: "GitHub",
   label: "USERNAME",
   algorithm: "SHA1",
@@ -136,7 +136,7 @@ let totp = new OTPAuth.TOTP({
 
 And fill Github’s passcode input field with a newly generated token!
 
-```jsx
+```js
 // generate the passcode when filling the input field
 await page.getByPlaceholder("XXXXXX").fill(totp.generate())
 ```
@@ -147,11 +147,11 @@ And that’s it! Now you only have to clean up the hardcoded tokens and replace 
 
 Here’s the final script.
 
-```jsx
+```js
 import { expect, test } from "@playwright/test"
 import * as OTPAuth from "otpauth"
 
-let totp = new OTPAuth.TOTP({
+const totp = new OTPAuth.TOTP({
   issuer: "Raccoon",
   label: "GitHub",
   algorithm: "SHA1",
