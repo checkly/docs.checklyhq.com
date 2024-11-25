@@ -1,5 +1,5 @@
-const { test } = require('@playwright/test')
-const fs = require('fs')
+import { test } from '@playwright/test'
+import * as fs from 'fs'
 
 test('generate pdf with header and footer', async ({ page, browser }) => {
   const templateHeader = fs.readFileSync('template-header.html', 'utf-8')

@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('open multiple tabs', async ({ browser }) => {
   const context = await browser.newContext()

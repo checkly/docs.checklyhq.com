@@ -28,47 +28,41 @@ This guide explains how to define viewport sizes, device pixel ratio and  `user-
 
 If your site parses the user agent string to serve a different experience to mobile users, define the `userAgent` in your automation scripts.
 
-```js
-const { chromium } = require("playwright")
+```ts
+import { test } from '@playwright/test'
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage({
-    // define the iPhone SE user agent
-    userAgent:
-      "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/16.0 Mobile/14E304 Safari/602.1",
-  })
+test.use({
+  userAgent:
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/16.0 Mobile/14E304 Safari/602.1',
+})
+
+test('emulate iPhone SE', async ({ page }) => {
   await page.goto("https://danube-web.shop/")
 
   // perform your tests
-
-  await browser.close()
-})()
+})
 ```
 
 ## Defining viewport size and pixel density
 
 If your site follows responsive web design practices and renders elements depending on device viewport size, define a mobile viewport and pixel density.
 
-```js
-const { chromium } = require("playwright")
+```ts
+const { test } = require('@playwright/test')
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage({
-    // define the iPhone SE viewport size and pixel density
-    viewport: {
-      width: 320,
-      height: 568,
-    },
-    deviceScaleFactor: 2,
-  })
-  await page.goto("https://danube-web.shop/")
+test.use({ 
+  viewport: { 
+    width: 320, 
+    height: 568 
+  }, 
+  deviceScaleFactor: 2 
+})
+
+test('emulate iPhone SE', async ({ page }) => {
+  await page.goto('https://danube-web.shop/')
 
   // perform your tests
-
-  await browser.close()
-})()
+})
 ```
 
 ### Use built-in device registries
@@ -79,22 +73,19 @@ Playwright includes a built-in device registry to access mobile device character
 
 Leverage the pre-defined devices to emulate mobile devices.
 
-```js
-const { chromium, devices } = require("playwright")
-const iPhone = devices['iPhone SE'];
+```ts
+import { test, devices } from '@playwright/test'
+const iPhone = devices['iPhone SE']
 
-;(async () => {
-  const browser = await chromium.launch()
-  const page = await browser.newPage({
-    // emulate the iPhone SE
-    ...iPhone
-  })
-  await page.goto("https://danube-web.shop/")
+test.use({ 
+  ...iPhone,
+})
+
+test('emulate iPhone SE', async ({ page }) => {
+  await page.goto('https://danube-web.shop/')
 
   // perform your tests
-
-  await browser.close()
-})()
+})
 ```
 
 ## Further reading
