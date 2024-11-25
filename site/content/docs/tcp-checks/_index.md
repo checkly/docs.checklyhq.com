@@ -1,6 +1,6 @@
 ---
 title: Monitoring your services with TCP checks - Checkly Docs
-displayTitle: Monitoring Your Services with TCP checks
+displayTitle: Monitoring your services with TCP checks
 weight: 7
 menu:
   resources:
