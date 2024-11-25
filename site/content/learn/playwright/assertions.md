@@ -195,7 +195,7 @@ expect.extend({
 });
 
 // Usage
-expect(100).toBeWithinRange(90, 110);
+expect(100).toBeWithinRange(90, 110)
 ```
 
 This can be especially useful if we’re doing complex assertions, or specialized parsing of responses.

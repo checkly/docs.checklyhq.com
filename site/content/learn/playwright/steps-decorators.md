@@ -54,7 +54,7 @@ test('test', async ({ page }) => {
     // ...
     });
   });
-});
+})
 ```
 
 You define a step, give it a name and wrap your existing Playwright code in an async callback function. A complex test case becomes very readable with a few added test steps.
@@ -74,7 +74,7 @@ test('Customer is able to create account', async ({
   await test.step('Customer can log in', async () => {
     // log in instruction
   });
-});
+})
 ```
 
 Look at this beautiful and well-structured HTML test report. I'm a fan!

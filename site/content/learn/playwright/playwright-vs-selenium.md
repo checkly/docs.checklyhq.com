@@ -211,7 +211,7 @@ async function loginAndCaptureScreenshot() {
 }
 
 // Run the test
-loginAndCaptureScreenshot();
+loginAndCaptureScreenshot()
 ```
 
 ## Playwright Examples
@@ -240,7 +240,7 @@ async function loginAndCaptureScreenshot() {
 }
 
 // Run the test
-loginAndCaptureScreenshot();
+loginAndCaptureScreenshot()
 ```
 
 Some key differences in the two examples:
