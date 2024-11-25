@@ -28,32 +28,32 @@ This example runs against our [test webshop](https://danube-web.shop/) and proce
 
 We will check that the downloaded file is as expected by comparing it to a [fixture file](/learn/playwright/handling-test-data/) in our final assertion.
 
-We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/playwright/web-scraping/) the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
+We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/playwright/web-scraping/) 
+the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
 
-```js {hl_lines=["23-28"]}
-{{% readfile filename="samples/playwright/file-download.js" %}}
+```ts {hl_lines=["14-18"]}
+{{% readfile filename="samples/playwright/file-download.ts" %}}
 ```
 
 We could also click the link directly and wait for the download event, then proceed with the comparison.
-
 Note that in this case, we need to enable downloads in the browser context before proceeding.
 
-```js {hl_lines=["8", "23-26"]}
-{{% readfile filename="samples/playwright/file-download-alt.js" %}}
+```ts {hl_lines=["13-19"]}
+{{% readfile filename="samples/playwright/file-download-alt.ts" %}}
 ```
 
 Both examples can be run as follows:
 {{< tabs "3" >}}
 {{< tab "macOS" >}}
-```sh
-USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 node file-download.js
+```bash
+USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test file-download.js
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
-```sh
+```bash
 SET USER_EMAIL=user@email.com
 SET USER_PASSWORD=supersecure1
-node file-download.js
+npx playwright test file-download.js
 ```
 {{< /tab >}}
 {{< /tabs >}}

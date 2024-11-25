@@ -26,12 +26,10 @@ The example below, which is running against our [test webshop](https://danube-we
 2. Firstly, assert the expected number of results is being shown
 3. If the previous point is true, assert that all expected search results are shown
 
-We will use [Chai](https://www.chaijs.com/api/assert/) as an assertion library for points 2 and 3.
-
-```js
-{{% readfile filename="samples/playwright/search.js" %}}
+```ts
+{{% readfile filename="samples/playwright/search.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/search.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/search.ts" "playwright"  >}}
 
 Run this example as follows:
 

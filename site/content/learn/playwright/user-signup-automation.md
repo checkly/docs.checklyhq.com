@@ -30,27 +30,32 @@ The flow will often match the following:
 
 We will likely want to also check that some change occurred in the UI to confirm that the registration worked.
 
-```js
-{{% readfile filename="samples/playwright/signup.js" %}}
+```ts
+{{% readfile filename="samples/playwright/signup.ts" %}}
 ```
 
 Run this example as follows:
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 node signup.js
+USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test signup.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
 SET USER_EMAIL=user@email.com
 SET USER_PASSWORD=supersecure1
-node signup.js
+npx playwright signup.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-The normal signup flow might include asking the user to confirm their email address right away by navigating to a URL included in an automated email. Reliably replicating the steps needed to achieve that is not trivial. A possible solution to the issue is having the system under test distinguish between test sessions and normal user sessions, and skip the verification step for test sessions. A way to achieve this would be to check for a specific user agent ID which could be set as part of our test:
+The normal signup flow might include asking the user to confirm their email address right away by navigating to a URL 
+included in an automated email. Reliably replicating the steps needed to achieve that is not trivial. 
+
+A possible solution to the issue is having the system under test distinguish between test sessions and normal user sessions, 
+and skip the verification step for test sessions. A way to achieve this would be to check for a specific user agent ID 
+which could be set as part of our test:
 
 ```js
 await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 \

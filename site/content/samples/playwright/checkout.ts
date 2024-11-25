@@ -1,5 +1,6 @@
-const { test } = require('@playwright/test')
-const productsNumber = process.env.PRODUCTS_NUMBER || 3
+import { test } from '@playwright/test'
+
+const productsNumber: number = parseInt(<string>process.env.PRODUCTS_NUMBER) || 3
 
 test('checkout', async ({ page }) => {
   await page.goto('https://danube-web.shop/')

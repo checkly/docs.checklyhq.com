@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test')
-const axios = require('axios')
-const fs = require('fs')
+import { test, expect } from '@playwright/test'
+import axios from 'axios'
+import * as fs from 'fs'
 
 test('file download', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
