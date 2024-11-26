@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test')
+import { test } from '@playwright/test'
 
 test('Google login', async ({ page }) => {
   await page.goto('https://stackoverflow.com/users/login')

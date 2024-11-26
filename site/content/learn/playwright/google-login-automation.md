@@ -26,8 +26,8 @@ Social login using your personal Google or Google Gsuite account is a common use
 4. We provide the username and password, injected by using environment variables.
 5. We are redirected back to the starting.
 
-```js
-{{% readfile filename="samples/playwright/google-login.js" %}}
+```ts
+{{% readfile filename="samples/playwright/google-login.ts" %}}
 ```
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.
@@ -35,14 +35,14 @@ Run this example as follows. Replace the username and password placeholder with 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-GOOGLE_USER=username GOOGLE_PWD=password node google-login.js
+GOOGLE_USER=username GOOGLE_PWD=password npx playwright test google-login.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
 SET GOOGLE_USER=username
 SET GOOGLE_PWD=password
-node google-login.js
+npx playwright test google-login.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -53,8 +53,8 @@ node google-login.js
 ## Takeaways
 
 1. Use environment variables to inject secrets.
-2. Wait for the navigation as your are redirected to Google.
-3. Wait for the navigation as you are redirected back to the start site.
+2. Waiting for the navigation as you are redirected to Google is done automatically.
+3. Waiting for the navigation as you are redirected back to the start site is done automatically.
 
 
 
