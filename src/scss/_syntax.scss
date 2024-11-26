@@ -94,6 +94,70 @@
   padding: 0;
 }
 
+.codeblock {
+  background-color: #272822;
+  border-radius: 4px;
+
+  &-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 40px;
+    margin-bottom: -24px;
+    border-bottom: 1px solid $gray-dark;
+    line-height: normal;
+    padding: 0 1rem;
+    color: $white;
+    font-size: 14px;
+
+    &--title {
+      display: flex;
+      flex: none;
+      align-items: center;
+    }
+
+    &--lang {
+      display: flex;
+      flex: none;
+      align-items: center;
+      margin-right: 1rem;
+
+      $icon-size: 15px;
+
+      &-icon-ts {
+        &::after {
+          width: $icon-size;
+          height: $icon-size;
+          background-size: 100%;
+          background: url(/images/icons/codeblocks/typescript-icon.svg) no-repeat;
+          content: '';
+          display: inline-block;
+        }
+      }
+      &-icon-js {
+        &::after {
+          width: $icon-size;
+          height: $icon-size;
+          background-size: 100%;
+          background: url(/images/icons/codeblocks/javascript-icon.svg) no-repeat;
+          content: '';
+          display: inline-block;
+        }
+      }
+      &-icon-sh {
+        &::after {
+          width: $icon-size;
+          height: $icon-size;
+          background-size: 100%;
+          background: url(/images/icons/codeblocks/terminal-icon.svg) no-repeat;
+          content: '';
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
 .copy-code-button {
   position: absolute;
   z-index: 2;
@@ -103,7 +167,7 @@
   cursor: pointer;
   background: transparent;
   border: none;
-  margin-top: 14px;
+  margin-top: 12px;
   margin-right: 12px;
   padding: 0;
   line-height: 0;
