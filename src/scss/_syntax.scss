@@ -98,6 +98,11 @@
   background-color: #272822;
   border-radius: 4px;
 
+  &-body {
+    background-color: lighten(#272822, 5%) !important;
+    border-radius: 0 0 4px 4px !important;
+  }
+
   &-toolbar {
     display: flex;
     flex-direction: row;
@@ -107,7 +112,7 @@
     border-bottom: 1px solid $gray-dark;
     line-height: normal;
     padding: 0 1rem;
-    color: $white;
+    color: $gray-light;
     font-size: 14px;
 
     &--title {
