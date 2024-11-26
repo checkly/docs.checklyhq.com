@@ -125,7 +125,11 @@ $(document).ready(() => {
       .then(response => response.text())
       .then(body => {
         const script = encodeURIComponent(btoa(body))
-        window.location.href = `${isDev ? 'http://localhost:8081' : 'https://app.checklyhq.com'}/checks/new/browser?framework=${data.framework}&script=${script}`
+        const link = `${isDev ? 'http://localhost:8081' : 'https://app.checklyhq.com'}/checks/new/browser?framework=${data.framework}&script=${script}`
+        window.open(
+          link,
+          '_blank'
+        )
       })
   })
 })
