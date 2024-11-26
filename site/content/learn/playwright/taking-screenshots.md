@@ -22,10 +22,10 @@ Headless browsers are fully capable of taking screenshots, which is very useful 
 
 The `page.screenshot` command allows us to save one or more screenshots of the current page to a specified path. Without any additional options, the size of the screenshot depends on the viewport size:
 
-```ts
-{{% readfile filename="samples/playwright/basic-screenshot.ts" %}}
+```ts {title="basic-screenshot.spec.ts"}
+{{% readfile filename="samples/playwright/basic-screenshot.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-screenshot.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-screenshot.spec.ts" "playwright"  >}}
 
 ## Full page screenshots
 
@@ -39,14 +39,14 @@ await page.screenshot({ path: 'my_screenshot.png', fullPage: true })
 
 Having our screenshot limited to a smaller portion of the viewport is also possible. All we need to do is specify the coordinates of the top left corner of the screenshot, plus `width` and `height`. We then pass these options to:
 
-```js
-{{% readfile filename="samples/playwright/basic-screenshot-clipped.ts" %}}
+```ts {title="basic-screenshot-clipped.spec.ts"}
+{{% readfile filename="samples/playwright/basic-screenshot-clipped.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-screenshot-clipped.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-screenshot-clipped.spec.js" "playwright"  >}}
 
 The above examples can be run as follows:
 ```sh
-$ npx playwright test basic-screenshots.ts
+npx playwright test basic-screenshots.spec.ts
 ```
 
 ## Visual regression testing
@@ -56,10 +56,10 @@ regression testing, where we can detect changes in the UI that may have been int
 
 The `expect(page).toMatchSnapshot()` command is used to take a screenshot and compare it with a reference image. If the images are different, the test will fail.
 
-```ts
-{{% readfile filename="samples/playwright/visual-regression.ts" %}}
+```ts {title="visual-regression.spec.ts"}
+{{% readfile filename="samples/playwright/visual-regression.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/visual-regression.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/visual-regression.spec.ts" "playwright"  >}}
 
 
 ## Further reading

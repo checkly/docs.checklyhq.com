@@ -18,18 +18,18 @@ Let's start by creating a new directory and navigating to it. Assuming you alrea
 <!-- more -->
 
 ```sh
-$ npm init @playwright/test
+npm init @playwright/test
 ```
 Playwright comes bundled with a connected browser, so we now have all we need to run our first script. Let's create a script to navigate to our [test website](https://danube-web.shop/):
 
-```ts
-{{% readfile filename="samples/playwright/basic-navigation.ts" %}}
+```ts {title="basic-navigation.spec.ts"}
+{{% readfile filename="samples/playwright/basic-navigation.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-navigation.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-navigation.spec.ts" "playwright"  >}}
 
 Run this example as follows:
 ```sh
-$ npx playwright test basic-navigation.ts
+npx playwright test basic-navigation.spec.ts
 ```
 
 
@@ -41,7 +41,7 @@ When you are first writing and debugging your scripts, it is a good idea to enab
 
 
 ```bash
-npx playwright test basic-navigation.ts --headed
+npx playwright test basic-navigation.spec.ts --headed
 ```
 
 After executing the updated file, you will see Chromium starting up, only to shut down after an instant. Everything is working as expected! Our script is just so short, it runs almost instantaneously.

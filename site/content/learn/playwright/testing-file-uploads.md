@@ -29,7 +29,7 @@ will focus on a popular case: changing a profile image by uploading one of our o
 
 On our [test site](https://danube-web.shop/), such a test could look as follows:
 
-```ts {hl_lines=["12-13"]}
+```ts {title="file-upload.ts" hl_lines=["12-13"]}
 {{% readfile filename="samples/playwright/file-upload.ts" %}}
 ```
 {{< tabs "2">}}
