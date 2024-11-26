@@ -682,9 +682,9 @@
   color: #FFF;
   font-weight: bold;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   @include media-breakpoint-down(md) {
     translate: 10px -70px;
   }
