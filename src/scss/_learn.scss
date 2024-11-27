@@ -503,10 +503,20 @@
     }
 
     .console-output {
-      margin: 2rem 1rem;
+      margin: 2rem 0;
       border-radius: 0.25rem;
-      color: white;
+      color: $gray-light;
+      font-size: 14px;
       background-color: #272822;
+      &--summary {
+        user-select: none;
+        &::marker {
+          margin-right: 1ch;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
 
       summary {
         padding: 1rem;

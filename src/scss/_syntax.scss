@@ -100,7 +100,6 @@
 
   &-body {
     background-color: lighten(#272822, 5%) !important;
-    border-radius: 0 0 4px 4px !important;
   }
 
   &-toolbar {
@@ -108,7 +107,6 @@
     flex-direction: row;
     justify-content: flex-start;
     height: 40px;
-    margin-bottom: -24px;
     border-bottom: 1px solid $gray-dark;
     line-height: normal;
     padding: 0 1rem;
@@ -159,6 +157,11 @@
           display: inline-block;
         }
       }
+    }
+
+    + .codeblock-body {
+      border-radius: 0 0 4px 4px !important;
+      margin-top: 0;
     }
   }
 }
