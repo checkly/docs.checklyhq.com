@@ -112,6 +112,7 @@ This is useful for distinguishing between partial service disruptions and comple
 import { test, expect } from '@playwright/test'
 import { getAPIResponseTime, markCheckAsDegraded } from '@checkly/playwright-helpers'
 
+
 const baseUrl = 'https://api.spacexdata.com/v3'
 
 test("SpaceX-API Dragon Capsules & Next Launch", async ({ request }) => {

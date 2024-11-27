@@ -274,11 +274,11 @@ For more information about the `global` options you can check playwright officia
 | `connectOptions`     | ✅         |
 | `contextOptions`     | ✅         |
 | `bypassCSP`          | ✅         |
+| `proxy`              | ✅         |
 | `storageState`       | ❌         |
 | `browserName`        | ❌         |
 | `channel`            | ❌         |
 | `headless`           | ❌         |
-| `proxy`              | ❌         |
 | `screenshot`         | ❌         |
 | `trace`              | ❌         |
 | `video`              | ❌         |

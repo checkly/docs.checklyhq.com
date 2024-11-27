@@ -130,7 +130,7 @@ app.post('/webhook', bodyParser.json({ type: 'application/json' }), (request, re
   }
 });
 
-app.listen(4242, () => console.log('Running on port 4242'));
+app.listen(4242, () => console.log('Running on port 4242'))
 ```
 
 {{< /tab >}}
