@@ -213,7 +213,7 @@ To keep things easy, we create a subdirectory...
 
 `mkdir scripts`
 
-...and copy all our scripts from above into separate files, for example `login.js`.
+...and copy all our scripts from above into separate files, for example `login.spec.js`.
 
 Next up, we want to create our `main.tf` file and include the basic configuration as follows:
 
@@ -287,7 +287,7 @@ resource "checkly_check" "login" {
     "eu-central-1"
   ]
 
-    script = file("${path.module}/scripts/login.js")
+    script = file("${path.module}/scripts/login.spec.js")
 
 }
 ```
@@ -309,7 +309,7 @@ resource "checkly_check" "search" {
     "eu-central-1"
   ]
 
-    script = file("${path.module}/scripts/search.js")
+    script = file("${path.module}/scripts/search.spec.js")
 
 }
 ```
@@ -331,7 +331,7 @@ resource "checkly_check" "checkout" {
     "eu-central-1"
   ]
 
-    script = file("${path.module}/scripts/checkout.js")
+    script = file("${path.module}/scripts/checkout.spec.js")
 
 }
 ```
@@ -476,7 +476,7 @@ resource "checkly_check" "login" {
     "eu-central-1"
   ]
 
-    script = file("${path.module}/scripts/login.js")
+    script = file("${path.module}/scripts/login.spec.js")
 
   alert_channel_subscription {
     channel_id = checkly_alert_channel.alert-email.id

@@ -31,29 +31,29 @@ We will check that the downloaded file is as expected by comparing it to a [fixt
 We can approach this scenario in different ways. One possibility is to perform the first two steps, then [extract](/learn/playwright/web-scraping/) 
 the `href` value and use it to retrieve the file with a `GET` request (performed with [axios](https://github.com/axios/axios), for example).
 
-```ts {hl_lines=["14-18"]}
-{{% readfile filename="samples/playwright/file-download.ts" %}}
+```ts {hl_lines=["14-18"] title="file-download.spec.ts"}
+{{% readfile filename="samples/playwright/file-download.spec.ts" %}}
 ```
 
 We could also click the link directly and wait for the download event, then proceed with the comparison.
 Note that in this case, we need to enable downloads in the browser context before proceeding.
 
-```ts {hl_lines=["13-19"]}
-{{% readfile filename="samples/playwright/file-download-alt.ts" %}}
+```ts {hl_lines=["13-19"] title="file-download-alt.spec.ts"}
+{{% readfile filename="samples/playwright/file-download-alt.spec.ts" %}}
 ```
 
 Both examples can be run as follows:
 {{< tabs "3" >}}
 {{< tab "macOS" >}}
 ```bash
-USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test file-download.js
+USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test file-download.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```bash
 SET USER_EMAIL=user@email.com
 SET USER_PASSWORD=supersecure1
-npx playwright test file-download.js
+npx playwright test file-download.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

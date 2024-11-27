@@ -26,15 +26,15 @@ The example below, which is running against our [test webshop](https://danube-we
 2. Firstly, assert the expected number of results is being shown
 3. If the previous point is true, assert that all expected search results are shown
 
-```ts
-{{% readfile filename="samples/playwright/search.ts" %}}
+```ts {title="search.spec.ts"}
+{{% readfile filename="samples/playwright/search.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/search.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/search.spec.ts" "playwright"  >}}
 
 Run this example as follows:
 
 ```sh
-node search.js
+npx playwright test search.spec.ts
 ```
 
 > When testing search on large sets of data, you might additionally need to handle result pagination, together with the possibility of duplicate results.

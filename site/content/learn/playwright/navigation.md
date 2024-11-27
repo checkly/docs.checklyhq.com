@@ -39,14 +39,14 @@ In the example below we trigger two navigations:
 1. The initial load of the page.
 2. A navigation to the shopping cart by clicking a link
 
-```ts
-{{% readfile filename="samples/playwright/basic-browser-navigation.ts" %}}
+```ts {title="basic-browser-navigation.spec.ts"}
+{{% readfile filename="samples/playwright/basic-browser-navigation.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-browser-navigation.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-browser-navigation.spec.ts" "playwright"  >}}
 
 Run this example as follows:
 ```bash
-$ npx playwright test basic-browser-navigation.ts
+npx playwright test basic-browser-navigation.spec.ts
 ```
 
 ## Waiting
@@ -57,13 +57,13 @@ by Playwright. For example, when you click a button, Playwright will wait for th
 In the example below, we type an email address into an input field on a login modal. Playwright's `fill` method comes with 
 built-in waiting functionality.
 
-```ts
-{{% readfile filename="samples/playwright/basic-browser-waiting.ts" %}}
+```ts {title="basic-browser-waiting.spec.ts"}
+{{% readfile filename="samples/playwright/basic-browser-waiting.spec.ts" %}}
 ```
 Run this example as follows:
 
 ```bash
-$ npx playwright test basic-browser-waiting.ts
+npx playwright test basic-browser-waiting.spec.ts
 ```
 
 However, there are cases where you need to wait for something specific to happen. For example, you might want to wait for a specific element to appear on the page.
@@ -74,8 +74,6 @@ needs to be loaded after clicking, hovering, navigating etc. You can pass it an 
 to override the default 30 seconds.
 
 This works exactly the same for the `page.waitForXpath()` function is you are using XPath selectors instead of CSS selectors.
-
-
 
 ## Timeouts
 

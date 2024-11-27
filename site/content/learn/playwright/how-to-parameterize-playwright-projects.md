@@ -84,7 +84,7 @@ Suppose you haven't used fixtures before; here's all the magic.
 
 Instead of importing test and expect from @playwright/test, your tests can import these from a base file that extends Playwright's core functionality.
 
-```ts
+```ts {title="base.ts"}
 // 1. import `test` but rename it to `base`
 import { test as base } from '@playwright/test'
 import { DashboardPage, User } from './poms/dashboard'
@@ -119,8 +119,7 @@ How could we make this fixture setup configurable?
 
 Similar to fixtures, Playwright allows you to define static values and options in our Playwright setup, and you can do it right next to your fixture definitions in the extend call.
 
-```ts
-// base.ts
+```ts {title="base.ts"}
 import { test as base } from '@playwright/test'
 import { DashboardPage} from './poms/dashboard'
 
@@ -147,8 +146,7 @@ test('create check', async ({ dashboardPage, user }) => {
 
 But it's not only your tests that can access this newly defined user; your fixtures can access it, too!
 
-```ts
-// base.ts
+```ts {title="base.ts"}
 import { test as base } from '@playwright/test'
 import { DashboardPage} from './poms/dashboard'
 
@@ -174,8 +172,7 @@ Did you notice the option: true? By marking the Playwright option as configurabl
 
 For example, you could now head into your `playwright.config.ts` to change the user object and set a different one in the global settings.
 
-```ts
-// playwright.config.ts
+```ts {title="playwright.config.ts"}
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig<TestOptions>({
@@ -190,8 +187,7 @@ export default defineConfig<TestOptions>({
 
 Or, if you want to leverage Playwright projects for different users, you could do that, too!
 
-```ts
-// playwright.config.ts
+```ts {title="playwright.config.ts"}
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig<TestOptions>({
@@ -212,8 +208,7 @@ export default defineConfig<TestOptions>({
 
 And for special occasions, if you only have one test requiring another user, you could even change it right in your test case with `test.use`.
 
-```ts
-// base.ts
+```ts {title="base.ts"}
 import { test } from './base'
 
 // override the default user

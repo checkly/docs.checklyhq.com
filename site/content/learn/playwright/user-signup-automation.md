@@ -30,22 +30,22 @@ The flow will often match the following:
 
 We will likely want to also check that some change occurred in the UI to confirm that the registration worked.
 
-```ts
-{{% readfile filename="samples/playwright/signup.ts" %}}
+```ts {title="signup.spec.ts"}
+{{% readfile filename="samples/playwright/signup.spec.ts" %}}
 ```
 
 Run this example as follows:
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test signup.ts
+USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test signup.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
 SET USER_EMAIL=user@email.com
 SET USER_PASSWORD=supersecure1
-npx playwright signup.ts
+npx playwright signup.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

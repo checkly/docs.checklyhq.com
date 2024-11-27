@@ -19,8 +19,8 @@ Playwright enables us to access and interact with iframes.
 
 To access iframe elements, locate the iframe and query the DOM elements as if you're in the page context.
 
-```ts
-{{% readfile filename="samples/playwright/iframe-access.ts" %}}
+```ts {title="iframe-access.spec.ts"}
+{{% readfile filename="samples/playwright/iframe-access.spec.ts" %}}
 ```
 
 ## Further reading

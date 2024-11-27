@@ -26,23 +26,23 @@ Checkout procedures can vary dramatically depending on what is being bought or s
 
 Modelled on the above structure is the following example running against our test website. We will add a few products to the shopping cart, then proceed until the summary screen shows up and verify that the transaction has been confirmed. Here we can get creative and, for example, iterate through a number of products to fill the cart:
 
-```ts
-{{% readfile filename="samples/playwright/checkout.ts" %}}
+```ts {title="checkout.spec.ts"}
+{{% readfile filename="samples/playwright/checkout.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/checkout.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/checkout.spec.ts" "playwright"  >}}
 
 Run this example as follows:
 
 {{< tabs "2">}}
 {{< tab "macOS" >}}
 ```sh
-PRODUCTS_NUMBER=3 npx playwright test checkout.ts
+PRODUCTS_NUMBER=3 npx playwright test checkout.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
 SET PRODUCTS_NUMBER=3
-npx playwright test checkout.ts
+npx playwright test checkout.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

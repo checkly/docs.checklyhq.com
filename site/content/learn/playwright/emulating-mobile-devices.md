@@ -28,7 +28,7 @@ This guide explains how to define viewport sizes, device pixel ratio and  `user-
 
 If your site parses the user agent string to serve a different experience to mobile users, define the `userAgent` in your automation scripts.
 
-```ts
+```ts {title="emulate-mobile.spec.ts"}
 import { test } from '@playwright/test'
 
 test.use({
@@ -47,7 +47,7 @@ test('emulate iPhone SE', async ({ page }) => {
 
 If your site follows responsive web design practices and renders elements depending on device viewport size, define a mobile viewport and pixel density.
 
-```ts
+```ts {title="emulate-mobile-viewport.spec.ts"}
 const { test } = require('@playwright/test')
 
 test.use({ 
@@ -73,7 +73,7 @@ Playwright includes a built-in device registry to access mobile device character
 
 Leverage the pre-defined devices to emulate mobile devices.
 
-```ts
+```ts {title="emulate-mobile-builtin.spec.ts"}
 import { test, devices } from '@playwright/test'
 const iPhone = devices['iPhone SE']
 

@@ -4,7 +4,7 @@ test('basic performance long task', async ({ page }) => {
   await page.goto('https://danube-web.shop/')
 
   const totalBlockingTime: number = await page.evaluate(() => {
-    return new Promise((resolve) => {
+    return new Promise<number>((resolve) => {
       let totalBlockingTime = 0
       new PerformanceObserver(function (list) {
         const perfEntries = list.getEntries()

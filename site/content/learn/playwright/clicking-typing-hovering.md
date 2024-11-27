@@ -26,7 +26,7 @@ Users normally access most website functionality through clicks, keystrokes etc.
 
 Clicking is the default way of selecting and activating elements on web pages, and will appear very often in most headless scripts.
 
- ```ts
+ ```ts {title="basic-click.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('can click log in', async ({ page }) => {
@@ -45,8 +45,7 @@ For the times when even the humble click fails, you can try the following altern
 
 A popular pattern among web pages is exposing additional information or functionality when the user hovers the mouse cursor over a specific item. Examples include, menus, previews and dialogs containing extra information on the item.
 
-
- ```ts
+ ```ts {title="basic-hover.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('hover over sign in', async ({ page }) => {
@@ -61,8 +60,7 @@ test('hover over sign in', async ({ page }) => {
 
 Focussing on specific UI elements allows the user to interact with them without clicks. It can also result in a proactive reaction from the webapp, such as displaying suggestions.
 
-
- ```ts
+ ```ts {title="basic-focus.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('Focus on email field', async ({ page }) => {
@@ -75,7 +73,7 @@ test('Focus on email field', async ({ page }) => {
 
 We can simulate typing on a real keyboard using `page.type()`:
 
- ```ts
+```ts {title="basic-type.spec.ts"}
  import { test, expect } from '@playwright/test'
 
 test('testAlpha', async ({ page }) => {
@@ -86,7 +84,6 @@ test('testAlpha', async ({ page }) => {
   await expect(page.locator('#app-content')).toContainText('Rye')
 });
  ```
-
 
 Single key presses can also be executed. For example, to press the Enter key:
 - Playwright: `await page.press('Enter')`
@@ -105,7 +102,7 @@ await page.keyboard.up('Control')
 
 You can run (from the terminal) the above examples as follows:
 ```sh
-$ npx playwright test basic-click-type.ts
+npx playwright test basic-click-type.ts
 ```
 
 ## Further reading

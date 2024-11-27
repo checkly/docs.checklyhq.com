@@ -24,22 +24,22 @@ Playwright allows us to automate logging in to a Microsoft Online account.
 2. We provide the username and password, injected by using environment variables
 3. We are redirected to the main account page
 
-```ts
-{{% readfile filename="samples/playwright/ms-account-login.ts" %}}
+```ts {title="ms-account-login.spec.ts"}
+{{% readfile filename="samples/playwright/ms-account-login.spec.ts" %}}
 ```
 Run this example as follows. Replace the username and password placeholder with your own credentials.
 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-MS_USER=username MS_PWD=password npx playwright test ms-account-login.ts
+MS_USER=username MS_PWD=password npx playwright test ms-account-login.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
 SET MS_USER=username
 SET MS_PWD=password
-npx playwright test ms-account-login.ts
+npx playwright test ms-account-login.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

@@ -24,8 +24,8 @@ This article introduces this functionality and shows how we can customise the PD
 After loading a page, we use the `page.pdf()` command to convert it to a PDF.
 
 
-```ts {hl_lines=[7]}
-{{% readfile filename="samples/playwright/pdf-minimal.ts" %}}
+```ts {hl_lines=[7] title="pdf-minimal.spec.ts"}
+{{% readfile filename="samples/playwright/pdf-minimal.spec.ts" %}}
 ```
 
 Note that we need to pass the `path` option to have the PDF file actually saved to disk.
@@ -47,8 +47,8 @@ In certain cases, our webpage might look significantly different in our PDF comp
 
 We can also have custom headers and footers added to our pages, displaying values such as title, page number and more. Let's see how this looks on your [favourite website](https://www.checklyhq.com/):
 
-```ts {hl_lines=["11-12","18-31"]}
-{{% readfile filename="samples/playwright/pdf-hd.ts" %}}
+```ts {hl_lines=["11-12","19"], title="pdf-hd.spec.ts"}
+{{% readfile filename="samples/playwright/pdf-hd.spec.ts" %}}
 ```
 
 We are including the following template files for our header and footer.

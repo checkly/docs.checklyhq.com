@@ -20,10 +20,10 @@ Playwright enables us to control multiple browser tabs, albeit in different ways
 
 If we are looking to open brand new tabs with which to interact, the setup is rather straightforward.
 
-```ts
-{{% readfile filename="samples/playwright/multitab-open.ts" %}}
+```ts {title="multitab-open.spec.ts"}
+{{% readfile filename="samples/playwright/multitab-open.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/multitab-open.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/multitab-open.spec.ts" "playwright"  >}}
 
 ## Handling links that open a new tab
 
@@ -34,10 +34,10 @@ Controlling tabs that are opened after a click on an element on the page can be 
 
 By allowing us to wait for the creation of a child tab with `page.waitForEvent`, Playwright enables us to "catch" it following a click on an element with `target="_blank"`, and then seamlessly interact with any of the currently open tabs. 
 
-```ts
-{{% readfile filename="samples/playwright/multitab-flows.ts" %}}
+```ts {title="multitab-flows.spec.ts"}
+{{% readfile filename="samples/playwright/multitab-flows.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/multitab-flows.ts" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/multitab-flows.spec.ts" "playwright"  >}}
 
 ## Further reading
 

@@ -26,8 +26,8 @@ Social login using your personal Google or Google Gsuite account is a common use
 4. We provide the username and password, injected by using environment variables.
 5. We are redirected back to the starting.
 
-```ts
-{{% readfile filename="samples/playwright/google-login.ts" %}}
+```ts {title="google-login.spec.ts"}
+{{% readfile filename="samples/playwright/google-login.spec.ts" %}}
 ```
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.
@@ -35,14 +35,14 @@ Run this example as follows. Replace the username and password placeholder with 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-GOOGLE_USER=username GOOGLE_PWD=password npx playwright test google-login.ts
+GOOGLE_USER=username GOOGLE_PWD=password npx playwright test google-login.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
 SET GOOGLE_USER=username
 SET GOOGLE_PWD=password
-npx playwright test google-login.ts
+npx playwright test google-login.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

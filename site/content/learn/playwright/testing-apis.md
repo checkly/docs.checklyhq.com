@@ -29,8 +29,7 @@ This is a GraphQL api, which is supported in Playwright. GraphQL works by sendin
 ## The Test Case
 To get started, let’s look at a basic test using Playwright. Below is an api.ts file that defines a test case doing little more than ensuring that our GraphQL API is responding with expected data.
 
-```ts
-// api.spec.ts
+```ts {title="api.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('the GraphQL API works', async ({ request }) => {
@@ -74,8 +73,7 @@ To confirm that the assertion works, you can deliberately break the test by expe
 
 To go a bit deeper, let's compare the response to a stored JSON file:
 
-```ts
-// api.spec.ts
+```ts {title="api.spec.ts"}
 import { test, expect } from '@playwright/test'
 import countryData from './response.json'
 
@@ -114,8 +112,7 @@ The nice thing about this method is, not having to fool around with the file sys
 
 While we could parse the JSON of the large response we got in our previous test, a more focused test would make a filtered request from the API, and just examine that response.
 
-```ts
-// api.spec.ts
+```ts {title="api.spec.ts"}
 test('the GraphQL API works for one country', async ({ request }) => {
   const germanyResponse = await request.post('https://countries.trevorblades.com/', {
     data: {

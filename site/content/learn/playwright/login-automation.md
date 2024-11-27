@@ -31,8 +31,8 @@ At the end of our test, we need to check if our login procedure has been success
 
 On our [test site](https://danube-web.shop/) this could look like the following:
 
-```ts
-{{% readfile filename="samples/playwright/login.ts" %}}
+```ts {title="login.spec.ts"}
+{{% readfile filename="samples/playwright/login.spec.ts" %}}
 ```
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.
@@ -40,14 +40,14 @@ Run this example as follows. Replace the username and password placeholder with 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```bash
-USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test login.ts
+USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test login.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```bash
 SET USER_EMAIL=user@email.com
 SET USER_PASSWORD=supersecure1
-npx playwright test login.ts
+npx playwright test login.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

@@ -16,7 +16,7 @@ test('basic performance layout shift', async ({ page }) => {
           }
         })
 
-        resolve(CLS)
+        resolve(CLS.toString())
       }).observe({
         type: 'layout-shift',
         buffered: true

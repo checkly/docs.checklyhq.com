@@ -108,7 +108,7 @@ Checkly can use soft assertions as part of a ‘degraded’ state for checks. If
 
 This is useful for distinguishing between partial service disruptions and complete outages, offering teams a more precise understanding of performance and reliability. If your Playwright test is running on Checkly, the check will enter a ‘degraded’ state when some soft assertions fail, or if you call `markCheckAsDegraded` in its execution.
 
-```ts
+```ts {title="soft-assertions.spec.ts"}
 import { test, expect } from '@playwright/test'
 import { getAPIResponseTime, markCheckAsDegraded } from '@checkly/playwright-helpers'
 
