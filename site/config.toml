@@ -203,7 +203,7 @@ disqusShortname = "checkly"
 
 [[menu.opentelemetry]]
 	name = "OpenTelemetry"
-	pre = "/learn/icons/opentelemetry_logo.svg"
+	pre = "/learn/icons/opentelemetry-logo.svg"
 	weight = 360
 
 
