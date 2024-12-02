@@ -31,23 +31,23 @@ At the end of our test, we need to check if our login procedure has been success
 
 On our [test site](https://danube-web.shop/) this could look like the following:
 
-```js
-{{% readfile filename="samples/playwright/login.js" %}}
+```ts {title="login.spec.ts"}
+{{% readfile filename="samples/playwright/login.spec.ts" %}}
 ```
 
 Run this example as follows. Replace the username and password placeholder with your own credentials.
 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
-```sh
-USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 node login.js
+```bash
+USER_EMAIL=user@email.com USER_PASSWORD=supersecure1 npx playwright test login.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
-```sh
+```bash
 SET USER_EMAIL=user@email.com
 SET USER_PASSWORD=supersecure1
-node login.js
+npx playwright test login.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}

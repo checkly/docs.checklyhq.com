@@ -70,7 +70,7 @@ resource "checkly_check" "e2e-login" {
     "eu-central-1"
   ]
 
-  script = file("${path.module}/scripts/login.js") // Our script is contained in this file
+  script = file("${path.module}/scripts/login.spec.js") // Our script is contained in this file
 }
 ```
 

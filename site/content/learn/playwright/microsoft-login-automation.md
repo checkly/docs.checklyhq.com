@@ -14,32 +14,32 @@ menu:
     parent: "E2E examples"
 ---
 
-Playwright allows us to automate logging in to a Microsoft Live account.
+Playwright allows us to automate logging in to a Microsoft Online account.
 
 <!-- more -->
 
 ## Steps
 
-1. We start at `https://login.live.com`
+1. We start at `https://login.microsoftonline.com/`
 2. We provide the username and password, injected by using environment variables
 3. We are redirected to the main account page
 
-```js
-{{% readfile filename="samples/playwright/mslive-login.js" %}}
+```ts {title="ms-account-login.spec.ts"}
+{{% readfile filename="samples/playwright/ms-account-login.spec.ts" %}}
 ```
 Run this example as follows. Replace the username and password placeholder with your own credentials.
 
 {{< tabs "2" >}}
 {{< tab "macOS" >}}
 ```sh
-MSLIVE_USER=username MSLIVE_PWD=password node mslive-login.js
+MS_USER=username MS_PWD=password npx playwright test ms-account-login.spec.ts
 ```
 {{< /tab >}}
 {{< tab "Windows" >}}
 ```sh
-SET MSLIVE_USER=username
-SET MSLIVE_PWD=password
-node mslive-login.js
+SET MS_USER=username
+SET MS_PWD=password
+npx playwright test ms-account-login.spec.ts
 ```
 {{< /tab >}}
 {{< /tabs >}}
