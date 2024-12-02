@@ -31,11 +31,10 @@ Playwright naturally excels at running tests in parallel, significantly reducing
 Configuring Parallel Execution
 To explicitly configure your tests to run in parallel, you can utilize the fullyParallel mode in your Playwright configuration file. This setting instructs Playwright to maximize parallelism by launching separate workers for each test file.
 
-```js
-// playwright.config.js
+```ts {title="playwright.config.ts"}
 module.exports = {
   fullyParallel: true,
-};
+}
 ```
 
 Alternatively, for more granular control, you can use the test.describe.configure method within your test files to set the execution mode to parallel for specific test suites.
@@ -51,11 +50,10 @@ By default, Playwright treats the order of test cases within a spec file as sequ
 ###Enforcing Sequential Execution
 For projects with tests spread across multiple files, achieving sequential execution requires a bit more configuration. You can limit Playwright to use a single worker globally via the Playwright configuration file or on a per-directory basis using the command line.
 
-```js
-// playwright.config.js
+```ts {title="playwright.config.ts"}
 module.exports = {
   workers: 1,
-};
+}
 ```
 
 Or, for directory-specific sequential execution:

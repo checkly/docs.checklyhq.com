@@ -113,7 +113,7 @@
 
       &-item {
         a {
-          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 2 * $menu-item-padding-spacer;
+          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 4 * $menu-item-padding-spacer;
           display: block;
           color: $gray-darkish;
         }
@@ -503,10 +503,20 @@
     }
 
     .console-output {
-      margin: 2rem 1rem;
+      margin: 2rem 0;
       border-radius: 0.25rem;
-      color: white;
+      color: $gray-light;
+      font-size: 14px;
       background-color: #272822;
+      &--summary {
+        user-select: none;
+        &::marker {
+          margin-right: 1ch;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
 
       summary {
         padding: 1rem;
@@ -682,9 +692,9 @@
   color: #FFF;
   font-weight: bold;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   @include media-breakpoint-down(md) {
     translate: 10px -70px;
   }

@@ -16,7 +16,7 @@ Knowing that an element is included in the DOM might not be enough for us to pro
 
 Example error message: 
 
-```js
+```sh
 ERROR - UserScript page.waitForSelector: Timeout 30000ms exceeded. 
 waiting for selector ".contact-form > .form-control" to be visible
   selector resolved to hidden <element>

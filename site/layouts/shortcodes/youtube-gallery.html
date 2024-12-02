@@ -1,0 +1,18 @@
+<div class="youtube-gallery-wrapper">
+  {{- $apiKey := getenv "HUGO_GOOGLE_YT_API_KEY" -}}
+  {{- $playlistId := (.Get "id") -}}
+  {{ if $apiKey }}
+    {{- $videos := resources.GetRemote (printf "https://www.googleapis.com/youtube/v3/playlistItems?key=%s&part=snippet,contentDetails&maxResults=5&playlistId=%s" $apiKey $playlistId) | transform.Unmarshal -}}
+    <div class="youtube-gallery-cards">
+      {{- range where $videos.items "snippet.title" "!=" "Private video" | first 3 -}}
+        <div class="youtube-gallery-card">
+          <a href="https://www.youtube.com/watch?v={{- .snippet.resourceId.videoId -}}" target="_blank">
+            <img class="youtube-gallery-card-thumb" src="{{- .snippet.thumbnails.medium.url -}}" alt="{{- .snippet.title -}}" />
+            <p class="youtube-gallery-card-text" >{{- .snippet.title -}}</p>
+          </a>
+        </div>
+      {{- end -}}
+    </div>
+    <a href="https://www.youtube.com/playlist?list={{ $playlistId }}" target="_blank">Check out {{ $videos.pageInfo.totalResults }} more videos on our YouTube channel</a>
+  {{ end }}
+</div>
