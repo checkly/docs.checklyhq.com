@@ -1,6 +1,4 @@
-<head>
-   
-  <title>{{ if .Params.title }}{{ .Params.title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+ <title>{{ if .Params.title }}{{ .Params.title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 
   <meta charset="utf-8" />
   <meta name="description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
@@ -96,4 +94,3 @@
       a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
-</head>

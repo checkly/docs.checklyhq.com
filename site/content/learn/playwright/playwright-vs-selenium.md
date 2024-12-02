@@ -1,6 +1,7 @@
 ---
-title: Playwright vs. Selenium - Detailed Comparison for 2024
+title: Playwright vs Selenium - Detailed Comparison for 2024
 subTitle: Key features, and pros & cons of each framework
+description: Explore the key differences between Playwright and Selenium in web testing. Discover the examples, pros and cons, and learn how to run the tests.
 date: 2024-10-17
 author: Nocnica Mellifera
 githubUser: serverless-mom
@@ -39,14 +40,14 @@ Playwright is a relatively new browser automation framework that has gained popu
     
 2. Set up a test script using `@playwright/test`:
     
-    ```jsx
-    const { test, expect } = require('@playwright/test');
+    ```ts
+    import { test, expect } from '@playwright/test'
     
     test('example test', async ({ page }) => {
-      await page.goto('<https://example.com>');
-      const title = await page.title();
-      expect(title).toBe('Example Domain');
-    });
+      await page.goto('<https://example.com>')
+      const title = await page.title()
+      expect(title).toBe('Example Domain')
+    })
     ```
     
 3. Run the test with the Playwright CLI:
@@ -89,7 +90,7 @@ Here’s how to run a Selenium test in NodeJS
     
     In your test file (e.g., `test.js`), import the `selenium-webdriver` package:
     
-    ```jsx
+    ```js
     const { Builder, By, until } = require('selenium-webdriver');
     ```
     
@@ -97,21 +98,21 @@ Here’s how to run a Selenium test in NodeJS
     
     Use the `Builder` to configure your test environment. Here is a simple example:
     
-    ```jsx
+    ```ts
     async function exampleTest() {
       // Initialize a new browser instance
-      let driver = await new Builder().forBrowser('chrome').build();
+      const driver = await new Builder().forBrowser('chrome').build();
     
       try {
         // Navigate to a website
         await driver.get('https://www.example.com');
     
         // Perform actions or assertions
-        let title = await driver.getTitle();
+        const title = await driver.getTitle();
         console.log('Page Title:', title);
     
         // Find an element and interact with it
-        let element = await driver.findElement(By.name('exampleInput'));
+        const element = await driver.findElement(By.name('exampleInput'));
         await element.sendKeys('Test Input');
     
         // Wait for some condition, if necessary
@@ -133,7 +134,7 @@ To run your test, execute `node test.js` in your terminal
 
 This command launches a browser, performs the specified actions, and then closes the browser. You should see any console output you added, such as the page title.
 
-## Playwright vs. Selenium: Key Differences
+## Playwright vs Selenium: Key Differences
 
 While Playwright and Selenium are both used for similar roles as test automation. And both are focused on operating a browser automatically, the difference in their backgrounds, core userbase, and ages show up in a number of implementation details.
 
@@ -167,13 +168,13 @@ While Playwright and Selenium are both used for similar roles as test automation
 
 Here’s a test that simulates a user logging in and loading recent transactions. The automation then takes a screenshot.
 
-```jsx
+```js
 const { Builder, By, until } = require('selenium-webdriver');
 const fs = require('fs');
 
 async function loginAndCaptureScreenshot() {
   // Initialize the browser driver
-  let driver = await new Builder().forBrowser('chrome').build();
+  const driver = await new Builder().forBrowser('chrome').build();
 
   try {
     // Step 1: Navigate to the login page
@@ -190,14 +191,14 @@ async function loginAndCaptureScreenshot() {
     await driver.wait(until.elementLocated(By.id('recent-transactions')), 10000);
 
     // Step 5: Load recent transactions
-    let transactionsElement = await driver.findElement(By.id('recent-transactions'));
+    const transactionsElement = await driver.findElement(By.id('recent-transactions'));
 
     // Verify transactions are visible (optional)
-    let isDisplayed = await transactionsElement.isDisplayed();
+    const isDisplayed = await transactionsElement.isDisplayed();
     console.log('Transactions loaded:', isDisplayed);
 
     // Step 6: Take a screenshot
-    let screenshot = await driver.takeScreenshot();
+    const screenshot = await driver.takeScreenshot();
     fs.writeFileSync('screenshot.png', screenshot, 'base64');
     console.log('Screenshot taken and saved as screenshot.png');
 
@@ -210,14 +211,14 @@ async function loginAndCaptureScreenshot() {
 }
 
 // Run the test
-loginAndCaptureScreenshot();
+loginAndCaptureScreenshot()
 ```
 
 ## Playwright Examples
 
 Here’s the same test in Playwright:
 
-```jsx
+```js
 const { chromium } = require('playwright');
 
 async function loginAndCaptureScreenshot() {
@@ -239,7 +240,7 @@ async function loginAndCaptureScreenshot() {
 }
 
 // Run the test
-loginAndCaptureScreenshot();
+loginAndCaptureScreenshot()
 ```
 
 Some key differences in the two examples:
@@ -247,7 +248,7 @@ Some key differences in the two examples:
 - Playwright uses modern css locators rather than finding by ID or class. ID and class can shift on an element when all that’s happening is a visual refresh of the site. We don’t want our tests to break in this situation!
 - Playwright includes auto-waiting, so there’s no need to add manual timeouts to our code.
 
-## Playwright vs. Selenium: Pros & Cons
+## Playwright vs Selenium: Pros & Cons
 
 ### Playwright
 
@@ -259,7 +260,7 @@ Some key differences in the two examples:
 **Pros**: Established tool with a large community, supports many languages, better integration with real device testing.
 **Cons**: More setup required, slower execution, higher learning curve for productivity.
 
-## Playwright vs. Selenium: Which Solution to Choose?
+## Playwright vs Selenium: Which Solution to Choose?
 
 ### When to Use Playwright
 

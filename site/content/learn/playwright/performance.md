@@ -77,15 +77,13 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 [The Navigation Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API) allows us to retrieve timestamps of key events in the page load timeline. A Navigation Timing entry includes metrics such as the navigation response time, the used protocol and document load time.
 
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-navigation.js" %}}
+```ts {title="basic-performance-navigation.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-navigation.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-navigation.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-navigation.spec.ts" "playwright"  >}}
 
-
-<details class="console-output">
-  <summary>Console output</summary>
-  <pre><code>[{
+{{< console-output >}}
+[{
   name: 'https://danube-web.shop/',
   entryType: 'navigation',
   startTime: 0,
@@ -119,20 +117,21 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
   loadEventEnd: 1235.3999999999069,
   type: 'navigate',
   redirectCount: 0
-}]</pre></code>
-</details>
+}]
+{{< /console-output >}}
+
 
 [The Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API) allows us to zoom in on single resources and get accurate information about how quickly they loaded. For example, we could specifically look at our website's logo:
 
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-resource.js" %}}
+```ts {title="basic-performance-resource.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-resource.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-resource.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-resource.spec.ts" "playwright"  >}}
 
-<details class="console-output">
-  <summary>Console output</summary>
-  <pre><code>{
+
+{{< console-output >}}
+{
   name: 'https://danube-web.shop/static/logo-horizontal.svg',
   entryType: 'resource',
   startTime: 1149.1000000000931,
@@ -156,25 +155,24 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
   decodedBodySize: 20749,
   serverTiming: [],
   workerTiming: []
-}</pre></code>
-</details>
+}
+{{< /console-output >}}
 
 #### Paint Timing API (`first-paint` and `first-contentful-paint`)
 
 [The Paint Timing API](https://developer.mozilla.org/en-US/docs/Web/API/PerformancePaintTiming) provides information on the first paint and the first contentful paint. Access the entries via `performance.getEntriesByType('paint')` or `performance.getEntriesByName('first-contentful-paint')`.
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-paint-timing.js" %}}
+```ts {title="basic-performance-paint-timing.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-paint-timing.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-paint-timing.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-paint-timing.spec.ts" "playwright"  >}}
 
-<details class="console-output">
-  <summary>Console output</summary>
-  <pre><code>[
+{{< console-output >}}
+[
   { name: 'first-paint', entryType: 'paint', startTime: 1149.5, duration: 0 },
   { name: 'first-contentful-paint', entryType: 'paint', startTime: 1149.5, duration: 0 }
-]</pre></code>
-</details>
+]
+{{< /console-output >}}
 
 #### Largest Contentful Paint API (`largest-contentful-paint`)
 
@@ -186,10 +184,10 @@ Large contentful paints are not a single event but rather event streams. A large
 To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-contentful-paint` entries and access the last emitted paint.
 {{</ info >}}
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-largest-contentful-paint.js" %}}
+```ts {title="largest-contentful-paint.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-largest-contentful-paint.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-largest-contentful-paint.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-largest-contentful-paint.spec.ts" "playwright"  >}}
 
 #### Layout Instability API (`layout-shift`)
 
@@ -199,10 +197,10 @@ To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-content
 Layout shifts are no single event but event streams. To calculate CLS initialize a `PerformanceObserver`, observe `layout-shift` entries and sum all shifts.
 {{</ info >}}
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-layout-shift.js" %}}
+```ts {title="basic-performance-layout-shift.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-layout-shift.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-layout-shift.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-layout-shift.spec.ts" "playwright"  >}}
 
 #### Long Task API (`longtask`)
 
@@ -212,10 +210,10 @@ Layout shifts are no single event but event streams. To calculate CLS initialize
 Long Tasks are no single event but event streams. To calculate TBT initialize a `PerformanceObserver`, observe `longtasks` entries and sum the differences to the maximal JavaScript execution time of 50 milliseconds.
 {{</ info >}}
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-long-task.js" %}}
+```ts {title="basic-performance-long-task.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-long-task.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-long-task.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-long-task.spec.ts" "playwright"  >}}
 
 
 ### Chrome DevTools for performance
@@ -224,10 +222,10 @@ If the browser performance APIs are not enough, the Chrome DevTools Protocol off
 
 One important example is network throttling, through which we can simulate the experience of users accessing our page with different network conditions.
 
-```js
-{{% readfile filename="samples/playwright/basic-performance-emulation.js" %}}
+```ts {title="basic-performance-emulation.spec.ts"}
+{{% readfile filename="samples/playwright/basic-performance-emulation.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/basic-performance-emulation.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/basic-performance-emulation.spec.ts" "playwright"  >}}
 
 The DevTools Protocol is quite extensive. We recommend exploring the [documentation](https://chromedevtools.github.io/devtools-protocol/) and getting a comprehensive overview of its capabilities.
 

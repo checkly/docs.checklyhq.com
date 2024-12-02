@@ -25,18 +25,18 @@ When we browse the web, a series of HTTP requests and responses are exchanged be
 
 Request interception enables us to observe which requests and responses are being exchanged as part of our script's execution. For example, this is how we could print them out when we load our [test website](https://danube-web.shop/):
 
-```js
-{{% readfile filename="samples/playwright/request-interception-read.js" %}}
+```ts {title="request-interception-read.spec.ts"}
+{{% readfile filename="samples/playwright/request-interception-read.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/request-interception-read.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/request-interception-read.spec.ts" "playwright"  >}}
 
 
 We might want to intervene and filter the outgoing requests. For example, when [scraping web pages](/learn/playwright/web-scraping/), we might want to block unnecessary elements from loading in order to speed up the procedure and lower bandwidth usage.
 
-```js {hl_lines=["11-13", "16-20"]}
-{{% readfile filename="samples/playwright/request-interception-block.js" %}}
+```ts {hl_lines=["6-7"] title="request-interception-block.spec.ts"}
+{{% readfile filename="samples/playwright/request-interception-block.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/request-interception-block.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/request-interception-block.spec.ts" "playwright"  >}}
 
  As a result, you will see the website logo not being loaded.
 
@@ -54,18 +54,18 @@ Playwright makes it easy for us, as for every request we can intercept we also c
 
 Every time we load it, our test website is sending a request to its backend to fetch a list of best selling books. For our example, we are going to intercept this response and modify it to return a single book we define on the fly.
 
-```js {hl_lines=[18,23]}
-{{% readfile filename="samples/playwright/response-interception.js" %}}
+```ts {hl_lines=[18,19] title="response-interception.spec.ts"}
+{{% readfile filename="samples/playwright/response-interception.spec.ts" %}}
 ```
-{{< run-in-checkly "/samples/playwright/response-interception.js" "playwright"  >}}
+{{< run-in-checkly "/samples/playwright/response-interception.spec.ts" "playwright"  >}}
 
 Here is what the homepage will look like with our stubbed response:
 
 ![test site with stubbed response](/samples/images/response-interception.png)
 
 Run the above examples as follows:
-```sh
-node request-interception.js
+```bash
+npx playwright test request-interception.ts
 ```
 
 ## Takeaways

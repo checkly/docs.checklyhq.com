@@ -34,7 +34,7 @@ Here is an example of how to have a Heroku job send a ping to a Checkly heartbea
 {{< tabs "Heroku example" >}}
 {{< tab "BASH" >}}
 ```BASH
-curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec;
+curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
 ```
 {{< /tab >}}
 {{< /tabs >}}

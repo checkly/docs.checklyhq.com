@@ -92,6 +92,8 @@ After running [`npx checkly deploy`](/docs/cli/command-line-reference/#npx-check
 
 ![login check with helper file in dependencies](/docs/images/cli/github_login_helper_dependency.png)
 
+The maximum total size of a Checkly project when deploying or running a test session, including local dependencies, is 40 MB.
+
 ## Why can't I import any NPM package or other 3rd party dependencies?
 
 Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)

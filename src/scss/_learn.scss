@@ -113,7 +113,7 @@
 
       &-item {
         a {
-          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 2 * $menu-item-padding-spacer;
+          padding: $menu-item-padding-spacer $menu-item-padding-spacer $menu-item-padding-spacer 4 * $menu-item-padding-spacer;
           display: block;
           color: $gray-darkish;
         }
@@ -381,7 +381,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
-      margin-top: 40px;
+      margin-top: 1rem;
 
       a {
         &:hover {
@@ -472,6 +472,17 @@
         }
       }
 
+      @include media-breakpoint-down(sm) {
+        .two-column-card {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+        .three-column-card {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
+
     }
   }
 
@@ -492,10 +503,20 @@
     }
 
     .console-output {
-      margin: 2rem 1rem;
+      margin: 2rem 0;
       border-radius: 0.25rem;
-      color: white;
+      color: $gray-light;
+      font-size: 14px;
       background-color: #272822;
+      &--summary {
+        user-select: none;
+        &::marker {
+          margin-right: 1ch;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
 
       summary {
         padding: 1rem;
@@ -671,9 +692,9 @@
   color: #FFF;
   font-weight: bold;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   @include media-breakpoint-down(md) {
     translate: 10px -70px;
   }
@@ -704,4 +725,49 @@
 
 .learn-cta-wrapper .btn {
   font-size: .8rem;
+}
+
+.youtube-gallery {
+  &-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  &-cards {
+    padding: 0 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &-card {
+    list-style-type: none;
+    margin-bottom: 1rem;
+    width: 32%;
+    &-thumb {
+      border-radius: 6px;
+      border: 2px solid $red;
+    }
+
+    &-text {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: .5rem;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &-cards {
+        flex-direction: column;
+      }
+
+      &-card {
+        width: 100%;
+      }
+    }
 }

@@ -26,7 +26,7 @@ Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deploy
 
 ## Installation
 
-To install Checkly's native Vercel integration, navigate to `Integratons`, under your account's dropdown menu.
+To install Checkly's native Vercel integration, navigate to `Integrations`, under your account's dropdown menu.
 
 ![vercel integration step 1](/docs/images/cicd/vercel/vercel_step1a.png)
 

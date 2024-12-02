@@ -1,15 +1,23 @@
 import webpack from 'webpack'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default {
   module: {
     rules: [
       {
         test: /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'static/img/[name].[contenthash:7].[ext]'
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10000
+          }
+        },
+        generator: {
+          filename: 'static/img/[name].[contenthash:7][ext]'
         }
       },
       {
@@ -17,28 +25,35 @@ export default {
         use: ['css-loader', 'sass-loader']
       },
       {
-        test: /\.((woff)|(woff2)|(ttf))(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader'
+        test: /\.(woff|woff2|ttf)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name].[contenthash:7][ext]'
+        }
       },
       {
-        test: /\.((png)|(eot)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=/[contenthash:7].[ext]'
+        test: /\.(eot|svg|gif)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name].[contenthash:7][ext]'
+        }
       },
       {
-        test: /\.json$/, loader: 'json-loader'
-      },
-      {
-        loader: 'babel-loader',
-        test: /\.js?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        query: { cacheDirectory: true }
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true
+          }
+        }
       }
     ]
   },
 
   plugins: [
     new webpack.ProvidePlugin({
-      fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
+      fetch: ['whatwg-fetch', 'fetch']
     })
   ],
 
