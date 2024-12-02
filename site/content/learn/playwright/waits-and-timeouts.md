@@ -96,21 +96,21 @@ When you can't wait for an element to appear on a page and want to explicitely w
 
 `{{< newtabref title="page.waitForLoadState" href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" >}}` waits until the required load state has been reached. It defaults to the page `load` event but can also be configured to wait for `domcontentloaded` or `networkidle` (discouraged).
 
-```js
+```ts
 // wait for a page `load` event
-await page.waitForLoadState();
+await page.waitForLoadState()
 ```
 
 `{{< newtabref title="page.waitForURL" href="https://playwright.dev/docs/api/class-page#page-wait-for-url" >}}` waits until a navigation to the target URL. It also defaults to the page `load` event but can be configured to wait for `commit`, `domcontentloaded` or `networkidle` (discouraged).
 
-```js
+```ts
 // wait for the page `load` event of the `/login` URL
-await page.waitForURL('**/login');
+await page.waitForURL('**/login')
 ```
 
 You can also wait until a request is sent or a response is received with `{{< newtabref title="page.waitForRequest" href="https://playwright.dev/docs/api/class-page#page-wait-for-request" >}}` and `{{< newtabref title="page.waitForResponse" href="https://playwright.dev/docs/api/class-page#page-wait-for-response" >}}`. These two methods are key for implementing [request and response interception](/learn/playwright/intercept-requests/).
 
-```js
+```ts
 // wait for a request being made after clicking a button
 const loginRequestPromise = page.waitForRequest('/login')
 await page.getByRole('button', { name: 'Login' }).click()
@@ -126,7 +126,7 @@ const loginResponse = await loginResponsePromise
 
 There are multiple ways to wait for a specific element to appear on the page. To wait for an element to be visible or reach a particular state it's recommended to use Playwright's web-first assertions. `toBeVisible`, `toBeEnabled`, `toBeChecked` and many more included assertions are asynchronous and wait for the elements to change, appear or disappear.
 
-```js
+```ts
 // wait for this button to be visible, stable, ... and click it
 await page.getByRole('button', { name: 'Login' }).click()
 // wait for this button to be disabled
@@ -137,9 +137,9 @@ await expect(page.getByRole('button', {name: 'Login'})).toBeHidden()
 
 If you pair web-first assertions with Playwright's auto-waiting actions, your scripts will be expressive, human-readable, and, most importantly, not include any hard timeouts.
 
-If you're not using Playwright Test (web-first assertions are only availabe in `@playwright/test`) and you want to wait for an element to be visible, use `{{< newtabref title="locator.waitFor" href="https://playwright.dev/docs/api/class-locator#locator-wait-for" >}}`.
+If you're not using Playwright Test (web-first assertions are only available in `@playwright/test`) and you want to wait for an element to be visible, use `{{< newtabref title="locator.waitFor" href="https://playwright.dev/docs/api/class-locator#locator-wait-for" >}}`.
 
-```js
+```ts
 const button =  page.getByRole('button', { name: 'Login' }).click()
 // wait for this button to be visible
 await button.waitFor()
@@ -151,24 +151,24 @@ In any case, a good knowledge of [locators](/learn/playwright/selectors/) is key
 
 With Playwright, you can also directly wait for {{< newtabref title="page events" href="https://playwright.dev/docs/events" >}} such as `popup` or `download` using `{{< newtabref title="page.waitForEvent" href="https://playwright.dev/docs/api/class-page#page-wait-for-event" >}}`.
 
-```js
+```ts
 // wait for a new window or popup to open after clicking a button
 const popupPromise = page.waitForEvent('popup')
 await page.getByRole('button', { name: 'Open new window' }).click()
-const popup = await popupPromise;
+const popup = await popupPromise
 ```
 
 ### Waiting for page functions
 
 And for more advanced cases, you can pass a function to be evaluated within the browser context via `{{< newtabref title="page.waitForFunction" href="https://playwright.dev/docs/api/class-page#page-wait-for-function" >}}`.
 
-```js
+```ts
 // wait for a specific state in the browser window after clicking a button
 const secretInternalState = page.waitForFunction(
   () => window.localstorage.secretThing === 'true'
 );
 await page.getByRole('button', { name: 'Login' }).click()
-await secretInternalState;
+await secretInternalState
 ```
 
 ## Takeaways

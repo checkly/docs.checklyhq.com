@@ -133,37 +133,37 @@ The architectural differences between Playwright and Cypress reflect distinct de
 At the highest level, Playwright and Cypress tests look very similar when writing a basic tests. Differences only really become visible when you make two asynchronous requests with assertions.
 
 ### Playwright Example
-```javascript
-const { test, expect } = require('@playwright/test');
+```ts
+import { test, expect } from '@playwright/test'
 
 test('Multiple API Requests Test', async ({ request }) => {
   // First request and assertion
-  const todoResponse = await request.get('https://jsonplaceholder.typicode.com/todos/1');
-  expect(todoResponse.status()).toBe(200);
+  const todoResponse = await request.get('https://jsonplaceholder.typicode.com/todos/1')
+  expect(todoResponse.status()).toBe(200)
 
   // Second request and assertion
-  const userResponse = await request.get('https://jsonplaceholder.typicode.com/users/1');
-  expect(userResponse.status()).toBe(200);
-});
+  const userResponse = await request.get('https://jsonplaceholder.typicode.com/users/1')
+  expect(userResponse.status()).toBe(200)
+})
 ```
 
 Playwright uses the standard `await` syntax used in the rest of Node.js. 
 
 ### Cypress Example
-```javascript
+```js
 describe('Multiple API Requests Test', () => {
   it('should return valid status codes for two API requests', () => {
     // First request and assertion
     cy.request('https://jsonplaceholder.typicode.com/todos/1')
       .its('status')
-      .should('eq', 200);
+      .should('eq', 200)
 
     // Second request and assertion
     cy.request('https://jsonplaceholder.typicode.com/users/1')
       .its('status')
-      .should('eq', 200);
+      .should('eq', 200)
   });
-});
+})
 ```
 With Cypress, we're using their custom syntax, which is a bit more compact but still has it's own specialized field of knowledge. If you're pursuing a monitoring as code strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
 

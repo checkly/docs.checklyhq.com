@@ -8,8 +8,8 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  learn:
-    parent: "OpenTelemetry"
+  opentelemetry:
+    parent: "Basics"
 weight: 1
 ---
 

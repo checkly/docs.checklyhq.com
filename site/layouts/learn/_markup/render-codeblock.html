@@ -1,0 +1,34 @@
+<figure class="highlight codeblock">
+  {{- $lang := .Type -}}
+  {{- $title := .Attributes.title -}}
+  {{- if eq $lang "sh" "bash" "shell" -}}
+    <figcaption class="codeblock-toolbar">
+        <div class="codeblock-toolbar--lang codeblock-toolbar--lang-icon-sh"></div>
+        <div class="codeblock-toolbar--title">Terminal</div>
+    </figcaption>
+  {{- else if $title -}}
+    <figcaption class="codeblock-toolbar">
+      {{- if $lang -}}
+          {{- if eq $lang "ts" "typescript" -}}
+            <div class="codeblock-toolbar--lang codeblock-toolbar--lang-icon-ts"></div>
+          {{- else if eq $lang "js" "javascript" -}}
+            <div class="codeblock-toolbar--lang codeblock-toolbar--lang-icon-js"></div>
+        {{- end -}}
+      {{- end -}}
+      <div class="codeblock-toolbar--title">{{ $title | markdownify }}</div>
+    </figcaption>
+    {{- end -}}
+  {{- if transform.CanHighlight .Type }}
+<pre tabindex="0" class="chroma codeblock-body">
+<code class="language-{{ .Type }}" data-lang="{{ .Type }}">
+{{- with transform.HighlightCodeBlock . -}}
+    {{ .Inner }}
+{{- end -}}
+</code>
+</pre>
+    {{- else }}
+<pre tabindex="0">
+<code>{{ .Inner }}</code>
+</pre>
+  {{- end }}
+</figure>

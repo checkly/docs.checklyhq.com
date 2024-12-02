@@ -45,8 +45,8 @@ Playwright offers a number of locators that are based on page role, a more funct
 ## User-First Locators in Action
 Let's replace `page.locator` with `getByRole` to locate the button by its role and accessible name:
 
-```js
-await page.getByRole('button', { name: 'click me' }).click();
+```ts
+await page.getByRole('button', { name: 'click me' }).click()
 ```
 
 Inspect elements using Chrome DevTools to find their accessibility roles and names.
@@ -76,19 +76,19 @@ Note that in strict mode this test will fail even if the first result, or all th
 ### Position-Based Selection
 When we first run into this error, the easiest solution is just to specify a position in a list. The simplest being to take the first result:
 
-```js
-await page.getByRole('button').first().click();
+```ts
+await page.getByRole('button').first().click()
 ```
 
 I run into the error listed above so often, I get in the habit of adding first() to my locators almost every time I write a locator. 😅
 
 If you want to be more specific about list position, use:
 
-```js
-await page.getByRole('button').nth(3).click();
+```ts
+await page.getByRole('button').nth(3).click()
 ```
 
-The .nth() funciton is zero-indexed, so .nth(3) will select the fourth item in the results. Positional selectors work, but they can be brittle, if we have dynamic page content, selecting anything but the first result may present a false positive. To be really sure that we're pointing to the correct element in a dynamic list, do a bit of element filtering.
+The .nth() function is zero-indexed, so .nth(3) will select the fourth item in the results. Positional selectors work, but they can be brittle, if we have dynamic page content, selecting anything but the first result may present a false positive. To be really sure that we're pointing to the correct element in a dynamic list, do a bit of element filtering.
 
 ## Element Filtering in Playwright
 If we imagine an e-store interface, with a number of results only some of which are available, we can see that a position selector isn't going to test reliably.
@@ -97,11 +97,12 @@ If we imagine an e-store interface, with a number of results only some of which 
 
 If we inspect the page we'll see that these are list items, so a selector that makes sure the item is available before checking for the button would read as follows:
 
-```js
+```ts
 const button = page.getByRole('listitem')
-.filter({ hasText: 'available' })
-.getByRole('button', { name: 'buy' });
-await button.click();
+  .filter({ hasText: 'available' })
+  .getByRole('button', { name: 'buy' })
+
+await button.click()
 ```
 
 This test would now fail about when the user would expect it to: when they see a list of items, all marked as sold out.
