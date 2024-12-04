@@ -7,7 +7,6 @@ date: 2024-10-17
 author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
-  Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 menu:
   opentelemetry:
     parent: "Basics"

@@ -45,7 +45,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  headerTag="h3"
 	  title="I want to see traces in Checkly"
 	  description="Send your backend traces to Checkly to get contextualized check failure analysis."
-	  img="/docs/images/icons/opentelemetry.svg"
+	  img="/docs/images/icons/opentelemetry-logo.svg"
 	  link="/docs/traces-open-telemetry/importing-traces/"
 >}}
 {{< doc-card
@@ -53,7 +53,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  headerTag="h3"
 	  title="I want to export Check results to my OpenTelemetry setup"
 	  description="Export check results as traces to your 3rd party OTel tooling"
-	  img="/docs/images/icons/opentelemetry.svg"
+	  img="/docs/images/icons/opentelemetry-logo.svg"
 	  link="/docs/traces-open-telemetry/exporting-traces/"
 >}}
 </div>

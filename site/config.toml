@@ -203,13 +203,15 @@ disqusShortname = "checkly"
 
 [[menu.learn]]
 	name = "OpenTelemetry"
-	pre = "/learn/icons/opentelemetry.svg"
+	pre = "/learn/icons/opentelemetry-logo.svg"
 	weight = 360
 
-[[menu.opentelemetry]]
-	name = "OpenTelemetry"
-	pre = "/learn/icons/opentelemetry.svg"
-	weight = 370
+
+[[menu.learn]]
+	name = "Kubernetes"
+	pre = "/learn/icons/kubernetes-logo.svg"
+	weight = 380
+
 
 [markup.goldmark.renderer]
 unsafe = true
