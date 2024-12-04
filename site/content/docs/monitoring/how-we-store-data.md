@@ -1,6 +1,8 @@
 ---
-title: How we store data
-weight: 4
+title: How we store data - Checkly Docs
+displayTitle: How we store data 
+navTitle: How we store data
+weight: 5
 menu:
   platform:
     parent: "Monitoring"

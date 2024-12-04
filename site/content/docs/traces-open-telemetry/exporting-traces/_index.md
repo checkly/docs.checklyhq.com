@@ -1,5 +1,8 @@
 ---
-title: Export traces to 3rd party tools
+title: Export traces to 3rd party tools with Checkly - Checkly Docs
+displayTitle: Export traces to 3rd party tools with Checkly
+navTitle: Exporting traces
+identifier: exporting-traces
 weight: 30
 menu:
   platform:
@@ -36,10 +39,19 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
+	title="Dash0"
+	img="/docs/images/otel/backends/dash0_icon.svg"
+	link="/docs/open-telemetry/exporting-traces/dash0/"
+>}}
+{{< doc-card
+	class="three-column-card"
+	headerTag="h3"
 	title="Grafana Tempo"
 	img="/docs/images/otel/backends/grafana-tempo_icon.svg"
 	link="/docs/open-telemetry/exporting-traces/grafana-tempo/"
 >}}
+</div>
+<div class="cards-list">
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"
@@ -47,8 +59,6 @@ and send every check run as a trace to your 3rd party OpenTelemetry backend.
 	img="/docs/images/otel/backends/honeycomb_icon.svg"
 	link="/docs/open-telemetry/exporting-traces/honeycomb/"
 >}}
-</div>
-<div class="cards-list">
 {{< doc-card
 	class="three-column-card"
 	headerTag="h3"

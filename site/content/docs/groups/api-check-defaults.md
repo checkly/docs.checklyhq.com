@@ -1,5 +1,7 @@
 ---
-title: API check defaults
+title: API check defaults - Checkly Docs
+displayTitle: API check defaults
+navTitle: API check defaults
 weight: 27
 menu:
   resources:

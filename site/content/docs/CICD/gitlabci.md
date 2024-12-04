@@ -1,5 +1,7 @@
 ---
-title: GitLab CI
+title: Integrating Checkly in GitLab CI - Checkly Docs
+displayTitle: Integrating Checkly in GitLab CI  
+navTitle: GitLab CI
 weight: 4
 menu:
   integrations:

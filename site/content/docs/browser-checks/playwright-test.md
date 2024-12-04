@@ -1,5 +1,7 @@
 ---
-title: Using Playwright Test
+title: Using The Playwright Test Runner With Checkly - Checkly Docs
+displayTitle: Using The Playwright Test Runner With Checkly
+navTitle: Using Playwright Test Runner
 description: How to use Playwright Test Runner natively within browser checks at Checkly
 weight: 14
 menu:
@@ -250,7 +252,7 @@ For more information about the `global` options you can check playwright officia
 
 | Option               | Supported |
 |----------------------|-----------|
-| `baseURL`            | ❌         |
+| `baseURL`            | ✅         |
 | `colorScheme`        | ✅         |
 | `geolocation`        | ✅         |
 | `locale`             | ✅         |
@@ -272,11 +274,11 @@ For more information about the `global` options you can check playwright officia
 | `connectOptions`     | ✅         |
 | `contextOptions`     | ✅         |
 | `bypassCSP`          | ✅         |
+| `proxy`              | ✅         |
 | `storageState`       | ❌         |
 | `browserName`        | ❌         |
 | `channel`            | ❌         |
 | `headless`           | ❌         |
-| `proxy`              | ❌         |
 | `screenshot`         | ❌         |
 | `trace`              | ❌         |
 | `video`              | ❌         |

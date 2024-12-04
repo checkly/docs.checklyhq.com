@@ -1,5 +1,7 @@
 ---
-title: Alert notification log
+title: Alert notification log in Checkly - Checkly Docs
+displayTitle: Alert notification log in Checkly
+navTitle: Alert notification log
 weight: 36
 menu:
   resources:

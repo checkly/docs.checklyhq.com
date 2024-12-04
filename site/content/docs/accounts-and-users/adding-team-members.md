@@ -1,5 +1,7 @@
 ---
-title: Adding team members
+title: Adding team members to your Checkly account - Checkly Docs
+displayTitle: Adding team members to your Checkly account
+navTitle: Adding team members
 weight: 51
 menu:
   resources:
@@ -8,8 +10,8 @@ aliases:
 - "/docs/teams/adding-team-members/"
 ---
 
-You can invite team members to join your Checkly account to view and manage all checks and related settings.
-Team members can have different [roles](/docs/accounts-and-users/).
+You can invite team members to join your Checkly account to view and manage all checks and related settings;
+team members can have different [roles](/docs/accounts-and-users/).
 
 ## Inviting team members
 

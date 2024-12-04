@@ -1,14 +1,12 @@
 ---
-title: Grafana Tempo
-head:
-  title: "Exporting traces to Grafana Tempo from Checkly"
-metatags:
-  title: "Exporting traces to Grafana Tempo from Checkly"
-  description: "Export traces from Checkly to Grafana Tempo for better observability."
+title: Exporting traces to Grafana Tempo - Checkly Docs
+displayTitle: Exporting traces to Grafana Tempo
+navTitle: To Grafana Tempo
+description: "Export traces from Checkly to Grafana Tempo for better observability."
 weight: 22
 menu:
   platform:
-    parent: "Export traces to 3rd party tools"
+    parent: Export traces to 3rd party tools with Checkly - Checkly Docs
 beta: true
 aliases:
   - "/docs/open-telemetry/exporting-traces/grafana-tempo/"

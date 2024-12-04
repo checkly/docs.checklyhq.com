@@ -1,8 +1,9 @@
 ---
-title: Checkly Integration with Telegram - Enable Alert Channels
-displayTitle: Telegram
+title: Send Alerts via Telegram with Checkly - Checkly Docs
+displayTitle: Send Alerts via Telegram
+navTitle: Telegram
 description: Find out how Checkly integrates with Telegram to send failure, degradation, and recovery messages to any chat.
-weight: 58
+weight: 61
 menu:
   integrations:
     parent: "Integrations"
@@ -70,4 +71,4 @@ Congratulations! You have successfully integrated Checkly with Telegram!
 
 ## Alternatives
 
-Telegram also accepts messages via an HTTP `GET` request. Therefore, you can use the API Token and Chat ID to create a custom Telegram alert channel by leveraging our [**webhook alert channel**](/docs/alerting/webhooks/). The webhook should use the `GET` method and target this URL, `https://api.telegram.org/bot<API_TOKEN>/sendMessage?chat_id=<CHAT_ID>&text=Your%20Alert%20Title`. More information about sending messages via Telegram bots and the API can be found [here](https://core.telegram.org/bots/api#sendmessage).
+Telegram also accepts messages via an HTTP `GET` request. Therefore, you can use the API Token and Chat ID to create a custom Telegram alert channel by leveraging our [**webhook alert channel**](/docs/alerting-and-retries/webhooks/). The webhook should use the `GET` method and target this URL, `https://api.telegram.org/bot<API_TOKEN>/sendMessage?chat_id=<CHAT_ID>&text=Your%20Alert%20Title`. More information about sending messages via Telegram bots and the API can be found [here](https://core.telegram.org/bots/api#sendmessage).

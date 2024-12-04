@@ -1,5 +1,7 @@
 ---
-title: Get Started
+title: Getting started with Checkly - Checkly Docs
+displayTitle: Getting started with Checkly
+navTitle: Get Started
 aliases:
   - /docs/
 ---
@@ -28,7 +30,7 @@ headerTag="h3"
 title="Terraform"
 img="/docs/images/icons/integrations.svg"
 description="Manage and scale your complete monitoring configuration right from your code base with our official Hashicorp Terraform provider."
-link="/docs/integrations/terraform/"
+link="/docs/terraform-provider/"
 >}}
 </div>
 

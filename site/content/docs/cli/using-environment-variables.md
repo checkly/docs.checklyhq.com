@@ -1,5 +1,7 @@
 ---
-title: Using environment variables
+title: Using environment variables - Checkly Docs
+displayTitle: Using environment variables
+navTitle: Environment variables
 weight: 5
 menu:
   platform:
@@ -146,7 +148,7 @@ npx checkly env ls
 Create a new variable.
 
 ```bash
-npx checkly env add  MY_PASSWORD 123test --locked
+npx checkly env add  MY_PASSWORD 123test [--secret OR --locked]
 ```
 
 Pull in the variables from your account and store them in a file.
@@ -171,5 +173,6 @@ For storing and securing environment variables, we advise the following:
 1. Store local environment variables in your shell or in `.env` files that are not committed to your git repo. Add those
 files to your `.gitignore` file.
 2. In a CI context, e.g. GitHub Actions, store sensitive variables as secrets. Almost all CI providers have such a feature.
-3. For remote variables, store sensitive secrets at the Account level and click the lock icon so Read Only users cannot view them.
+3. For remote variables, store sensitive data as secrets in Checkly. For more information on how to manage secrets in Checkly see [variables and secrets](/docs/browser-checks/variables).
+
 All variables are stored encrypted at rest and in transfer.

@@ -1,5 +1,7 @@
 ---
-title: Slack
+title: Sending Alerts to Slack and Checkly - Checkly Docs
+displayTitle: Sending Alerts to Slack
+navTitle: Slack
 weight: 55
 menu:
   integrations:

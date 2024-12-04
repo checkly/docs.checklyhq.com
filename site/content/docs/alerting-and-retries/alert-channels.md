@@ -1,5 +1,7 @@
 ---
-title: Alert channels
+title: Available alerting channels in Checkly - Checkly Docs
+displayTitle: Available alerting channels in Checkly
+navTitle: Alert channels
 weight: 31
 menu:
   resources:
@@ -21,6 +23,7 @@ You can add as many of the following alert channels as you want:
 - [FireHydrant]({{< ref "docs/integrations/firehydrant.md" >}})
 - [Coralogix]({{< ref "docs/integrations/coralogix.md" >}})
 - [Incident.io]({{< ref "docs/integrations/incidentio.md" >}})
+- [Rootly]({{< ref "docs/integrations/rootly.md" >}})
 - [ilert]({{< ref "docs/integrations/ilert.md" >}})
 - [Discord]({{< ref "docs/integrations/discord.md" >}})
 - [GitLab Alerts]({{< ref "docs/integrations/gitlab_alerts.md" >}})
@@ -47,5 +50,5 @@ Configuring alert channels is mostly self explanatory except for our [advanced w
 After adding the channels, you either **edit** or **delete** them, or change which checks are subscribed to that specific channel.
 
 {{<info >}}
-If you are using [Terraform](/docs/integrations/terraform), you will need to specify alert channel subscriptions _explicitly_ for each check / group.
+If you are using [Terraform](/docs/terraform-provider/) or the [CLI](/docs/cli/), you will need to specify alert channel subscriptions _explicitly_ for each check / group.
 {{</info >}}

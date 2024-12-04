@@ -1,5 +1,7 @@
 ---
-title: Jenkins
+title: Integrating Checkly in a Jenkins pipeline - Checkly Docs
+displayTitle: Integrating Checkly in a Jenkins pipeline
+navTitle: Jenkins
 weight: 3
 menu:
   integrations:

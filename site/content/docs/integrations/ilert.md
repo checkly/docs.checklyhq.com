@@ -1,6 +1,8 @@
 ---
-title: ilert
-weight: 70
+title: Send Alerts to ilert with Checkly - Checkly Docs
+displayTitle: Send Alerts to ilert
+navTitle: ilert
+weight: 70  
 menu:
   integrations:
     parent: "Integrations"

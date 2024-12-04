@@ -1,10 +1,13 @@
 ---
-title: Getting started with Checkly Traces and OpenTelemetry
+title: Getting started with Checkly Traces and OpenTelemetry - Checkly Docs
+displayTitle: Getting started with Checkly Traces and OpenTelemetry
+navTitle: Overview
 weight: 1
 menu:
   platform:
     parent: "Traces (beta)"
-    identifier: getting-started-traces-otel
+    identifier: traces-open-telemetry
+navTitle: Getting started
 beta: true
 aliases:
   - "/docs/open-telemetry/"
@@ -42,7 +45,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  headerTag="h3"
 	  title="I want to see traces in Checkly"
 	  description="Send your backend traces to Checkly to get contextualized check failure analysis."
-	  img="/docs/images/icons/opentelemetry.svg"
+	  img="/docs/images/icons/opentelemetry-logo.svg"
 	  link="/docs/traces-open-telemetry/importing-traces/"
 >}}
 {{< doc-card
@@ -50,7 +53,7 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 	  headerTag="h3"
 	  title="I want to export Check results to my OpenTelemetry setup"
 	  description="Export check results as traces to your 3rd party OTel tooling"
-	  img="/docs/images/icons/opentelemetry.svg"
+	  img="/docs/images/icons/opentelemetry-logo.svg"
 	  link="/docs/traces-open-telemetry/exporting-traces/"
 >}}
 </div>

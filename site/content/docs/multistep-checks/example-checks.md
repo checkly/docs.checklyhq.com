@@ -1,5 +1,7 @@
 ---
-title: Example checks
+title: Multistep check examples - Checkly Docs
+displayTitle: Multistep check examples  
+navTitle: Examples
 weight: 22
 menu:
   resources:

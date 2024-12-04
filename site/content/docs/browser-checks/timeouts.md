@@ -1,5 +1,7 @@
 ---
-title: Timeouts
+title: Timeouts - Checkly Docs
+displayTitle: Timeouts
+navTitle: Timeouts
 weight: 24
 menu:
   resources:

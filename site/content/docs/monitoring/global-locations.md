@@ -1,5 +1,7 @@
 ---
-title: Global locations & scheduling strategies
+title: Global locations & scheduling strategies - Checkly Docs
+displayTitle: Global locations & scheduling strategies
+navTitle: Global locations
 weight: 3
 menu:
   platform:
@@ -23,7 +25,7 @@ Current locations in Checkly are
 |                              | Cape Town (af-south-1)    | Jakarta (ap-southeast-3)   |
 
 {{< info >}}
-Learn more about <a href="/docs/private-locations/private-locations-getting-started/">private locations</a> to monitor your private and segregated applications and APIs.
+Learn more about <a href="/docs/private-locations/">private locations</a> to monitor your private and segregated applications and APIs.
 {{< /info >}}
 
 ## Scheduling strategies

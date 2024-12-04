@@ -1,5 +1,7 @@
 ---
-title: Using Constructs
+title: Using Constructs - Checkly Docs
+displayTitle: Using Constructs
+navTitle: Using Constructs
 weight: 4
 menu:
   platform:

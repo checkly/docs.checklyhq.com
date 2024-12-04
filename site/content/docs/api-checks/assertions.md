@@ -1,5 +1,7 @@
 ---
-title: Assertions
+title: Writing assertions for API checks - Checkly Docs
+displayTitle: Writing assertions for API checks
+navTitle: API Assertions
 weight: 10
 menu:
   resources:

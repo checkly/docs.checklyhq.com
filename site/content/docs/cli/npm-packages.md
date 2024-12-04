@@ -1,5 +1,7 @@
 ---
-title: Using NPM packages and local dependencies
+title: Using NPM packages and local dependencies - Checkly Docs
+displayTitle: Using NPM packages and local dependencies
+navTitle: NPM packages & local dependencies
 weight: 8
 menu:
   platform:
@@ -89,6 +91,8 @@ new BrowserCheck('login-check', {
 After running [`npx checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy) to deploy the project, we can see in the Web UI that the helper file `login-helper.ts` was also uploaded for the check.
 
 ![login check with helper file in dependencies](/docs/images/cli/github_login_helper_dependency.png)
+
+The maximum total size of a Checkly project when deploying or running a test session, including local dependencies, is 40 MB.
 
 ## Why can't I import any NPM package or other 3rd party dependencies?
 

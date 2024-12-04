@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Alerting with webhooks in Checkly - Checkly Docs
+displayTitle: Alerting with webhooks in Checkly
+navTitle: Webhooks
 weight: 35
 menu:
   resources:
@@ -20,7 +22,7 @@ nutshell, you can:
 
 The example above shows a webhook configured to create a Jira ticket on each event. Notice the following:
 
-- We use the variable `JIRA_INSTANCE_URL` in the URL. We previously stored this variable in the [environment variables section](https://app.checklyhq.com/environment-variables).
+- We use the variable `JIRA_INSTANCE_URL` in the URL. We previously stored this variable in the [environment variables section](https://app.checklyhq.com/environment-variables). Alerting configurations only support the use of environment variables, secrets are not supported.
 - We use the variable `CHECK_ID` in the payload. This is one of many event-based variables that will change with each call. See below for the complete list.
 
 In both cases we use the familiar Handlebars templating braces, i.e. `{{ }}` to insert the variable.
@@ -37,7 +39,7 @@ You can use the following event-related variables in both URL and payload.
 | `CHECK_ID`          | The UUID of the check                                        |
 | `CHECK_TYPE`        | The check type, i.e. API or BROWSER.                         |
 | `ALERT_TITLE`       | Human readable title, e.g. 'Check "My API check" has failed' |
-| `ALERT_TYPE`        | Type of alert, either "ALERT_FAIL", "ALERT_RECOVERY", "ALERT_DEGRADED" or  "ALERT_DEGRADED_RECOVERY" |
+| `ALERT_TYPE`        | Type of alert, e.g. "ALERT_FAILURE", "ALERT_RECOVERY", "ALERT_DEGRADED", "ALERT_DEGRADED_RECOVERY". See [alert states](/docs/alerting-and-retries/alert-states/#alert-states--transitions) for all options. |
 | `CHECK_RESULT_ID`   | The UUID of the result that triggered this message           |
 | `RESPONSE_TIME`     | The reported response time for this result                   |
 | `API_CHECK_RESPONSE_STATUS_CODE`     | The response status code, e.g. 200. Only populated for API checks.                  |
@@ -128,7 +130,7 @@ app.post('/webhook', bodyParser.json({ type: 'application/json' }), (request, re
   }
 });
 
-app.listen(4242, () => console.log('Running on port 4242'));
+app.listen(4242, () => console.log('Running on port 4242'))
 ```
 
 {{< /tab >}}

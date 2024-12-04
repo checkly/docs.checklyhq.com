@@ -1,5 +1,7 @@
 ---
-title: Degraded state with soft assertions
+title: Degraded state with soft assertions - Checkly Docs
+displayTitle: Degraded state with soft assertions
+navTitle: Degraded state
 weight: 26
 menu:
   resources:
@@ -48,7 +50,7 @@ test("Visit Checkly and go to the docs", async ({ page }) => {
   if (duration > TEST_DEGRADATION_LIMIT || test.info().errors.length) { // Trigger the degradation if the duration is longer than our set limit, or if the soft assert is triggered.
     markCheckAsDegraded(`Test duration took longer than ${TEST_DEGRADATION_LIMIT}`);
   }
-});
+})
 ```
 
 Triggering a soft assertion in a check but not calling `markCheckAsDegraded` will fail the check at the end instead of marking as degraded.

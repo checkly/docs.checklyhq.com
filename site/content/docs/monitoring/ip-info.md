@@ -1,5 +1,7 @@
 ---
-title: IP information & versions
+title: IP information & versions - Checkly Docs
+displayTitle: IP information & versions 
+navTitle: IP information & versions
 weight: 8
 menu:
   platform:
@@ -27,10 +29,6 @@ test('Set host resolver to IPv4', async () => {
   await page.goto('http://dual.tlund.se/')
 });
 ```
-
-### Known limitations
-
-Puppeteer-based browser checks do not support IPv6 and will not in the future as we are deprecating Puppeteer support.
 
 ## Static IP ranges
 

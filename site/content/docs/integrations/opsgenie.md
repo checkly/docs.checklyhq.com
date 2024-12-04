@@ -1,6 +1,7 @@
 ---
-title: Opsgenie Integration with Checkly | How to Get Started
-displayTitle: Opsgenie
+title: Send Alerts to Opsgenie with Checkly - Checkly Docs
+displayTitle: Send Alerts to Opsgenie
+navTitle: Opsgenie
 description: >-
   Learn how to integrate Checkly with Opsgenie and deliver failure, degradation, and recovery events to any Opsgenie team. Check our guide!
 weight: 57
@@ -51,7 +52,7 @@ customers, `US` for the rest of the world).
     > 💡 In OpsGenie you can configure other options like
     [alert priority](https://docs.opsgenie.com/docs/alert-priority-settings).
 
-    > 💡 On Checkly, you can specify which [check events](/docs/alerting/alert-channels/) will be sent over to Opsgenie.
+    > 💡 On Checkly, you can specify which [check events](/docs/alerting-and-retries/alert-channels/) will be sent over to Opsgenie.
 
     ![setup checkly opsgenie integration step 5](/docs/images/integrations/opsgenie/opsgenie_step5.png)
 

@@ -1,5 +1,7 @@
 ---
-title: Using `checkMatch` and `testMatch`
+title: Using `checkMatch` and `testMatch` - Checkly Docs
+displayTitle: Using `checkMatch` and `testMatch`
+navTitle: Using `checkMatch` and `testMatch`
 weight: 4
 menu:
   platform:

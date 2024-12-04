@@ -1,5 +1,7 @@
 ---
-title: Degraded state with soft assertions
+title: Degraded state with soft assertions on Multistep checks - Checkly Docs
+displayTitle: Degraded state with soft assertions on Multistep checks
+navTitle: Degraded state  
 weight: 19
 menu:
   resources:

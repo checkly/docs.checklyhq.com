@@ -1,5 +1,7 @@
 ---
-title: Getting started
+title: Getting started with Multistep API Checks - Checkly Docs
+displayTitle: Getting started with Multistep API Checks 
+navTitle: Overview
 weight: 14
 slug: /
 menu:
@@ -17,7 +19,7 @@ knowledge of working with JavaScript and/or Node.js.
 
 ## What is a Multistep check?
 
-Multistep checks enable you to write Node.js scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimick and test API user behavior. Multistep checks ensure that combined API interactions lead to the correct results.
+Multistep checks enable you to write Node.js scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimic and test API user behavior. Multistep checks ensure that combined API interactions lead to the correct results.
 
 Examples of API sequences might be:
 

@@ -1,5 +1,7 @@
 ---
-title: Service maintenance windows
+title: Service maintenance windows in Terraform - Checkly Docs
+displayTitle: Service maintenance windows in Terraform
+navTitle: Service maintenance windows
 weight: 6
 menu:
   integrations:

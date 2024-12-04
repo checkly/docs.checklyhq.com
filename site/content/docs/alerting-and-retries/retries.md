@@ -1,5 +1,7 @@
 ---
-title: 'Retries'
+title: Retrying failed checks in Checkly - Checkly Docs
+displayTitle: Retrying failed checks in Checkly
+navTitle: Retries
 weight: 32
 menu:
   resources:

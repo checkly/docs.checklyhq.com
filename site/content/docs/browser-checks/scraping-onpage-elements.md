@@ -1,5 +1,7 @@
 ---
-title: Scraping & asserting on page elements
+title: Scraping & asserting on page elements - Checkly Docs 
+displayTitle: Scraping & asserting on page elements
+navTitle: Scraping on page elements
 description: How to scrape web page elements like texts, buttons and forms with Google Chrome and Playwright Test.
 weight: 15
 menu:

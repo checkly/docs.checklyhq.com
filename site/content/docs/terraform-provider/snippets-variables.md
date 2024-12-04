@@ -1,5 +1,6 @@
 ---
-title: Snippets and environment variables
+title: Snippets and environment variables in Terraform - Checkly Docs
+displayTitle: Snippets and environment variables in Terraform
 weight: 4
 menu:
   integrations:
@@ -28,7 +29,7 @@ For tidiness and ease of use, it is recommended to store scripts in separate fil
 ```terraform
 resource "checkly_snippet" "procedure-login" {
   name   = "Login"
-  script = file("${path.module}/snippets/login.js") // Our script is contained in this file
+  script = file("${path.module}/snippets/login.spec.js") // Our script is contained in this file
 }
 ```
 
@@ -58,7 +59,7 @@ resource "checkly_check" "e2e-login" {
     "eu-central-1"
   ]
 
-  script = file("${path.module}/scripts/login.js")
+  script = file("${path.module}/scripts/login.spec.js")
 }
 
 // In a group:

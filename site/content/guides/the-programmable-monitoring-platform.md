@@ -1,9 +1,11 @@
 ---
-title: Monitoring as code — the programmable monitoring platform
+title: A Guide to Checkly — The Programmable Monitoring Platform
 description: >-
   The monitoring as code workflow enables developers to code, test and deploy your entire monitoring infrastructure. This guide explains how to leverage TypeScript/JavaScript to configure your monitoring setup dynamically.
 author: Stefan Judis
 avatar: 'images/avatars/stefan-judis.jpg'
+tags:
+  - FAQ
 ---
 
 With the release of [the Checkly CLI](https://www.checklyhq.com/docs/cli/), monitoring as code (Mac) enables you to **code, test, and deploy** your entire monitoring setup. Use the CLI to programmatically create monitoring resources, test these in CI/CD development workflows and then deploy them to the Checkly cloud to monitor your sites and APIs.

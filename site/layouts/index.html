@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 {{ .Scratch.Set "template_name" "site" }}
-{{ partial "head" . }}
-
+<head>
+  {{ partial "head" . }}
+</head>
 <body class="landing">
   <div class="main">
     <div style="padding: 2rem; text-align: center; max-width: 50ch; margin: 2rem auto;">
@@ -10,7 +11,7 @@
         <img src="/images/racoon_logo.svg" width="80" height="80" alt="checkly logo">
       </div>
       <p style="margin-top: 2rem;">
-        This is the codebase for the Checkly docs and guides. Navigate to <a href="/docs/">/docs</a>, <a href="/guides/">/guides</a> or <a href="/learn/headless/">/learn</a>.
+        This is the codebase for the Checkly docs and guides. Navigate to <a href="/docs/">/docs</a>, <a href="/guides/">/guides</a> or <a href="/learn/playwright/">/learn</a>.
       </p>
     </div>
   </div>

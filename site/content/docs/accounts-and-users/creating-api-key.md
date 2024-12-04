@@ -1,5 +1,7 @@
 ---
-title: Creating an API key
+title: Creating an API key in Checkly - Checkly Docs
+displayTitle: Creating an API key in Checkly
+navTitle: Creating an API key
 weight: 54
 menu:
   resources:

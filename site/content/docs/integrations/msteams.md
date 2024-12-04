@@ -1,6 +1,8 @@
 ---
-title: Microsoft Teams
-weight: 58
+title: Send Alerts to Microsoft Teams with Checkly - Checkly Docs
+displayTitle: Send Alerts to Microsoft Teams
+navTitle: Microsoft Teams
+weight: 60
 menu:
   integrations:
     parent: "Integrations"

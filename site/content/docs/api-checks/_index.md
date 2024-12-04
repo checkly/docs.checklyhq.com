@@ -1,5 +1,7 @@
 ---
-title: Overview
+title: Monitoring APIs with Checks - Checkly Docs
+displayTitle: Monitoring your APIs with Checks
+navTitle: Overview
 weight: 7
 slug: /
 menu:
@@ -56,7 +58,7 @@ You can assert on different sources. These could be:
 
 **6. Locations**
 
-You can configure your checks to run from our ever-growing amount of global [public](/docs/monitoring/global-locations/) locations or use a Checkly Agent to host your own [private](/docs/private-locations/private-locations-getting-started/)
+You can configure your checks to run from our ever-growing amount of global [public](/docs/monitoring/global-locations/) locations or use a Checkly Agent to host your own [private](/docs/private-locations/)
 If you don't select more than one data center location, we will pick a random location when retrying checks if you have "double check" enabled.
 ![locations](/docs/images/api-checks/overview-locations.png)
 
