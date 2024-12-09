@@ -10,7 +10,7 @@ tags:
 navTitle: Microsoft Live Auth
 weight: 8
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

@@ -1,0 +1,14 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+<ul class="learn-menu-content">
+  {{range $index, $element:= . }} {{ $has := $page.IsMenuCurrent $menuID . }}
+    <li class="learn-menu-sub-item{{if $has}} active{{end}}">
+      <a href="{{.URL}}">
+        {{ partial "learn-title" . }}
+      </a>
+    </li>
+  {{end }}
+</ul>
+{{- end }}

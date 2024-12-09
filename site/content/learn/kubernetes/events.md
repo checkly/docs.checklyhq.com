@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: How events can help you explore change of state on your cluster
 
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 65
 ---
 

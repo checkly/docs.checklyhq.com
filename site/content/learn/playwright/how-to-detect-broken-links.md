@@ -10,7 +10,7 @@ tags:
 weight: 3
 navTitle: Detecting broken links
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

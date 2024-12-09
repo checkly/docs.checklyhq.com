@@ -13,7 +13,7 @@ tags:
 weight: 4
 navTitle: Intercepting requests
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

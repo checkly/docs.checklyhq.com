@@ -11,7 +11,7 @@ weight: 2
 navTitle: Common issues
 
 menu:
-  learn:
+  learn_playwright:
     parent: "Debugging"
 ---
 

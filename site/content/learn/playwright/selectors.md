@@ -13,7 +13,7 @@ tags:
 weight: 3
 navTitle: UI selectors
 menu:
-  learn:
+  learn_playwright:
     parent: "Interaction"
 ---
 

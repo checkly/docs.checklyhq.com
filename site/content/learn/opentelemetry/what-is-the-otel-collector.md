@@ -10,8 +10,7 @@ githubUser: serverless-mom
 displayDescription: 
   Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 menu:
-  learn:
-    parent: "OpenTelemetry"
+   learn_opentelemetry
 weight: 5
 ---
 

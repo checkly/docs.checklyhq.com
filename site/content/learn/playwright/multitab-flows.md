@@ -10,7 +10,7 @@ tags:
 weight: 6
 navTitle: Multiple tabs
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

@@ -11,7 +11,7 @@ weight: 4
 displayTitle: Playwright vs Cypress
 navTitle: Playwright vs Cypress
 menu:
-  learn:
+  learn_playwright:
     parent: "Getting started"
 ---
 Playwright and Cypress are two frameworks both closely associated with end-to-end testing of production websites. Both frameworks can do quite a bit more than 'making sure nothing on your site is broken' and their design philosophies, architectures, and use cases are different.

@@ -8,7 +8,7 @@ tags:
 weight: 6
 navTitle: Target closed
 menu:
-  learn:
+  learn_playwright:
     parent: "Debugging"
 ---
 

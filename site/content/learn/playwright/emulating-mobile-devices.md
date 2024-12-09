@@ -14,7 +14,7 @@ navTitle: Emulating mobile devices
 weight: 5
 
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

@@ -15,7 +15,7 @@ tags:
 weight: 1
 navTitle: Navigation
 menu:
-  learn:
+  learn_playwright:
     parent: "Interaction"
 ---
 

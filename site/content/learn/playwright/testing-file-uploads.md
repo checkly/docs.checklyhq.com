@@ -12,7 +12,7 @@ weight: 2
 navTitle: File uploads
 
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

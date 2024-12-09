@@ -12,7 +12,7 @@ tags:
 weight: 7
 navTitle: Test Fixtures
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

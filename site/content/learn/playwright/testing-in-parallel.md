@@ -10,7 +10,7 @@ tags:
 weight: 3
 navTitle: Parallel testing
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

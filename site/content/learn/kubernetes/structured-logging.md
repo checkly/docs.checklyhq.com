@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
   Best practices for structured logging.
 menu:
-  learn:
-    parent: "Kubernetes"
+   learn_kubernetes
 weight: 50
 ---
 

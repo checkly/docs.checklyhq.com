@@ -11,7 +11,7 @@ tags:
 weight: 3
 
 menu:
-  learn:
+  learn_playwright:
     parent: "Getting started"
 ---
 There are a number of options when for [frameworks for end-to-end testing](https://www.checklyhq.com/blog/cypress-vs-selenium-vs-playwright-vs-puppeteer-speed-comparison/). If you're thinking about using Checkly, you're likely aware of a few.

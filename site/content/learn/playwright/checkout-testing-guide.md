@@ -9,7 +9,7 @@ tags:
 weight: 1
 navTitle: Checkout
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

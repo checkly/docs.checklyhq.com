@@ -9,7 +9,7 @@ tags:
 weight: 6
 navTitle: Scraping behind a login
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 
