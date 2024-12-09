@@ -1,5 +1,5 @@
 ---
-title: Learn How to Observe and Monitor your Software with OpenTelemetry
+title: Getting Started with Observability
 displayTitle: Getting started with Observability
 navTitle: What is Observability?
 description: Learn OpenTelemetry with Checkly. Add monitoring to every piece of your stack with the open standards and open-source tools.
@@ -8,8 +8,7 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  opentelemetry:
-    parent: "Basics"
+  learn_opentelemetry
 weight: 1
 ---
 

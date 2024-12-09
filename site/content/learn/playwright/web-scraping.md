@@ -12,7 +12,7 @@ tags:
 weight: 5
 navTitle: Scraping
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

@@ -10,7 +10,7 @@ tags:
 weight: 3
 navTitle: Discounts & coupons
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

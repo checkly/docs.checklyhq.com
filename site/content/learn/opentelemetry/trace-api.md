@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
   The OpenTelemetry Trace API provides developers with the tools needed to create, manage, and analyze traces, a critical component of observability.
 menu:
-  learn:
-    parent: "OpenTelemetry"
+  learn_opentelemetry
 weight: 9
 ---
 ## Taking direct control of OpenTelemetry traces via the API

@@ -8,7 +8,7 @@ tags:
 weight: 3
 navTitle: Click not executed
 menu:
-  learn:
+  learn_playwright:
     parent: "Debugging"
 ---
 

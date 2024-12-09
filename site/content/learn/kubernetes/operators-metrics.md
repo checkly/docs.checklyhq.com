@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: How to create a first Kubernetes operator, and monitor the operator state with Prometheus.
 
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 70
 ---
 

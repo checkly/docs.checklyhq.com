@@ -9,7 +9,7 @@ weight: 2
 displayTitle: How to Set Up Playwright Locally
 navTitle: Setting up Playwright
 menu:
-  learn:
+  learn_playwright:
     parent: "Getting started"
 ---
 

@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
   A comprehensive overview of the key metrics to monitor in a Kubernetes environment and the challenges associated with monitoring in such a complex infrastructure.
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 60
 ---
 

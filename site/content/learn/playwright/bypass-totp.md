@@ -10,7 +10,7 @@ tags:
 weight: 5
 navTitle: TOTP Authentication
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 Testing applications behind a login flow is cumbersome. And it gets even worse when there’s two-factor authentication (2FA)  involved. Many people work around this problem by disabling it or implementing wild hacks.

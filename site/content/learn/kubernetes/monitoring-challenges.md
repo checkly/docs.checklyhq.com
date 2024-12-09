@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
   We explore the unique challenges of monitoring Kubernetes environments and the open-source tools that can improve visibility and control.
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 1
 ---
 Managing Kubernetes in production is no small feat, especially when it comes to monitoring and observability. As modern applications grow in complexity, traditional methods of monitoring, limited to CPU and memory usage, often fall short. In this article, we explore the unique challenges of monitoring Kubernetes environments and the open-source tools that can improve visibility and control.

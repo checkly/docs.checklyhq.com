@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: klog, a permanent fork of glog, is a go logging tool focused on structured logging in a Kubernetes envrionment.
 
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 60
 ---
 

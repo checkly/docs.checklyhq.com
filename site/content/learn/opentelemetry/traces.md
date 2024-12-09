@@ -9,12 +9,9 @@ githubUser: serverless-mom
 displayDescription: 
   Learn more about OpenTelemetry & Monitoring with Checkly. Explore metrics, one of the three pillars of observability.
 menu:
-  learn:
-    parent: "OpenTelemetry"
+   learn_opentelemetry
 weight: 4
 ---
-
-# An Introduction to OpenTelemetry Traces
 
 ## What Are OpenTelemetry Traces?
 

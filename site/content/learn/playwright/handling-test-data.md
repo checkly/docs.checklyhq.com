@@ -10,7 +10,7 @@ tags:
 weight: 3
 navTitle: Test data
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

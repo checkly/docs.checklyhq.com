@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
   Best practices for logging in your Kubernetes-hosted applications and infrastructure.
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 20
 ---
 Logging in Kubernetes can be a challenge, especially when dealing with data across a distributed, containerized system. To keep your logs efficient and actionable, it's essential to understand logging best practices, from handling diverse formats to managing back pressure effectively. Here are the best practices for Kubernetes logging, focused on tools, performance, and scalability.

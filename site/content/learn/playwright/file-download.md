@@ -10,7 +10,7 @@ tags:
 navTitle: Downloading files
 weight: 4
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

@@ -14,7 +14,7 @@ tags:
 weight: 2
 navTitle: Clicking and typing
 menu:
-  learn:
+  learn_playwright:
     parent: "Interaction"
 ---
 

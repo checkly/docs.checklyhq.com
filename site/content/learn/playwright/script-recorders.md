@@ -9,7 +9,7 @@ tags:
 weight: 7
 navTitle: Script recorders
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

@@ -15,7 +15,7 @@ tags:
 weight: 5
 navTitle: Assertions
 menu:
-  learn:
+  learn_playwright:
     parent: "Interaction"
 ---
 

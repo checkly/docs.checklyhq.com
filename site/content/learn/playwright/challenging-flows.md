@@ -9,7 +9,7 @@ tags:
 weight: 4
 navTitle: Complex workflows
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

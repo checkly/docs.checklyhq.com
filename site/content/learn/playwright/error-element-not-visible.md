@@ -8,7 +8,7 @@ tags:
 weight: 5
 navTitle: Element not visible
 menu:
-  learn:
+  learn_playwright:
     parent: "Debugging"
 ---
 

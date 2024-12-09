@@ -31,7 +31,7 @@ disqusShortname = "checkly"
     weight = 20
 [[menu.topnav]]
     name = "Learn"
-    url = "/learn/playwright/"
+    url = "/learn/"
     weight = 30
 [[menu.topnav]]
     name = "API Reference"
@@ -170,47 +170,46 @@ disqusShortname = "checkly"
     url = "https://developers.checklyhq.com"
     weight = 200
 
-[[menu.learn]]
-	name = "Getting started"
-	pre = "/learn/icons/playwright-logo.svg"
-	weight = 300
-
-[[menu.learn]]
+[[menu.learn_playwright]]
 	name = "Basics"
 	pre = "/learn/icons/misc.svg"
 	weight = 310
 
-[[menu.learn]]
+[[menu.learn_playwright]]
 	name = "Interaction"
 	pre = "/learn/icons/pages.svg"
 	weight = 320
 
-[[menu.learn]]
+[[menu.learn_playwright]]
+	name = "Getting started"
+	pre = "/learn/icons/playwright-logo.svg"
+	weight = 300
+
+[[menu.learn_playwright]]
+	name = "Basics"
+	pre = "/learn/icons/misc.svg"
+	weight = 310
+
+[[menu.learn_playwright]]
+	name = "Interaction"
+	pre = "/learn/icons/pages.svg"
+	weight = 320
+
+[[menu.learn_playwright]]
 	name = "Best practices"
 	pre = "/learn/icons/best-practices.svg"
 	weight = 330
 
-[[menu.learn]]
+[[menu.learn_playwright]]
 	name = "E2E examples"
 	pre = "/learn/icons/e2e.svg"
 	weight = 340
 
 
-[[menu.learn]]
+[[menu.learn_playwright]]
 	name = "Debugging"
 	pre = "/learn/icons/errors.svg"
 	weight = 350
-
-[[menu.learn]]
-	name = "OpenTelemetry"
-	pre = "/learn/icons/opentelemetry-logo.svg"
-	weight = 360
-
-
-[[menu.learn]]
-	name = "Kubernetes"
-	pre = "/learn/icons/kubernetes-logo.svg"
-	weight = 380
 
 
 [markup.goldmark.renderer]

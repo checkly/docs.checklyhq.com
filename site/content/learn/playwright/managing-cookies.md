@@ -9,7 +9,7 @@ tags:
 weight: 3
 navTitle: Managing cookies & state
 menu:
-  learn:
+  learn_playwright:
     parent: Basics
 category: Playwright
 ---

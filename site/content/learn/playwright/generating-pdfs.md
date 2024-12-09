@@ -9,7 +9,7 @@ tags:
 weight: 2
 navTitle: Generating PDFs
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

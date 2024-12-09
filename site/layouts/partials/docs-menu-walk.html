@@ -1,8 +1,8 @@
-{{- $page := .page }}
-{{- $menuID := .menuID }}
+{{- $page := .page -}}
+{{- $menuID := .menuID -}}
 
-{{- with index site.Menus $menuID }}
+{{- with index site.Menus $menuID -}}
 <ul class="docs-menu-content">
-  {{- partial "docs-menu-walk-list" (dict "menuID" $menuID "page" $page "menuEntries" .) }}
+  {{- partial "docs-menu-walk-list" (dict "menuID" $menuID "page" $page "menuEntries" .) -}}
 </ul>
-{{- end }}
+{{- end -}}

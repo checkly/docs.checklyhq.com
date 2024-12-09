@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
   Learn about using OpenTelemetry for centralized logging in Kubernetes
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 30
 ---
 Monitoring logs effectively in a Kubernetes environment requires tools that centralize and streamline log management. With OpenTelemetry, Kubernetes administrators can collect, process, and export logs from applications and infrastructure, ensuring consistent data and reducing the need for multiple, disparate logging solutions. Here’s an overview of how OpenTelemetry supports centralized logging in Kubernetes and the practical benefits it offers.

@@ -11,7 +11,7 @@ weight: 1
 navTitle: Debugging scripts
 
 menu:
-  learn:
+  learn_playwright:
     parent: "Debugging"
 ---
 

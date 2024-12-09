@@ -6,21 +6,13 @@ displayDescription:
   Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 metatags:
   title: Learn Playwright & Checkly - Browser Automation
-
+layout: learn-home
 ---
 
 Monitoring and Observability are key concepts when dealing with application quality and performance. Learn the fundamentals of modern monitoring and observability to help yourself and your team build better applications.
 ## Getting Started
 
 <div class="cards-list">
-{{< doc-card
-	  class="three-column-card"
-	  headerTag="h3"
-	  title="Monitoring"
-	  img="/learn/icons/checkly-logo-light-mode-square.svg"
-	  description="Learn how to monitor your application with Checkly."
-	  link="/guides/monitoring-as-code/"
->}}
 {{< doc-card
 	  class="three-column-card"
 	  headerTag="h3"
@@ -35,7 +27,15 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  title="Open Telemetry"
 	  img="/learn/icons/opentelemetry-logo.svg"
 	  description="Learn how to instrument your application with OTel and get deep insights into your full stack."
-	  link="/learn/opentelemetry/getting-started-with-observability/"
+	  link="/learn/opentelemetry/"
+>}}
+{{< doc-card
+	  class="three-column-card"
+	  headerTag="h3"
+	  title="Kubernetes"
+	  img="/learn/icons/kubernetes-logo.svg"
+	  description="Learn basics, tools and tips for monitoring your Kubernetes clusters."
+	  link="/learn/kubernetes"
 >}}
 </div>
 
