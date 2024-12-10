@@ -316,4 +316,4 @@ test('Go to google.com', async ({ page }) => {
 
 ## More resources
 
-- [Scraping guides](/learn/headless/basics-scraping/)
+- [Scraping guides](/learn/playwright/web-scraping/)
