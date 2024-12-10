@@ -173,6 +173,7 @@ Note the following:
 
 ## More resources
 
-- [Microsoft Live Login](/learn/headless/e2e-microsoft-live-login/)
-- [Login with Google](/learn/headless/e2e-google-login/)
+- [Playwright Authentication Guide](/learn/playwright/authentication/)
+- [Microsoft Live Login](/learn/playwright/microsoft-login-automation/)
+- [Login with Google](/learn/playwright/google-login-automation/)
 - [How to Bypass TOTP-Based 2FA Login Flows](/blog/how-to-bypass-totp-based-2fa-login-flows-with-playwright/)
