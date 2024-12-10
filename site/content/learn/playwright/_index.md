@@ -19,7 +19,7 @@ Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*
 	  headerTag="h3"
 	  title="What is Playwright?"
 	  img="/learn/icons/playwright-logo.svg"
-	  description="Microsoft's Playwright offers unique features for automation and user simulation."
+	  description="Get started with Microsoft's Playwright for automation and user simulation."
 	  link="/learn/playwright/what-is-playwright/"
 >}}
 {{< doc-card
@@ -62,10 +62,10 @@ Playwright is extremely powerful and serves a wide range of use cases. We have c
 {{< doc-card
 	class="two-column-card"
 	headerTag="h3"
-	title="Managing cookies and state"
-	img="/learn/icons/network.svg"
-	description="Learn how to use cookies to set state and simplify your scripts."
-	link="/learn/playwright/managing-cookies/"
+	title="Authentication"
+	img="/learn/icons/session-management.svg"
+	description="Learn how to handle authentication in Playwright and reuse credentials."
+	link="/learn/playwright/authentication/"
 >}}
 {{< doc-card
 	class="two-column-card"

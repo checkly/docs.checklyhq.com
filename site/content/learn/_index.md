@@ -43,7 +43,7 @@ Monitoring and Observability are key concepts when dealing with application qual
 ## Popular Posts
 
 <div class="cards-list">
-{{< doc-card class="three-column-card" title="Debugging errors" description="Learn how to debug common errors and bugs in your Playwright scripts." link="/learn/playwright/debugging/" >}}
+{{< doc-card class="three-column-card" title="Playwright Authentication" description="Learn how to handle authentication in Playwright and reuse credentials across tests." link="/learn/playwright/authentication/" >}}
 
 {{< doc-card class="three-column-card" title="Request Interception" description="Learn how to control HTTP requests and responses." link="/learn/playwright/intercept-requests/" >}}
 
