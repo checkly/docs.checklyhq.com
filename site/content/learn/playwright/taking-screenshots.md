@@ -10,7 +10,7 @@ tags:
 weight: 1
 navTitle: Taking screenshots
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 

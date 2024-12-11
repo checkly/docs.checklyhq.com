@@ -10,8 +10,7 @@ githubUser: serverless-mom
 displayDescription: 
   An advanced guide to filtering data with processors and the OpenTelemetry Transform Language
 menu:
-  learn:
-    parent: "OpenTelemetry"
+  learn_opentelemetry
 weight: 7
 ---
 

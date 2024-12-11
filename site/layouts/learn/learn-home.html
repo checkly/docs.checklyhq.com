@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="d-flex container-fluid learn py-5">
+  <div class="learn-page">
+    <article>
+      <h1 class="display-3 w-75">
+        {{ if .Params.displayTitle}}
+        {{.Params.displayTitle}}
+        {{else}}
+        {{.Title}}
+        {{end}}
+      </h1>
+
+      <div class="markdown">
+        {{- .Content -}}
+      </div>
+    </article>
+  </div>
+</div>
+{{end}}

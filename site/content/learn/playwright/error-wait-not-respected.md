@@ -8,7 +8,7 @@ tags:
 weight: 7
 navTitle: Wait not respected
 menu:
-  learn:
+  learn_playwright:
     parent: "Debugging"
 ---
 

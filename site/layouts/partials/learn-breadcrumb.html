@@ -1,5 +1,7 @@
 <div class="breadcrumb">
-  {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
+    <a href="/learn">Learn</a>
+    <span>/</span>
+    {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
   {{ $.Scratch.Add "path" .Site.BaseURL }}
   {{ $.Scratch.Add "path" "/" }}
   {{ range $index, $element := split $url "/" }}
@@ -11,10 +13,10 @@
               <a href="/learn/playwright/">Playwright Automation Guide</a>
             {{ end }}
             {{ if eq $element "opentelemetry" }}
-              <a href="/learn/playwright/">Open Telemetry Guide</a>
+              <a href="/learn/opentelemetry/">Open Telemetry Guide</a>
             {{ end }}
             {{ if eq $element "kubernetes" }}
-            <a href="/learn/playwright/">Kubernetes Monitoring Guide</a>
+            <a href="/learn/kubernetes/">Kubernetes Monitoring Guide</a>
             {{ end }}
         {{ else }}
           <span>/</span>

@@ -10,7 +10,7 @@ tags:
 navTitle: Google Auth
 weight: 9
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

@@ -11,7 +11,7 @@ weight: 5
 displayTitle: Playwright vs Selenium
 navTitle: Playwright vs Selenium
 menu:
-  learn:
+  learn_playwright:
     parent: "Getting started"
 ---
 

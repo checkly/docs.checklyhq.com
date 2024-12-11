@@ -9,7 +9,7 @@ tags:
 weight: 6
 navTitle: Interacting with iframes
 menu:
-  learn:
+  learn_playwright:
     parent: "Interaction"
 ---
 

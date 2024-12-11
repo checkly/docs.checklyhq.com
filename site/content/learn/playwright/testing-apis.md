@@ -10,7 +10,7 @@ tags:
 weight: 3
 navTitle: Testing APIs
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

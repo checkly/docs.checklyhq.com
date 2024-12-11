@@ -9,8 +9,7 @@ githubUser: serverless-mom
 displayDescription: Find unhealthy nodes with the Node Problem Detector
 
 menu:
-  learn:
-    parent: "Kubernetes"
+  learn_kubernetes
 weight: 80
 ---
 

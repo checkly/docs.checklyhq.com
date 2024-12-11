@@ -66,5 +66,5 @@ Playwright's Trace Viewer displays your tabs conveniently in a waterfall timelin
 ![mutiple tabs - trace viewer](/docs/images/browser-checks/multiple-tabs-trace-viewer.png)
 
 {{< info >}}
-You can learn more about multi-tab scripts in our [Learn Headless section](/learn/headless/multitab-flows/).
+You can learn more about multi-tab scripts in our [Learn Headless section](/learn/playwright/multitab-flows/).
 {{< /info >}}

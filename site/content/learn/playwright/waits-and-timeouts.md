@@ -9,7 +9,7 @@ tags:
 navTitle: Waits and timeouts
 weight: 5
 menu:
-  learn:
+  learn_playwright:
     parent: "Interaction"
 ---
 

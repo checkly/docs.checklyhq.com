@@ -10,7 +10,7 @@ tags:
 navTitle: Standard authentication
 weight: 7
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

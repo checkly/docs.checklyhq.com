@@ -11,7 +11,7 @@ tags:
 weight: 1
 navTitle: Performance
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 

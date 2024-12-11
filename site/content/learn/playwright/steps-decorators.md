@@ -10,7 +10,7 @@ tags:
 weight: 7
 navTitle: Automatic Steps
 menu:
-  learn:
+  learn_playwright:
     parent: "Best practices"
 ---
 You can write Playwright end-to-end testing code using JavaScript or TypeScript. Which one should you choose?

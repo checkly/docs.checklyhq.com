@@ -10,7 +10,7 @@ tags:
 navTitle: User signup
 weight: 6
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 

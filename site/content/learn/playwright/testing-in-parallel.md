@@ -10,7 +10,7 @@ tags:
 weight: 3
 navTitle: Parallel testing
 menu:
-  learn:
+  learn_playwright:
     parent: "Basics"
 ---
 
@@ -44,10 +44,10 @@ Alternatively, for more granular control, you can use the test.describe.configur
 ## Running Tests in Sequence
 While parallel execution is efficient, certain scenarios necessitate running tests sequentially. This is especially true for destructive tests, where ensuring a predictable and unaltered environment state is crucial for test accuracy.
 
-###Sequential Execution by Default
+### Sequential Execution by Default
 By default, Playwright treats the order of test cases within a spec file as sequential. If your tests are organized within a single file, Playwright will execute them one after another, using a single worker.
 
-###Enforcing Sequential Execution
+### Enforcing Sequential Execution
 For projects with tests spread across multiple files, achieving sequential execution requires a bit more configuration. You can limit Playwright to use a single worker globally via the Playwright configuration file or on a per-directory basis using the command line.
 
 ```ts {title="playwright.config.ts"}

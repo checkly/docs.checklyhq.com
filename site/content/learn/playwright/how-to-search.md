@@ -11,7 +11,7 @@ tags:
 navTitle: Search
 weight: 5
 menu:
-  learn:
+  learn_playwright:
     parent: "E2E examples"
 ---
 
