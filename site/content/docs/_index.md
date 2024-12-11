@@ -71,21 +71,29 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="Create a Heartbeat check"
-	  img="/docs/images/icons/heartbeats-check-stroked.svg"
-	  description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
-	  link="/docs/heartbeat-checks/"
+    title="Create a TCP check"
+    img="/docs/images/icons/tcp.svg"
+    description="Monitor the availability and performance of your TCP services by establishing TCP connections and verifying the response."
+    link="/docs/tcp-checks/"
 >}}
 </div>
 
 <div class="cards-list">
 {{< doc-card
-	class="full-width-card"
-	headerTag="h3"
-	title="Set up alert channels"
-	img="/docs/images/icons/alerting.svg"
-	description="Get notified about outages, broken transactions or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack, Pagerduty and Discord."
-	link="/docs/alerting"
+   class="two-column-card"
+   headerTag="h3"
+   title="Create a Heartbeat check"
+   img="/docs/images/icons/heartbeats-check-stroked.svg"
+   description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
+   link="/docs/heartbeat-checks/"
+>}}
+{{< doc-card
+ class="two-column-card"
+ headerTag="h3"
+ title="Set up alert channels"
+ img="/docs/images/icons/alerting.svg"
+ description="Get notified about outages, broken transactions or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack, Pagerduty and Discord."
+ link="/docs/alerting"
 >}}
 </div>
 
