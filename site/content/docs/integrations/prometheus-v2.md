@@ -97,7 +97,7 @@ In addition, the check metrics all contain the following labels:
 | `tags` | The tags of the check. |
 
 {{<info>}}
-You can set `key:value` tags in your checks and groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`. Please note that Prometheus label names may only contain ASCII letters, numbers, as well as underscores. Tags containing other characters in the label name will be sanitized.
+You can set `key:value` tags in your checks and groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`. Please note that Prometheus label names may only contain ASCII letters, numbers, as well as underscores (see the official [docs](https://prometheus.io/docs/concepts/data_model/)). Tags containing other characters in the label name will be sanitized.
 {{</info>}}
 
 {{<info>}}
