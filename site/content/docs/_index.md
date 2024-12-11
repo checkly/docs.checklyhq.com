@@ -6,8 +6,7 @@ aliases:
   - /docs/
 ---
 
-Checkly gives you code-first synthetic monitoring for modern DevOps. Monitor your APIs and apps at a fraction of the 
-price of legacy providers. Powered by Monitoring as Code and Playwright.
+Checkly gives you code-first synthetic monitoring for modern DevOps. Monitor your APIs, service connectivity and apps at a fraction of the price of legacy providers. Powered by Monitoring as Code and Playwright.
 
 ## Get started with monitoring as code
 
