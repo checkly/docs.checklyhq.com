@@ -34,7 +34,7 @@ Create a minimal `checkly.config.ts` (or `checkly.config.js`) at the root of you
 
 {{< tabs "config" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
 import { Frequency } from 'checkly/constructs'
 
@@ -63,7 +63,7 @@ export default defineConfig({
  ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
+ ```js {title="checkly.config.js"}
 const config = {
   projectName: 'Website Monitoring',
   logicalId: 'website-monitoring-1',
@@ -113,11 +113,8 @@ You will find the following files and folders:
 - a `node_modules` directory with all dependencies pre-installed.
 - a `__checks__` folder with some example checks.
 
-{{< info >}}
-If you want to move the CLI and its constructs to a different, already existing Node.js project, just copy the full contents
-of the `node_modules` folder to your project and manually add a `checkly.config.ts` file.
-{{< /info >}}
-
+> If you want to move the CLI and its constructs to a different, already existing Node.js project, just copy the full contents
+> of the `node_modules` folder to your project and manually add a `checkly.config.ts` file.
 
 ## Authentication
 

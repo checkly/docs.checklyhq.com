@@ -30,16 +30,14 @@ npm install --save \
   @opentelemetry/exporter-trace-otlp-http    
 ```
 
-{{< warning >}}
-Make sure to install v1.9.1 or later of the `@vercel/otel` package as it contains a critical bug fix for Vercel's Edge runtime.
-{{< /warning >}}
-
+>[!WARNING]
+> Make sure to install v1.9.1 or later of the `@vercel/otel` package as it contains a critical bug fix for Vercel's Edge runtime.
 
 ## Step 2: Initialize the instrumentation
 
 Set the `instrumentationHook` flag to `true` in your Next.js configuration file. This will enable the OpenTelemetry instrumentation.
 
-```js
+```js {title="next.config.js"}
 /** @type {import('next').NextConfig} */
 const nextConfig = { 
   experimental: { 
@@ -52,8 +50,7 @@ module.exports = nextConfig
 
 Create a file called `instrumentation.ts` at the root of your project and add the following code:
 
-```ts
-// instrumentation.ts
+```ts {title="instrumentation.ts"}
 import { registerOTel } from '@vercel/otel'
 import { SamplingDecision } from '@opentelemetry/sdk-trace-base'
 import { trace, Context } from '@opentelemetry/api'

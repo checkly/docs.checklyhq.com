@@ -18,11 +18,9 @@ Next to this, we also automatically collect Performance signals (**Web Vitals**)
 
 ![tracing and web vitals for Playwright based browser checks](/docs/images/browser-checks/tracing_web_vitals.png)
 
-{{<info >}}
-Checkly only collects tracing and web vitals data if your browser check meets the following criteria:
-- It is based on **Playwright**.
-- It runs on any **runtime above [2021.06](/docs/runtimes/specs/#npm-packages)**
-{{</info >}}
+> Checkly only collects tracing and web vitals data if your browser check meets the following criteria:
+> - It is based on **Playwright**.
+> - It runs on any **runtime above [2021.06](/docs/runtimes/specs/#npm-packages)**
 
 ## Page navigations
 

@@ -15,7 +15,7 @@ aliases:
 A `Project` defines core settings and defaults for the CLI and other constructs like Checks. In many cases, you can just
 use set defaults for your Checks in the `checks` property and override them occasionally at the Check or CheckGroup level.
 
-```ts
+```ts {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
 import { Frequency } from 'checkly/constructs'
 
@@ -117,9 +117,7 @@ The file hierarchy looks as follows:
 │   ├── teardown.ts
 ```
 
-```ts
-// hello-api.check.ts
-
+```ts {title="hello-api.check.ts"}
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -232,7 +230,7 @@ A heartbeat check is a passive check type that expects pings from an external so
 
 You can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats) or the CLI output of [`checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy).
 
-```ts
+```ts {title="heartbeat.check.ts"}
 import { HeartbeatCheck } from 'checkly/constructs'
 
 new HeartbeatCheck('heartbeat-check-1', {
@@ -262,7 +260,7 @@ However, you can override these global settings and configure individual Browser
 types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file.
 This property supports relative and absolute paths.
 
-```ts
+```ts {title="browser.check.ts"}
 import { BrowserCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -283,11 +281,9 @@ raw JavaScript / TypeScript as a string.
 
 Similar to Browser checks, Multistep checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
 
-{{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
-{{< /info >}}
+> Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 
-```ts
+```ts {title="multistep.check.ts"}
 import { MultiStepCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -327,7 +323,7 @@ You can add a Check to a group in two ways.
 2. For Browser Checks, we allow you to use the `testMatch` glob pattern to include any `.spec.js|ts` file, without having to
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
-```ts
+```ts {title="group.check.ts"}
 import { CheckGroup, ApiCheck, Frequency } from 'checkly/constructs'
 
 const group = new CheckGroup('check-group-1', {
@@ -420,7 +416,7 @@ You can obtain the ID for your alert channel either from the Checkly web UI or b
 
 Sends SMS notifications to phone number. Make sure to use standard international notation.
 
-```ts
+```ts {title="alert-channel.ts"}
 import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
@@ -435,7 +431,7 @@ const smsChannel = new SmsAlertChannel('sms-channel-1', {
 
 Sends phone call notifications to phone number. Make sure to use standard international notation.
 
-```ts
+```ts {title="alert-channel.ts"}
 import { PhoneCallAlertChannel } from 'checkly/constructs'
 
 const callChannel = new PhoneCallAlertChannel('call-channel-1', {
@@ -449,7 +445,7 @@ const callChannel = new PhoneCallAlertChannel('call-channel-1', {
 
 Sends email notifications to an email address. Only accepts one address, do not use multiple addresses separated by a comma.
 
-```ts
+```ts {title="alert-channel.ts"}
 import { EmailAlertChannel } from 'checkly/constructs'
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
@@ -678,11 +674,11 @@ new ApiCheck('local-api-1', {
   }
 })
 ```
-{{< info >}}
-Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the
-instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
-project or created via the Web UI, you can pass in the `slugName` string.
-{{< /info >}}
+
+> Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the
+> instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
+> project or created via the Web UI, you can pass in the `slugName` string.
+
 
 - `name`: A friendly name for your private location.
 - `slugName`: A valid unique slug name.

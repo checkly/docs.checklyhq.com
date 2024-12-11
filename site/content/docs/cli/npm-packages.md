@@ -48,9 +48,7 @@ __checks__
 ```
 
 In `login-helper.ts` we define a reusable function `gitHubLogin`. This function can be used by multiple browser checks.
-```ts
-// login-helper.ts
-
+```ts {title="login-helper.ts"}
 export async function gitHubLogin (page, username, password) {
   await page.goto('https://github.com/login')
   await page.getByLabel('Username or email address').type(username)
@@ -60,9 +58,7 @@ export async function gitHubLogin (page, username, password) {
 ```
 
 In `login.spec.ts` we define the actual Playwright test. This file can import the `gitHubLogin` function from `login-helper.ts`. It also reads the username and password from [remote environment variables](/docs/cli/using-environment-variables/#remote-environment-variables).
-```ts
-// login.spec.ts
-
+```ts {title="loging.spec.ts"}
 // @ts-ignore
 import { test } from '@playwright/test'
 import { gitHubLogin } from './login-helper'
@@ -76,9 +72,7 @@ test('Github login', async ({ page }) => {
 ```
 
 Finally, in `login.check.ts` we define the [BrowserCheck construct](/docs/cli/constructs-reference/#browsercheck). Note that it's only necessary to configure the main Playwright file `login.spec.ts`. The dependency on `login-helper.ts` is automatically detected by the CLI.
-```ts
-// login.check.ts
-
+```ts {title="login.check.ts"}
 import { BrowserCheck } from 'checkly/constructs'
 
 new BrowserCheck('login-check', {

@@ -26,15 +26,60 @@ This is done automatically through a github action, see `.github/worksflows/algo
 
 ## Docs, Learn & Guides
 
-Docs, Learn & Guides sections are open to contributions. If you find a mistake or you think that something could be improve, please open a PR 🙂
+Docs, Learn & Guides sections are open to contributions. If you find a mistake, or you think that something could be improved, please open a PR 🙂
 
 - Docs: `./site/content/docs`
 - Learn: `./site/content/learn`
 - Guides: `./site/content/guides`
 
+## Markdown extensions
+
+### Fancy fenced code blocks with title
+
+You can make fancy fenced code blocks as follows. We recognize any typescript and javascript code blocks and
+add a nice logo to them.
+
+````markdown
+```ts {title="src/index.ts"}
+console.log('hello world')
+```
+````
+
+You can also highlight certain lines in the code block by adding a `hl_lines` attribute to the code block.
+
+````markdown
+```ts {title="src/index.ts", hl_lines=[2]}
+console.log('hello world')
+console.log('this will be highlighted')
+console.log('goodbey world')
+``` 
+````
+
+### Alerts
+
+We removed all the custom Hugo shortcodes and replaced them with markdown alerts. You can use the following types:
+
+- `[!NOTE]` (default, same as not specifying any type) 
+- `[!WARNING]`
+- `[!CLI]`
+````markdown
+> This is a default note / info alert.
+
+> [!NOTE]
+> This is the same as the default note / info alert, just more explicit.
+
+> [!WARNING]
+> This is a warning.
+
+> [!CLI]
+> This adds a CLI tip!
+````
+
+
 ## Blog
 
-Do you want to share your use case and experience using Checkly with your product? Become a guest author. Reach us at [giovanni@checklyhq.com](mailto:giovanni@checklyhq.com)
+Do you want to share your use case and experience using Checkly with your product? Become a guest author. 
+Reach us at [giovanni@checklyhq.com](mailto:giovanni@checklyhq.com)
 
 ## License
 

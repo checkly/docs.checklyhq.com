@@ -20,7 +20,7 @@ browser checks to have granular feedback whether each part functions.
 
 {{< tabs "github_login_legacy" >}}
 {{< tab "Playwright" >}}
-```javascript
+```javascript 
 const playwright = require('playwright')
 const browser = await playwright.chromium.launch()
 const page = await browser.newPage()

@@ -20,11 +20,9 @@ Snippets can be useful for:
 - a common setup or teardown procedure
 
 
-{{<cli-tip >}}
-If you are using the CLI, you don't need to use snippets. You can just use `import` or `require` to add any local dependencies from your repo.
-Check the docs on using local dependencies [right here](/docs/cli/npm-packages/).
-
-{{</cli-tip >}}
+> [!CLI]
+> If you are using the CLI, you don't need to use snippets. You can just use `import` or `require` to add any local dependencies from your repo.
+> Check the docs on using local dependencies [right here](/docs/cli/npm-packages/).
 
 ## How to use snippets
 
@@ -77,14 +75,10 @@ const setupLibrary = require('./setup-library.js')
 {{< /tab >}}
 {{< /tabs >}}
 
-
-{{<info >}}
 Do you use [reusable code snippets for a setup or teardown script](/docs/api-checks/setup-teardown-scripts/#reusable-code-snippets)?
-
 In this case, the setup / teardown snippet will be executed as `script.js` rather than be placed in the snippets directory. To import other snippets, the setup / teardown snippet should include the `snippets` directory in the path.
-
 For example, import a snippet named `setup-library` using  `require('./snippets/helper.js')`.
-{{</info >}}
+
 
 ## Example: GitHub login
 

@@ -38,9 +38,8 @@ export default defineConfig({
 
 The `checks.checkMatch` property accepts a glob pattern to specify which files should be executed to test and deploy your monitoring infrastructure.
 
-{{<info >}}
-Find out more about [all the project configuration options in the docs](/docs/cli/constructs-reference/#project).
-{{</info >}}
+
+> Find out more about [all the project configuration options in the docs](/docs/cli/constructs-reference/#project).
 
 Place your check files next to your running application code or in a dedicated monitoring directory; it's up to you!
 
@@ -77,9 +76,7 @@ new ApiCheck("public-stats", {
 
 The example above initializes [a `CheckGroup`](/docs/cli/constructs-reference/#checkgroup) that [an `ApiCheck`](/docs/cli/constructs-reference/#apicheck) references. These two resources can then be tested via `npx checkly test` and deployed to the Checkly cloud via `npx checkly deploy`.
 
-{{<info >}}
-If you want to see an opinionated Checkly CLI project example, [check our advanced CLI template](https://github.com/checkly/checkly-cli/tree/main/examples/advanced-project).
-{{</info >}}
+> If you want to see an opinionated Checkly CLI project example, [check our advanced CLI template](https://github.com/checkly/checkly-cli/tree/main/examples/advanced-project).
 
 But what if you want to create your monitoring setup depending on configuration files or environment variables?
 
@@ -122,9 +119,7 @@ npx checkly deploy
 
 Environment variables enable you to configure your monitoring resources, test them and then update your entire Checkly setup in a production deployment.
 
-{{<info >}}
-Before jumping all onto environment variables, [understand the difference between local and remote environment variables](/docs/cli/using-environment-variables/).
-{{</info >}}
+> Before jumping all onto environment variables, [understand the difference between local and remote environment variables](/docs/cli/using-environment-variables/).
 
 But monitoring as code isn't only about configuring your environment and interpolating values.
 
@@ -169,9 +164,7 @@ for (const { id, url, name } of endpoints) {
 
 Reuse infrastructure as code configuration files (such as YAML) to configure your monitoring setup and avoid duplicated resource definitions.
 
-{{<info >}}
-If you're using a file-based routing framework such as Next.js, use the `fs` module to automatically read and parse directories to create monitors for the resulting routes and pages.
-{{</info >}}
+> If you're using a file-based routing framework such as Next.js, use the `fs` module to automatically read and parse directories to create monitors for the resulting routes and pages.
 
 But in some cases, you must perform asynchronous JavaScript operations, such as requesting files from the network to define your monitoring.
 

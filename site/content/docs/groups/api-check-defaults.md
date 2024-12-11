@@ -33,11 +33,7 @@ as follows:
 
 Any headers and query parameters defined in the API check defaults are injected into each API check.
 
-{{<info >}}
-
-Headers and query parameters at the check level override those at the group level with the same name.
-
-{{</info >}}
+> Headers and query parameters at the check level override those at the group level with the same name.
 
 An example:
 

@@ -33,7 +33,7 @@ Here is an example of setting up an `SmsAlertChannel` where we pass in the actua
 variable. Note the exclamation mark `!` at the end. This is to tell the Typescript compiler the value will be set.
 Alternatively you can use a string template.
 
-```ts
+```ts {title="alert-channels.ts"}
 import { SmsAlertChannel } from 'checkly/constructs'
 
 export const smsChannel = new SmsAlertChannel('sms-channel-1', {
@@ -68,7 +68,7 @@ a check executes on the Checkly cloud.
 Here is an example of a Playwright script using an `ENVIRONMENT_URL` variable to define the page to visit. We also added
 a fallback value in case that variable is not defined for some reason.
 
-```ts
+```ts {title="home.check.ts"}
 import { test } from '@playwright/test'
 
 test('Check Home Page', async ({ page }) => {
@@ -78,7 +78,7 @@ test('Check Home Page', async ({ page }) => {
 ```
 Here is an example of a Checkly [ApiCheck construct](/docs/cli/constructs-reference/#apicheck) using an `ENVIRONMENT_URL` variable to define the page to visit. Notice the `{{ENVIRONMENT_URL}}` is wrapped in double handlebars and must be written this way for a remote environment variable to be parsed within an ApiCheck construct.
 
-```ts
+```ts {title="api.check.ts"}
 import * as path from 'path'
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 import { websiteGroup } from './website-group.check'

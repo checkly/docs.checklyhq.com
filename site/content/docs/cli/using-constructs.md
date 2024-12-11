@@ -36,9 +36,7 @@ The project `logicalId` can be configured in the project's [global configuration
 
 So, I guess you know now that logical IDs are important!
 
-{{< info >}}
-When changing the logical ID of a project you will keep all resources on your Checkly account, unless you run [`npx checkly destroy`](/docs/cli/command-line-reference/#npx-checkly-destroy) to remove the old project.
-{{< /info >}}
+> When changing the logical ID of a project you will keep all resources on your Checkly account, unless you run [`npx checkly destroy`](/docs/cli/command-line-reference/#npx-checkly-destroy) to remove the old project.
 
 ## Creating an API Check
 
@@ -48,9 +46,7 @@ API checks are used to validate your HTTP based API endpoints. Let's look at the
 - It defines the HTTP method `GET` the `url`.
 - It defines an array of assertions to assert the HTTP response status is correct.
 
-```ts
-// hello-api.check.ts
-
+```ts {title="hello-api.check.ts"}
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 const path = require('path')
 const { readFileSync } = require('fs')
@@ -74,9 +70,7 @@ When a check fails, you want to get alerted. There are two steps to take here:
 
 1. Create one or more alert channels. You can put them in a different file to DRY up your code, i.e. in `alert-channels.ts`
 
-```ts
-// alert-channels.ts
-
+```ts {title="alert-channels.ts"}
 import { SmsAlertChannel, EmailAlertChannel } from 'checkly/constructs'
 
 const sendDefaults = {
@@ -103,9 +97,7 @@ module.exports = {
 
 2. Now you can import these channels into one or more checks by passing the objects into the `alertChannels` array:
 
-```ts
-// api.check.ts
-
+```ts {title="api.check.ts"}
 import { ApiCheck } from 'checkly/constructs'
 import { smsChannel, emailChannel } from './alert-channels'
 

@@ -19,9 +19,7 @@ different custom domains). Use cases are:
 2. You have multiple internal teams, managing different services in your stack.
 3. You have a staging and production environment you want to keep tabs on.
 
-{{< info >}}
-Incidents are available on the Team and Enterprise plans.
-{{< /info >}}
+> Incidents are available on the Team and Enterprise plans.
 
 ## Creating incidents
 
