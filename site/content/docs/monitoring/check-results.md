@@ -144,7 +144,7 @@ In the request details you will also find the result of any assertion done as pa
 
 On the [check results overview page](/docs/monitoring/check-results/#check-results-overview), select a specific check run to review its results:
 
-* **Summary:** Displays the check target (URL and port), the check state (`success` for passed and degraded runs, or `error` for failed runs), and the total check run duration.
+* **Summary:** Displays the check target (URL and port), the check state (`success` for passed and degraded runs, or `error` for failed runs), the request status code and the total check run duration.
 
 * **Error details:** If the check failed, the error status code and message log will be shown.
 
