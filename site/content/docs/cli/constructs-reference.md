@@ -472,7 +472,7 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
 
 Sends a webhook to any URL. Webhooks are very powerful and have quite some options. Here is an example that send
 
-```ts
+```ts {title="webhook-channel.ts"}
 import { WebhookAlertChannel } from 'checkly/constructs'
 
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
@@ -503,7 +503,7 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 
 Sends an alert notification to your Opsgenie account.
 
-```ts
+```ts {title="opsgenie-channel.ts"}
 import { OpsgenieAlertChannel } from 'checkly/constructs'
 
 const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
@@ -525,7 +525,7 @@ const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
 
 Sends an alert notification to a specific service in your Pagerduty account
 
-```ts
+```ts {title="pagerduty-channel.ts"}
 import { PagerdutyAlertChannel } from 'checkly/constructs'
 
 const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
@@ -547,7 +547,7 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
 
-```ts
+```ts {title="maintenance-window.ts"}
 import { MaintenanceWindow } from 'checkly/constructs'
 
 new MaintenanceWindow('maintenance-window-1', {
@@ -576,7 +576,7 @@ new MaintenanceWindow('maintenance-window-1', {
 
 Creates a dashboard allowing you to display checks and their related metrics on a single page.
 
-```ts
+```ts {title="dashboard.ts"}
 import * as path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 import { Dashboard } from 'checkly/constructs'
@@ -593,8 +593,7 @@ new Dashboard('acme-dashboard-1', {
 ```
 You can add custom CSS by referencing a CSS file. Note, this is only available on Team and Enterprise plans.
 
-```css
-/* dashboard.css */
+```css {title="dashboard.css"}
 .header {
   background: #080808;
   border-bottom-color: #313035;
@@ -636,8 +635,7 @@ This is required if `customUrl` is not specified.
 
 Creates a Private Location, so you can deploy one or more Checkly Agents on-prem, in a VPC or any segregated network.
 
-```ts
-// private-location.check.ts
+```ts {title="private-location.ts"}
 import { PrivateLocation } from 'checkly/constructs'
 
 export const myPrivateLocation = new PrivateLocation('private-location-1', {
@@ -649,7 +647,7 @@ export const myPrivateLocation = new PrivateLocation('private-location-1', {
 
 Use the new private location in a Check:
 
-```ts
+```ts {title="api.check.ts"}
 import * as path from 'path'
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 import { myPrivateLocation } from './private-location.check'
@@ -696,7 +694,7 @@ Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) c
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
 As an example, you can configure a check to retry up to 4 times, in different regions, with waits of 30 seconds, 60 seconds, 90 seconds, and 120 seconds between attempts:
 
-```ts
+```ts {title="api.check.ts"}
 import { ApiCheck, RetryStrategyBuilder } from 'checkly/constructs'
 
 new ApiCheck('retrying-check', {
@@ -736,7 +734,7 @@ Alert escalation policies can be added to [Check](#check) and [CheckGroup](#chec
 To build `AlertEscalationPolicy` objects you should use the `AlertEscalationBuilder`, which provides helper methods for configuring alert settings.
 As an example, you can configure an alert policy to notify you when a check run has failed twice consecutively, and with 2 reminders each 5 minutes apart.
 
-```ts
+```ts ts {title="api.check.ts"}
 import { AlertEscalationBuilder, ApiCheck } from 'checkly/constructs'
 
 new ApiCheck('alerting-check', {
