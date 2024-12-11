@@ -146,7 +146,7 @@ On the [check results overview page](/docs/monitoring/check-results/#check-resul
 
 * **Summary:** Displays the check target (URL and port), the check state (`success` for passed and degraded runs, or `error` for failed runs), and the total check run duration.
 
-* **Error details:** If the check failed, the error message log will be shown.
+* **Error details:** If the check failed, the error status code and message log will be shown.
 
 * **Timing phases:** For each request, we capture the following timing metrics:
   * DNS: Time taken to resolve the hostname to an IP address (if a hostname was provided)
