@@ -37,6 +37,14 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  description="Learn basics, tools and tips for monitoring your Kubernetes clusters."
 	  link="/learn/kubernetes"
 >}}
+{{< doc-card
+	  class="three-column-card"
+	  headerTag="h3"
+	  title="Monitoring"
+	  img="/learn/icons/monitoring.svg"
+	  description="Learn the fundamentals of monitoring production services."
+	  link="/learn/monitoring"
+>}}
 </div>
 
 
