@@ -33,7 +33,6 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 * **Retries & alerting:** Configure [retries & alerts](/docs/alerting-and-retries) by choosing from Checkly's retry strategies and alert channels, ensuring you’re notified through your preferred methods when an issue arises with one of your TCP checks.
 
 {{< /tab >}}
-{{% comment %}}
 {{< tab "CLI" >}}
 <br>
 Not yet supported by the CLI.
@@ -46,7 +45,6 @@ Not yet supported by the Terraform Provider.
 <br>
 Not yet supported by the Pulumi Provider.
 {{< /tab >}}
-{{% /comment %}}
 {{< /tabs >}}
 
 ## Update or delete a TCP check
@@ -60,7 +58,6 @@ Not yet supported by the Pulumi Provider.
 * **Delete a TCP check:** To delete a TCP check, use the kebab menu (three dots) on the [main dashboard](https://app.checklyhq.com) and select `Delete`. Alternatively click `Edit` in the top-right corner of the check's Reporting page, scroll to the bottom section, and click the `Delete` button.
 
 {{< /tab >}}
-{{% comment %}}
 {{< tab "CLI" >}}
 <br>
 Not yet supported by the CLI.
@@ -73,7 +70,6 @@ Not yet supported by the Terraform Provider.
 <br>
 Not yet supported by the Pulumi Provider.
 {{< /tab >}}
-{{% /comment %}}
 {{< /tabs >}}
 
 ## TCP check reporting
