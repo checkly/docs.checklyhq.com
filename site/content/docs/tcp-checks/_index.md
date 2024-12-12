@@ -10,6 +10,10 @@ slug: /
 cli: true
 ---
 
+{{< info >}}
+**Early Access Feature:** This feature is available in early access. To try it out, head to your [Labs settings](https://app.checklyhq.com/settings/account/labs) and switch on the "TCP Checks" toggle. If you have any feedback or improvement ideas, we’d love to hear them!
+{{< /info >}}
+
 A TCP check establishes a connection to a specified hostname or IP address and port to verify that the service is responsive. These checks are ideal for monitoring non-HTTP services, such as databases, message queues, and custom applications that rely on TCP connectivity.
 
 ## Create a TCP check
