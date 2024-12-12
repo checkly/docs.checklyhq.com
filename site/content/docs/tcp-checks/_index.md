@@ -82,4 +82,4 @@ Learn more about analyzing your TCP check run results in our [check results docu
 
 ## TCP check pricing
 
-A TCP check is billed the same way as API checks. For more details, refer to our [pricing and billing documentation](/docs/monitoring/check-pricing).
+For more details on TCP check pricing, refer to our [pricing and billing documentation](/docs/monitoring/check-pricing).
