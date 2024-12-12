@@ -57,7 +57,7 @@ Not yet supported by the Pulumi Provider.
 
 * **Update a TCP check:** To update a TCP check, click the kebab menu (three dots) next to the check on your [main dashboard](https://app.checklyhq.com) and select `Edit`, or click `Edit` in the top-right corner of the check's Reporting page.
 
-* **Delete a TCP check:** To delete a TCP check, use the kebab menu (three dots) on the [main dashboard](https://app.checklyhq.com) and select `Delete`.
+* **Delete a TCP check:** To delete a TCP check, use the kebab menu (three dots) on the [main dashboard](https://app.checklyhq.com) and select `Delete`. Alternatively click `Edit` in the top-right corner of the check's Reporting page, scroll to the bottom section, and click the `Delete` button.
 
 {{< /tab >}}
 {{% comment %}}
