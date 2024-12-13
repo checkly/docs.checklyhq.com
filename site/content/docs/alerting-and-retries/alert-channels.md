@@ -49,6 +49,4 @@ Configuring alert channels is mostly self explanatory except for our [advanced w
 
 After adding the channels, you either **edit** or **delete** them, or change which checks are subscribed to that specific channel.
 
-{{<info >}}
-If you are using [Terraform](/docs/terraform-provider/) or the [CLI](/docs/cli/), you will need to specify alert channel subscriptions _explicitly_ for each check / group.
-{{</info >}}
+> If you are using [Terraform](/docs/terraform-provider/) or the [CLI](/docs/cli/), you will need to specify alert channel subscriptions _explicitly_ for each check / group.

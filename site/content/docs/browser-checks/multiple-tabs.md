@@ -19,7 +19,7 @@ By allowing us to wait for the creation of a child tab with `context.waitForEven
 
 {{< tabs "Multiple tabs" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="tabs.spec.ts"}
 import { test } from '@playwright/test'
 
 test('Open new tab', async ({ context, page }) => {
@@ -38,7 +38,7 @@ test('Open new tab', async ({ context, page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="tabs.spec.js"}
 const { test } = require('@playwright/test')
 
 test('Open new tab', async ({ context, page }) => {
@@ -65,6 +65,6 @@ Playwright Test will record videos for each of your tabs. You can find them in y
 Playwright's Trace Viewer displays your tabs conveniently in a waterfall timeline to access all neccessary information:
 ![mutiple tabs - trace viewer](/docs/images/browser-checks/multiple-tabs-trace-viewer.png)
 
-{{< info >}}
-You can learn more about multi-tab scripts in our [Learn Headless section](/learn/playwright/multitab-flows/).
-{{< /info >}}
+
+> You can learn more about multi-tab scripts in our [Learn Headless section](/learn/playwright/multitab-flows/).
+

@@ -59,10 +59,7 @@ request.headers['x-vercel-protection-bypass'] = process.env.VERCEL_BYPASS_TOKEN
 Vercel has a few different ways to authenticate your deployments. Each work a bit different and require a different approach
 to make them work with Checkly.
 
-{{<info>}}
-Vercel enables **Standard Protection** by default on all new deployments.
-{{</info>}}
-
+> Vercel enables **Standard Protection** by default on all new deployments.
 
 ### Standard Protection
 [Standard Protection](https://vercel.com/docs/concepts/deployments/deployment-protection#vercel-authentication)
@@ -81,7 +78,7 @@ if you are authenticating using GitHub. Note: if you have 2FA enabled on your Gi
 
 {{<tabs "vercel-authentication-1" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="visit-protected.spec.ts"}
 import { expect, test } from '@playwright/test'
 test('visit protected deployment', async ({ page }) => {
   const response = await page.goto(process.env.ENVIRONMENT_URL || 'https://my-production-url.vercel.app/')
@@ -101,7 +98,7 @@ test('visit protected deployment', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="visit-protected.spec.js"}
 const { expect, test } = require('@playwright/test')
 test('visit protected deployment', async ({ page }) => {
   const response = await page.goto(process.env.ENVIRONMENT_URL || 'https://my-production-url.vercel.app/')
@@ -139,7 +136,7 @@ we know we are checking a Preview deployment and we can run the authentication c
 
 {{<tabs "vercel-authentication-2" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="visit-protected.spec.ts"}
 import { expect, test } from '@playwright/test'
 test('visit protected deployment', async ({ page }) => {
   const response = await page.goto(process.env.ENVIRONMENT_URL || 'https://my-production-url.vercel.app/')
@@ -161,7 +158,7 @@ test('visit protected deployment', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="visit-protected.spec.js"}
 const { expect, test } = require('@playwright/test')
 test('visit protected deployment', async ({ page }) => {
   const response = await page.goto(process.env.ENVIRONMENT_URL || 'https://my-production-url.vercel.app/')
@@ -185,10 +182,9 @@ test('visit protected deployment', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{<warning>}}
-If you have 2FA enabled on your GitHub or other Vercel authentication methods, the above example will not work. You can
-explore bypassing 2FA using the `otpauth` library. [Check our blog post for more info](https://www.checklyhq.com/blog/how-to-bypass-totp-based-2fa-login-flows-with-playwright/).
-{{</warning>}}
+> [!WARNING]
+> If you have 2FA enabled on your GitHub or other Vercel authentication methods, the above example will not work. You can
+> explore bypassing 2FA using the `otpauth` library. [Check our blog post for more info](https://www.checklyhq.com/blog/how-to-bypass-totp-based-2fa-login-flows-with-playwright/).
 
 
 ## Password Protection

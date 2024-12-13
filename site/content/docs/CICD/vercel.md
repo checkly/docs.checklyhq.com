@@ -19,10 +19,7 @@ The Vercel integration will help you by:
 1. Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
 2. Enabling you to run checks against preview and production deployments on Vercel.
 
-{{<info>}}
-Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/) on how to make this work with Checkly.
-{{</info>}}
-
+> Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/) on how to make this work with Checkly.
 
 ## Installation
 
@@ -85,7 +82,7 @@ Here is a full example that we use ourselves to monitor checklyhq.com which is a
 
 {{< tabs "Vercel example" >}}
 {{< tab "Typescript" >}}
-```ts {hl_lines=[4]}
+```ts {title="vercel.spec.ts", hl_lines=[4]}
 import { expect, test } from '@playwright/test'
 
 test('assert response status of page', async ({ page }) => {
@@ -97,7 +94,7 @@ test('assert response status of page', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js {hl_lines=[4]}
+```js {title="vercel.spec.js", hl_lines=[4]}
 const { expect, test } = require('@playwright/test')
 
 test('assert response status of page', async ({ page }) => {
@@ -165,9 +162,8 @@ Vercel deployment in two ways because the Reliability part and Performance part 
 | Browser Check | Reliability Check | Blocks deployment when it fails due to > 399 HTTP response codes on the main HTML document, syntax errors in the script, or assertions using the `expect` or `assert` libraries in the browser check script. |
 |               | Performance Check | Blocks deployment when a degradation is registered in the aggregate **Virtual Experience Score** based on Web Vitals. Read below for more details.                                   |
 
-{{< info >}}
-Reliability and performance checks run against the [automatic deployment URL](https://vercel.com/docs/concepts/deployments/automatic-urls) Vercel generates. In case of failures or degradations, what _actually_ gets blocked is the deployment to all other URLs, e.g. branch URLs and user-assigned domains. 
-{{< /info >}}
+
+> Reliability and performance checks run against the [automatic deployment URL](https://vercel.com/docs/concepts/deployments/automatic-urls) Vercel generates. In case of failures or degradations, what _actually_ gets blocked is the deployment to all other URLs, e.g. branch URLs and user-assigned domains.
 
 ## Virtual Experience Score & Web Vitals
 
@@ -214,9 +210,7 @@ On Vercel, you will also see a breakdown of checks that were executed on a given
 
 ![vercel checks vitals](/docs/images/cicd/vercel/vercel_vitals.png)
 
-{{< info >}}
-Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
-{{< /info >}}
+> Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
 
 ### Deployments tab
 

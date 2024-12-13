@@ -10,10 +10,9 @@ menu:
     parent: "Integrations"
 ---
 
-{{< warning >}}
-This page describes the v1 version of the Prometheus exporter. If you are just starting with our Prometheus integration,
-we recommend using our [v2 version](/docs/integrations/prometheus-v2/).
-{{</ warning >}}
+>[!WARNING]
+> This page describes the v1 version of the Prometheus exporter. If you are just starting with our Prometheus integration,
+> we recommend using our [v2 version](/docs/integrations/prometheus-v2/).
 
 > 💡 Check out our [blog post on using this integration with Prometheus and Grafana](https://blog.checklyhq.com/monitoring-website-performance-with-checkly-prometheus-grafana/) for some cool real-life applications.
 
@@ -34,9 +33,7 @@ Each `checkly_check` metric has the following labels:
 - `check_type`, either `api` or `browser`.
 - `tags`, this check's tags.
 
-{{<info>}}
-You can set `key:value` tags in your checks/groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`.
-{{</info>}}
+> You can set `key:value` tags in your checks/groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`.
 
 The `checkly_private_location` metrics contain the labels:
 
@@ -44,10 +41,7 @@ The `checkly_private_location` metrics contain the labels:
 - `private_location_slug_name`, the private location's human readable unique identifier.
 - `private_location_id`, the private location's UUID.
 
-{{<info>}}
-If a private location has no check runs for six hours, it will be considered inactive and `checkly_private_location` metrics won't be reported for it.
-{{</info>}}
-
+> If a private location has no check runs for six hours, it will be considered inactive and `checkly_private_location` metrics won't be reported for it.
 
 Here is an example:
 

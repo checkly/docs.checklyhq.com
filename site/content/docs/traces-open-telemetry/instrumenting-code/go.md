@@ -34,9 +34,7 @@ go get "go.opentelemetry.io/otel" \
 
 Create a file called `tracing.go` at the root of your project and add the following code:
 
-```go
-// tracing.go
-
+```go {title="tracing.go"}
 package main
 
 import (
@@ -115,9 +113,7 @@ Add or adapt the following code to your `main.go` file. The key parts are as fol
 1. Wrap the default `http.Handler` with the`otelhttp.NewHandler` function.
 2. Add the `otelChecklyFilter` function to filter out the requests that should be traced and send to Checkly.
 
-```go
-// main.go
-
+```go {title="main.go"}
 package main
 
 import (

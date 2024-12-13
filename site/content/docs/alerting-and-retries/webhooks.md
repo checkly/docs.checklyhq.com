@@ -27,9 +27,7 @@ The example above shows a webhook configured to create a Jira ticket on each eve
 
 In both cases we use the familiar Handlebars templating braces, i.e. `{{ }}` to insert the variable.
 
-{{<info >}}
-To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{USER_API_KEY}}}`
-{{</info >}}
+> To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{USER_API_KEY}}}`
 
 You can use the following event-related variables in both URL and payload.
 

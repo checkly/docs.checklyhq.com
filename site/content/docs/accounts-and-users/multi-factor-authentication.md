@@ -30,6 +30,4 @@ From now on when logging in you will be asked to provide a one time password.
 - To stop using MFA, toggle the 'Enable multi-factor authentication' setting under User Settings.
 - If you have lost access to your authenticator app or removed the Checkly configuration from it, contact [support@checklyhq.com](mailto:support@checklyhq.com) for help with resetting your configration.
 
-{{< info >}}
-Multi-factor authentication is available on the Team and Enterprise plans.
-{{< /info >}}
+> Multi-factor authentication is available on the Team and Enterprise plans.

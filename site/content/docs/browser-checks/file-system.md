@@ -25,7 +25,7 @@ you can for instance spawn a new page, and use the `.setInputFiles()` method to 
 
 {{< tabs "Basic download test example" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="download.spec.ts"}
 import { test } from '@playwright/test'
 
 test('Downloads a PDF file', async ({ page, context }) => {
@@ -46,7 +46,7 @@ test('Downloads a PDF file', async ({ page, context }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="download.spec.js"}
 const { test } = require('@playwright/test')
 
 test('Downloads a PDF file', async ({ page, context }) => {
@@ -84,7 +84,7 @@ In the example below, we do not need to interact with the file system. We can ju
 
 {{< tabs "Basic upload test example" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="upload.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('upload a file', async ({ page, request }) => {
@@ -107,7 +107,7 @@ test('upload a file', async ({ page, request }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="upload.spec.js"}
 const { test, expect } = require('@playwright/test')
 
 test('upload a file', async ({ page, request }) => {
@@ -141,7 +141,7 @@ that accepts a file upload.
 
 {{< tabs "Basic HTTP upload example" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="http-upload.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('Upload a file using a POST request', async ({ request }) => {
@@ -155,7 +155,7 @@ test('Upload a file using a POST request', async ({ request }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="http-upload.spec.js"}
 const { test, expect } = require('@playwright/test')
 
 test('Upload a file using a POST request', async ({ request }) => {

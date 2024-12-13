@@ -42,7 +42,7 @@ As mentioned, your global `checkly.config.ts` holds a set of defaults for your p
 
 {{< tabs "describe" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
 import { Frequency } from 'checkly/constructs'
 
@@ -74,7 +74,7 @@ export default defineConfig({
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="checkly.config.js"}
 const { defineConfig } = require('checkly')
 
 const config = defineConfig({
@@ -115,8 +115,7 @@ Find a full reference of all project properties in [the `Project` construct sect
 
 Override any of the settings in the `checks` global configuration section at the individual check level.
 
-```ts
-// __checks__/api.check.ts
+```ts {title="__checks__/api.check.ts"}
 import { ApiCheck, AssertionBuilder, Frequency } from 'checkly/constructs'
 
 const api = new ApiCheck('hello-api', {

@@ -16,8 +16,7 @@ This page shows a few examples.
 
 Iterating through lists of target URLs is an easy way to manage checks at scale while avoiding code duplication.
 
-```ts
-// __checks__/api.check.ts
+```ts {title="__checks__/api.check.ts"}
 import { ApiCheck } from 'checkly/constructs'
 
 const publicResources = ['/public-stats', '/v1/runtimes']
@@ -38,8 +37,7 @@ for (const publicResource of publicResources) {
 
 Asynchronous operations are supported by exporting an async function from your check files, too.
 
-```ts
-// __checks__/api.check.ts
+```ts {title="__checks__/api.check.ts"}
 import { ApiCheck } from 'checkly/constructs'
 import { getPublicResources } from './helpers'
 
@@ -67,24 +65,23 @@ export default async function createApiChecks() {
 
 Iterating through target environments (like `preview` and `production`) linked to `Group` resources allows you to reuse existing `Check` definitions.
 
-```ts
-// __checks__/browser.check.ts
-import fs from 'fs';
-import { BrowserCheck } from 'checkly/constructs';
-import { groupProd, groupPreview } from './groups.check';
-​
+```ts {title="__checks__/browser.check.ts"}
+import fs from 'fs'
+import { BrowserCheck } from 'checkly/constructs'
+import { groupProd, groupPreview } from './groups.check'
+
 // This reads a directory and extracts all file paths containing '.spec.ts'
-const files = fs.readdirSync('__checks__/');
+const files = fs.readdirSync('__checks__/')
 const specFiles = files.filter((filename) => {
-  return filename.includes('.spec.ts');
-});
-​
+  return filename.includes('.spec.ts')
+})
+
 // This is the list of environments and their matching group; it can be extended easily
 const environments = [
 	{ name: 'preview', group: groupPreview },
 	{ name: 'production', group: groupProd },
-];
-​
+]
+
 // Here we create a new browser check for each environment x testspec combination
 // Checks are added to the right groups - the group will set the right env variable for the target URL
 environments.forEach((environment) => {
@@ -96,19 +93,18 @@ environments.forEach((environment) => {
 			code: {
 				entrypoint: specFile,
 			},
-		});
+		})
 	}
-});
+})
 ```
 
 You can handle potential differences between target environments via group-level environment variables, which are made available to all checks within a group.
 
-```ts
-// __checks__/groups.check.ts
+```ts  {title="__checks__/group.check.ts"}
 import { CheckGroup } from 'checkly/constructs'
 import { smsChannel, emailChannel } from '../alert-channels'
 const alertChannels = [smsChannel, emailChannel]
-​
+
 export const groupPreview = new CheckGroup('group-browser-preview', {
   name: 'WebShop - Preview',
   activated: true,

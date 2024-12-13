@@ -17,6 +17,7 @@
 	  margin-bottom: 40px;
 	}
 	.guide-card {
+	  padding: 20px;
 	  border: 1px solid $gray-light;
 	  border-radius: 6px;
 	  max-width: 360px;
@@ -37,7 +38,6 @@
         text-decoration: none;
       }
 	  .guide-info {
-	  	padding: 20px 20px 24px 20px;
 		  display: flex;
 		  flex-direction: column;
 
@@ -65,29 +65,6 @@
 			-webkit-box-orient: vertical;
 			font-size: 14px;
 	  	}
-	  }
-	  .write-info {
-	    padding-right: 20px;
-	    padding-left: 20px;
-		margin-top: auto;
-		margin-bottom: 25px;
-	    font-size: 14px;
-	    line-height: 20px;
-	    color: $gray-darkish;
-	    border-bottom-left-radius: 6px;
-	    border-bottom-right-radius: 6px;
-
-	    .cta-link {
-	      font-size: 14px;
-	      line-height: 20px;
-	      float: right;
-	    }
-
-			img {
-				border-radius: 50%;
-				overflow: hidden;
-				margin-right: 5px;
-			}
 	  }
 	}
 	@include media-breakpoint-down(xs) {
@@ -169,7 +146,7 @@
   &__description {
     font-size: 20px;
     line-height: 1.6;
-    margin-bottom: 23px;
+    margin-bottom: 20px;
   }
 	aside nav ul {
     padding: 0;
@@ -200,7 +177,7 @@
 	    }
 	  }
 	  figure {
-	    margin: 1rem 0;
+	    margin: 0 0 1rem;
 
 	    figcaption {
 	      h4 {
@@ -253,7 +230,6 @@
 	&-toc {
 		position: relative;
 		font-size: .875rem;
-		margin-right: auto;
 		width: 232px;
 		padding-top: 8rem;
     flex: 0 0 $toc-width;
@@ -404,9 +380,37 @@
 }
 
 .guides__container {
-	padding-right: 10%
+	width: 900px;
+	min-width: 20rem;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+.guides__write-info {
+	margin-top: auto;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	color: $gray-darkish;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+
+	.cta-link {
+		font-size: 14px;
+		line-height: 20px;
+		float: right;
+	}
+
+	img {
+		border-radius: 50%;
+		overflow: hidden;
+		margin-right: 5px;
+	}
+}
+
+
 .guides__back {
-	margin-bottom:2rem;
+	margin-bottom: 2rem;
 }

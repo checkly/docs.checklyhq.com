@@ -85,6 +85,6 @@ docker run \
 
 You are done. Any traces ingested by your collector that are triggered by a Checkly synthetic check will now be sent to Checkly via the new pipeline.
 
-{{< info >}}
-If you are not using the OpenTelemetry collector, you can also [send traces directly to Checkly by instrumenting your application code](/docs/open-telemetry/instrumenting-code/).
-{{< /info >}}
+
+> If you are not using the OpenTelemetry collector, you can also [send traces directly to Checkly by instrumenting your application code](/docs/open-telemetry/instrumenting-code/).
+
