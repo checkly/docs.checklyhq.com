@@ -3,7 +3,7 @@ title: Getting Started with Monitoring as Code
 description: >-
   Monitoring is essential to ensure that your applications run smoothly, efficiently, and reliably. As systems grow more complex, the need for scalable and automated monitoring has never been greater. This is where Monitoring as Code (MaC) comes into play, allowing you to define, deploy, and manage monitoring configurations programmatically.
 author: Sara Miteva
-avatar: 'images/avatars/sara-miteva.jpg'
+avatar: 'images/avatars/sara-miteva.jpeg'
 tags:
   - FAQ
 ---
@@ -40,8 +40,7 @@ npm create checkly
 
 This command sets up all the basics to kickstart your MaC workflow in your repo.
 
-{{< figure src="/guides/images/guides-getting-started-installation
-.png" alt="starting the MaC workflow in your repo" title="Installing Checkly's CLI" >}}
+{{< figure src="/guides/images/guides-getting-started-installation.png" alt="starting the MaC workflow in your repo" title="Installing the Checkly CLI" >}}
 
 In your project directory, you will find a folder named “**checks**” containing the following check templates:
 
@@ -103,27 +102,23 @@ The `--record` flag is optional, you can use it if you want to record a test ses
 
 Here is the result of the test we just executed:
 
-{{< figure src="/guides/images/guides-getting-started-testsessions
-.png" alt="test sessions result" title="Test Session Result" >}}
+{{< figure src="/guides/images/guides-getting-started-testsessions.jpeg" alt="test sessions result" title="Test Session Result" >}}
 
 There are also links to the detailed summary of the test at the end of the result in the terminal. Here is an example of the test summary:
 
 
-{{< figure src="/guides/images/guides-getting-started-test-summary
-" alt="test summary" title="Test Summary Example" >}}
+{{< figure src="/guides/images/guides-getting-started-test-summary.jpeg" alt="test summary" title="Test Summary Example" >}}
 
 As seen in the result, the test failed because if you browse the URL (https://www.checklyhq.com/docs/browser-checks/) the title of the site is “Getting started | Checkly” and not “Introduction to Checkly | Checkly” as expected in the test case.
 
 If we update the test case to expect “Getting started | Checkly” we will have a passed test. Here is the result of the test after updating the correct title:
 
 
-{{< figure src="/guides/images/guides-getting-started-correct-results
-.png" alt="correct test results" title="Test Results After Updating" >}}
+{{< figure src="/guides/images/guides-getting-started-correct-results.jpeg" alt="correct test results" title="Test Results After Updating" >}}
 
 If you check the detailed summary, we should have a passed test too:
 
-{{< figure src="/guides/images/guides-getting-started-passed-test
-.png" alt="passed test screenshot" title="Screenshot of a Passed Test" >}}
+{{< figure src="/guides/images/guides-getting-started-passed-test.jpeg" alt="passed test screenshot" title="Screenshot of a Passed Test" >}}
 
 ### **4. Deploy Your Check**
 
@@ -135,7 +130,7 @@ Once the deployment is complete, you'll see a success message in your terminal, 
 
 To verify this, navigate to the home section on the left side of the Checkly UI, and you'll find the project with the name of the test script from your local repository.
 
-{{< figure src="/guides/images/guides-getting-started-project-name.png" alt="checkly dashboard" title="Your Project Name in the Checkly Dashboard" >}}
+{{< figure src="/guides/images/guides-getting-started-project-name.jpeg" alt="checkly dashboard" title="Your Project Name in the Checkly Dashboard" >}}
 
 
 ### **5. Setting up Alerts**
@@ -144,8 +139,7 @@ Checkly offers alert services to notify you whenever a check fails. Various aler
 
 To set up alerts for your check, go to the specific project, in this case, "homepage.spec.ts." At the top right corner of the code editor, click the "Settings" button. In the revealed side panel, access "Alert Settings" under "Retries & alerting."
 
-{{< figure src="/guides/images/guides-getting-started-alerts
-.png" alt="setting up alerts with checkly" title="Setting up Alerts with Checkly" >}}
+{{< figure src="/guides/images/guides-getting-started-alerts.jpeg" alt="setting up alerts with checkly" title="Setting up Alerts with Checkly" >}}
 
 Here, configure monitoring parameters according to your needs, including check frequency, locations, retries and alerting. You can also set up your preferred alert channel using the Checkly CLI. Learn more about the alert channels from the [official documentation](https://www.checklyhq.com/docs/cli/constructs-reference/#alertchannel).
 
