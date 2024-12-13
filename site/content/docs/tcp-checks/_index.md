@@ -11,8 +11,10 @@ cli: true
 ---
 
 {{< info >}}
-**Early Access Feature:** This feature is available in early access. To try it out, head to your [Labs settings](https://app.checklyhq.com/settings/account/labs) and switch on the "TCP Checks" toggle. If you have any feedback or improvement ideas, we’d love to hear them!
+**Early Access Feature:** This feature is available in early access. To enable it, please reach out to our [support team](mailto:support@checklyhq.com) or connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack). We’d love to hear your feedback and improvement ideas!
 {{< /info >}}
+
+## Overview
 
 A TCP check establishes a connection to a specified hostname or IP address and port to verify that the service is responsive. These checks are ideal for monitoring non-HTTP services, such as databases, message queues, and custom applications that rely on TCP connectivity.
 
@@ -80,6 +82,8 @@ Not yet supported by the Pulumi Provider.
 
 Learn more about analyzing your TCP check run results in our [check results documentation](/docs/monitoring/check-results#tcp-check-results).
 
+{{ % comment %}}
 ## TCP check pricing
 
 For more details on TCP check pricing, refer to our [pricing and billing documentation](/docs/monitoring/check-pricing).
+{{ % /comment %}}

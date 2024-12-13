@@ -16,7 +16,6 @@ Checkly supports different kinds of checks which are billed slightly differently
 |------------|--------------------|------------------------|---------------------|
 | Browser    | $5 per 1k runs     | Each location is a run | Each retry is a run |
 | API        | $2 per 10k runs    | Each location is a run | Each retry is a run |
-| TCP        | $2 per 10k runs    | Each location is a run | Each retry is a run |
 | Multistep  | $2 per 10k requests| Locations x requests   | Retries x requests  |
 | Heartbeat  | -                  | -                      | -                   |
 
@@ -28,9 +27,9 @@ When configuring your check frequency and scheduling strategy, the cost helper w
 <img class="screenshot-partial" alt="cost helper widget" src="/docs/images/monitoring/price-helper.png"/>
 
 
-## API, TCP and Browser checks
+## API and Browser checks
 
-Browser checks, TCP and API checks have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.
+Browser checks and API checks have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.
 
 {{< info >}}
 **Example:** If a browser check is running once per hour with a cost of $5 per 1000 check runs, the monthly base cost for the check would be $3.65.
