@@ -82,8 +82,8 @@ Not yet supported by the Pulumi Provider.
 
 Learn more about analyzing your TCP check run results in our [check results documentation](/docs/monitoring/check-results#tcp-check-results).
 
-{{ % comment %}}
-## TCP check pricing
 
-For more details on TCP check pricing, refer to our [pricing and billing documentation](/docs/monitoring/check-pricing).
-{{ % /comment %}}
+
+{{% comment %}} ## TCP check pricing
+
+For more details on TCP check pricing, refer to our [pricing and billing documentation](/docs/monitoring/check-pricing) {{ % /comment %}}
