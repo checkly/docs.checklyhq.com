@@ -70,9 +70,7 @@ To allowlist API checks, allow traffic that contains a cookie in the shape of `C
 
 You can then [set the Cookie header](/docs/api-checks/request-settings/#headers) while editing your check.
 
-{{<info>}}
-You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every API check in the group.
-{{</info>}}
+> You can set the header at group-level using [API check defaults](/docs/groups/api-check-defaults/#headers--query-parameters) to have it applied to every API check in the group.
 
 ### Allowlisting browser checks with user agents
 
@@ -82,7 +80,7 @@ You will then be able to set up the matching user agent in your browser checks u
 
 {{< tabs "User agent example" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="user-agent.spec.ts"}
 import { test } from '@playwright/test'
 
 const myUserAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Checkly/abcd1234'
@@ -95,7 +93,7 @@ test('my user agent test', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="user-agent.spec.js"}
 const { test } = require('@playwright/test')
 
 const myUserAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Checkly/abcd1234'

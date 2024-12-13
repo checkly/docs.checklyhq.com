@@ -38,8 +38,8 @@ If your maintenance window repeats at a certain cadence, toggle the **repeat** o
 2. The unit of repetition, i.e. **Day**, **Week** or **Month**.
 3. The date on which the repetition cycle should end.
 
-{{< info >}} If you schedule a window on the 31st and add a **monthly repeat cycle**, your schedule will also activate on
-   the 30th of the relevant months and the 28th or 29th of February depending on the leap year.{{< /info >}}
+> If you schedule a window on the 31st and add a **monthly repeat cycle**, your schedule will also activate on
+> the 30th of the relevant months and the 28th or 29th of February depending on the leap year.
 
 ## Adding checks and check groups
 

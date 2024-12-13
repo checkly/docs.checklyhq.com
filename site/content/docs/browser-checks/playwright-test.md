@@ -49,7 +49,7 @@ and group them using the `test.describe` function. Your Checkly check will fail 
 
 {{< tabs "describe" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="example.spec.ts"}
 import { test } from '@playwright/test';
 
 test.describe('two tests', () => {
@@ -64,7 +64,7 @@ test.describe('two tests', () => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
+ ```js {title="example.spec.js"}
 const { test } = require('@playwright/test')
 
 test.describe('two tests', () => {
@@ -80,9 +80,8 @@ test.describe('two tests', () => {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< info >}}
-An executed browser check that includes multiple Playwright test cases still counts as a single check run towards your pricing plan's defined limits.
-{{</ info >}}
+> An executed browser check that includes multiple Playwright test cases still counts as a single check run towards your pricing plan's defined limits.
+
 
 ## Hooks
 Playwright Test Runner offers hook functions such as `test.afterEach()` and `test.beforeEach()` that run before or after individual test cases or `test.afterAll()` and `test.beforeAll()` that run before or after all tests have started/finished.
@@ -123,9 +122,7 @@ To see one way this can look like, see our [example repository](https://github.c
 We are gradually rolling out support for global configuration options for the Playwright Test Runner. This allows you to 
 configure your Playwright tests in a single place, instead of having to repeat the same configuration for each test file.
 
-{{< info >}}
-This feature is in **beta** and is only available when using the Checkly CLI to manage your checks and associated `.spec.ts|js` files.
-{{< /info >}}
+> This feature is in **beta** and is only available when using the Checkly CLI to manage your checks and associated `.spec.ts|js` files.
 
 There are three things you should be aware of:
 1. You can only use a subset of the Playwright config options. See the [supported configuration options](#supported-configuration-options) section for more information.
@@ -144,7 +141,7 @@ This command will add currently supported Playwright config option to your `chec
 
 {{< tabs "project config" >}}
 {{< tab "Typescript" >}}
-```typescript
+```typescript {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
 
 export default defineConfig({
@@ -177,7 +174,7 @@ export default defineConfig({
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="checkly.config.js"}
 const { defineConfig } = require('checkly')
 
 const config = defineConfig({
@@ -217,9 +214,7 @@ module.exports = config;
 
 We currently support the following configuration options. We will update this list as more options become supported.
 
-{{< info >}}
-We do not support the `projects`, `globalSetup`, `globalTeardown` and `storageState` options yet, but will in a future release.
-{{< /info >}}
+> We do not support the `projects`, `globalSetup`, `globalTeardown` and `storageState` options yet, but will in a future release.
 
 {{< tabs "config" >}}
 
@@ -300,6 +295,5 @@ For more information about the `expect` options you can check playwright officia
 {{< /tabs >}}
 
 
-{{< warning >}}
-A check using [the Playwright Test Runner (`@playwright/test`)](https://playwright.dev/docs/intro) will currently run around 30-50% longer than [a regular Playwright check (`playwright`)](https://playwright.dev/docs/library). This is caused by the automatic creation of trace and video assets. We are aware of this and are investigating solutions. If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.
-{{</ warning >}}
+> [!WARNING]
+> A check using [the Playwright Test Runner (`@playwright/test`)](https://playwright.dev/docs/intro) will currently run around 30-50% longer than [a regular Playwright check (`playwright`)](https://playwright.dev/docs/library). This is caused by the automatic creation of trace and video assets. We are aware of this and are investigating solutions. If this is significantly degrading the performance of your check, we recommend to divide longer tests into multiple checks.

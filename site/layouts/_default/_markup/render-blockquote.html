@@ -1,0 +1,17 @@
+{{- if eq .Type "alert" -}}
+  <div class="alert alert-{{ .AlertType }}">
+    {{- if eq .AlertType "cli" -}}
+      <div class="alert-cli-header">Checkly CLI tip</div>
+    {{- end -}}
+    {{ .Text }}
+    {{- if eq .AlertType "cli" -}}
+      <a class="alert-cli-link" href="/docs/cli/">
+        Get started with the Checkly CLI ->
+      </a>
+    {{- end -}}
+  </div>
+{{- else -}}
+  <div class="alert alert-note">
+    {{ .Text }}
+  </div>
+{{- end -}}

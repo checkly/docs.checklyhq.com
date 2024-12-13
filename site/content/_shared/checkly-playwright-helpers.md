@@ -23,24 +23,20 @@ const { getAPIResponseTime, markCheckAsDegraded } = require('@checkly/playwright
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< info >}}
-`@checkly/playwright-helpers` is also available for use in Browser and Multistep checks.
-{{< /info >}}
+> `@checkly/playwright-helpers` is also available for use in Browser and Multistep checks.
 
 ### markCheckAsDegraded
 Marks a check as degraded if:
 - The check is failing with soft assertions, or
 - The check has no failures
 
-{{< info >}}
-If your check is failing due to a timeout or failed non-soft assertion it will be considered failing, even if `markCheckAsDegraded` is called.
-{{< /info >}}
+> If your check is failing due to a timeout or failed non-soft assertion it will be considered failing, even if `markCheckAsDegraded` is called.
 
 **Usage**
 ```ts
-    if (foo.length > 100) {
-      markCheckAsDegraded('Foo is too long.')
-    }
+if (foo.length > 100) {
+  markCheckAsDegraded('Foo is too long.')
+}
 ```
 
 **Arguments**
@@ -51,9 +47,9 @@ Gets the request response time.
 
 **Usage**
 ```ts
-    if (getAPIResponseTime(response) > 100) {
-      markCheckAsDegraded('Response was too slow.')
-    }
+if (getAPIResponseTime(response) > 100) {
+  markCheckAsDegraded('Response was too slow.')
+}
 ```
 
 **Arguments**

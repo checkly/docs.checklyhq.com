@@ -51,11 +51,10 @@ With Google pushing for a faster web, [the Web Vitals metrics](https://web.dev/v
 
 Google recommends focusing on the three most important ones – Largest Contentful Paint (LCP), First Input Delay (FID) and Cumulative Layout Shift (CLS). **These three metrics are considered the Core Web Vitals** and give a good idea of a page’s loading behavior, interactivity, and visual stability.
 
-{{< warning >}}
-Not all of Google's Web Vitals are suitable for synthetic monitoring and performance testing.
+>[!NOTE]
+> Not all of Google's Web Vitals are suitable for synthetic monitoring and performance testing.
+> **First Input Delay** relies on user interactions, and it's best measured using real user monitoring. Use **Total Blocking Time** as an interactivity metric in a lab setting instead.
 
-**First Input Delay** relies on user interactions, and it's best measured using real user monitoring. Use **Total Blocking Time** as an interactivity metric in a lab setting instead.
-{{</ warning >}}
 ## Web Performance evaluation with headless tools
 
 As much as we should be striving to build performant applications, we should commit to monitoring and testing performance to enable continuous feedback and rapid intervention in case of degradation. Playwright provides a great toolkit to power synthetic monitoring and performance testing.
@@ -178,11 +177,9 @@ The Navigation Timing and the Resource Timing performance APIs are W3C specifica
 
 [The Largest Contentful Paint API](https://developer.mozilla.org/en-US/docs/Web/API/Largest_Contentful_Paint_API) provides information on all large paints. Use this API to evaluate the Core Web Vital [Largest Contentful Paint](https://web.dev/lcp/) (LCP).
 
-{{< info >}}
-Large contentful paints are not a single event but rather event streams. A large paint can always be followed by an even larger one.
 
-To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-contentful-paint` entries and access the last emitted paint.
-{{</ info >}}
+> Large contentful paints are not a single event but rather event streams. A large paint can always be followed by an even larger one.
+> To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-contentful-paint` entries and access the last emitted paint.
 
 ```ts {title="largest-contentful-paint.spec.ts"}
 {{% readfile filename="samples/playwright/basic-performance-largest-contentful-paint.spec.ts" %}}
@@ -193,9 +190,7 @@ To evaluate the LCP initialize a `PerformanceObserver`, observe `largest-content
 
 [The Layout Instability API](https://developer.mozilla.org/en-US/docs/Web/API/Layout_Instability_API) provides information on all layout shifts. Use this API to evaluate the Core Web Vital [Cumulative Layout Shift](https://web.dev/cls/) (CLS).
 
-{{< info >}}
-Layout shifts are no single event but event streams. To calculate CLS initialize a `PerformanceObserver`, observe `layout-shift` entries and sum all shifts.
-{{</ info >}}
+> Layout shifts are no single event but event streams. To calculate CLS initialize a `PerformanceObserver`, observe `layout-shift` entries and sum all shifts.
 
 ```ts {title="basic-performance-layout-shift.spec.ts"}
 {{% readfile filename="samples/playwright/basic-performance-layout-shift.spec.ts" %}}
@@ -206,9 +201,7 @@ Layout shifts are no single event but event streams. To calculate CLS initialize
 
 [The Long Task API](https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API) provides information about all JavaScript executions taking 50 milliseconds or more. Use this API to evaluate the Web Vital and lab metric [Total Blocking Time](https://web.dev/tbt/) (TBT).
 
-{{< info >}}
-Long Tasks are no single event but event streams. To calculate TBT initialize a `PerformanceObserver`, observe `longtasks` entries and sum the differences to the maximal JavaScript execution time of 50 milliseconds.
-{{</ info >}}
+> Long Tasks are no single event but event streams. To calculate TBT initialize a `PerformanceObserver`, observe `longtasks` entries and sum the differences to the maximal JavaScript execution time of 50 milliseconds.
 
 ```ts {title="basic-performance-long-task.spec.ts"}
 {{% readfile filename="samples/playwright/basic-performance-long-task.spec.ts" %}}

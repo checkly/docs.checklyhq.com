@@ -16,7 +16,7 @@ Note that for most workloads (API checks, browser checks, etc.) the IPv6 stack i
 
 You can actually influence this behaviour in a browser check by passing the `--host-resolver-rules` flag to a `chromium` instance. In the code example below, we force the browser to use IPv4, whereas the host `dual.tlund.se` is reachable over both IPv4 and IPv6.
 
-```ts
+```ts {title="resolver.spec.ts"}
 import { test, chromium } from '@playwright/test'
 
 test('Set host resolver to IPv4', async () => {

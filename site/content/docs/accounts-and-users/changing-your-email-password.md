@@ -26,9 +26,8 @@ The simplest way to achieve this is to:
 
 ## Changing your password
 
-{{<warning>}}
-Changing your password is not available on SSO connections or social login providers like Google and GitHub. Password changes are only available for users who have signed up with an email and password.
-{{</warning>}}
+> [!WARNING]
+> Changing your password is not available on SSO connections or social login providers like Google and GitHub. Password changes are only available for users who have signed up with an email and password.
 
 To change your password, follow these steps:
 

@@ -15,7 +15,7 @@ aliases:
 A `Project` defines core settings and defaults for the CLI and other constructs like Checks. In many cases, you can just
 use set defaults for your Checks in the `checks` property and override them occasionally at the Check or CheckGroup level.
 
-```ts
+```ts {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
 import { Frequency } from 'checkly/constructs'
 
@@ -117,9 +117,7 @@ The file hierarchy looks as follows:
 │   ├── teardown.ts
 ```
 
-```ts
-// hello-api.check.ts
-
+```ts {title="hello-api.check.ts"}
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -232,7 +230,7 @@ A heartbeat check is a passive check type that expects pings from an external so
 
 You can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats) or the CLI output of [`checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy).
 
-```ts
+```ts {title="heartbeat.check.ts"}
 import { HeartbeatCheck } from 'checkly/constructs'
 
 new HeartbeatCheck('heartbeat-check-1', {
@@ -262,7 +260,7 @@ However, you can override these global settings and configure individual Browser
 types. The most important thing is to set the `code.entrypoint` property and point it to your Playwright `.spec.js|ts` file.
 This property supports relative and absolute paths.
 
-```ts
+```ts {title="browser.check.ts"}
 import { BrowserCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -283,11 +281,9 @@ raw JavaScript / TypeScript as a string.
 
 Similar to Browser checks, Multistep checks uses [`@playwright/test`](https://playwright.dev/) to define the script which the check runs, but Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file.
 
-{{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
-{{< /info >}}
+> Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 
-```ts
+```ts {title="multistep.check.ts"}
 import { MultiStepCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -327,7 +323,7 @@ You can add a Check to a group in two ways.
 2. For Browser Checks, we allow you to use the `testMatch` glob pattern to include any `.spec.js|ts` file, without having to
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
-```ts
+```ts {title="group.check.ts"}
 import { CheckGroup, ApiCheck, Frequency } from 'checkly/constructs'
 
 const group = new CheckGroup('check-group-1', {
@@ -420,7 +416,7 @@ You can obtain the ID for your alert channel either from the Checkly web UI or b
 
 Sends SMS notifications to phone number. Make sure to use standard international notation.
 
-```ts
+```ts {title="alert-channel.ts"}
 import { SmsAlertChannel } from 'checkly/constructs'
 
 const smsChannel = new SmsAlertChannel('sms-channel-1', {
@@ -435,7 +431,7 @@ const smsChannel = new SmsAlertChannel('sms-channel-1', {
 
 Sends phone call notifications to phone number. Make sure to use standard international notation.
 
-```ts
+```ts {title="alert-channel.ts"}
 import { PhoneCallAlertChannel } from 'checkly/constructs'
 
 const callChannel = new PhoneCallAlertChannel('call-channel-1', {
@@ -449,7 +445,7 @@ const callChannel = new PhoneCallAlertChannel('call-channel-1', {
 
 Sends email notifications to an email address. Only accepts one address, do not use multiple addresses separated by a comma.
 
-```ts
+```ts {title="alert-channel.ts"}
 import { EmailAlertChannel } from 'checkly/constructs'
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
@@ -476,7 +472,7 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
 
 Sends a webhook to any URL. Webhooks are very powerful and have quite some options. Here is an example that send
 
-```ts
+```ts {title="webhook-channel.ts"}
 import { WebhookAlertChannel } from 'checkly/constructs'
 
 const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
@@ -507,7 +503,7 @@ const webhookChannel = new WebhookAlertChannel('webhook-channel-1', {
 
 Sends an alert notification to your Opsgenie account.
 
-```ts
+```ts {title="opsgenie-channel.ts"}
 import { OpsgenieAlertChannel } from 'checkly/constructs'
 
 const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
@@ -529,7 +525,7 @@ const opsGenieChannel = new OpsgenieAlertChannel('opsgenie-channel-1', {
 
 Sends an alert notification to a specific service in your Pagerduty account
 
-```ts
+```ts {title="pagerduty-channel.ts"}
 import { PagerdutyAlertChannel } from 'checkly/constructs'
 
 const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
@@ -551,7 +547,7 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
 
-```ts
+```ts {title="maintenance-window.ts"}
 import { MaintenanceWindow } from 'checkly/constructs'
 
 new MaintenanceWindow('maintenance-window-1', {
@@ -580,7 +576,7 @@ new MaintenanceWindow('maintenance-window-1', {
 
 Creates a dashboard allowing you to display checks and their related metrics on a single page.
 
-```ts
+```ts {title="dashboard.ts"}
 import * as path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 import { Dashboard } from 'checkly/constructs'
@@ -597,8 +593,7 @@ new Dashboard('acme-dashboard-1', {
 ```
 You can add custom CSS by referencing a CSS file. Note, this is only available on Team and Enterprise plans.
 
-```css
-/* dashboard.css */
+```css {title="dashboard.css"}
 .header {
   background: #080808;
   border-bottom-color: #313035;
@@ -640,8 +635,7 @@ This is required if `customUrl` is not specified.
 
 Creates a Private Location, so you can deploy one or more Checkly Agents on-prem, in a VPC or any segregated network.
 
-```ts
-// private-location.check.ts
+```ts {title="private-location.ts"}
 import { PrivateLocation } from 'checkly/constructs'
 
 export const myPrivateLocation = new PrivateLocation('private-location-1', {
@@ -653,7 +647,7 @@ export const myPrivateLocation = new PrivateLocation('private-location-1', {
 
 Use the new private location in a Check:
 
-```ts
+```ts {title="api.check.ts"}
 import * as path from 'path'
 import { ApiCheck, AssertionBuilder } from 'checkly/constructs'
 import { myPrivateLocation } from './private-location.check'
@@ -678,11 +672,11 @@ new ApiCheck('local-api-1', {
   }
 })
 ```
-{{< info >}}
-Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the
-instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
-project or created via the Web UI, you can pass in the `slugName` string.
-{{< /info >}}
+
+> Note that the `privateLocations` property on any `Check` construct directly accepts `PrivateLocation` instances if the
+> instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
+> project or created via the Web UI, you can pass in the `slugName` string.
+
 
 - `name`: A friendly name for your private location.
 - `slugName`: A valid unique slug name.
@@ -700,7 +694,7 @@ Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) c
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
 As an example, you can configure a check to retry up to 4 times, in different regions, with waits of 30 seconds, 60 seconds, 90 seconds, and 120 seconds between attempts:
 
-```ts
+```ts {title="api.check.ts"}
 import { ApiCheck, RetryStrategyBuilder } from 'checkly/constructs'
 
 new ApiCheck('retrying-check', {
@@ -740,7 +734,7 @@ Alert escalation policies can be added to [Check](#check) and [CheckGroup](#chec
 To build `AlertEscalationPolicy` objects you should use the `AlertEscalationBuilder`, which provides helper methods for configuring alert settings.
 As an example, you can configure an alert policy to notify you when a check run has failed twice consecutively, and with 2 reminders each 5 minutes apart.
 
-```ts
+```ts ts {title="api.check.ts"}
 import { AlertEscalationBuilder, ApiCheck } from 'checkly/constructs'
 
 new ApiCheck('alerting-check', {

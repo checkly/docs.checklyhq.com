@@ -38,14 +38,11 @@ You can add as many phone number channels as you like.
 | United Kingdom (+44)        |
 | United States (+1)          |
 
-{{< warning >}}
+>[!NOTE]
 If your country is not supported feel free to reach out to our [support team](mailto:support@checklyhq.com).
-{{< /warning >}}
 
 ## Phone call number and sender ID
 
 Phone call alerts always use the following number: +18142508623. You can save the number as a contact to allow alerts bypassing any do-not-disturb settings.
 
-{{< info >}}
-For limits and other phone call related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing/#features).
-{{< /info >}}
+> For limits and other phone call related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing/#features).

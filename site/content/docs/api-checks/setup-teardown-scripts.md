@@ -16,9 +16,7 @@ like `moment`, `axios` and `lodash`.
 To get the most power out of API checks with setup and teardown scripts, we advise using [the Checkly CLI](/docs/cli).
 However, you can also use them [via our web UI](#using-setup-and-teardown-scripts-via-the-ui)
 
-{{<info >}}
-Setup and teardown scrips have a **maximum execution time of 10 seconds**.
-{{</info >}}
+> Setup and teardown scrips have a **maximum execution time of 10 seconds**.
 
 Check the video below for a quick overview of using setup and teardown scripts through the web UI and  with the CLI.
 
@@ -69,8 +67,7 @@ Your folder structure would look as follows:
 
 The API check performs a `GET` on an authenticated API endpoint, in this case `https://api.acme.com/v1.products`.
 
-```ts
-// api.check.ts
+```ts {title="api.check.ts"}
 import { ApiCheck } from '@checkly/cli/constructs'
 import * as path from 'path'
 
@@ -90,8 +87,7 @@ The setup script uses the auth client and sets the `Authentication` header with 
 - The `request` object is a global variable, injected at runtime. See the [request reference](#request) below for more details
 - You need to use a top-level `await` statement as the `getToken()` function returns a `Promise`.
 
-```ts
-// setup.ts
+```ts {title="setup.ts",
 import { getToken } from './common/auth-client'
 const token = await getToken()
 request.headers['Authentication'] = `Bearer ${token}`
@@ -101,8 +97,7 @@ The actual auth client doesn't do anything Checkly specific, besides reading a s
 that authenticates the request to the server issuing session tokens. You should store that static token in [your global
 environment variables](/docs/api-checks/variables/#managing-variables).
 
-```ts
-// common/auth-client.ts
+```ts {title="common/auth-client.ts"}
 import axios from 'axios'
 
 export async function getToken () {

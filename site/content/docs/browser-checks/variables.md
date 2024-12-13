@@ -28,11 +28,9 @@ Add variables specific to a Check variables on the **Variables** tab for each br
 
 ![add local variables](/docs/images/browser-checks/check-environment-variables.png)
 
-{{< markdownpartial "_shared/group-global-variables.md" >}}
+{{% markdownpartial "_shared/group-global-variables.md" %}}
 
-{{<info >}}
-Whenever possible, store variables at the global level. This DRY's up your code.
-{{</info>}}
+> Whenever possible, store variables at the global level. This DRY's up your code.
 
 Any data you "lock" is encrypted at rest and in flight on our back end and is only decrypted when needed. 
 Locked environment variables can only be accessed by team members with [Read & Write access](/docs/accounts-and-users/) or above.
@@ -47,7 +45,7 @@ For example, the code snippet below show how you can log into GitHub. We have mo
 
 {{< tabs "Variables example" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts  {title="variables.spec.ts"}
 import { test } from '@playwright/test'
 
 test('Github login', async ({ page }) => {
@@ -59,7 +57,7 @@ test('Github login', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js  {title="variables.spec.js"}
 const { test } = require('@playwright/test')
 
 test('Github login', async ({ page }) => {

@@ -10,9 +10,7 @@ menu:
 
 If you are using or planning to use Terraform to manage your monitoring resources, chances are you will be using it in some sort of shared pipeline. This page aims to show how to get up and running with different CI/CD tools.
 
-{{<info>}}
-The Terraform and the Checkly Terraform provider work seamlessly with all major CI servers. Even if your tool of choice is not listed below, Terraform and the provider will very likely still integrate with it without issues.
-{{</info>}}
+> The Terraform and the Checkly Terraform provider work seamlessly with all major CI servers. Even if your tool of choice is not listed below, Terraform and the provider will very likely still integrate with it without issues.
 
 ## Handling remote state
 
@@ -61,6 +59,6 @@ Any new push to the default branch of the repository will now result in your lat
 
 ![terraform cloud apply report](/docs/images/terraform-provider/cicd-3.png)
 
-{{<info>}}
-This is a v1 page. We will be adding further guides on how to integrate with other CI servers going forward.
-{{</info>}}
+
+> This is a v1 page. We will be adding further guides on how to integrate with other CI servers going forward.
+
