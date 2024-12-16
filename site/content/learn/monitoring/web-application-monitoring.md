@@ -1,7 +1,7 @@
 ---
 title: Web Application Monitoring - Types, Benefits & Top 10 Tools
 displayTitle: Critical metrics for monitoring Kubernetes
-navTitle:  Frontend Monitoring
+navTitle:  Web Application Monitoring
 description: Explore web application monitoring to boost performance and reliability with real user insights, performance tracking, and top tools.
 date: 2024-12-15
 author: Nocnica Mellifera
