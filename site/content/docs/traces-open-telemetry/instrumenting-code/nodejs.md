@@ -33,8 +33,7 @@ npm install --save \
 
 Create a file called `tracing.js` at the root of your project and add the following code:
 
-```javascript
-// tracing.js
+```javascript {title="tracing.js"}
 const { NodeSDK } = require('@opentelemetry/sdk-node')
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto')
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node')

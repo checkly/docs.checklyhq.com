@@ -24,9 +24,7 @@ Current locations in Checkly are
 |                              | Bahrain (me-south-1)      | Mumbai (ap-south-1)        |
 |                              | Cape Town (af-south-1)    | Jakarta (ap-southeast-3)   |
 
-{{< info >}}
-Learn more about <a href="/docs/private-locations/">private locations</a> to monitor your private and segregated applications and APIs.
-{{< /info >}}
+> Learn more about <a href="/docs/private-locations/">private locations</a> to monitor your private and segregated applications and APIs.
 
 ## Scheduling strategies
 

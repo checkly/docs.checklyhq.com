@@ -14,10 +14,9 @@ menu:
     parent: "CI/CD integration"
 ---
 
-{{< warning >}}
-Command line triggers are deprecated in favour of using the [Checkly CLI](/docs/cli). You can use the `npx checkly trigger` command
-as a drop-in replacement. [See the reference for `trigger` command](/docs/cli/command-line-reference/#npx-checkly-trigger)
-{{< /warning >}}
+>[!WARNING]
+> Command line triggers are deprecated in favour of using the [Checkly CLI](/docs/cli). You can use the `npx checkly trigger` command
+> as a drop-in replacement. [See the reference for `trigger` command](/docs/cli/command-line-reference/#npx-checkly-trigger)
 
 Triggers enable you to call a check from a CI/CD pipeline, a bash shell or programmatically in your code.
 
@@ -61,15 +60,11 @@ Date: Fri, 29 Jun 2018 12:05:17 GMT
 }
 ```
 
-{{< warning >}}
-The total run time of all checks cannot exceed **30 seconds** or you will receive a timeout error.
-{{< /warning >}}
+>[!WARNING]
+> The total run time of all checks cannot exceed **30 seconds** or you will receive a timeout error.
 
-{{< warning >}}
-Triggers are rate limited to **10 requests / minute / trigger**.
-{{< /warning >}}
-
-
+>[!WARNING]
+> Triggers are rate limited to **10 requests / minute / trigger**.
 
 ## Optional deployment parameters
 

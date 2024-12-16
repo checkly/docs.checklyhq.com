@@ -14,10 +14,7 @@ cli: true
 Scenarios where a user provides credentials to get access to a web app are extremely common. They are also
 a great candidate for a browser check as these site transactions tend to be very crucial.
 
-
-{{<info>}}
-Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/#vercel-authentication) on how to make this work with Checkly.
-{{</info>}}
+> Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/#vercel-authentication) on how to make this work with Checkly.
 
 To get started, check out the video below 👇
 
@@ -29,7 +26,7 @@ The code snippet below shows how you can log into GitHub.
 
 {{< tabs "Basic login" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="login.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Login into Github', async ({ page }) => {
@@ -47,7 +44,7 @@ test('Login into Github', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="login.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Login into Github', async ({ page }) => {
@@ -73,7 +70,7 @@ Better to replace them with some environment variables. Read more about [how to 
 
 {{< tabs "Using environment variables" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="envvars.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Login into Github', async ({ page }) => {
@@ -91,7 +88,7 @@ test('Login into Github', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="envvars.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Login into Github', async ({ page }) => {
@@ -119,7 +116,7 @@ below uses the Google social login option on the Checkly login page.
 {{< tabs "Social login" >}}
 
 {{< tab "Typescript" >}}
-```ts
+```ts {title="social.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Login into Checkly with Google social login', async ({ page }) => {
@@ -142,7 +139,7 @@ test('Login into Checkly with Google social login', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="social.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Login into Checkly with Google social login', async ({ page }) => {

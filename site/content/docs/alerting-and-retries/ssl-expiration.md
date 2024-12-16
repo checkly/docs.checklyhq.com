@@ -28,10 +28,9 @@ Some tips on using SSL alerts
 The domain for the certificate is parsed from the `URL` in the HTTP request settings so it does not require any setup.
 
 
-{{<warning>}}
-When using [environment variables in the URL](/docs/api-checks/variables/#accessing-variables-in-api-checks), make sure that the domain is fully specified.
-SSL monitoring cannot parse the domain from a URL like `{{BASE_URL}}/test-endpoint`, but using environment variables in other parts of the URL like `https://checklyhq.com/{{TEST_PATH}}` works.
-{{</warning>}}
+> [!WARNING]
+> When using [environment variables in the URL](/docs/api-checks/variables/#accessing-variables-in-api-checks), make sure that the domain is fully specified.
+> SSL monitoring cannot parse the domain from a URL like `{{BASE_URL}}/test-endpoint`, but using environment variables in other parts of the URL like `https://checklyhq.com/{{TEST_PATH}}` works.
 
 ### Getting `Error: unable to verify the first certificate`
 If prompted with this error, the usual cause is the certificate chain of the given website being incomplete. This will

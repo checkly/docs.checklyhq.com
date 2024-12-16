@@ -28,6 +28,4 @@ After configuration has taken place on Checkly's side, you will receive confirma
 
 After submitting the Checkly login form, you should be redirected to your SSO login interface. Completing the login procedure will then lead you to your existing Checkly account, if you have one, or to the new account creation screen, in case you don't.
 
-{{< info >}}
-Once Microsoft Azure AD has been set up, you will still need to invite new users from your organization to your Checkly account, as they will not be added automatically.
-{{< /info >}}
+> Once Microsoft Azure AD has been set up, you will still need to invite new users from your organization to your Checkly account, as they will not be added automatically.

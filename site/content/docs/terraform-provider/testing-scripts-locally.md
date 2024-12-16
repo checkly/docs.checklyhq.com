@@ -35,7 +35,7 @@ Basic checks written with `@playwright/test` will run locally with `npx playwrig
 
 {{< tabs "Basic Example" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="basic.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('Should load the web store', async ({ page }) => {
@@ -46,7 +46,7 @@ test('Should load the web store', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
+ ```js {title="basic.spec.js"}
 const { test, expect } = require('@playwright/test')
 
 test('Should load the web store', async ({ page }) => {
@@ -72,7 +72,7 @@ scripts /
 
 {{< tabs "Shopping Cart POM" >}}
 {{< tab "TypeScript" >}}
- ```ts  
+ ```ts {title="shopping.spec.ts"}
 import { type Locator, type Page } from '@playwright/test'
 
 export class ShoppingCart {
@@ -91,7 +91,7 @@ export class ShoppingCart {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
+ ```js {title="shopping.spec.js"}
 export class ShoppingCart {
   constructor ({ page }) {
 
@@ -111,7 +111,7 @@ export class ShoppingCart {
 
 {{< tabs "Checkout.spec.ts" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="checkout.spec.ts"}
 import { test, expect } from '@playwright/test'
 import { ShoppingCart } from './snippets/shoppingCart'
 
@@ -127,7 +127,7 @@ test('Shopping cart should be empty by default', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
+ ```js {title="checkout.spec.js"}
 const { test, expect } = require('@playwright/test')
 const { ShoppingCart } = require('./snippets/shoppingCart')
 
@@ -153,11 +153,8 @@ resource "checkly_snippet" "shopping_cart" {
 }
 ```
 
-{{<info>}}
-What's worth noting:
-
-- Checkly will infer the name for the snippet file based on the `name` property of the resource schema. Hence, it's best to name it the same as the local file.
-- The `./snippets/` path is where Checkly will make your snippets available. Use this directory in your Terraform setup to keep things consistent.
-{{</info>}}
+> What's worth noting
+> - Checkly will infer the name for the snippet file based on the `name` property of the resource schema. Hence, it's best to name it the same as the local file.
+> - The `./snippets/` path is where Checkly will make your snippets available. Use this directory in your Terraform setup to keep things consistent.
 
 If you'd like to store the snippet files in a different directory, using environment variables to define the paths for local and remote execution could be a solution. 

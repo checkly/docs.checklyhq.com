@@ -17,10 +17,7 @@ The [Checkly Terraform provider](https://github.com/checkly/terraform-provider-c
 If you prefer, you can also clone our [sample repository](https://github.com/checkly/checkly-terraform-getting-started) and play around with the resources on your own.
 For in-depth information on Terraform, please see HashiCorp's [official documentation](https://developer.hashicorp.com/terraform/docs).
 
-{{<info>}}
-Looking for Monitoring as Code but don't want to use Terraform? Give our [CLI solution](/docs/cli/) a try.
-{{</info>}}
-
+> Looking for Monitoring as Code but don't want to use Terraform? Give our [CLI solution](/docs/cli/) a try.
 
 ## Installation
 
@@ -29,12 +26,12 @@ To get started, you first need to install [Terraform](https://www.terraform.io/d
 Next, switch to a new folder for your project, and create your `main.tf` file:
 
 ```bash
-$ mkdir terraform-checkly-getting-started && cd $_ && touch main.tf
+mkdir terraform-checkly-getting-started && cd $_ && touch main.tf
 ```
 
 Start by adding the following to your `main.tf`:
 
-```terraform
+```terraform {title="main.tf"}
 terraform {
   required_providers {
     checkly = {
@@ -62,7 +59,7 @@ First, you will need an API Key for your Checkly user. Go to the [API keys tab](
 Get your User API key and add it to your env using your terminal:
 
 ```bash
-$ export TF_VAR_checkly_api_key=cu_xxx
+export TF_VAR_checkly_api_key=cu_xxx
 ```
 
 You also need to set your target account ID, which you can find under your [account settings](https://app.checklyhq.com/settings/account/general). 
@@ -72,7 +69,7 @@ You also need to set your target account ID, which you can find under your [acco
 If you don't have access to account settings, please contact your account owner/admin.
 
 ```bash
-$ export TF_VAR_checkly_account_id=xxx
+export TF_VAR_checkly_account_id=xxx
 ```
 
 Running `terraform init` will install the Checkly Terraform provider for you, as well as initialising your project. The output will look similar to the following:
@@ -106,7 +103,7 @@ You can now start adding resources to your file. You can check the official docu
 
 As an example, you could add a basic browser check resource at the bottom of your `main.tf`.
 
-```terraform
+```terraform {title="main.tf"}
 resource "checkly_check" "browser-check-1" {
   name                      = "Example check"
   type                      = "BROWSER"
@@ -175,7 +172,7 @@ Your Checkly account should now show the first check up and running:
 
 You can also add an API check to monitor an API endpoint:
 
-```terraform
+```terraform {title="main.tf"}
 resource "checkly_check" "example-check" {
   name                      = "Example check"
   type                      = "API"
@@ -253,7 +250,6 @@ You can now run `terraform apply` for the last time and have Terraform create yo
 
 Congratulations! You have created your first Checkly monitoring setup using Terraform.
 
-{{<warning>}}
-Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both.
-Modifying Terraform-managed resources via the UI, and , is likely to cause issues.
-{{</warning>}}
+> [!WARNING]
+> Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both.
+> Modifying Terraform-managed resources via the UI, and , is likely to cause issues.

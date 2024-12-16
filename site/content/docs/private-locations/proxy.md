@@ -13,10 +13,8 @@ If you are operating our [Checkly Agent](/docs/private-locations/) behind an HTT
 for example in an enterprise environment, you can use an outgoing proxy for all check traffic. We recommend using the following
 setup.
 
-{{< info >}}
-Note you can also define a proxy for management traffic from your private location to the Checkly API where we ingest
-your telemetry and management events. See [the environment variables available to the Checkly Agent container](/docs/private-locations/checkly-agent-guide/#checkly-agent-environment-variables)
-{{< /info >}}
+> Note you can also define a proxy for management traffic from your private location to the Checkly API where we ingest
+> your telemetry and management events. See [the environment variables available to the Checkly Agent container](/docs/private-locations/checkly-agent-guide/#checkly-agent-environment-variables)
 
 ## Setting an HTTP proxy for your Private Location
 
@@ -41,7 +39,7 @@ notation and Playwright Test's `test.use()` method:
 
 {{< tabs "Proxy Settings" >}}
   {{< tab "TypeScript" >}}
-```typescript
+```typescript {title="use-proxy.spec.ts"}
 import { test } from '@playwright/test'
 
 test.use({
@@ -56,7 +54,7 @@ test('Go to google.com', async ({ page }) => {
 ```
   {{< /tab >}}   
   {{< tab "JavaScript" >}}
-```javascript
+```javascript {title="use-proxy.spec.js"}
 const { test } = require('@playwright/test')
 
 test.use({

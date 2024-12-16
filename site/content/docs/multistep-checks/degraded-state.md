@@ -24,9 +24,9 @@ To catch errors that are relevant for a degraded scenario you can use soft asser
 
 A check is marked as degraded when `markCheckAsDegraded` is called and there are no regular assertions triggered.
 
-In this example we trigger a soft assertion if the API responsetime is too slow. We can get the response time by calling `getAPIResponseTime` with the request response as the parameter. At the end of the check we mark the check as degraded if any errors have been triggered during the test.
+In this example we trigger a soft assertion if the API response time is too slow. We can get the response time by calling `getAPIResponseTime` with the request response as the parameter. At the end of the check we mark the check as degraded if any errors have been triggered during the test.
 
-```ts
+```ts  {title="degraded-multistep.spec.ts"}
 import { test, expect } from "@playwright/test"
 import { getAPIResponseTime, markCheckAsDegraded } from "@checkly/playwright-helpers"
 

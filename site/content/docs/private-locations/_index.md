@@ -23,9 +23,7 @@ Running a check from a Private Location allows you to:
 
 Configure your checks to use your Private Location and that's it. As long as you have at least one operational Checkly Agent, checks will run in your Private Location. [Adding more agents](/docs/private-locations/scaling-and-redundancy/) will distribute the load and improve resilience automatically.
 
-{{< info >}}
-Your Checkly user account must be either an **Owner** or **Admin** to create Private Locations.
-{{< /info >}}
+> Your Checkly user account must be either an **Owner** or **Admin** to create Private Locations.
 
 ## Requirements
 
@@ -70,9 +68,7 @@ docker run -e API_KEY="pl_...." -d checkly/agent:latest`
 
 You can configure any check to run on a Private Location by adding the slug name to the `privateLocations` array. For example
 
-```ts
-// api.check.ts
-
+```ts {title="api.check.ts"}
 import { ApiCheck } from 'checkly/constructs'
 
 new ApiCheck('hello-api-1', {

@@ -39,11 +39,8 @@ Now, go to the **CI/CD tab** of the check you want to link to a GitHub repositor
 
 6. You will also get an overview of the check result in the *details* section
 ![set up GitHub integration step 6](/docs/images/cicd/github_setup_6.png)
-
-
-{{<info >}}
-You can hook up multiple checks to the same repo. We will just run all of them as a test suite.
-{{</info>}}
+ 
+> You can hook up multiple checks to the same repo. We will just run all of them as a test suite.
 
 ## Using environment URLs
 
@@ -73,7 +70,7 @@ variable in your code to replace any hardcoded URL you might have, i.e.:
 
 {{< tabs "Environment example" >}}
 {{< tab "Typescript" >}}
-```ts {hl_lines=[4]}
+```ts {title="test.spec.ts", hl_lines=[4]}
 import { expect, test } from '@playwright/test'
 
 test('assert response status of page', async ({ page }) => {
@@ -85,7 +82,7 @@ test('assert response status of page', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js {hl_lines=[4]}
+```js {title="test.spec.ts", hl_lines=[4]}
 const { expect, test } = require('@playwright/test')
 
 test('assert response status of page', async ({ page }) => {

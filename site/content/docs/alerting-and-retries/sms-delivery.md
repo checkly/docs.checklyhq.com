@@ -167,6 +167,4 @@ You can add as many SMS channels as you like.
 
 SMS alerts will be sent with a sender ID and phone number. The Checkly sender ID is 'Checkly'. If your carrier does not support sender ID, you will instead see the Checkly SMS alert phone number, +1(814) 250 8623.
 
-{{< info >}}
-For limits and other SMS-related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing/#features).
-{{< /info >}}
+> For limits and other SMS-related questions, please refer to our [Pricing page](https://www.checklyhq.com/pricing/#features).

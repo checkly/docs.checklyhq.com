@@ -31,13 +31,11 @@ Monitoring your API user flows instead of individual endpoints gives confidence 
 
 Multistep checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API checks in the form of a programmable `@playwright/test` check.
 
-{{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
-{{< /info >}}
+> Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 
 The following code is a valid Multistep check using Playwright Test. It creates and deletes an API resource in a single run.
 
-```ts
+```ts {title="multistep.spec.ts"}
 import { test, expect } from '@playwright/test' // 1
 
 const headers = { // 2
@@ -81,9 +79,8 @@ Let's look at the code above step by step.
 
 **4. Declare our first `test.step`:** The test step uses the `request` to perform a `get` request, using the headers we defined earlier.
 
-{{< warning >}}
-Always use `await` before `test.step`, otherwise the test will fail.
-{{< /warning >}}
+>[!NOTE]
+> Always use `await` before `test.step`, otherwise the test will fail.
 
 **5. Define our assertion:** Use the `expect(response)` method to assert if the response was successful (The response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
 
@@ -97,10 +94,8 @@ If you want to build on the above example, you can add additional assertions, en
 
 A valid Multistep check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
 
-{{< info >}}
-Valid Playwright Test API scripts are the foundation of a valid Multistep check. If the script passes, your check passes.
-If the script fails, your check fails.
-{{< /info >}}
+> Valid Playwright Test API scripts are the foundation of a valid Multistep check. If the script passes, your check passes.
+> If the script fails, your check fails.
 
 ### Structuring a Multistep check
 
@@ -112,7 +107,7 @@ To preserve test isolation and provide a structured report view of Multistep che
 
 To provide actionable and easy to read check run reports we recommend using the `test.step()` structure when writing Multistep checks.
 
-```ts
+```ts  {title="multisteps.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 const baseUrl = 'https://api.checklyhq.com/v1'

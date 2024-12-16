@@ -40,9 +40,7 @@ any other traffic.
 
 Note the code in the `post_fork` function. This will instrument your Django app with OpenTelemetry.
 
-```python
-# gunicorn.config.py
-
+```python {title="gunicorn.config.py"}
 from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.trace.sampling import Sampler, SamplingResult, Decision
@@ -80,7 +78,7 @@ pip install uwsgidecorators
 
 And then add the following code to your `wsgi.py` file.
 
-```python
+```python {title="wsgi.py"}
 from uwsgidecorators import postfork
 from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter

@@ -35,8 +35,7 @@ this comes with some peculiarities that are native to GH Actions and a bit diffe
 for instance.
 - We have no access to the original pull request that triggered the deployment event.
 
-```yaml
-# .github/checkly.yml
+```yaml {title="github/checkly.yml"}
 name: 'checkly'
 on: [deployment_status]
 
