@@ -309,8 +309,7 @@ This brings the following benefits:
 
 1. Your Checks are organized in a folder in the Checkly web UI.
 2. You can trigger all Checks in a group from the web UI and via a command line trigger.
-3. You can manage group-level configuration like the runtime, activated & muted-state, tags and alert channels that trickle
-   down to all the Checks in the group.
+3. Group-level configurations such as the runtime, activated & muted state, tags, and alert channels **are inherited by all Checks in the group**. These configurations cannot be overwritten at the individual Check level when the Check is part of a group.
 
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need
 Check Groups for that purpose.
@@ -370,7 +369,7 @@ new ApiCheck('check-group-api-check-1', {
 
 > When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
 
-> Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separatelly.
+> Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
 
 ## `AlertChannel`

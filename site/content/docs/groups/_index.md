@@ -23,6 +23,8 @@ Example use cases for groups are organizing your checks around:
 - A specific feature in your app
 - A test suite; trigger all checks after a deployment
 
+> When using groups, any group-level configurations such as the runtime, activated & muted state, tags, and alert channels are inherited by all Checks in the group. These configurations cannot be overwritten at the individual Check level when the Check is part of a group.
+
 ## Key features
 
 The screenshot below gives a quick overview of the groups' key features.
