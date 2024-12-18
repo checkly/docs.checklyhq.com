@@ -309,7 +309,7 @@ This brings the following benefits:
 
 1. Your Checks are organized in a folder in the Checkly web UI.
 2. You can trigger all Checks in a group from the web UI and via a command line trigger.
-3. Group-level configurations such as the runtime, activated & muted state, tags, and alert channels **are inherited by all Checks in the group**. These configurations cannot be overwritten at the individual Check level when the Check is part of a group.
+3. Group-level configurations such as the runtime, activated & muted state, tags, and alert channels **are inherited by all Checks in the group**. These configurations cannot be overwritten at the individual Check level when the Check is part of a group. This means a check within a group with no connected alert channels *will not alert*.
 
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need
 Check Groups for that purpose.
