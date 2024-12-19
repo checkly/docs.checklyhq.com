@@ -309,11 +309,12 @@ This brings the following benefits:
 
 1. Your Checks are organized in a folder in the Checkly web UI.
 2. You can trigger all Checks in a group from the web UI and via a command line trigger.
-3. You can manage group-level configuration like the runtime, activated & muted-state, tags and alert channels that trickle
-   down to all the Checks in the group.
+3. You can manage group-level configuration like the runtime, activated & muted-state, tags and alert channels that trickle down to all the Checks in the group.
 
-> Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need
-Check Groups for that purpose.
+> [!WARNING]
+> Adding a check to a group means having it _only_ alert through the group's alert channels. Make sure your group has connected alert channels, or you might miss out on important alerts!
+
+> Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need Check Groups for that purpose.
 
 #### Adding Checks to a Check Group
 
@@ -370,7 +371,7 @@ new ApiCheck('check-group-api-check-1', {
 
 > When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
 
-> Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separatelly.
+> Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
 
 ## `AlertChannel`
