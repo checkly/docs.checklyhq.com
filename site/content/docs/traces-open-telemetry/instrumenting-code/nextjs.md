@@ -48,7 +48,7 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-Create an `instrumentation.ts` file in the root of your project, or, place in the src directory if you are using one.
+Create an `instrumentation.ts` file in the root of your project, or, place in the `src` directory if you are using one.
 And add the following code:
 
 ```ts {title="instrumentation.ts"}
