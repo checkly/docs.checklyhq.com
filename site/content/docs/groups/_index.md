@@ -23,7 +23,7 @@ Example use cases for groups are organizing your checks around:
 - A specific feature in your app
 - A test suite; trigger all checks after a deployment
 
-> When using groups, any group-level configurations such as the runtime, activated & muted state, tags, and alert channels are inherited by all Checks in the group. These configurations cannot be overwritten at the individual Check level when the Check is part of a group. This means a check within a group with no connected alert channels *will not alert*.
+> When using groups, any group-level configurations such as the runtime, activated & muted state, tags, and alert channels are inherited by all Checks in the group. 
 
 ## Key features
 
@@ -40,7 +40,10 @@ The screenshot below gives a quick overview of the groups' key features.
     5. CI/CD triggers
 3. **Run all checks in one go** with a configurable concurrency.
 4. Tweak checks in the inline "mini editor" to **quickly build up a group of similar checks**
-5. Use a **common base URL** for your API checks      
+5. Use a **common base URL** for your API checks    
+
+> [!WARNING]
+> Alert settings being controlled at group level means that a check that is part of a group that has no connected alert channels *will not alert*.
 
 ## How we run grouped checks
 
