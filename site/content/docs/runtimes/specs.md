@@ -14,12 +14,12 @@ cli: true
 By default, all our runners have their timezone set to UTC, regardless of their location.
 
 ## Resource limitations
-Each Browser and Multistep check can use up to `2.9 GiB` of memory and `2 vCPU` cores. This limit applies to all processes
-spawned by the check, including the browser, the test framework, and the test code itself. The limit is enforced by the 
-runner and is not configurable.
+Each Playwright-powered check (Browser and Multistep) can use up to `2.7 GiB` of memory and `1678m` [milli-CPU units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu)
+. This limit applies to all processes spawned by the check, including the browser, the test framework, and the test 
+code itself. The limit is enforced by the runner and is not configurable.
 
 > When the memory limit is exceeded, the check will automatically fail with a relevant error message, for example: 
-> `Your check has reached the maximum memory usage of 2.9 GiB`.
+> `Your check has reached the maximum memory usage of 2.7 GiB`.
 
 ## Built-in Node.js modules
 The following standard Node modules are included and can be used as normal, e.g.
@@ -53,7 +53,7 @@ See the built-in module documentation on the official Node.js site (please see b
 
 These are the currently available runtimes and the included external NPM dependencies.
 
-> The packages below are included for **setup and teardown scripts** as well, with the exclusion of Playwright and `mocha`.
-> `mocha` is deprecated. Please use `@playwright/test` as a test framework instead.
+> The packages below are included for **setup and teardown scripts** as well, with the exclusion of `fs`, Playwright 
+> and `mocha`.
 
 {{% runtimes %}}
