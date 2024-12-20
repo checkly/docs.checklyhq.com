@@ -11,7 +11,7 @@ cli: true
 ---
 
 
-> **Early Access Feature**
+> **Early Access Feature:**
 > This feature is available in early access. To enable it, please reach out to our [support team](mailto:support@checklyhq.com) or connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack). We’d love to hear your feedback!
 
 
