@@ -129,14 +129,12 @@ $ echo $CHECKLY_API_KEY
 cu_xxx
 ```
 
-{{<info>}}
 If you prefer storing your configuration alongside your Pulumi stack for easy multi-user access, use `pulumi config set`.
 
+```sh
+pulumi config set checkly:apiKey cu_xxx --secret
+pulumi config set checkly:accountId xxx
 ```
-$ pulumi config set checkly:apiKey cu_xxx --secret
-$ pulumi config set checkly:accountId xxx
-```
-{{</info>}}
 
 ### Install the Checkly Pulumi Provider
 
@@ -194,7 +192,7 @@ new checkly.Check('my-api-check', {
 
 #### How to create your first Browser check
 
-```javascript
+```javascript {title="browser-check.js"}
 new checkly.Check('my-browser-check-pulumi', {
   name: 'Google.com Playwright check',
   activated: true,
@@ -256,9 +254,8 @@ Congratulations! Head to the Checkly dashboard to see the newly created checks.
 
 ![Checkly dashboard showing created checks](/docs/images/integrations/pulumi/pulumi-created-checks.png)
 
-{{<warning>}}
-Checkly resources should be managed _either_ through Pulumi _or_ the Checkly UI, not both. Modifying Pulumi-managed resources via the UI, and vice-versa, is likely to cause issues.
-{{</warning>}}
+> [!WARNING]
+> Checkly resources should be managed _either_ through Pulumi _or_ the Checkly UI, not both. Modifying Pulumi-managed resources via the UI, and vice-versa, is likely to cause issues.
 
 ## Additional resources
 

@@ -84,6 +84,4 @@ resource "checkly_check_group" "key-shop-flows" {
 }
 ```
 
-{{<info>}}
-We are working on enabling Terraform users to set up environment variables at account level, too.
-{{</info>}}
+> We are working on enabling Terraform users to set up environment variables at account level, too.

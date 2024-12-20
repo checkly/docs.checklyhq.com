@@ -25,10 +25,7 @@ Playwright provides multiple ways to record browser automation scripts. The reco
 
 ![Playwright codegen example](/samples/images/playwright-codegen.jpg)
 
-{{< info >}}
-Pro tip: if you're using [the Playwright VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright#record-new-tests), you can also record and run scripts in your editor.
-{{< /info >}}
-
+> Pro tip: if you're using [the Playwright VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright#record-new-tests), you can also record and run scripts in your editor.
 
 ## Using recorders effectively
 

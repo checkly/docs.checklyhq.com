@@ -34,8 +34,7 @@ npm install --save \
 
 Create a file called `tracing.js` at the root of your project and add the following code:
 
-```javascript
-// tracing.js
+```javascript {title="tracing.js"}
 const { NodeSDK } = require('@opentelemetry/sdk-node')
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto')
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node')
@@ -82,8 +81,7 @@ inspecting the trace state. This way you only pay for the egress traffic generat
 Then start your app with the extra `-r` flag to load the `tracing.js` file before any other files are loaded. In this case
 the `index.js` file holds your Express app and typically starts with code like:
 
-```javascript
-// index.js
+```javascript {title="index.js"}
 const express = require('express')
 const PORT = process.env.PORT || '5555'
 const app = express()

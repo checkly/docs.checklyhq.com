@@ -204,9 +204,7 @@ checkly env add [KEY] [VALUE] [-l | -s]
 - `--locked` or `-l`: Indicate that the environment variable will be locked, making it private to all read only users.
 - `--secret` or `-s`: Indicate that the environment variable will be created as a secret. 
 
-{{<info>}}
-Secrets are supported on version `4.9.0` and later.
-{{</info>}}
+> Secrets are supported on version `4.9.0` and later.
 
 ### `npx checkly env update`
 
@@ -221,9 +219,7 @@ checkly env update [KEY] [VALUE] [-l | -s]
 - `--locked` or `-l`: Indicate that the variable will be locked, making it private to all read only users.
 - `--secret` or `-s`: Indicate that the variable will be changed to a secret. Note that secrets cannot be changed to variables. When updating a secret always pass the `-s` flag.
 
-{{<info>}}
-Secrets are supported on version `4.9.0` and later.
-{{</info>}}
+> Secrets are supported on version `4.9.0` and later.
 
 ### `npx checkly env rm`
 

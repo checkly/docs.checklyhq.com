@@ -1,7 +1,7 @@
 ---
 title: Learn How to Test, Monitor, and Automate with Playwright
 displayTitle: Learn How to Test, Monitor, and Automate with Playwright
-description: Learn more about Playwright & monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
+description: Learn more about Playwright automation & monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 displayDescription:
   Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 metatags:

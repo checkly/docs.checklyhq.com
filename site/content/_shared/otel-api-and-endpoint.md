@@ -19,9 +19,7 @@ export OTEL_EXPORTER_OTLP_ENDPOINT="https://otel.eu-west-1.checklyhq.com"
 export OTEL_SERVICE_NAME="your-service-name"
 ```
 
-{{< info >}}
-During the beta we only have one region available: `eu-west-1`. We will expand to US regions soon.
-{{< /info >}}
+> During the beta we only have one region available: `eu-west-1`. We will expand to US regions soon.
 
 We are using the standard OpenTelemetry environment variables here to configure the OTLP exporter.
 

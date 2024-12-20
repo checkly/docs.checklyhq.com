@@ -74,9 +74,7 @@ resource "checkly_check" "e2e-login" {
 }
 ```
 
-{{<info>}}
-You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
-{{</info>}}
+> You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
 
 ### API checks
 
@@ -112,10 +110,7 @@ resource "checkly_check" "get-books" {
 }
 ```
 
-{{<info>}}
-You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
-{{</info>}}
-
+> You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
 
 ### Heartbeat checks
 
@@ -144,9 +139,7 @@ Upon applying your terraform configuration changes, you will be returned a read-
 As with Browser checks, when constructing a Multistep check it is possible to provide the script directly in-line, 
 but the recommended approach is to store scripts in separate files.
 
-{{< info >}}
-Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
-{{< /info >}}
+> Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 
 For example, a Multistep check can look as follows:
 ```terraform
@@ -226,8 +219,6 @@ resource "checkly_check" "get-books" {
 }
 ```
 
-{{<info>}}
-Locations and alert channel subscriptions defined at group level always trump the ones defined at check level. Double-check your config to make sure all checks are running from the intended regions and are set to alert on the correct channels.
-{{</info>}}
+> Locations and alert channel subscriptions defined at group level always trump the ones defined at check level. Double-check your config to make sure all checks are running from the intended regions and are set to alert on the correct channels.
 
 You can see all the configuration options for groups, as well as more examples, on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check_group).

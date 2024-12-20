@@ -29,9 +29,7 @@ When inviting a team member to join your account you can assign one of three rol
 Only the initial account creator has the **Owner** role. You can always change any assigned roles after a teammate has
 joined your team.
 
-{{< info >}}
-Roles are staggered, so any role higher up the totem pole has all the rights of the roles below him/her.
-{{< /info >}}
+> Roles are staggered, so any role higher up the totem pole has all the rights of the roles below him/her.
 
 ## Transferring ownership
 

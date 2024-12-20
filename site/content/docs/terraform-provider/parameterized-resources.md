@@ -35,6 +35,4 @@ resource "checkly_check" "browser-check" {
 
 This will create as many browser checks running each minute as there are files in the `./scripts` folder in your project's path.
 
-{{<info>}}
-Aside from checks, these constructs can be useful for a variety of resources like alert channels, snippets and more.
-{{</info>}}
+> Aside from checks, these constructs can be useful for a variety of resources like alert channels, snippets and more.

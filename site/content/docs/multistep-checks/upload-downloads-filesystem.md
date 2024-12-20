@@ -23,7 +23,7 @@ Having done that, you can "upload" files using a simple HTTP POST request with a
 
 {{< tabs "Basic HTTP upload example" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts  {title="http-upload.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('Upload a file using a POST request', async ({ request }) => {
@@ -42,7 +42,7 @@ test('Upload a file using a POST request', async ({ request }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="http-upload.spec.js"}
 const { test, expect } = require('@playwright/test')
 
 test('Upload a file using a POST request', async ({ request }) => {
