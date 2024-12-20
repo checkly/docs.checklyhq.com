@@ -19,6 +19,9 @@ You have the option to customize the default channel you've set in Slack by sett
 
 By customizing the channel name, alerting options & checks for that alert channel, you can use a single Incoming WebHook URL for multiple scenarios.
 
+>[!WARNING]
+> If you’re using a free Slack workspace, be aware of [message limits](https://slack.com/help/articles/115002422943-Usage-limits-for-free-workspaces). Exceeding these limits may prevent new alerts from being delivered.
+
 ## Example Failed Slack Alert
 
 We provide a lot of information in the initial Slack message including links to the check and check result as well as the whole response body.
