@@ -42,7 +42,7 @@ The OpenTelemetry Collector can be deployed as a DaemonSet in a Kubernetes clust
 - Process and transform logs to match the OpenTelemetry data model.
 - Export logs to different backends (e.g., Elasticsearch, Splunk, or a cloud provider’s logging service).
 
-The collector includes built-in parsers and transformation capabilities to handle logs in various formats, such as JSON or text. This flexibility is especially useful in Kubernetes environments where logs from different applications and services may not share a standard format. For more detail on deployment options for the collector, [see our guide to collector architecture](/learn/opentelemetry/what-is-the-otel-collector).
+The collector includes built-in parsers and transformation capabilities to handle logs in various formats, such as JSON or text. This flexibility is especially useful in Kubernetes environments where logs from different applications and services may not share a standard format. For more detail on deployment options for the collector, [see our guide to collector architecture](/learn/opentelemetry/what-is-the-otel-collector/).
 
 ### Implementing Centralized Logging with OpenTelemetry in Kubernetes
 

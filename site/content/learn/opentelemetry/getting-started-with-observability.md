@@ -24,7 +24,7 @@ In systems that adopt **microservices** architecture, tracking system health bec
 At the same time that microservice architectures cry out for better observability, the fragmentation of these code execution environments means that tracing a request through this stack has gotten exponentially more difficult. From these needs was OpenTelemetry born (OpenTelemetry was born by merging the OpenCensus and OpenTracing projects).
 
 ## What OpenTelemetry is, and isn't
-As you browse the many instrumentation tools and [collector](/learn/openTelemetry/otel-collector) modules included in the OpenTelemetry project, it can seem like the project is incredibly vast. However there are some clear demarcations around what is and isn't part of the project.
+As you browse the many instrumentation tools and [collector](/learn/opentelemetry/what-is-the-otel-collector/) modules included in the OpenTelemetry project, it can seem like the project is incredibly vast. However there are some clear demarcations around what is and isn't part of the project.
 
 ### The OpenTelemetry project includes
 
@@ -81,7 +81,7 @@ The flexibility of the collector enables smooth transitions between direct repor
 
 ### Relevant Resources on OpenTelemetry
 
-- **Metrics Overview**: [Learn how OpenTelemetry handles metrics to provide high-level insights into your system's performance](/learn/opentelemetry/otel-metrics).
+- **Metrics Overview**: [Learn how OpenTelemetry handles metrics to provide high-level insights into your system's performance](/learn/opentelemetry/metrics).
 - **Logging with OpenTelemetry**: [Discover how OpenTelemetry integrates with existing logging libraries and enhances log data correlation across microservices](https://opentelemetry.io/docs/specs/otel/logs/).
 - **Quick Start Guide**: A guide for setting up OpenTelemetry quickly to start monitoring your applications [here](https://opentelemetry.io/docs/quickstart/).
 
