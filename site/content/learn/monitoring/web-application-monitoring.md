@@ -1,6 +1,6 @@
 ---
 title: Web Application Monitoring - Types, Benefits & Top 10 Tools
-displayTitle: Critical metrics for monitoring Kubernetes
+displayTitle: What is Web Application Monitoring?
 navTitle:  Web Application Monitoring
 description: Explore web application monitoring to boost performance and reliability with real user insights, performance tracking, and top tools.
 date: 2024-12-15
@@ -9,10 +9,8 @@ githubUser: serverless-mom
 displayDescription: Explore web application monitoring to boost performance and reliability with real user insights, performance tracking, and top tools.
 menu:
   learn_monitoring
-weight: 20
+weight: 10
 ---
-
-## What is Web Application Monitoring?
 
 Web application monitoring refers to the practice of observing, tracking, and managing the performance, availability, and reliability of web applications. It ensures users have a seamless experience and minimizes disruptions by identifying issues in real-time. All that’s required for something to be a ‘web application’ is that it’s more than a static site, and that it takes requests via the internet. Even an API mainly accessed via TCP is a web application!
 

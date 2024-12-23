@@ -43,7 +43,7 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  title="Monitoring"
 	  img="/learn/icons/monitoring.svg"
 	  description="Learn the fundamentals of monitoring production services."
-	  link="/learn/monitoring"
+	  link="/learn/monitoring/web-application-monitoring"
 >}}
 </div>
 

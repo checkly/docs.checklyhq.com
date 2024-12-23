@@ -1,6 +1,6 @@
 ---
 title: Frontend Monitoring - Benefits, Challenges, and Top Tools
-displayTitle: Critical metrics for monitoring Kubernetes
+displayTitle: Frontend Monitoring - a beginner's guide
 navTitle:  Frontend Monitoring
 description: Discover the benefits, challenges, and top tools for frontend monitoring. Learn how to track performance, detect issues, and optimize user experience.
 date: 2024-12-15
@@ -10,7 +10,7 @@ displayDescription:
   Discover the benefits, challenges, and top tools for frontend monitoring. Learn how to track performance, detect issues, and optimize user experience.
 menu:
   learn_monitoring
-weight: 10
+weight: 20
 ---
 
 No matter what internal testing or error monitoring we do for our web services, our end users will interact with that service through a front end. It’s necessary to perform front end monitoring so that you’re not relying on users to report problems.
