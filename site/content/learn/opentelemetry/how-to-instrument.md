@@ -43,7 +43,7 @@ Auto-instrumentation eliminates the need for manual code changes by **injecting 
     
     Auto-instrumentation may not offer the same level of granularity or customization as manual instrumentation. Automatic instrumentation can produce unnecessarily ‘noisy’ instrumentation, as just one example the NodeJS auto-instrumentation can produce traces with [hundreds of file system spans](https://github.com/open-telemetry/opentelemetry-js-contrib/issues/1344) that can even overrun available memory. 
     
-    Finally, auto-instrumentation won’t generally produce useful results if something really unusual is happening inside your application. At base, automatic instrumentation assumes that your service is some kind of online application handling requests and sending responses. If that’s not the case, for example if your application is a machine learning system processing through a database and taking over 48 hours to produce results, you may get less useful information. In these cases, you may want to look into manually reporting [OpenTelemetry metrics](/learn/opentelemetry/otel-metrics).
+    Finally, auto-instrumentation won’t generally produce useful results if something really unusual is happening inside your application. At base, automatic instrumentation assumes that your service is some kind of online application handling requests and sending responses. If that’s not the case, for example if your application is a machine learning system processing through a database and taking over 48 hours to produce results, you may get less useful information. In these cases, you may want to look into manually reporting [OpenTelemetry metrics](/learn/opentelemetry/metrics).
     
 
 ### When to Use Each
