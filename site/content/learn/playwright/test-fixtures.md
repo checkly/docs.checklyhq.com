@@ -27,7 +27,7 @@ When writing multiple tests for a single site or service, you're likely to end u
 ## Why we need custom fixtures
 In our web shop, we've got a login process that we want to simulate and test before doing further account actions:
 
-![A web shop login dialog](/samples/images/totp-1.jpeg)
+![A web shop login dialog](/samples/images/webshop-login.png)
 
 To open this dialog and log in, we might use some lines like the following:
 
@@ -47,29 +47,6 @@ test('test', async ({ page }) => {
 
 This is a fine practice for a single test, but if we have dozens that all require login as a first step, we'll find ourself copying and pasting this code several times. This means a lot of copied code, such that if we ever tweak the login process, we'll have to update this copied code in dozens of places, not good!
 
-### Custom Test Fixture Implementation
-
-To use fixtures in Puppeteer, developers typically create helper functions or classes that encapsulate setup and teardown logic. This method requires more upfront work and a good understanding of asynchronous JavaScript patterns.
-
-```js
-async function withPage(test) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  try {
-    await test(page);
-  } finally {
-    await page.close();
-    await browser.close();
-  }
-}
-
-// Usage
-withPage(async (page) => {
-  // Test actions using the page
-});
-```
-
-This pattern mimics fixture behavior but lacks the built-in, framework-level support found in Playwright, potentially leading to more complex and less maintainable test suites.
 
 ## Playwright and Fixtures
 
@@ -92,11 +69,6 @@ test('My authenticated test', async ({ page }) => {
 
 The ability to extend and customize fixtures in Playwright not only reduces boilerplate but also enhances test isolation and reusability across your test suite.
 
-## Choosing between Puppeteer and Playwright
-
-While both Puppeteer and Playwright offer powerful capabilities for browser automation, their approach to fixtures represents a significant difference in philosophy. Puppeteer offers flexibility and direct control, requiring developers to implement their own fixture-like functionality. Playwright, in contrast, integrates fixtures deeply into its testing framework, promoting code reuse, maintainability, and ease of use.
-
-Choosing between Puppeteer and Playwright will depend on your project's specific needs, the complexity of your tests, and your team's familiarity with JavaScript testing patterns. If fixtures and test structure are a priority, Playwright Test might be the more suitable choice. However, for projects that require fine-grained browser control and are less concerned with test setup and teardown complexity, Puppeteer remains a strong option.
 
 ## Create a Custom Test Fixture in Playwright Test
 
@@ -110,8 +82,8 @@ First, create a new test file or use an existing one. Here, we're testing a web 
 
 To create a custom fixture, extend the `test` object provided by Playwright:
 
-```js
-// fixture.js
+```js {title="fixture.js"}
+
 import { test as baseTest } from '@playwright/test';
 
 const test = baseTest.extend({
@@ -158,8 +130,8 @@ Debugging is crucial to ensure your fixture works as expected. Playwright's insp
 
 To share your custom fixture across different test files, encapsulate it in a separate module:
 
-```js
-// setup.js
+```js {title="setup.js"}
+
 import { test as baseTest, expect } from '@playwright/test';
 
 export const test = baseTest.extend({ /* Your fixture definition */ });
@@ -168,8 +140,7 @@ export { expect };
 
 Then, in your test files, import this extended `test` and use the custom fixtures:
 
-```js
-// tests/your-test.spec.js
+```js {title="tests/your-test.spec.js"}
 import { test, expect } from './setup';
 ```
 
@@ -243,6 +214,6 @@ Custom test fixtures in Playwright streamline test setup and teardown, fostering
 
 ### Playwright Fixtures Explained on YouTube
 
-To discover more practical fixture examples, check out our YouTube playlist, which covers fixtures in even more depth.
+To discover more practical fixture examples, check out our [YouTube playlist](https://www.youtube.com/watch?v=hegZS46J0rA&list=PLMZDRUOi3a8N067UNvkxXEThKlTII_OJ-), which covers fixtures in even more depth.
 
 {{< youtube-gallery id="PLMZDRUOi3a8N067UNvkxXEThKlTII_OJ-" >}}
