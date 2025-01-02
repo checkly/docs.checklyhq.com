@@ -50,7 +50,7 @@ This is a fine practice for a single test, but if we have dozens that all requir
 
 ## Playwright and Fixtures
 
-Playwright and its test runner Playwright Test, on the other hand, were designed with a broader testing scope and includes first-class support for fixtures. This design choice streamlines the setup and teardown process, making tests cleaner and reducing redundancy.
+Playwright and its test runner Playwright Test, were designed with a broader testing scope and includes first-class support for fixtures. This design choice streamlines the setup and teardown process, making tests cleaner and reducing redundancy.
 
 ### Built-in Support
 
@@ -176,7 +176,7 @@ This approach works fine, but if you want to run the same code for **every test*
 
 A more convenient way to implement global test hooks is relying on automatic fixtures. Like the `webApp` fixture defined in the previous section, you must extend the `test` object to use automatic fixtures.
 
-```js
+```js {title="base.js"}
 import { test as baseTest } from '@playwright/test';
 
 export const test = baseTest.extend({
@@ -207,6 +207,18 @@ export { expect } from "@playwright/test";
 ```
 
 The main difference between default and automatic fixtures is that automatic fixtures run regardless. In our example, the `timeLogger` fixture will be executed for every running test.
+
+Note that you'll want to update your other test spec files to import `test` from our `base.ts`, they probably have something like:
+
+```js
+import { test, expect } from '@playwright/test';
+```
+You'll want to update them to read something like:
+
+```js
+import { test } from './fixtures';
+import { expect } from '@playwright/test';
+```
 
 ## Conclusion
 
