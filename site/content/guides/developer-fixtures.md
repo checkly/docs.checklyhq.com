@@ -62,7 +62,7 @@ You may want to go beyond global settings for a larger or more complex team. For
 
 These are all goud reasons to create a check group. Groups have their own set of variables and configuration for all the members of that group. Checks can be added to a group either by configuration at the code level (passing a `checkGroup` object to the config), or in the web UI by creating a group and clicking 'Add Checks to Group'.
 
-{{< figure src="/guides/images/gguide-fixtures01.png" alt="the Checkly Web UI with settings for a group, displaying variables" title="Setting variables that will be available to every check in this group" >}}
+{{< figure src="/guides/images/guide-fixtures01.png" alt="the Checkly Web UI with settings for a group, displaying variables" title="Setting variables that will be available to every check in this group" >}}
 
 Some important things to remember when working with a group of checks:
 
@@ -71,7 +71,7 @@ Some important things to remember when working with a group of checks:
   * For API checks, you can have a 'teardown script' for a group that runs after every check is completed.
 * That said, all the checks in a group can be triggered to run at the same time, this is especially useful if a group is used to run checks after deployments.
 
-{{< figure src="/guides/images/gguide-fixtures02.png" alt="the Checkly Web UI with settings for a group" title="Running a group from the Web UI's 'Schedule Group' option" >}}
+{{< figure src="/guides/images/guide-fixtures02.png" alt="the Checkly Web UI with settings for a group" title="Running a group from the Web UI's 'Schedule Group' option" >}}
 
 * Any settings that are given in two places will be reconciled with the following heirarchy:
   1. individual settings on a check
