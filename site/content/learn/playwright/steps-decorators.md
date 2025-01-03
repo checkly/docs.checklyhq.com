@@ -33,7 +33,7 @@ Let me show you how you can replace repetitive `test.step` calls with a single
 
 By default, all your test actions and assertions will be a long wall of instructions shown in UI mode or your test reports. That's not a big deal for twenty instructions, but if you're testing a complex UI flow, your test instruction count will quickly hit a hundred actions. Looking at a report with that many instructions isn't great.
 
-![way too many lines on a top level playwright report](/samples/images/steps1.png)
+![way too many lines on a top level playwright report](/samples/images/steps1.webp)
 
 To solve this problem, you can group your actions in Playwright test steps.
 
@@ -79,7 +79,7 @@ test('Customer is able to create account', async ({
 
 Look at this beautiful and well-structured HTML test report. I'm a fan!
 
-![much nicer html test report](/samples/images/steps2.png)
+![much nicer html test report](/samples/images/steps2.webp)
 
 You might now ask, "Does this work when you implement POMs ([Page Object Model](https://playwright.dev/docs/pom))?".
 
