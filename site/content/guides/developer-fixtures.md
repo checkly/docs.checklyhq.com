@@ -18,8 +18,7 @@ This guide will tie together material from our Playwright Learn articles, our bl
 * Creating standardized configuration for checks and groups of checks
 * Automating repeated tasks like account logins so the code can be re-used in multiple checks
 * Adding standardized code that runs with every check
-* Standard code for ignoring elements
-* Golden Files - creating and updating comparison files
+
 
 ### Whom this guide can help
 This article will refer repeatedly to an ideal "developer" who understands their own service quite well, but isn't experienced at at either QA or monitoring. They may not be an expert in the automation framework Playwright, which we use to write our monitors, and they don't have experience with specific configuration like retry logic, alert thresholds, etcetera. This guide can also help you make monitoring accessible for:
