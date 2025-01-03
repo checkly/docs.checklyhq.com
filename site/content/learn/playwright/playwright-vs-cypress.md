@@ -23,7 +23,7 @@ While Cypress is a testing tool, Playwright is an automation solution.
 
 This distinction is important when you compare these solutions to the present day realities of automation.
 
-Playwright is a tool focused on developer productivity with more robust built-in features, the ability to use async/await, built in parallelization, a much lighter weight in CI. Playwright is also less opinionated because it doesn’t have to be, you can use it however you want. Playwright can [monitor your APIs](https://www.checklyhq.com/blog/test-apis-with-playwright/) just as well as it can your frontend web pages. Scraping content for a LLM model? Check! Have a nested app in an iframe you want to test? Go wild! *Three different browser sessions in the same chat instance? Sounds cool! Re-use your tests to monitor production? Absolutely.*
+Playwright is a tool focused on developer productivity with more robust built-in features, the ability to use async/await, built in parallelization, a much lighter weight in CI. Playwright is also less opinionated because it doesn’t have to be, you can use it however you want. Playwright can [monitor your APIs](https://www.checklyhq.com/learn/playwright/testing-apis/) just as well as it can your frontend web pages. Scraping content for a LLM model? Check! Have a nested app in an iframe you want to test? Go wild! *Three different browser sessions in the same chat instance? Sounds cool! Re-use your tests to monitor production? Absolutely.*
 
 ## Playwright Key Features
 - Supports multiple languages: JavaScript, TypeScript, Python, Java, C#
