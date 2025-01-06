@@ -1,13 +1,5 @@
 /* eslint-env jquery */
 
-$(document).ready(() => {
-// Show the dashboard button is cookie is present
-  if (document.cookie.split(';').filter((item) => item.trim().startsWith('checkly_has_account=')).length) {
-    $('#login-button').hide()
-    $('#dashboard-button').show()
-  }
-})
-
 /**
 *get headlessdev posts
 */
