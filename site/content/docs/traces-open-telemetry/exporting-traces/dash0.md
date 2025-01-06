@@ -8,6 +8,8 @@ menu:
   platform:
     parent: Export traces to 3rd party tools with Checkly - Checkly Docs
 beta: true
+aliases:
+  - "/docs/open-telemetry/exporting-traces/dash0/"
 ---
 
 1. Create an API key in the **Settings** > **Auth Tokens** section.
