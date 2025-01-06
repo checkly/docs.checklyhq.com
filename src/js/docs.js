@@ -87,7 +87,9 @@ let sideMenuDistance
 
 if (sideMenu.length) {
   sideMenuDistance = sideMenu.offset().top - 10
-} else { sideMenuDistance = tocMenu.offset().top - 10 }
+} else if (tocMenu.length) {
+  sideMenuDistance = tocMenu.offset().top - 10
+}
 
 $(window).on('scroll', function () {
   if ($(window).scrollTop() >= sideMenuDistance) {
