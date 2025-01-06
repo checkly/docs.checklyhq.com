@@ -10,7 +10,7 @@ layout: learn-home
 ---
 
 Monitoring and Observability are key concepts when dealing with application quality and performance. Learn the fundamentals of modern monitoring and observability to help yourself and your team build better applications.
-## Getting Started
+## Topics
 
 <div class="cards-list">
 {{< doc-card
@@ -35,7 +35,7 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  title="Kubernetes"
 	  img="/learn/icons/kubernetes-logo.svg"
 	  description="Learn basics, tools and tips for monitoring your Kubernetes clusters."
-	  link="/learn/kubernetes"
+	  link="/learn/kubernetes/"
 >}}
 {{< doc-card
 	  class="three-column-card"
@@ -43,7 +43,7 @@ Monitoring and Observability are key concepts when dealing with application qual
 	  title="Monitoring"
 	  img="/learn/icons/monitoring.svg"
 	  description="Learn the fundamentals of monitoring production services."
-	  link="/learn/monitoring/web-application-monitoring"
+	  link="/learn/monitoring/"
 >}}
 </div>
 
