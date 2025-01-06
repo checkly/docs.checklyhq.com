@@ -18,6 +18,9 @@
             {{ if eq $element "kubernetes" }}
             <a href="/learn/kubernetes/">Kubernetes Monitoring Guide</a>
             {{ end }}
+            {{ if eq $element "monitoring" }}
+            <a href="/learn/monitoring/">Monitoring Guide</a>
+          {{ end }}
         {{ else }}
           <span>/</span>
           {{ if eq $index 2 }}
