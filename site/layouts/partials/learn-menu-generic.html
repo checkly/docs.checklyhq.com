@@ -14,7 +14,7 @@
   <!-- Restore menu position as soon as possible to avoid flickering -->
   <script>
     (function () {
-      const menu = document.querySelector('aside.docs-menu nav')
+      const menu = document.querySelector('aside.learn-menu nav')
       addEventListener('beforeunload', function () {
         localStorage.setItem('menu.scrollTop', menu.scrollTop)
       })
