@@ -10,7 +10,7 @@ menu:
     identifier: overview-maintenance-windows
 aliases:
 - /docs/maintenance-windows/
-cli: true
+
 ---
 
 You can schedule planned maintenance for your API, app or website using Checkly's maintenance windows. During maintenance 

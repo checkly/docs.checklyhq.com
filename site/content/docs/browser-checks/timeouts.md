@@ -6,7 +6,7 @@ weight: 24
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 There are different kinds of timeouts you will encounter while working with Browser checks:

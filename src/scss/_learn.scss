@@ -174,7 +174,7 @@
       .breadcrumb {
         display: flex;
         align-items: center;
-        margin: 20px 0 20px;
+        margin: 20px 0 15px;
         padding: 0;
         background: none;
         font-size: 14px;
@@ -194,24 +194,6 @@
         & span {
           margin: 0 5px;
           color: $gray;
-        }
-
-        .badge-cli {
-          margin-left: auto;
-          color: $gray-darkish;
-          background: $gray-lighter;
-          font-weight: 600;
-          text-transform: capitalize;
-          &::before {
-            width: 14px;
-            height: 14px;
-            background: url(/images/icons/terminal_gray.svg);
-            background-size: 100%;
-            margin: 0 $menu-item-padding-spacer 0 0;
-            content: '';
-            display: inline-block;
-            vertical-align: -24%;
-          }
         }
 
         .badge-beta {

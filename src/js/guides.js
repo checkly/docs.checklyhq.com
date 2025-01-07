@@ -21,3 +21,33 @@ $(document).ready(function () {
     }
   })
 })
+
+/**
+ * Docs Mobile Menu
+ */
+
+$(document).ready(() => {
+  $('#navbar-hamburger').click(function () {
+    $('.generice-side-menu').css({
+      left: '0'
+    })
+    $('.docs-menu-mobile-right-space').css({
+      display: 'block'
+    })
+    $('#sideMenu').removeClass('left-transform')
+    $('#sideMenu').addClass('right-transform')
+    // flag = false
+  })
+
+  $('.docs-menu-mobile-right-space').click(function () {
+    $('.docs-menu').css({
+      left: '-100%'
+    })
+    $('.docs-menu-mobile-right-space').css({
+      display: 'none'
+    })
+    $('#sideMenu').removeClass('right-transform')
+    $('#sideMenu').addClass('left-transform')
+    // flag = true
+  })
+})

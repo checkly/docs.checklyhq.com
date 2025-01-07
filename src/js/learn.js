@@ -40,7 +40,7 @@ $(document).ready(() => {
  */
 
 $(document).ready(() => {
-  $('.mobile-toc-button').click(function () {
+  $('#navbar-hamburger').click(function () {
     $('.learn-menu').css({
       left: '0'
     })

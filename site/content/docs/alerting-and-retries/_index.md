@@ -7,7 +7,7 @@ slug: /
 menu:
   resources:
    parent: "Alerting & retries"
-cli: true
+
 aliases:
   - /docs/alerting/
 ---

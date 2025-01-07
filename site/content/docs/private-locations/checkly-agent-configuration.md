@@ -8,7 +8,7 @@ menu:
     parent: "Private Locations"
 aliases:
 - "/docs/private-locations/checkly-agent-guide/"
-cli: true
+
 ---
 
 The Checkly Agent is a container that you need to deploy to run a Private Location in Checkly. The agent needs to be deployed on your infrastructure and executes checks on behalf of the Checkly application. For installation details, [check the getting started guide](/docs/private-locations/).

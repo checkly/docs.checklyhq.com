@@ -7,7 +7,7 @@ weight: 15
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 Any standard Node.js script that successfully finishes an execution is a valid, passing browser check. However, in

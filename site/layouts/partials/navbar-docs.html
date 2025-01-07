@@ -1,27 +1,34 @@
-<nav class="navbar navbar-docs {{ if .Params.navIsGray }}navbar-gray {{ end }} navbar-toggleable-md">
-  <div class="container-fluid d-flex docs w-100">
-    <button
-      class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent"><span></span><span></span><span></span>
-    </button>
-    <a class="navbar-brand mr-2" href="/">
-      <img src="/images/racoon_logo.svg" width="40" height="40" alt="checkly logo"/>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        {{ $currentPage := . }}
-        {{ range .Site.Menus.topnav }}
-          {{ $active := in $currentPage.RelPermalink .URL }}
-            <li class="nav-item">
-              <a class='nav-link {{ if $active }}active{{ end }}' href="{{.URL}}">{{.Name}}</a>
-            </li>
-        {{ end }}
-      </ul>
-      <div id="docsearch" class="search-form"></div>
-      <form class="form-inline my-2 my-lg-0 ml-auto">
-        <a class="btn btn-outline-secondary my-2 my-sm-0 mr-3 ml-md-3" id="login-button" href="https://app.checklyhq.com/" rel="noopener">Log in</a>
-        <a class="signup-button btn btn-success my-2 my-sm-0" id="nav-signup-button" data-signup="data-signup" target="_blank" href="https://app.checklyhq.com/signup" rel="noopener">Start for free</a>
-      </form>
+<nav class="navbar navbar-docs">
+    <div class="navbar-content container-fluid">
+        <div class="navbar-content-left">
+            <a class="navbar-brand mr-6" href="/">
+                <img src="/images/racoon_logo.svg" width="40" height="40" alt="checkly logo"/>
+            </a>
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.topnav }}
+            {{ $active := in $currentPage.RelPermalink .URL }}
+                <a class='nav-item-not-mobile nav-link {{ if $active }}active{{ end }}' href="{{.URL}}">
+                    {{.Name}}
+                    <div class="nav-link-bottom {{ if $active }}active{{ end }}" ></div>
+                </a>
+            {{ end }}
+        </div>
+        <div class="navbar-content-center">
+            <div id="docsearch">
+            </div>
+        </div>
+        <div class="navbar-content-right">
+            <a class="btn btn-link text-gray-dark my-sm-0 mr-3 ml-md-3" id="login-button" href="https://app.checklyhq.com/" rel="noopener">Log in</a>
+            <a class="signup-button btn btn-primary my-2 my-sm-0" id="nav-signup-button" data-signup="data-signup" target="_blank" href="https://app.checklyhq.com/signup" rel="noopener">Sign up</a>
+        </div>
+        <div class="navbar-mobile">
+            <div id="navbar-hamburger">
+                <svg width="1.5em" height="1.5em" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor">
+                    <path d="M3 5H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3 12H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3 19H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>

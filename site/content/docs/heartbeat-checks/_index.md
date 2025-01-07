@@ -11,7 +11,7 @@ menu:
 aliases:
     - /docs/heartbeat-checks/quickstart/
     - /docs/heartbeat-checks/getting-started/
-cli: true
+
 ---
 
 This guide gives you all the info needed to get started with Checkly heartbeat checks.

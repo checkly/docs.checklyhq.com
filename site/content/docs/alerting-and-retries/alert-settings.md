@@ -9,7 +9,7 @@ menu:
 aliases:
 - /alerting/settings/
 - /alerting/
-cli: true
+
 ---
 
 Alert settings allow you to control when and how often you will be notified when a check starts failing, degrades or recovers.

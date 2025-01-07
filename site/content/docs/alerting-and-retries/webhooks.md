@@ -6,7 +6,7 @@ weight: 35
 menu:
   resources:
     parent: "Alerting & retries"
-cli: true
+
 ---
 
 Webhooks allow you to POST custom payloads to any endpoint in your own infrastructure or a third party provider. In a

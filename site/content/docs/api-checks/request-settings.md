@@ -6,7 +6,7 @@ weight: 8
 menu:
   resources:
     parent: "API checks"
-cli: true
+
 ---
 
 
