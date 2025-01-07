@@ -173,7 +173,7 @@ Synthetic monitoring is a powerful tool for validating Service Level Agreements 
 
 Numerous tools are available to implement synthetic transaction monitoring effectively. Solutions like Catchpoint and Dynatrace offer advanced features such as global test locations, detailed reporting, and integration with other observability tools. Open-source options, such as those leveraging CNCF projects, can provide flexibility and customization for Kubernetes-based environments.
 
-** Checkly’s Role in Synthetic Monitoring**
+**Checkly’s Role in Synthetic Monitoring**
 
 [Checkly](https://www.checklyhq.com/product/synthetic-monitoring/) is a purpose-built platform for synthetic monitoring that simplifies the creation and management of test scripts. With features like a developer-friendly CLI, seamless integration with CI/CD pipelines, and out-of-the-box support for the multi-language Playwright automation framework. Checkly enables teams to monitor critical user journeys effectively. Its dashboards and alerting systems ensure you’re always aware of issues before they impact customers.
 
