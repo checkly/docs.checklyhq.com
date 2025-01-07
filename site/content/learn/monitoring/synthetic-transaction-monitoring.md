@@ -12,8 +12,6 @@ menu:
 weight: 30
 ---
 
-## What is Synthetic Transaction Monitoring?
-
 Synthetic transaction monitoring is a proactive approach to assessing the performance and reliability of applications by simulating user transactions. These simulations replicate real-world interactions, such as logging into an account, performing a search, or completing a checkout process, allowing organizations to detect issues before they impact actual users.
 
 Unlike traditional monitoring of a site or service, which relies on observing real user activities, synthetic transaction monitoring generates pre-defined transactions to test specific workflows, ensuring consistent and repeatable measurements. Synthetic transaction monitoring has distinct advantages when compared to Real User Monitoring for frontend applications, and requires work to integrate with other observability tools.
@@ -48,27 +46,27 @@ However, challenges include maintaining up-to-date scripts as applications evolv
 
 Effective synthetic transaction monitoring relies on several core components:
 
-### Synthetic Transaction Engine
+**Synthetic Transaction Engine**
 
 The synthetic transaction engine executes predefined scripts, mimicking user interactions. It must handle complex workflows involving multiple steps, conditional logic, and diverse input data. At Checkly, this is a system of ‘[Checkly runners](https://www.checklyhq.com/docs/monitoring/)’ that execute checks against your service at your selected cadence and geographic regions.
 
-### Scripting Language
+**Scripting Language**
 
 A flexible scripting language allows testers to define transactions. Languages like JavaScript, Python, or typescript are commonly used, with support for [integrating APIs](https://www.checklyhq.com/blog/what-is-api-monitoring/), [handling cookies](https://www.checklyhq.com/learn/playwright/authentication/), and [managing dynamic content](https://www.checklyhq.com/learn/playwright/iframe-interaction/).
 
-### Test Execution Scheduler
+**Test Execution Scheduler**
 
 The scheduler automates the execution of scripts at specified intervals. This ensures continuous monitoring and provides insights into performance trends over time. At Checkly this is controlled either [via the web UI](https://www.checklyhq.com/docs/testing/) or via our [Monitoring as Code](https://www.checklyhq.com/guides/monitoring-as-code/#) process.
 
-### Test Results Analyzer
+**Test Results Analyzer**
 
 The analyzer processes collected data, visualizing metrics like response times, error rates, and transaction success rates. It helps teams identify patterns, anomalies, and potential issues. For most use cases test results won’t require a complex analysis since pass-fail standards should be clearly defined in the scripting language. There are some edge cases like [soft assertions in Playwright](https://playwright.dev/docs/test-assertions#soft-assertions), but still a single check should be quickly to categorize as passing or failing.
 
-### Alerting System
+**Alerting System**
 
 An alerting system notifies teams when performance thresholds are breached. Alerts can be configured for various conditions, such as increased latency, failed transactions, or regional performance degradation.
 
-### Integration with Other Tools
+**Integration with Other Tools**
 
 Synthetic transaction monitoring tools often integrate with observability platforms, incident management systems, and CI/CD pipelines, enabling streamlined workflows and comprehensive insights. At Checkly, the results of synthetics checks can integrate with your OpenTelemetry data via [Checkly Traces](https://www.checklyhq.com/docs/traces-open-telemetry/how-it-works/#understand-checkly-traces-and-opentelemetry---checkly-docs). 
 
@@ -91,21 +89,21 @@ Synthetic transaction monitoring is an essential tool for organizations aiming t
 
 ## Benefits of Synthetic Transaction Monitoring
 
-### Early Detection of Issues
+**Early Detection of Issues**
 
 Years ago I was the on-call engineer during a holiday weekend at an ecommerce service. I kept an eye on system performance and I saw good things: latency was low and recorded errors were way down. Unfortunately, it turned out that network config had locked out thousands of users. Our performance was great because most people couldn’t reach the site. While internal measurements of system performance are useful tools for measuring internal efficency, they aren’t great at measuring your users’ experience. The end result is a system where many failure states will only be detected by your users’ reports.
 
 Synthetic transaction monitoring allows teams to identify problems before users experience them. By simulating user interactions, businesses can proactively detect performance degradation, outages, or errors in critical workflows. This minimizes downtime and helps maintain service reliability. After all, isn’t it better to be able answer every user reported issue with ‘we’re already working on it?’
 
-### Proactive Approach to Monitoring
+**Proactive Approach to Monitoring**
 
 Rather than waiting for user-reported issues, synthetic monitoring enables a proactive approach by constantly testing systems in real-time. We can also use synthetic transaction monitoring to find trending issues: if the load times for certain actions is slowly increasing, we can identify that problem with synthetics before it causes outright errors for users. This ensures that potential issues are addressed promptly, leading to improved user satisfaction and trust in the platform.
 
-### Performance Monitoring
+**Performance Monitoring**
 
 Synthetic monitoring tracks key performance metrics like response time, latency, and availability. By generating consistent and repeatable test scenarios, it provides actionable insights into the health of applications and services under varying conditions. Performance like response time shouldn’t be used as hard limits for passing a test, but  these metrics are still generated on synthetics checks, and you can use [Checkly’s ‘degraded state’](https://www.checklyhq.com/docs/browser-checks/degraded-state/) to find user paths that are repsonding slowly without needing to alert teams as if there were an outage.
 
-### Finding Third-party Changes
+**Finding Third-party Changes**
 
 While it’s nice to imagine our service or website as self-contained, albeit with multiple internal microservices, the modern web app has more dependencies than ever, including dependencies on third party services all the way to the front end. A missing npm package or a service outage from Intercom can all cause our user experience to shift in unpredictable ways. Detecting any problems with third-party services before your users do is one of the many benefits of synthetic transaction monitoring. Some useful checks to add:
 
@@ -113,23 +111,25 @@ While it’s nice to imagine our service or website as self-contained, albeit wi
 - [Visual regression tests](https://www.checklyhq.com/blog/visual-regression-testing-with-playwright/) to make sure third-party javascript add ons haven’t caused problems for your front end experience.
 - Synthetics checks pointed directly at the third party services. If responses from the your payment provider are often unreliable, set up a monitor (and an alert) to know as soon as it has a chance to affect your users.
 
-### Compliance
+**Compliance**
 
 Synthetic transaction monitoring can aid in compliance with service-level agreements (SLAs) by consistently measuring uptime and performance against defined benchmarks. This ensures businesses meet contractual obligations and regulatory requirements. You can also use synthetic transaction monitoring to make sure you’re compliant with accesibility requirements, [in Playwright you can use the Axe testing engine to automatically check your pages for accessibility issues](https://www.checklyhq.com/blog/integrating-accessibility-checks-in-playwright-tes/).
 
 ## Challenges of Synthetic Transaction Monitoring
 
-### Need for Validation
+**Need for Validation**
 
 In the early days of my career I was working on a telephone automation system; I was nearly done when I asked a sales person if our business often received inbound calls. It turned out that since our userbase was older Americans, the majority of our sales were actually made by site visitors calling us on the phone. If I had been designing synthetic monitoring for my service, my lack of knowledge of real user behavior would have made effective monitoring difficult.
 
 Although synthetic monitoring provides simulated data, it cannot replace actual user feedback. Synthetic tests assume predefined workflows and may miss issues that occur in real-world usage scenarios. Either by directly observing users interacting with your service, or detailed analytics, you need to see how users *actually* use your service.
 
-### Core Problem Analysis
+**Core Problem Analysis**
 
 When [retries are set up correctly](https://www.checklyhq.com/docs/alerting-and-retries/), we should only get a synthetic transaction monitoring alert when there’s a real problem that users will notice. But detecting an issue through synthetic monitoring is only the first step. Pinpointing the root cause of problems requires additional diagnostic tools and processes. Synthetic monitoring should be run as a separate service from all of your internal services and tools, and as such will lack insight into how your back end is handling requests. Once you’ve detected a problem, backend logs, traces, and other information from something like an [OpenTelemetry monitoring system](https://www.checklyhq.com/learn/opentelemetry/getting-started-with-observability/), will be needed to find a root cause.
 
-### Tool Integration Needs
+{{< figure src="/learn/images/animated-diagram.gif" alt="an animated graph of the Checkly monitoring process with OpenTelemetry traces" title="Checkly Traces can connect synthetic site checks with the related traces observed by your OpenTelemetry monitoring." >}}
+
+**Tool Integration Needs**
 
 Integrating synthetic monitoring tools with existing systems can pose challenges, especially if the ecosystem includes multiple platforms and technologies. Seamless integration is crucial for accurate monitoring and efficient workflows, but it often requires customization and ongoing maintenance. As ‘table stakes’ your synthetic transaction monitoring tool should make its results available on a shared dashboqard, and route alerts intelligently either natively or through integration with tools like [Rootly](https://www.checklyhq.com/docs/integrations/rootly/) and [Pagerduty](https://www.checklyhq.com/docs/integrations/pagerduty/#send-alerts-to-pagerduty-with-checkly---checkly-docs). Ideally your synthetic monitoring could automatically connect back end tracing that was started by a synthetics request. With [Checkly Traces](https://www.checklyhq.com/docs/traces-open-telemetry/how-it-works/#understand-checkly-traces-and-opentelemetry---checkly-docs), you can do just that: integrate back end traces with synthetic transaction monitoring, adding insight into the root cause of errors.
 
@@ -137,35 +137,35 @@ By understanding these benefits and challenges, organizations can better impleme
 
 ## Best Practices for Synthetic Transaction Monitoring
 
-### Defining Clear Objectives
+**Defining Clear Objectives**
 
 Synthetic transaction monitoring begins with a clear understanding of what your users expect. You also need to define the retry and cadence expectations, starting with your SLA with your users.
 
-### Crafting Realistic Test Scenarios
+**Crafting Realistic Test Scenarios**
 
 Design test scenarios that mimic real-world user interactions as closely as possible. This includes simulating different devices, browsers, and network conditions to ensure comprehensive coverage. In playwright, use the [user agent](https://www.checklyhq.com/learn/playwright/challenging-flows/#bot-detection) and [viewport](https://www.checklyhq.com/learn/playwright/taking-screenshots/#generating-and-saving-screenshots) settings to simulate different scenarios.
 
-### Prioritizing Business-Critical Transactions
+**Prioritizing Business-Critical Transactions**
 
 Focus monitoring efforts on transactions that directly impact your business, such as login flows, checkout processes, or API integrations. Prioritizing these ensures you catch issues that could significantly affect your customers and revenue. This matters not just for the infrastructure costs of running synthetic transaction monitoring, but alert fatigue for your operations or SRE teams. 
 
-### Balancing Test Frequency and Resources
+**Balancing Test Frequency and Resources**
 
 Set a monitoring cadence that balances timely issue detection with efficient use of resources. High-frequency tests may be necessary for critical applications, but over-monitoring can lead to unnecessary costs. On Checkly, make sure your geographic locations make sense for your userbase.
 
-### Setting Actionable Alert Thresholds
+**Setting Actionable Alert Thresholds**
 
 Define alert thresholds that reflect acceptable performance levels for your business. Avoid overly sensitive thresholds that generate false positives, and ensure alerts are actionable by including relevant context for troubleshooting. Avoid hard waits and other rigid standards that result in brittle testing.
 
-### Regular Review and Update of Test Scripts and Golden Files
+**Regular Review and Update of Test Scripts and Golden Files**
 
 Test scripts should evolve alongside your application. Regularly review and update them to account for new features, UI changes, or updates to external dependencies. This helps maintain the relevance and accuracy of your monitoring. You’ll also maintain a set of ‘golden files’ that define ideal responses, either as stored responses (for example a saved JSON response from an API) or screenshots where everything is loading correctly. With Checkly, you can [update these golden files with a single command from the Checkly CLI](https://www.checklyhq.com/docs/cli/). 
 
-### Leveraging Integration with Observability Tools
+**Leveraging Integration with Observability Tools**
 
 Integrate synthetic monitoring with broader observability platforms to enhance troubleshooting and root cause analysis. Connections to logging, tracing, and metrics tools can help paint a complete picture of your application’s health.
 
-### Using Synthetic Monitoring for SLA Validation
+**Using Synthetic Monitoring for SLA Validation**
 
 Synthetic monitoring is a powerful tool for validating Service Level Agreements (SLAs). By continuously testing key metrics, you can provide objective evidence of SLA adherence to stakeholders.
 
@@ -173,7 +173,7 @@ Synthetic monitoring is a powerful tool for validating Service Level Agreements 
 
 Numerous tools are available to implement synthetic transaction monitoring effectively. Solutions like Catchpoint and Dynatrace offer advanced features such as global test locations, detailed reporting, and integration with other observability tools. Open-source options, such as those leveraging CNCF projects, can provide flexibility and customization for Kubernetes-based environments.
 
-### Checkly’s Role in Synthetic Monitoring
+**Checkly’s Role in Synthetic Monitoring**
 
 [Checkly](https://www.checklyhq.com/product/synthetic-monitoring/) is a purpose-built platform for synthetic monitoring that simplifies the creation and management of test scripts. With features like a developer-friendly CLI, seamless integration with CI/CD pipelines, and out-of-the-box support for the multi-language Playwright automation framework. Checkly enables teams to monitor critical user journeys effectively. Its dashboards and alerting systems ensure you’re always aware of issues before they impact customers.
 

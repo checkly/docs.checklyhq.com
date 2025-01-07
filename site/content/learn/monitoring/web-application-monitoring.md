@@ -24,7 +24,7 @@ Monitoring tools collect data from your web application, servers, and user inter
 
 Monitoring a web application requires understanding various dimensions of performance, usability, and security. Each type of monitoring addresses specific aspects of the application to ensure seamless operation. Let’s explore these types in greater detail.
 
-### Synthetic Monitoring
+**Synthetic Monitoring**
 
 [Synthetic monitoring](https://www.checklyhq.com/docs/) uses pre-recorded scripts to simulate user interactions with your web application. By performing these synthetic transactions, you can test key functionalities such as page load times, form submissions, or API calls without relying on real user activity.
 
@@ -36,7 +36,7 @@ See our complete guide to Synthetic Monitoring for a deeper dive.
 
 ---
 
-### Real User Monitoring (RUM)
+**Real User Monitoring (RUM)**
 
 Real User Monitoring (RUM) captures real-time data from actual users as they interact with your application. By embedding a lightweight tracking code into the application, RUM collects metrics like page load times, errors, and user interactions.
 
@@ -46,7 +46,7 @@ Real User Monitoring (RUM) captures real-time data from actual users as they int
 
 ---
 
-### Application Performance Monitoring (APM)
+**Application Performance Monitoring (APM)**
 
 APM focuses on monitoring and optimizing application-level metrics such as response times, throughput, memory consumption, and database query performance. APM tools provide deep visibility into application behavior, often by instrumenting code to measure key metrics.
 
@@ -54,7 +54,7 @@ APM focuses on monitoring and optimizing application-level metrics such as respo
 - Example Use Case: Diagnosing why a specific API endpoint is causing latency spikes under heavy load.
 - Challenges: Implementing APM requires careful planning, as excessive instrumentation can add overhead to the application.
 
-### Error Tracking and Logging
+**Error Tracking and Logging**
 
 Error tracking focuses on detecting, logging, and analyzing application errors to help developers diagnose and fix issues effectively. Logs capture details about errors and events, providing valuable context for debugging.
 
@@ -65,7 +65,7 @@ Error tracking focuses on detecting, logging, and analyzing application errors t
 - Example Use Case: Monitoring uncaught exceptions in a JavaScript application and prioritizing fixes for errors impacting 10% of users.
 - Challenges: Over-logging can lead to excessive noise, making it harder to find actionable insights.
 
-### Uptime Monitoring
+**Uptime Monitoring**
 
 Uptime monitoring ensures that your web application is available and responsive by periodically sending requests to check its status. Most uptime checks verify that a service responds with a `200 OK` HTTP status.
 
@@ -73,7 +73,7 @@ Uptime monitoring ensures that your web application is available and responsive 
 - Example Use Case: Monitoring whether an online banking platform’s login page is accessible to users.
 - Challenges: Simple uptime checks don’t account for partial outages or degraded performance (e.g., slow response times). Or for responses that look okay to a script, but not the users (e.g., the page loads but the only text says ‘server error’).
 
-### Server and Infrastructure Monitoring
+**Server and Infrastructure Monitoring**
 
 Server and infrastructure monitoring tracks the health of the hardware, virtual machines, or cloud infrastructure that supports your application. It collects data on CPU usage, memory availability, disk I/O, and network traffic.
 
@@ -92,21 +92,21 @@ Server and infrastructure monitoring tracks the health of the hardware, virtual 
 
 ## Benefits of Web Application Monitoring
 
-### Instant Downtime Alerts
+* Instant Downtime Alerts
 
 By monitoring your web application directly, you have a better chance of knowing exactly when your service goes down. By alerting on metrics like response time and volume, you can get early indicators of growing problems.
 
-### Find trends before they become problems
+* Find trends before they become problems
 
 Often, poor performance doesn’t happen all at once. For every user who gets in touch complaining of slow response times, dozens or hundreds will have simply abandoned your service, and written off the quality of your site. Without web application monitoring, you’ll use users for some time before you’re even aware of a problem.
 
 ## Limitations of Web Application Monitoring
 
-### Dynamic Content
+* Dynamic Content
 
 Monitoring tools may struggle with rapidly changing, personalized content. A robust testing framework like [Playwright](https://www.checklyhq.com/docs/browser-checks/playwright-test/) can be helpful for writing smarter assertions about how interfaces *should* look.
 
-### Cross-purposes
+* Cross-purposes
 
 As mentioned in the introduction, Web Application Monitoring has a specific use: finding how well a service performs for users. Once the use case expands into security monitoring or business analytics, mission creep can kill your efficiency.
 
@@ -116,7 +116,7 @@ Effective monitoring is essential to maintaining the performance, availability, 
 
 ---
 
-### Set Clear Objectives
+* Set Clear Objectives
 
 Before implementing monitoring, define what success looks like for your application. Monitoring without clear goals often leads to data overload without actionable insights.
 
@@ -125,7 +125,7 @@ Before implementing monitoring, define what success looks like for your applicat
 
 ---
 
-### Choose the Right Monitoring Tools
+* Choose the Right Monitoring Tools
 
 Selecting the right tools for your web application’s unique needs is critical. Not all monitoring tools are created equal, and mismatched tools can lead to unnecessary complexity or blind spots.
 
@@ -134,16 +134,19 @@ Selecting the right tools for your web application’s unique needs is critical.
 
 ---
 
-### Define Key Performance Indicators (KPIs)
+* Define Key Performance Indicators (KPIs)
 
 KPIs translate business objectives into measurable metrics, bridging the gap between technical monitoring and organizational goals.
 
 - Why It Matters: Without KPIs, monitoring efforts can lack focus, leading to wasted resources and misaligned priorities.
 - How to Do It: Identify KPIs that directly affect user experience or business outcomes, such as uptime, response time, error rates, or user engagement metrics. For example, define a goal like “99.9% uptime for key services over a month.”
 
+{{< figure src="/guides/images/guides-checkly-response-limits.png" alt="setting up response time limits in an api check" title="In this view of the Checkly interface for an API monitor, users can set a time when a service is degraded, vs when it's counted as failing." >}}
+
+
 ---
 
-### Monitor User Experience
+**Monitor User Experience**
 
 Modern monitoring goes beyond infrastructure to focus on the end-user journey. Users don’t care if your CPU is underutilized—they care if your site loads quickly and works smoothly.
 
@@ -152,7 +155,7 @@ Modern monitoring goes beyond infrastructure to focus on the end-user journey. U
 
 ---
 
-### Implement Continuous Monitoring
+**Implement Continuous Monitoring**
 
 Web applications operate in dynamic environments, where issues can arise at any time. Continuous monitoring ensures constant vigilance.
 
@@ -161,7 +164,7 @@ Web applications operate in dynamic environments, where issues can arise at any 
 
 ---
 
-### Be Proactive with Alerting and Notifications
+**Be Proactive with Alerting and Notifications**
 
 Alert fatigue is a common problem in monitoring, where too many notifications desensitize teams. A proactive approach focuses on actionable alerts.
 
@@ -170,7 +173,7 @@ Alert fatigue is a common problem in monitoring, where too many notifications de
 
 ---
 
-### Analyze and Act on Monitoring Data
+**Analyze and Act on Monitoring Data**
 
 Data alone is not valuable unless it leads to action. Effective monitoring transforms raw data into insights that drive meaningful improvements.
 
@@ -179,7 +182,7 @@ Data alone is not valuable unless it leads to action. Effective monitoring trans
 
 ---
 
-### Implement Synthetic Monitoring
+**Implement Synthetic Monitoring**
 
 Synthetic monitoring simulates user activity to proactively identify potential issues.
 
@@ -188,7 +191,7 @@ Synthetic monitoring simulates user activity to proactively identify potential i
 
 ---
 
-### Leverage Real User Monitoring (RUM)
+**Leverage Real User Monitoring (RUM)**
 
 RUM provides insights based on actual user interactions, capturing the diversity of real-world experiences.
 
@@ -197,7 +200,7 @@ RUM provides insights based on actual user interactions, capturing the diversity
 
 ---
 
-### Conduct Regular Performance Audits
+**Conduct Regular Performance Audits**
 
 Periodic audits ensure that your monitoring strategy remains effective and that your application continues to meet performance expectations.
 
@@ -206,13 +209,13 @@ Periodic audits ensure that your monitoring strategy remains effective and that 
 
 ---
 
-### Tie Best Practices to Business Goals
+**Tie Best Practices to Business Goals**
 
 Effective monitoring isn’t just about data collection—it’s about using data to improve your application and achieve your organization’s goals. By integrating these best practices into your strategy, you ensure that monitoring becomes a driver of growth, user satisfaction, and operational excellence.
 
 ## Top 9 Web Application Monitoring Tools
 
-### 1. Datadog
+* 1. Datadog
 
 Datadog provides a unified platform that integrates metrics, logs, and traces for comprehensive monitoring. It includes features like Real User Monitoring (RUM), Synthetic Monitoring, and Application Performance Monitoring (APM).
 
@@ -220,7 +223,7 @@ Personal Experience: When I worked on a large e-commerce platform, Datadog was i
 
 ---
 
-### 2. New Relic
+* 2. New Relic
 
 New Relic is known for its robust APM, RUM, and distributed tracing capabilities. It offers strong support for OpenTelemetry, allowing integration of custom telemetry data.
 
@@ -228,7 +231,7 @@ Personal Experience: I worked at New Relic for a number of years, and won’t go
 
 ---
 
-### 3. Logz.io
+* 3. Logz.io
 
 Logz.io combines the ELK Stack (Elasticsearch, Logstash, and Kibana) with Grafana, providing log management and visualization. It targets engineers familiar with open source tooling but who want the convenience of a managed service.
 
@@ -236,7 +239,7 @@ Personal Experience: At a startup, we adopted Logz.io because it fit well with o
 
 ---
 
-### 4. Sentry
+* 4. Sentry
 
 Sentry specializes in error tracking, offering detailed stack traces and insights into application crashes. It focuses on developer workflows, making it easy to identify and fix bugs.
 
@@ -244,7 +247,7 @@ Personal Experience: We used Sentry extensively during a high-stakes product lau
 
 ---
 
-### 5. Icinga
+* 5. Icinga
 
 Originally a fork of Nagios, Icinga offers monitoring for servers, networks, and applications. It is an open-core product, with its core technology available on GitHub.
 
@@ -252,7 +255,7 @@ Personal Experience: This is the one tool on here I’ve never installed or expl
 
 ---
 
-### 6. Site24x7
+* 6. Site24x7
 
 Site24x7 offers application, server, and website monitoring, positioning itself as an all-in-one solution for small-to-medium-sized organizations.
 
@@ -260,7 +263,7 @@ Personal Experience: We briefly evaluated Site24x7 for a mid-sized SaaS platform
 
 ---
 
-### 7. Raygun
+* 7. Raygun
 
 Raygun focuses on real user monitoring, crash reporting, and performance tracking. It’s tailored for front-end and mobile developers looking to improve user experience.
 
@@ -268,7 +271,7 @@ Personal Experience: We relied on Raygun for monitoring a mobile app with a glob
 
 ---
 
-### 8. AppDynamics
+* 8. AppDynamics
 
 AppDynamics, now part of Cisco, provides APM capabilities with a focus on deep-dive analytics and business transaction monitoring.
 
@@ -276,7 +279,7 @@ Personal Experience: At an enterprise client, we implemented AppDynamics to moni
 
 ---
 
-### 9. IBM Instana
+* 9. IBM Instana
 
 Instana promises AI-driven insights and automatic monitoring for dynamic applications. Its focus is on reducing manual configuration by detecting and mapping dependencies in real time.
 
@@ -286,7 +289,7 @@ Personal Experience: During an initiative to modernize a legacy application, Ins
 
 Open source monitoring plays a pivotal role in modern cloud-native web application monitoring by leveraging community-driven tools to provide robust, scalable, and accessible monitoring solutions. These tools empower organizations to manage the complexity of distributed systems without being locked into proprietary solutions. 
 
-### Challenges in Cloud-Native Observability
+**Challenges in Cloud-Native Observability**
 
 Cloud-native applications, by design, introduce new complexities:
 
@@ -294,8 +297,7 @@ Cloud-native applications, by design, introduce new complexities:
 - Dynamic Dependencies: The interactions among thousands of microservices, infrastructure layers, and APIs shift dynamically with scaling and updates.
 - Data Volume: High data granularity across logs, metrics, traces, and flows creates immense operational overhead to derive actionable insights.
 
-### Core Components of Open Source Monitoring
-
+**Core Components of Open Source Monitoring**
 1. Metrics Collection with Prometheus
     
     Prometheus is the cornerstone of open source monitoring, providing time-series data collection and querying capabilities. With exporters like Node Exporter and Kubernetes State Metrics (KSM), it gathers metrics at both the system and application levels.
