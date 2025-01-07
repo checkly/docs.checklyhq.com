@@ -61,7 +61,6 @@
     background-color: #ffffff !important;
   }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
 <link rel="preload" href="https://cdn.checklyhq.com/fonts/ionicons.ttf?v=2.0.1" as="font" type="font/ttf" crossorigin="anonymous" />
 <link rel="preload" href="https://cdn.checklyhq.com/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 <meta name="description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
