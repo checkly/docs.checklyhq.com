@@ -6,7 +6,7 @@ weight: 54
 menu:
   resources:
     parent: "Private Locations"
-cli: true
+
 ---
 
 We advise running any production-grade Checkly Agent deployments on a container orchestrator like Kubernetes. To help you get started, we created the [checkly-k8s repo](https://github.com/checkly/checkly-k8s) which contains a Helm chart and a few example Kubernetes manifests.

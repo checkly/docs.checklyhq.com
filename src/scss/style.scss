@@ -1,6 +1,8 @@
 @import 'variables';
 @import './checkly-webapp-src/style/scss/style.scss';
 
+$navbar-height: 64px;
+
 @import 'common';
 @import 'main';
 @import 'navbar';
@@ -13,8 +15,7 @@
 @import 'markdown';
 @import 'status-circle';
 @import 'syntax';
-@import 'promo-banner';
-@import 'mailchimp-signup-row';
+@import 'docsearch-overrides';
 @import 'sections/api-monitoring';
 @import 'sections/learn-headless';
 

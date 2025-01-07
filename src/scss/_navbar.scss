@@ -1,101 +1,100 @@
-
 .navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
   padding: 32px 0;
-  min-height: 4rem;
+  height: $navbar-height;
   transition: all .5s;
   z-index: 199;
   background: $white;
+  border-bottom: 1px solid $gray-lighter;
 
-  &.navbar-gray {
-    background-color: $ash;
-  }
-
-  &.navbar-docs {
-    padding: 8px 24px;
-    border-bottom: 1px solid $gray-light;
-
-    .search-form {
+  .navbar-content {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0;
+    column-gap: 12px;
+    align-items: center;
+    max-width: 1440px;
+    width: 100%;
+    height: $navbar-height;
+    &-left {
+      height: $navbar-height;
       display: flex;
-      margin: auto;
+      flex: 1 1 0;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
     }
 
-  }
-
-  .callout {
-    font-size: 13px;
-    font-weight: 400;
-    display: inline-block;
-    color: $pink;
-    line-height: 1.1rem;
-    align-self: center;
-    white-space: nowrap;
-  }
-
-  .navbar-toggler {
-    span {
-      display: block;
-      width: 1.75rem;
-      height: 4px;
-      margin-bottom: 6px;
-      position: relative;
-
-      background: $brand-primary;
-      border-radius: 3px;
-
-      z-index: 1;
+    &-center {
+      display: flex;
+      flex: 1 1 0;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
     }
-    &:hover {
-      cursor: pointer;
-    }
-    &.navbar-toggler-right {
-      right: 0;
-      padding-right: 6px;
+
+    &-right {
+      display: flex;
+      flex: 1 1 0;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
     }
   }
 
-  &.navbar-toggleable-md .navbar-nav .nav-link {
-    padding-right: 1rem;
-    padding-left: 1rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    &.navbar-toggleable-md .navbar-nav .nav-link {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    &.navbar-toggleable-md > .container {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-
-  @media (min-width: 992px) and (max-width: 1200px) {
-    &.navbar-toggleable-md .navbar-nav .nav-link {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+  @include media-breakpoint-down(md) {
+    .nav-item-not-mobile {
+      display: none !important;
     }
   }
 
   .nav-link {
-    color: $gray-darkish;
-    font-weight: 400;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    position: relative;
+    color: $gray;
+    font-weight: 500;
+    margin-right: 20px;
+    white-space: nowrap;
+
     &:hover {
       color: $gray-dark;
     }
+
     &.active {
-      color: $gray-dark;
-      font-weight: 500;
+      color: darken($gray-dark, 10%);
+    }
+
+    &-bottom {
+      &.active {
+        background-color: $blue;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+      }
     }
   }
 
   .btn {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     padding: 9px 1rem 10px;
   }
   .signup-button {
     padding: 9px 22px 10px;
+    border-radius: 8px;
   }
   &.navbar-fixed-drop-shadow {
     box-shadow: 0 1px 2px 0px rgba(31, 45, 61, 0.15);
@@ -106,25 +105,42 @@
   }
 }
 
-.home-nav-wrapper {
-  .navbar {
-    top: 28px !important;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .navbar {
-    .container {
-      width: 100%;
-      padding-right: 16px;
-      padding-left: 16px;
+.navbar-mobile {
+  display: none;
+  flex: 0;
+  #navbar-hamburger {
+    display: flex;
+    &:hover {
+      cursor: pointer;
     }
-    .navbar-toggler {
-      &.navbar-toggler-right {
-        margin-top: 5px;
-        padding-right: 16px;
+  }
+
+  &-side-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+    @include media-breakpoint-down(md) {
+      display: flex;
+    }
+
+    &-link {
+      margin-bottom: 6px;
+      font-size: 14px;
+      a.active {
+        font-weight: 500;
+        border-bottom: 2px solid $blue;
       }
     }
   }
-}
 
+  @include media-breakpoint-down(md) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: $white;
+    z-index: 200;
+  }
+}

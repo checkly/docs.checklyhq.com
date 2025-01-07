@@ -6,7 +6,7 @@ weight: 25
 menu:
   resources: 
     parent: "Browser checks"
-cli: true
+
 aliases:
    - "/docs/browser-checks/visual-comparison-snapshot-testing/"
 ---

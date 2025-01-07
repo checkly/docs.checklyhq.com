@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Multistep checks"
     identifier: "multistep-example-checks"
-cli: true
+
 ---
 
 Below are a number of checks showcasing how to use Multistep checks. These are similar to the templates provided in Checkly when creating a new Multistep check and should give you an idea of how to get started building various types of checks.

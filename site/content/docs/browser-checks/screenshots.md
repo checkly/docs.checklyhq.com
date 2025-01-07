@@ -6,7 +6,7 @@ weight: 19
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 You can take up to 20 screenshots per browser check run. This is really handy when debugging a failure situation or just

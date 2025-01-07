@@ -1,96 +1,88 @@
- <title>{{ if .Params.title }}{{ .Params.title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
-
-  <meta charset="utf-8" />
-  <meta name="description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
-  <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" />
-
-  <link rel="preload" href="https://cdn.checklyhq.com/fonts/ionicons.ttf?v=2.0.1" as="font" type="font/ttf" crossorigin="anonymous" />
-  <link rel="preload" href="https://cdn.checklyhq.com/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.metatags.title }}{{ .Params.metatags.title }}{{ else }}{{ .Title }} | Checkly{{ end }}" />
-  <meta property="og:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
-  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-  <meta property="og:url" content="{{ .Permalink }}" />
-  {{ $template_name := .Scratch.Get "template_name"}}
-  {{ $breadcrumb_text := .Scratch.Get "breadcrumb_text"}}
-  {{ $subtitle_text := .Scratch.Get "subtitle_text"}}
-  <meta property="og:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace (htmlEscape $subtitle_text) "\n" "%20" }}{{ else }}{{ replace (htmlEscape .Summary) "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:creator" content="@checklyHQ" />
-  <meta property="twitter:domain" content="https://checklyhq.com" />
-  <meta property="twitter:site" content="@checklyHQ" />
-  <meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.metatags.title }}{{ .Params.metatags.title }}{{ else }}{{ .Title }} | Checkly {{ end }}" />
-  <meta property="twitter:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
-  <meta property="twitter:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace (htmlEscape $subtitle_text) "\n" "%20" }}{{ else }}{{ replace (htmlEscape .Summary) "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
-  <meta name="msvalidate.01" content="36F243A91FAA24DE468D8A8EECF33554" />
-  <link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://checklyhq.com/rss.xml" />
-  <link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
-
-  <link rel="canonical" href="{{ .Permalink }}" />
-
-
-	<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/2853758a17c7c3979d959d32/script.js"></script>
-  <style>
-    .qc-cmp-ui {
-      background-color: #0075ff !important;
-    }
-
-    .qc-cmp-publisher-purposes-table .qc-cmp-table-header {
-      background-color: #fafafa !important;
-    }
-
-    .qc-cmp-publisher-purposes-table .qc-cmp-table-row {
-      background-color: #ffffff !important;
-    }
-  </style>
-  <!-- Intercom code-->
-  <!-- Loads Intercom chat widget on page scroll -->
-  <script>
-    	var intercomLoader = function(){
-  		(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ep3ft8gg';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-          window.Intercom('boot', {
-            app_id: 'ep3ft8gg',
-            custom_launcher_selector: '.open-intercom-link'
-          })
-          window.removeEventListener('scroll', intercomLoader)
-      }
-      window.addEventListener('scroll', intercomLoader)
-  </script>
-
-  <!-- Google Tag Manager -->
-  <script data-cookieyes="cookieyes-analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5BMD7T3');</script>
-
-  <!-- LinkedIn -->
-  <script type="text/javascript" data-cookieyes="cookieyes-functional">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" />
+<title>{{ if .Params.title }}{{ .Params.title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/2853758a17c7c3979d959d32/script.js"></script>
+<!-- Hotjar Tracking Code for https://checklyhq.com -->
+<script data-cookieyes="cookieyes-analytics">
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:717179,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- Loads Intercom chat widget on page scroll -->
+<script>
+  var intercomLoader = function(){
+    (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ep3ft8gg';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    window.Intercom('boot', {
+      app_id: 'ep3ft8gg',
+      custom_launcher_selector: '.open-intercom-link'
+    })
+    window.removeEventListener('scroll', intercomLoader)
+  }
+  window.addEventListener('scroll', intercomLoader)
+</script>
+<!-- Google Tag Manager -->
+<script data-cookieyes="cookieyes-analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5BMD7T3');</script>
+<!-- LinkedIn -->
+<script type="text/javascript" data-cookieyes="cookieyes-functional">
   _linkedin_partner_id = "3976868";
   window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
   window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-  </script><script type="text/javascript">
+</script>
+<script type="text/javascript">
   (function(l) {
-  if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-  window.lintrk.q=[]}
-  var s = document.getElementsByTagName("script")[0];
-  var b = document.createElement("script");
-  b.type = "text/javascript";b.async = true;
-  b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-  s.parentNode.insertBefore(b, s);})(window.lintrk);
-  </script>
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+      window.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+<link rel="stylesheet" href="/css/style.css" />
+<style>
+  .qc-cmp-ui {
+    background-color: #0075ff !important;
+  }
 
-  <!-- Hotjar Tracking Code for https://checklyhq.com -->
-  <script data-cookieyes="cookieyes-analytics">
-    (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:717179,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
+  .qc-cmp-publisher-purposes-table .qc-cmp-table-header {
+    background-color: #fafafa !important;
+  }
+
+  .qc-cmp-publisher-purposes-table .qc-cmp-table-row {
+    background-color: #ffffff !important;
+  }
+</style>
+<link rel="preload" href="https://cdn.checklyhq.com/fonts/ionicons.ttf?v=2.0.1" as="font" type="font/ttf" crossorigin="anonymous" />
+<link rel="preload" href="https://cdn.checklyhq.com/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+<meta name="description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.metatags.title }}{{ .Params.metatags.title }}{{ else }}{{ .Title }} | Checkly{{ end }}" />
+<meta property="og:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ $template_name := .Scratch.Get "template_name"}}
+{{ $breadcrumb_text := .Scratch.Get "breadcrumb_text"}}
+{{ $subtitle_text := .Scratch.Get "subtitle_text"}}
+<meta property="og:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace (htmlEscape $subtitle_text) "\n" "%20" }}{{ else }}{{ replace (htmlEscape .Summary) "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:creator" content="@checklyHQ" />
+<meta property="twitter:domain" content="https://checklyhq.com" />
+<meta property="twitter:site" content="@checklyHQ" />
+<meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.metatags.title }}{{ .Params.metatags.title }}{{ else }}{{ .Title }} | Checkly {{ end }}" />
+<meta property="twitter:description" content="{{ with .Description }}{{ . | markdownify }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify}}{{ end }}{{ end }}{{ end }}" />
+<meta property="twitter:image" content='https://og-image.checklyhq.com/image.png?titleText={{ htmlEscape .Title }}&subtitleText={{ if $subtitle_text }} {{ replace (htmlEscape $subtitle_text) "\n" "%20" }}{{ else }}{{ replace (htmlEscape .Summary) "\n" "%20" }}{{end}}&template={{ $template_name}}{{ if ne $template_name "site"}}&breadcrumbsText={{ htmlEscape $breadcrumb_text}}{{end}}&fontSize=75px' />
+<meta name="msvalidate.01" content="36F243A91FAA24DE468D8A8EECF33554" />
+<link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://checklyhq.com/rss.xml" />
+<link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
+
+<link rel="canonical" href="{{ .Permalink }}" />

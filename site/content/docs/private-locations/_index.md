@@ -10,7 +10,7 @@ menu:
 aliases:
 - "/docs/private-locations/private-locations-getting-started/"
 - "/docs/private-locations/"
-cli: true
+
 ---
 
 A Private Location is a monitoring location that you manage by simply deploying a lightweight Checkly Agent.

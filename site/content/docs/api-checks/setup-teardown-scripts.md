@@ -6,7 +6,7 @@ weight: 12
 menu:
   resources:
     parent: "API checks"
-cli: true
+
 ---
 
 Setup and teardown scripts can be used to execute arbitrary JavaScript/TypeScript code before and/or after an API check. 

@@ -8,7 +8,7 @@ aliases:
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 Scenarios where a user provides credentials to get access to a web app are extremely common. They are also

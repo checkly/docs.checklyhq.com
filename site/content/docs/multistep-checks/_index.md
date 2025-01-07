@@ -11,7 +11,7 @@ menu:
 aliases:
     - /docs/multistep-checks/quickstart/
     - /docs/multistep-checks/getting-started/
-cli: true
+
 ---
 
 This guide gives you all the info to create your first Multistep check with Checkly. You should have some prior

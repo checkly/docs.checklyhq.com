@@ -1,9 +1,11 @@
-{{- $page := .page -}}
-{{- $learnSection := .learnSection -}}
-
-{{- $menuID := print "learn_" $learnSection -}}
 <aside class="learn-menu">
   <nav id="sideMenu" class="left-transform right-transform">
+    {{ partial "navbar-links-mobile" . }}
+
+    {{- $page := .page -}}
+    {{- $learnSection := .learnSection -}}
+    {{- $menuID := print "learn_" $learnSection -}}
+
     {{- partial "learn-menu-walk" (dict "menuID" $menuID "page" $page) -}}
   </nav>
   <div class="learn-menu-mobile-right-space">
@@ -12,7 +14,7 @@
   <!-- Restore menu position as soon as possible to avoid flickering -->
   <script>
     (function () {
-      const menu = document.querySelector('aside.docs-menu nav')
+      const menu = document.querySelector('aside.learn-menu nav')
       addEventListener('beforeunload', function () {
         localStorage.setItem('menu.scrollTop', menu.scrollTop)
       })

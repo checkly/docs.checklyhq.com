@@ -6,7 +6,7 @@ weight: 31
 menu:
   resources:
     parent: "Alerting & retries"
-cli: true
+
 ---
 
 Alert channels are the channels through which alert notifications will reach you when a check starts failing, showing degraded performance or recover.

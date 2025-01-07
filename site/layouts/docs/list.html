@@ -3,11 +3,6 @@
   {{ partial "docs-menu" .}}
   <div class="docs-page">
     <article class="markdown DocSearch-content">
-      <div class="d-flex">
-        <div class="mobile-toc-button" id="mobile-toc-button">
-          <img src="/images/icons/toc-icon.svg" alt="table of contents" width="14" height="12" /> Table of contents
-        </div>
-      </div>
 
       {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "/" }}
       {{ $homeURL := $url | absURL }}
@@ -30,7 +25,7 @@
 
       {{ range first 1 .Pages }}
       <div class="text-right my-5">
-        <a href="{{ .RelPermalink }}">        
+        <a href="{{ .RelPermalink }}">
         {{ if .Params.displayTitle}}
           {{.Params.displayTitle}}
         {{else}}

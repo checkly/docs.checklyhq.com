@@ -1,5 +1,6 @@
 <aside class="learn-menu">
   <nav id="sideMenu" class="left-transform right-transform">
+    {{ partial "navbar-links-mobile" . }}
     <ul class="learn-menu-content">
       {{- $currentPage := . -}}
       {{- $entries := .Site.Menus.learn_playwright -}}

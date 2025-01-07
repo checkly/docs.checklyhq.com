@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Multistep checks"
     identifier: "multistep-degraded-state-soft-asserts"
-cli: true
+
 ---
 
 If you want to monitor your API for non-critical errors or performance degradations you can use the degraded check state. This allows you to signal that parts of a Multistep check performed slower than expected, or that it triggered assertions that are of lower criticality. 

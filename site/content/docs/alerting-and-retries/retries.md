@@ -6,7 +6,7 @@ weight: 32
 menu:
   resources:
    parent: "Alerting & retries"
-cli: true
+
 ---
 
 Sometimes the internet is flaky, or your app is just having a hiccup not worth pinging your on-call team about. Retries are your first line of defense against these types of false positives, leading to alert fatigue.
