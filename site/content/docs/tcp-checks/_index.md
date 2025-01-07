@@ -7,7 +7,7 @@ menu:
     parent: "TCP checks"
 navTitle: Overview
 slug: /
-cli: true
+
 ---
 
 > **Early Access Feature:**

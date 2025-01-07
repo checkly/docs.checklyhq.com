@@ -7,7 +7,7 @@ weight: 14
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 Checkly natively supports running browser checks using the Playwright Test Runner, allowing you to write tests and use 

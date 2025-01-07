@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Groups"
     identifier: variables-groups
-cli: true
+
 ---
 
 You can set both variables and secrets for a Group of checks.

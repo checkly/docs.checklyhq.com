@@ -9,7 +9,7 @@ menu:
     parent: "Runtimes"
 aliases:
 - /docs/runtimes/
-cli: true
+
 ---
 
 Checkly allows you to use JavaScript code in your [Browser checks](/docs/browser-checks/) and in the optional [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/) you can add to your API checks.

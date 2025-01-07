@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Setup & teardown scripts"
     identifier: setup-script-examples
-cli: true
+
 ---
 
 Here are some examples on how to address common authentication use cases with setup scripts. 

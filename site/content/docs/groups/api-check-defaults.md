@@ -6,7 +6,7 @@ weight: 27
 menu:
   resources:
     parent: "Groups"
-cli: true
+
 ---
 
 Using a set of shared defaults for API checks helps you manage checks that go to the same basic 

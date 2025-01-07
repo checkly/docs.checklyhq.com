@@ -6,7 +6,7 @@ weight: 56
 menu:
   resources:
     parent: "Private Locations"
-cli: true
+
 ---
 
 If you are operating our [Checkly Agent](/docs/private-locations/) behind an HTTP proxy, 

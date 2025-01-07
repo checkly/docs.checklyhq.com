@@ -8,7 +8,7 @@ menu:
     parent: "Browser checks"
 aliases:
   - /docs/browser-checks/file-system/
-cli: true
+
 ---
 
 You might want to use (binary) files in your browser checks. For example, you might want to upload a file to an upload 

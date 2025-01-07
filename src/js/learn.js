@@ -40,7 +40,7 @@ $(document).ready(() => {
  */
 
 $(document).ready(() => {
-  $('.mobile-toc-button').click(function () {
+  $('#navbar-hamburger').click(function () {
     $('.learn-menu').css({
       left: '0'
     })
@@ -90,27 +90,31 @@ $(document).ready(function () {
  * Sidemenu fixed position after some scroll-up
  */
 
-const sideMenuDistance = $('#sideMenu').offset().top - 10
+$(document).ready(function () {
+  const sideMenu = $('#sideMenu')
+  if (!sideMenu.length) return
+  const sideMenuDistance = $('#sideMenu').offset().top - 10
 
-$(window).on('scroll', function () {
-  if ($(window).scrollTop() >= sideMenuDistance) {
-    $('#sideMenu').css({
-      position: 'fixed',
-      top: '0px'
-    })
-    $('#tocMenu').css({
-      position: 'fixed',
-      top: '30px'
-    })
-  } else {
-    $('#sideMenu').css({
-      position: 'relative'
-    })
-    $('#tocMenu').css({
-      position: 'relative',
-      top: '0'
-    })
-  }
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() >= sideMenuDistance) {
+      $('#sideMenu').css({
+        position: 'fixed',
+        top: '0px'
+      })
+      $('#tocMenu').css({
+        position: 'fixed',
+        top: '30px'
+      })
+    } else {
+      $('#sideMenu').css({
+        position: 'relative'
+      })
+      $('#tocMenu').css({
+        position: 'relative',
+        top: '0'
+      })
+    }
+  })
 })
 
 /**

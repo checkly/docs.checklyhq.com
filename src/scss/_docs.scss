@@ -1,6 +1,7 @@
 .docs {
   $top: 1rem;
   $menu-width: 17rem;
+  $mobile-menu-width: 300px;
   $toc-width: 14rem;
   $menu-item-padding-spacer: 6px;
   $menu-line-height: 18px;
@@ -49,7 +50,7 @@
       height: calc(100vh - $top);
       position: relative;
       width: $menu-width;
-      padding: 20px 0 20px 20px;
+      padding: 1rem 0 1rem 1rem;
       overflow-x: hidden;
       overflow-y: auto;
     }
@@ -59,6 +60,11 @@
     .left-transform {
       transform: none;
     }
+
+    .docs-menu-mobile-show {
+      display: none;
+    }
+
     .docs-menu-mobile-right-space {
       display: none;
       width: 0;
@@ -253,7 +259,7 @@
     font-size: .875rem;
     margin-right: auto;
     width: 232px;
-    padding-top: 6rem;
+    padding-top: 1rem;
 
     nav {
       width: $toc-width;
@@ -265,7 +271,6 @@
 
     nav#TableOfContents {
       ul {
-        border-left: 2px solid $gray-light;
         padding-left: 2 * $menu-item-padding-spacer;
 
         ul {
@@ -288,10 +293,10 @@
     }
 
     &-header {
-      padding-left: 2 * $menu-item-padding-spacer + 2px;
+      padding-left: 2 * $menu-item-padding-spacer;
       color: $gray-dark;
       font-weight: 600;
-      margin-bottom: $menu-item-padding-spacer;
+      margin: 1rem 0 .75rem;
     }
 
     &-community, &-support {
@@ -299,7 +304,6 @@
 
       nav {
         ul {
-          border-left: 2px solid $gray-light;
           padding-left: 2 * $menu-item-padding-spacer !important;
 
           li {
@@ -380,7 +384,7 @@
     .breadcrumb {
       display: flex;
       align-items: center;
-      margin: 20px 0 20px;
+      margin: 1rem 0 .75rem;
       padding: 0;
       background: none;
       font-size: 14px;
@@ -400,24 +404,6 @@
       & span {
         margin: 0 5px;
         color: $gray;
-      }
-
-      .badge-cli {
-        margin-left: auto;
-        color: $gray-darkish;
-        background: $gray-lighter;
-        font-weight: 600;
-        text-transform: capitalize;
-        &::before {
-          width: 14px;
-          height: 14px;
-          background: url(/images/icons/terminal_gray.svg);
-          background-size: 100%;
-          margin: 0 $menu-item-padding-spacer 0 0;
-          content: '';
-          display: inline-block;
-          vertical-align: -24%;
-        }
       }
 
       .badge-beta {
@@ -561,7 +547,7 @@
       z-index: 10000;
       width: 100%;
       height: calc(100vh + 80px);
-      top: 0px;
+      top: 0;
       left: -100%;
       font-size: $font-size-base;
       background: rgba(0, 0, 0, .2);
@@ -570,24 +556,28 @@
         border: 0;
         border-radius: 0;
         height: 100%;
-        width: 260px;
-        left: -260px;
+        width: $mobile-menu-width;
+        left: -$mobile-menu-width;
         margin-top: 0px;
         background: white;
       }
       .right-transform {
-        transform: translateX(260px);
+        transform: translateX($mobile-menu-width);
       }
       .left-transform {
-        transform: translateX(-260px);
+        transform: translateX(-$mobile-menu-width);
+      }
+      .docs-menu-mobile-show {
+        display: block;
       }
       .docs-menu-mobile-right-space {
         display: none;
         position: fixed;
         right: 0;
         top: 0;
-        width: calc(100% - 260px);
+        width: calc(100% - $mobile-menu-width);
         height: 100%;
+        backdrop-filter: blur(3px);
       }
     }
 
@@ -600,32 +590,6 @@
     .docs-page {
       .markdown {
         padding-right: 0;
-        .mobile-toc-button {
-          display: block;
-          width: 155px;
-          margin-right: 10px;
-          padding: 12px 9px;
-          color: $gray-dark;
-          border: 1px solid $gray;
-          border-radius: 5px;
-          background: $gray-lightest;
-          font-size: 14px;
-          line-height: 20px;
-
-          &:hover {
-            cursor: pointer;
-          }
-
-          img {
-            margin-top: -4px;
-          }
-        }
-        .form-inline {
-          width: calc(100% - 165px);
-          img {
-            top: 15px;
-          }
-        }
       }
     }
   }
@@ -673,30 +637,6 @@
     color: #697280;
     font-size: 14px;
 }
-  @include media-breakpoint-down(xs) {
-    .docs-page {
-      .markdown {
-        .mobile-toc-button {
-          width: 100%;
-          text-align: center;
-          margin-bottom: 20px;
-          margin-right: 0;
-        }
-        .form-inline {
-          width: 100%;
-          input {
-            height: 45px;
-          }
-          img {
-            top: 15px;
-          }
-          span {
-            min-width: 100% !important;
-          }
-        }
-      }
-    }
-  }
 
   &-cta-section-shortcode {
     margin-top: 1.5 * $spacer-y;

@@ -1,0 +1,66 @@
+#docsearch {
+  max-width: 400px !important;
+  width: 100% !important;
+  .DocSearch {
+    width: 100% !important;
+
+    &-Search-Icon {
+      width: 14px !important;
+      color: $gray !important;
+
+      @include media-breakpoint-down(md) {
+        width: 18px !important;
+      }
+    }
+
+    &-Button {
+      margin: 0;
+      background-color: $white !important;
+      border: 1px solid $gray-lighter !important;
+      border-radius: 8px !important;
+      color: #212529 !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      padding: 6px 16px !important;
+      transition: all 0.2s, border-color 0.2s, color 0.2s !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05) !important;
+
+      @include media-breakpoint-down(md) {
+        align-items: center;
+        justify-content: flex-end;
+        box-shadow: none !important;
+        border: none !important;
+      }
+
+      &:hover, &:focus, &:active {
+        border-color: $blue !important;
+      }
+
+      &-Container {
+
+      }
+
+      &-Placeholder {
+        font-size: 14px !important;
+        color: $gray !important;
+      }
+
+      &-Key {
+        padding: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
+        background: $white !important;
+        box-shadow: none !important;
+        width: 10px !important;
+        color: $gray !important;
+      }
+
+      &-Keys {
+        min-width: 0 !important;
+        & > *:first-child {
+          font-size: 18px !important;
+        }
+      }
+    }
+  }
+}

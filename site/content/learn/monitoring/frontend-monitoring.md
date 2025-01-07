@@ -29,17 +29,23 @@ It helps teams identify issues like slow page load times, JavaScript errors, or 
 
 ## Types of Frontend Monitoring
 
-### Proactive Monitoring
+**Proactive Monitoring**
 
 Proactive monitoring involves detecting potential issues before they affect users. Tools simulate user interactions to identify bottlenecks or vulnerabilities. For example, a proactive monitor might [simulate slow network response times](https://www.checklyhq.com/learn/playwright/intercept-requests/) to check how a frontend will render when some components are slow to load. This is comparable to a ‘chaos monkey’ testing strategy for backend services.
 
-### Reactive Monitoring
+**Reactive Monitoring**
 
 Reactive monitoring focuses on capturing issues reported by users in real-time. It complements proactive efforts by highlighting problems occurring in production. Reactive monitoring may be as simple as catching JS errors that occur in a page and reporting them to an end service.
 
-### Real User Monitoring (RUM)
+**Real User Monitoring (RUM)**
 
-RUM tracks actual user interactions with your application, offering insights into how real users experience your site in different environments. In theory, RUM is the ideal way to find front end problems: simply track every user’s experience, everywhere. However this approach has several challenges:
+RUM tracks actual user interactions with your application, offering insights into how real users experience your site in different environments. In theory, RUM is the ideal way to find front end problems: simply track every user’s experience, everywhere. 
+
+![A diagram of the Real User Monitoring model](/learn/images/frontend-monitoring-01.png)
+
+*A diagram of the Real User Monitoring model, with in-page Javascript reporting from a user's device to an observability service.*
+
+However this approach has several challenges:
 
 - Failures of users expectations may go undetected - for example if a user searches for recent posts and gets posts from 7 years ago, no errors will be raised, and no problem will be tracked.
 - Rum can impact browser performance for users.
@@ -47,7 +53,7 @@ RUM tracks actual user interactions with your application, offering insights int
 - Difficulty finding patterns - user behavior is inherently inconsistent. It’s often very difficult to identify connected failures or trends based on multiple users’ inconsistent behavior. The situation is similar to the sampling problem: we’re left trying to guess what happened based on sketchy information.
 - Complex implementation - from loading a javascript package to track user experience in the browser, to endpoints to collect that information, and a system to find patterns in stochastic user behavior, RUM is a complex technical challege with extensive techncial lift. If you’re trying to create a DIY solution for RUM, you’ll find that [CORS: Cross-Origin Request Blocked](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) errors are the first of many challenges.
 
-### Synthetic Monitoring
+**Synthetic Monitoring**
 
 [Synthetic monitoring](https://www.checklyhq.com/blog/what-is-synthetic-monitoring/) can be as simple as sending requests to a service and making sure the response has a `200 OK` status code, but the term is generally used to describe an automated browser that can simulate user behavior. [Checkly uses the open source Playwright framework](https://www.checklyhq.com/docs/browser-checks/playwright-test/) to simulate user behavior in great detail, and make complex assertions about the results. 
 
@@ -59,7 +65,11 @@ Synthetic monitoring solves many of the problems listed above with RUM:
 - Patterns are readily identifiable since the behavior of a synthetic user is always the same. Further, by running tests on a cadence, the exact time that failures started is easier to find. This is expecially helpful if you’re trying to connect a new failure to a paticular deployment
 - No implementation requirements - synthetic monitoring can be implemented as a 100% external service.
 
-### Application Performance Monitoring (APM)
+![A diagram of the Synthetic Monitoring model](/learn/images/frontend-monitoring-02.png)
+
+*A diagram of the Synthetic Monitoring model, with an observability service like checkly sending requests to your production service. SREs and Ops engineers can then view reports and receives alerts the moment a problem is detected.*
+
+**Application Performance Monitoring (APM)**
 
 APM is a general term, usually referring to a combined solution that includes both front end monitoring and the measurement of performance of backend software through the use of installed software agents. 
 
@@ -105,43 +115,43 @@ Key metrics in detail:
 
 ## Benefits of Frontend Monitoring
 
-### Proactive Issue Detection
+**Proactive Issue Detection**
 
 Frontend monitoring empowers teams to detect potential problems before they escalate into critical failures. By observing patterns such as sudden increases in error rates or performance degradation, teams can investigate and resolve issues early, often before users are impacted. This phase of the monitoring journey focuses on "known knowns," enabling developers to answer key questions like, “What happened during a spike in errors?” By building a narrative around historical data, teams can use these insights to improve system resilience.
 
-### Precise Performance Insights
+**Precise Performance Insights**
 
 Performance monitoring provides actionable data that highlights bottlenecks and inefficiencies in applications. Metrics such as Largest Contentful Paint or Interaction to Next Paint help developers understand where delays occur and prioritize optimization efforts. These insights shift the focus from merely reacting to known issues toward analyzing anomalies, such as unexpectedly fast or slow responses. This phase aligns with "known unknowns," where developers explore statistical questions to assess how normal or abnormal system behavior is.
 
-### Real-Time User Experience Analysis
+**Real-Time User Experience Analysis**
 
 Frontend monitoring enables developers to track user interactions, such as clicks, form submissions, or navigation paths, providing visibility into how users engage with an application. These insights help identify friction points in real-time, allowing teams to address usability challenges proactively. By adding context-specific data, such as user or session identifiers, developers can refine their analysis and enhance the customer experience. This phase blends analysis with experimentation, helping developers test hypotheses about what improves engagement or usability.
 
-### Resource Allocation Efficiency
+**Resource Allocation Efficiency**
 
 By identifying specific areas that require attention, monitoring data enables teams to focus their efforts where they matter most. For instance, if metrics reveal that a checkout flow is a primary source of performance complaints, resources can be redirected toward optimizing that functionality. This approach not only improves the end-user experience but also ensures the efficient use of time and budget. This aligns with the later phases of the observability journey, where teams experiment with targeted solutions and evaluate the ROI of their changes.
 
 ---
 
-### Challenges of Frontend Monitoring
+## Challenges of Frontend Monitoring
 
-### Managing Tool Sprawl and Integration Issues
+**Managing Tool Sprawl and Integration Issues**
 
 The abundance of frontend monitoring tools can create silos, making it challenging to consolidate insights across systems. Teams often struggle to integrate disparate tools like performance trackers, error loggers, and user interaction analytics. This fragmentation can hinder the ability to see the full picture, leaving blind spots in observability. Addressing this challenge requires adopting systems that unify logs, metrics, and traces to provide a cohesive view of the application’s behavior.
 
-### Handling Diverse User Environments
+**Handling Diverse User Environments**
 
 Applications are accessed through a wide array of devices, browsers, and network conditions, each introducing unique challenges. For example, a feature that works seamlessly on one browser may fail on another, and network latency can vary dramatically across regions. Monitoring tools must account for this diversity by capturing data that reflects real-world conditions. Understanding these "known unknowns" helps developers identify anomalies across different environments and adapt their solutions to improve the experience for all users.
 
-### Keeping Up with Rapid Technological Changes
+**Keeping Up with Rapid Technological Changes**
 
 The fast pace of evolution in frontend technologies, including frameworks and browser standards, makes it difficult to maintain effective monitoring. What works for today’s stack might become obsolete as new features and tools emerge. Teams must stay agile, continually updating their instrumentation and observability practices to align with the latest advancements. This requires a culture of experimentation and learning, allowing developers to test and adopt new solutions without losing focus on system stability.
 
-### Limited Root Cause Analysis with Basic Tools
+**Limited Root Cause Analysis with Basic Tools**
 
 Entry-level monitoring tools often focus on surface-level insights, such as error counts or simple performance metrics, but fail to provide the deeper diagnostics needed to identify root causes. For example, they may show that an API call failed but not explain why. This limitation makes it difficult to move from the "what" to the "why," hindering the ability to address systemic issues. Advanced observability tools that provide context-rich data and enable correlation across systems are essential for overcoming this challenge.
 
-### Ensuring Full-Stack Visibility
+**Ensuring Full-Stack Visibility**
 
 Frontend monitoring alone cannot provide a complete view of an application’s health. Many issues arise at the intersection of the frontend and backend, requiring integrated observability across the entire stack. Without this integration, teams risk spending excessive time proving whether an issue is frontend- or backend-related. Implementing context propagation and unified tracing, such as through OpenTelemetry, helps connect frontend events to backend processes, enabling a more holistic understanding of system behavior and streamlining troubleshooting efforts. For more detail on connecting backend OpenTelemetry traces with frontend performance see how [Checkly Traces connects data from across your stack](https://www.checklyhq.com/docs/traces-open-telemetry/how-it-works/).
 
@@ -168,32 +178,32 @@ Consider features like synthetic monitoring, RUM, session replay, language compa
 
 Frontend monitoring has historically lagged behind backend systems in sophistication and integration. With OpenTelemetry (OTel), frontend monitoring can now achieve deeper insights into user experiences. However, it also brings unique challenges that require careful consideration.
 
-### Challenges in Using OpenTelemetry for Frontend Monitoring
+## Challenges in Using OpenTelemetry for Frontend Monitoring**
 
-### 1. **Initial Complexity of Setup**
+**1. **Initial Complexity of Setup****
 
 While OpenTelemetry provides out-of-the-box instrumentation, setting it up for a browser-based application requires upfront effort. Instrumentation code must load before the application initializes to capture critical spans like document load times. Ensuring this is correctly implemented across environments can be a source of frustration.
 
-### 2. **Performance Overhead**
+**2. **Performance Overhead****
 
 Instrumenting a frontend app involves adding listeners for browser events, fetching metrics, and propagating trace headers. Over-instrumentation or poorly optimized spans can degrade application performance, especially for resource-intensive pages or on devices with limited capabilities.
 
-### 3. **Handling Browser-Specific Nuances**
+**3. **Handling Browser-Specific Nuances****
 
 Browsers have unique behaviors that can make instrumentation challenging. For example:
 
 - **Redirects and Network Timing:** JavaScript doesn’t have access to certain browser-level events, like pre-redirect network timing. Combining OpenTelemetry's network instrumentation with browser APIs like `PerformanceObserver` can help, but it requires extra configuration.
 - **Clock Synchronization:** Distributed tracing relies on accurate timestamps. However, clock drift between client devices and servers can result in misaligned spans. Proxying timestamp corrections through an [OpenTelemetry Collector](https://www.checklyhq.com/learn/opentelemetry/what-is-the-otel-collector/) is often necessary.
 
-### 4. **Data Volume and Rate Limiting**
+**4. **Data Volume and Rate Limiting****
 
 Frontend telemetry can quickly generate a high volume of spans, especially on high-traffic applications. Without rate limiting or filtering, this data can overwhelm storage systems or increase monitoring costs. Developers must design selective instrumentation strategies to focus on high-value spans.
 
-### 5. **Contextual Relevance of Spans**
+**5. **Contextual Relevance of Spans****
 
 While auto-instrumentation provides useful baselines like resource fetch times and click events, it lacks application-specific context. Developers need to enhance these spans with attributes that matter to their business logic—such as user IDs, session data, or interaction details. Without this, telemetry risks becoming just noise.
 
-### 6. **Debugging and Observability Gaps**
+**6. **Debugging and Observability Gaps****
 
 Traditional frontend monitoring tools often report *what* is happening (e.g., a page is slow), but lack insights into *why*. OpenTelemetry addresses this by correlating frontend spans with backend traces. However, this requires propagation of trace headers (`traceparent`) between the frontend and backend, which can be technically challenging in distributed systems.
 
@@ -222,7 +232,7 @@ For example, Checkly allows teams to:
 - Test frontend flows directly in production, monitoring the behavior users actually experience.
 - Extend monitoring to include application performance metrics like load times and rendering speed.
 
-### Advantages of Checkly’s Approach
+**Advantages of Checkly’s Approach**
 
 1. **Integration with Existing Workflows**
     

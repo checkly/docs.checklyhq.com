@@ -1,5 +1,6 @@
 <aside class="docs-menu">
   <nav id="sideMenu" class="left-transform right-transform">
+    {{ partial "navbar-links-mobile" . }}
     <span class="docs-menu-category">Core Platform</span>
     {{ partial "docs-menu-walk" (dict "menuID" "platform" "page" .) }}
     <span class="docs-menu-category">Resources</span>

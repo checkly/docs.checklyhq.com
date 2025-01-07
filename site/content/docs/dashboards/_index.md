@@ -12,7 +12,7 @@ aliases:
   - "/dashboards/overview/"
   - "/docs/dashboards/overview/"
   - "/docs/dashboards/"
-cli: true
+
 ---
 
 You can use Checkly Dashboards to communicate check status and incidents to non-Checkly users. Use

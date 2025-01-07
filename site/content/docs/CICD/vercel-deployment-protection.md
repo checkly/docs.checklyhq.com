@@ -7,7 +7,7 @@ menu:
   integrations:
     parent: "Vercel"
     identifier: vercel-deployment-protection
-cli: true
+
 ---
 
 In some cases, you will need to provide authentication credentials to your Vercel deployment in order to run your browser

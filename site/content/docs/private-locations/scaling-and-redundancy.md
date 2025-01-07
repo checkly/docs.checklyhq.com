@@ -6,7 +6,7 @@ weight: 55
 menu:
   resources:
     parent: "Private Locations"
-cli: true
+
 ---
 
 At least two running Checkly Agents per Private Location are recommended for redundancy. Agents are stateless and can be scaled horizontally as needed. You can add additional agents to a location at any time and remove them
