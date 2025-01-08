@@ -13,7 +13,7 @@ import dartSass from 'sass'
 const sass = gulpSass(dartSass)
 
 import revall from 'gulp-rev-all'
-import * as del from 'del'
+import { deleteAsync } from 'del'
 
 import BrowserSync from 'browser-sync'
 import webpack from 'webpack'
@@ -120,8 +120,8 @@ gulp.task('watch', () => {
 // Development server with browsersync
 gulp.task('server', gulp.series(['hugo', 'css', 'js', 'fonts', 'purgecss', 'minify-css', 'serve', 'watch']))
 
-gulp.task('clean', () => {
-  return del(['./public/**/*'])
+gulp.task('clean', async () => {
+  return deleteAsync(['./public/**/*'])
 })
 
 // Build/production tasks
