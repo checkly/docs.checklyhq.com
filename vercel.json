@@ -34,14 +34,15 @@
   ],
   "redirects": [
     {
-      "source": "/",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "docs.checklyhq.com"
         }
       ],
-      "destination": "https://www.checklyhq.com/docs/"
+      "destination": "https://www.checklyhq.com/docs/:path*",
+      "permanent": true
     },
     { "source": "/learn/headless/avoiding-hard-waits(/)?", "destination": "/learn/playwright/waits-and-timeouts", "permanent": true },
     { "source": "/learn/headless/basics-clicking-typing(/)?", "destination": "/learn/playwright/clicking-typing-hovering", "permanent": true },
