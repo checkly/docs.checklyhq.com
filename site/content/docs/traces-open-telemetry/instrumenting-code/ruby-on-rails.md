@@ -31,8 +31,7 @@ opentelemetry-instrumentation-all
 ```
 
 This should add the following lines:
-```ruby
-# Gemfile
+```ruby {title="Gemfile"}
 gem "opentelemetry-sdk", "~> 1.4"
 gem "opentelemetry-exporter-otlp", "~> 0.26.3"
 gem "opentelemetry-instrumentation-all", "~> 0.60.0"
@@ -42,9 +41,7 @@ gem "opentelemetry-instrumentation-all", "~> 0.60.0"
 
 As per the Ruby on Rails convention, we add an `instrumentation.rb` file to the `config/initializers` directory.
 
-```ruby
-# config/initializers/instrumentation.rb
-
+```ruby {title="config/initializers/instrumentation.rb"}
 require 'opentelemetry/sdk'
 require 'opentelemetry/instrumentation/all'
 

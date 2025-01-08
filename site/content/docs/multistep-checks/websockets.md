@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Multistep checks"
     identifier: "multistep-checks-websockets"
-cli: true
+
 ---
 
 To create a WebSocket check in Checkly, you'll need to write a script that establishes a WebSocket connection, sends messages, and validates responses.
@@ -17,7 +17,7 @@ First, we'll establish a connection to the WebSocket server. Replace `wss://your
 
 {{< tabs "Setup WebSocket Connection" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="websocket.spec.ts"}
 import { WebSocket } from 'ws'
 
 const url = 'wss://your.websocketserver.com';
@@ -25,7 +25,7 @@ const ws = new WebSocket(url);
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="websocket.spec.js"}
 const WebSocket = require('ws');
 
 const url = 'wss://your.websocketserver.com';

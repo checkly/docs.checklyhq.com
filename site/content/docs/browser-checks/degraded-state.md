@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Browser checks"
     identifier: "browser-degraded-state-soft-asserts"
-cli: true
+
 ---
 
 If you want to monitor your service for non-critical errors or performance degradations you can use the degraded check state. This allows you to signal that parts of a Browser check performed slower than expected, or that it triggered assertions that are of lower criticality. 
@@ -26,7 +26,7 @@ A check is marked as degraded when `markCheckAsDegraded` is called and there are
 
 In this example we do a simple site navigation and measure the time the test takes. At the end of the check we mark the check as degraded if the duration of the test is too long, or if the site header has changed.
 
-```ts
+```ts {title="degraded.spec.ts"}
 import { expect, test, Page } from '@playwright/test';
 import { markCheckAsDegraded } from "@checkly/playwright-helpers"; // Import the necessary method from the Checkly helpers library.
 

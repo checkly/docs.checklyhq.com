@@ -6,16 +6,15 @@ weight: 32
 menu:
   resources:
    parent: "Alerting & retries"
-cli: true
+
 ---
 
 Sometimes the internet is flaky, or your app is just having a hiccup not worth pinging your on-call team about. Retries are your first line of defense against these types of false positives, leading to alert fatigue.
 
 Whether you need to retry a check or a test session, there are different retries available.
 
-{{<warning>}}
-Use **Retries** instead of the deprecated "double check" option.
-{{</warning>}}
+> [!WARNING]
+> Use **Retries** instead of the deprecated "double check" option.
 
 ## Check retry strategies
 
@@ -38,10 +37,8 @@ On top of the time between attempts, you can also set:
 * **maximum number of retries** - the maximum number of retries for this check or check group.
 * **maximum total retry duration** - the maximum time a check can be in a retrying state.
 This is a timeout to ensure the check finishes on a timely manner.
-    
-  {{<info >}}
-  Make sure to include the time your check needs to run when setting the **maximum total retry duration**. For example, if you set a maximum to 2 minutes, and your check takes 1.5 minutes, you have 30 seconds left for retries.
-  {{</info >}}
+
+> Make sure to include the time your check needs to run when setting the **maximum total retry duration**. For example, if you set a maximum to 2 minutes, and your check takes 1.5 minutes, you have 30 seconds left for retries.
 
 #### How often should I retry?
 

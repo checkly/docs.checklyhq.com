@@ -6,7 +6,7 @@ weight: 35
 menu:
   resources:
     parent: "Alerting & retries"
-cli: true
+
 ---
 
 Webhooks allow you to POST custom payloads to any endpoint in your own infrastructure or a third party provider. In a
@@ -27,9 +27,7 @@ The example above shows a webhook configured to create a Jira ticket on each eve
 
 In both cases we use the familiar Handlebars templating braces, i.e. `{{ }}` to insert the variable.
 
-{{<info >}}
-To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{USER_API_KEY}}}`
-{{</info >}}
+> To avoid encoding, you can access your environment variables with triple brackets, i.e. `{{{USER_API_KEY}}}`
 
 You can use the following event-related variables in both URL and payload.
 
@@ -41,6 +39,7 @@ You can use the following event-related variables in both URL and payload.
 | `ALERT_TITLE`       | Human readable title, e.g. 'Check "My API check" has failed' |
 | `ALERT_TYPE`        | Type of alert, e.g. "ALERT_FAILURE", "ALERT_RECOVERY", "ALERT_DEGRADED", "ALERT_DEGRADED_RECOVERY". See [alert states](/docs/alerting-and-retries/alert-states/#alert-states--transitions) for all options. |
 | `CHECK_RESULT_ID`   | The UUID of the result that triggered this message           |
+| `CHECK_ERROR_MESSAGE` | The check error message                                    |
 | `RESPONSE_TIME`     | The reported response time for this result                   |
 | `API_CHECK_RESPONSE_STATUS_CODE`     | The response status code, e.g. 200. Only populated for API checks.                  |
 | `API_CHECK_RESPONSE_STATUS_TEXT`     | The response status text, e.g. "OK". Only populated for API checks.                  |

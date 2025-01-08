@@ -9,7 +9,7 @@ menu:
 aliases:
 - /alerting/settings/
 - /alerting/
-cli: true
+
 ---
 
 Alert settings allow you to control when and how often you will be notified when a check starts failing, degrades or recovers.
@@ -34,16 +34,12 @@ Your alert notifications can be configured at three levels:
 ![alert settings group / threshold alerting](/docs/images/alerting/alert-settings-group.png)
 
 3. **Check** level: You can explicitly override the account alert settings per check. Very handy for debugging or other one-off cases.
-{{<info >}}
-If you are using Groups, all the checks in the same Group will share Group-level alert settings.
-{{</info >}}
+
+> If you are using Groups, all the checks in the same Group will share Group-level alert settings.
 
 ![alert settings check / threshold alerting](/docs/images/alerting/alert-settings-check.png)
 
-
-{{<info >}}
-Whenever possible, use the alert settings at the account level. This keeps things simple.
-{{</info>}}
+> Whenever possible, use the alert settings at the account level. This keeps things simple.
 
 ### Escalation
 
@@ -92,9 +88,7 @@ after that.
 
 ![send reminder two times over ten minutes](/docs/images/alerting/reminders-1.png)
 
-{{<info >}}
-When a check failure is resolved, we cancel any outstanding reminders so you don't get mixed signals.
-{{</info>}}
+> When a check failure is resolved, we cancel any outstanding reminders so you don't get mixed signals.
 
 ## Muting alerts
 

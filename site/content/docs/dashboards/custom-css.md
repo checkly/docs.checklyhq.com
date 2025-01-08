@@ -6,7 +6,7 @@ weight: 49
 menu:
   resources:
     parent: "Dashboards"
-cli: true
+
 ---
 
 You can completely customize the look & feel of your dashboard using custom CSS rules so the dashboard fits your company's
@@ -21,9 +21,7 @@ Editing works like this.
 - Open the **hints** tab so see all the classes available for you to target.
 - Make some edits, hit **Save dashboard** and reload your dashboard.
 
-{{< info >}}
-Custom CSS is available on the Team and Enterprise plans.
-{{< /info >}}
+> Custom CSS is available on the Team and Enterprise plans.
 
 ## Styling examples
 

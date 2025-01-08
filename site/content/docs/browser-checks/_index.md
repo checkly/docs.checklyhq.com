@@ -10,7 +10,7 @@ menu:
 aliases:
     - /docs/browser-checks/quickstart/
     - /docs/browser-checks/getting-started/
-cli: true
+
 ---
 
 This guide gives you all the info to create your first Browser check with Checkly. You should have some prior
@@ -39,7 +39,7 @@ The following code is a valid Browser check using Playwright Test.
 
 {{< tabs "Basic example" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="basic.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Visit Checkly HQ page', async ({ page }) => {
@@ -51,7 +51,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="basic.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Visit Checkly HQ page', async ({ page }) => {
@@ -64,10 +64,8 @@ test('Visit Checkly HQ page', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< info >}}
-Checkly currently supports using **Chromium** or **Chrome** with Playwright Test and Playwright library, with Chromium being the default browser for all checks.
-[Read more about using Chrome](/docs/browser-checks/#using-other-browsers). 
-{{< /info >}}
+> Checkly currently supports using **Chromium** or **Chrome** with Playwright Test and Playwright library, with Chromium being the default browser for all checks.
+> [Read more about using Chrome](/docs/browser-checks/#using-other-browsers).
 
 ## Breaking down a Browser check step-by-step
 
@@ -75,7 +73,7 @@ Let's look at a breakdown of a real-life scenario. The code below logs into Chec
 
 {{< tabs "Breakdown example" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="breakdown.spec.ts"}
 import { expect, test } from '@playwright/test' // 1
 
 test('Login to Checkly', async ({ page }) => { // 2
@@ -91,7 +89,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="breakdown.spec.js"}
 const { expect, test } = require('@playwright/test') // 1
 
 test('Login to Checkly', async ({ page }) => { // 2
@@ -134,11 +132,8 @@ A combination of both is also very common, i.e. you record the basic interaction
 
 In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before uploading it to Checkly.
 
-
-{{< info >}}
-Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
-If the script fails, your check fails.
-{{< /info >}}
+> Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
+> If the script fails, your check fails.
 
 ### Browser check templates
 
@@ -176,7 +171,7 @@ You can use as many assertions in your code as you want. For example, in the cod
 
 {{< tabs "Assertions example" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="assertions.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('CTA button has "Start for free" text', async ({ page }) => {
@@ -191,7 +186,7 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="assertions.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('CTA button has "Start for free" text', async ({ page }) => {
@@ -216,9 +211,9 @@ alerting channels will be triggered, notifying your team that something is up.
 
 
 ## Using other browsers
-{{< info >}}
-We strongly recommend using the default `chromium` browser for all your checks [as per the official Playwright documentation](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge).
-{{< /info >}}
+
+> We strongly recommend using the default `chromium` browser for all your checks [as per the official Playwright documentation](https://playwright.dev/docs/browsers#google-chrome--microsoft-edge).
+
 
 If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
 Checkly enables you to use `Google Chrome` with Playwright in runtimes `2023.02` and later. 
@@ -228,7 +223,7 @@ Google Chrome is not available on [Private Locations](/docs/private-locations/) 
 
 {{< tabs "Google Chrome with Playwright test" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="chrome.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test.use({ channel: 'chrome' }) // <-- opt-in to use Google Chrome
@@ -240,7 +235,7 @@ test('Open the page and take a screenshot', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="chrome.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test.use({ channel: 'chrome' }) // <-- opt-in to use Google Chrome
@@ -253,13 +248,12 @@ test('Open the page and take a screenshot', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-{{< info >}}
-Checkly inspects your code to detect which browser is used. To use Chrome please include
-`channel: 'chrome'` or `channel: "chrome"` (whitespace is ignored) in your code, 
-without any intermediate variables or functions.
-For example, using a variable like `test.use({ channel: chromeChannel })` can cause Checkly to fail to detect that 
-Chrome is being used.
-{{< /info >}}
+
+> Checkly inspects your code to detect which browser is used. To use Chrome please include
+> `channel: 'chrome'` or `channel: "chrome"` (whitespace is ignored) in your code, 
+> without any intermediate variables or functions.
+> For example, using a variable like `test.use({ channel: chromeChannel })` can cause Checkly to fail to detect that 
+> Chrome is being used.
 
 ## Next Steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).

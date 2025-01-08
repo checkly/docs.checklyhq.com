@@ -79,9 +79,7 @@ between synthetic and real users.
 4. You will need to create an **Integration Key** and a **SourceMap Upload Key**. 
 Copy and paste the integration key into Checkly.
 
-{{<info>}}
-Only the integration key is needed for the Checkly integration.
-{{</info>}}
+> Only the integration key is needed for the Checkly integration.
 
 5. As Checkly automatically injects the Coralogix RUM SDK to each browser check run, uploading and setting up the SourceMap is not required. You can **skip** the **Install & setup Browser SDK Package** step and finish the set up there.
 
@@ -91,10 +89,8 @@ variables under **Settings** > **Environment variables** in the Browser check ed
 
 After enabling the RUM integration, Checkly will start sending RUM data to Coralogix for all Browser checks.
 
-{{<info>}}
-Note that you do not need to install the RUM SDK in your application, Checkly will automatically inject the necessary
-JavaScript snippet into your Browser checks. However, if you have installed the SDK we will use the existing installation and not inject the snippet.
-{{</info>}}
+> Note that you do not need to install the RUM SDK in your application, Checkly will automatically inject the necessary
+> JavaScript snippet into your Browser checks. However, if you have installed the SDK we will use the existing installation and not inject the snippet.
 
 ## Alert Channel → Coralogix Logs integration
 

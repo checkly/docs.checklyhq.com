@@ -7,7 +7,7 @@ weight: 15
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 Any standard Node.js script that successfully finishes an execution is a valid, passing browser check. However, in
@@ -37,7 +37,7 @@ For the text assertions, you can use `expect().toHaveText()` or `expect().toCont
 
 {{< tabs "Scraping text values" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="scraping.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 test('Checkly API Docs search input has a keyboard shortcut info', async ({ page }) => {
@@ -50,7 +50,7 @@ test('Checkly API Docs search input has a keyboard shortcut info', async ({ page
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
- ```js
+ ```js {title="scraping.spec.js"}
 const { test, expect } = require('@playwright/test')
 
 test('Checkly API Docs search input has a keyboard shortcut info', async ({ page }) => {
@@ -79,7 +79,7 @@ Playwright Test makes it easy to work with [lists of elements](https://playwrigh
 
 {{< tabs "Scraping list values" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="scraping-list.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Find "Advanced" sections on playwright docs page', async ({ page }) => {
@@ -93,7 +93,7 @@ test('Find "Advanced" sections on playwright docs page', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="scraping-list.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Find "Advanced" sections on the playwright docs page', async ({ page }) => {
@@ -122,7 +122,7 @@ You can use the `locator.inputValue()` method to get the text from a standard te
 
 {{< tabs "locator.inputValue()" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="input.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Search "playwright" on the Duckduckgo search page', async ({ page }) => {
@@ -136,7 +136,7 @@ test('Search "playwright" on the Duckduckgo search page', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="input.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('visit page and take screenshot', async ({ page }) => {
@@ -159,7 +159,7 @@ Scraping the values of other common form elements is pretty similar to scraping 
 
 {{< tabs "Checkboxes" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="checkbox.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Test Bootstrap checkbox element', async ({ page }) => {
@@ -174,7 +174,7 @@ test('Test Bootstrap checkbox element', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="checkbox.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Test Bootstrap checkbox element', async ({ page }) => {
@@ -195,7 +195,7 @@ test('Test Bootstrap checkbox element', async ({ page }) => {
 
 {{< tabs "Radio buttons" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="radio.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Test Bootstrap radio element', async ({ page }) => {
@@ -211,7 +211,7 @@ test('Test Bootstrap radio element', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="radio.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Test Bootstrap radio element', async ({ page }) => {
@@ -232,7 +232,7 @@ test('Test Bootstrap radio element', async ({ page }) => {
 
 {{< tabs "Select dropdown" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="select.spec.ts"}
 import { expect, test } from '@playwright/test'
 
 test('Test Bootstrap select menu', async ({ page }) => {
@@ -247,7 +247,7 @@ test('Test Bootstrap select menu', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="select.spec.js"}
 const { expect, test } = require('@playwright/test')
 
 test('Test Bootstrap select menu', async ({ page }) => {
@@ -275,7 +275,7 @@ Playwright Test offers some built-in shortcuts to access common elements of a ty
 
 {{< tabs "page.viewport" >}}
 {{< tab "TypeScript" >}}
- ```ts
+ ```ts {title="viewport.spec.ts"}
 import { test } from '@playwright/test'
 
 test('Go to google.com', async ({ page }) => {
@@ -294,7 +294,7 @@ test('Go to google.com', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js {title="viewport.spec.js"}
 const { test } = require('@playwright/test')
 
 test('Go to google.com', async ({ page }) => {

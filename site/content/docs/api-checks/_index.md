@@ -10,7 +10,7 @@ menu:
     identifier: overview-api-checks
 aliases:
 - 'docs/api-checks'
-cli: true
+
 ---
 
 API checks consist of few parts:

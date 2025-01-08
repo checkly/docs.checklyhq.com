@@ -1,0 +1,9 @@
+<div class="navbar-mobile-side-menu">
+  {{ $currentPage := . }}
+  {{ range .Site.Menus.topnav }}
+  {{ $active := in $currentPage.RelPermalink .URL }}
+  <div class="navbar-mobile-side-menu-link">
+    <a class='{{ if $active }}active{{ end }}' href="{{.URL}}">{{.Name}}</a>
+  </div>
+  {{ end }}
+</div>

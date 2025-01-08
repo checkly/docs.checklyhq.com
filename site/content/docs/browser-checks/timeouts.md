@@ -6,7 +6,7 @@ weight: 24
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 There are different kinds of timeouts you will encounter while working with Browser checks:
@@ -39,7 +39,7 @@ This refers to Playwright's own 30s default timeout for a single `test` fixture.
 
 {{< tabs "setTimeout example" >}}
 {{< tab "TypeScript" >}}
-```ts
+```ts {title="timeout.spec.ts"}
 import { test } from '@playwright/test'
 
 test('add item to wishlist', async ({ page }) => {
@@ -51,7 +51,7 @@ test('add item to wishlist', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "JavaScript" >}}
-```js
+```js  {title="timeout.spec.js"}
 const { test } = require('@playwright/test')
 
 test('add item to wishlist', async ({ page }) => {
@@ -74,7 +74,6 @@ place to prevent checks from running way longer than acceptable. No assets will 
 
 Different actions, such as clicks, explicit waits and so on, can have their own timeout. In these cases, Playwright will always state what kind of action caused the timeout just before this message. For example, you might see an error like: `page.waitForLoadState: Timeout 20000ms exceeded`. In that case, looking at the `page.waitForLoadState` commands in your script will help you find the culprit. 
 
-{{<info >}}
-Remember that you can use Playwright Traces to help you understand exactly where in your script the error was raised. 
-Traces are populated automatically for failed Browser checks in your check results.
-{{</info >}}
+
+> Remember that you can use Playwright Traces to help you understand exactly where in your script the error was raised. 
+> Traces are populated automatically for failed Browser checks in your check results.

@@ -8,7 +8,7 @@ menu:
     parent: "Private Locations"
 aliases:
 - "/docs/private-locations/checkly-agent-guide/"
-cli: true
+
 ---
 
 The Checkly Agent is a container that you need to deploy to run a Private Location in Checkly. The agent needs to be deployed on your infrastructure and executes checks on behalf of the Checkly application. For installation details, [check the getting started guide](/docs/private-locations/).
@@ -98,9 +98,7 @@ You can distinguish the old containers from the new ones by looking at the `CREA
 
 ### Automatic updates
 
-{{< info >}}
-Use caution when enabling automatic updates in production. This could automatically update to a version with breaking changes, and upgrade to an agent version supporting a later runtime.
-{{< /info >}}
+> Use caution when enabling automatic updates in production. This could automatically update to a version with breaking changes, and upgrade to an agent version supporting a later runtime.
 
 Since the agent is stateless, it can also be updated by replacing or updating the image in place.
 If you don't have an existing process for upgrading containers, an in-place upgrade is easiest as it keeps the previously defined environment variables.

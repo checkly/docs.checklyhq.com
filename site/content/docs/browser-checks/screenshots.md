@@ -6,7 +6,7 @@ weight: 19
 menu:
   resources:
     parent: "Browser checks"
-cli: true
+
 ---
 
 You can take up to 20 screenshots per browser check run. This is really handy when debugging a failure situation or just
@@ -17,10 +17,9 @@ When using Playwright or Playwright Test, add a screenshot anywhere with the fol
 ```js
 await page.screenshot({ path: 'my_screenshot.png' })
 ```
-{{< info >}}
-We recommend using `@playwright/test` to record videos of your entire check run and enable step-by-step trace views instead of screenshots.
-{{< /info >}}
- 
+
+> We recommend using `@playwright/test` to record videos of your entire check run and enable step-by-step trace views instead of screenshots.
+
 Screenshots will show up while editing your browser check in the editor on the "screenshots" tab and as part of the 
 check results on every check run. You can download the full size screenshot by clicking on the thumbnail.
 
@@ -51,7 +50,7 @@ You can target any specific page element and generate a screenshot just of that 
 
 {{< tabs "Element screenshot example" >}}
 {{< tab "Typescript" >}}
-```ts
+```ts {title="element-screenshot.spec.ts"}
 import { test } from '@playwright/test'
 
 test('Visit Checkly homepage and take a screenshot', async ({ page }) => {
@@ -64,7 +63,7 @@ test('Visit Checkly homepage and take a screenshot', async ({ page }) => {
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-```js
+```js {title="element-screenshot.spec.js"}
 const { test } = require('@playwright/test')
 
 test('Visit Checkly homepage and take a screenshot', async ({ page }) => {

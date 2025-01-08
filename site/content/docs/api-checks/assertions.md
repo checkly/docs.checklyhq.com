@@ -6,7 +6,7 @@ weight: 10
 menu:
   resources:
     parent: "API checks"
-cli: true
+
 ---
 
 The response of an API request can be checked for correctness and timeliness by using assertions on the response data. Assertions are flexible statements that combine preset modifiers with custom values to meet the needs of a broad set of use cases.
@@ -76,9 +76,8 @@ Response time is empty? JSON Object is less than? We block out the comparisons w
 - Has key / Not has key (deprecated)
 - Has value / Not has value (deprecated)
 
-{{<warning >}}
-The **Has key** and **Has value** comparison are deprecated. They belong to our [old style of asserting JSON objects]() before we introduced JSON Path
-{{</warning >}}
+> [!WARNING]
+> The **Has key** and **Has value** comparison are deprecated. They belong to our [old style of asserting JSON objects]() before we introduced JSON Path
 
 ## Target
 
@@ -214,14 +213,12 @@ In the last example we check if the returned array has more than 10 items.
 
 ![api monitoring array has more than 10 items](/docs/images/api-checks/assertions-9.png)
 
-{{<info >}}
-If the JSON path expression in an assertion returns an array of values, Checkly will perform the comparison for 
-**every element of the array**, chaining them with a logical `AND` (&&).
+> If the JSON path expression in an assertion returns an array of values, Checkly will perform the comparison for 
+> **every element of the array**, chaining them with a logical `AND` (&&).
 
-For example, if the JSON path expression returns an array: `[1,5,2]`, and we use a `Less than` comparison, with `3` 
-as the target, the assertion **will fail**, because the comparison is **falsy** for the second element of the array 
-(`5` is greater than `3`). 
-{{</info >}}
+> For example, if the JSON path expression returns an array: `[1,5,2]`, and we use a `Less than` comparison, with `3` 
+> as the target, the assertion **will fail**, because the comparison is **falsy** for the second element of the array 
+> (`5` is greater than `3`).
 
 ## Deprecated: Custom, non-JSON path properties
 
@@ -259,10 +256,7 @@ console.log(found)
 In the example above we return the string `brown` because it is the first capture group, the `(.*)` bit.
 The first item `quick brown fox` is the full match, which we do not return.
 
-{{<info >}}
-Remember: regular expressions in assertions only return the **first capturing group**
-{{</info >}}
-
+> Remember: regular expressions in assertions only return the **first capturing group**
 
 ### Text body assertions with regular expressions
 

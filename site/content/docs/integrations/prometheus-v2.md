@@ -13,9 +13,7 @@ menu:
 If you are using [Prometheus](https://prometheus.io/) for monitoring and the popular [Grafana](https://grafana.com/) stack
 for dashboarding, you can expose Checkly's core metrics on a dedicated, secured endpoint.
 
-{{< info >}}
-This page describes a new V2 version of the Prometheus exporter. For information about the old Prometheus exporter, see the [Prometheus V1 docs](/docs/integrations/prometheus-v1/).
-{{</ info >}}
+> This page describes a new V2 version of the Prometheus exporter. For information about the old Prometheus exporter, see the [Prometheus V1 docs](/docs/integrations/prometheus-v1/).
 
 ## Activation
 
@@ -43,12 +41,11 @@ Here is an example
 
 Now restart Prometheus and you should see metrics coming in.
 
-{{< warning >}}
-The Prometheus metrics endpoint has a rate limit of 50 requests per minute.
-The responses from this endpoint are cached during 60 seconds.
-Any request made to this endpoint within 60 seconds of the initial request will receive the cached response.
-We recommend using a scrape interval of 60 seconds.
-{{</ warning >}}
+>[!WARNING]
+> The Prometheus metrics endpoint has a rate limit of 50 requests per minute.
+> The responses from this endpoint are cached during 60 seconds.
+> Any request made to this endpoint within 60 seconds of the initial request will receive the cached response.
+> We recommend using a scrape interval of 60 seconds.
 
 ## Check Metrics
 
@@ -96,13 +93,10 @@ In addition, the check metrics all contain the following labels:
 | `group` | The name of the check group. |
 | `tags` | The tags of the check. |
 
-{{<info>}}
-You can set `key:value` tags in your checks and groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`. Please note that Prometheus label names may only contain ASCII letters, numbers, as well as underscores (see the official [docs](https://prometheus.io/docs/concepts/data_model/)). Tags containing other characters in the label name will be sanitized.
-{{</info>}}
 
-{{<info>}}
-The counter and histogram metrics are reset every hour. These resets can be handled in Prometheus by using the [rate](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) or [increase](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions.
-{{</info>}}
+> You can set `key:value` tags in your checks and groups and they will be exported as custom labels in Prometheus. For instance the tag `env:production` will be exposed as a custome label `env="production"`. You can disable this by adding the query param `disableTagParsing=true`. Please note that Prometheus label names may only contain ASCII letters, numbers, as well as underscores (see the official [docs](https://prometheus.io/docs/concepts/data_model/)). Tags containing other characters in the label name will be sanitized.
+
+> The counter and histogram metrics are reset every hour. These resets can be handled in Prometheus by using the [rate](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate) or [increase](https://prometheus.io/docs/prometheus/latest/querying/functions/#increase) functions.
 
 ### PromQL Examples
 

@@ -37,9 +37,7 @@ Ensure your SSO IdP is sending Checkly the correct email address. Checkly can th
 }
 ```
 
-{{< info >}}
-In case of issues, you might want to double-check your **Entity ID**, which should be: `urn:auth0:checkly:<YOUR_CONNECTION_ID>`
-{{< /info >}}
+> In case of issues, you might want to double-check your **Entity ID**, which should be: `urn:auth0:checkly:<YOUR_CONNECTION_ID>`
 
 ## Testing the integration
 

@@ -7,7 +7,7 @@ menu:
   resources:
     parent: "Multistep checks"
     identifier: "multistep-example-checks"
-cli: true
+
 ---
 
 Below are a number of checks showcasing how to use Multistep checks. These are similar to the templates provided in Checkly when creating a new Multistep check and should give you an idea of how to get started building various types of checks.
@@ -21,7 +21,7 @@ The Checkly Public API uses API keys to authenticate requests. [You can generate
 
 This example uses environment variables to avoid sharing secrets in clear text. You can learn more about how to use evironment variables in Checkly [here](/docs/browser-checks/variables/).
 
-```ts
+```ts  {title="auth.spec.ts"}
 import { test, expect } from "@playwright/test"
 
 const baseUrl = "https://api.checklyhq.com/v1"
@@ -95,7 +95,7 @@ To learn more about these methods see the [Playwright documentation](https://pla
 
 An API_KEY from https://crudapi.co.uk/ is required for this example to work.
 
-```ts
+```ts  {title="setup-teardown.spec.ts"}
 import { test, expect } from "@playwright/test"
 
 const baseUrl = "https://crudapi.co.uk/api/v1/todo"
@@ -159,7 +159,7 @@ One way to ensure that e.g. CDN endpoints are serving images correctly is by ver
 
 Here is an example of how to verify several images in a loop, checking each image against a unique binary.
 
-```ts
+```ts  {title="binary.spec.ts"}
 import { test, expect } from "@playwright/test"
 import crypto from "crypto"
 

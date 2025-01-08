@@ -6,7 +6,7 @@ weight: 25
 menu:
   resources: 
     parent: "Browser checks"
-cli: true
+
 aliases:
    - "/docs/browser-checks/visual-comparison-snapshot-testing/"
 ---
@@ -31,9 +31,7 @@ This feature works with the following CLI and Checkly Agent versions:
 - [Checkly CLI v4.4.0 or later](https://www.npmjs.com/package/checkly/v/4.4.0).
 - [Checkly Agent v3.2.0 or later](https://hub.docker.com/layers/checkly/agent/3.2.0/images/sha256-714bbd7302d7c086ef1776014f919c1e9aacdfda450764295147e8f1ab99cb00?context=explore).
 
-{{< info >}}
-Visual regression & snapshot testing is available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features).
-{{< /info >}}
+> Visual regression & snapshot testing is available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features).
 
 ## Visual regression testing
 
@@ -44,7 +42,7 @@ Starting with visual regression testing takes just three easy steps:
 
    {{< tabs "Visual comparison test" >}}
    {{< tab "Typescript" >}}
-   ```ts
+   ```ts  {title="visual-comparison.spec.ts"}
    import { test, expect } from '@playwright/test';
    
    test('Playwright homepage', async ({ page }) => {
@@ -54,7 +52,7 @@ Starting with visual regression testing takes just three easy steps:
    ```
    {{< /tab >}}
    {{< tab "Javascript" >}}
-   ```js
+   ```js {title="visual-comparison.spec.js"}
    const { expect, test } = require('@playwright/test')
    
    test('Playwright homepage', async ({ page }) => {
@@ -80,13 +78,12 @@ Starting with visual regression testing takes just three easy steps:
    your check and on each check run the golden image will be compared to the actual screenshot.
 
 
-   {{<cli-tip >}}
-   If you are using the Checkly CLI, you can also generate a golden image / reference snapshot by running the following 
-   command in your terminal:
-   ```
-   npx checkly test --update-snapshots
-   ```
-   {{</cli-tip >}}
+   > [!CLI]
+   > If you are using the Checkly CLI, you can also generate a golden image / reference snapshot by running the following 
+   > command in your terminal:
+   > ```
+   > npx checkly test --update-snapshots
+   > ```
 
 Now, when your check fails due to a visual difference, you will see a diff of the golden image and the actual screenshot
 in your check result.
@@ -115,7 +112,7 @@ the same pixel in compared images, between `0` (strict) and `1` (lax).
 
 {{< tabs "Configuring thresholds" >}}
 {{< tab "Typescript" >}}
-   ```ts
+   ```ts {title="thresholds.spec.ts"}
    import { test, expect } from '@playwright/test';
    
    test('Playwright homepage', async ({ page }) => {
@@ -127,7 +124,7 @@ the same pixel in compared images, between `0` (strict) and `1` (lax).
    ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-   ```js
+   ```js {title="thresholds.spec.js"}
    const { test, expect } = require('@playwright/test')
    
    test('Playwright homepage', async ({ page }) => {
@@ -150,7 +147,7 @@ The example below hides the cookie banner and optional CTA popup from Intercom o
 
 {{< tabs "Ignoring elements" >}}
 {{< tab "Typescript" >}}
-   ```ts
+   ```ts {title="ignoring.spec.ts"}
    import { test, expect } from '@playwright/test';
    
    test('Ignore cookie banner & cta popup', async ({ page }) => {
@@ -165,7 +162,7 @@ The example below hides the cookie banner and optional CTA popup from Intercom o
    ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-   ```js
+   ```js {title="ignoring.spec.js"}
    const { test, expect } = require('@playwright/test')
    
    test('Playwright homepage', async ({ page }) => {
@@ -188,7 +185,7 @@ You can disable any CSS animations and transitions using the `animations` option
 
 {{< tabs "Disabling animations" >}}
 {{< tab "Typescript" >}}
-   ```ts
+   ```ts {title="disable-anims.spec.ts"}
    import { test, expect } from '@playwright/test';
    
    test('Disable animations', async ({ page }) => {
@@ -198,7 +195,7 @@ You can disable any CSS animations and transitions using the `animations` option
    ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-   ```js
+   ```js {title="disable-anims.spec.js"}
    const { test, expect } = require('@playwright/test')
    
    test('Disable animations', async ({ page }) => {
@@ -216,7 +213,7 @@ any arbitrary `string` or `Buffer` value. Note that it is not optimized for visu
 
 {{< tabs "Snapshot testing" >}}
 {{< tab "Typescript" >}}
-   ```ts
+   ```ts {title="snapshot.spec.ts"}
    import { test, expect } from '@playwright/test'
    
    test('Match hero text', async ({ page }) => {
@@ -226,7 +223,7 @@ any arbitrary `string` or `Buffer` value. Note that it is not optimized for visu
    ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
-   ```js
+   ```js {title="snapshot.spec.js"}
    const { test, expect } = require('@playwright/test')
    
    test('Match hero text', async ({ page }) => {
