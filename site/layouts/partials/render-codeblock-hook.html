@@ -5,6 +5,7 @@
     <figcaption class="codeblock-toolbar">
         <div class="codeblock-toolbar--lang codeblock-toolbar--lang-icon-sh"></div>
         <div class="codeblock-toolbar--title">Terminal</div>
+        <button class="copy-code-button" aria-label="Copy Code to Clipboard"></button>
     </figcaption>
   {{- else if $title -}}
     <figcaption class="codeblock-toolbar">
@@ -16,6 +17,7 @@
         {{- end -}}
       {{- end -}}
       <div class="codeblock-toolbar--title">{{ $title | markdownify }}</div>
+      <button class="copy-code-button" aria-label="Copy Code to Clipboard"></button>
     </figcaption>
     {{- end -}}
   {{- if transform.CanHighlight .Type }}
