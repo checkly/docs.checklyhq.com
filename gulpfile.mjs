@@ -41,7 +41,7 @@ gulp.task('purgecss', () => {
   return gulp.src('./public/css/**/*.css')
     .pipe(purgecss({
       content: ['./public/**/*.html'],
-      safelist: [/dot--*/, /modal/, /DocSearch/, /copy-code-button-*/]
+      safelist: [/dot--*/, /modal/, /DocSearch/, /copy-code-button-*/, /left-transform/, /right-transform/]
     }))
     .pipe(gulp.dest('./public/css'))
 })
