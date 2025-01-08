@@ -34,7 +34,18 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "docs.checklyhq.com"
+        }
+      ],
+      "destination": "https://www.checklyhq.com/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:path*",
       "has": [
         {
           "type": "host",
@@ -42,6 +53,28 @@
         }
       ],
       "destination": "https://www.checklyhq.com/docs/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/learn/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "docs.checklyhq.com"
+        }
+      ],
+      "destination": "https://www.checklyhq.com/learn/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/guides/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "docs.checklyhq.com"
+        }
+      ],
+      "destination": "https://www.checklyhq.com/guides/:path*",
       "permanent": true
     },
     { "source": "/learn/headless/avoiding-hard-waits(/)?", "destination": "/learn/playwright/waits-and-timeouts", "permanent": true },
