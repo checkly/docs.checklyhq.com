@@ -42,3 +42,7 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 ## TCP check reporting
 
 Learn more about analyzing your TCP check run results in our [check results documentation](/docs/monitoring/check-results#tcp-check-results).
+
+## TCP check pricing
+
+TCP checks are billed at $2 per 10k runs. For detailed pricing information, visit our [pricing & billing page](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs).
