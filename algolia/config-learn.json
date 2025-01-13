@@ -1,6 +1,6 @@
 {
   "index_name": "checkly_docs_learning",
-  "start_urls": ["https://www.checklyhq.com/learn/"],
+  "start_urls": ["https://www.checklyhq.com/learn/playwright","https://www.checklyhq.com/learn/kubernetes"],
   "stop_urls": [
     ".*(?<!/)$"
   ],
