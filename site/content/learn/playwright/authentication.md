@@ -86,7 +86,7 @@ test('Google login', async ({ page }) => {
 })
 ```
 
-[Check the full  article on Google Login.](https://www.notion.so/Move-learn-headless-to-learn-playwright-7670a08b85274b0992adaa977eb7864c?pvs=21)
+[Check the full  article on Google Login.](https://www.checklyhq.com/learn/playwright/google-login-automation/)
 
 ## Two-Factor Authentication / TOTP
 
@@ -95,7 +95,7 @@ You will probably be familiar with providing an extra “factor” like a code f
 or email to a login flow. How do we access a text message (or any of the other options) in Playwright? In short, we 
 don’t. To solve this we need to use the excellent [otpauth NPM package](https://www.npmjs.com/package/otpauth).
 
-We wrote a full article on [using the `otpauth` package to login to a GitHub account protected by 2FA](https://www.notion.so/Authentication-in-Playwright-158ec050b06e80fa8f85e6ca611abbb9?pvs=21), so please check out that article for all the details. Below is the eventual `.spec.ts` file you will end up with.
+We wrote a full article on [using the `otpauth` package to login to a GitHub account protected by 2FA](https://www.checklyhq.com/learn/playwright/bypass-totp/), so please check out that article for all the details. Below is the eventual `.spec.ts` file you will end up with.
 
 ```ts {title="2fa.spec.ts"}
 import { expect, test } from '@playwright/test'
@@ -131,7 +131,7 @@ Notice the following in this code example:
 1. We call the `OTPAuth.TOTP()` function and pass in a secret token we previously got from the GitHub UI.
 2. In our test, we run through a fairly normal login routine. In the end, we focus on the field filled with the `XXXXXX` placeholder and call `totp.generate()` to create the 2FA token.
 
-As mentioned, there is some prep you need to do. Refer to our full [article on 2FA login](https://www.notion.so/Authentication-in-Playwright-158ec050b06e80fa8f85e6ca611abbb9?pvs=21) for all instructions.
+As mentioned, there is some prep you need to do. Refer to our full [article on 2FA login](https://www.checklyhq.com/learn/playwright/bypass-totp/) for all instructions.
 
 ## Passkey & **WebAuthn**
 
@@ -298,5 +298,5 @@ When writing automation scripts that deal with authentication, there are some ge
 
 # Further reading
 
-- [How to automate Google login with Playwright.](https://www.notion.so/Authentication-in-Playwright-158ec050b06e80fa8f85e6ca611abbb9?pvs=21)
-- [How to bypass Time-Based 2FA login flows with Playwright.](https://www.notion.so/Authentication-in-Playwright-158ec050b06e80fa8f85e6ca611abbb9?pvs=21)
+- [How to automate Google login with Playwright.](https://www.checklyhq.com/learn/playwright/google-login-automation/)
+- [How to bypass Time-Based 2FA login flows with Playwright.](https://www.checklyhq.com/learn/playwright/bypass-totp/)
