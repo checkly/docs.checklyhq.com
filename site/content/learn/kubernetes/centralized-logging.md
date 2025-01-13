@@ -14,11 +14,11 @@ weight: 30
 ---
 Monitoring logs effectively in a Kubernetes environment requires tools that centralize and streamline log management. With OpenTelemetry, Kubernetes administrators can collect, process, and export logs from applications and infrastructure, ensuring consistent data and reducing the need for multiple, disparate logging solutions. Here’s an overview of how OpenTelemetry supports centralized logging in Kubernetes and the practical benefits it offers.
 
-### Why Centralized Logging Matters in Kubernetes
+### Why Centralized Logging Matters, in Kubernetes
 
 Logs provide critical insights into application performance, errors, and security events. In a Kubernetes setup, workloads are distributed across many nodes, making it essential to have a centralized logging solution to collect logs in one place. Centralized logging enables teams to efficiently manage logs from across the entire Kubernetes cluster and prevents loss of logs during pod restarts or node replacements.
 
-The OpenTelemetry project, initially created to address distributed tracing, has expanded to include metrics and now, comprehensive logging support. With its recent logging capabilities, OpenTelemetry provides a unified framework for collecting and correlating logs alongside traces and metrics, ensuring consistency and reliability.
+The [OpenTelemetry project](https://www.checklyhq.com/learn/opentelemetry/), initially created to address distributed tracing, has expanded to include metrics and now, comprehensive logging support. With its recent logging capabilities, OpenTelemetry provides a unified framework for collecting and correlating logs alongside traces and metrics, ensuring consistency and reliability.
 
 ### Key Components of OpenTelemetry for Centralized Logging
 
