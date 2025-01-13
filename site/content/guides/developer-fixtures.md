@@ -88,7 +88,7 @@ While there are sophisticated ways to share authentication across checks discuss
 
 To open this modal and log in, we might use some lines like the following:
 
-```js {title="recentOrders.js"}
+```ts {title="recentOrders.spec.ts"}
 import { test, expect } from '@playwright/test';
 
 test('display Recent Orders', async ({ page }) => {
@@ -107,7 +107,7 @@ This is a fine practice for a single test, but if we have dozens that all requir
 
 We'd want to move this code into an extension of the Playwright page fixture like so:
 
-```js {title="recentOrdersWithFixture.js"}
+```ts {title="recentOrdersWithFixture.spec.ts"}
 
 import { test as baseTest, expect } from '@playwright/test';
 
@@ -162,7 +162,7 @@ While it's useful to package up tasks like logging in across multiple tests, we 
 
 For these, again, we could use core Javascript/Typescript modules to accomplish this task, here's an example
 
-```js {title="ecommerceActions.spec.ts"}
+```ts {title="ecommerceActions.spec.ts"}
 import {setup, teardown } from "./standardScripts.ts"
 
 test.beforeEach(() => {
@@ -194,7 +194,7 @@ export const test = base.extend<{ forEachTest: void }>({
 
 Now the only change you'll need to make to your test files is to have them import the `test` function from this fixture file, for example:
 
-```js {title="ecommerceActions.spec.ts"}
+```ts {title="ecommerceActions.spec.ts"}
 import { test } from './testFixtures';
 import { expect } from '@playwright/test';
 ```
