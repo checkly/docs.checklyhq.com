@@ -218,4 +218,9 @@ disqusShortname = "checkly"
 
 
 [markup.goldmark.renderer]
-unsafe = true
+	unsafe = true
+
+[markup.tableOfContents]
+	startLevel = 2
+	endLevel = 3
+

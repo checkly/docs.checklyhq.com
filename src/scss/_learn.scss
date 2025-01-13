@@ -268,9 +268,13 @@
       overflow-x: hidden;
       overflow-y: auto
     }
-    // hacky way to hide 3rd level heading in little page TOC because Hugo does not allow filtering the TOC by level
 
     nav#TableOfContents {
+      // hacky way to hide 3rd level heading in little page TOC because Hugo does not allow filtering the TOC by level
+      ul ul {
+        display: none;
+      }
+
       ul {
         border-left: 2px solid $red;
         padding-left: .5rem;
