@@ -137,3 +137,11 @@ $(document).ready(() => {
       })
   })
 })
+
+window.docsearch({
+  apiKey: 'b2b616fdea14b860ff00c72fa72bf267',
+  indexName: 'checkly_learn',
+  appId: 'LCMJSZN73Z',
+  container: '#docsearch',
+  debug: true
+})
