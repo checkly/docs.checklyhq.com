@@ -31,7 +31,7 @@ In our web shop, we've got a login process that we want to simulate and test bef
 
 To open this dialog and log in, we might use some lines like the following:
 
-```js
+```ts
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
