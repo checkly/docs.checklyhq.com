@@ -30,7 +30,7 @@
   &-menu {
     flex: 0 0 $menu-width;
     font-size: 1rem;
-    margin-left: auto;
+    margin-right: auto;
 
     &-category {
       font-size: 14px;
@@ -53,6 +53,7 @@
       padding: 1rem 0 1rem 1rem;
       overflow-x: hidden;
       overflow-y: auto;
+      scrollbar-width: thin;
     }
     .right-transform {
       transform: none;
@@ -558,7 +559,7 @@
         height: 100%;
         width: $mobile-menu-width;
         left: -$mobile-menu-width;
-        margin-top: 0px;
+        margin-top: 0;
         background: white;
       }
       .right-transform {
