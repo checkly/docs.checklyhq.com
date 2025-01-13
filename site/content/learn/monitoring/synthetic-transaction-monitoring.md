@@ -16,6 +16,11 @@ Synthetic transaction monitoring is a proactive approach to assessing the perfor
 
 Unlike traditional monitoring of a site or service, which relies on observing real user activities, synthetic transaction monitoring generates pre-defined transactions to test specific workflows, ensuring consistent and repeatable measurements. Synthetic transaction monitoring has distinct advantages when compared to Real User Monitoring for frontend applications, and requires work to integrate with other observability tools.
 
+---
+**Ready to start implementing Synthetic Transaction Monitoring today?** check out our practical guide on [how to start synthetic transaction monitoring with Checkly](https://www.checklyhq.com/guides/monitoring-ecommerce-apps-using-playwright/)
+
+---
+
 ## Synthetic Monitoring vs. Synthetic Transaction Monitoring
 
 First some language confusion: ‘Synthetic Monitoring’ isn’t a particularly widely used term, what’s with the addition of ‘transaction?’ [Synthetic monitoring](https://www.checklyhq.com/blog/what-is-synthetic-monitoring/) broadly refers to any monitoring that uses automated tests to emulate users, sometimes a simple as a page load. Synthetic transaction monitoring is a subset focused on multi-step workflows or transactions, such as filling out forms, completing e-commerce purchases, or using APIs. While synthetic monitoring may involve simple checks like testing website uptime, synthetic transaction monitoring goes deeper into the user experience by validating the performance and functionality of complex processes.
