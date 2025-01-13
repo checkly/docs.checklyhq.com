@@ -178,7 +178,7 @@ test.afterEach(() => {
 
 But while it's great to use native features, this is requireing a good amount of setup in each test file (the above snippets would have to be repeated in each new file), and our goal is to make creating new checks as easy as possible for developers. So let's use Playwright's native features to make this even easier for them.
 
-```js {title=testFixtures.ts}
+```ts {title=testFixtures.ts}
 import { test as base } from '@playwright/test';
 
 export const test = base.extend<{ forEachTest: void }>({
