@@ -23,7 +23,7 @@
   &-menu {
     flex: 0 0 $menu-width;
     font-size: 1rem;
-    margin-left: auto;
+    margin-right: auto;
 
     &-content {
       overflow-y: auto;
@@ -37,6 +37,7 @@
       padding: 30px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
+      scrollbar-width: thin;
       ul {
         list-style: none;
         font-size: 14px;
