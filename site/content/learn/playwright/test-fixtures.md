@@ -208,7 +208,7 @@ export { expect } from "@playwright/test";
 
 The main difference between default and automatic fixtures is that automatic fixtures run regardless. In our example, the `timeLogger` fixture will be executed for every running test.
 
-Note that you'll want to update your other test spec files to import `test` from our `base.ts`, they probably have something like:
+Note that you'll want to update your other test spec files to import `test` from our `base.js`, they probably have something like:
 
 ```js
 import { test, expect } from '@playwright/test';
