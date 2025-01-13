@@ -1,6 +1,6 @@
 {
   "index_name": "checkly_docs_learning",
-  "start_urls": ["https://www.checklyhq.com/learn/headless"],
+  "start_urls": ["https://www.checklyhq.com/learn/"],
   "stop_urls": [
     ".*(?<!/)$"
   ],
