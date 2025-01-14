@@ -41,7 +41,7 @@ gulp.task('purgecss', () => {
   return gulp.src('./public/css/**/*.css')
     .pipe(purgecss({
       content: ['./public/**/*.html'],
-      safelist: [/dot--*/, /modal/]
+      safelist: [/dot--*/, /modal/, /DocSearch/, /copy-code-button-*/, /left-transform/, /right-transform/]
     }))
     .pipe(gulp.dest('./public/css'))
 })
@@ -82,7 +82,7 @@ gulp.task('assets', () => (
 ))
 
 gulp.task('hash', () => {
-  return gulp.src('./public/**', { encoding: false })
+  return gulp.src(['./public/images/**', './public/js/**', './public/css/**'], { encoding: false })
     .pipe(revall.revision({
       dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2'],
       dontUpdateReference: ['.woff', '.eot', '.ttf', '.woff2']

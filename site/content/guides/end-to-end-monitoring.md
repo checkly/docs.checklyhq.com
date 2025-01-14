@@ -58,7 +58,7 @@ A few key flows for an e-commerce websites could be:
 
 Let's see how to set them up - for this example, we will do that on our {{< newtabref  href="https://danube-web.shop/" title="demo web shop" >}}.
 
-{{< figure src="/guides/images/guides-danube.png" alt="demo website screenshot" title="Our demo website" >}}
+![demo website screenshot](/guides/images/guides-danube.png "Our demo website")
 
 ### Playwright E2E tests
 
@@ -154,15 +154,15 @@ Using Playwright together with browser APIs or additional performance libraries,
 
 Unlike headful tools, headless ones tend to not be very resource-hungry, which makes it easier to move our scripts to the cloud. Checkly runs on top of AWS Lambda, and enables us to quickly copy-paste our script and set it up to run on a schedule from locations around the world.
 
-{{< figure src="/guides/images/guides-checkly-check.png" alt="checkly check creation screenshot" title="Check creation on Checkly" >}}
+![checkly check creation screenshot](/guides/images/guides-checkly-check.png "Check creation on Checkly")
 
 We can move our scripts to separate checks to keep them [independent](/learn/headless/valuable-tests/#keep-tests-independent) - we want to optimise for parallelisation and clarity of feedback.
 
-{{< figure src="/guides/images/guides-checkly-dashboard.png" alt="checkly dashboard screenshot" title="Checkly's dashboard" >}}
+![checkly dashboard screenshot](/guides/images/guides-checkly-dashboard.png "Checkly's dashboard")
 
 As soon as a check runs red, we are alerted in real time and can **intervene before the issue impacts our users**. Alerting can be set up with all the industry-standard channels like Pagerduty, Opsgenie, Slack, email, SMS and more.
 
-{{< figure src="/guides/images/guides-checkly-alerting.png" alt="checkly alerting screenshot" title="Alert channels on Checkly" >}}
+![checkly alerting screenshot](/guides/images/guides-checkly-alerting.png "Alert channels on Checkly")
 
 ### On-demand checking
 
@@ -240,7 +240,7 @@ After completing the installation steps, open a terminal in the directory of you
 `npm create checkly`
 This command will bootstrap your repository with the basics needed to start using Checkly MaC in your project.
 
-{{< figure src="/guides/images/guides-checkly-install.png" alt="Checkly CLI project setup screenshot" title="Creating a project in the Checkly CLI" >}}
+![Checkly CLI project setup screenshot](/guides/images/guides-checkly-install.png "Creating a project in the Checkly CLI")
 
 In your project directory, you will find a folder named “__checks__” containing the following check templates:
 ```
@@ -284,19 +284,19 @@ Now that we have our test scripts ready, let’s execute them. We can use the Ch
 The `--record` flag is optional, you can use it if you want to record a test session with git info, full logging, videos and traces. `--record` sessions can be reviewed within the Checkly web interface.
 Here is the result of the test we just executed:
 
-{{< figure src="/guides/images/guides-checkly-cli-check-run.jpg" alt="Running tests from the CLI" title="Running tests from the CLI" >}}
+![Running tests from the CLI](/guides/images/guides-checkly-cli-check-run.jpg "Running tests from the CLI")
 
 There are also links to the detailed summary of the test at the end of the result in the terminal. Here is an example of the test summary:
 
-{{< figure src="/guides/images/guides-checkly-test-summary.jpg" alt="A test summary in the Checkly web interface" title="A test summary in the Checkly web interface" >}}
+![A test summary in the Checkly web interface](/guides/images/guides-checkly-test-summary.jpg "A test summary in the Checkly web interface")
 
 As seen in the result, the test failed because if you browse the URL (https://www.checklyhq.com/docs/browser-checks/) the title of the site is “Getting started | Checkly” and not “Introduction to Checkly | Checkly” as expected in the test case.
 If we update the test case to expect “Getting started | Checkly” we will have a passed test. Here is the result of the test after updating the correct title:
-{{< figure src="/guides/images/guides-checkly-cli-passed-test.jpg" alt="A passing test" title="A passing test" >}}
+![A passing test](/guides/images/guides-checkly-cli-passed-test.jpg "A passing test")
 
 If you check the detailed summary, we should have a passed test too:
 
-{{< figure src="/guides/images/guides-checkly-ui-passed-test.jpg" alt="A passing test" title="A passing test" >}}
+![A passing test](/guides/images/guides-checkly-ui-passed-test.jpg "A passing test")
 
 Step 5: Deploying Checks
 Now that you've reviewed and updated your tests, you can proceed to deploy your MaC workflow and related resources, such as alerts and dashboards. Run the following command in your project terminal to deploy the tests to your Checkly account:
@@ -304,7 +304,7 @@ Now that you've reviewed and updated your tests, you can proceed to deploy your 
 Once the deployment is complete, you'll see a success message in your terminal, indicating that the project has been deployed to your Checkly account.
 
 To verify this, navigate to the home section on the left side of the Checkly UI, and you'll find the project with the name of the test script from your local repository.
-{{< figure src="/guides/images/guides-checkly-dashboard-passed-test.jpg" alt="A passing test" title="A passing test" >}}
+![A passing test](/guides/images/guides-checkly-dashboard-passed-test.jpg "A passing test")
 
 
 
@@ -312,7 +312,7 @@ Step 6: Setting up Alerts
 Checkly offers alert services to notify you whenever a check fails. Various alert channels are available, including Slack, SMS, webhook, phone call, email, Opsgenie, PagerDuty, etc.
 To set up alerts for your check, go to the specific project, in this case, "homepage.spec.ts." At the top right corner of the code editor, click the "Settings" button. In the revealed side panel, access "Alert Settings" under "Retries & alerting."
 
-{{< figure src="/guides/images/guides-checkly-alert-settings.jpg" alt="A passing test" title="A passing test" >}}
+![A passing test](/guides/images/guides-checkly-alert-settings.jpg "A passing test")
 
 Here, configure monitoring parameters according to your needs, including check frequency, locations, retries and alerting. You can also set up your preferred alert channel using the Checkly CLI. Learn more about the alert channels from the official documentation.
 

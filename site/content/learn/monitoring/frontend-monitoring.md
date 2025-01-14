@@ -15,6 +15,11 @@ weight: 20
 
 No matter what internal testing or error monitoring we do for our web services, our end users will interact with that service through a front end. It’s necessary to perform front end monitoring so that you’re not relying on users to report problems.
 
+---
+**Ready to start frontend monitoring today?** check out our practical guide on [how to start frontend monitoring with Checkly and Playwright.](https://www.checklyhq.com/guides/monitoring-ecommerce-apps-using-playwright/)
+
+---
+
 Frontend monitoring ensures seamless user experiences by observing and analyzing the performance and functionality of web applications. Edge case failures, bad 3rd party service interactions, and poor front end performance are all examples of issues that only direct front end monitoring can detect. 
 
 In this article, we’ll cover the basics of frontend monitoring, explore its various types, key metrics, benefits, and challenges, and review some top tools to help you manage and optimize your applications effectively.
@@ -83,7 +88,7 @@ Frontend monitoring tools capture data through a combination of synthetic tests,
 
 ## Key Components of Frontend Application Monitoring
 
-- **Performance Metrics**: Monitor loading speeds, rendering times, and resource usage.
+- **Performance Metrics**: Monitor loading speeds, [rendering times, and resource usage](https://www.checklyhq.com/learn/playwright/performance/#performance-with-headless-tools).
 - **Error Detection**: Identify JavaScript errors, API failures, and crashes. Crash reporting can be a complex problem but it’s great if it’s possible to report some details from user browser crashes.
 - **User Experience Analysis**: Assess user interactions, engagement, and satisfaction. This general concept is only sensible when performing Real User Monitoring, and may have significant overlap with business intelligence or business analytics. If you find yourself asking ‘what interface elements are most attractive to users?’ your use of the tool has shifted from monitoring to user analytics.
 
@@ -97,7 +102,7 @@ Key metrics in detail:
 
 - **Core Web Vitals**: [Largest Contentful Paint](https://web.dev/articles/lcp) (LCP), [Interaction to Next Pain](https://web.dev/articles/inp) (INP), Cumulative Layout Shift (CLS). These metrics are considered to be quite critical for search engine optimization.
 - **JavaScript Error Rates**: Frequency of client-side code failures. You may need to implement filtering for common errors.
-- **API Response Times**: Speed and reliability of API calls. This may be called ‘heartbeat monitoring’ if you’re only measuring the reliability of straightforward `get` requests.
+- **API Response Times**: Speed and reliability of API calls. This may be called ‘[heartbeat monitoring](https://www.checklyhq.com/docs/heartbeat-checks/#heartbeat-monitoring---checkly-docs)’ if you’re only measuring the reliability of straightforward `get` requests.
 - **Network Request Failures**: Broken or delayed network requests
 - **Errors and Crashes**: Stability of the application under different conditions
 - **User Interactions and Engagement**: Clicks, scrolls, and session durations
@@ -106,7 +111,7 @@ Key metrics in detail:
 
 ## Common Use Cases of Frontend Monitoring
 
-- **Monitoring Page Load Times**: Ensure optimal page rendering speed.
+- **Monitoring Page Load Times**: [Ensure optimal page rendering speed](https://www.checklyhq.com/docs/browser-checks/tracing-web-vitals/#total-blocking-time).
 - **Tracking Third-Party Services**: No amount of pre-deploy testing with stubs of third party services can find all the possible interaction problems with those services. Frontend monitoring can detect issues caused by external libraries or APIs.
 - **User Interaction Monitoring**: Analyze behavior patterns and engagement levels.
 - **Analyzing Client-Side Errors**: Identify and resolve JavaScript issues, especially those happening on single platforms or with particular browser versions.
@@ -121,7 +126,7 @@ Frontend monitoring empowers teams to detect potential problems before they esca
 
 **Precise Performance Insights**
 
-Performance monitoring provides actionable data that highlights bottlenecks and inefficiencies in applications. Metrics such as Largest Contentful Paint or Interaction to Next Paint help developers understand where delays occur and prioritize optimization efforts. These insights shift the focus from merely reacting to known issues toward analyzing anomalies, such as unexpectedly fast or slow responses. This phase aligns with "known unknowns," where developers explore statistical questions to assess how normal or abnormal system behavior is.
+[Performance monitoring](https://www.checklyhq.com/docs/browser-checks/tracing-web-vitals/) provides actionable data that highlights bottlenecks and inefficiencies in applications. Metrics such as Largest Contentful Paint or Interaction to Next Paint help developers understand where delays occur and prioritize optimization efforts. These insights shift the focus from merely reacting to known issues toward analyzing anomalies, such as unexpectedly fast or slow responses. This phase aligns with "known unknowns," where developers explore statistical questions to assess how normal or abnormal system behavior is.
 
 **Real-Time User Experience Analysis**
 
@@ -159,7 +164,7 @@ Frontend monitoring alone cannot provide a complete view of an application’s h
 
 | Tool | Features | Notes |
 | --- | --- | --- |
-| **Checkly** | Uses Playwright end-to-end tests for synthetic monitoring. Robust alerts to detect issues early. Integrates with OpenTelemetry traces. | Excellent for proactive monitoring and integration with backend systems. |
+| **Checkly** | Uses Playwright [end-to-end tests for synthetic monitoring](https://www.checklyhq.com/docs/monitoring/). Robust alerts to detect issues early. Integrates with OpenTelemetry traces. | Excellent for proactive monitoring and integration with backend systems. |
 | **Sematext** | Backend monitoring with [an open-source data collection agent](https://github.com/sematext/sematext-agent-java). | Suitable for teams needing a lightweight, open-source-friendly solution. |
 | **Pingdom** | Specializes in uptime monitoring and performance tracking. | Focused on simple up-or-down monitoring. Limited in scope compared to other tools. |
 | **Google PageSpeed Insights** | Provides performance recommendations based on real-world data. | Primarily an auditing tool, best for reactive monitoring. |
@@ -180,30 +185,30 @@ Frontend monitoring has historically lagged behind backend systems in sophistica
 
 ## Challenges in Using OpenTelemetry for Frontend Monitoring**
 
-**1. **Initial Complexity of Setup****
+**1. Initial Complexity of Setup**
 
 While OpenTelemetry provides out-of-the-box instrumentation, setting it up for a browser-based application requires upfront effort. Instrumentation code must load before the application initializes to capture critical spans like document load times. Ensuring this is correctly implemented across environments can be a source of frustration.
 
-**2. **Performance Overhead****
+**2. Performance Overhead**
 
 Instrumenting a frontend app involves adding listeners for browser events, fetching metrics, and propagating trace headers. Over-instrumentation or poorly optimized spans can degrade application performance, especially for resource-intensive pages or on devices with limited capabilities.
 
-**3. **Handling Browser-Specific Nuances****
+**3. Handling Browser-Specific Nuances**
 
 Browsers have unique behaviors that can make instrumentation challenging. For example:
 
 - **Redirects and Network Timing:** JavaScript doesn’t have access to certain browser-level events, like pre-redirect network timing. Combining OpenTelemetry's network instrumentation with browser APIs like `PerformanceObserver` can help, but it requires extra configuration.
 - **Clock Synchronization:** Distributed tracing relies on accurate timestamps. However, clock drift between client devices and servers can result in misaligned spans. Proxying timestamp corrections through an [OpenTelemetry Collector](https://www.checklyhq.com/learn/opentelemetry/what-is-the-otel-collector/) is often necessary.
 
-**4. **Data Volume and Rate Limiting****
+**4. Data Volume and Rate Limiting**
 
 Frontend telemetry can quickly generate a high volume of spans, especially on high-traffic applications. Without rate limiting or filtering, this data can overwhelm storage systems or increase monitoring costs. Developers must design selective instrumentation strategies to focus on high-value spans.
 
-**5. **Contextual Relevance of Spans****
+**5. Contextual Relevance of Spans**
 
 While auto-instrumentation provides useful baselines like resource fetch times and click events, it lacks application-specific context. Developers need to enhance these spans with attributes that matter to their business logic—such as user IDs, session data, or interaction details. Without this, telemetry risks becoming just noise.
 
-**6. **Debugging and Observability Gaps****
+**6. Debugging and Observability Gaps**
 
 Traditional frontend monitoring tools often report *what* is happening (e.g., a page is slow), but lack insights into *why*. OpenTelemetry addresses this by correlating frontend spans with backend traces. However, this requires propagation of trace headers (`traceparent`) between the frontend and backend, which can be technically challenging in distributed systems.
 
