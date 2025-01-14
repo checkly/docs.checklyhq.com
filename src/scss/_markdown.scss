@@ -107,6 +107,11 @@
 
   img {
     max-width: 100%;
+
+    &.markdown-responsive-img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   video {

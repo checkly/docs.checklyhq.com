@@ -1,0 +1,67 @@
+{{- /*
+This beauty is a custom render-image.html partial that adds WebP support to the image shortcode in Hugo. It uses
+Hugo's concept of "resources" and "bundles". At the time of writing, we (Checkly) only use global resources as our
+site was developed before the concept of bundles.
+
+It does the following:
+
+1. Hooks into the image render pipeline using the standard Hugo render hooks.
+2. Recognizes the type of resource: page, section or global.
+3. Creates a webp image if possible.
+4. Creates a picture element with a webp source and a fallback to the original image.
+
+References:
+- https://www.veriphor.com/articles/link-and-image-render-hooks/
+
+*/ -}}
+
+
+{{- /* Parse destination. */}}
+{{- $origUrl := urls.Parse .Destination }}
+
+{{- /* Get image resource. */}}
+{{- $resource := "" }}
+{{- if $origUrl.IsAbs }}
+  {{- with resources.GetRemote $origUrl.String }}
+      {{- $resource = . }}
+  {{- end }}
+{{- else }}
+  {{- with .PageInner.Resources.Get (strings.TrimPrefix "./" $origUrl.Path) }}
+    {{- /* Destination is a page resource. */}}
+    {{- $resource = . }}
+  {{- else }}
+    {{- with (and (ne .Page.BundleType "leaf") (.Page.CurrentSection.Resources.Get (strings.TrimPrefix "./" $origUrl.Path))) }}
+      {{- /* Destination is a section resource, and current page is not a leaf bundle. */}}
+      {{- $resource = . }}
+    {{- else }}
+      {{- with resources.Get $origUrl.Path }}
+        {{- /* Destination is a global resource. */}}
+        {{- $resource = . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- /* render the actual HTML tags */}}
+{{- $attrs := merge .Attributes (dict "alt" .Text "title" (.Title | transform.HTMLEscape) "src" $origUrl.String) }}
+
+<picture>
+{{- with $resource }}
+  {{- /* Set the original image type. */}}
+  {{- $imageExtension := path.Ext $origUrl }}
+  {{- $origType := (printf "image/%s" (strings.TrimLeft "." $imageExtension)) }}
+  {{- $origHashed := . | resources.Fingerprint "md5" }}
+
+  {{- /* Create a webP version and grab width and height if possible */}}
+  {{- if not (eq .MediaType.SubType "svg") }}
+    {{- $webPResource := .Resize (printf "%dx%d webp q80" .Width .Height) }}
+    <source type="image/webp" srcset="{{ $webPResource.RelPermalink }}" />
+  {{- end }}
+  <source type="{{ $origType }}" srcset="{{ $origHashed.RelPermalink }}" />
+  {{- if not (eq .MediaType.SubType "svg") }}
+    <img loading="lazy" class="markdown-responsive-img" src="{{ $origHashed.RelPermalink  }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
+  {{- else }}
+    <img loading="lazy" class="markdown-responsive-img" src="{{ $origHashed.RelPermalink }}"  alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
+  {{- end }}
+{{- end }}
+</picture>

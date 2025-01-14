@@ -47,7 +47,7 @@ First off, let's look at the basic HTTP request config inside our new API check.
 
 Our main request will hit the `DELETE` endpoint at `https://api.checklyhq.com/v1/checks`:
 
-{{< figure src="/guides/images/guides-checkly-setup-delete.png" alt="checkly API check http request config" title="The basic config for our API check's HTTP request" >}}
+![checkly API check http request config](/guides/images/guides-checkly-setup-delete.png "The basic config for our API check's HTTP request")
 
 Note that we are including the `Authorization` header set to `Bearer <YOUR_CHECKLY_API_KEY>`. We will not need to set the body or other parameters.
 
@@ -157,7 +157,7 @@ Our example will be about creating a new product for our webshop using its API. 
 
 Our main request will hit the `POST` endpoint at `https://fakestoreapi.com/products`:
 
-{{< figure src="/guides/images/guides-checkly-setup-create.png" alt="checkly API check http request" title="Our API check's HTTP request" >}}
+![checkly API check http request](/guides/images/guides-checkly-setup-create.png "Our API check's HTTP request")
 
 Now for the setup script. We are going to have an external API generate random data for us. In this case, we want to request information about a random device (e.g. a smartphone) from `random-data-api.com`, precisely with a `GET` to `https://random-data-api.com/api/device/random_device`. Using axios, the request will look as follows:
 

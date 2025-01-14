@@ -5,6 +5,7 @@ title = "Build and Run Synthetics That Scale"
 disableKinds = ["RSS"]
 enableGitInfo = true
 enableRobotsTXT = true
+timeout = "2m"
 
 pygmentsCodeFences = true
 pygmentsUseClasses = true
@@ -224,3 +225,6 @@ disqusShortname = "checkly"
 	startLevel = 2
 	endLevel = 3
 
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
