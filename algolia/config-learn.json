@@ -1,13 +1,18 @@
 {
-  "index_name": "checkly_docs_learning",
+  "index_name": "checkly_learn",
   "start_urls": ["https://www.checklyhq.com/learn/"],
   "stop_urls": [
     ".*(?<!/)$"
   ],
   "selectors": {
-    "lvl0": ".learn-page article h1",
-    "lvl1": ".learn-page article h2",
-    "lvl2": ".learn-page article h3",
-    "text": ".learn-page article p,.learn-page article ul,.learn-page article ol"
+    "lvl0": {
+      "selector": ".DocSearch-lvl1",
+      "global": true,
+      "default_value": "Learn"
+    },
+    "lvl1": ".learn-page article h1",
+    "lvl2": ".learn-page article h2",
+    "lvl3": ".learn-page article h3",
+    "text": ".DocSearch-content p, .DocSearch-content li, .DocSearch-content .alert"
   }
 }
