@@ -40,7 +40,7 @@ Historically, IT infrastructure has been provisioned manually, both on-premise a
 
 A new generation of tools has emerged to serve this use case, the most notable example of which is {{< newtabref  href="https://www.terraform.io/" title="HashiCorp Terraform" >}}. Terraform provides a CLI workflow that allows users to specify the desired final infrastructure setup, handling all the intermediate steps and processes needed to achieve it, embodying the principle of **monitoring as code**.
 
-{{< figure src="/guides/images/guides-terraform-aws.png" alt="provisioning aws infrastructure - code snippet" title="Provisioning AWS infrastructure via Terraform" >}}
+![provisioning aws infrastructure - code snippet](/guides/images/guides-terraform-aws.png "Provisioning AWS infrastructure via Terraform")
 
 Terraform can provision infrastructure on many cloud vendors thanks to its provider ecosystem. Each provider maps to the vendor's API, offering resources in a domain-specific language known as {{< newtabref  href="https://www.terraform.io/docs/language/syntax/configuration.html" title="HCL" >}}, a cornerstone for both IaC and code monitoring operations.
 
@@ -64,7 +64,7 @@ Users who have just started out will be familiar with creating checks, groups, a
 
 You can {{< newtabref  href="https://registry.terraform.io/providers/checkly/checkly/latest" title="find the Checkly Terraform provider" >}} on the official Terraform registry.
 
-{{< figure src="/guides/images/guides-provider.png" alt="official Checkly Terraform provider on Terraform Registry" title="Official Checkly Terraform provider" >}}
+![official Checkly Terraform provider on Terraform Registry](/guides/images/guides-provider.png "Official Checkly Terraform provider")
 
 ## Monitoring an e-commerce website - as code
 
@@ -342,7 +342,7 @@ Now that our Terraform project has been initialised and we have added some resou
 
 Terraform will determine all the needed changes to be performed to replicate our monitoring software configuration on Checkly. In doing so, we will be asked for our Checkly API key, which we can find under our account settings as shown below. Not on Checkly yet? [Register a free account](https://app.checklyhq.com/signup) and enjoy your free monthly checks!
 
-{{< figure src="/guides/images/guides-terraform-api.png" alt="screenshot of how to get api key from checkly dashboard" title="Retrieving the Checkly API KEY" >}}
+![screenshot of how to get api key from checkly dashboard](/guides/images/guides-terraform-api.png "Retrieving the Checkly API KEY")
 
  We can expose this as an environment variable in order to spare developers from having to copy-paste it all the time: `export TF_VAR_checkly_api_key=<YOUR_API_KEY>`.
 
@@ -393,7 +393,7 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
 Logging in to our Checkly account, we will see the dashboard has been populated with data from our three checks, which will soon start executing on their set schedules.
 
-{{< figure src="/guides/images/guides-terraform-checks.png" alt="terraform-created checks on checkly dashboard" title="Terraform-provisioned checks on Checkly" >}}
+![terraform-created checks on checkly dashboard](/guides/images/guides-terraform-checks.png "Terraform-provisioned checks on Checkly")
 
 ### Monitoring API correctness and performance
 
@@ -441,7 +441,7 @@ resource "checkly_check" "webstore-list-books" {
 
 We can now once more run `terraform plan`, followed by `terraform apply` to see the new check on Checkly:
 
-{{< figure src="/guides/images/guides-terraform-api-check.png" alt="terraform-created api check on checkly" title="Our API and Browser checks on Checkly" >}}
+![terraform-created api check on checkly](/guides/images/guides-terraform-api-check.png "Our API and Browser checks on Checkly")
 
 ### Alerting
 
@@ -488,7 +488,7 @@ resource "checkly_check" "login" {
 
 Going through the usual `terraform plan` and `terraform apply` sequence will apply the changes on our Checkly account:
 
-{{< figure src="/guides/images/guides-terraform-alerts.png" alt="terraform-created alert on checkly" title="Terraform-provisioned alert on Checkly" >}}
+![terraform-created alert on checkly](/guides/images/guides-terraform-alerts.png "Terraform-provisioned alert on Checkly")
 
 We are now fully up and running with our monitoring-as-code setup. Our checks will run on a schedule, informing us promptly if critical anything were to go wrong. Rapidly getting to know about failures in our API and key website flows will allow us to react fast and mitigate impact on our users, ensuring a better experience with our product.
 

@@ -84,7 +84,7 @@ gulp.task('assets', () => (
 gulp.task('hash', () => {
   return gulp.src('./public/**', { encoding: false })
     .pipe(revall.revision({
-      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2'],
+      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2', '.png', '.jpg', '.jpeg', '.svg', '.webp'],
       dontUpdateReference: ['.woff', '.eot', '.ttf', '.woff2']
     }))
     .pipe(gulp.dest('./public'))

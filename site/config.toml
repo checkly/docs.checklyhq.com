@@ -224,3 +224,6 @@ disqusShortname = "checkly"
 	startLevel = 2
 	endLevel = 3
 
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
