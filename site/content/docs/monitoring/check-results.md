@@ -20,7 +20,7 @@ Select a check and you will see a breakdown of its recent runs, together with ke
 
 The summary at the top of the page allows for filtering based on the page's data points and the selected timeframe and locations. Retried check runs do not influence this section; only the final results are considered.
 
-<img class="screenshot-partial" alt="check results overview summary" src="/docs/images/monitoring/check-overview-summary.png"/>
+![check results overview summary](/docs/images/monitoring/check-overview-summary.png)
 
 Based on the user's selection, the metrics in the summary will also be updated to show the most important numbers at a glance.
 
@@ -30,7 +30,8 @@ The monitoring results chart shows a summary of the run results in the selected 
 
 Hovering a bar in the chart will show the results of all check runs executed during that time. You can quickly filter the check run results in the right sidepanel by clicking a bar in the chart.
 
-<img class="screenshot-partial" alt="check results overview time ribbon" src="/docs/images/monitoring/check-overview-monitoring-result-chart.png"/>
+![check results overview time ribbon](/docs/images/monitoring/check-overview-monitoring-result-chart.png)
+
 
 When retries are enabled, an additional icon highlights that the check result contains multiple check runs.
 
@@ -45,52 +46,59 @@ Depending on the type of check, different performance metrics will be shown in t
 For Browser checks, several performance metrics are shown in separate charts:
 
 1. The total duration of the check run
-<img class="screenshot-partial" alt="check overview browser session duration graph" src="/docs/images/monitoring/check-overview-performance-browser.png"/>
+![check overview browser session duration graph](/docs/images/monitoring/check-overview-performance-browser.png)
+
 
 2. [Load timings](/docs/browser-checks/tracing-web-vitals/#first-contentful-paint) for the first page navigation
-<img class="screenshot-partial" alt="check overview load timings graph" src="/docs/images/monitoring/check-overview-performance-loading.png"/>
+![check overview load timings graph](/docs/images/monitoring/check-overview-performance-loading.png)
 
 3. A breakdown of different error types
-<img class="screenshot-partial" alt="check overview errors graph" src="/docs/images/monitoring/check-overview-errors.png"/>
+![check overview errors graph](/docs/images/monitoring/check-overview-errors.png)
+
 
 4. An [interactivity](/docs/browser-checks/tracing-web-vitals/#total-blocking-time) summary
-<img class="screenshot-partial" alt="check overview interactivity graph" src="/docs/images/monitoring/check-overview-interactivity.png"/>
+![check overview interactivity graph](/docs/images/monitoring/check-overview-interactivity.png)
 
 5. A [visual stability](/docs/browser-checks/tracing-web-vitals/#cumulative-layout-shift) breakdown
-<img class="screenshot-partial" alt="check overview visual stability graph" src="/docs/images/monitoring/check-overview-visual-stability.png"/>
+![check overview visual stability graph](/docs/images/monitoring/check-overview-visual-stability.png)
 
 For API checks, a detailed response time breakdown is shown:
-<img class="screenshot-partial" alt="check overview api performance graph" src="/docs/images/monitoring/check-overview-performance-api.png"/>
+![check overview api performance graph](/docs/images/monitoring/check-overview-performance-api.png)
 
 For Multistep checks, a response time breakdown is shown per step:
-<img class="screenshot-partial" alt="check overview api performance graph" src="/docs/images/monitoring/check-overview-performance-multistep.png"/>
+![check overview multistep performance graph](/docs/images/monitoring/check-overview-performance-multistep.png)
 
 A performance comparison by location will also be included for both types of check:
-<img class="screenshot-partial" alt="check overview location performance graph" src="/docs/images/monitoring/check-overview-locations.png"/>
+![check overview location performance graph](/docs/images/monitoring/check-overview-locations.png)
 
 ## Navigating individual check results
 The check result page will contain results from multiple locations when using [parallel scheduling](/docs/monitoring/global-locations/#scheduling-strategies). Navigate between each location using the sidebar.
-<img alt="Viewing multiple attempts from the dropdown" autoplay loop src="/docs/images/monitoring/location-select.gif"></img>
-
+![Viewing multiple attempts from the dropdown](/docs/images/monitoring/location-select.gif)
 
 ## Browser check results
 
 Individual browser check results contain:
 
 1. A short check summary, including errors broken down by category.
-<img class="screenshot-partial" alt="check results browser summary" src="/docs/images/monitoring/check-results-browser-summary.png"/>
+![check results browser summary](/docs/images/monitoring/check-results-browser-summary.png)
+
 2. When using Playwright Test Runner you will have an additional section displaying the test steps, error message, and assets (traces, videos, screenshots). [Read more](/docs/browser-checks/playwright-test/) about the additonal functionalities of Playwright Test.
-<img class="screenshot-partial" alt="check results browser playwright test report" src="/docs/images/monitoring/check-results-browser-pwt-report.png"/>
+![check results browser playwright test report](/docs/images/monitoring/check-results-browser-pwt-report.png)
+
 3. An error log, only if your script failed.
-<img class="screenshot-partial" alt="check results browser error log" src="/docs/images/monitoring/check-results-browser-error-log.png"/>
+![check results browser error log](/docs/images/monitoring/check-results-browser-error-log.png)
+
 4. Expandable tabs on page your script navigated to.
-<img class="screenshot-partial" alt="check results browser page navigation" src="/docs/images/monitoring/check-results-browser-page-navigations.png"/>
+![check results browser page navigation](/docs/images/monitoring/check-results-browser-page-navigations.png)
+
 When expanded, each tab shows its own navigation/loading time ribbon and web vitals...
-<img class="screenshot-partial" alt="check results browser navigation top" src="/docs/images/monitoring/check-results-browser-navigation-top.png"/>
+![check results browser page navigation top](/docs/images/monitoring/check-results-browser-page-navigations-top.png)
+
 ...together with browser console logs, network logs and any screenshots that had been taken (including one screenshot taken automatically on failure).
-<img class="screenshot-partial" alt="check results browser navigation bottom" src="/docs/images/monitoring/check-results-browser-navigation-bottom.png"/>
+![check results browser page navigation bottom](/docs/images/monitoring/check-results-browser-navigation-bottom.png)
+
 5. A job log for the check.
-<img class="screenshot-partial" alt="check results browser job log" src="/docs/images/monitoring/check-results-browser-job-log.png"/>
+![check results browser job log](/docs/images/monitoring/check-results-browser-job-log.png)
 
 ## API check results
 
@@ -138,7 +146,7 @@ Currently, only requests done using the Playwright `request` are shown as nodes 
 
 In the request details you will also find the result of any assertion done as part of the corresponding test step.
 
-<video alt="Using the Multistep check results view" autoplay loop muted src="/docs/images/monitoring/check-results-multistep.mp4"></video>
+![Using the Multistep check results view](/docs/images/monitoring/check-results-multistep.mp4)
 
 ## TCP check results
 
@@ -160,5 +168,5 @@ When checks are retried, a dropdown will indicate that the check result contains
 
 When selecting a check run, all data and assets are available for inspection for each attempt.
 
-<img alt="Viewing multiple attempts from the dropdown" autoplay loop src="/docs/images/monitoring/check-retries.gif"></img>
+![Viewing multiple attempts from the dropdown](/docs/images/monitoring/check-retries.gif)
 

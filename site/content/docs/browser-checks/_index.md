@@ -207,8 +207,7 @@ Note that we are using Playwright Test's built-in expect, which is enriched with
 When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
 alerting channels will be triggered, notifying your team that something is up.
 
-<video alt="Viewing a failed check" autoplay loop muted src="/docs/images/browser-checks/getting-started_pwt.mp4"></video>
-
+![Viewing a failed check](/docs/images/browser-checks/getting-started_pwt.mp4)
 
 ## Using other browsers
 
