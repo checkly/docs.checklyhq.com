@@ -78,8 +78,7 @@ test('Visit Checkly homepage and take a screenshot', async ({ page }) => {
 {{< /tabs >}}
 
 The code above snaps a picture of the headline on the Checkly homepage.
-
-<video alt="Taking a screenshot of Checkly's headline" autoplay loop muted src="/docs/images/browser-checks/screenshots-element.mp4"></video>
+![Taking a screenshot of Checkly's headline](/docs/images/browser-checks/screenshots-element.mp4)
 
 ## More resources
 
