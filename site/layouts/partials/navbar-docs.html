@@ -7,7 +7,7 @@
             {{ $currentPage := . }}
             {{ range .Site.Menus.topnav }}
             {{ $active := in $currentPage.RelPermalink .URL }}
-                <a class='nav-item-not-mobile nav-link {{ if $active }}active{{ end }}' href="{{.URL}}">
+                <a class='nav-item-not-mobile nav-link {{ if $active }}active{{ end }}{{ if .Params.external }}nav-link-external{{ end }}' href="{{.URL}}" {{if .Params.external}}target="_blank" {{ end }} >
                     {{.Name}}
                     <div class="nav-link-bottom {{ if $active }}active{{ end }}" ></div>
                 </a>
