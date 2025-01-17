@@ -16,47 +16,41 @@ menu:
     parent: "Best practices"
 ---
 
-Playwright's test fixtures are a powerful feature for sharing setup and teardown logic across tests, promoting code reuse and maintainability. This guide walks you through creating a custom test fixture, demonstrating its utility in a practical scenario.
+Playwright's test fixtures are a powerful feature for sharing setup and logic across tests, promoting code reuse and maintainability. With custom fixtures, you can share code across multiple tests, resulting in a test base that is easier to expand and easier to maintain.
 
 ## Understanding Playwright Test Fixtures
 
-At their core, fixtures in Playwright are predefined components like `page`, `context`, `browser`, and `browserName` that you can use across different test cases. They encapsulate functionality into modular blocks, simplifying test setup and teardown.
+At their core, fixtures in Playwright are predefined components like `page`, `context`, `browser`, and `browserName` that you can use across different test cases. They encapsulate functionality into modular blocks, simplifying test code.
 
-## Fixtures: Puppeteer vs Playwright
+When writing multiple tests for a single site or service, you're likely to end up performing the same tasks over and over, so we'd like to add fixtures to our Playwright tests that developers can re-use, rather than copying and pasting big blocks of code. This helps us follow the DRY prinicple: don't repeat yourself when writing code!
 
-Both [Playwright](https://www.checklyhq.com/learn/headless/basics-playwright-intro/) and [Puppeteer](https://www.checklyhq.com/learn/headless/basics-puppeteer-intro/) are open source projects to help you simulate user behavior with a browser on your site. Their approach to fixtures—reusable pieces of code for setting up and tearing down tests—differs significantly. While fixtures are a basic component in Playwright, Puppeteer doesn’t offer native fixture support, relying on manually coded helper functions.
+## Why we need custom fixtures
+In our web shop, we've got a login process that we want to simulate and test before doing further account actions:
 
-### Puppeteer and Fixtures
+![A web shop login dialog](/samples/images/webshop-login.png)
 
-Puppeteer, developed by the Chrome DevTools team, focuses on simplicity and direct control over the Chrome or Chromium browser. It doesn't natively support fixtures in the same way Playwright does. Instead, setup and teardown routines must be manually coded within each test or abstracted into reusable functions by the developer. This approach offers flexibility but can lead to more boilerplate code and a higher chance of inconsistency across tests.
+To open this dialog and log in, we might use some lines like the following:
 
-### Custom Test Fixture Implementation
+```ts
+import { test, expect } from '@playwright/test';
 
-To use fixtures in Puppeteer, developers typically create helper functions or classes that encapsulate setup and teardown logic. This method requires more upfront work and a good understanding of asynchronous JavaScript patterns.
-
-```js
-async function withPage(test) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  try {
-    await test(page);
-  } finally {
-    await page.close();
-    await browser.close();
-  }
-}
-
-// Usage
-withPage(async (page) => {
-  // Test actions using the page
+test('test', async ({ page }) => {
+  await page.goto('https://danube-webshop.herokuapp.com/');
+  await page.getByRole('button', { name: 'Log in' }).click();
+  await page.getByPlaceholder('Email').click();
+  await page.getByPlaceholder('Email').fill('robert@moresby.com');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('@!#KLjwsWe4@');
+  await page.getByRole('button', { name: 'Sign In' }).click();
 });
 ```
 
-This pattern mimics fixture behavior but lacks the built-in, framework-level support found in Playwright, potentially leading to more complex and less maintainable test suites.
+This is a fine practice for a single test, but if we have dozens that all require login as a first step, we'll find ourself copying and pasting this code several times. This means a lot of copied code, such that if we ever tweak the login process, we'll have to update this copied code in dozens of places, not good!
+
 
 ## Playwright and Fixtures
 
-Playwright and its test runner Playwright Test, on the other hand, were designed with a broader testing scope and includes first-class support for fixtures. This design choice streamlines the setup and teardown process, making tests cleaner and reducing redundancy.
+Playwright and its test runner Playwright Test, were designed with a broader testing scope and includes first-class support for fixtures. This design choice streamlines the setup and teardown process, making tests cleaner and reducing redundancy.
 
 ### Built-in Support
 
@@ -75,11 +69,6 @@ test('My authenticated test', async ({ page }) => {
 
 The ability to extend and customize fixtures in Playwright not only reduces boilerplate but also enhances test isolation and reusability across your test suite.
 
-## Choosing between Puppeteer and Playwright
-
-While both Puppeteer and Playwright offer powerful capabilities for browser automation, their approach to fixtures represents a significant difference in philosophy. Puppeteer offers flexibility and direct control, requiring developers to implement their own fixture-like functionality. Playwright, in contrast, integrates fixtures deeply into its testing framework, promoting code reuse, maintainability, and ease of use.
-
-Choosing between Puppeteer and Playwright will depend on your project's specific needs, the complexity of your tests, and your team's familiarity with JavaScript testing patterns. If fixtures and test structure are a priority, Playwright Test might be the more suitable choice. However, for projects that require fine-grained browser control and are less concerned with test setup and teardown complexity, Puppeteer remains a strong option.
 
 ## Create a Custom Test Fixture in Playwright Test
 
@@ -93,8 +82,8 @@ First, create a new test file or use an existing one. Here, we're testing a web 
 
 To create a custom fixture, extend the `test` object provided by Playwright:
 
-```js
-// fixture.js
+```js {title="fixture.js"}
+
 import { test as baseTest } from '@playwright/test';
 
 const test = baseTest.extend({
@@ -141,8 +130,8 @@ Debugging is crucial to ensure your fixture works as expected. Playwright's insp
 
 To share your custom fixture across different test files, encapsulate it in a separate module:
 
-```js
-// setup.js
+```js {title="setup.js"}
+
 import { test as baseTest, expect } from '@playwright/test';
 
 export const test = baseTest.extend({ /* Your fixture definition */ });
@@ -151,8 +140,7 @@ export { expect };
 
 Then, in your test files, import this extended `test` and use the custom fixtures:
 
-```js
-// tests/your-test.spec.js
+```js {title="tests/your-test.spec.js"}
 import { test, expect } from './setup';
 ```
 
@@ -188,7 +176,7 @@ This approach works fine, but if you want to run the same code for **every test*
 
 A more convenient way to implement global test hooks is relying on automatic fixtures. Like the `webApp` fixture defined in the previous section, you must extend the `test` object to use automatic fixtures.
 
-```js
+```js {title="base.js"}
 import { test as baseTest } from '@playwright/test';
 
 export const test = baseTest.extend({
@@ -220,12 +208,24 @@ export { expect } from "@playwright/test";
 
 The main difference between default and automatic fixtures is that automatic fixtures run regardless. In our example, the `timeLogger` fixture will be executed for every running test.
 
+Note that you'll want to update your other test spec files to import `test` from our `base.js`, they probably have something like:
+
+```js
+import { test, expect } from '@playwright/test';
+```
+You'll want to update them to read something like:
+
+```js
+import { test } from './fixtures';
+import { expect } from '@playwright/test';
+```
+
 ## Conclusion
 
 Custom test fixtures in Playwright streamline test setup and teardown, fostering code reuse and reducing boilerplate. Encapsulating common functionality, such as user logins or global setups, into fixtures ensures your tests are cleaner, more maintainable, and easier to read.
 
 ### Playwright Fixtures Explained on YouTube
 
-To discover more practical fixture examples, check out our YouTube playlist, which covers fixtures in even more depth.
+To discover more practical fixture examples, check out our [YouTube playlist](https://www.youtube.com/watch?v=hegZS46J0rA&list=PLMZDRUOi3a8N067UNvkxXEThKlTII_OJ-), which covers fixtures in even more depth.
 
 {{< youtube-gallery id="PLMZDRUOi3a8N067UNvkxXEThKlTII_OJ-" >}}
