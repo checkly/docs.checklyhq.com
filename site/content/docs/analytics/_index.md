@@ -156,11 +156,11 @@ setting the required HTTP header and query parameters to fetch the JSON. You'll 
 
 In the following image you'll see all required configuration for a component:
 
-- ![#cc66ff](https://placehold.co/15x15/cc66ff/cc66ff.png) `Fields`
-- ![#cc9900](https://placehold.co/15x15/cc9900/cc9900.png) `Path`
-- ![#3399ff](https://placehold.co/15x15/3399ff/3399ff.png) `Query parameters`
-- ![#ff0000](https://placehold.co/15x15/ff0000/ff0000.png) `Header`
-- ![#33cc66](https://placehold.co/15x15/33cc66/33cc66.png) `Variables` (optional)
+- `Fields`
+- `Path`
+- `Query parameters`
+- `Header`
+- `Variables` (optional)
 
 ![grafana component configuration](/docs/images/analytics/grafana-component-configuration.png)
 
@@ -199,7 +199,6 @@ script that does the following:
 
 ```bash
 #!
- 
 ACCOUNT_ID=<your account ID>
 TOKEN=<your API token>
 

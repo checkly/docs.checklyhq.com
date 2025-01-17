@@ -34,12 +34,12 @@ Docs, Learn & Guides sections are open to contributions. If you find a mistake, 
 
 ## Markdown extensions
 
-### Using images
+### Using images & videos
 
 There are two places to store images:
 
 1.`/site/static` for any images that are used in the UI, chrome, menus etc. These are typically icons, logos etc.
-2.`/site/assets` for any images that are used in the content of the site. These are typically screenshots, diagrams etc.
+2.`/site/assets` for any images and videos (`.mp4`) that are used in the content of the site. These are typically screenshots, diagrams etc.
 
 The `/site/assets` directory is special, as Hugo can use it to get "resources" which are then fed into the assets
 processing pipeline, where they are optimized, transformed to `.webp` and some more magic.
@@ -52,6 +52,12 @@ Adding images to any markdown file works in the canonical way:
 The above markdown will trigger the `render-image.html` hook that does all the pipelining magic.
 
 > Note that you can leave out the `/site/assets` part of the path.
+
+For videos, you can use the same syntax, but with a `.mp4` file:
+
+```markdown
+![some alt text](/path/to/video.mp4 "optional title")
+```
 
 ### Fancy fenced code blocks with title
 

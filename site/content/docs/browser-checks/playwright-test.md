@@ -93,7 +93,7 @@ When a `@playwright/test` test case fails, Checkly will record and make its trac
 
 Using the Playwright Trace Viewer you can effortlessly view your test, skip back and forth between actions, view snapshots and metadata, and more. This makes it very easy to inspect individual traces and debug failing tests.
 
-<video alt="Viewing a Playwright Test trace file" autoplay loop muted src="/docs/images/browser-checks/pwt_traces.mp4"></video>
+![Viewing a Playwright Test trace file](/docs/images/browser-checks/pwt_traces.mp4)
 
 When running tests from the editor page, trace files are always available for download and preview,
 regardless of whether the check is passing or failing. For scheduled check runs traces are only preserved when the check failed.
@@ -103,7 +103,7 @@ When a `@playwright/test` test case fails, Checkly will record a video for each 
 
 Here's an example of a Playwright Test script that fails, and provides a video of the test sequence.
 
-<video alt="Viewing a Playwright Test video" autoplay loop muted src="/docs/images/browser-checks/pwt_videos.mp4"></video>
+![Viewing a Playwright Test video](/docs/images/browser-checks/pwt_videos.mp4)
 
 When running tests from the editor page, video files are always available for download and preview, regardless of whether
 the check is passing or failing. For scheduled check runs videos are only preserved when the check failed.

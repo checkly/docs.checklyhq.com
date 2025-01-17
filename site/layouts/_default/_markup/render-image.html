@@ -44,24 +44,36 @@ References:
 
 {{- /* render the actual HTML tags */}}
 {{- $attrs := merge .Attributes (dict "alt" .Text "title" (.Title | transform.HTMLEscape) "src" $origUrl.String) }}
+{{- $imageExtension := path.Ext $origUrl }}
 
-<picture>
-{{- with $resource }}
-  {{- /* Set the original image type. */}}
-  {{- $imageExtension := path.Ext $origUrl }}
-  {{- $origType := (printf "image/%s" (strings.TrimLeft "." $imageExtension)) }}
-  {{- $origHashed := . | resources.Fingerprint "md5" }}
+{{- if eq $imageExtension ".mp4" }}
+  {{- with $resource -}}
+    <video alt="{{ $attrs.alt }}" autoplay loop muted src="{{ .RelPermalink  }}"></video>
+  {{- end -}}
+{{- else if eq $imageExtension ".gif" }}
+  {{- with $resource -}}
+    <img loading="lazy" class="markdown-responsive-img" src="{{ .RelPermalink }}" alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
+  {{- end -}}
+{{- else -}}
+  <picture>
+  {{- with $resource }}
+    {{- /* Set the original image type. */}}
+    {{- $origType := (printf "image/%s" (strings.TrimLeft "." $imageExtension)) }}
 
-  {{- /* Create a webP version and grab width and height if possible */}}
-  {{- if not (eq .MediaType.SubType "svg") }}
-    {{- $webPResource := .Resize (printf "%dx%d webp q80" .Width .Height) }}
-    <source type="image/webp" srcset="{{ $webPResource.RelPermalink }}" />
+    {{- /* Create a hashed version of the original image. */}}
+    {{- $origHashed := . | resources.Fingerprint "md5" }}
+
+    {{- /* Create a webP version and grab width and height if possible */}}
+    {{- if not (eq .MediaType.SubType "svg") }}
+      {{- $webPResource := .Resize (printf "%dx%d webp q80" .Width .Height) }}
+      <source type="image/webp" srcset="{{ $webPResource.RelPermalink }}" />
+    {{- end }}
+    <source type="{{ $origType }}" srcset="{{ $origHashed.RelPermalink }}" />
+    {{- if not (eq .MediaType.SubType "svg") }}
+      <img loading="lazy" class="markdown-responsive-img" src="{{ $origHashed.RelPermalink  }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
+    {{- else }}
+      <img loading="lazy" class="markdown-responsive-img" src="{{ $origHashed.RelPermalink }}"  alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
+    {{- end }}
   {{- end }}
-  <source type="{{ $origType }}" srcset="{{ $origHashed.RelPermalink }}" />
-  {{- if not (eq .MediaType.SubType "svg") }}
-    <img loading="lazy" class="markdown-responsive-img" src="{{ $origHashed.RelPermalink  }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
-  {{- else }}
-    <img loading="lazy" class="markdown-responsive-img" src="{{ $origHashed.RelPermalink }}"  alt="{{ $attrs.alt }}" title="{{ $attrs.title }}" />
-  {{- end }}
-{{- end }}
-</picture>
+  </picture>
+{{- end -}}

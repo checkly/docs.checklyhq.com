@@ -14,64 +14,170 @@ menu:
     parent: "Basics"
 ---
 
-Playwright offers robust capabilities for automating browser tests. A common question among developers, however, revolves around the best practices for structuring Playwright projects, especially when tests involve significant environment changes, resource creation, or database updates. This blog post describes strategies for running Playwright tests either in parallel or in sequence, optimizing your testing workflow for efficiency and reliability.
+Playwright offers robust capabilities for automating browser tests. However, a common question among developers revolves around the best practices for structuring Playwright projects, especially when tests involve significant environment changes, resource creation, or database updates.
+
+This post describes strategies for running Playwright tests in parallel, sequence, or both while optimizing your testing workflow for efficiency and reliability.
 
 ## Understanding Test Types: stateful vs stateless
 
-Before getting into the technicalities of test execution, it's essential to categorize your tests into two main types: non-destructive and destructive.
+Before getting into the technicalities of test execution, you must categorize your tests into two main types: stateless and stateful.
 
-- **Stateless Tests**: These tests do not rely on a specific state of the environment and do not alter any resources. Since they are isolated in their operations, running them in parallel is generally safe and efficient, as they won't interfere with each other.
-- **Stateful Tests**: Destructive tests modify the environment by creating or deleting resources, or changing global configurations. Such tests can easily conflict with each other if run in parallel, as one test's actions might disrupt another's expected environment state.
+- **Stateless Tests** do not rely on a specific state of the environment and do not alter any global configuration. Since they are isolated in their operations, running them in parallel is generally safe and efficient. Stateless tests won't interfere with each other.
+- **Stateful Tests** modify the environment by creating or deleting resources, or changing global configuration. Such tests can easily conflict if run in parallel, as one test's actions might disrupt another's expected environment state.
 
-Keep in mind that in most cases, a test that starts and relies on a state that should be created by a previous test is typically considered an antipattern. Tests ideally should create and clean up their own state. Of course, this doesn't help if your tests would collide on the same parameter, record, or other state component.
+>[!NOTE]
+> Tests that start and rely on a state created by a previous test are typically considered antipatterns. Tests should create and clean up their own state to avoid cluttering test environments and enable parallelization.
+
+## Playwright's Default Test Execution
+
+Before you start wondering how to parallelize all your Playwright tests, be aware that you probably run some of your tests in parallel already.
+
+By default, **Playwright runs your test files in parallel, and all tests in a single file are run in order and with the same worker process**.
+
+![Playwright default execution mode](/learn/images/default-execution@2x.jpg)
+
+This default execution model is a sane default. It safely runs tests in a single file in order while still trying to parallelize all the `spec` files.
+
+The execution model can be changed in multiple ways if you want to parallelize more tests or have specific requirements:
+
+- set `fullyParallel: true` in your `playwright.config`
+- change a test file's execution model using `test.describe.configure`
+- limit the numbers of `workers` in your `playwright.config` or via the command line
+
+Let's look at common execution scenarios and their required configuration.
+
+## Running Tests Sequentially
+
+While parallel execution is efficient, specific scenarios require running tests sequentially. This is especially true for destructive and stateful tests, where ensuring a predictable and unaltered environment state is crucial for test accuracy.
+
+If you want to run all project tests sequentially, you can turn off Playwright's parallelism entirely. Limit the number of worker processes to one process, and all tests from all files will run after another.
+
+>[!NOTE]
+> But remember that you usually want to parallelize as many tests as possible to keep the test execution times low.
+
+You can limit the workers via the command line:
+
+```sh
+npx playwright test --workers=1
+```
+
+Or set the `workers` property to `1` in your `playwright.config`.
+
+```ts {title="playwright.config.ts"}
+export default defineConfig({
+  workers: 1,
+});
+```
+
+There are multiple options if you want to run only a subset of your tests sequentially in one worker.
+
+```sh
+# Run all test files in `./tests/sequential` sequentially
+npx playwright test --workers=1 ./tests/sequential
+
+# Run all tests with the test tag `@sequential` sequentially
+npx playwright test --workers=1 --grep @sequential
+
+# Run all tests in the `sequential` project sequentially
+npx playwright test --workers=1 --project=sequential
+```
+
+You can run a subset of test files, grep for specific test tags, or define a separate project to run tests sequentially. None of these approaches is better; you must decide what fits your project best.
 
 ## Running Tests in Parallel
-Playwright naturally excels at running tests in parallel, significantly reducing the time it takes to execute your entire test suite. This is particularly advantageous for non-destructive tests. By default, Playwright attempts to execute tests in parallel using multiple workers, each running in its isolated environment.
 
-Configuring Parallel Execution
-To explicitly configure your tests to run in parallel, you can utilize the fullyParallel mode in your Playwright configuration file. This setting instructs Playwright to maximize parallelism by launching separate workers for each test file.
+Thanks to Playwright's automatic encapsulation and easy-to-use worker functionality, the test runner naturally excels at executing tests in parallel, significantly reducing the time it takes to execute your entire test suite.
+
+By default, running multiple workers is limited to test files. Still, you can configure Playwright to parallelize running all your non-destructive and stateless tests, each running in its isolated environment.
+
+To explicitly configure all your tests to run in parallel, you can utilize the `fullyParallel` option in your Playwright configuration file or project settings. This option instructs Playwright to maximize parallelism by launching separate workers for each test file.
+
+Playwright will now try to run as many tests in parallel regardless of where they're defined.
 
 ```ts {title="playwright.config.ts"}
-module.exports = {
+export default defineConfig({
   fullyParallel: true,
-}
+});
 ```
 
-Alternatively, for more granular control, you can use the test.describe.configure method within your test files to set the execution mode to parallel for specific test suites.
+However, there are even more configuration options, and the test execution order in test files and groups can still be tweaked another way.
 
-`test.describe.configure({ mode: 'parallel' });`
+## Playwright's different execution modes
 
-## Running Tests in Sequence
-While parallel execution is efficient, certain scenarios necessitate running tests sequentially. This is especially true for destructive tests, where ensuring a predictable and unaltered environment state is crucial for test accuracy.
+While you can control test execution order and parallelism via the `workers` and `fullyParallel` option, Playwright also allows you to configure each test file or group with predefined execution modes.
 
-### Sequential Execution by Default
-By default, Playwright treats the order of test cases within a spec file as sequential. If your tests are organized within a single file, Playwright will execute them one after another, using a single worker.
+### The `serial` mode (sequential)
 
-### Enforcing Sequential Execution
-For projects with tests spread across multiple files, achieving sequential execution requires a bit more configuration. You can limit Playwright to use a single worker globally via the Playwright configuration file or on a per-directory basis using the command line.
+If you want to run all your project tests using `fullyParallel`, but one file's test should run sequentially, use the `serial` mode.
 
-```ts {title="playwright.config.ts"}
-module.exports = {
-  workers: 1,
-}
+```ts {title="serial.spec.ts"}
+import { test, type Page } from '@playwright/test';
+
+/**
+ * Run tests in this file sequentially and stop after a failure.
+ *
+ * -> If `One` fails `Two` won't be run.
+ */
+test.describe.configure({ mode: 'serial' });
+
+test('One', async () => { /* ... */ });
+test('Two', async () => { /* ... */ });
 ```
 
-Or, for directory-specific sequential execution:
+>[!NOTE]
+> Note that by using the `serial` mode, a test failure will stop all the subsequent tests from running.
 
-`npx playwright test --workers=1 ./tests/sequential`
-One further use for sequential execution is creating a test to clean up everything that your other tests did. This may be an antipattern depending on your test implementation, but is worth having in your tool belt if it makes sense.
+### The `default` mode (sequential)
+
+If you want to run all your tests using `fullyParallel`, but one file's test should run sequentially while ignoring all the test results, use the `default` mode.
+
+```ts {title="default.spec.ts"}
+import { test, type Page } from '@playwright/test';
+
+/**
+ * Run tests in this file sequentially regardless of their results
+ *
+ * -> If `One` fails `Two` is still run.
+ */
+test.describe.configure({ mode: 'default' });
+
+test('One', async () => { /* ... */ });
+test('Two', async () => { /* ... */ });
+```
+
+The `default` mode will run all defined tests and ignore if tests fail on the way.
+
+### The `parallel` mode
+
+If you don't want to parallelize all your tests with `fullyParallel` but still have one file with stateless tests that you want to run in parallel, use the `parallel` mode.
+
+
+```ts {title="default.spec.ts"}
+import { test, type Page } from '@playwright/test';
+
+/**
+ * Run tests in this file in parallel.
+ */
+test.describe.configure({ mode: 'parallel' });
+
+test('One', async () => { /* ... */ });
+test('Two', async () => { /* ... */ });
+```
 
 ## Leveraging Playwright's Flexibility
+
 Playwright's design accommodates various testing strategies, allowing developers to tailor test execution to their project's needs. Whether running tests in parallel to save time or sequentially to ensure environment stability, Playwright provides the tools necessary to configure your testing environment effectively.
 
 ### Tips for Organizing Tests
 
-- Use directories to separate non-destructive and destructive tests, applying appropriate parallel or sequential configurations to each.
+- Use directories, tags or projects to separate stateful and stateless tests and apply appropriate parallel or sequential execution modes.
 - Name your test files strategically if relying on alphabetical execution order for sequencing.
 - Consider leveraging Playwright's capabilities for test sharding and annotations for more complex test suite organization.
 
 ## Conclusion
 
-Choosing between parallel and sequential execution in Playwright tests hinges on understanding the nature of your tests and the impact they have on the application environment. By categorizing tests into non-destructive and destructive, developers can apply the appropriate execution strategy, ensuring both efficiency and reliability in their E2E testing processes.
+Choosing between parallel and sequential execution in Playwright tests hinges on understanding your tests' nature and their impact on the application environment. By categorizing tests into stateful and stateless, developers can apply the appropriate execution strategy, ensuring efficiency and reliability in their E2E testing processes.
 
-Over on the Checkly YouTube page, Stefan gets hands on with Playwright test Parallelism:
+Over on [the Checkly YouTube channel](https://www.youtube.com/checklyhq), Stefan gets hands-on with Playwright test Parallelism and execution modes:
+
+{{< youtube id="8NIm1QCUXE0" title="monitoring as code launch event video" >}}
