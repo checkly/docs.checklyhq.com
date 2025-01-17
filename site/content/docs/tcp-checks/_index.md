@@ -11,7 +11,7 @@ slug: /
 ---
 
 > **Early Access Feature:**
-> This feature is available in early access. To enable it in the UI, go to the [Labs section](https://app.checklyhq.com/settings/account/labs) in your account settings and toggle on TCP Checks. Support for Monitoring as Code (MaC) via the CLI, Terraform, and Pulumi providers is currently in development. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com)!
+> This feature is available in early access. To enable it in the UI, go to the [Labs section](https://app.checklyhq.com/settings/account/labs) in your account settings and toggle on TCP Checks. Please note that support for Monitoring as Code (MaC) via the CLI, Terraform, and Pulumi providers is currently is still in development. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com)!
 
 ## Overview
 
