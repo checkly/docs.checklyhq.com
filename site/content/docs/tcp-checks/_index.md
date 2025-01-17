@@ -11,7 +11,7 @@ slug: /
 ---
 
 > **Early Access Feature:**
-> This feature is available in early access and is currently **UI-only**. To enable it, please reach out to our [support team](mailto:support@checklyhq.com) or connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack). We’d love to hear your feedback!
+> This feature is available in early access. To enable it in the UI, go to the [Labs section](https://app.checklyhq.com/settings/account/labs) in your account settings and toggle on TCP Checks. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com)!
 
 ## Overview
 
@@ -27,7 +27,7 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 
 * **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
 
-* **Scheduling strategy & locations:** Choose a [scheduling strategy](/docs/monitoring/global-locations#scheduling-strategies) and which [location](/docs/monitoring/global-locations) you would like to run your TCP check from. Please note that [private locations](/docs/private-locations) are not yet supported for TCP checks but will be available soon.
+* **Scheduling strategy & locations:** Choose a [scheduling strategy](/docs/monitoring/global-locations#scheduling-strategies) and which [location](/docs/monitoring/global-locations) you would like to run your TCP check from.
 
 * **Scheduling:** Schedule your checks to run at intervals between 10 seconds (minimum) and 24 hours (maximum).
 
