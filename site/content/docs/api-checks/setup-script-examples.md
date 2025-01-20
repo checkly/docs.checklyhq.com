@@ -5,7 +5,7 @@ navTitle: Setup script examples
 weight: 1
 menu:
   resources:
-    parent: "Setup & teardown scripts"
+    parent: "API setup & teardown scripts - Checkly Docs"
     identifier: setup-script-examples
 
 ---
