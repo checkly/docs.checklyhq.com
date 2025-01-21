@@ -15,13 +15,13 @@ slug: /
 
 ## Overview
 
-A TCP check establishes a connection to a specified hostname or IP address and port to verify that the service is responsive. These checks are ideal for monitoring non-HTTP services, such as mail servers, databases, or messaging queues that rely on TCP connectivity. For example:
+A TCP check establishes a connection to a specified hostname or IP address and port to verify responsiveness. These checks are ideal for monitoring non-HTTP services like:
 
-* **Mail servers**: Ensure your mail server is available and can accept incoming IMAPS connections, e.g. `mail.example.org:993`.
+* **Mail servers**: Ensure your mail server is available and can accept incoming IMAPS connections (e.g. `mail.example.org:993`).
 
-* **Databases**: Verify that your database server is online and able to accept connections, e.g. `database.example.org:3306`.
+* **Databases**: Verify that your database server is online and able to accept connections (e.g. `database.example.org:3306`).
 
-* **Messaging queues**: Monitor the availability of messaging queue services, e.g. `mq.example.org:5672`.
+* **Messaging queues**: Monitor the availability of messaging queue services (e.g. `mq.example.org:5672`).
 
 ## Create a TCP check
 
