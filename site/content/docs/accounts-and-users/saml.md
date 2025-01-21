@@ -5,7 +5,7 @@ navTitle: SAML
 weight: 56
 menu:
   resources:
-    parent: "Single Sign-on"
+    parent: "Single Sign-on in Checkly - Checkly Docs"
 aliases:
   - "/docs/single-sign-on/saml"
 ---
