@@ -13,7 +13,7 @@ aliases:
 
 ---
 
-Groups allow you to organize your checks and centralize settings like base URL's, headers, variables and other properties
+Groups allow you to organize your checks and centralize settings like base URLs, headers, variables and other properties
 a collection of checks can share. 
 
 Example use cases for groups are organizing your checks around:
@@ -40,10 +40,60 @@ The screenshot below gives a quick overview of the groups' key features.
     5. CI/CD triggers
 3. **Run all checks in one go** with a configurable concurrency.
 4. Tweak checks in the inline "mini editor" to **quickly build up a group of similar checks**
-5. Use a **common base URL** for your API checks    
+5. Use a **common base URL** for your API checks
+6. **Manage individual checks**, including viewing, editing, and duplicating checks
 
 > [!WARNING]
 > Alert settings being controlled at group level means that a check that is part of a group that has no connected alert channels *will not alert*.
+
+## Creating a check group
+To create a new check group, click the `+` icon on the sidebar & select Group.
+
+Creating a group is quick and easy; the group only requires you to define a name. Opionally, you can add checks and configure additional settings. These can all be changed later on.
+
+### Name and tags
+Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide better a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).  
+
+### Checks
+Add new or existing checks to this group. If you add an existing check, the group configuration will overwrite certain check configurations, like run locations, retries, and alerting. 
+
+For example, if you create a check that runs in `eu-west-1` but then add it to a group running in `us-east-1`, then the group settings will take precedence and overwrite the individual check locations. 
+
+### API checks defaults
+You can set [API check defaults](/docs/groups/api-check-defaults/), including request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/), to help manage API checks.
+
+### Variables
+For configuration information commonly used by checks in this group, create [group environment variables and secrets](/docs/groups/variables/). When checks are scheduled, these will be merged with environmental variables at the check and global level.
+
+### Scheduling & locations
+Pick from our list of [public](/docs/monitoring/global-locations/) locations or from your [private](/docs/private-locations/) ones. This will override the scheduling strategy (i.e. parallel or round-robin) and location settings for checks in this group. For the interval that checks are run, you'll still set that individually for each check.
+
+### Retries & alerting
+
+Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks. This will override retry settings for checks in this group.
+
+You can configure [alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) for checks in this group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in this group.
+
+> [!WARNING]
+> Make sure to select an alert channel, otherwise checks in this group **will not alert**.
+
+> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](/pricing/#features)
+
+### Testing
+
+Configure your CI/CD triggers.
+
+### Runtimes
+
+If the checks in this group need a [runtime](/docs/runtimes) different from your account default, you can set that here.
+
+## What check settings do groups override?
+
+When a check is added to a group, the group settings will override:
+* Scheduling strategy and locations. **Checks still run on their own scheduling intervals.**
+* Retries & alerting
+* Testing (CI/CD integrations)
+* Runtimes. If you select a script runtime different from your account default for a group, that selected runtime will apply to all checks within that group.
 
 ## How we run grouped checks
 
