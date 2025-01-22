@@ -23,7 +23,7 @@ Example use cases for groups are organizing your checks around:
 - A specific feature in your app
 - A test suite; trigger all checks after a deployment
 
-> When using groups, any group-level configurations such as the runtime, activated & muted state, tags, and alert channels are inherited by all Checks in the group. 
+> When using groups, any group-level configurations such as the runtime, activated & muted state, tags, and alert channels are [inherited by all Checks](/docs/groups/#what-check-settings-do-groups-override) in the group. 
 
 ## Key features
 
@@ -49,10 +49,10 @@ The screenshot below gives a quick overview of the groups' key features.
 ## Creating a check group
 To create a new check group, click the `+` icon on the sidebar & select Group.
 
-Creating a group is quick and easy; the group only requires you to define a name. Opionally, you can add checks and configure additional settings. These can all be changed later on.
+Creating a group is quick and easy; the group only requires you to define a name. Optionally, you can add checks and configure additional settings. These can all be changed later on.
 
 ### Name and tags
-Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide better a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).  
+Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).  
 
 ### Checks
 Add new or existing checks to this group. If you add an existing check, the group configuration will overwrite certain check configurations, like run locations, retries, and alerting. 
@@ -63,10 +63,12 @@ For example, if you create a check that runs in `eu-west-1` but then add it to a
 You can set [API check defaults](/docs/groups/api-check-defaults/), including request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/), to help manage API checks.
 
 ### Variables
-For configuration information commonly used by checks in this group, create [group environment variables and secrets](/docs/groups/variables/). When checks are scheduled, these will be merged with environmental variables at the check and global level.
+For configuration information commonly used by checks in this group, create [group environment variables and secrets](/docs/groups/variables/). When checks are scheduled, these will be merged with environment variables at the check and global levels.
 
 ### Scheduling & locations
-Pick from our list of [public](/docs/monitoring/global-locations/) locations or from your [private](/docs/private-locations/) ones. This will override the scheduling strategy (i.e. parallel or round-robin) and location settings for checks in this group. For the interval that checks are run, you'll still set that individually for each check.
+Pick from our list of [public](/docs/monitoring/global-locations/) locations or from your [private](/docs/private-locations/) ones. This will override the scheduling strategy (i.e. parallel or round-robin) and location settings for checks in this group. 
+
+Checks still run on their own scheduling intervals, but you can specify a default at the group level with the `frequency` property via the [CLI](/docs/cli/constructs-reference/#checkgroup).
 
 ### Retries & alerting
 
@@ -81,11 +83,11 @@ You can configure [alert channels](/docs/alerting-and-retries/alert-channels/#ma
 
 ### Testing
 
-Configure your CI/CD triggers.
+You can run checks in this group as [E2E tests](/docs/testing) locally or from your CI/CD pipeline to validate your freshly deployed application. Use the Checkly CLI, or configure integrations with Vercel and GitHub.
 
 ### Runtimes
 
-If the checks in this group need a [runtime](/docs/runtimes) different from your account default, you can set that here.
+Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript code in browser checks and setup & teardown scripts. If the checks in this group need a runtime different from your account default, you can set that here.
 
 ## What check settings do groups override?
 
