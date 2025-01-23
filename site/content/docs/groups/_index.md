@@ -23,7 +23,7 @@ Example use cases for groups are organizing your checks around:
 - A specific feature in your app
 - A test suite; trigger all checks after a deployment
 
-> When using groups, any group-level configurations such as the runtime, activated & muted state, tags, and alert channels are [inherited by all Checks](/docs/groups/#what-check-settings-do-groups-override) in the group. 
+> Group-level configurations, such as the runtime, activated & muted state, tags, and alert channels, will override check-level configurations. 
 
 ## Key features
 
@@ -37,7 +37,6 @@ The screenshot below gives a quick overview of the groups' key features.
     2. Environment variables
     3. Data center locations
     4. Alert setting and alert channels
-    5. CI/CD triggers
 3. **Run all checks in one go** with a configurable concurrency.
 4. Tweak checks in the inline "mini editor" to **quickly build up a group of similar checks**
 5. Use a **common base URL** for your API checks
@@ -47,9 +46,6 @@ The screenshot below gives a quick overview of the groups' key features.
 > Alert settings being controlled at group level means that a check that is part of a group that has no connected alert channels *will not alert*.
 
 ## Creating a check group
-To create a new check group, click the `+` icon on the sidebar & select Group.
-
-Creating a group is quick and easy; the group only requires you to define a name. Optionally, you can add checks and configure additional settings. These can all be changed later on.
 
 ### Name and tags
 Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).  
@@ -88,14 +84,6 @@ You can run checks in this group as [E2E tests](/docs/testing) locally or from y
 ### Runtimes
 
 Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript code in browser checks and setup & teardown scripts. If the checks in this group need a runtime different from your account default, you can set that here.
-
-## What check settings do groups override?
-
-When a check is added to a group, the group settings will override:
-* Scheduling strategy and locations. **Checks still run on their own scheduling intervals.**
-* Retries & alerting
-* Testing (CI/CD integrations)
-* Runtimes. If you select a script runtime different from your account default for a group, that selected runtime will apply to all checks within that group.
 
 ## How we run grouped checks
 
