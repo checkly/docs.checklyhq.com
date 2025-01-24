@@ -28,8 +28,7 @@ Current locations in Checkly are
 
 ## Scheduling strategies
 
-Checkly provides two scheduling strategies for running API, Browser or Multistep checks: Round-robin or Parallel scheduling. 
-To select a scheduling strategy go to ‘Scheduling and locations’ when creating or editing a check.
+Checkly provides two scheduling strategies for running checks: Round-robin or Parallel scheduling. To select a scheduling strategy go to ‘Scheduling and locations’ when creating or editing a check.
 
 ### Round-robin
 
