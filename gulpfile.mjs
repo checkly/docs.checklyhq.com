@@ -49,10 +49,7 @@ gulp.task('purgecss', () => {
 // minifycss
 gulp.task('minify-css', () => {
   return gulp.src('./public/css/*.css')
-    .pipe(cleanCSS({ debug: true }, (details) => {
-      console.log(`${details.name}: ${details.stats.originalSize}`)
-      console.log(`${details.name}: ${details.stats.minifiedSize}`)
-    }))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./public/css'))
 })
 
@@ -82,9 +79,9 @@ gulp.task('assets', () => (
 ))
 
 gulp.task('hash', () => {
-  return gulp.src(['./public/images/**', './public/js/**', './public/css/**'], { encoding: false })
+  return gulp.src(['./public/**'], { encoding: false })
     .pipe(revall.revision({
-      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2'],
+      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2', '.txt'],
       dontUpdateReference: ['.woff', '.eot', '.ttf', '.woff2']
     }))
     .pipe(gulp.dest('./public'))
