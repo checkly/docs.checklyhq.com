@@ -6,7 +6,6 @@ import cssImport from 'postcss-import'
 import cssnext from 'postcss-cssnext'
 import purgecss from 'gulp-purgecss'
 import cleanCSS from 'gulp-clean-css'
-import inlineCss from 'gulp-inline-css'
 import gulpSass from 'gulp-sass'
 import dartSass from 'sass'
 
@@ -85,12 +84,6 @@ gulp.task('hash', () => {
       dontUpdateReference: ['.woff', '.eot', '.ttf', '.woff2']
     }))
     .pipe(gulp.dest('./public'))
-})
-
-gulp.task('inline', function () {
-  return gulp.src('./public/index.html')
-    .pipe(inlineCss())
-    .pipe(gulp.dest('./public/index.html'))
 })
 
 gulp.task('serve', (done) => {
