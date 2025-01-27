@@ -26,9 +26,9 @@ When configuring your check frequency and scheduling strategy, the cost helper w
 <img class="screenshot-partial" alt="cost helper widget" src="/docs/images/monitoring/price-helper.png"/>
 
 
-## API, TCP and Browser checks
+## API & network checks, and browser checks
 
-API, TCP and Browser checks have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.
+API & network checks, as well as browser checks, have a base price per check run. Always refer to our [pricing page](https://www.checklyhq.com/pricing/) for the latest prices. The base cost is typically listed as $X per 1k or 10k check runs.
 
 > **Example:** If a browser check is running once per hour with a cost of $5 per 1000 check runs, the monthly base cost for the check would be $3.65.
 
@@ -40,7 +40,7 @@ When a check is running in [parallel](/docs/monitoring/global-locations/#paralle
 
 Balance the number of locations the check is using to ensure you are quickly made aware of potential issues in critical locations without running an unnecessary amount of checks.
 
-> **Example:** Continuing our example from earlier, if we want our Browser check to run in parallel from 5 locations, the monthly cost will increase from $3,65 to $18,25.
+> **Example:** Continuing our example from earlier, if we want our browser check to run in parallel from 5 locations, the monthly cost will increase from $3,65 to $18,25.
 
 ### Retries
 
