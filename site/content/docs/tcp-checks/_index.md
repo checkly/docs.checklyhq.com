@@ -17,11 +17,11 @@ slug: /
 
 A TCP check establishes a connection to a specified hostname or IP address and port to verify responsiveness. These checks are ideal for monitoring non-HTTP services critical to your infrastructure. Here are a few example use cases:
 
-* Mail servers (e.g. `mail.example.org:993`): Use TCP checks to ensure your mail server is online and processing requests efficiently. For example, set an assertion on the response time to confirm the server accepts IMAPS connections without delays. This helps you spot slowdowns and provide reliable email services for your users.
+* **Mail servers** (e.g. `mail.example.org:993`): Use TCP checks to ensure your mail server is online and processing requests efficiently. For example, set an assertion on the response time to confirm the server accepts IMAPS connections without delays. This helps you spot slowdowns and provide reliable email services for your users.
 
-* Databases (e.g. `database.example.org:3306`): Check that your database is online and accepting connections. To ensure that queries are processed as expected, you can additionally send a simple query like `SELECT 1` as part of the request and confirm the response matches what you’d expect via assertions.
+* **FTP servers** (e.g. `ftp.example.org:21`): Check that your server is online and accepting connections. For example, send a command like `USER anonymous\r\n` as part of your TCP request and confirm the response matches what you'd expect such as `331 Please specify the password`, using assertions.
 
-* Firewalls (e.g. `firewall-protected.example.org:8080`): TCP checks allow you to confirm your firewall rules are working as expected. For example, if you want to verify that a specific port is intentionally blocked, enable the “should fail” option. This will mark the check as passed if the connection fails (e.g. due to a timeout or refusal), confirming that your firewall is doing its job.
+* **Firewalls** (e.g. `firewall-protected.example.org:8080`): TCP checks allow you to confirm your firewall rules are working as expected. For example, if you want to verify that a specific port is intentionally blocked, enable the “should fail” option. This will mark the check as passed if the connection fails (e.g. due to a timeout or refusal), confirming that your firewall is doing its job.
 
 There are plenty of other scenarios where TCP checks are helpful, such as monitoring messaging queues or custom applications on proprietary ports. If you’re unsure whether your use case is supported or need assistance getting started, feel free to [reach out](mailto:support@checklyhq.com)!
 
