@@ -11,7 +11,7 @@ slug: /
 ---
 
 > **Early Access Feature:**
-> This feature is available in early access. To enable it in the UI, go to the [Labs section](https://app.checklyhq.com/settings/account/labs) in your account settings and toggle on TCP Checks. Please note that support for Monitoring as Code (MaC) via the CLI, Terraform, and Pulumi providers is currently is still in development. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com)!
+> This feature is currently in beta. To enable it in the UI, go to the [Labs section](https://app.checklyhq.com/settings/account/labs) in your account settings and toggle on TCP checks. Please note that support for Monitoring as Code (MaC) via the CLI, Terraform, and Pulumi providers is currently is still in development.
 
 ## Overview
 
@@ -29,7 +29,10 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 
 * **Name & tags:** On the check creation page, choose a meaningful name for the check to easily identify it. Optionally, add one or more tags to further categorize or group the check.
 
-* **The TCP request:** Configure the TCP endpoint to monitor by specifying a **hostname or IP address** (e.g., tcpbin.com or 192.168.1.1) and a **port** (e.g., 4242).
+* **The TCP request:**
+  * **Target:** Specify the TCP endpoint to monitor by entering a **hostname or IP address** (e.g. tcpbin.com or 192.168.1.1) and a **port** (e.g. 4242).
+  * **IP family:** Change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6 if needed; the default is IPv4.
+  * **This request should fail:** Enable this option to mark failed connections as passed. Please note that failing assertions will still cause the check to fail.
 
 * **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
 
