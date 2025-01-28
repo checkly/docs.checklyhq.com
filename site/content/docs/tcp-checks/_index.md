@@ -19,9 +19,9 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 
 * Mail servers (e.g. `mail.example.org:993`): Use TCP checks to ensure your mail server is online and processing requests efficiently. For example, set an assertion on the response time to confirm the server accepts IMAPS connections without delays. This helps you spot slowdowns and provide reliable email services for your users.
 
-* Databases (e.g. `database.example.org:3306`): Check that your database is online and accepting connections. To ensure that queries are processed as expected, you can send a simple query like `SELECT 1` and confirm the response matches what you’d expect via assertions.
+* Databases (e.g. `database.example.org:3306`): Check that your database is online and accepting connections. To ensure that queries are processed as expected, you can additionally send a simple query like `SELECT 1` as part of the request and confirm the response matches what you’d expect via assertions.
 
-* Firewalls (e.g. `firewall-protected.example.org:8080`): TCP checks are a great way to confirm your firewall rules are working as expected. For example, if you want to verify that a specific port is intentionally blocked, enable the “should fail” option. This will mark the check as passed if the connection is blocked (e.g. due to a timeout or refusal), confirming that your firewall is doing its job.
+* Firewalls (e.g. `firewall-protected.example.org:8080`): TCP checks allow you to confirm your firewall rules are working as expected. For example, if you want to verify that a specific port is intentionally blocked, enable the “should fail” option. This will mark the check as passed if the connection fails (e.g. due to a timeout or refusal), confirming that your firewall is doing its job.
 
 There are plenty of other scenarios where TCP checks are helpful, such as monitoring messaging queues or custom applications on proprietary ports. If you’re unsure whether your use case is supported or need assistance getting started, feel free to [reach out](mailto:support@checklyhq.com)!
 
@@ -35,11 +35,11 @@ There are plenty of other scenarios where TCP checks are helpful, such as monito
   * **Target:** Specify the TCP endpoint to monitor by entering a hostname or IP address (e.g. tcpbin.com or 192.168.1.1) and a port (e.g. 4242).
   * **IP family:** Change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6 if needed; the default is IPv4.
   * **This request should fail:** Enable this option to mark failed connections as passed. Please note that failing assertions will still cause the check to fail.
-  * **Data to send:** Use the text editor to specify data that will be sent to the port as part of the TCP request. This can include text or protocol-specific commands expected by the target service. To configure the expected response, see the Assertions section for more details.
+  * **Data to send:** Use the text editor to specify data that will be sent to the port as part of the TCP request. This can include text or protocol-specific commands expected by the target service. To configure the expected response, see ‘Assertions‘ for more details.
 
 * **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
 
-* **Assertions:** Set conditions for a successful check. You can set a maximum response time for the TCP request and specify the expected text in the server’s response to validate its correctness.
+* **Assertions:** Set conditions for a successful check. You can set a ‘response time‘ for the TCP request or specify the expected ‘response data‘ in the server’s reply.
 
 * **Scheduling strategy & locations:** Choose a [scheduling strategy](/docs/monitoring/global-locations#scheduling-strategies) and which [location](/docs/monitoring/global-locations) you would like to run your TCP check from.
 
