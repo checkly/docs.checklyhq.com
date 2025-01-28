@@ -11,17 +11,19 @@ slug: /
 ---
 
 > **Early Access Feature:**
-> This feature is currently in beta. To enable it in the UI, go to the [Labs section](https://app.checklyhq.com/settings/account/labs) in your account settings and toggle on TCP checks. Please note that support for Monitoring as Code (MaC) via the CLI, Terraform, and Pulumi providers is currently is still in development.
+> This feature is currently in beta and available only via the UI. Support for Monitoring as Code (MaC) through the CLI, Terraform, and Pulumi providers is still in development.
 
 ## Overview
 
-A TCP check establishes a connection to a specified hostname or IP address and port to verify responsiveness. These checks are ideal for monitoring non-HTTP services critical to your infrastructure. Here are a few common use cases:
+A TCP check establishes a connection to a specified hostname or IP address and port to verify responsiveness. These checks are ideal for monitoring non-HTTP services critical to your infrastructure. Here are a few example use cases:
 
-* **Mail servers** (e.g. `mail.example.org:993`): Ensure your mail server is available and can accept incoming IMAPS connections.
+* Mail servers (e.g. `mail.example.org:993`): Use TCP checks to ensure your mail server is online and processing requests efficiently. For example, set an assertion on the response time to confirm the server accepts IMAPS connections without delays. This helps you spot slowdowns and provide reliable email services for your users.
 
-* **Databases** (e.g. `database.example.org:3306`): Verify that your database server is online and able to accept connections.
+* Databases (e.g. `database.example.org:3306`): Check that your database is online and accepting connections. To ensure that queries are processed as expected, you can send a simple query like `SELECT 1` and confirm the response matches what you’d expect via assertions.
 
-* **Messaging queues** (e.g. `mq.example.org:5672`): Monitor the availability of messaging queue services.
+* Firewalls (e.g. `firewall-protected.example.org:8080`): TCP checks are a great way to confirm your firewall rules are working as expected. For example, if you want to verify that a specific port is intentionally blocked, enable the “should fail” option. This will mark the check as passed if the connection is blocked (e.g. due to a timeout or refusal), confirming that your firewall is doing its job.
+
+There are plenty of other scenarios where TCP checks are helpful, such as monitoring messaging queues or custom applications on proprietary ports. If you’re unsure whether your use case is supported or need assistance getting started, feel free to [reach out](mailto:support@checklyhq.com)!
 
 ## Create a TCP check
 
@@ -30,11 +32,14 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 * **Name & tags:** On the check creation page, choose a meaningful name for the check to easily identify it. Optionally, add one or more tags to further categorize or group the check.
 
 * **The TCP request:**
-  * **Target:** Specify the TCP endpoint to monitor by entering a **hostname or IP address** (e.g. tcpbin.com or 192.168.1.1) and a **port** (e.g. 4242).
+  * **Target:** Specify the TCP endpoint to monitor by entering a hostname or IP address (e.g. tcpbin.com or 192.168.1.1) and a port (e.g. 4242).
   * **IP family:** Change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6 if needed; the default is IPv4.
   * **This request should fail:** Enable this option to mark failed connections as passed. Please note that failing assertions will still cause the check to fail.
+  * **Data to send:** Use the text editor to specify data that will be sent to the port as part of the TCP request. This can include text or protocol-specific commands expected by the target service. To configure the expected response, see the Assertions section for more details.
 
 * **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
+
+* **Assertions:** Set conditions for a successful check. You can set a maximum response time for the TCP request and specify the expected text in the server’s response to validate its correctness.
 
 * **Scheduling strategy & locations:** Choose a [scheduling strategy](/docs/monitoring/global-locations#scheduling-strategies) and which [location](/docs/monitoring/global-locations) you would like to run your TCP check from.
 
@@ -54,4 +59,4 @@ Learn more about analyzing your TCP check run results in our [check results docu
 
 ## TCP check pricing
 
-TCP checks are billed at $2 per 10k runs. For detailed pricing information, visit our [pricing & billing page](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs).
+TCP checks are billed at $2 per 10k runs. They share a quota with API checks, allowing you to allocate your budget flexibly between both types. For detailed pricing information, see ‘API & network checks’ on our [pricing & billing page](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs).
