@@ -548,7 +548,7 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
 
-```ts {title="maintenance-window.ts"}
+```ts {title="maintenance-window.check.ts"}
 import { MaintenanceWindow } from 'checkly/constructs'
 
 new MaintenanceWindow('maintenance-window-1', {
@@ -577,7 +577,7 @@ new MaintenanceWindow('maintenance-window-1', {
 
 Creates a dashboard allowing you to display checks and their related metrics on a single page.
 
-```ts {title="dashboard.ts"}
+```ts {title="dashboard.check.ts"}
 import * as path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 import { Dashboard } from 'checkly/constructs'
