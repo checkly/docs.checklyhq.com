@@ -23,7 +23,7 @@ Create a new `.gitlab-ci.yml` file in your repo, or add the steps and stages fro
 This pipeline is "branch aware" and treats the `main` branch as the production branch. This means checks are only deployed
 to Checkly after they are ran against production (after merging to `main`) and the checks passed.
 
-```yml
+```yml {title=".gitlab-ci.yml"}
 image: node:latest
 
 # define your stages to deploy your app, run tests and then deploy the tests as monitors.
