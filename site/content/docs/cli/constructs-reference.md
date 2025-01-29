@@ -318,8 +318,6 @@ The file hierarchy looks as follows:
 ```
 ├── __checks__
 │   ├── hello-tcp.check.ts
-│   ├── setup.ts
-│   ├── teardown.ts
 ```
 
 ```ts {title="hello-tcp.check.ts"}
