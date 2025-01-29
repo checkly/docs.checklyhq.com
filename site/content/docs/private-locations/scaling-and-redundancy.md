@@ -51,8 +51,8 @@ the location and their frequency. API checks can be scheduled as frequently as e
 frequently as every 1 minute.
 
 Based on your configuration, you should be able to estimate how many checks will run per minute in your Private Location.
-API checks have a maximum running time of 30 seconds, Browser checks 2 minutes. This means that in the worst case scenario,
-a checkly agent with a `JOB_CONCURRENCY` of 1 can run two API checks per minute, or 1 Browser checks per 2 minutes.
+API checks have a maximum running time of 30 seconds, Browser checks 4 minutes. This means that in the worst case scenario,
+a checkly agent with a `JOB_CONCURRENCY` of 1 can run two API checks per minute, or 1 Browser checks per 4 minutes.
 In an average configuration this will be higher and API checks are generally faster than Browser checks.
 
 Once you have an idea of how many checks will be running and you know the per-agent `JOB_CONCURRENCY` limit based on the
