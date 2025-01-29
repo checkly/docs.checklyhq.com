@@ -260,7 +260,7 @@ This is particularly helpful if you are structuring your setup according to the 
 
 The {{< newtabref href="https://playwright.dev/docs/codegen#generate-tests-with-the-playwright-inspector" title="Playwright Inspector" >}} is a GUI tool that comes in very handy when debugging scripts, allowing you to step instruction-by-instruction through your script to more easily identify the cause of a failure.
 
-{{< figure src="/guides/images/guides-migration-playwright-inspector.png" alt="playwright inspector" title="Playwright Inspector" >}}
+![playwright inspector](/guides/images/guides-migration-playwright-inspector.png "Playwright Inspector")
 
 The Inspector also comes in handy due its ability to suggest selectors for page elements and even record new scripts from scratch.
 
@@ -272,19 +272,19 @@ Playwright comes with its own runner, {{< newtabref href="https://playwright.dev
 
 The {{< newtabref href="https://playwright.dev/docs/trace-viewer" title="Playwright Trace Viewer" >}} allows you to explore traces recorded using Playwright Test or the BrowserContext Tracing API. Traces are where you can get the most fine-grained insights into your script's execution.
 
-{{< figure src="/guides/images/guides-migration-playwright-trace-viewer.png" alt="playwright trace inspection" title="Trace inspection with Trave Viewer" >}}
+![playwright trace inspection](/guides/images/guides-migration-playwright-trace-viewer.png "Trace inspection with Trave Viewer")
 
 ### Test Generator
 
 You can use the {{< newtabref href="https://playwright.dev/docs/codegen" title="Playwright Test Generator" >}} to record interactions in your browser. The output will be a full-fledged script ready to review and execute.
 
-{{< figure src="/guides/images/guides-migration-playwright-codegen.png" alt="page being inspected with playwright codegen" title="Script recording with Playwright Inspector" >}}
+![page being inspected with playwright codegen](/guides/images/guides-migration-playwright-codegen.png "Script recording with Playwright Inspector")
 
 ## Switching to Playwright for richer browser check results
 
 Checkly users switching to Playwright can take advantage of its new Rich Browser Check Results, which come with [tracing and Web Vitals](https://www.checklyhq.com/docs/browser-checks/tracing-web-vitals/) and make it easier to isolate the root cause of a failed check and remediate faster.
 
-{{< figure src="/docs/images/browser-checks/tracing_web_vitals.png" alt="performance and error tracing check results on checkly" title="A browser check result with performance and error tracing" >}}
+![performance and error tracing check results on checkly](/docs/images/browser-checks/tracing_web_vitals.png "A browser check result with performance and error tracing")
 
 This reveals additional information about the check execution, including:
 1. Overview of all errors raised (console, network and script errors)

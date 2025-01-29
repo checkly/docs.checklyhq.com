@@ -60,7 +60,7 @@ test('Open new tab', async ({ context, page }) => {
 
 Playwright Test will record videos for each of your tabs. You can find them in your test result for failed checks or in the check editor for passing as well as failing checks for easy debugging.
 
-<video alt="Checkly Playwright Test UI" autoplay loop muted src="/docs/images/browser-checks/multiple-tabs-pwt-report.mp4"></video>
+![Checkly Playwright Test UI](/docs/images/browser-checks/multiple-tabs-pwt-report.mp4)
 
 Playwright's Trace Viewer displays your tabs conveniently in a waterfall timeline to access all neccessary information:
 ![mutiple tabs - trace viewer](/docs/images/browser-checks/multiple-tabs-trace-viewer.png)

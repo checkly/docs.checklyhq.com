@@ -14,6 +14,11 @@ weight: 10
 
 Web application monitoring refers to the practice of observing, tracking, and managing the performance, availability, and reliability of web applications. It ensures users have a seamless experience and minimizes disruptions by identifying issues in real-time. All that’s required for something to be a ‘web application’ is that it’s more than a static site, and that it takes requests via the internet. Even an API mainly accessed via TCP is a web application!
 
+---
+**Ready to start web application monitoring today?** check out our practical guide on [how to start web application monitoring with Checkly](https://www.checklyhq.com/guides/keyword-monitoring/)
+
+---
+
 Web application monitoring is a highly generalized term, and distinctions between, for example, ‘metrics’ and ‘monitoring;’ and ‘error tracking’ versus ‘performance monitoring’  are often distinctions without a difference. The question we’re trying to answer with Web Application Monitoring is: “how well is our application performing for users?” Observations that don’t relate to this question, for example the popularity of a single post on our social media site, or how well our live-generated site follows brand standards, are outside the scope of web application monitoring.
 
 ## How Web Application Monitoring Works

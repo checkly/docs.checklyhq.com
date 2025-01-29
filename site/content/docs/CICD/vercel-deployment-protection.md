@@ -5,7 +5,7 @@ navTitle: Vercel Deployment Protection
 weight: 1
 menu:
   integrations:
-    parent: "Vercel"
+    parent: "Integrating Vercel with Checkly - Checkly Docs"
     identifier: vercel-deployment-protection
 
 ---

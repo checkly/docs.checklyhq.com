@@ -2,17 +2,7 @@
 <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" />
 <title>{{ if .Params.title }}{{ .Params.title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
 <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/2853758a17c7c3979d959d32/script.js"></script>
-<!-- Hotjar Tracking Code for https://checklyhq.com -->
-<script data-cookieyes="cookieyes-analytics">
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:717179,hjsv:6};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+
 <!-- Loads Intercom chat widget on page scroll -->
 <script>
   var intercomLoader = function(){
@@ -47,7 +37,6 @@
     b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
     s.parentNode.insertBefore(b, s);})(window.lintrk);
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 <link rel="stylesheet" href="/css/style.css" />
 <style>
   .qc-cmp-ui {
@@ -84,5 +73,4 @@
 <meta name="msvalidate.01" content="36F243A91FAA24DE468D8A8EECF33554" />
 <link rel="alternate" type="application/rss+xml" title="The Checkly Blog" href="https://checklyhq.com/rss.xml" />
 <link rel="icon" type="image/png" href="/images/racoon_favicon.png" />
-
 <link rel="canonical" href="{{ .Permalink }}" />

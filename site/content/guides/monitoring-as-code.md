@@ -63,7 +63,7 @@ Monitoring as Code transforms your monitoring setup into code that is stored, ma
 
 With MaC, your monitoring evolves alongside your codebase, enabling precision, flexibility, and scalability that traditional methods simply can’t match.
 
-{{< figure src="/guides/images/guides-mac-login-flow.png" alt="A Monitoring as Code example that tests a login flow of an ecommerce store" title="Monitoring a login flow with MaC" >}}
+![A Monitoring as Code example that tests a login flow of an ecommerce store](/guides/images/guides-mac-login-flow.png "Monitoring a login flow with MaC")
 
 ### **Reusability Enforces Consistency**
 

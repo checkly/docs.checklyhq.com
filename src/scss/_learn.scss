@@ -23,7 +23,7 @@
   &-menu {
     flex: 0 0 $menu-width;
     font-size: 1rem;
-    margin-left: auto;
+    margin-right: auto;
 
     &-content {
       overflow-y: auto;
@@ -37,6 +37,7 @@
       padding: 30px 0 20px 20px;
       overflow-x: hidden;
       overflow-y: auto;
+      scrollbar-width: thin;
       ul {
         list-style: none;
         font-size: 14px;
@@ -267,9 +268,13 @@
       overflow-x: hidden;
       overflow-y: auto
     }
-    // hacky way to hide 3rd level heading in little page TOC because Hugo does not allow filtering the TOC by level
 
     nav#TableOfContents {
+      // hacky way to hide 3rd level heading in little page TOC because Hugo does not allow filtering the TOC by level
+      ul ul {
+        display: none;
+      }
+
       ul {
         border-left: 2px solid $red;
         padding-left: .5rem;
