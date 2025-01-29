@@ -62,3 +62,9 @@ async function copyCodeBlockExecCommand (codeToCopy) {
     console.error('Failed to copy text: ', err)
   }
 }
+
+function fectchMeFromApp () {
+  console.log('fectchMeFromApp')
+}
+
+fectchMeFromApp()
