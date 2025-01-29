@@ -304,8 +304,7 @@ raw JavaScript / TypeScript as a string.
 
 ## `TcpCheck`
 
-Tcp Checks are a good fit for monitoring typical TCP based endpoints like ftp, but can also be
-used for form encoded payloads. The example below shows the following:
+TCP Checks are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
 
 - It defines the basic Check properties like `name`, `activated` etc.
 - It defines the `hostname`, `port`, and `data`
