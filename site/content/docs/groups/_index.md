@@ -16,6 +16,8 @@ aliases:
 Groups allow you to organize your checks and centralize settings like base URLs, headers, variables and other properties
 a collection of checks can share. 
 
+![Check group screenshot](/docs/images/groups/group-in-dashboard.png)
+
 Example use cases for groups are organizing your checks around:
 
 - A common URL endpoint
@@ -25,27 +27,12 @@ Example use cases for groups are organizing your checks around:
 
 > Group-level configurations, such as the runtime, activated & muted state, tags, and alert channels, will override check-level configurations. 
 
-## Key features
-
-The screenshot below gives a quick overview of the groups' key features.
-
-![Check group editor screenshot](/docs/images/groups/group-editor.png)
-
-1. **Activate and mute** all checks in a group
-2. Configure **shared settings** for all checks in the group
-    1. API check defaults like headers, assertions and setup & teardown scripts
-    2. Environment variables
-    3. Data center locations
-    4. Alert setting and alert channels
-3. **Run all checks in one go** with a configurable concurrency.
-4. Tweak checks in the inline "mini editor" to **quickly build up a group of similar checks**
-5. Use a **common base URL** for your API checks
-6. **Manage individual checks**, including viewing, editing, and duplicating checks
-
 > [!WARNING]
 > Alert settings being controlled at group level means that a check that is part of a group that has no connected alert channels *will not alert*.
 
 ## Creating a check group
+
+![Check group editor screenshot](/docs/images/groups/group-editor.png)
 
 ### Name and tags
 Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).  
@@ -56,7 +43,7 @@ Add new or existing checks to this group. If you add an existing check, the grou
 For example, if you create a check that runs in `eu-west-1` but then add it to a group running in `us-east-1`, then the group settings will take precedence and overwrite the individual check locations. 
 
 ### API checks defaults
-You can set [API check defaults](/docs/groups/api-check-defaults/), including request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/), to help manage API checks.
+You can set [API check defaults](/docs/groups/api-check-defaults/), including a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/), to help manage API checks.
 
 ### Variables
 For configuration information commonly used by checks in this group, create [group environment variables and secrets](/docs/groups/variables/). When checks are scheduled, these will be merged with environment variables at the check and global levels.
@@ -73,7 +60,7 @@ Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for 
 You can configure [alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) for checks in this group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in this group.
 
 > [!WARNING]
-> Make sure to select an alert channel, otherwise checks in this group **will not alert**.
+> Make sure to select an alert channel, otherwise checks in this group *will not alert*.
 
 > Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](/pricing/#features)
 
