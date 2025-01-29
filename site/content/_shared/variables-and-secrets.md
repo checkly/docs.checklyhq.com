@@ -10,7 +10,7 @@ There are two ways to store configuration information in Checkly: Variables and 
 > Secrets are available for [Private Locations](/docs/private-locations/) on agent version `3.3.4` and later. Secrets are available on [CLI](/docs/cli/) version `4.9.0` and later.
 
 > [!WARNING]
-> To ensure the integrity of Playwright artifacts (traces, videos and screenshots), the following are not scrubbed, even when saved as secrets: The characters `/` and `*` and the full or partial match of the strings `/artifact/`, `https://`, `http://`, `*********`, and the number `123`.
+> To ensure the integrity of Playwright artifacts (traces, videos and screenshots), the following are not scrubbed, even when saved as secrets: The characters `/` and `*` and the full or partial match of `/artifact/`, `https://`, `http://`, `*********`, and `123`.
 > Values of the keys `sha1`, `_sha1`, `pageref`, `downloadsPath`, `tracesDir`, `pageId` and any string that ends with `sha1` will not be scrubbed from the Playwright trace, but will be scrubbed from the general check result.
 > Numbers are not scrubbed from the Playwright trace, but from the general check result.
 
