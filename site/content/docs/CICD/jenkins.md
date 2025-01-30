@@ -47,8 +47,7 @@ should look as follows:
 2. You install the required dependencies for the Checkly CLI.
 3. You run the `checkly test` command.
 
-```groovy
-// Jenkinsfile
+```groovy {title="Jenkinsfile"}
 pipeline {
     agent any
 
