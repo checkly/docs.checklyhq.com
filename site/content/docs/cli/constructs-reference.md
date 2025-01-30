@@ -357,7 +357,7 @@ The `request` object is a mandatory part of an TCP check.
 - `hostname`: The hostname the connection should be made to. Do not include a scheme or a port in the hostname.
 - `port`: The port the connection should be made to.
 - `ipFamily`: The IP family to use for the connection. Defaults to `IPv4`.
-- `data`: The data to send to the target host.
+- `data`: The data to send to the target host. Only `string` values are supported.
 - `assertions`: An array of assertions to validate response time and response data.
 See the [`TcpAssertionBuilder` reference](#tcpassertionbuilder).
 
