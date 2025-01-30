@@ -258,7 +258,7 @@ A note on code reading: for myself, and for many other users on Stack Overflow, 
 
 See response body waiting in action as demonstrated by Stefan here:
 
-https://www.youtube.com/watch?v=5CER0dKweyw
+{{< youtube id="5CER0dKweyw" title="Response body waiting in Playwright" >}}
 
 ## Conclusions
 
