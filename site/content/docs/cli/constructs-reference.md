@@ -342,7 +342,7 @@ new TcpCheck('hello-tcp-1', {
 ```
 - `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
-- `shouldFail`: Choose whether a failure should count as a pass. All requests that failed to establish a connection as passed if set to `true`. The default behaviour if this setting is not defined is `false`.
+- `shouldFail`: Specify whether a failure should be treated as a pass. When set to `true`, any request that failed to establish a connection will be considered a pass. If this setting is not defined, the default behavior is `false`.
 - `request`: An object of the `TcpRequest` type. See the [`TcpRequest` reference](#tcprequest).
 
 ### `TcpRequest`
