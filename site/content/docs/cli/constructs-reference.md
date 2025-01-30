@@ -306,7 +306,7 @@ raw JavaScript / TypeScript as a string.
 
 TCP Checks are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
 
-- It defines the basic Check properties like `name`, `activated` etc.
+- It defines the basic check properties like `name`, `activated` etc.
 - It defines the `hostname`, `port`, and `data`
 - It defines an array of assertions using the `TcpAssertionBuilder` to assert that:
   - the total response time is within the given limit
