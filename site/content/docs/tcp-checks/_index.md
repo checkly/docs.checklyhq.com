@@ -11,7 +11,7 @@ slug: /
 ---
 
 > **Early Access Feature:**
-> This feature is currently in beta and available only via the UI. Support for Monitoring as Code (MaC) through the CLI, Terraform, and Pulumi providers is still in development.
+> This feature is currently in beta. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com).
 
 ## Overview
 
