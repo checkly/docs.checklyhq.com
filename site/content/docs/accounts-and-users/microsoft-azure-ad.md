@@ -5,7 +5,7 @@ navTitle: Microsoft Azure AD
 weight: 57
 menu:
   resources:
-    parent: "Single Sign-on"
+    parent: "Single Sign-on in Checkly - Checkly Docs"
 aliases:
   - "/docs/single-sign-on/microsoft-azure-ad"
 ---

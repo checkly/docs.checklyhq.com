@@ -24,4 +24,4 @@ story link on the home page will get someone into trouble.
 In this case, you can adopt [synthetic monitoring](https://www.checklyhq.com/product/synthetic-monitoring/), constantly run your Playwright scripts on a schedule, and 
 receive alerts when your tests fail. When then someone typoed a broken link into your site, you'll be the first to know about it because you received a timely alert.
 
-![Alt text](/guides/images/checkly-links.avif "a title")
+![Run playwright tests on a Schedule with Checkly](/guides/images/checkly-links.png)

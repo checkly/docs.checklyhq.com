@@ -6,7 +6,6 @@ import cssImport from 'postcss-import'
 import cssnext from 'postcss-cssnext'
 import purgecss from 'gulp-purgecss'
 import cleanCSS from 'gulp-clean-css'
-import inlineCss from 'gulp-inline-css'
 import gulpSass from 'gulp-sass'
 import dartSass from 'sass'
 
@@ -49,10 +48,7 @@ gulp.task('purgecss', () => {
 // minifycss
 gulp.task('minify-css', () => {
   return gulp.src('./public/css/*.css')
-    .pipe(cleanCSS({ debug: true }, (details) => {
-      console.log(`${details.name}: ${details.stats.originalSize}`)
-      console.log(`${details.name}: ${details.stats.minifiedSize}`)
-    }))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./public/css'))
 })
 
@@ -82,18 +78,12 @@ gulp.task('assets', () => (
 ))
 
 gulp.task('hash', () => {
-  return gulp.src('./public/**', { encoding: false })
+  return gulp.src(['./public/**'], { encoding: false })
     .pipe(revall.revision({
-      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2'],
+      dontRenameFile: [/^\/favicon.ico$/g, '.html', 'sitemap.xml', 'robots.txt', '.woff', '.eot', '.ttf', '.woff2', '.txt'],
       dontUpdateReference: ['.woff', '.eot', '.ttf', '.woff2']
     }))
     .pipe(gulp.dest('./public'))
-})
-
-gulp.task('inline', function () {
-  return gulp.src('./public/index.html')
-    .pipe(inlineCss())
-    .pipe(gulp.dest('./public/index.html'))
 })
 
 gulp.task('serve', (done) => {
