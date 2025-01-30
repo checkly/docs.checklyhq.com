@@ -160,6 +160,70 @@ For example, a Multistep check can look as follows:
 ```
 
 
+### Tcp Checks
+
+TCP checks monitor the availability and responsiveness of services running on specific ports, ensuring they are reachable and operating within acceptable response time thresholds.
+
+Below is a sample configuration for a TCP check using Terraform:
+
+```terraform
+resource "checkly_tcp_check" "example-tcp-check-2" {
+  name                   = "Example TCP check 2"
+  activated              = true
+  should_fail            = true
+  frequency              = 1
+  degraded_response_time = 5000
+  max_response_time      = 10000
+
+  locations = [
+    "us-west-1",
+    "ap-northeast-1",
+    "ap-south-1",
+  ]
+
+  alert_settings {
+    escalation_type = "RUN_BASED"
+
+    run_based_escalation {
+      failed_run_threshold = 1
+    }
+
+    reminders {
+      amount = 1
+    }
+  }
+
+  retry_strategy {
+    type                 = "FIXED"
+    base_backoff_seconds = 60
+    max_duration_seconds = 600
+    max_retries          = 3
+    same_region          = false
+  }
+
+  request {
+    hostname = "api.checklyhq.com"
+    port     = 80
+    data     = "hello"
+
+    assertion {
+      source     = "RESPONSE_DATA"
+      property   = ""
+      comparison = "CONTAINS"
+      target     = "welcome"
+    }
+
+    assertion {
+      source     = "RESPONSE_TIME"
+      property   = ""
+      comparison = "LESS_THAN"
+      target     = "2000"
+    }
+  }
+}
+```
+
+
 ## Groups
 
 Once you start having more than just a handful of checks, it makes sense to start looking into [groups](/docs/groups/) to keep things tidy:

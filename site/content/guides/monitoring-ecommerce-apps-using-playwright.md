@@ -282,7 +282,7 @@ Successfully deployed project "Website Monitoring" to account "TestCheckly".
 
 Logging in to our Checkly account, we will see the dashboard has been populated with our three Checks, which will soon start executing on their set schedules.
 
-{{< figure src="/guides/images/guides-mac-cli-checks-on-checkly.png" alt="CLI-deployed checks on checkly dashboard" title="CLI-deployed checks on Checkly" >}}
+![CLI-deployed checks on checkly dashboard](/guides/images/guides-mac-cli-checks-on-checkly.png "CLI-deployed checks on Checkly")
 
 ### Monitoring API correctness and performance
 
@@ -316,7 +316,7 @@ const api = new ApiCheck('webstore-list-books', {
 
 We can now once more run `checkly deploy` to see the new Check on Checkly:
 
-{{< figure src="/guides/images/guides-mac-cli-api-checks-on-checkly.png" alt="CLI-deployed api check on checkly" title="Our API and Browser Checks on Checkly" >}}
+![CLI-deployed api check on checkly](/guides/images/guides-mac-cli-api-checks-on-checkly.png "Our API and Browser Checks on Checkly")
 
 ### Alerting
 
@@ -366,7 +366,7 @@ const api = new ApiCheck('webstore-list-books', {
 
 The usual `checkly deploy` will apply the changes on our Checkly account:
 
-{{< figure src="/guides/images/guides-mac-cli-alert-channels-on-checkly.png" alt="CLI-deployed alert on checkly" title="CLI-provisioned alert on Checkly" >}}
+![CLI-deployed alert on checkly](/guides/images/guides-mac-cli-alert-channels-on-checkly.png "CLI-provisioned alert on Checkly")
 
 We are now fully up and running with our monitoring as code setup. Our Checks will run on a schedule, informing us promptly if anything were to go wrong. Rapidly getting to know about failures in our API and key website flows will allow us to react fast and mitigate impact on our users, ensuring a better experience with our product.
 

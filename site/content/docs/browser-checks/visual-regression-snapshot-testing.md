@@ -72,7 +72,7 @@ Starting with visual regression testing takes just three easy steps:
    
 3. Generate a golden image / reference snapshot by clicking the "Run script and update golden image" option in the "run script" button.
 
-   <video alt="generate reference snapshot" autoplay loop muted src="/docs/images/browser-checks/visual_comparison_1st_run.mp4"></video>
+   ![generate reference snapshot](/docs/images/browser-checks/visual_comparison_1st_run.mp4)
 
    This will generate the golden image, which you can inspect in the "golden files" tab in the editor. You can now save 
    your check and on each check run the golden image will be compared to the actual screenshot.
@@ -88,8 +88,7 @@ Starting with visual regression testing takes just three easy steps:
 Now, when your check fails due to a visual difference, you will see a diff of the golden image and the actual screenshot
 in your check result.
 
-<video alt="inspect visual diff" autoplay loop muted src="/docs/images/browser-checks/visual_comparison_diff_modal.mp4"></video>
-
+![inspect visual diff](/docs/images/browser-checks/visual_comparison_diff_modal.mp4)
 
 ### Configuring visual regression testing 
 

@@ -31,7 +31,7 @@ If you want to see a real-world example, and how to handle cases like the keywor
 
 In this example from the [Danube Web Shop](https://danube-webshop.herokuapp.com/), we need to make sure that ‘Haben oder haben’ is always visible. It’s not enough for the page to load, we need our best seller displayed at the top, so we’ll create an assertion looking for the keyword.
 
-{{< figure src="/guides/images/guide-keyword-testing-1.png" alt="An ecommerce storefront" title="A demo ecommerce storefront" >}}
+![An ecommerce storefront](/guides/images/guide-keyword-testing-1.png "A demo ecommerce storefront")
 
 The code for this page monitor reads as follows:
 
@@ -63,7 +63,7 @@ While more advanced operations engineers and QA teams will probably prefer the s
 
 With our test code from the section above, we can log in to checkly and create a new browser check, select an empty template, and paste in our code.
 
-{{< figure src="/guides/images/guide-keyword-testing-2.png" alt="The checkly web UI with our keyword monitoring code" title="We can create a new browser check to get all the framing code we’ll need for this keyword monitor." >}}
+![The checkly web UI with our keyword monitoring code](/guides/images/guide-keyword-testing-2.png "We can create a new browser check to get all the framing code we’ll need for this keyword monitor.")
 
 Next we’ll make some decisions about how frequently we want to run our check, under ‘Settings’ for our browser check. 
 
@@ -73,14 +73,14 @@ Next we’ll make some decisions about how frequently we want to run our check, 
 
 The final settings on frequency and locations will look like this:
 
-{{< figure src="/guides/images/guide-keyword-testing-3.png" alt="The checkly web UI with multiple frequency settings, described in the article text above" title="" >}}
+![the checkly web UI with multiple frequency settings](/guides/images/guide-keyword-testing-3.png)
 
 Next I’ll make a few settings about how we want to retry our checks. 
 
 - A fleeting failure isn’t a big issue to me. If a single page load didn’t have the best seller for some reason, that’s fine as long as it’s there when you check again a minute later, so I’ll set the retry time to ‘linear,’ retrying 2 more times with a minute between them
 - Finally I’ll use the global notification settings, and get notified via email, slack, SMS and a via a webhook to [Rootly](https://www.checklyhq.com/docs/integrations/rootly/)
 
-{{< figure src="/guides/images/guide-keyword-testing-4.png" alt="The checkly web UI with multiple notification settings, described in the article text above" title="" >}}
+![The checkly web UI with multiple notification settings, described in the article text above](/guides/images/guide-keyword-testing-4.png)
 
 With these settings we can rest easy knowing that our users are seeing our best-selling items are visible for all visitors to our main page.
 
@@ -103,13 +103,14 @@ If you’re unfamiliar with [Playwright](https://www.checklyhq.com/learn/playwri
 
 If you’d like to see the benefit of auto-waiting, run the script above from the Checkly editor with the ‘Run Script’ command at the bottom right, then take a look at the trace captured from this check run. The report viewer at the left is also where we can view the screenshot we captured with the last line of our check.
 
-{{< figure src="/guides/images/guide-keyword-testing-5.png" alt="The checkly web UI showing a trace" title="" >}}
+![The checkly web UI showing a trace](/guides/images/guide-keyword-testing-5.png)
+
 In the trace from this check run, we’ll see individual timings for:
 
 - The page load
 - When our target text was visible
     
-{{< figure src="/guides/images/guide-keyword-testing-6.png" alt="The checkly web UI showing a trace" title="You can scan through this trace to see the initial content paint" >}}
+![The checkly web UI showing a trace](/guides/images/guide-keyword-testing-6.png "You can scan through this trace to see the initial content paint")
     
 
 In this case, the page load took 1.8 seconds, and only 33ms later, our best seller was visible. At that point the test was passed and we were able to move forward with our check. This saves execuction time compared to a manually added wait! 
@@ -128,7 +129,7 @@ Now the match will require that text is the exact text of the element, e.g. `<sp
 
 Taking a look back at our storefront:
 
-{{< figure src="/guides/images/guide-keyword-testing-7.png" alt="our demo ecommerce storefront" title="" >}}
+![our demo ecommerce storefront](/guides/images/guide-keyword-testing-7.png)
 
 A number of strings are repeated in a few places (for example the word ‘Fiction’ or ‘$9.95’) and a keyword check for those using the code above will fail. If we change the assertion to be:
 
@@ -142,7 +143,7 @@ We’ll get an error reading something like:
 
 This isn’t a bug in Playwright, it’s just saying: ‘you wanted me to test something about an element, I found many elements that matched the parameters you gave me, so I don’t know which one you were talking about.’ For example, how would we evaluate this test if some of the matches were visible, but others weren’t? Since we can’t give a simple binary answer with multiple results, this check will fail.
 
-{{< figure src="/guides/images/guide-keyword-testing-8.png" alt="The Checkly report showing a newly failing monitor" title="The Checkly report showing a newly failing monitor" >}}
+![The Checkly report showing a newly failing monitor](/guides/images/guide-keyword-testing-8.png "The Checkly report showing a newly failing monitor")
 
 In our Checkly report for this monitor, we’ll get notified if this code starts matching multiple results, the monitor’s status will go to ‘failing’ and we’ll get a descriptive report about the error message received. In this case we’ll even get a list of the multiple elements that matched our `page.getByText()`.
 
@@ -158,7 +159,7 @@ When I’m writing my own page monitors with Checkly and Playwright, I often add
 
 On the web shop above, the page has a top banner offering a sale. We may want to check if this banner is visible by doing a keyword monitor for the text in the banner, but it wouldn’t be good if this banner was showing up twice.
 
-{{< figure src="/guides/images/guide-keyword-testing-9.png" alt="a demo ecommerce store showing an error, with two visible offer banners" title="now our ecommerce store has two banners!" >}}
+![a demo ecommerce store showing an error, with two visible offer banners](/guides/images/guide-keyword-testing-9.png "now our ecommerce store has two banners!")
 
 *If our page looks like this, something has gone wrong!*
 

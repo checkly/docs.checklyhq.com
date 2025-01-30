@@ -107,10 +107,16 @@
 
   img {
     max-width: 100%;
+
+    &.markdown-responsive-img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   video {
     max-width: 100%;
+    border-radius: 4px;
   }
 
   code {
@@ -126,6 +132,7 @@
       color: white;
       font-size: 100%;
       padding: 0;
+      box-shadow: none;
     }
   }
 

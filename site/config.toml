@@ -5,6 +5,7 @@ title = "Build and Run Synthetics That Scale"
 disableKinds = ["RSS"]
 enableGitInfo = true
 enableRobotsTXT = true
+timeout = "2m"
 
 pygmentsCodeFences = true
 pygmentsUseClasses = true
@@ -25,18 +26,26 @@ disqusShortname = "checkly"
     name = "Documentation"
     url = "/docs/"
     weight = 10
+	[[menu.topnav.params]]
+		external = false
 [[menu.topnav]]
     name = "Guides"
     url = "/guides/"
     weight = 20
+	[menu.topnav.params]
+		external = false
 [[menu.topnav]]
     name = "Learn"
     url = "/learn/"
     weight = 30
+	[menu.topnav.params]
+		external = false
 [[menu.topnav]]
     name = "API Reference"
     url = "https://developers.checklyhq.com"
     weight = 40
+	[menu.topnav.params]
+		external = true
 
 [[menu.platform]]
 	name = "Monitoring"
@@ -224,3 +233,6 @@ disqusShortname = "checkly"
 	startLevel = 2
 	endLevel = 3
 
+[[module.mounts]]
+source = 'assets'
+target = 'assets'

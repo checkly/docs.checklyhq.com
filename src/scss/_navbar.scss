@@ -63,10 +63,22 @@
     justify-content: center;
     min-width: 60px;
     position: relative;
-    color: $gray;
+    color: $gray-darkish;
     font-weight: 500;
     margin-right: 20px;
     white-space: nowrap;
+
+    &-external {
+      &::after {
+        margin-left: 4px;
+        width: 12px;
+        height: 12px;
+        background-size: 100%;
+        background: url(/images/icons/arrow-up-right.svg) no-repeat;
+        content: '';
+        display: inline-block;
+      }
+    }
 
     &:hover {
       color: $gray-dark;
