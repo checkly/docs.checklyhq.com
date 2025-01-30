@@ -310,7 +310,7 @@ TCP Checks are ideal for monitoring services and protocols that use TCP, such as
 - It defines the `hostname`, `port`, and `data`
 - It defines an array of assertions using the `TcpAssertionBuilder` to assert that:
   - the total response time is within the given limit
-  - the reponse contains provided value
+  - the response contains provided value
 
 
 The file hierarchy looks as follows:
