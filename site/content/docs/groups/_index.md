@@ -35,12 +35,12 @@ Example use cases for groups are organizing your checks around:
 ![Check group editor screenshot](/docs/images/groups/group-editor.png)
 
 ### Name and tags
-Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).  
+Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your [dashboards](/docs/dashboards/).  
 
 ### Checks
 Add new or existing checks to this group. If you add an existing check, the group configuration will overwrite certain check configurations, like run locations, retries, and alerting. 
 
-For example, if you create a check that runs in `eu-west-1` but then add it to a group running in `us-east-1`, then the group settings will take precedence and overwrite the individual check locations. 
+For example, if you create a check that runs in `eu-west-1` but then add it to a group running in `us-east-1`, then the check will run from `us-east-1` only. 
 
 ### API checks defaults
 You can set [API check defaults](/docs/groups/api-check-defaults/), including a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/), to help manage API checks.
@@ -57,12 +57,12 @@ Checks still run on their own scheduling intervals, but you can specify a defaul
 
 Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks. This will override retry settings for checks in this group.
 
-You can configure [alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) for checks in this group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in this group.
+You can configure [alert channels](/docs/alerting-and-retries/alert-channels) for checks in this group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in this group.
 
 > [!WARNING]
 > Make sure to select an alert channel, otherwise checks in this group *will not alert*.
 
-> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](/pricing/#features)
+> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#feature-overview)
 
 ### Testing
 
