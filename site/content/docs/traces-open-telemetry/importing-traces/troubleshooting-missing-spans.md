@@ -7,7 +7,6 @@ menu:
   platform:
     parent: Importing your traces to Checkly - Checkly Docs
     identifier: troubleshooting-missing-spans
-beta: true
 ---
 
 This guide will walk you through the process of identifying missing spans, understanding their root causes, and implementing solutions to ensure your OpenTelemetry setup with Checkly provides complete and accurate tracing information. 
@@ -114,4 +113,3 @@ Ensure the right Authorization keys and endpoints are in use.
 ### Incomplete instrumentation
    
    To see the full picture, and identify the root cause of a problem faster, ensure your applications and services are [instrumented with the OpenTelemetry SDK](/docs/traces-open-telemetry/instrumenting-code/).
-    

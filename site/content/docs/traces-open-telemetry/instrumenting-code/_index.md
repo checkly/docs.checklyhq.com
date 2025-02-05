@@ -6,8 +6,7 @@ metatags:
 weight: 35
 menu:
   platform:
-    parent: "Traces (beta)"
-beta: true
+    parent: "Traces"
 aliases:
   - "/docs/open-telemetry/instrumenting-code/"
 ---

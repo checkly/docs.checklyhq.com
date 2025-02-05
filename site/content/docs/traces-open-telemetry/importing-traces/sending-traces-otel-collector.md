@@ -10,7 +10,6 @@ weight: 20
 menu:
   platform:
     parent: Importing your traces to Checkly - Checkly Docs
-beta: true
 aliases:
   - "/docs/open-telemetry/ingesting-traces-otel-collector/"
   - "/docs/open-telemetry/sending-traces-otel-collector/"
