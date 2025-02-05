@@ -6,8 +6,7 @@ identifier: exporting-traces
 weight: 30
 menu:
   platform:
-    parent: "Traces (beta)"
-beta: true
+    parent: "Traces"
 aliases:
   - "/docs/open-telemetry/exporting-traces/"
 ---

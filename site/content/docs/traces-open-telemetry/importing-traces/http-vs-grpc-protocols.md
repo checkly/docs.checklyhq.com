@@ -9,7 +9,6 @@ weight: 60
 menu:
   platform:
     parent: Importing your traces to Checkly - Checkly Docs
-beta: true
 aliases:
   - "/docs/open-telemetry/http-vs-grpc-protocols/"
 ---

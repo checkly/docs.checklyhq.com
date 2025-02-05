@@ -9,7 +9,6 @@ metatags:
 menu:
   platform:
     parent: "Instrument your code with OpenTelemetry"
-beta: true
 aliases:
   - "/docs/open-telemetry/instrumenting-code/express"
 ---

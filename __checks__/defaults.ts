@@ -14,7 +14,7 @@ const PREVIEW_URL = process.env.ENVIRONMENT_URL
 const PROD_URL = 'https://www.checklyhq.com'
 
 export const defaults = {
-  baseURL: process.env.NODE_ENV === 'development' ? LOCAL_DEV_URL : PREVIEW_URL || PROD_URL,
+  baseURL: process.env.NODE_ENV === 'development' ? LOCAL_DEV_URL : PROD_URL || PREVIEW_URL,
   playwright: {
     viewportSize: {
       width: 1280,

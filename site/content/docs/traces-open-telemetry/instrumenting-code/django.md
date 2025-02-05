@@ -9,7 +9,6 @@ weight: 40
 menu:
   platform:
     parent: "Instrument your code with OpenTelemetry"
-beta: true
 ---
 
 This guide will help you instrument your Django application(s) with OpenTelemetry and send traces to Checkly.
