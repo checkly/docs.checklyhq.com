@@ -12,54 +12,50 @@ aliases:
   - "/docs/integrations/vercel/"
 ---
 
-If you are using Vercel to develop, preview, and ship your application, you can natively integrate with Checkly by [installing the official integration](https://vercel.com/integrations/checkly) from the Vercel Marketplace.
+If you are using Vercel to develop, preview, and ship your application, you can natively integrate with Checkly by installing [the official integration](https://vercel.com/integrations/checkly) from the Vercel Marketplace. 
+
+Checkly offers two integration paths:
+- Native integration, **if you don't yet have a Checkly account**. With the native integration, user access and billing is managed through Vercel. If you are new to Vercel's native integrations you can read more about them on the [Vercel documentation page](https://vercel.com/docs/integrations#native-integrations).
+- Connected integration, **if you already have a Checkly account**. The connected integration can be installed on top of the native integration for the full Checkly - Vercel integration experience.
 
 The Vercel integration will help you by:
 
-1. Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
-2. Enabling you to run checks against preview and production deployments on Vercel.
+-  Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
+-  Enabling you to run checks against preview and production deployments on Vercel.
 
 > Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/) on how to make this work with Checkly.
 
-## Installation
+## Installing the native integration
 
-To install Checkly's native Vercel integration, navigate to `Integrations`, under your account's dropdown menu.
+To install Checkly's managed Vercel integration, navigate to the [integration's marketplace listing](https://vercel.com/integrations/checkly) and click `Install`.
 
-![vercel integration step 1](/docs/images/cicd/vercel/vercel_step1a.png)
+1. Select `Create new account` in the installation guide and click `Next` to accept the terms and conditions.
+2. Select your plan type. You can read about our pricing plans [here](https://www.checklyhq.com/pricing/), and more about how we bill checks [here](/docs/monitoring/check-pricing/).
+3. Name your account and review your plan selection. You can change your account name later.
+4. Press `Create` to continue to the integration settings page. Select `Getting started` to go to the setup guide in Vercel. You can also click `Open in Checkly` to go through the Checkly + Vercel onboarding and get you started with an example project showcasing how to use Monitoring as Code together with Vercel. You can also jump straight to our [example NextJS project](https://github.com/checkly/nextjs-checkly-starter-template) which includes a guide on how to use Monitoring as Code with a NextJS project.
+5. If you want to directly connect your Checkly checks with Vercel and run them against preview and deployments on Vercel, continue with installing the connected integration, as explained below.
 
-After scrolling down, click the `Vercel marketplace` button.
+## Installing the connected integration
 
-![vercel integration step 2](/docs/images/cicd/vercel/vercel_step2.png)
+1. To install Checkly's connected Vercel integration, navigate to `Integrations`, under your account's dropdown menu and click the `Vercel marketplace` button, or go directly to the [integration listing on the Vercel marketplace](https://vercel.com/integrations/checkly).
 
-On the marketplace page for Checkly, click `Add Integration`.
+2. On the marketplace page for Checkly, click `Connect Account`.
 
-![vercel integration step 3](/docs/images/cicd/vercel/vercel_step3.png)
+3. Next, follow the installation wizard to grant the integration access to the right Vercel scope and projects.
 
-Next, follow the installation wizard to grant the integration access to the right Vercel scope and projects.
+4. You can choose to map your Vercel projects to existing checks on your Checkly account, to have them run on production and/or preview deployments.
 
-![vercel integration step 4](/docs/images/cicd/vercel/vercel_step4.png)
+5. Additionally, you can have new checks automatically generated for existing Vercel projects, and set them up to automatically run on preview and/or production deployments.
 
-You can choose to map your Vercel projects to existing checks on your Checkly account, to have them run on production and/or preview deployments.
+## Linking checks and groups with the connected integration
 
-![vercel integration step 5](/docs/images/cicd/vercel/vercel_step5.png)
+If you already have the connected Vercel integration set up, you might still want to connect new checks or groups. The procedure is the same for both: edit the check or group and select `Vercel` in the `Testing` tab, then select `Link Vercel project` and the project you want to link.
 
-Additionally, you can have new checks automatically generated for existing Vercel projects, and set them up to automatically run on preview and/or production deployments.
-
-![vercel integration step 6](/docs/images/cicd/vercel/vercel_step6.png)
-
-## Linking checks and groups
-
-If you already have the Vercel integration set up, you might still want to connect new checks or groups. The procedure is the same for both: edit the check or group and select `Link Vercel project` in the `CI/CD triggers` tab.
-
-![linking existing check](/docs/images/cicd/vercel/vercel_existing.png)
-
-You will just need to select the right project to link to your check or group.
-
-![vercel project selection](/docs/images/cicd/vercel/vercel_link.png)
+![linking existing check](/docs/images/cicd/vercel/vercel_linking_project.png)
 
 Once the project and the check/group have been linked, you are able to specify whether a new preview or production deployment should trigger a new execution. You will also have the chance to choose from which location this check will run.
 
-![linked check](/docs/images/cicd/vercel/vercel_linked.png)
+![deployment trigger settings](/docs/images/cicd/vercel/vercel_deployment_settings.png)
 
 Should you wish to unlink the Vercel project, simply click `Unlink this project`.
 
@@ -127,7 +123,7 @@ Just like for browser checks, the check will run on deploy against our preview e
 
 ## How Checkly checks maps to Vercel checks
 
-Vercel recently released their [Checks functionality](https://vercel.com/docs/concepts/deployments/checks) and Checkly integrates deeply into this new API.
+Checkly integrates deeply with the Vercel [Checks functionality](https://vercel.com/docs/concepts/deployments/checks) API to link Checks in both tools.
 Vercel uses a slightly different way in representing checks than Checkly does, specifically splitting individual check results into either:
 
 1. **Reliability checks**
@@ -143,17 +139,12 @@ This is how a Checkly check maps to a Vercel check:
 
 ## Blocking Vercel deployments
 
-You can block your Vercel deployments if any of your checks fail by enabling the checkboxes highlighted in the
-screenshot below. 
-
-![blocking deployments](/docs/images/cicd/vercel/vercel_block.png)
-
-We have two flavours here...
+You can block your Vercel deployments if any of your checks fail or if the web vitals degrade:
 
 1. **Block my deployment when a check fails** does what it says on the tin and only applies to Vercel **Reliability checks**.
 2. **Block my deployment when Web Vitals degrade** is a bit special and only applies to Vercel **Performance checks** for our Browser checks. 
 
-This table below should help you determine how blocking checks works. Note — again — that **Browser checks**, can fail a 
+This table will help you determine how blocking checks works. Note — again — that **Browser checks**, can fail a 
 Vercel deployment in two ways because the Reliability part and Performance part are evaluated separately.
 
 | Checkly       | Vercel            | Blocking heuristic                                                                                                                                   |
