@@ -10,7 +10,6 @@ slug: /
 
 ---
 
-> **Early Access Feature:**
 > This feature is currently in beta. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com).
 
 ## Overview

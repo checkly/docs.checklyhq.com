@@ -9,7 +9,6 @@ weight: 35
 menu:
   platform:
     parent: "Instrument your code with OpenTelemetry"
-beta: true
 aliases:
   - "/docs/open-telemetry/instrumenting-code/go"
 ---
