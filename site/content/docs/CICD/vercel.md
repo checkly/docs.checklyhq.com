@@ -37,7 +37,7 @@ To install Checkly's managed Vercel integration, navigate to the [integration's 
 
 ## Installing the connected integration
 
-1. To install Checkly's connected Vercel integration, navigate to `Integrations`, under your account's dropdown menu and click the `Vercel marketplace` button, or go directly to the [integration listing on the Vercel marketplace](https://vercel.com/integrations/checkly).
+1. To install Checkly's connected Vercel integration, navigate to [Integrations](https://app.checklyhq.com/settings/account/integrations), under your account's dropdown menu and click the `Vercel marketplace` button, or go directly to the [integration listing on the Vercel marketplace](https://vercel.com/integrations/checkly).
 
 2. On the marketplace page for Checkly, click `Connect Account`.
 
