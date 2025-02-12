@@ -10,7 +10,7 @@ menu:
 
 ---
 
-The Vercel - [Checkly native integration](https://vercel.com/integrations/checkly) moves the user and plan management of your Checkly account to Vercel. You have access to the same Hobby and Team plan as when subscribing directly on Checkly, but the management process is different. If you are new to Vercel's native integrations you can read more about them [here](https://vercel.com/docs/integrations#native-integrations).
+The Vercel-[Checkly native integration](https://vercel.com/integrations/checkly) moves the user and plan management of your Checkly account to Vercel. You have access to the same Hobby and Team plan as when subscribing directly on Checkly, but the management process is different. If you are new to Vercel's native integrations you can read more about them [here](https://vercel.com/docs/integrations#native-integrations).
 
 ### User management
 If you are using the Vercel native integration, your Checkly users will be managed through Vercel. Members of your Vercel team can all access Checkly up to the seat limit on your selected plan. See our [pricing page](https://www.checklyhq.com/pricing/) for details on the number of seats available on your plan.
