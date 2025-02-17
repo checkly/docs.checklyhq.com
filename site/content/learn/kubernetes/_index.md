@@ -41,4 +41,11 @@ Learn about monitoring Kubernetes.
 	description="Learn about structured logging in Kubernetes."
 	link="/learn/kubernetes/structured-logging/"
 >}}
+{{< doc-card
+	class="two-column-card"
+	headerTag="h3"
+	title="Structured logging"
+	description="Learn about structured logging in Kubernetes."
+	link="/learn/kubernetes/structured-logging/"
+>}}
 </div>
