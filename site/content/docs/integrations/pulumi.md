@@ -224,8 +224,8 @@ new checkly.TcpCheck("my-tcp-check", {
   useGlobalAlertSettings: true,
   locations: ["us-west-1"],
   request: {
-      hostname: "api.checklyhq.com",
-      port: 80,
+    hostname: "api.checklyhq.com",
+    port: 80,
   },
 });
 ```
