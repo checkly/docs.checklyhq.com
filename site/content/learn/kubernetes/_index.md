@@ -44,8 +44,8 @@ Learn about monitoring Kubernetes.
 {{< doc-card
 	class="two-column-card"
 	headerTag="h3"
-	title="Structured logging"
-	description="Learn about structured logging in Kubernetes."
-	link="/learn/kubernetes/structured-logging/"
+	title="Events"
+	description="Learn about key events of the Kubernetes lifecycle."
+	link="/learn/kubernetes/events/"
 >}}
 </div>
