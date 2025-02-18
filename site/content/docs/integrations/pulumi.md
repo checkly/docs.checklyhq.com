@@ -223,6 +223,9 @@ new checkly.TcpCheck('my-tcp-check', {
   frequency: 1,
   useGlobalAlertSettings: true,
   locations: ['us-west-1'],
+  degradedResponseTime: 3000,
+  maxResponseTime: 5000,
+  tags: ['pulumi'],
   request: {
     hostname: 'api.checklyhq.com',
     port: 80,
