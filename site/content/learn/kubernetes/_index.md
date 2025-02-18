@@ -37,9 +37,9 @@ Learn about monitoring Kubernetes.
 {{< doc-card
 	class="two-column-card"
 	headerTag="h3"
-	title="Metrics"
-	description="Learn about Kubernetes key metrics and how to use them for monitoring."
-	link="/learn/kubernetes/monitoring-metrics/"
+	title="Structured logging"
+	description="Learn about structured logging in Kubernetes."
+	link="/learn/kubernetes/structured-logging/"
 >}}
 {{< doc-card
 	class="two-column-card"
