@@ -27,9 +27,9 @@ After this, you can reference this variable using `{{PROXY_URL}}` in the Private
 
 ![private location proxy url](/docs/images/private-locations/proxy_private_locations_2.png)
 
-## Using an HTTP proxy with API checks
+## Using an HTTP proxy with API & network checks
 
-With the setup complete, any API check which uses that Private Location will automatically inherit the proxy configuration
+With the setup complete, any API or network check which uses that Private Location will automatically inherit the proxy configuration
 for outgoing traffic.
 
 ## Using an HTTP proxy with Browser checks
