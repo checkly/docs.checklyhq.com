@@ -229,6 +229,7 @@ new checkly.TcpCheck('my-tcp-check', {
   },
 });
 ```
+For detailed documentation on TCP checks, refer to the [Pulumi Checkly TCP Check API docs](https://www.pulumi.com/registry/packages/checkly/api-docs/tcpcheck/).
 
 ### Creating checks and applying changes
 
