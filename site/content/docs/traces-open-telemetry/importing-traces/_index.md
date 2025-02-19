@@ -5,8 +5,7 @@ navTitle: Importing traces
 weight: 20
 menu:
   platform:
-    parent: "Traces (beta)"
-beta: true
+    parent: "Traces"
 ---
 
 Send your 3rd party backend OpenTelemetry traces to Checkly. Inspect and drill down to why a check failed or degraded.

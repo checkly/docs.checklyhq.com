@@ -59,7 +59,7 @@ docker run -e API_KEY="pl_...." -d checkly/agent:latest`
 
     ![agent running](/docs/images/private-locations/pl_started_4.png)
 
-6. Create a new API or Browser check as you normally would in Checkly. You will now see your new private location in the list of available locations. Select it and deselect any other locations.
+6. Create a new check as you normally would in Checkly. You will now see your new private location in the list of available locations. Select it and deselect any other locations.
 
     ![select private location](/docs/images/private-locations/pl_started_5.png)
 

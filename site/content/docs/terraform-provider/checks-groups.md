@@ -172,8 +172,8 @@ resource "checkly_tcp_check" "example-tcp-check-2" {
   activated              = true
   should_fail            = true
   frequency              = 1
-  degraded_response_time = 5000
-  max_response_time      = 10000
+  degraded_response_time = 4000
+  max_response_time      = 5000
 
   locations = [
     "us-west-1",

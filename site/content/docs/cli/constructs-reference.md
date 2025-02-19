@@ -326,8 +326,8 @@ import { TcpCheck, TcpAssertionBuilder } from 'checkly/constructs'
 new TcpCheck('hello-tcp-1', {
   name: 'Hello TCP',
   activated: true,
-  maxResponseTime: 10000,
-  degradedResponseTime: 5000,
+  maxResponseTime: 5000,
+  degradedResponseTime: 4000,
   request: {
     hostname: 'tcpbin.com',
     port: 4242,
