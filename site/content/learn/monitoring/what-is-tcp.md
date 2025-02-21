@@ -23,8 +23,8 @@ TCP stands for Transmission Control Protocol. It is one of the main protocols us
 Even though TCP operates at a lower level than your application code, it directly impacts how your application performs. Here are a few reasons why you should care about TCP:
 
 1. **Non-http services**: TCP is used (without any HTTP layer) by databases, message queues, and mail servers, all of which your application may rely on to deliver the best customer experience. Understanding how TCP works will help you debug problems integrating these dependencies.
-2. **TCP is part Flow Control**: TCP manages the rate at which data is sent to prevent overwhelming the receiver, by understanding these components, you protect your application from getting rate limited and experiencing edge case failures
-4. **Connection Management**: TCP handles the establishment, maintenance, and termination of connections between devices, and with dynamic services like user-defined containers you may need to manage these connections more than you would expect!
+2. **TCP is part of flow control**: TCP manages the rate at which data is sent to prevent overwhelming the receiver, by understanding these components, you protect your application from getting rate limited and experiencing edge case failures
+4. **Connection management**: TCP handles the establishment, maintenance, and termination of connections between devices, and with dynamic services like user-defined containers you may need to manage these connections more than you would expect!
 
 Understanding these aspects can help you optimize your application's performance and troubleshoot issues more effectively.
 
@@ -75,11 +75,11 @@ As an application developer, you need to be aware of the ports your application 
 
 ### Buffering
 
-TCP uses buffers to store data before it is sent or after it is received. As a developer, you can control the size of these buffers, which can impact performance. Larger buffers can improve throughput but may increase latency, while smaller buffers can reduce latency but may decrease throughput.
+TCP uses buffers to store data before it is sent or after it is received. As a developer, you can control the size of these buffers, which can impact performance. Larger buffers can improve throughput but may increase latenc.
 
 ### Keep-Alive
 
-TCP connections can be kept alive even when no data is being transmitted. This is useful for applications that need to maintain a connection for a long time. However, keep-alive packets can consume resources, so you should use them judiciously.
+TCP connections can be kept alive even when no data is being transmitted. This is useful for applications that need to maintain a connection for a long time. However, keep-alive packets can consume network resources, so you should use them judiciously.
 
 ### Timeouts
 
@@ -105,10 +105,6 @@ TCP connections consume resources on both the client and server. If your applica
 
 ## Common TCP Issues and How to Troubleshoot Them
 
-### Connection Timeouts
-
-If a TCP connection times out, it may be due to network issues or misconfigured timeouts. Check your network configuration and adjust timeout settings if necessary.
-
 ### Packet Loss
 
 Packet loss can occur due to network congestion or hardware issues. TCP will retransmit lost packets, but frequent packet loss can degrade performance. Use tools like `ping` or `traceroute` to diagnose network issues.
@@ -117,9 +113,6 @@ Packet loss can occur due to network congestion or hardware issues. TCP will ret
 
 Slow performance can be caused by many factors, including high latency, low throughput, or network congestion. Use tools like `netstat` or `tcpdump` to analyze TCP connections and identify bottlenecks.
 
-### Connection Resets
-
-A connection reset occurs when a TCP connection is abruptly terminated. This can happen if the server or client crashes, or if there is a network issue. Check your application logs and network configuration to diagnose the cause.
 
 ## Best Practices for Application Developers
 
