@@ -68,7 +68,7 @@ To add assertions, use the little toolbar at the top of the Chromium browser:
 
 - The first button, ‘Record,’ is active at startup, and you can click it to pause the inspector’s recording of your every action in the browser
 - Next is ‘Pick Locator,’ clicking this will make the locator for anything you click appear in the inspector, useful if you know how to write a test but are struggling to find a good locator for a particular element
-- The 👁️ button in the middle is ‘Assert Visible’, clicking this and clicking a page element adds an assertion to our test. for example clicking the ‘book a demo’ link in the main [ChecklyHQ.com](http://ChecklyHQ.com) homepage gets this assertion in our test code: `await expect(page.getByRole('button', { name: 'Book a demo' }).first()).toBeVisible();`
+- The 👁️ button in the middle is ‘Assert Visible’, clicking this and clicking a page element adds an assertion to our test. for example clicking the ‘book a demo’ link in the main [checklyhq.com](http://checklyhq.com) homepage gets this assertion in our test code: `await expect(page.getByRole('button', { name: 'Book a demo' }).first()).toBeVisible();`
 - What if we just want to make sure that a particular string appears in an element? Click the ‘Match Text’ button and you’ll get a dialog box where to enter the text you want to check for.
     
 ![writing an assertion](/learn/images/codegen-3.png)
