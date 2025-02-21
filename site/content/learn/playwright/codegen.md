@@ -3,7 +3,7 @@ title: Record Automation Scripts Using Playwright Codegen
 subTitle: Automatically record playwright tests with codegen
 date: 2025-02-20
 author: Nočnica Mellifera
-githubUser: ragog
+githubUser: serverless-mom
 tags:
   - basics
 
@@ -60,7 +60,7 @@ Note that codegen will make a ‘best effort’ at emulating your actions and wr
 
 ### Step 5: Add Assertions to your tests
 
-Every action in the script above has implicit assertions about the elements we interact with. Playwright will expect these elements are stable, visible, and enabled and if one isn’t then the test will will fail we could call this done, but we generally want our tests to contain assertions beyond just navigating. There are a few reasons why you should have assertions in your test: It makes it clearer to future coders what your test was checking for, and the error message is more useful from a failed assertion rather than just failing to find an element. Right now all we’ll get if the test above fails is a timeout and a line which failed. 
+Every action in the script above has implicit assertions about the elements we interact with. Playwright will expect these elements are stable, visible, and enabled; and if one isn’t then the test will fail we could call this done, but we generally want our tests to contain assertions beyond just navigating. There are a few reasons why you should have assertions in your test: It makes it clearer to future coders what your test was checking for, and the error message is more useful from a failed assertion rather than just failing to find an element. Right now all we’ll get if the test above fails is a timeout and a line which failed. 
 
 To add assertions, use the little toolbar at the top of the Chromium browser:
 
