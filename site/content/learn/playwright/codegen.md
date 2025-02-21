@@ -122,7 +122,8 @@ You’ll also notice in the screenshot that the inspector automatically adds a `
 
 To see the highly visual codegen tool in action, check out Stefan’s video below:
 
-[https://www.youtube.com/watch?v=O-uS5wKKB30](https://www.youtube.com/watch?v=O-uS5wKKB30)
+{{< youtube id="O-uS5wKKB30" >}}
+
 
 ### Go further with Playwright
 
