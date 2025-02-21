@@ -75,7 +75,7 @@ To add assertions, use the little toolbar at the top of the Chromium browser:
 
 this will generate a `.toContainText(` assertion in the inspector
     
-- Finally the ‘Assert Value’ generates a `.toHaveValue(` assertion, which is used to check that an [input field has a certain value](https://playwright.dev/docs/api/class-locatorassertions#locator-assertions-to-have-value), for pre-filled inputs or for example when a user’s data should automatically be filled out in a form.
+- Finally the ‘Assert Value’ generates a `.toHaveValue()` assertion, which is used to check that an [input field has a certain value](https://playwright.dev/docs/api/class-locatorassertions#locator-assertions-to-have-value), for pre-filled inputs or for example when a user’s data should automatically be filled out in a form.
 
 Note that the assertions created by codegen are fairly basic, and while they could be the whole basis for a test suite, it’s a great idea to learn about [Playwright assertions](https://www.checklyhq.com/learn/playwright/assertions/) and write more complex ones yourself. You can write any calculable value into an assertion, so the sky is the limit.
 
