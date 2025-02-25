@@ -15,21 +15,24 @@ weight: 120
 
 ## Introduction
 
-Early in my career, I had to learn about load balancers the hard way. A senior engineer left, and as the junior, I was left to figure things out.
+When building secure applications, understanding how TCP works with SSL/TLS (Secure Sockets Layer/Transport Layer Security) is crucial. SSL/TLS is a cryptographic protocol that provides secure communication over a TCP connection. It ensures that data transmitted between a client and server is encrypted and authenticated, protecting it from eavesdropping, tampering, and forgery.
 
-At the time, I didn’t fully understand SSL connections. I made a change to a VIP (Virtual IP) that handled all our Point of Sale transactions. I switched it from a non-SSL setup to an SSL one—but I forgot to add the proper certificates. Suddenly, our entire retail system went down.
+----
+One senior developer shared a story of why it's important to understand the networking aspects of production service maintenance:
 
-For an hour, I had no idea I was the cause. Then, while checking reports, I noticed tons of dropped connections. I realized my mistake, reverted the change, and everything went back to normal.
+   "Early in my career, I had to learn about load balancers the hard way. A senior engineer left, and as the junior, I was left to figure things out.
 
-The impact? About $11 million in revenue was lost because transactions couldn’t be processed. Ouch .
+   At the time, I didn’t fully understand SSL connections. I made a change to a VIP (Virtual IP) that handled all our Point of Sale transactions. I switched it from a non-SSL setup to an SSL one—but I forgot to add the proper certificates. Suddenly, our entire retail system went down.
 
-This taught me why understanding SSL connections is critical. A small mistake can have huge consequences. Always double-check certificates and configurations—especially when dealing with critical systems.
+   For an hour, I had no idea I was the cause. Then, while checking reports, I noticed tons of dropped connections. I realized my mistake, reverted the change, and everything went back to normal.
+
+   The impact? About $11 million in revenue was lost because transactions couldn’t be processed. Ouch .
+
+   This taught me why understanding SSL connections is critical. A small mistake can have huge consequences. Always double-check certificates and configurations—especially when dealing with critical systems."
 
 ---
 
-When building secure applications, understanding how TCP works with SSL/TLS (Secure Sockets Layer/Transport Layer Security) is crucial. SSL/TLS is a cryptographic protocol that provides secure communication over a TCP connection. It ensures that data transmitted between a client and server is encrypted and authenticated, protecting it from eavesdropping, tampering, and forgery.
-
-As an application developer, you need to know how TCP and SSL/TLS work together to establish secure connections, authenticate parties, and ensure data integrity. This section will explain the relationship between TCP and SSL/TLS, focusing on authentication and how it impacts your application.
+As an application developer, you need to know how TCP and SSL/TLS work together to establish secure connections, authenticate parties, and ensure data integrity. This article will explain the relationship between TCP and SSL/TLS, focusing on authentication and how it impacts your application.
 
 
 ## How TCP and SSL/TLS Work Together
