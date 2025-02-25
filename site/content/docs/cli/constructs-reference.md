@@ -625,6 +625,25 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
 
 [Learn more about Pagerduty alert channels](/docs/integrations/pagerduty/)
 
+## `IncidentioAlertChannel`
+
+Triggers and resolves alerts in Incident.io.
+
+```ts {title="incidentio-channel.ts"}
+import { IncidentioAlertChannel } from 'checkly/constructs'
+
+const incidentioChannel = new IncidentioAlertChannel('incidentio-channel-1', {
+  name: 'ACME alerts',
+  url: 'https://api.incident.io/v2/alert_events/checkly/xxxxx',
+  apiKey: 'xxxxx45afe73'
+})
+ ```
+
+- `name`: Friendly name to recognise the integration.
+- `url`: The target URL created by installing the Checkly integration in Incident.io.
+- `apiKey`: The API key created by installing the Checkly integration in Incident.io.
+[Learn more about Incident.io alert channels](/docs/integrations/incidentio/)
+
 ## `MaintenanceWindow`
 
 Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
