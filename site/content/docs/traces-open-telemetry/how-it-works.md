@@ -5,9 +5,8 @@ navTitle: How it works
 weight: 70
 menu:
   platform:
-    parent: "Traces (beta)"
+    parent: "Traces"
     identifier: how-it-works
-beta: true
 aliases:
   - "/docs/open-telemetry/how-it-works"
 ---

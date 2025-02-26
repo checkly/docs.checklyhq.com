@@ -40,7 +40,7 @@ npx checkly test --location eu-west-1
 Dry run checks while passing a specific URL and a password. These variables are available on `process.env`
 
 ```bash
-npx checkly test --env "ENVIRONMENT_URL=https://preview.acme.com" --env PASSWORD=doremiabc123
+npx checkly test --env ENVIRONMENT_URL="https://preview.acme.com" --env PASSWORD=doremiabc123
 ```
 
 This is very powerful when combined with passing environment variables using one of the flags `--env` or `--env-file` as you can target staging, test and preview environment with specific URLs, credentials and other common variables that differ
@@ -117,7 +117,7 @@ npx checkly trigger
 Trigger checks tagged with "production" and "api" and pass in an `ENVIRONMENT_URL`.
 
 ```bash
-npx checkly trigger --tags=production,api -e ENVIRONMENT_URL=https://staging.acme.com
+npx checkly trigger --tags=production,api -e ENVIRONMENT_URL="https://staging.acme.com"
 ```
 
 Trigger all checks to run in location `eu-west-1` and record a test session named "Adhoc test run".

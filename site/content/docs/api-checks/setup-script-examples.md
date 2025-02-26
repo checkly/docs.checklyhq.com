@@ -19,7 +19,7 @@ Here are some examples on how to address common authentication use cases with se
 {{< tabs "fetch token" >}}
 {{< tab "TypeScript" >}}
 ```ts
-import { axios } from 'axios'
+import axios from 'axios'
 
 // use 'await' on an axios HTTP get to fetch a token from a location
 const { data } = await axios.get('https://example.com/api/token')

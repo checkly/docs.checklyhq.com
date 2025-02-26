@@ -301,6 +301,87 @@ new MultiStepCheck('multistep-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
+
+## `TcpCheck`
+
+TCP Checks are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
+
+- It defines the basic check properties like `name`, `activated` etc.
+- It defines the `hostname`, `port`, and `data`
+- It defines an array of assertions using the `TcpAssertionBuilder` to assert that:
+  - the total response time is within the given limit
+  - the response contains the provided value
+
+
+The file hierarchy looks as follows:
+
+```
+├── __checks__
+│   ├── hello-tcp.check.ts
+```
+
+```ts {title="hello-tcp.check.ts"}
+import { TcpCheck, TcpAssertionBuilder } from 'checkly/constructs'
+
+new TcpCheck('hello-tcp-1', {
+  name: 'Hello TCP',
+  activated: true,
+  maxResponseTime: 5000,
+  degradedResponseTime: 4000,
+  request: {
+    hostname: 'tcpbin.com',
+    port: 4242,
+    data: 'ping\n',
+    ipFamily: 'IPv6',
+    assertions: [
+        TcpAssertionBuilder.responseTime().lessThan(1000),
+        TcpAssertionBuilder.responseData().contains('ping')
+    ]
+  }
+})
+```
+- `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
+- `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
+- `request`: An object of the `TcpRequest` type. See the [`TcpRequest` reference](#tcprequest).
+- `shouldFail`: When set to `true`, the check is considered successful if the connection attempt fails. If not specified, the default value is `false`.
+
+> [!NOTE]
+> Failing assertions will cause the check to fail, regardless of the `shouldFail` value
+
+
+
+### `TcpRequest`
+
+The `request` object is a mandatory part of an TCP check.
+
+- `hostname`: The hostname the connection should be made to. Do not include a scheme or a port in the hostname.
+- `port`: The port the connection should be made to.
+- `ipFamily`: The IP family to use for the connection. Defaults to `IPv4`.
+- `data`: The data to send to the target host. Only `string` values are supported.
+- `assertions`: An array of assertions to validate response time and response data.
+See the [`TcpAssertionBuilder` reference](#tcpassertionbuilder).
+
+### `TcpAssertionBuilder`
+
+To define `assertions` for the `request` of an `TcpCheck` you should use the `TcpAssertionBuilder`. 
+
+ Here are some examples:
+
+- Assert the total response time of the TCP request
+
+```ts
+TcpAssertionBuilder.responseTime().lessThan(1000),
+// renders to a JSON string
+"{ source: 'RESPONSE_TIME', regex: '', property: '', comparison: 'LESS_THAN', target: '1000' }"
+```
+
+- Asserting the value in the response.
+```ts
+TcpAssertionBuilder.responseData().contains('ping')
+// renders to a JSON string
+"{ source: 'RESPONSE_DATA', regex: '', property: '', comparison: 'CONTAINS', target: 'ping' }"
+```
+
 ## `CheckGroup`
 
 You can explicitly organize Checks in Check Groups.
@@ -543,6 +624,59 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
   the `serviceKey`.
 
 [Learn more about Pagerduty alert channels](/docs/integrations/pagerduty/)
+
+## `IncidentioAlertChannel`
+
+Triggers and resolves alerts in Incident.io.
+
+```ts {title="incidentio-channel.ts"}
+import { IncidentioAlertChannel } from 'checkly/constructs'
+
+const incidentioChannel = new IncidentioAlertChannel('incidentio-channel-1', {
+  name: 'ACME alerts',
+  url: 'https://api.incident.io/v2/alert_events/checkly/xxxxx',
+  apiKey: 'xxxxx45afe73'
+})
+ ```
+
+- `name`: Friendly name to recognise the integration.
+- `url`: The target URL created by installing the Checkly integration in Incident.io.
+- `apiKey`: The API key created by installing the Checkly integration in Incident.io.
+[Learn more about Incident.io alert channels](/docs/integrations/incidentio/)
+
+## `MSTeamsAlertChannel`
+
+Sends alerts to any Microsoft Teams channel.
+
+```ts {title="msteams-channel.ts"}
+import { MSTeamsAlertChannel } from 'checkly/constructs'
+
+const msTeamsAlertChannel = new MSTeamsAlertChannel('msteams-channel-01', {
+  name: 'ACME alerts',
+  url: 'https://prod-24.westus.logic.azure.com:443/worklfows/xxxxx',
+})
+```
+- `name`: Friendly name to recognise the integration.
+- `url`: The target URL created by creating a Workflow in Microsoft Teams.
+  [Learn more about Microsoft Teams alert channels](/docs/integrations/msteams/)
+
+## `TelegramAlertChannel`
+
+Sends alerts to a Telegram channel.
+
+```ts {title="telegram-channel.ts"}
+import { TelegramAlertChannel } from 'checkly/constructs'
+
+export const telegramChannel = new TelegramAlertChannel('my-telegramchannel-01', {
+  name: 'My Telegram channel',
+  apiKey: 'xxxxxx',
+  chatId: 'xxxxxx'
+})
+```
+- `name`: Friendly name to recognise the integration.
+- `apiKey`: The API key associated with your Telegram bot.
+- `chatId`: The chat ID of the Telegram channel you want to send alerts to.
+  [Learn more about Microsoft Teams alert channels](/docs/integrations/telegram/)
 
 ## `MaintenanceWindow`
 

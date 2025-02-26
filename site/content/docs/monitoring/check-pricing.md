@@ -15,15 +15,15 @@ Checkly supports different kinds of checks which are billed slightly differently
 | Check type | Base cost          | Parallel scheduling    | Retries             |
 |------------|--------------------|------------------------|---------------------|
 | Browser    | $5 per 1k runs     | Each location is a run | Each retry is a run |
-| API        | $2 per 10k runs    | Each location is a run | Each retry is a run |
-| TCP        | $2 per 10k runs    | Each location is a run | Each retry is a run |
+| API & network     | $2 per 10k runs    | Each location is a run | Each retry is a run |
 | Multistep  | $2 per 10k requests| Locations x requests   | Retries x requests  |
 | Heartbeat  | -                  | -                      | -                   |
 
 > The check prices above are based on prepaid check bundles as shown on our [Pricing page](https://www.checklyhq.com/pricing/). If you are on a Checkly Enterprise contract, your checks' base cost might differ substantially from what is shown above.
 
 When configuring your check frequency and scheduling strategy, the cost helper will estimate the monthly cost for the check.
-<img class="screenshot-partial" alt="cost helper widget" src="/docs/images/monitoring/price-helper.png"/>
+
+![cost helper widget](/docs/images/monitoring/price-helper.png)
 
 
 ## API & network checks, and browser checks
