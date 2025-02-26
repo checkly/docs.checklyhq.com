@@ -644,6 +644,40 @@ const incidentioChannel = new IncidentioAlertChannel('incidentio-channel-1', {
 - `apiKey`: The API key created by installing the Checkly integration in Incident.io.
 [Learn more about Incident.io alert channels](/docs/integrations/incidentio/)
 
+## `MSTeamsAlertChannel`
+
+Sends alerts to any Microsoft Teams channel.
+
+```ts {title="msteams-channel.ts"}
+import { MSTeamsAlertChannel } from 'checkly/constructs'
+
+const msTeamsAlertChannel = new MSTeamsAlertChannel('msteams-channel-01', {
+  name: 'ACME alerts',
+  url: 'https://prod-24.westus.logic.azure.com:443/worklfows/xxxxx',
+})
+```
+- `name`: Friendly name to recognise the integration.
+- `url`: The target URL created by creating a Workflow in Microsoft Teams.
+  [Learn more about Microsoft Teams alert channels](/docs/integrations/msteams/)
+
+## `TelegramAlertChannel`
+
+Sends alerts to a Telegram channel.
+
+```ts {title="telegram-channel.ts"}
+import { TelegramAlertChannel } from 'checkly/constructs'
+
+export const telegramChannel = new TelegramAlertChannel('my-telegramchannel-01', {
+  name: 'My Telegram channel',
+  apiKey: 'xxxxxx',
+  chatId: 'xxxxxx'
+})
+```
+- `name`: Friendly name to recognise the integration.
+- `apiKey`: The API key associated with your Telegram bot.
+- `chatId`: The chat ID of the Telegram channel you want to send alerts to.
+  [Learn more about Microsoft Teams alert channels](/docs/integrations/telegram/)
+
 ## `MaintenanceWindow`
 
 Creates a maintenance window that lets you schedule planned maintenance and prevents your checks from running at specific times.
