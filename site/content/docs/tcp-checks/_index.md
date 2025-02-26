@@ -10,8 +10,6 @@ slug: /
 
 ---
 
-> This feature is currently in beta. We’d love to hear your feedback—connect with us via the [Checkly community Slack](https://www.checklyhq.com/slack) or reach out to our [support team](mailto:support@checklyhq.com).
-
 ## Overview
 
 A TCP check establishes a connection to a specified hostname or IP address and port to verify responsiveness. These checks are ideal for monitoring non-HTTP services critical to your infrastructure. Here are a few example use cases:
