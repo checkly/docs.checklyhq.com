@@ -8,7 +8,7 @@ menu:
     parent: "CLI"
 ---
 
-To kickstart a new project with the CLI, we recommend running `npm create checkly`. But you can also add the CLI
+To kickstart a new project with the CLI, we recommend running `npm create checkly@latest`. But you can also add the CLI
 from scratch with the following steps.
 
 ## Prerequisites

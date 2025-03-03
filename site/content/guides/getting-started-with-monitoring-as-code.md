@@ -36,7 +36,9 @@ Let's jump into the step-by-step process.
 
 We’re going to pretend we are working on adding a feature to a web application that also requires some updates to our API backend. We will assume we already bootstrapped our repository with a Checkly CLI project using:
 
-npm create checkly
+```bash
+npm create checkly@latest
+```
 
 This command sets up all the basics to kickstart your MaC workflow in your repo.
 

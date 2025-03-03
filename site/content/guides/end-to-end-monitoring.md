@@ -237,7 +237,7 @@ Step 1: Setting Up a Checkly Account
 Ensure you have an active Checkly account. If not, sign up. The default free Team trial lasts for 14 days. To access advanced features beyond the trial, subscribe to a pricing plan based on your needs. 
 Step 2: Setting Up Checkly in Repository
 After completing the installation steps, open a terminal in the directory of your project and run the following command:
-`npm create checkly`
+`npm create checkly@latest`
 This command will bootstrap your repository with the basics needed to start using Checkly MaC in your project.
 
 ![Checkly CLI project setup screenshot](/guides/images/guides-checkly-install.png "Creating a project in the Checkly CLI")

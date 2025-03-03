@@ -33,7 +33,7 @@ Though the rest of this guide will refer to our developer as the person we're en
 First off, our developer may not be very excited to log into a web interface to create new monitors. Since developers are used to running and deploying code from the command line, we want to make available the Checkly CLI to our developers. A [full guide to the Checkly CLI](https://www.checklyhq.com/docs/cli/) is on our documentation site, but in general the process would look like:
 
 1. Set up the CLI on the developer's machine - install is easy with npm, then the developer can authenticate their cli with `npx checkly login`.
-2. Create a new project - developers can either grab an existing repository with the team's checks, or use `npm create checkly` to make a new project.
+2. Create a new project - developers can either grab an existing repository with the team's checks, or use `npm create checkly@latest` to make a new project.
 3. Run your checks - rather than running new Playwright checks from the developer's laptop, they can run checks through the whole Checkly system with `npx checkly test`, the tool will scan the project for tests, run them as configured from the real geographic locations, and give a local report on results.
 4. Deploy your checks - Once the developer is happy with their checks, they can deploy them with `npx checkly deploy`, and they'll show up for all users in the web interface.
 

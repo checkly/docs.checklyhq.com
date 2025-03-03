@@ -2,7 +2,7 @@
  * copy CLI installation command
  */
 
-const copyTextCli = 'npm create checkly'
+const copyTextCli = 'npm create checkly@latest'
 
 $(document).ready(() => {
   $('#copy-cli-installation-code').click(function () {
@@ -26,7 +26,7 @@ function resetButton () {
     .css({ backgroundColor: '#1f1f1f' })
 
   $('#cli-installation-code')
-    .text('npm create checkly')
+    .text('npm create checkly@latest')
 }
 
 const copyToClipboard = text => {

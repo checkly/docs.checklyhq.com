@@ -20,7 +20,7 @@ Get started by installing the CLI using the following command which will guide y
 set up a fully working example.
 
 ```bash
-npm create checkly
+npm create checkly@latest
 ```
 
 Now, login to your Checkly account or sign up for a new account right from the terminal.
