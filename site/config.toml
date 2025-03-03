@@ -63,11 +63,9 @@ disqusShortname = "checkly"
     weight = 30
 
 [[menu.platform]]
-	name = "Traces (beta)"
+	name = "Traces"
 	url = "/docs/traces-open-telemetry/"
 	weight = 50
-	beta = true
-
 
 [[menu.resources]]
 	name = "API checks"

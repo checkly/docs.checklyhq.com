@@ -7,7 +7,6 @@ weight: 24
 menu:
   platform:
     parent: Export traces to 3rd party tools with Checkly - Checkly Docs
-beta: true
 aliases:
   - "/docs/open-telemetry/exporting-traces/dash0/"
 ---

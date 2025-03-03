@@ -326,8 +326,8 @@ import { TcpCheck, TcpAssertionBuilder } from 'checkly/constructs'
 new TcpCheck('hello-tcp-1', {
   name: 'Hello TCP',
   activated: true,
-  maxResponseTime: 10000,
-  degradedResponseTime: 5000,
+  maxResponseTime: 5000,
+  degradedResponseTime: 4000,
   request: {
     hostname: 'tcpbin.com',
     port: 4242,
@@ -624,6 +624,59 @@ const pagerdutyChannel = new PagerdutyAlertChannel('pagerduty-channel-1', {
   the `serviceKey`.
 
 [Learn more about Pagerduty alert channels](/docs/integrations/pagerduty/)
+
+## `IncidentioAlertChannel`
+
+Triggers and resolves alerts in Incident.io.
+
+```ts {title="incidentio-channel.ts"}
+import { IncidentioAlertChannel } from 'checkly/constructs'
+
+const incidentioChannel = new IncidentioAlertChannel('incidentio-channel-1', {
+  name: 'ACME alerts',
+  url: 'https://api.incident.io/v2/alert_events/checkly/xxxxx',
+  apiKey: 'xxxxx45afe73'
+})
+ ```
+
+- `name`: Friendly name to recognise the integration.
+- `url`: The target URL created by installing the Checkly integration in Incident.io.
+- `apiKey`: The API key created by installing the Checkly integration in Incident.io.
+[Learn more about Incident.io alert channels](/docs/integrations/incidentio/)
+
+## `MSTeamsAlertChannel`
+
+Sends alerts to any Microsoft Teams channel.
+
+```ts {title="msteams-channel.ts"}
+import { MSTeamsAlertChannel } from 'checkly/constructs'
+
+const msTeamsAlertChannel = new MSTeamsAlertChannel('msteams-channel-01', {
+  name: 'ACME alerts',
+  url: 'https://prod-24.westus.logic.azure.com:443/worklfows/xxxxx',
+})
+```
+- `name`: Friendly name to recognise the integration.
+- `url`: The target URL created by creating a Workflow in Microsoft Teams.
+  [Learn more about Microsoft Teams alert channels](/docs/integrations/msteams/)
+
+## `TelegramAlertChannel`
+
+Sends alerts to a Telegram channel.
+
+```ts {title="telegram-channel.ts"}
+import { TelegramAlertChannel } from 'checkly/constructs'
+
+export const telegramChannel = new TelegramAlertChannel('my-telegramchannel-01', {
+  name: 'My Telegram channel',
+  apiKey: 'xxxxxx',
+  chatId: 'xxxxxx'
+})
+```
+- `name`: Friendly name to recognise the integration.
+- `apiKey`: The API key associated with your Telegram bot.
+- `chatId`: The chat ID of the Telegram channel you want to send alerts to.
+  [Learn more about Microsoft Teams alert channels](/docs/integrations/telegram/)
 
 ## `MaintenanceWindow`
 

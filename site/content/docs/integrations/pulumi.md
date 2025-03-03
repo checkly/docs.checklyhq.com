@@ -213,6 +213,27 @@ new checkly.Check('my-browser-check-pulumi', {
 })
 ```
 
+#### How to create your first TCP check
+
+```javascript {title="tcp-check.js"}
+new checkly.TcpCheck('my-tcp-check', {
+  name: 'Example TCP check',
+  activated: true,
+  shouldFail: false,
+  frequency: 1,
+  useGlobalAlertSettings: true,
+  locations: ['us-west-1'],
+  degradedResponseTime: 3000,
+  maxResponseTime: 5000,
+  tags: ['pulumi'],
+  request: {
+    hostname: 'api.checklyhq.com',
+    port: 80,
+  },
+});
+```
+For detailed documentation on TCP checks, refer to the [Pulumi Checkly TCP Check API docs](https://www.pulumi.com/registry/packages/checkly/api-docs/tcpcheck/).
+
 ### Creating checks and applying changes
 
 Your `index.js` file should now include instructions to create one API and one Browser check.

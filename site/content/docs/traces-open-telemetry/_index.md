@@ -1,20 +1,18 @@
 ---
 title: Getting started with Checkly Traces and OpenTelemetry - Checkly Docs
 displayTitle: Getting started with Checkly Traces and OpenTelemetry
-navTitle: Overview
 weight: 1
 menu:
   platform:
-    parent: "Traces (beta)"
+    parent: "Traces"
     identifier: traces-open-telemetry
 navTitle: Getting started
-beta: true
 aliases:
   - "/docs/open-telemetry/"
 ---
 
 
-> Checkly Traces are OpenTelemetry native. Currently in **beta** and available for free on all plans. 
+> Checkly Traces are OpenTelemetry native and available on all plans. 
 > Need help getting started? We offer a **free, 1:1 onboarding service** to help you instrument your stack with the 
 > correct OpenTelemetry SDKs and enable tracing inside Checkly. 
 > [Book an onboarding session right here](https://calendly.com/maria-checkly/traces-onboarding).

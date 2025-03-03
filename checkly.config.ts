@@ -8,7 +8,7 @@ const config = defineConfig({
   checks: {
     activated: true,
     muted: false,
-    runtimeId: '2023.02',
+    runtimeId: '2024.09',
     frequency: 10,
     locations: [
       'us-east-1',

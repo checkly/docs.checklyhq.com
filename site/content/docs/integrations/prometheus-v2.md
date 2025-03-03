@@ -61,6 +61,7 @@ The following metrics are available to monitor checks:
 | `checkly_browser_check_duration_seconds` | Histogram | The total check duration. This includes all pages visited and any waits. |
 | `checkly_browser_check_errors` | Histogram | The errors encountered during a full browser session. |
 | `checkly_api_check_timing_seconds` | Histogram | The response time for the API request, as well as the duration of the different phases. |
+| `checkly_tcp_check_timing_seconds` | Histogram | The response time for the TCP request, as well as the duration of the different phases. |
 | `checkly_multistep_check_duration_seconds` | Histogram | The total check duration. This includes all requests done and any waits. |
 | `checkly_time_to_ssl_expiry_seconds` | Gauge | The amount of time remaining before the SSL certificate of the monitored domain expires. See the [SSL certificate expiration docs](/docs/alerting-and-retries/ssl-expiration/) for more information on monitoring SSL certificates with checks. |
 

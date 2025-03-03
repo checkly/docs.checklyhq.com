@@ -35,6 +35,4 @@ updates:
     - dependency-name: debug
       versions:
       - 2.6.9
-    - dependency-name: hugo
-    - dependency-name: hugo-bin
 
