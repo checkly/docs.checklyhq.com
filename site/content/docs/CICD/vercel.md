@@ -14,14 +14,11 @@ aliases:
 
 If you are using Vercel to develop, preview, and ship your application, you can natively integrate with Checkly by installing [the official integration](https://vercel.com/integrations/checkly) from the Vercel Marketplace. 
 
-Checkly offers two integration paths:
-- Native integration, **if you don't yet have a Checkly account**. With the native integration, user access and billing is managed through Vercel. If you are new to Vercel's native integrations you can read more about them on the [Vercel documentation page](https://vercel.com/docs/integrations#native-integrations).
-- Connected integration, **if you already have a Checkly account**. The connected integration can be installed on top of the native integration for the full Checkly - Vercel integration experience.
-
-The Vercel integration will help you by:
-
--  Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
--  Enabling you to run checks against preview and production deployments on Vercel.
+Checkly offers two integrations for Vercel users:
+- Native integration, **for managing your Checkly account and users**. With the native integration, user access and billing is managed through Vercel. If you are new to Vercel's native integrations you can read more about them on the [Vercel documentation page](https://vercel.com/docs/integrations#native-integrations).
+- Connected integration, **to monitor your preview and production deployments**. The connected integration can be installed stand-alone or on top of the native integration and helps you by:
+  -  Automatically creating a pre-scripted browser check to catch any errors and failed requests as your web page loads.
+  -  Enabling you to run checks against preview and production deployments on Vercel.
 
 > Using Vercel deployment protection? Read [this section](/docs/cicd/vercel-deployment-protection/) on how to make this work with Checkly.
 
