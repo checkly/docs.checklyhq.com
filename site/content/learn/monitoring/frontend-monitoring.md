@@ -9,7 +9,8 @@ githubUser: serverless-mom
 displayDescription: 
   Discover the benefits, challenges, and top tools for frontend monitoring. Learn how to track performance, detect issues, and optimize user experience.
 menu:
-  learn_monitoring
+  learn_monitoring:
+    parent: Monitoring Concepts
 weight: 20
 ---
 

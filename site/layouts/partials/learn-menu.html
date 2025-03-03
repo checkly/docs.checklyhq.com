@@ -4,6 +4,8 @@
 
 {{- if eq $learnSection "playwright" -}}
   {{ partial "learn-playwright-menu" . }}
+{{- else if eq $learnSection "monitoring" -}}
+  {{ partial "learn-monitoring-menu" . }}
 {{- else -}}
   {{ partial "learn-menu-generic" (dict "learnSection" $learnSection "page" .) }}
 {{- end -}}

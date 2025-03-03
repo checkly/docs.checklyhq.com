@@ -8,7 +8,8 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: Explore the what and why of synthetic monitoring.
 menu:
-  learn_monitoring
+  learn_monitoring:
+    parent: Monitoring Concepts
 weight: 30
 ---
 
