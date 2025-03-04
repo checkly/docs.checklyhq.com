@@ -10,7 +10,7 @@ navTitle:  TCP and SSL
 weight: 120
 menu:
   learn_monitoring:
-      parent: TCP
+      parent: Protocols
 ---
 
 
