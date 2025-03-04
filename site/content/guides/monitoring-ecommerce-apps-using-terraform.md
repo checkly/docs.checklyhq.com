@@ -279,13 +279,15 @@ resource "checkly_check" "login" {
   activated                 = true
   should_fail               = false
   frequency                 = 10
-  double_check              = true
   ssl_check                 = false
   use_global_alert_settings = true
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
     script = file("${path.module}/scripts/login.spec.js")
 
@@ -301,13 +303,15 @@ resource "checkly_check" "search" {
   activated                 = true
   should_fail               = false
   frequency                 = 15
-  double_check              = true
   ssl_check                 = false
   use_global_alert_settings = true
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
     script = file("${path.module}/scripts/search.spec.js")
 
@@ -323,13 +327,15 @@ resource "checkly_check" "checkout" {
   activated                 = true
   should_fail               = false
   frequency                 = 60
-  double_check              = true
   ssl_check                 = false
   use_global_alert_settings = true
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
     script = file("${path.module}/scripts/checkout.spec.js")
 
@@ -359,7 +365,13 @@ Terraform will perform the following actions:
   + resource "checkly_check" "checkout" {
       + activated                 = true
       + degraded_response_time    = 15000
-      + double_check              = true
+      + retry_strategy {
+          + base_backoff_seconds = 60
+          + max_duration_seconds = 600
+          + max_retries          = 2
+          + same_region          = true
+          + type                 = "NONE"
+        }
       + frequency                 = 60
       + id                        = (known after apply)
       + locations                 = [
@@ -408,7 +420,6 @@ resource "checkly_check" "webstore-list-books" {
   activated                 = true
   should_fail               = false
   frequency                 = 1
-  double_check              = true
   ssl_check                 = true
   use_global_alert_settings = true
   degraded_response_time    = 5000
@@ -418,6 +429,10 @@ resource "checkly_check" "webstore-list-books" {
     "eu-central-1",
     "us-west-1"
   ]
+  
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   request {
     url              = "https://danube-web.shop/api/books"
@@ -468,13 +483,15 @@ resource "checkly_check" "login" {
   activated                 = true
   should_fail               = false
   frequency                 = 10
-  double_check              = true
   ssl_check                 = false
   use_global_alert_settings = true
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
     script = file("${path.module}/scripts/login.spec.js")
 

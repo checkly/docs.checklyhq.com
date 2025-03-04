@@ -25,7 +25,6 @@ resource "checkly_check" "e2e-login" {
   type                      = "BROWSER"       // The type of the check
   activated                 = true            // Whether the check will start as active on creation
   frequency                 = 10              // The frequency of the check in minutes
-  double_check              = true            // Whether the check should be run once more on failure
   ssl_check                 = true            // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true            // Whether to use account level alert setting instead of the alert setting defined on this check
   run_parallel              = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
@@ -34,6 +33,10 @@ resource "checkly_check" "e2e-login" {
     "us-west-1",
     "eu-central-1"
   ]
+
+  retry_strategy = {                          // The retry strategy used for failed runs
+    type = "LINEAR"
+  }            
 
   // The script the check should execute
   script = <<EOT
@@ -62,13 +65,17 @@ resource "checkly_check" "e2e-login" {
   activated                 = true
   should_fail               = false
   frequency                 = 1
-  double_check              = true
   ssl_check                 = false
   use_global_alert_settings = true
+
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   script = file("${path.module}/scripts/login.spec.js") // Our script is contained in this file
 }
@@ -87,7 +94,6 @@ resource "checkly_check" "get-books" {
   activated                 = true      // Whether the check will start as active on creation
   should_fail               = false     // Whether the check's HTTP response's status is expected to be >399
   frequency                 = 1         // The frequency of the check in minutes
-  double_check              = true      // Whether the check should be run once more on failure
   ssl_check                 = true      // Whether your SSL cert for the given domain should be checked too
   use_global_alert_settings = true      // Whether to use account level alert setting instead of the alert setting defined on this check
   run_parallel              = true            // Whether the check would run in a single location at time (round-robin) or all locations on each run
@@ -96,6 +102,10 @@ resource "checkly_check" "get-books" {
     "us-west-1",
     "eu-central-1"
   ]
+  
+  retry_strategy = {                    // The retry strategy used for failed runs
+    type = "LINEAR"
+  }
 
   request {                             // All the settings for the check's HTTP request
     url              = "https://danube-web.shop/api/books"   // The request URL
@@ -240,10 +250,12 @@ resource "checkly_check_group" "key-shop-flows" {
   ]
 
   concurrency               = 3     // How many checks to run at once when triggering the group using CI/CD triggers
-  double_check              = true  // Whether to re-run a failed check from a different location
   use_global_alert_settings = false // Whether to use global alert settings or group-specific ones
-
   run_parallel              = true  // Whether the check would run in a single location at time (round-robin) or all locations on each run
+
+  retry_strategy = {                // The retry strategy used for failed runs
+    type = "LINEAR"
+  }
 }
 ```
 
@@ -258,7 +270,6 @@ resource "checkly_check" "get-books" {
   activated                 = true
   should_fail               = false
   frequency                 = 1
-  double_check              = true
   ssl_check                 = true
   use_global_alert_settings = true
 
@@ -269,6 +280,10 @@ resource "checkly_check" "get-books" {
 
   // This makes the check part of the group
   group_id = checkly_check_group.key-shop-flows.id
+
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   request {
     url              = "https://danube-web.shop/api/books"
