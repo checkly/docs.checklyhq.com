@@ -249,18 +249,30 @@
   }
 
   &-toc {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     flex: 0 0 $toc-width;
     font-size: .875rem;
     margin-right: auto;
     width: 232px;
-    padding-top: 1rem;
+
+    &-content {
+      padding: 1rem 0 1rem 1rem;
+      height: calc(100vh - 1rem);
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
 
     nav {
       width: $toc-width;
       bottom: 0;
       overflow-x: hidden;
-      overflow-y: auto
+      overflow-y: auto;
+      ul ul {
+        padding-left: 1rem;
+        border-left: none !important;
+      }
     }
     // hacky way to hide 3rd level heading in little page TOC because Hugo does not allow filtering the TOC by level
 
@@ -280,11 +292,6 @@
           }
         }
       }
-    }
-
-    nav ul ul {
-      padding-left: 1rem;
-      border-left: none !important;
     }
 
     &-header {

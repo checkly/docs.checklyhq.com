@@ -2,7 +2,7 @@
 title: API teardown script examples - Checkly Docs
 displayTitle: API teardown script examples
 navTitle: Teardown script examples
-weight: 2
+weight: 14
 menu:
   resources:
     parent: "API setup & teardown scripts - Checkly Docs"
