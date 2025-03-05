@@ -1,7 +1,7 @@
 ---
 title: Defining MTTR - what mean time to repair means for your team
 displayTitle: What is MTTR? And Why Cant We Agree On It?
-navTitle:  Defining MTTR
+navTitle:  What is MTTR?
 description: 
 date: 2025-02-15
 author: Nocnica Mellifera
