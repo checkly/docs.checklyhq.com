@@ -74,8 +74,7 @@ Checkly runs your API checks based on an interval you set. The shortest interval
 
 Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks.
 
-Our alerting is pretty flexible. You can configure any of our [alert channels](/docs/alerting-and-retries/alert-channels/) for whichever checks you like. If we don't have your preferred alert method, why not try out our [webhooks](/docs/alerting-and-retries/webhooks/)?
-> [SMS](/docs/alerting-and-retries/sms-delivery/) and [phone call](/docs/alerting-and-retries/phone-calls/) alerts are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing) 
+Choose which [alert channels](/docs/alerting-and-retries/alert-channels/) to get notified through when your check runs into issues. If we don't have your preferred alert method, why not try out our [webhooks](/docs/alerting-and-retries/webhooks/)?
 
 ### Testing
 
