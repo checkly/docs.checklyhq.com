@@ -269,7 +269,7 @@ test('test', async ({ page }) => {
 
   // Retry this code block until actions and assertions succeed
   // or timeouts are hit and the test fails
-  await expect(() => {
+  await expect(async () => {
     await page.getByRole('button', { name: 'Toolbar 1' }).click();
     await page.locator('#modal1').getByText('Close').click();
   }).toPass()

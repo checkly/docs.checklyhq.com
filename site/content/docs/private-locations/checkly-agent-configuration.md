@@ -40,7 +40,7 @@ Here are some more usage examples:
 2. Configure an HTTPS or HTTP proxy if one is required for your environment:
 
 ```bash
--e HTTPS_PROXY="https://user:password@127.0.0.1:8080"`
+-e HTTPS_PROXY="https://user:password@127.0.0.1:8080"
 ```
 
 Once the agent container is running, you can see it in a running state using the appropriate command from your container engine (typically `docker ps`).
@@ -129,13 +129,13 @@ API keys can be rotated as necessary in order to maintain good security practice
 6. You now need to replace your Checkly agents. You can do this one-by-one or as a group, just make sure you always have enough agent containers up and running based on your workload. Using your container management tool, start new agents with the new API key:
 
 ```bash
-docker run -e API_KEY="pl_...." -d checkly/agent:latest`
+docker run -e API_KEY="pl_...." -d checkly/agent:latest
 ```
 
 7. Make sure the new agents are running properly. You can check the agent count on the Private Locations page, or check your container logs. Remove the old agent containers:
 
 ```bash
-docker stop <old container name or ID>`
+docker stop <old container name or ID>
 ```
 
 If you lose track of which agent containers are using the old API key, you can use the `docker inspect <container name or ID>` command and look for the `API_KEY` variable in the output.

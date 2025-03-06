@@ -20,12 +20,14 @@ resource "checkly_check" "e2e-checkout" {
   activated                 = true
   should_fail               = false
   frequency                 = 1
-  double_check              = true
   use_global_alert_settings = true
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   script = file("${path.module}/scripts/checkout.spec.ts") // Or .js - our script is contained in this file
 }
