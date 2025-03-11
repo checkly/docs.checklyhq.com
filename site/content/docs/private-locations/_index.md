@@ -51,7 +51,7 @@ Here are the requirements before you get started:
 For more configuration options, check the detailed instructions in the [installing Checkly agent guide](/docs/private-locations/checkly-agent-configuration/).
 
 ```bash
-docker run -e API_KEY="pl_...." -d checkly/agent:latest`
+docker run -e API_KEY="pl_...." -d checkly/agent:latest
 ```
 
 
