@@ -2,7 +2,7 @@
 title: API setup script examples - Checkly Docs
 displayTitle: API setup script examples
 navTitle: Setup script examples
-weight: 1
+weight: 13
 menu:
   resources:
     parent: "API setup & teardown scripts - Checkly Docs"
