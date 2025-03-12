@@ -29,8 +29,7 @@ To install Checkly's managed Vercel integration, navigate to the [integration's 
 1. Select `Create new account` in the installation guide and click `Next` to accept the terms and conditions.
 2. Select your plan type. You can read about our pricing plans [here](https://www.checklyhq.com/pricing/), and more about how we bill checks [here](/docs/monitoring/check-pricing/).
 3. Name your account and review your plan selection. You can change your account name later.
-4. Press `Create` to continue to the integration settings page. Select `Getting started` to go to the setup guide in Vercel. You can also click `Open in Checkly` to go through the Checkly + Vercel onboarding and get you started with an example project showcasing how to use Monitoring as Code together with Vercel. You can also jump straight to our [example NextJS project](https://github.com/checkly/nextjs-checkly-starter-template) which includes a guide on how to use Monitoring as Code with a NextJS project.
-5. If you want to directly connect your Checkly checks with Vercel and run them against preview and deployments on Vercel, continue with installing the connected integration, as explained below.
+4. Press `Create` to continue to the integration settings page. Select `Getting started` to go to the setup guide in Vercel. You can also click `Open in Checkly` to go through the Checkly + Vercel onboarding and get you started with an example project showcasing how to use Monitoring as Code together with Vercel. You can find the [example NextJS project on GitHub](https://github.com/checkly/nextjs-checkly-starter-template) which includes a guide on how to use Monitoring as Code with a NextJS project.
 
 ## Installing the connected integration
 
@@ -44,7 +43,7 @@ To install Checkly's managed Vercel integration, navigate to the [integration's 
 
 5. Additionally, you can have new checks automatically generated for existing Vercel projects, and set them up to automatically run on preview and/or production deployments.
 
-## Linking checks and groups with the connected integration
+## Managing the connected integration
 
 If you already have the connected Vercel integration set up, you might still want to connect new checks or groups. The procedure is the same for both: edit the check or group and select `Vercel` in the `Testing` tab, then select `Link Vercel project` and the project you want to link.
 
@@ -56,7 +55,7 @@ Once the project and the check/group have been linked, you are able to specify w
 
 Should you wish to unlink the Vercel project, simply click `Unlink this project`.
 
-## Targeting Preview deployments with `ENVIRONMENT_URL` and `ENVIRONMENT_NAME`
+### Targeting Preview deployments with `ENVIRONMENT_URL` and `ENVIRONMENT_NAME`
 
 On each deployment triggered by Vercel, we inject the Checkly runtime with two variables:
 
@@ -118,7 +117,7 @@ Notice we only replace the host part, not the URL path or any query parameters.
 
 Just like for browser checks, the check will run on deploy against our preview environment, while also still running on a schedule against production.
 
-## How Checkly checks maps to Vercel checks
+### How Checkly checks maps to Vercel checks
 
 Checkly integrates deeply with the Vercel [Checks functionality](https://vercel.com/docs/concepts/deployments/checks) API to link Checks in both tools.
 Vercel uses a slightly different way in representing checks than Checkly does, specifically splitting individual check results into either:
@@ -134,7 +133,7 @@ This is how a Checkly check maps to a Vercel check:
 
 &ast; *Web Vitals are only recorded for [Playwright-based Browser checks](/docs/browser-checks/tracing-web-vitals/#performance-tracing-with-web-vitals)*
 
-## Blocking Vercel deployments
+### Blocking Vercel deployments
 
 You can block your Vercel deployments if any of your checks fail or if the web vitals degrade:
 
@@ -153,11 +152,9 @@ Vercel deployment in two ways because the Reliability part and Performance part 
 
 > Reliability and performance checks run against the [automatic deployment URL](https://vercel.com/docs/concepts/deployments/automatic-urls) Vercel generates. In case of failures or degradations, what _actually_ gets blocked is the deployment to all other URLs, e.g. branch URLs and user-assigned domains.
 
-## Virtual Experience Score & Web Vitals
+### Virtual Experience Score & Web Vitals
 
-Together with the team at Vercel, we developed the **Virtual Experience Score** (VES) that gives you one simple KPI to track. 
-
-![blocking deployments](/docs/images/cicd/vercel/vercel_ves.png)
+Together with the team at Vercel, we developed the **Virtual Experience Score** (VES) that gives you one simple KPI to track.
 
 The Virtual Experience Score does three things:
 
@@ -182,30 +179,18 @@ So, what does this mean for the blocking heuristics? It means that we will mark 
 
 For more info on the **Virtual Experience Score** [check the documentation on the Vercel site](https://vercel.com/docs/concepts/analytics/web-vitals#virtual-experience-score).
 
-## Skipping Performance checks
+### Skipping Performance checks
 
 In some cases, Checkly will completely skip performance checks. You will see the "skipped" status in your Vercel deployment overview.
 Checkly skips performance checks when the domain of the visited URL in the script does not match the domain of the **deployment URL**. In 9 out of 10 cases this should be the URL for your Preview and Production deployments.
 
 
-## Vercel-linked check results 
+### Vercel-linked test session results
 
-When selecting a check which is linked to a Vercel project, any results triggered by a deployment on that project will show at the bottom of the check page, under the tab `CI/CD triggered check results`.
+Any results triggered by a deployment can be viewed on the test sessions page in Checkly. Runs triggered by the Vercel integration have the Vercel logo next to the user name.
 
-![cicd triggered check results tab](/docs/images/cicd/vercel/vercel_result.png)
+![cicd triggered check results tab](/docs/images/cicd/vercel/vercel_test_sessions.png)
 
 On Vercel, you will also see a breakdown of checks that were executed on a given deployment, together with a breakdown of various key web vitals.
 
 ![vercel checks vitals](/docs/images/cicd/vercel/vercel_vitals.png)
-
-> Web vitals are available for Playwright-based browser checks using [runtime](/docs/runtimes/) 2021.06 or newer.
-
-### Deployments tab
-
-The Deployments tab lists all deployments on linked projects, including Vercel-based ones, together with the check executions they triggered.
-
-![deployments tab overview](/docs/images/cicd/vercel/vercel_deployments.png)
-
-Selecting a deployment enables you to quickly determine whether it caused any check failures, and to drill into the relevant information in case it did.
-
-![deployment detail](/docs/images/cicd/vercel/vercel_deployment.png)
