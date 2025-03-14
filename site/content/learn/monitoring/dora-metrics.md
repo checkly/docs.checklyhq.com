@@ -3,7 +3,7 @@ title: How to Use DORA Metrics the Right Way - measuring and calculating your te
 displayTitle: How to Use DORA Metrics the Right Way
 navTitle:  DORA Metrics for Performance Evaluation
 description: DORA metrics help teams measure how well they deliver software. DORA stands for DevOps Research and Assessment.
-date: 2025-03-15
+date: 2025-03-13
 author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
