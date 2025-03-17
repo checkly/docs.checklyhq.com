@@ -10,6 +10,9 @@ displayDescription: Understanding the basics of TCP can help you build better, m
 menu:
   learn_monitoring
 weight: 90
+menu:
+  learn_monitoring:
+      parent: Protocols
 ---
 
 As an application developer, you might think that Transmission Control Protocol (TCP) is something only network engineers need to worry about. However, as application developers take on more of the operational design and running of their applications, these previously 'low level' protocols come to the fore. Understanding the basics of TCP can help you build better, more reliable applications. This document will explain what TCP is, how it works, and what you need to know as an application developer.

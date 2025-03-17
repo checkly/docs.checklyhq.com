@@ -21,12 +21,16 @@ resource "checkly_check" "browser-check" {
   type                      = "BROWSER"
   activated                 = true
   frequency                 = 1
-  double_check              = true
   ssl_check                 = false
+  
   locations = [
     "us-west-1",
     "eu-central-1"
   ]
+
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   script = file("${path.module}/scripts/${each.key}") // Assigns the script contained in each file to each new created check resource
 

@@ -8,7 +8,8 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: Explore web application monitoring to boost performance and reliability with real user insights, performance tracking, and top tools.
 menu:
-  learn_monitoring
+  learn_monitoring:
+    parent: Monitoring Concepts
 weight: 10
 ---
 

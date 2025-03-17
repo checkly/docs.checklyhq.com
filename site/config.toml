@@ -223,6 +223,20 @@ disqusShortname = "checkly"
 	pre = "/learn/icons/errors.svg"
 	weight = 350
 
+[[menu.learn_monitoring]]
+	name = "Protocols"
+	pre = "/learn/icons/send.svg"
+	weight = 350
+
+[[menu.learn_monitoring]]
+	name = "Monitoring Concepts"
+	pre = "/learn/icons/learn.svg"
+	weight = 100
+
+[[menu.learn_monitoring]]
+	name = "Availability Metrics"
+	pre = "/learn/icons/metrics.svg"
+	weight = 120
 
 [markup.goldmark.renderer]
 	unsafe = true

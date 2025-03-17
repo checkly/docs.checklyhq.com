@@ -1,15 +1,16 @@
 ---
 title: TCP and SSL - What an application developer needs to know
 displayTitle: TCP and SSL for App Developers
-navTitle:  TCP and SSL
 description: As an application developer, you need to know how TCP and SSL/TLS work together to establish secure connections, authenticate parties, and ensure data integrity. This section will explain the relationship between TCP and SSL/TLS, focusing on authentication and how it impacts your application.
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: As an application developer, you need to know how TCP and SSL/TLS work together to establish secure connections, authenticate parties, and ensure data integrity. This section will explain the relationship between TCP and SSL/TLS, focusing on authentication and how it impacts your application.
-menu:
-  learn_monitoring
+navTitle:  TCP and SSL
 weight: 120
+menu:
+  learn_monitoring:
+      parent: Protocols
 ---
 
 

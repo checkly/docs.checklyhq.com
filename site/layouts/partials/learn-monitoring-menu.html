@@ -1,0 +1,47 @@
+<aside class="learn-menu">
+  <nav id="sideMenu">
+    {{ partial "navbar-links-mobile" . }}
+    <ul class="learn-menu-content">
+      {{- $currentPage := . -}}
+      {{- $entries := .Site.Menus.learn_monitoring -}}
+      {{- $menuID := "learn_monitoring" -}}
+
+      {{- range $index, $element:= $entries -}}  {{- if .HasChildren -}}
+      <li class='learn-menu-item'>
+        <div class='learn-menu-title{{ if $currentPage.HasMenuCurrent $menuID . }} active{{ end }}' id="{{$index}}">
+          <img src="{{.Pre}}" width="24" height="24" alt="{{.Name}}" />
+          {{.Name}}
+        </div>
+        <ul class='learn-menu-sub {{ if $currentPage.HasMenuCurrent $menuID . }}menu-display{{ end }}' id="learn-menu-{{$index}}">
+          {{range .Children}} {{ $has := $currentPage.IsMenuCurrent $menuID . }}
+          <li class="learn-menu-sub-item {{if $has}}active{{end}}">
+            <a href="{{.URL}}">
+              {{ partial "docs-title" . }}
+            </a>
+          </li>
+          {{end}}
+        </ul>
+      </li>
+      {{else}}
+      <li class="learn-menu-item" id="learn-menu-{{$index}}">
+        <div class="learn-menu-title">{{.Name}}</div>
+      </li>
+      {{end}} {{end}}
+    </ul>
+  </nav>
+  <div class="learn-menu-mobile-right-space">
+  </div>
+
+  <!-- Restore menu position as soon as possible to avoid flickering -->
+  <script>
+    (function () {
+      var menu = document.querySelector('aside.learn-menu nav')
+      addEventListener('beforeunload', function () {
+        localStorage.setItem('menu.scrollTop', menu.scrollTop)
+      })
+      menu.scrollTop = localStorage.getItem('menu.scrollTop')
+    })()
+  </script>
+
+</aside>
+
