@@ -2,7 +2,7 @@
 title: Defining MTTR - what mean time to repair means for your team
 displayTitle: What is MTTR? And Why Cant We Agree On It?
 navTitle:  What is MTTR?
-description: 
+description: Mean Time to Repair (MTTR) is a critical metric in the world of IT operations and engineering, representing the average time it takes to repair a system or service after a failure occurs. Despite its importance, many teams fail to meet their MTTR goals.
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
