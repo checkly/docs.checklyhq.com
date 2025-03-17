@@ -17,12 +17,12 @@ Ensure your API is working properly with API checks. API checks work by sending 
 
 ![Screenshot of the API check overview page](/docs/images/api-checks/overview-check-overview.png)
 
-You can use these checks to verify that:
+For example, you can use these checks to verify that:
 * Your endpoint returns a 200 status code.
 * Your endpoint responds with valid JSON that matches the expected schema.
 * Your endpoint is properly authenticating requests.
 
-If your endpoint is unresponsive or fails assertions, the check will trigger any configured alerts.
+If your endpoint is unresponsive or fails assertions, the check will trigger any configured [alerts](/docs/alerting-and-retries/).
 
 ## Creating an API check
 
@@ -51,7 +51,7 @@ Setup scripts allow you to do last minute processing of test data and request op
 
 ### Response time limits
 
-Sometimes APIs can be slow, but not broken. We call this **degraded**. You can set [response time limits](/docs/api-checks/limits/) to specify when an API check should be marked as **degraded** and when it should be marked as **failed**.
+Sometimes APIs can be slow, but not broken. We call this degraded. You can set [response time limits](/docs/api-checks/limits/) to specify when an API check should be marked as degraded and when it should be marked as failed.
 
 ### Assertions
 
@@ -105,7 +105,7 @@ new ApiCheck('hello-api-1', {
 
 The above example defines:
 - The basic check properties like `name`, `activated` etc.
-- The HTTP method `GET` the `url`.
+- The `GET` HTTP method and target `url` of the request.
 - An array of assertions to assert the HTTP response status is correct.
 
 For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
