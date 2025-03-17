@@ -45,7 +45,6 @@ resource "checkly_check" "e2e-login" {
   activated                 = true
   should_fail               = false
   frequency                 = 1
-  double_check              = true
   ssl_check                 = false
   use_global_alert_settings = true
   
@@ -58,6 +57,10 @@ resource "checkly_check" "e2e-login" {
     "us-west-1",
     "eu-central-1"
   ]
+  
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   script = file("${path.module}/scripts/login.spec.js")
 }
@@ -79,7 +82,9 @@ resource "checkly_check_group" "key-shop-flows" {
   ]
 
   concurrency               = 3
-  double_check              = true
+  retry_strategy = {
+    type = "LINEAR"
+  }
   use_global_alert_settings = false
 }
 ```

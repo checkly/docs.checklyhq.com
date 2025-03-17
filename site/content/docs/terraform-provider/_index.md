@@ -109,11 +109,15 @@ resource "checkly_check" "browser-check-1" {
   type                      = "BROWSER"
   activated                 = true
   frequency                 = 5
-  double_check              = true
+  
   locations = [
     "eu-central-1",
     "us-west-1"
   ]
+
+  retry_strategy = {
+    type = "LINEAR"
+  }
 
   script = <<EOT
 const { test, expect } = require('@playwright/test');
@@ -146,7 +150,9 @@ Terraform will perform the following actions:
   + resource "checkly_check" "browser-check-1" {
       + activated              = true
       + degraded_response_time = 15000
-      + double_check           = true
+      + retry_strategy {
+          + base_backoff_seconds = 60
+          + max_duration_seconds = 600
       ...
     }
 
@@ -252,4 +258,4 @@ Congratulations! You have created your first Checkly monitoring setup using Terr
 
 > [!WARNING]
 > Checkly resources should be managed _either_ through Terraform _or_ through the Checkly UI, not both.
-> Modifying Terraform-managed resources via the UI, and , is likely to cause issues.
+> Modifying Terraform-managed resources via the UI, and vice-versa, is likely to cause issues.
