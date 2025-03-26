@@ -251,6 +251,53 @@ test('Open the page and take a screenshot', async ({ page }) => {
 > For example, using a variable like `test.use({ channel: chromeChannel })` can cause Checkly to fail to detect that 
 > Chrome is being used.
 
+## CLI example
+
+The [Checkly CLI](/guides/getting-started-with-monitoring-as-code/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
+
+You can just write `.spec.js|ts` files and the CLI will automatically pick them up and apply some default settings like a name, run locations and run frequency to turn them into Browser checks.
+
+If you want more control over the configuration, you can explicitly define a Browser check:
+
+{{< tabs "CLI example" >}}
+{{< tab "TypeScript" >}}
+```ts {title="browser.check.ts"}
+import { BrowserCheck, Frequency } from 'checkly/constructs'
+import * as path from 'path'
+
+new BrowserCheck('browser-check-1', {
+  name: 'Browser check #1',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'home.spec.js')
+  }
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js {title="browser.check.js"}
+const { BrowserCheck, Frequency } = require('checkly/constructs')
+import * as path from 'path'
+
+new BrowserCheck('browser-check-1', {
+  name: 'Browser check #1',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'home.spec.js')
+  }
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+The above example defines:
+- The basic check properties like `name`, `frequency` etc.
+- The path to the target Playwright test file, `home.spec.js`.
+
+For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
+
 ## Next steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
 - Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-scenarios/).
