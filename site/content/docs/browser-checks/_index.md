@@ -1,6 +1,6 @@
 ---
-title: Getting started with Browser Monitoring - Checkly Docs
-displayTitle: Getting started with Browser Monitoring
+title: Getting started with Browser monitoring - Checkly Docs
+displayTitle: Getting started with Browser monitoring
 navTitle: Overview
 weight: 14
 slug: /
@@ -19,7 +19,7 @@ knowledge of working with Javascript and/or Node.js.
 ## What is a Browser check?
 
 A Browser check is a Node.js script that controls a headless browser to mimic user behavior.
-Load a web page, click a link, fill a form input – do everything your visitors might do and check if these interactions lead to the correct results.
+Load a web page, click a link, fill a form input—do everything your visitors might do and check if these interactions lead to the correct results.
 
 Your critical interactions might be:
 
@@ -27,13 +27,11 @@ Your critical interactions might be:
 - That users can add products to a shopping cart.
 - That users can edit their account details.
 
-The combination of automated interactions and assertions leads to confidence that your site works as expected.
+The combination of automated interactions and assertions leads to confidence that your site works as expected. If any of these actions fail, the check will trigger any configured [alerts](/docs/alerting-and-retries/).
 
-To power your Browser checks, Checkly uses **[Playwright Test](https://playwright.dev/docs/intro)** - a robust open-source test-runner build around **[Playwright](https://github.com/microsoft/playwright)**. Playwright test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+To power your Browser checks, Checkly uses [Playwright Test](https://playwright.dev/docs/intro)—a robust open-source test runner built around [Playwright](https://github.com/microsoft/playwright). Playwright Test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
 
-While you can use plain Playwright to run your checks on Checkly, **we highly recommend using Playwright Test**. The test-runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues, [learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
-
-
+While you can use plain Playwright to run your checks on Checkly, _we highly recommend using Playwright Test_. The test runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues. [Learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
 
 The following code is a valid Browser check using Playwright Test.
 
@@ -64,12 +62,12 @@ test('Visit Checkly HQ page', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-> Checkly currently supports using **Chromium** or **Chrome** with Playwright Test and Playwright library, with Chromium being the default browser for all checks.
+> Checkly currently supports using Chromium or Chrome with Playwright Test and the Playwright library, with Chromium being the default browser for all checks.
 > [Read more about using Chrome](/docs/browser-checks/#using-other-browsers).
 
 ## Breaking down a Browser check step-by-step
 
-Let's look at a breakdown of a real-life scenario. The code below logs into Checkly, and waits for the dashboard to fully load.
+Let's look at a breakdown of a real-life scenario. The code below logs into Checkly and waits for the dashboard to fully load.
 
 {{< tabs "Breakdown example" >}}
 {{< tab "TypeScript" >}}
@@ -112,7 +110,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 
 **3. Initial navigation:** We use the `page.goto()` method to load the first page.
 
-**4. Fill out input fields and submit:** Using the `page.type()` method we enter our email address and
+**4. Fill out input fields and submit:** Using the `page.type()` method, we enter our email address and
 password. You would normally use environment variables here to keep sensitive data
 out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-scenarios/) for more info.
 
@@ -122,7 +120,7 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 ## How do I create a Browser check?
 
-A valid Browser check is based on a valid **[Playwright Test](https://playwright.dev/docs/intro)** or **[Playwright](https://github.com/microsoft/playwright)** script. We are constantly updating Checkly to integrate their newest features ([view currently supported features](/docs/browser-checks/playwright-test/#features])).
+A valid Browser check is based on a valid [Playwright Test](https://playwright.dev/docs/intro) or [Playwright](https://github.com/microsoft/playwright) script. We are constantly updating Checkly to integrate their newest features ([view currently supported features](/docs/browser-checks/playwright-test/#features])).
 You can create these scripts in two ways:
 
 1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright Test or Playwright script automatically.
@@ -130,7 +128,7 @@ You can create these scripts in two ways:
 
 A combination of both is also very common, i.e. you record the basic interactions with Codegen and then tweak the generated code with extra things like passwords, extra wait conditions and content checks.
 
-In both cases, you can always **run and debug the script on your local machine** and tweak it to perfection before uploading it to Checkly.
+In both cases, you can always run and debug the script on your local machine and tweak it to perfection before uploading it to Checkly.
 
 > Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
 > If the script fails, your check fails.
@@ -143,7 +141,7 @@ We have picked a selection of handy templates that have been optimised for Playw
 
 ### Editor tips
 
-You can use the following keyboard shortcuts to perform routine actions within the browser check editor.
+You can use the following keyboard shortcuts to perform routine actions within the Browser check editor.
 
 | Command               | Keybinding                               |
 |-----------------------|------------------------------------------|
@@ -154,7 +152,7 @@ You can use the following keyboard shortcuts to perform routine actions within t
 ## How do I make assertions?
 
 Navigating around your app or site can already give you a lot of confidence your critical business processes are working correctly.
-However, many times you want to assert specific values on a page.
+However, many times you want to assert specific values on a page. For example:
 
 - After login, you want the user name to be displayed.
 - On a dashboard, you want certain panels to be visible and filled with data.
@@ -162,11 +160,11 @@ However, many times you want to assert specific values on a page.
 
 To do this, you can:
 
-1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (Recommended). If you use Playwright Test it is directly available.
+1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (recommended). If you use Playwright Test, it is directly available.
 2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
 3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
-You can use as many assertions in your code as you want. For example, in the code below we verify that the signup button on Checkly homepage has the right text.
+You can use as many assertions in your code as you want. For example, in the code below we verify that the signup button on the Checkly homepage has the right text.
 
 
 {{< tabs "Assertions example" >}}
@@ -202,10 +200,9 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-Note that we are using Playwright Test's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locators` state. Here we use `toHaveText()` to check if the target element has `Start for free` text.
+Note that we are using Playwright Test's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locator` states. Here we use `toHaveText()` to check if the target element has `Start for free` text.
 
-When an assertion fails, your check fails. Your check's result will show the log output for the error. Any configured
-alerting channels will be triggered, notifying your team that something is up.
+When an assertion fails, your check fails. Your check's result will show the log output for the error.
 
 ![Viewing a failed check](/docs/images/browser-checks/getting-started_pwt.mp4)
 
@@ -215,8 +212,8 @@ alerting channels will be triggered, notifying your team that something is up.
 
 
 If your application [has very specific requirements](https://playwright.dev/docs/browsers#when-to-use-google-chrome--microsoft-edge-and-when-not-to), 
-Checkly enables you to use `Google Chrome` with Playwright in runtimes `2023.02` and later. 
-In order to use Google Chrome you need to explicitly opt-in by passing the `channel: 'chrome'` config.
+Checkly enables you to use Google Chrome with Playwright in runtimes `2023.02` and later. 
+In order to use Google Chrome, you need to explicitly opt-in by passing the `channel: 'chrome'` config.
 
 Google Chrome is not available on [Private Locations](/docs/private-locations/) running on ARM64 and Apple silicon.
 
@@ -248,13 +245,13 @@ test('Open the page and take a screenshot', async ({ page }) => {
 {{< /tabs >}}
 
 
-> Checkly inspects your code to detect which browser is used. To use Chrome please include
+> Checkly inspects your code to detect which browser is used. To use Chrome, include
 > `channel: 'chrome'` or `channel: "chrome"` (whitespace is ignored) in your code, 
 > without any intermediate variables or functions.
 > For example, using a variable like `test.use({ channel: chromeChannel })` can cause Checkly to fail to detect that 
 > Chrome is being used.
 
-## Next Steps
+## Next steps
 - Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
 - Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-scenarios/).
 - Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
