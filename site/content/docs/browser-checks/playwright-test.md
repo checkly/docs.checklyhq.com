@@ -265,11 +265,11 @@ For more information about the `global` options you can check playwright officia
 | `actionTimeout`      | ✅         |
 | `navigationTimeout ` | ✅         |
 | `testIdAttribute`    | ✅         |
-| `launchOptions`      | ✅         |
 | `connectOptions`     | ✅         |
 | `contextOptions`     | ✅         |
 | `bypassCSP`          | ✅         |
 | `proxy`              | ✅         |
+| `launchOptions`      | ❌         |
 | `storageState`       | ❌         |
 | `browserName`        | ❌         |
 | `channel`            | ❌         |

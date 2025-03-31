@@ -1,6 +1,6 @@
 ---
-title: Monitoring APIs with Checks - Checkly Docs
-displayTitle: Monitoring your APIs with Checks
+title: Getting started with API checks - Checkly Docs
+displayTitle: Getting started with API checks
 navTitle: Overview
 weight: 7
 slug: /
@@ -13,40 +13,49 @@ aliases:
 
 ---
 
-API checks consist of few parts:
+Ensure your API is working properly with API checks. API checks work by sending an HTTP request to a URL endpoint, then verifying the speed and correctness of the response.
 
-**1. Name and tags**
+![Screenshot of the API check overview page](/docs/images/api-checks/overview-check-overview.png)
 
-Start as you mean to go on. Pick a sensible name, something that other members of your team are going to understand. A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide better a better alerting experience if your checks fall into an alert state.
-Tags can relate your checks together, they also determine which checks are shown on your public [dashboards](/docs/dashboards/).
-![http request](/docs/images/api-checks/overview-name-tag.png)
+For example, you can use these checks to verify that:
+* Your endpoint returns a 200 status code.
+* Your endpoint responds with valid JSON that matches the expected schema.
+* Your endpoint is properly authenticating requests.
 
-**2. The HTTP request**
+If your endpoint is unresponsive or fails assertions, the check will trigger any configured [alerts](/docs/alerting-and-retries/).
 
-This is where you configure the API endpoint. You define the request method, URL, body data, headers, query parameters and authentication for the API check. These [request settings](request-settings) determine the actions taken by the API and therefore the response sent back. The most important part of your API check is its URL and its method.
+## Creating an API check
 
-Endpoints can be accessed and manipulated through [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), not all methods are valid for all endpoints.
+![Screenshot of the create API check page](/docs/images/api-checks/overview-create-check.png)
 
-![http request](/docs/images/api-checks/overview-http.png)
+### Name and tags
+
+A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide a better alerting experience if your checks fall into an alert state.
+
+Tags can relate your checks together. They also determine which checks are shown on your [dashboards](/docs/dashboards/).
+
+
+### HTTP request
+
+This is where you configure the API endpoint. The most important part of your API check is its URL and method. Optionally, you can define body data, headers, query parameters and authentication for the API check. These [request settings](request-settings) determine the actions taken by the API and the response sent back. 
+
+Endpoints can be accessed and manipulated through [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods). Not all methods are valid for all endpoints.
 
 You can import a cURL command, Swagger.json or OpenAPI specification here too. 
 
-**3. Setup and teardown scripts**
+### Setup and teardown scripts
 
-Setup scripts allow you to do last minute processing of test data and request options. The scripts execute before any requests are made.
-Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. With a maximum execution time of 10 seconds, these scripts are really useful for things like signing HMAC requests, requesting tokens, setting up or cleaning up test data and scrubbing sensitive response data for regulatory reasons.
+Setup scripts allow you to do last minute processing of test data and request options. These scripts execute before any requests are made. Teardown scripts are run after the HTTP request has finished, but before any assertions are validated. With a maximum execution time of 10 seconds, these scripts are useful for things like signing HMAC requests, requesting tokens, setting up or cleaning up test data and scrubbing sensitive response data for regulatory reasons.
 
 [Read more about setup and teardown scripts](setup-teardown-scripts/)
-![setup and teardown scripts](/docs/images/api-checks/overview-scripts.png)
 
-**4. Response time limits**
+### Response time limits
 
-Our [time limits](limits) are customisable, sometimes API's can be slow, but not broken. We call that **degraded**. We let you specify when an API check should be marked as **degraded** and when it should be marked as **failed**.
-![response times](/docs/images/api-checks/overview-response-time.png)
+Sometimes APIs can be slow, but not broken. We call this degraded. You can set [response time limits](/docs/api-checks/limits/) to specify when an API check should be marked as degraded and when it should be marked as failed.
 
-**5. Assertions**
+### Assertions
 
-This is where you determine whether the response of the HTTP request is correct or within acceptable bounds.
+This is where you determine whether the response of the HTTP request is correct or not.
 You can assert on different sources. These could be:
 - The HTTP status code returned from the API
 - Something missing or required within the response body
@@ -54,23 +63,57 @@ You can assert on different sources. These could be:
 - A specific response time
 
 [Read more about assertions](assertions)
-![assertions](/docs/images/api-checks/overview-assertions.png)
 
-**6. Locations**
+### Scheduling & locations
 
-You can configure your checks to run from our ever-growing amount of global [public](/docs/monitoring/global-locations/) locations or use a Checkly Agent to host your own [private](/docs/private-locations/)
-If you don't select more than one data center location, we will pick a random location when retrying checks if you have "double check" enabled.
-![locations](/docs/images/api-checks/overview-locations.png)
+You can configure your checks to run from our [public](/docs/monitoring/global-locations/) locations, or use a Checkly Agent to host your own [private](/docs/private-locations/) locations. If you don't select more than one location and you've disabled retrying checks from the same location, we will pick a random location when retrying checks.
 
-**7. Scheduling**
+Checkly runs your API checks based on an interval you set. The shortest interval you can run is every 10 seconds and the longest is every 24 hours.
 
-Checkly runs your API checks based on an interval you select. We have a minimum and maximum interval for your API checks.
-The quickest schedule you can run is every 10 seconds and the slowest is every 24 hours.
-![schedule](/docs/images/api-checks/overview-schedule.png)
+### Retries & alerting
 
-**8. Alerting**
+Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks.
 
-Our alerting is pretty flexible. You can configure any of our [alert channels](/docs/alerting/alert-channels/#managing-alert-channels) for whichever checks you like. If we don't have your preferred alert method, why not try out our [Webhooks](/docs/alerting/webhooks/)?
-> [SMS](/docs/alerting/sms-delivery/) and [Phone call](/docs/alerting/phone-calls/) alerts are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features) 
+Choose which [alert channels](/docs/alerting-and-retries/alert-channels/) to get notified through when your check runs into issues. If we don't have your preferred alert method, why not try out our [webhooks](/docs/alerting-and-retries/webhooks/)?
 
-![alerting](/docs/images/api-checks/overview-alerting.png)
+### Testing
+
+You can run your check as an [E2E test](/docs/testing) locally or from your CI/CD pipeline to validate your freshly deployed application. Use the Checkly CLI, or configure integrations with Vercel and GitHub.
+
+## CLI example
+
+The [Checkly CLI](/guides/getting-started-with-monitoring-as-code/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
+
+You can define an API check via the CLI. For example:
+
+```ts {title="hello-api.check.ts"}
+import { ApiCheck, AssertionBuilder, Frequency } from 'checkly/constructs'
+
+new ApiCheck('hello-api-1', {
+  name: 'Hello API',
+  activated: true,
+  frequency: Frequency.EVERY_1M,
+  request: {
+    method: 'GET',
+    url: 'https://mac-demo-repo.vercel.app/api/hello',
+    assertions: [
+      AssertionBuilder.statusCode().equals(200)
+    ],
+  }
+})
+```
+
+The above example defines:
+- The basic check properties like `name`, `activated` etc.
+- The `GET` HTTP method and target `url` of the request.
+- An array of assertions to assert the HTTP response status is correct.
+
+For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
+
+## Next steps
+
+* Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
+* Store commonly-used or sensitive data, like usernames and auth tokens, in [environment variables and secrets](/docs/api-checks/variables/).
+* Troubleshoot slow responses with [timing phases](/docs/api-checks/timeouts-timing/).
+* Use [client certificates](/docs/api-checks/client-certificates/) to authenticate with APIs that require mTLS.
+* Monitor an entire API flow with [Multistep checks](/docs/multistep-checks/).

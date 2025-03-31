@@ -2,7 +2,7 @@
 title: Client certificates - Checkly Docs
 displayTitle: Client certificates
 navTitle: Client certificates
-weight: 14
+weight: 17
 menu:
   resources:
     parent: "API checks"

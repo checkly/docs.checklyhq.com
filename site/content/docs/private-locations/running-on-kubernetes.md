@@ -31,10 +31,10 @@ Find the Helm chart in the `/helm-chart` directory. The Helm chart does two basi
 - Spins up two pods running the Checkly Agent
 
 Assuming you have Helm set up to point at your K8S cluster, run it with the following command, making sure you
-**replace the `apikey="pl_..."` with your Checkly Private Location API key**.
+**replace the `apiKeySecret.apikey="pl_..."` with your Checkly Private Location API key**.
 
 ```bash
-helm install checkly-agent --set apiKey="pl_..."  ./helm-chart
+helm install checkly-agent --set apiKeySecret.apiKey="pl_..."  ./helm-chart
 ```
 
 ## Kubernetes manifests

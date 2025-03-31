@@ -24,11 +24,7 @@ $(document).ready(() => {
  */
 
 $(document).ready(() => {
-  if ($('#TableOfContents ul').length >= 1) {
-    $('.docs-toc-on-this-page').css({
-      display: 'block'
-    })
-  } else {
+  if ($('#TableOfContents ul').length === 0) {
     $('.docs-toc-on-this-page').css({
       display: 'none'
     })
@@ -98,15 +94,14 @@ $(window).on('scroll', function () {
     })
     $('#tocMenu').css({
       position: 'fixed',
-      top: '30px'
+      top: '0px'
     })
   } else {
     $('#sideMenu').css({
       position: 'relative'
     })
     $('#tocMenu').css({
-      position: 'relative',
-      top: '0'
+      position: 'relative'
     })
   }
 })

@@ -30,6 +30,27 @@ Monitoring your production services is a key part of a good user experience. Tra
 >}}
 </div>
 
+## Critical Performance Metrics
+
+<div class="cards-list">
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="Defining MTTR"
+	  img="/learn/icons/metrics.svg"
+	  description="Mean Time to Repair (MTTR) is the average time it takes to repair a system or service after a failure occurs. Dive into how it can help you measure performance"
+	  link="/learn/monitoring/defining-mttr/"
+>}} 
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="DORA Metrics"
+	  img="/learn/icons/metrics.svg"
+	  description="What's the quality of your developer experience? Quantify performance with DORA metrics."
+      link="/learn/monitoring/dora-metrics/"
+>}}
+</div>
+
 ## On the Checkly Blog
 
 <div class="cards-list">
