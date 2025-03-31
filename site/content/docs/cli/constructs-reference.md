@@ -766,6 +766,70 @@ This is required if `customUrl` is not specified.
 
 [Learn more about dashboards in our docs](/docs/dashboards/)
 
+## `StatusPage`
+Creates a status page showing the uptime of connected services on a public page.
+
+```ts {title="statusPage.check.ts"}
+import { StatusPage } from 'checkly/constructs'
+
+
+new StatusPage('acme-status', {
+    name: 'A.C.M.E Status',
+    url: 'acme-status',
+    customDomain: 'status.acme.com',
+    logo: 'https://acme.com/logo.png',
+    redirectTo: 'https://acme.com',
+    favicon: 'https://acme.com/favicon.ico',
+    defaultTheme: 'DARK',
+    cards: [
+        {
+            name: 'API Endpoints',
+            services: [
+                apiEndpoints,
+            ],
+        },
+        {
+            name: 'Notifications',
+            services: [
+                smsService,
+                emailService,
+                webhookService,
+            ],
+        },
+    ],
+})
+```
+- `name`: Name of the status page.
+- `url`: A subdomain name under "checkly-status-page.com". Needs to be unique across all accounts. This is required if `customDomain` is not specified.
+- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](/docs/status-pages/#custom-domains).
+This is required if `customUrl` is not specified.
+- `logo`: A URL pointing to an image file that will be used as logo in the status page header.
+- `redirectTo`: A URL link to redirect when the status page logo is clicked on.
+- `favicon`: A URL pointing to an image file used as status page favicon.
+- `defaultTheme`: Theme of the status page. One of `DARK`, `LIGHT` or ´AUTO´. See [status page customization for details](/docs/status-pages/#customization)
+- `cards`: An array of cards, determining the layout of the status page.
+  - `name`: The name of the card.
+  - `services`: An array of the [services](/docs/cli/constructs-reference/#statuspageservice) displayed on the card.
+
+
+
+[Learn more about status pages in our docs](/docs/status-pages)
+
+## `StatusPageService`
+Creates a service used on status pages for providing uptime information.
+
+```ts {title="statusPageService.check.ts"}
+import { StatusPageService } from 'checkly/constructs'
+
+new StatusPageService('apiEndpoints', {
+    name: 'API Endpoints',
+})
+```
+
+- `name`: Name of the service. Displayed on the status page.
+
+[Learn more about services in our docs](/docs/status-pages/#services)
+
 ## `PrivateLocation`
 
 Creates a Private Location, so you can deploy one or more Checkly Agents on-prem, in a VPC or any segregated network.
