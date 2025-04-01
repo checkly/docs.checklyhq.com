@@ -47,7 +47,7 @@ Whenever you post an incident update, Checkly can automatically send email notif
 
 Emails are sent out only when an update is first posted. Notifications are not sent again if the incident update is edited.
 
-If you want to post an incident update without notifying your subscribers you can uncheck the ‘Notify subscribers’ checkbox when updating the incident.
+If you want to post an incident update without notifying your subscribers you can uncheck the ‘Notifications’ checkbox when updating the incident.
 ![Incident notification settings](/docs/images/status-pages/status-pages-notifications-2.png)
 
 
