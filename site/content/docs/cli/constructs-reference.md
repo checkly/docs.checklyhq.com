@@ -806,7 +806,7 @@ This is required if `customUrl` is not specified.
 - `logo`: A URL pointing to an image file that will be used as logo in the status page header.
 - `redirectTo`: A URL link to redirect when the status page logo is clicked.
 - `favicon`: A URL pointing to an image file used as status page favicon.
-- `defaultTheme`: Theme of the status page. One of `DARK`, `LIGHT` or ´AUTO´. See [status page customization for details](/docs/status-pages/#customization)
+- `defaultTheme`: Theme of the status page. One of `DARK`, `LIGHT` or `AUTO`. See [status page customization for details](/docs/status-pages/#customization)
 - `cards`: An array of cards, determining the layout of the status page.
   - `name`: The name of the card.
   - `services`: An array of the [services](/docs/cli/constructs-reference/#statuspageservice) displayed on the card.
