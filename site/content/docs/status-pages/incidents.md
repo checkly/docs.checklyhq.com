@@ -43,7 +43,7 @@ Here you can post a new status update for the incident, or you can edit existing
 
 ## Incident notifications
 
-Whenever you post an incident update Checkly can automatically send email notifications to users subscribed to your status page.
+Whenever you post an incident update, Checkly can automatically send email notifications to users subscribed to your status page.
 
 Emails are sent out only when an update is first posted. Notifications are not sent again if the incident update is edited.
 
