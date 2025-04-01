@@ -57,7 +57,7 @@ Incident notifications contain information about the incident name, the severity
 
 ## Subscribing to incident notifications
 
-Subscribing to incident notifications is done on your status page. To subscribe a user needs to enter a valid email address. A verification email will be sent to the registered email, and only after confirming the subscription will the user start receiving incident notifications.
+Subscribing to incident notifications is done on your status page. To subscribe, a user needs to enter a valid email address. A verification email will be sent to the registered email, and only after confirming the subscription will the user start receiving incident notifications.
 
 ## Incident automation
 
