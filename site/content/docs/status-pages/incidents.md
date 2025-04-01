@@ -39,7 +39,7 @@ To update an ongoing incident go to the ‘Incidents’ tab on your status page 
 ![Incidents view](/docs/images/status-pages/status-pages-incidents-1.png)
 
 
-Select the incident you want to update. Here you can post a new status update for the incident, or you can edit existing updates. You can also edit the impacted services or the incident severity, and delete the incident.
+Here you can post a new status update for the incident, or you can edit existing updates. You can also edit the impacted services or the incident severity, and delete the incident.
 
 ## Incident notifications
 
