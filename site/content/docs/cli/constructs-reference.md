@@ -800,14 +800,13 @@ new StatusPage('acme-status', {
 })
 ```
 - `name`: Name of the status page.
-- `url`: A subdomain name under "checkly-status-page.com". Needs to be unique across all accounts. This is required if `customDomain` is not specified.
-- `customDomain`: A custom user domain, e.g. "status.example.com". [See the docs on updating your DNS and SSL usage](/docs/status-pages/#custom-domains).
-This is required if `customUrl` is not specified.
+- `url`: A subdomain name under "checkly-status-page.com". Needs to be unique across all accounts.
+- `customDomain`: A custom user domain, e.g. "status.example.com". Verification of the domain through the UI is needed after deploying the status page. [See the docs on updating your DNS and SSL usage](/docs/status-pages/#custom-domains).
 - `logo`: A URL pointing to an image file that will be used as logo in the status page header.
 - `redirectTo`: A URL link to redirect when the status page logo is clicked.
 - `favicon`: A URL pointing to an image file used as status page favicon.
 - `defaultTheme`: Theme of the status page. One of `DARK`, `LIGHT` or `AUTO`. See [status page customization for details](/docs/status-pages/#customization)
-- `cards`: An array of cards, determining the layout of the status page.
+- `cards`: An array of cards. The order of the cards determines the layout of the page.
   - `name`: The name of the card.
   - `services`: An array of the [services](/docs/cli/constructs-reference/#statuspageservice) displayed on the card.
 
