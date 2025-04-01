@@ -73,7 +73,7 @@ Use incident automation to connect a service and a check to automatically open i
 
 You can host your status page under your own domain. To make this work, you need to do two things:
 
-1. Add a valid custom domain to your status page
+1. Add a valid custom domain to your status page.
 ![Custom domain configuration](/docs/images/status-pages/status-pages-custom-domain-1.png)
 
 2. Create a CNAME record in your DNS that points to custom-domain.checkly-status-page.com
@@ -81,7 +81,8 @@ Any DNS provider will have the option to easily add CNAME records. For example o
 
 ![Custom domain CNAME configuration](/docs/images/status-pages/status-pages-custom-domain-2.png)
 
+3. Verify you are the owner of the domain by adding a `TXT` record to your DNS. The record can be copied from the status page configuration page after providing a custom domain and saving the page once.
 
-In some cases, our provider will ask you to verify you are the owner of the domain by adding another `TXT` record to your DNS. You will see which records to add after you add a custom domain and save your page configuration once.
+4. Add validation `TXT` record(s). The record can be copied from the status page configuration page after providing a custom domain and saving the page once.
 
 ![Custom domain CNAME configuration](/docs/images/status-pages/status-pages-custom-domain-3.png)
