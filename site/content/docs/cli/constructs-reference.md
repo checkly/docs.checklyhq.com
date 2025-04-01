@@ -767,7 +767,7 @@ This is required if `customUrl` is not specified.
 [Learn more about dashboards in our docs](/docs/dashboards/)
 
 ## `StatusPage`
-Creates a status page showing the uptime of connected services on a public page.
+Creates a status page showing the uptime of connected services through cards on a public page.
 
 ```ts {title="statusPage.check.ts"}
 import { StatusPage } from 'checkly/constructs'
