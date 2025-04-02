@@ -1,6 +1,5 @@
 import type { Page } from '@playwright/test'
 import { expect } from '@playwright/test'
-import { defaults } from '../defaults'
 
 export class ChecklySitePage {
   public page: Page
@@ -14,12 +13,11 @@ export class ChecklySitePage {
     await this.page.route(/.*px\.ads\.linkedin.*/, (route) => {
       route.abort();
     });
-    await this.page.setViewportSize(defaults.playwright.viewportSize)
-    await this.page.goto(defaults.baseURL + uri)
+    await this.page.goto(uri)
   }
 
   async screenshot (name: string) {
-    await this.page.screenshot({ path: `${defaults.screenshotPath}/${name}.jpg` })
+    await this.page.screenshot({ path: `${name}.jpg` })
   }
 
   async doScreenshotCompare () {

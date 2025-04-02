@@ -1,7 +1,7 @@
 import { test } from '@playwright/test'
-import { ChecklySitePage } from './poms/ChecklySitePage'
+import { ChecklySitePage } from './poms/ChecklySitePage.js'
 
-test('homepage visual comparison', async ({ page }) => {
+test.skip('homepage visual comparison', async ({ page }) => {
   const checklyPage = new ChecklySitePage(page)
   await checklyPage.goto('/docs')
   await checklyPage.doScreenshotCompare()

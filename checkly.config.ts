@@ -8,6 +8,7 @@ const config = defineConfig({
   checks: {
     activated: true,
     muted: false,
+    playwrightConfigPath: './playwright.config.ts',
     runtimeId: '2024.09',
     frequency: 10,
     locations: [
@@ -16,17 +17,16 @@ const config = defineConfig({
       'eu-central-1',
       'ap-south-1'
     ],
-    checkMatch: '**/__checks__/**/*.check?(-group).{js,ts}',
     tags: ['mac'],
-    browserChecks: {
-      frequency: 10,
-      testMatch: '**/__checks__/**/*.spec.{js,ts}'
-    },
     retryStrategy: RetryStrategyBuilder.fixedStrategy({
       baseBackoffSeconds: 10,
       maxRetries: 3,
       sameRegion: true
     })
+  },
+  cli: {
+    runLocation: 'eu-west-1',
+    retries: 0
   }
 })
 

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { ChecklySitePage } from './poms/ChecklySitePage'
+import { ChecklySitePage } from './poms/ChecklySitePage.js'
 
 test('homepage', async ({ page }) => {
   const checklyPage = new ChecklySitePage(page)
