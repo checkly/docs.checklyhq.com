@@ -50,7 +50,8 @@ When naming a service, use a name that is identifiable for your users, as this i
 
 Services are what connect checks and status pages. A service can listen to multiple checks and automatically opening incidents whenever one of these checks trigger a check failure alert. [See incident automation for more details](/docs/status-pages/incidents/#incident-automation).
 
-A service can be present on multiple pages, and any incident opened on the service will be shown on each page, and sent to any subscribers.
+A service can be used by multiple status pages. When an incident is opened for a service, it will appear on all pages that use it. Subscribers of each of those pages will receive email notifications for the incident.
+
 
 ![Services diagram](/docs/images/status-pages/status-pages-services-1.png)
 
@@ -80,6 +81,8 @@ You can host your status page under your own domain. To make this work, you need
 Any DNS provider will have the option to easily add CNAME records. For example on Cloudflare this looks as follows.
 
 ![Custom domain CNAME configuration](/docs/images/status-pages/status-pages-custom-domain-2.png)
+
+If your provider is Cloudflare, you also need to disable the proxy on the CNAME, it should always be set to DNS only.
 
 3. Verify you are the owner of the domain by adding a `TXT` record to your DNS. The record can be copied from the status page configuration page after providing a custom domain and saving the page once.
 

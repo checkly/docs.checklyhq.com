@@ -10,7 +10,7 @@ menu:
 
 Incidents are used to communicate downtime on one or more services. You can open incidents manually as part of your incident management process, or automatically by connecting a check to a service using incident automation. 
 
-When an incident is posted a notification will be sent to all users subscribed to the status page, unless you opt out of notifications when creating the incident update.
+When an incident is posted, a notification will be sent to all users subscribed to the status page, unless you opt out of notifications when creating the incident update.
 
 ## Creating an incident
 
@@ -26,7 +26,7 @@ Create an incident when you want to communicate downtime or known issues of your
 
 6. Provide an incident update message.
 7. Select the status of the incident.
-8. If you want to backfill the incident, select ‘Use custom date’. See Backfilling incidents for more information.
+8. If you want to backfill the incident, select `Use custom date`. See [Backfilling incidents for more information](/docs/status-pages/#backfilling-an-incident).
 9. Select if you want to notify subscribers of your status page about the incident.
 10. Click ‘Create incident’
 
