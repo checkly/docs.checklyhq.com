@@ -80,7 +80,6 @@ You can host your status page under your own domain. To make this work, you need
 2. Create a CNAME record in your DNS that points to custom-domain.checkly-status-page.com
 Any DNS provider will have the option to easily add CNAME records. For example on Cloudflare this looks as follows.
 ![Custom domain CNAME configuration](/docs/images/status-pages/status-pages-custom-domain-2.png)
-
 If your provider is Cloudflare, you also need to disable the proxy on the CNAME, it should always be set to DNS only.
 
 3. Verify you are the owner of the domain by adding a `TXT` record to your DNS. The record can be copied from the status page configuration page after providing a custom domain and saving the page once.
