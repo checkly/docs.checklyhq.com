@@ -28,8 +28,8 @@ To set up a status page, select ‘New status page’ on the [Status page overvi
 
 1. Begin by selecting a name for your page.
 2. Next, create at least one **card** for your page. Cards define the order and grouping of services on your page. One card can contain one or multiple **services** and will show the average uptime for all the services on the card.
-3. If you haven’t already created a service for your page, you can do so from the ‘Services’ dropdown. [Read more about services here](/docs/status-pages/#services).
-4. Select a subdomain for your page. By default status pages will use the domain ‘.checkly-status-pages.com’ but you can also use your own domain. See [Custom domains](/docs/status-pages/#custom-domains) for details on how to configure this.
+3. If you haven’t already created a service for your page, you can do so from the `Services` dropdown. [Read more about services here](/docs/status-pages/#services).
+4. Select a subdomain for your page. By default status pages will use the domain `.checkly-status-pages.com` but you can also use your own domain. See [Custom domains](/docs/status-pages/#custom-domains) for details on how to configure this.
 5. When you are happy with your setup, click ‘Create status page.’ You will now see a preview of your page, and below the status page name, you have a link to the public page.
 
 You can now share the link to your status page, and your users can subscribe to receive notifications when incidents are posted.
@@ -79,7 +79,6 @@ You can host your status page under your own domain. To make this work, you need
 
 2. Create a CNAME record in your DNS that points to custom-domain.checkly-status-page.com
 Any DNS provider will have the option to easily add CNAME records. For example on Cloudflare this looks as follows.
-
 ![Custom domain CNAME configuration](/docs/images/status-pages/status-pages-custom-domain-2.png)
 
 If your provider is Cloudflare, you also need to disable the proxy on the CNAME, it should always be set to DNS only.
@@ -87,5 +86,4 @@ If your provider is Cloudflare, you also need to disable the proxy on the CNAME,
 3. Verify you are the owner of the domain by adding a `TXT` record to your DNS. The record can be copied from the status page configuration page after providing a custom domain and saving the page once.
 
 4. Add validation `TXT` record(s). The record can be copied from the status page configuration page after providing a custom domain and saving the page once.
-
 ![Custom domain CNAME configuration](/docs/images/status-pages/status-pages-custom-domain-3.png)
