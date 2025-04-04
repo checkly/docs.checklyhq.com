@@ -13,6 +13,10 @@ aliases:
 
 ---
 
+Browser checks simulate real user actions—loading pages, clicking links, and filling forms—to ensure your site works as expected. 
+
+![Browser check overview page](/docs/images/browser-checks/browser-check-overview.png)
+
 This guide gives you all the info to create your first Browser check with Checkly. You should have some prior
 knowledge of working with Javascript and/or Node.js.
 
@@ -27,11 +31,11 @@ Your critical interactions might be:
 - That users can add products to a shopping cart.
 - That users can edit their account details.
 
-The combination of automated interactions and assertions leads to confidence that your site works as expected. If any of these actions fail, the check will trigger any configured [alerts](/docs/alerting-and-retries/).
+The combination of automated interactions and assertions leads to confidence that your site works as expected. If any of these actions fail, the check will trigger your configured [alerts](/docs/alerting-and-retries/).
 
 To power your Browser checks, Checkly uses [Playwright Test](https://playwright.dev/docs/intro)—a robust open-source test runner built around [Playwright](https://github.com/microsoft/playwright). Playwright Test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
 
-While you can use plain Playwright to run your checks on Checkly, _we highly recommend using Playwright Test_. The test runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues. [Learn more about Playwright Test features](/docs/browser-checks/playwright-test/).
+While you can use plain Playwright to run your checks on Checkly, _we highly recommend using Playwright Test_. The test runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues. [Learn more about using Playwright Test with Checkly](/docs/browser-checks/playwright-test/).
 
 The following code is a valid Browser check using Playwright Test.
 
@@ -77,8 +81,8 @@ import { expect, test } from '@playwright/test' // 1
 test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
 
-  await page.locator('input[type="email"]').type('john@example.com') // 4
-  await page.locator('input[type="password"]').type('mypassword') // 4
+  await page.getByLabel('Email address').fill('john@example.com') // 4
+  await page.getByLabel('Password').fill('mypassword') // 4
   await page.getByRole('button', { name: 'Log In' }).click() // 5
 
   const homeDashboardTable = page.getByTestId('home-dashboard-table')
@@ -93,8 +97,8 @@ const { expect, test } = require('@playwright/test') // 1
 test('Login to Checkly', async ({ page }) => { // 2
   await page.goto('https://app.checklyhq.com/login') // 3
 
-  await page.locator('input[type="email"]').type('john@example.com') // 4
-  await page.locator('input[type="password"]').type('mypassword') // 4
+  await page.getByLabel('Email address').fill('john@example.com') // 4
+  await page.getByLabel('Password').fill('mypassword') // 4
   await page.getByRole('button', { name: 'Log In' }).click() // 5
 
   const homeDashboardTable = page.getByTestId('home-dashboard-table')
@@ -106,13 +110,13 @@ test('Login to Checkly', async ({ page }) => { // 2
 
 **1. Initial declarations:** We first import the Playwright Test framework to control the browser.
 
-**2. Establish environment:** We use the `page` fixture without having to initialise a browser and create a new page manually. See the documentation on [Fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
+**2. Establish environment:** We use the `page` fixture without having to initialise a browser and create a new page manually. See the documentation on [fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
 
 **3. Initial navigation:** We use the `page.goto()` method to load the first page.
 
-**4. Fill out input fields and submit:** Using the `page.type()` method, we enter our email address and
+**4. Fill out input fields and submit:** Using the `page.fill()` method, we enter our email address and
 password. You would normally use environment variables here to keep sensitive data
-out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/login-scenarios/) for more info.
+out of your scripts. Learn more about different [login scenarios](/docs/browser-checks/login-scenarios/).
 
 **5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
@@ -120,8 +124,7 @@ out of your scripts. See [Login scenarios and secrets](/docs/browser-checks/logi
 
 ## How do I create a Browser check?
 
-A valid Browser check is based on a valid [Playwright Test](https://playwright.dev/docs/intro) or [Playwright](https://github.com/microsoft/playwright) script. We are constantly updating Checkly to integrate their newest features ([view currently supported features](/docs/browser-checks/playwright-test/#features])).
-You can create these scripts in two ways:
+A valid Browser check is based on a valid [Playwright Test](https://playwright.dev/docs/intro) or [Playwright](https://github.com/microsoft/playwright) script. You can create these scripts in two ways:
 
 1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright Test or Playwright script automatically.
 2. By writing the Node.js by hand.
@@ -139,7 +142,20 @@ We have picked a selection of handy templates that have been optimised for Playw
 
 ![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
 
-### Editor tips
+### Using the editor 
+
+You can edit and debug Playwright scripts straight from the Checkly UI. Use the "Run Script" button to run your script ad-hoc, without recording it as a scheduled run. 
+
+![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-editor.png)
+
+In the sidebar, you can view:
+
+* File dependencies
+* Your Playwright config file (if your check was created with the [Checkly CLI](/docs/cli/))
+* Golden files, for [visual regression](/docs/browser-checks/visual-regression-snapshot-testing/) testing
+* The test report
+* OpenTelemetry traces for this run (if you've enabled [Checkly Traces](/docs/traces-open-telemetry/))
+* [Runtimes](/docs/runtimes/), including the packages in your current runtime
 
 You can use the following keyboard shortcuts to perform routine actions within the Browser check editor.
 
@@ -162,7 +178,6 @@ To do this, you can:
 
 1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (recommended). If you use Playwright Test, it is directly available.
 2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
-3. Use the [Chai.js](https://www.chaijs.com/) library of TDD and BDD assertions.
 
 You can use as many assertions in your code as you want. For example, in the code below we verify that the signup button on the Checkly homepage has the right text.
 
@@ -200,11 +215,13 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-Note that we are using Playwright Test's built-in expect, which is enriched with a convenient [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locator` states. Here we use `toHaveText()` to check if the target element has `Start for free` text.
+Note that we are using Playwright Test's built-in expect, which is enriched with the [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locator` states. Here we use `toHaveText()` to check if the target element has `Start for free` text.
 
-When an assertion fails, your check fails. Your check's result will show the log output for the error.
+When an assertion fails, your check fails. Your check result will show the log output for the error.
 
-![Viewing a failed check](/docs/images/browser-checks/getting-started_pwt.mp4)
+![Viewing a failed check result](/docs/images/browser-checks/browser-check-failed-result.png)
+
+[Learn more about asserting on page elements.](/docs/browser-checks/scraping-onpage-elements)
 
 ## Using other browsers
 
@@ -253,9 +270,9 @@ test('Open the page and take a screenshot', async ({ page }) => {
 
 ## CLI example
 
-The [Checkly CLI](/guides/getting-started-with-monitoring-as-code/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
+The [Checkly CLI](/docs/cli/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
 
-You can just write `.spec.js|ts` files and the CLI will automatically pick them up and apply some default settings like a name, run locations and run frequency to turn them into Browser checks.
+You can write `.spec.js|ts` files and configure the CLI to automatically convert them into Browser checks. The CLI will apply some default settings, like name, run locations, and run frequency. You can configure this at the [project](/docs/cli/constructs-reference/#project) or [group](/docs/cli/constructs-reference/#checkgroup) level.
 
 If you want more control over the configuration, you can explicitly define a Browser check:
 
@@ -270,7 +287,7 @@ new BrowserCheck('browser-check-1', {
   frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
-    entrypoint: path.join(__dirname, 'home.spec.js')
+    entrypoint: path.join(__dirname, 'home.spec.ts')
   }
 })
 ```
@@ -294,23 +311,22 @@ new BrowserCheck('browser-check-1', {
 
 The above example defines:
 - The basic check properties like `name`, `frequency` etc.
-- The path to the target Playwright test file, `home.spec.js`.
+- The path to the target Playwright test file, `home.spec.ts`.
 
 For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
 
 ## Next steps
-- Learn more about [built-in functionalities of Playwright Test](/docs/browser-checks/playwright-test/).
-- Learn how to deal with [login scenarios and private data](/docs/browser-checks/login-scenarios/).
-- Use [Playwright Codegen](https://playwright.dev/docs/codegen) to record scripts without coding.
-- Learn more about [taking screenshots](/docs/browser-checks/screenshots/).
-- Learn more about [visual regression & snapshot testing](/docs/browser-checks/visual-regression-snapshot-testing/).
-- Run checks behind an [HTTP proxy](/docs/private-locations/proxy/).
+
+- Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
+- Capture [screenshots](/docs/browser-checks/screenshots/) in your check.
+- Handle different [login scenarios](/docs/browser-checks/login-scenarios/).
+- Understand [timeouts and related errors](/docs/browser-checks/timeouts/).
+- Set up [visual regression & snapshot testing](/docs/browser-checks/visual-regression-snapshot-testing/).
 - Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for browser checks.
 
 ## More Playwright resources
 
-- [Headless Automation guides](/learn/playwright/), a free & open source knowledge base for Playwright 
-(maintained by Checkly).
+- [Learn Playwright](/learn/playwright/), Checkly's free and open source Playwright knowledge base 
 - [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
 - [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
