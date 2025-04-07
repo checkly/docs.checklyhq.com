@@ -122,7 +122,17 @@ out of your scripts. Learn more about different [login scenarios](/docs/browser-
 
 **6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright Test will automatically retry the assertion until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright Test will automatically tear down the `page` fixture and clean up.
 
-## How do I create a Browser check?
+## Creating a Browser check
+
+![Browser check edit page](/docs/images/browser-checks/edit-browser-check.png)
+
+### Name and tags
+
+A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide a better alerting experience if your checks fall into an alert state.
+
+Tags can relate your checks together. They also determine which checks are shown on your [dashboards](/docs/dashboards/).
+
+### Playwright script
 
 A valid Browser check is based on a valid [Playwright Test](https://playwright.dev/docs/intro) or [Playwright](https://github.com/microsoft/playwright) script. You can create these scripts in two ways:
 
@@ -136,17 +146,17 @@ In both cases, you can always run and debug the script on your local machine and
 > Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
 > If the script fails, your check fails.
 
-### Browser check templates
+#### Browser check templates
 
-We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
+We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new Browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
 
 ![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
 
-### Using the editor 
+#### Using the editor 
 
 You can edit and debug Playwright scripts straight from the Checkly UI. Use the "Run Script" button to run your script ad-hoc, without recording it as a scheduled run. 
 
-![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-editor.png)
+![Browser check editor](/docs/images/browser-checks/browser-check-editor.png)
 
 In the sidebar, you can view:
 
@@ -164,6 +174,28 @@ You can use the following keyboard shortcuts to perform routine actions within t
 | Save check            | **Mac**: `CMD`+`S` / **Windows**: `CTRL`+`S` |
 | Start/pause check run | **Mac**: `CMD`+`ENTER` / **Windows**: `CTRL`+`ENTER`  |
 | Toggle sidebar        | **Mac**: `CMD`+`B` / **Windows**: `CTRL`+`B` |
+
+### Scheduling & locations
+
+You can configure your checks to run from our [public](/docs/monitoring/global-locations/) locations, or use a Checkly Agent to host your own [private](/docs/private-locations/) locations. If you don't select more than one location and you've disabled retrying checks from the same location, we will pick a random location when retrying checks.
+
+Checkly runs your Browser checks based on an interval you set. The shortest interval you can run is every minute and the longest is every 24 hours.
+
+### Retries & alerting
+
+Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks.
+
+Choose which [alert channels](/docs/alerting-and-retries/alert-channels/) to get notified through when your check runs into issues. If we don't have your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow.
+
+### Testing
+
+You can run your check as an [E2E test](/docs/testing) locally or from your CI/CD pipeline to validate your freshly deployed application. Use the Checkly CLI, or configure integrations with Vercel and GitHub.
+
+### SSL certificate domain
+
+You can use Checkly to [monitor SSL certificates](/docs/alerting-and-retries/ssl-expiration/) and get notified before they expire. Since Browser checks can connect to multiple domains, you need to specify which one we should monitor. 
+
+When you change this setting or update your SSL cert, allow up to an hour for this to update on Checkly's end.
 
 ## How do I make assertions?
 
@@ -322,7 +354,7 @@ For more options, see the [Check construct reference](/docs/cli/constructs-refer
 - Handle different [login scenarios](/docs/browser-checks/login-scenarios/).
 - Understand [timeouts and related errors](/docs/browser-checks/timeouts/).
 - Set up [visual regression & snapshot testing](/docs/browser-checks/visual-regression-snapshot-testing/).
-- Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for browser checks.
+- Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for Browser checks.
 
 ## More Playwright resources
 
