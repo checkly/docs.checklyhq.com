@@ -238,10 +238,32 @@ disqusShortname = "checkly"
 	pre = "/learn/icons/learn.svg"
 	weight = 100
 
-[[menu.learn_monitoring]]
-	name = "Availability Metrics"
-	pre = "/learn/icons/metrics.svg"
-	weight = 120
+[[menu.learn_incidents]]
+	name = "Detection"
+	pre = "/learn/icons/detect.svg"
+	weight = 1
+[[menu.learn_incidents]]
+	name = "Classification"
+	pre = "/learn/icons/classify.svg"
+	weight = 10
+[[menu.learn_incidents]]
+	name = "Communication"
+	pre = "/learn/icons/communicate.svg"
+	weight = 20
+[[menu.learn_incidents]]
+	name = "Investigation"
+	pre = "/learn/icons/investigate.svg"
+	weight = 30
+[[menu.learn_incidents]]
+	name = "Repair"
+	pre = "/learn/icons/repair.svg"
+	weight = 40
+[[menu.learn_incidents]]
+	name = "Postmortem"
+	pre = "/learn/icons/postmortem.svg"
+	weight = 50
+
+
 
 [markup.goldmark.renderer]
 	unsafe = true

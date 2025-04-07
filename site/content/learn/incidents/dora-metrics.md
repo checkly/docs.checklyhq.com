@@ -8,11 +8,11 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  learn_monitoring
+  learn_incidents
 weight: 150
 menu:
-  learn_monitoring:
-      parent: Availability Metrics
+  learn_incidents:
+      parent: Postmortem
 ---
 
 DORA metrics help teams measure how well they deliver software. DORA stands for DevOps Research and Assessment. The four key metrics are:

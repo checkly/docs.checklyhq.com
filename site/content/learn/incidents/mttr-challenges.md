@@ -8,11 +8,11 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  learn_monitoring
+  learn_incidents
 weight: 100
 menu:
-  learn_monitoring:
-      parent: Availability Metrics
+  learn_incidents:
+      parent: Repair
 ---
 
 Missing MTTR and the concomitant SLA targets is a common occurrence among large tech teams. We all start each quarter with a goal of always resolving issues quickly and delivering high uptime for our users. So why do we fail on these goals? This article is a list of the common causes of missed MTTR:
