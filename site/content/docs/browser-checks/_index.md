@@ -23,7 +23,7 @@ knowledge of working with Javascript and/or Node.js.
 ## What is a Browser check?
 
 A Browser check is a Node.js script that controls a headless browser to mimic user behavior.
-Load a web page, click a link, fill a form input—do everything your visitors might do and check if these interactions lead to the correct results.
+Load a web page, click a link, fill out a form—do everything your visitors might do and check if these interactions lead to the correct results.
 
 Your critical interactions might be:
 
@@ -160,12 +160,12 @@ You can edit and debug Playwright scripts straight from the Checkly UI. Use the 
 
 In the sidebar, you can view:
 
-* File dependencies
-* Your Playwright config file (if your check was created with the [Checkly CLI](/docs/cli/))
-* Golden files, for [visual regression](/docs/browser-checks/visual-regression-snapshot-testing/) testing
-* The test report
-* OpenTelemetry traces for this run (if you've enabled [Checkly Traces](/docs/traces-open-telemetry/))
-* [Runtimes](/docs/runtimes/), including the packages in your current runtime
+- File dependencies
+- Your Playwright config file (if your check was created with the [Checkly CLI](/docs/cli/))
+- Golden files, for [visual regression](/docs/browser-checks/visual-regression-snapshot-testing/) testing
+- The test report
+- OpenTelemetry traces for this run (if you've enabled [Checkly Traces](/docs/traces-open-telemetry/))
+- [Runtimes](/docs/runtimes/), including the packages in your current runtime
 
 You can use the following keyboard shortcuts to perform routine actions within the Browser check editor.
 
@@ -327,7 +327,7 @@ new BrowserCheck('browser-check-1', {
 {{< tab "JavaScript" >}}
 ```js {title="browser.check.js"}
 const { BrowserCheck, Frequency } = require('checkly/constructs')
-import * as path from 'path'
+const path = require('path')
 
 new BrowserCheck('browser-check-1', {
   name: 'Browser check #1',
