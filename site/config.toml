@@ -113,6 +113,11 @@ disqusShortname = "checkly"
     weight = 80
 
 [[menu.resources]]
+    name = "Status Pages"
+    url = "/docs/status-pages/"
+    weight = 85
+
+[[menu.resources]]
 	name = "Accounts & Users"
 	url = "/docs/accounts-users/"
 	weight = 90

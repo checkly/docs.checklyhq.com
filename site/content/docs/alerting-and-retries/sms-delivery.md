@@ -66,12 +66,13 @@ You can add as many SMS channels as you like.
 | Nepal (+977)                  | Oman (+968)                         |
 | Pakistan (+92)                | Palestinian Territory (+970, +972)  |
 | Philippines (+63)             | Qatar (+974)                        |
-| Singapore (+65)               | Sri Lanka (+94)                     |
-| Syria (+963)                  | Taiwan (+886)                       | 
-| Tajikistan (+992)             | Thailand (+66)                      | 
-| Turkiye (+90)                 | Turkmenistan (+993)                 |
-| United Arab Emirates (+971)   | Uzbekistan (+998)                   | 
-| Vietnam (+84)                 | Yemen (+967)                        |
+| Saudi Arabia (+966)           | Singapore (+65)                     |
+| Sri Lanka (+94)               | Syria (+963)                        |
+| Taiwan (+886)                 | Tajikistan (+992)                   |
+| Thailand (+66)                | Turkiye (+90)                       |
+| Turkmenistan (+993)           | United Arab Emirates (+971)         |
+| Uzbekistan (+998)             | Vietnam (+84)                       |
+| Yemen (+967)                  |                                     |
 
 ### Europe
 |                               |                                                 |    
