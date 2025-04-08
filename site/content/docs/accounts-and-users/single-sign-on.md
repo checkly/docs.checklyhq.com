@@ -17,7 +17,5 @@ Single Sign-On (SSO) enables businesses to secure employee access across a varie
 
 If you are interested in using Checkly with a different SSO protocol, please [reach out to Support](mailto:support@checklyhq.com).
 
-> SSO is only available for Checkly's [enterprise plans](/pricing/).
-
 > [!NOTE]
 > SSO is only available for Checkly's [enterprise plans](/pricing/).
