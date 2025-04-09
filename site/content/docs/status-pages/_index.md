@@ -20,7 +20,7 @@ Status pages allow you to do the following:
 - Connect services to synthetic checks to automatically open incidents when checks fail and alert.
 - Automatically notify subscribed users whenever an incident is published.
 
-> Status pages are available as an add-on for customers on the enterprise plan. [Contact support for access](mailto:support@checklyhq.com).
+> Status pages are available as a paid add-on for customers on the enterprise plan. [Contact support for access](mailto:support@checklyhq.com).
 
 ## Creating a status page
 
@@ -44,7 +44,7 @@ You can customize your status page with a logo, favicon, and theme.
 
 ## Services
 
-A service represents a functional piece of your application of website, such as landing page, API, support portal etc. You manage your services from the service overview page, accessible in the sidebar.
+A service represents a functional piece of your application or website, such as landing page, API, support portal etc. You manage your services from the service overview page, accessible in the sidebar.
 
 When naming a service, use a name that is identifiable for your users, as this is used when sending out incident notifications.
 
