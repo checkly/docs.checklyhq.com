@@ -28,8 +28,7 @@ Imagine you’re trying to solve an outage that’s only affecting some users an
 When tools are cumbersome and fail to provide actionable insights, engineers spend more time diagnosing problems, which increases MTTR. 
 
 ### 2. **Time to Detect (TTD) Is Overlooked**
-
-Another factor contributing to high MTTR is the time it takes to detect an issue in the first place. Reducing the mean time to detect ([MTTD](https://www.checklyhq.com/learn/monitoring/optimize-mttd/)) is crucial for improving MTTR, as delays in detection can lead to prolonged outages. 
+Another factor contributing to high MTTR is the time it takes to detect an issue in the first place. Reducing the mean time to detect ([MTTD](https://www.checklyhq.com/learn/monitoring/reduce-mttd/)) is crucial for improving MTTR, as delays in detection can lead to prolonged outages. 
 
 An entire guide on time to detection is available on our Learn site, but in short the most common failures are:
 
@@ -37,7 +36,7 @@ An entire guide on time to detection is available on our Learn site, but in shor
 - Low-frequency monitoring — if you’re using an automated system to check your service’s availability, it’s critical to [set the right frequency for those checks](https://www.checklyhq.com/blog/check-frequency/). Checks that are happening only every 15 minutes won’t provide much better time to detection than waiting for users to report problems.
 - Slow alerting — While most teams doing monitoring think quite a bit about the optimal frequency for those checks, less thought is put into the time spent between detection and sending an alert to the on-call team. On more than one occasion this author has seen teams drastically improve their MTTR just by adopting faster standards for how the on-call team got notified (for example adding alert channels beyond email).
 
-Again these concerns and more are in a separate page on [optimizing time to detection](https://www.checklyhq.com/learn/monitoring/optimize-mttd/). 
+Again these concerns and more are in a separate page on [optimizing time to detection](https://www.checklyhq.com/learn/monitoring/reduce-mttd/). 
 
 ### 3. **The Complexity of Cloud-Native Environments**
 
@@ -56,7 +55,7 @@ To address these challenges, organizations need to focus on optimizing each stag
 
 ### 1. **Reduce Time to Detect (TTD)**
 
-Improving detection times requires robust monitoring and alerting systems that can quickly identify issues. This involves setting low scrape intervals for data collection and ensuring that observability tools can ingest and generate alerts rapidly. Faster detection allows teams to begin remediation efforts sooner, which can significantly reduce MTTR. This is covered in more detail in our page on [optimizing detection time](https://www.checklyhq.com/learn/monitoring/optimize-mttd/).
+Improving detection times requires robust monitoring and alerting systems that can quickly identify issues. This involves setting low scrape intervals for data collection and ensuring that observability tools can ingest and generate alerts rapidly. Faster detection allows teams to begin remediation efforts sooner, which can significantly reduce MTTR. This is covered in more detail in our page on [optimizing detection time](https://www.checklyhq.com/learn/monitoring/reduce-mttd/).
 
 ### 2. **Streamline Time to Remediate**
 
