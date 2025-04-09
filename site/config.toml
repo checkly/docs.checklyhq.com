@@ -258,10 +258,10 @@ disqusShortname = "checkly"
 	name = "Repair"
 	pre = "/learn/icons/repair.svg"
 	weight = 40
-[[menu.learn_incidents]]
-	name = "Postmortem"
-	pre = "/learn/icons/postmortem.svg"
-	weight = 50
+# [[menu.learn_incidents]]
+#	name = "Postmortem"
+#	pre = "/learn/icons/postmortem.svg"
+#	weight = 50
 
 
 

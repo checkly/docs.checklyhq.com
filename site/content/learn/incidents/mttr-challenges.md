@@ -9,7 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
 menu:
   learn_incidents
-weight: 100
+weight: 10
 menu:
   learn_incidents:
       parent: Repair

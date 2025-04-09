@@ -2,8 +2,9 @@
 title: Reusing Playwright Monitors Across Every Phase of your Software Development Life Cycle
 displayTitle: Reusing Monitors Across Every Phase of your SDLC
 description: >-
-  With this guide, the same code you wrote in Playwright for your intial tests on your laptop will get re-used (as appropriate) to monitor Staging, and finally Production to let you know that everything’s working, and find problems before your users do.
+  The same Playwright code you write for end-to-end testing before deployment, can also test code earlier as part of the dev process, and end-to-end tests can be run on a cadence in Checkly to turn test code into monitoring code.
 author: Nočnica Mellifera
+date: 2025-03-07
 avatar: 'images/avatars/nica-mellifera.png'
 tags:
   - FAQ
@@ -62,7 +63,7 @@ Let’s say you want to log in to your application before running a set of tests
 
 Create a `fixtures.js` file to define your custom fixture. This fixture will extend the base `test` object provided by Playwright.
 
-```jsx
+```ts
 // fixtures.js
 import { test as base } from '@playwright/test';
 
@@ -91,7 +92,7 @@ export { expect } from '@playwright/test';
 
 Now that the fixture is defined, you can use it in your tests. Import the custom `test` object from `fixtures.js` and write your tests as usual.
 
-```jsx
+```ts
 // example.spec.js
 import { test, expect } from './fixtures';
 

@@ -9,7 +9,7 @@ githubUser: serverless-mom
 displayDescription: 
 menu:
   learn_incidents
-weight: 10
+weight: 50
 menu:
   learn_incidents:
       parent: Classification

@@ -12,7 +12,7 @@ menu:
 weight: 150
 menu:
   learn_incidents:
-      parent: Postmortem
+      parent: Repair
 ---
 
 DORA metrics help teams measure how well they deliver software. DORA stands for DevOps Research and Assessment. The four key metrics are:
