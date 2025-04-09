@@ -83,4 +83,4 @@ With these tools it’s possible to measure an MTTR that everyone can agree on. 
 
 MTTR is a vital metric for measuring operational performance, but its effectiveness depends on clear definitions, effective tools, and optimized processes. Later articles will discuss the components of a time to repair (time to detect, root cause analysis, and incident response), and propose best practices for meeting SLA.
 
-An automated tool that everyone can agree is observing the user experience from multiple locations and with a full simulation of user paths, can help get us a consistent MTTR measurement. [Try Checkly](http://checklyhq.com) to see how our monitoring tools can warn you faster than ever of an outage.
+An automated tool that everyone can agree is observing the user experience from multiple locations and with a full simulation of user paths, can help get us a consistent MTTR measurement. [Try Checkly](https://www.checklyhq.com/) to see how our monitoring tools can warn you faster than ever of an outage.
