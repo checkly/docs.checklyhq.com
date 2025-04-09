@@ -59,9 +59,13 @@ A good status page keeps users informed, reduces frustration, and builds trust. 
 The basic technical requirements (fast loading pages, manual edits permitted, etc) aren’t worth mentioning, but the following features will require some ‘lift’ on any DIY solution, and aren’t offered by every SaaS status page tool.
 
 **1. Automated monitoring** - no matter how slick our status page, if we’re relying on users to report most outages, our status page is worse than useless. Implicit in the requirements above is that most outages and incidents will be detected automatically and added to a status page. The best way to determine your service status automatically is through [synthetic monitoring](https://www.checklyhq.com/learn/monitoring/synthetic-transaction-monitoring/), ideally using [Playwright](https://www.checklyhq.com/learn/playwright/) to simulate user paths in detail.
+
 **2. Independent hosting** - ideally both your monitoring and the status page will be hosted away from your service’s cloud. Even AWS are vulnerable to failures where the monitor (and its notifications) failed in the same outage that took down the service, adding significantly to [time to repair](https://www.checklyhq.com/learn/incidents/mttr-challenges/).
+
 **3. Clear infographics** - a status page should be able to take complex historical data and turn it into a clear history for the viewer. Some kind of graphing library should represent high level status data visually.
+
 **4. Incidents should be organized into services** - for Checkly’s Status Pages, all alerts are [classified ahead of time into services](https://www.checklyhq.com/docs/status-pages/#services). We don’t want to present our product as a monolith, nor should we print inscrutable internal labels. With this organization, we can present sections on a single status page, or multiple separate status pages with groupings of services.
+
 **5. Subscription service** - Users should subscribe to only the pages they care about.
 
 ## Conclusions: for status pages brevity, is wit
