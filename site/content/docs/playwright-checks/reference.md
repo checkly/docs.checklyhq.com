@@ -9,8 +9,11 @@ menu:
     parent: "Playwright checks (Alpha)"
 
 ---
+> Playwright Checks are currently in Alpha. Please join the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email) to get live updates on feature development and get help getting started.
 
 To define your Playwright Check, you use the `checkly.config.ts/js` file.
+
+> During the Alpha, a Playwright Check can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
 
 Each Playwright Check is connected to an existing reference in your `playwright.config.ts/js` file.
 
@@ -52,5 +55,3 @@ checks: {
     ]
  },
 ```
-
-> Playwright Checks are currently in Alpha. Please join the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email) to get live updates on feature development and get help getting started.
