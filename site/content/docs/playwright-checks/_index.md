@@ -49,15 +49,15 @@ What you need:
 
   Confirm the version is correctly set by running: `npx checkly --version`
 
-1. Test and create a monitor with all your tests
+2. Test and create a monitor with all your tests
 
   ```bash {title="Terminal"}
   npx checkly test --record
-  
+
   npx checkly deploy
   ```
 
-1. Cherry-pick which tests should become checks
+3. Cherry-pick which tests should become checks
 
   Of course, you can have a big monitor that checks your whole suite, but it's likely only some tagged tests or Playwright projects need to become monitors. You can update your `checkly.config.ts` to select the tests to become monitors, with their own schedule, location and configuration.
 
@@ -101,7 +101,7 @@ What you need:
   })
   ```
 
-1. Confirm it works by testing and deploying your updated monitors:
+4. Confirm it works by testing and deploying your updated monitors:
 
   ```bash {title="Terminal"}
   npx checkly test --record
