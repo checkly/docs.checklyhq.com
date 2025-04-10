@@ -32,6 +32,9 @@ Create an incident when you want to communicate downtime or known issues of your
 
 Your incident will now appear on all status pages that show the selected service(s).
 
+> All times on status pages are displayed in UTC.
+
+
 ## Updating an incident
 
 To update an ongoing incident go to the ‘Incidents’ tab on your status page and select the incident to update.
