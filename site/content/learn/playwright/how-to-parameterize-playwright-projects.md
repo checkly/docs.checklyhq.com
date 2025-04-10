@@ -227,5 +227,5 @@ If your Playwright project grows, I highly recommend looking into ways to establ
 
 If you have any questions or comments, say "Hi" in the Checkly community Slack! 
 
-But what's Checkly? Checkly enables you to take your existing Playwright tests running in CI/CD and transform them into synthetic end-to-end monitoring. Your Playwright tests will run around the clock and from anywhere on this planet so that you know that your production sites are up and running. And if they're not, you'll be the first to know because Checkly will alert you. It's pretty cool, trust me. 😉
+But what's Checkly? Checkly enables you to take your existing Playwright tests running in CI/CD and transform them into synthetic [end-to-end monitoring](https://www.checklyhq.com/guides/end-to-end-monitoring/). Your Playwright tests will run around the clock and from anywhere on this planet so that you know that your production sites are up and running. And if they're not, you'll be the first to know because Checkly will alert you. It's pretty cool, trust me. 😉
 
