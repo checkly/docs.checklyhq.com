@@ -10,7 +10,7 @@ menu:
 
 ---
 
-Each Playwright Check is connected to an existing reference in your `playwright.config.ts/js`  file.
+Each Playwright Check is connected to an existing reference in your `playwright.config.ts/js` file.
 
 The following Playwright references are available to create a Playwright Monitor:
 
@@ -20,7 +20,7 @@ The following Playwright references are available to create a Playwright Monitor
 
 These are the available monitoring configuration options:
 
-* `installCommand:` define the install command your code needs, by default it'll use npm install --dev
+* `installCommand:` Define the install command your code needs, by default it'll use npm install --dev
 
 * `activated:` A boolean value to activate/run your check or not.
 

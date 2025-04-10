@@ -12,28 +12,28 @@ menu:
 
 With Checkly, you can convert your Playwright tests directly into scheduled monitors. 
 
-You can schedule checks from different locations and trigger alerts for your team to act on when a critical flow fails in production.
+You can schedule checks from different locations and trigger alerts for your team to act on when a critical flow or API fails in your product.
 
 ## What's a Playwright Check?
 A Playwright check offers all of Playwright's features, natively: 
 
-* Dependencies between checks one way or another → `StorageState`, `projects`, `dependencies`, `globalSetup`, `globalTeardown`, `test.beforeEach`...
+* Dependencies between tests or projects → `projects`, `dependencies`, `globalSetup`, `globalTeardown`, reused `StorageState`, `test.beforeEach`...
 * Test level retries.
-* Flaky tests.
+* Automatic flagging of flaky tests when passed on retry.
 * Fake media access: whether it's a QR in a video you are parsing or access to a microphone, you got it.
-* Control over traces, video and screenshots generation. 
+* Control over traces, video and screenshots generation.
 * Multiple browsers and viewports: Chrome, Firefox, Webkit, Mobile Chrome.
 
 On top of these, a Playwright Check provides: 
 
-* Custom code dependencies, read directly from your `package.json` file
-* Several world-wide locations to run your check from.
+* Custom code dependencies, read directly from your `package.json` file.
+* Several [world-wide locations](https://www.checklyhq.com/docs/monitoring/global-locations/) to run your check from.
 * Alerts to your preferred channel: Slack, Incident.io... 
   
 ## Before you begin
 What you need:
-* a repository using Playwright for E2E tests
-  * One that has a playwright configuration file.
+* A repository using Playwright for E2E tests
+  * It should include a playwright configuration file.
   
 ## Steps
 
@@ -55,7 +55,9 @@ npx checkly deploy
 
 2. Cherry-pick which tests should become checks
 
-Of course, you can have a big monitor that checks your whole suite, but it's likely only some tagged tests or Playwright projects need to become monitors. You can update your `checkly.config.ts` to select the tests to become monitors, with their own schedule, location and configuration. This is  full working example
+Of course, you can have a big monitor that checks your whole suite, but it's likely only some tagged tests or Playwright projects need to become monitors. You can update your `checkly.config.ts` to select the tests to become monitors, with their own schedule, location and configuration. 
+
+Here's a fully working example:
 
 ```typescript
 // checkly.config.ts
@@ -70,14 +72,16 @@ export default defineConfig({
     playwrightConfigPath: './playwright.config.ts', //specify a custom playwright config file here
     playwrightChecks: [
       {
-        // Create a check that runs the essential pw project every 5 mins in EU west region
+        /* Create a check that runs the essential pw project 
+        every 5 mins in EU west region */
         name: 'Essential-projects',
         pwProjects: 'essential', // Reference the project in your playwright.config.ts
         frequency: Frequency.EVERY_5M,
         locations: ['eu-west-1'],
       },
       {
-        // Create a check that runs the critical tagged tests every 10M in EU west region
+        /* Create a check that runs the critical tagged tests 
+        every 10 mins in EU west region */
         name: 'Critical-tagged',
         pwTags: 'critical', // Reference an existing tag in your tests
         frequency: Frequency.EVERY_10M,
@@ -85,10 +89,10 @@ export default defineConfig({
       },
     ],
   },
-  // also include, only one can be set at any given time:
+  /* The default location to use when running npx checkly test */
   cli: {
     runLocation: 'eu-west-1',
-    retries: 0, // full check retries, available in different locations
+    retries: 0, // full test retries, when running npx checkly test
   },
 })
 ```
