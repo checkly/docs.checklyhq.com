@@ -93,14 +93,19 @@ disqusShortname = "checkly"
 	weight = 45
 
 [[menu.resources]]
+	name = "Playwright checks (Alpha)"
+	url = "/docs/playwright-checks/"
+	weight = 50
+
+[[menu.resources]]
 	name = "Groups"
 	url = "/docs/groups/"
-	weight = 50
+	weight = 55
 
 [[menu.resources]]
 	name = "Alerting & retries"
 	url = "/docs/alerting/"
-	weight = 55
+	weight = 60
 
 [[menu.resources]]
 	name = "Maintenance windows"
