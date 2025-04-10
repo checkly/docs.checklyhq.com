@@ -1,5 +1,5 @@
 ---
-title: Getting started with Playwright Monitoring - Checkly Docs
+title: Playwright Checks reference - Checkly Docs
 displayTitle: Getting started with Playwright Monitoring
 navTitle: Overview
 weight: 14

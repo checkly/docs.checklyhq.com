@@ -1,9 +1,9 @@
 ---
 title: Playwright Checks reference -- Checkly Docs
-displayTitle: Getting started with Playwright Monitoring
+displayTitle: All options available in Playwright Checks
 navTitle: Reference
 weight: 14
-slug: /
+slug: /reference
 menu:
   resources:
     parent: "Playwright checks (Alpha)"
