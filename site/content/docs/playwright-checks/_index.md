@@ -43,68 +43,68 @@ What you need:
 
 1. Install the Checkly CLI using the alpha version:
 
-```bash {title="Terminal"}
-npm install -D checkly@pwt-alpha
-```
+  ```bash {title="Terminal"}
+  npm install -D checkly@pwt-alpha
+  ```
 
-Confirm the version is correctly set by running: `npx checkly --version`
+  Confirm the version is correctly set by running: `npx checkly --version`
 
 1. Test and create a monitor with all your tests
 
-```bash {title="Terminal"}
-npx checkly test --record
-
-npx checkly deploy
-```
+  ```bash {title="Terminal"}
+  npx checkly test --record
+  
+  npx checkly deploy
+  ```
 
 1. Cherry-pick which tests should become checks
 
-Of course, you can have a big monitor that checks your whole suite, but it's likely only some tagged tests or Playwright projects need to become monitors. You can update your `checkly.config.ts` to select the tests to become monitors, with their own schedule, location and configuration.
+  Of course, you can have a big monitor that checks your whole suite, but it's likely only some tagged tests or Playwright projects need to become monitors. You can update your `checkly.config.ts` to select the tests to become monitors, with their own schedule, location and configuration.
 
-Here's a fully working example, adjust the `pWProjects` and `pwTags` to ones that exist in your code.
+  Here's a fully working example, adjust the `pWProjects` and `pwTags` to ones that exist in your code.
 
-```typescript {title="checkly.config.ts"}
-// checkly.config.ts
-import { defineConfig } from 'checkly'
-import { Frequency } from 'checkly/constructs'
+  ```typescript {title="checkly.config.ts"}
+  // checkly.config.ts
+  import { defineConfig } from 'checkly'
+  import { Frequency } from 'checkly/constructs'
 
-export default defineConfig({
-  projectName: 'Cool Website Checks',
-  logicalId: 'cool-website-monitoring',
-  repoUrl: 'https://github.com/acme/website',
-  checks: {
-    playwrightConfigPath: './playwright.config.ts', //specify a custom playwright config file here
-    playwrightChecks: [
-      {
-        /* Create a check that runs the essential pw project 
-        every 5 mins in EU west region */
-        name: 'Essential-projects',
-        pwProjects: 'essential', // Reference the project in your playwright.config.ts
-        frequency: Frequency.EVERY_5M,
-        locations: ['eu-west-1'],
-      },
-      {
-        /* Create a check that runs the critical tagged tests 
-        every 10 mins in EU west region */
-        name: 'Critical-tagged',
-        pwTags: 'critical', // Reference an existing tag in your tests
-        frequency: Frequency.EVERY_10M,
-        locations: ['eu-west-1'],
-      },
-    ],
-  },
-  /* The default location to use when running npx checkly test */
-  cli: {
-    runLocation: 'eu-west-1',
-    retries: 0, // full test retries, when running npx checkly test
-  },
-})
-```
+  export default defineConfig({
+    projectName: 'Cool Website Checks',
+    logicalId: 'cool-website-monitoring',
+    repoUrl: 'https://github.com/acme/website',
+    checks: {
+      playwrightConfigPath: './playwright.config.ts', //specify a custom playwright config file here
+      playwrightChecks: [
+        {
+          /* Create a check that runs the essential pw project 
+          every 5 mins in EU west region */
+          name: 'Essential-projects',
+          pwProjects: 'essential', // Reference the project in your playwright.config.ts
+          frequency: Frequency.EVERY_5M,
+          locations: ['eu-west-1'],
+        },
+        {
+          /* Create a check that runs the critical tagged tests 
+          every 10 mins in EU west region */
+          name: 'Critical-tagged',
+          pwTags: 'critical', // Reference an existing tag in your tests
+          frequency: Frequency.EVERY_10M,
+          locations: ['eu-west-1'],
+        },
+      ],
+    },
+    /* The default location to use when running npx checkly test */
+    cli: {
+      runLocation: 'eu-west-1',
+      retries: 0, // full test retries, when running npx checkly test
+    },
+  })
+  ```
 
 1. Confirm it works by testing and deploying your updated monitors:
 
-```bash {title="Terminal"}
-npx checkly test --record
+  ```bash {title="Terminal"}
+  npx checkly test --record
 
-npx checkly deploy
-```
+  npx checkly deploy
+  ```
