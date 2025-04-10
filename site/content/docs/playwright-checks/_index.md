@@ -60,7 +60,7 @@ What you need:
 
 Of course, you can have a big monitor that checks your whole suite, but it's likely only some tagged tests or Playwright projects need to become monitors. You can update your `checkly.config.ts` to select the tests to become monitors, with their own schedule, location and configuration.
 
-Here's a fully working example, adjust the `pWProjects` and `pwTags` to ones that exist in your code.
+Here's a fully working example, adjust the `pwProjects` and `pwTags` to ones that exist in your code.
 
   ```typescript {title="checkly.config.ts"}
   // checkly.config.ts
