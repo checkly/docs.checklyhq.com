@@ -13,17 +13,17 @@ aliases:
 
 ---
 
-Browser checks simulate real user actions—loading pages, clicking links, and filling forms—to ensure your site works as expected. 
+Browser checks simulate real user actions — loading pages, clicking links, and filling forms — to ensure your site works as expected. 
 
 ![Browser check overview page](/docs/images/browser-checks/browser-check-overview.png)
 
 This guide gives you all the info to create your first Browser check with Checkly. You should have some prior
-knowledge of working with Javascript and/or Node.js.
+knowledge of working with Javascript/Typescript and/or Node.js.
 
 ## What is a Browser check?
 
-A Browser check is a Node.js script that controls a headless browser to mimic user behavior.
-Load a web page, click a link, fill out a form—do everything your visitors might do and check if these interactions lead to the correct results.
+A Browser check is a Node.js Playwright script that controls a headless browser to mimic user behavior.
+Load a web page, click a link, fill out a form — do everything your users might do and check if these interactions lead to the correct results.
 
 Your critical interactions might be:
 
@@ -33,11 +33,9 @@ Your critical interactions might be:
 
 The combination of automated interactions and assertions leads to confidence that your site works as expected. If any of these actions fail, the check will trigger your configured [alerts](/docs/alerting-and-retries/).
 
-To power your Browser checks, Checkly uses [Playwright Test](https://playwright.dev/docs/intro)—a robust open-source test runner built around [Playwright](https://github.com/microsoft/playwright). Playwright Test enables you to easily write idiomatic and reliable end-to-end tests. Use these frameworks to control the interactions you want to happen on a web page.
+Checkly uses Playwright to power your Browser checks. [Playwright](https://playwright.dev/docs/intro) is a robust, open-source framework for browser automation and end-to-end web application testing. It enables you to write idiomatic, reliable tests and easily control interactions within a web page.
 
-While you can use plain Playwright to run your checks on Checkly, _we highly recommend using Playwright Test_. The test runner gives you powerful additional features such as built-in awaiting for `expect()`, many web-first assertions, high-level locators, and traces and videos of your failed tests to easily debug your issues. [Learn more about using Playwright Test with Checkly](/docs/browser-checks/playwright-test/).
-
-The following code is a valid Browser check using Playwright Test.
+The following code is a valid Browser check using Playwright.
 
 {{< tabs "Basic example" >}}
 {{< tab "TypeScript" >}}
@@ -66,7 +64,7 @@ test('Visit Checkly HQ page', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-> Checkly currently supports using Chromium or Chrome with Playwright Test and the Playwright library, with Chromium being the default browser for all checks.
+> Checkly currently supports using Chromium or Chrome with Playwright, with Chromium being the default browser for all checks.
 > [Read more about using Chrome](/docs/browser-checks/#using-other-browsers).
 
 ## Breaking down a Browser check step-by-step
@@ -108,7 +106,7 @@ test('Login to Checkly', async ({ page }) => { // 2
 {{< /tab >}}
 {{< /tabs >}}
 
-**1. Initial declarations:** We first import the Playwright Test framework to control the browser.
+**1. Initial declarations:** We first import the Playwright framework to control the browser.
 
 **2. Establish environment:** We use the `page` fixture without having to initialise a browser and create a new page manually. See the documentation on [fixtures](https://playwright.dev/docs/api/class-fixtures) to learn more.
 
@@ -120,7 +118,7 @@ out of your scripts. Learn more about different [login scenarios](/docs/browser-
 
 **5. Click Login button:** We use Playwright's `getByRole()` locator to find the login button and also `.click()` on it right away.
 
-**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright Test will automatically retry the assertion until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright Test will automatically tear down the `page` fixture and clean up.
+**6. Wait for the dashboard:** The expected behaviour is that the dashboard loads. We assess this by checking whether the element with the test ID `home-dashboard-table` is visible. The `getByTestId()` method is looking for elements where the `data-testid` attribute matches the provided value. Playwright will automatically retry the assertion until it succeeds or times out (default timeout is 5s). Moreover, when the test has finished, Playwright will automatically tear down the `page` fixture and clean up.
 
 ## Creating a Browser check
 
@@ -134,21 +132,21 @@ Tags can relate your checks together. They also determine which checks are shown
 
 ### Playwright script
 
-A valid Browser check is based on a valid [Playwright Test](https://playwright.dev/docs/intro) or [Playwright](https://github.com/microsoft/playwright) script. You can create these scripts in two ways:
+A valid Browser check is based on a valid [Playwright](https://playwright.dev/docs/intro) script. You can create these scripts in two ways:
 
-1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright Test or Playwright script automatically.
+1. By using [Playwright Codegen](https://playwright.dev/docs/codegen) to record a set of actions and generate the Playwright script automatically.
 2. By writing the Node.js by hand.
 
 A combination of both is also very common, i.e. you record the basic interactions with Codegen and then tweak the generated code with extra things like passwords, extra wait conditions and content checks.
 
 In both cases, you can always run and debug the script on your local machine and tweak it to perfection before uploading it to Checkly.
 
-> Valid Playwright Test or Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
+> Valid Playwright scripts are the foundation of a valid Browser check. If the script passes, your check passes.
 > If the script fails, your check fails.
 
 #### Browser check templates
 
-We have picked a selection of handy templates that have been optimised for Playwright Test Runner and are updated regularly. [Create a new Browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
+We have picked a selection of handy templates that have been optimised for Playwright and are updated regularly. [Create a new Browser check](https://app.checklyhq.com/checks/browser/create) and try them out.
 
 ![checkly-browser-check-templates](/docs/images/browser-checks/browser-check-templates.png)
 
@@ -206,10 +204,7 @@ However, many times you want to assert specific values on a page. For example:
 - On a dashboard, you want certain panels to be visible and filled with data.
 - Submitting a form should return a specific value.
 
-To do this, you can:
-
-1. Use the popular [Jest expect](https://jestjs.io/docs/expect) library (recommended). If you use Playwright Test, it is directly available.
-2. Use [Node's built in `assert`](https://nodejs.org/api/assert.html) function.
+To do this, you can use Playwright's [built-in expect library](https://playwright.dev/docs/test-assertions).
 
 You can use as many assertions in your code as you want. For example, in the code below we verify that the signup button on the Checkly homepage has the right text.
 
@@ -247,7 +242,7 @@ test('CTA button has "Start for free" text', async ({ page }) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-Note that we are using Playwright Test's built-in expect, which is enriched with the [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locator` states. Here we use `toHaveText()` to check if the target element has `Start for free` text.
+Note that we are using Playwright's built-in expect, which is enriched with the [LocatorAssertions](https://playwright.dev/docs/api/class-locatorassertions) class. Methods of this class can be used to make assertions about `Locator` states. Here we use `toHaveText()` to check if the target element has `Start for free` text.
 
 When an assertion fails, your check fails. Your check result will show the log output for the error.
 
