@@ -77,7 +77,7 @@ Incident automation works by connecting a check to a service. When the check fai
 7. Select if the status page subscribers should be notified when the automatic incident updates are posted.
 8. Save your check.
 
-![Incident backfilling](/docs/images/status-pages/status-pages-incident-automation-1.png)
+![Incident automation](/docs/images/status-pages/status-pages-incident-automation-1.png)
 
 ## Backfilling an incident
 
