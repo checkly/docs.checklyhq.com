@@ -8,11 +8,11 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  learn_monitoring
-weight: 90
+  learn_incidents
+weight: 20
 menu:
-  learn_monitoring:
-      parent: Availability Metrics
+  learn_incidents:
+      parent: Repair
 ---
 Mean Time to Repair (MTTR) is a critical metric in the world of IT operations and engineering, representing the average time it takes to repair a system or service after a failure occurs. Despite its importance, many teams fail to meet their MTTR goals. MTTR or its corollary may be essentially to meeting your Service Level Agreements (SLA) with your clients, which in their most basic form are an agreement about the amount of time that your service is available in a given period. If unintentional outages (failures) are taking your service offline frequently, and the outages take a long time to resolve, you won’t meet your SLA.
 

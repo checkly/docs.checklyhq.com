@@ -24,18 +24,18 @@ Monitoring and Observability are key concepts when dealing with application qual
 {{< doc-card
 	  class="three-column-card"
 	  headerTag="h3"
-	  title="Open Telemetry"
-	  img="/learn/icons/opentelemetry-logo.svg"
-	  description="Learn how to instrument your application with OTel and get deep insights into your full stack."
-	  link="/learn/opentelemetry/"
+	  title="Incident Response"
+	  img="/learn/icons/incident.svg"
+	  description="Learn how to detect, handle, and repair incidents."
+	  link="/learn/incidents/"
 >}}
 {{< doc-card
 	  class="three-column-card"
 	  headerTag="h3"
-	  title="Kubernetes"
-	  img="/learn/icons/kubernetes-logo.svg"
-	  description="Learn basics, tools and tips for monitoring your Kubernetes clusters."
-	  link="/learn/kubernetes/"
+	  title="Open Telemetry"
+	  img="/learn/icons/opentelemetry-logo.svg"
+	  description="Learn how to instrument your application with OTel and get deep insights into your full stack."
+	  link="/learn/opentelemetry/"
 >}}
 {{< doc-card
 	  class="three-column-card"

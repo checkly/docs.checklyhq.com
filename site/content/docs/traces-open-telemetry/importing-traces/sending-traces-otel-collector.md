@@ -28,7 +28,7 @@ If you need to set up OpenTelemetry for the first time, please use [the Open Tel
 
 ## Step 1: Update your config
 
-Sending traces to Checkly is very simple with the OpenTelemetry collector. There are three sections you need to add
+Sending traces to Checkly is very simple with the [OpenTelemetry collector](/learn/opentelemetry/what-is-the-otel-collector/). There are three sections you need to add
 to your collector configuration file:
 
 1. Create a `filter` that will remove all spans that don't have `checkly=true` in the trace state.

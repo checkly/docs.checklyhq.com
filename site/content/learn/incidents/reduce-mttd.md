@@ -1,5 +1,5 @@
 ---
-title: Mean Time to Detection Best Practices
+title: How to reduce your Mean Time to Detection (MTTD)
 displayTitle: How to Detect Problems Faster 
 navTitle:  MTTD Best Practices
 description: 
@@ -8,11 +8,11 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  learn_monitoring
+  learn_incidents
 weight: 120
 menu:
-  learn_monitoring:
-      parent: Availability Metrics
+  learn_incidents:
+      parent: Detection
 ---
 When technical organizations enter into Service Level Agreements (SLAs) with clients, along with ensuring reliable code and infrastructure, a significant part of meeting that SLA is ensuring that any downtime events, outages, or other failures are resolved as quickly as possible. Often, teams spend a great deal of time focusing on how problems are investigated, how they’re remediated, and how on-call teams follow playbooks to connect with the relevant engineers to fix the problem. Less focus is given on the first chunk of time spent during any outage: the time between a failure, and anyone in an on-call team knowing a failure has occurred.
 

@@ -22,7 +22,7 @@ The OpenTelemetry project, initially created to address distributed tracing, has
 
 ### Key Components of OpenTelemetry for Centralized Logging
 
-1. **OpenTelemetry Collector**: The OpenTelemetry Collector is at the heart of centralized logging with OpenTelemetry. It’s a standalone agent that can be deployed on Kubernetes nodes, Windows, or Linux hosts, and it’s capable of collecting logs from multiple sources. In Kubernetes, the collector can capture logs, system metrics (such as CPU and memory usage), and metrics from third-party applications.
+1. **OpenTelemetry Collector**: The [OpenTelemetry Collector](/learn/opentelemetry/what-is-the-otel-collector/) is at the heart of centralized logging with OpenTelemetry. It’s a standalone agent that can be deployed on Kubernetes nodes, Windows, or Linux hosts, and it’s capable of collecting logs from multiple sources. In Kubernetes, the collector can capture logs, system metrics (such as CPU and memory usage), and metrics from third-party applications.
 2. **Instrumentation Libraries**: OpenTelemetry includes libraries and SDKs for popular programming languages, which can add logging capabilities directly to application code. By using OpenTelemetry’s appenders, developers can export logs in OpenTelemetry’s native format, simplifying log management and reducing the overhead typically required for parsing and reshaping logs.
 3. **Data Model and Semantic Conventions**: OpenTelemetry introduces a standardized data model and semantic conventions, ensuring that logs have consistent metadata and structure across the entire system. This is critical for efficient querying and analysis, as it eliminates the need for complex parsing and filtering.
 
