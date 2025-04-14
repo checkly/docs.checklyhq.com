@@ -68,8 +68,6 @@ Automatically open incidents whenever a check would alert with incident automati
 
 Incident automation works by connecting a check to a service. When the check fails and triggers an alert it will also open an incident on the connected service. Multiple checks can be connected to the same service through incident automation.
 
-![Incident automation settings](/docs/images/status-pages/status-pages-incident-automation-1.png)
-
 1. Open your check from the home dashboard.
 2. Click ‘Edit’ in the check overview page.
 3. For API and TCP checks, click the ‘Incident triggers’ tab. For Browser and Multistep checks, first click ‘Settings’ then ‘Incident triggers’.
@@ -78,6 +76,8 @@ Incident automation works by connecting a check to a service. When the check fai
 6. Select which service the incident should be opened on.
 7. Select if the status page subscribers should be notified when the automatic incident updates are posted.
 8. Save your check.
+
+![Incident automation](/docs/images/status-pages/status-pages-incident-automation-1.png)
 
 ## Backfilling an incident
 
