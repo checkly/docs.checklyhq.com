@@ -44,74 +44,76 @@ What you need:
 
 **1. Install the Checkly CLI using the alpha version:**
 
-    ```bash {title="Terminal"}
-    npm install -D checkly@pwt-alpha
-    ```
+The alpha version gets updated daily with new improvements. You can follow updates in the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email).
+
+  ```bash {title="Terminal"}
+  npm install -D checkly@pwt-alpha
+  ```
 
 **2. [Optional] If you're using TypeScript and Node < 22.**
 
-    If you're using TypeScript and a Node.js version less than 22, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
+  If you're using TypeScript and a Node.js version less than 22, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
 
-    ```bash {title="Terminal"}
-    npm i --save-dev ts-node typescript
-    ```
+  ```bash {title="Terminal"}
+  npm i --save-dev ts-node typescript
+  ```
 
 **3. Test and create a monitor with all your tests.**
 
   From inside your repository's source code directory, run:
 
-    ```bash {title="Terminal"}
-    npx checkly test --record
-    ```
+  ```bash {title="Terminal"}
+  npx checkly test --record
+  ```
   
-    This will create a test session with all your tests. You'll get a Checkly URL where you can see the test results.
-    In your repository, a `checkly.config.ts/js` is automatically created, configured to run a single Playwright Check containing all your tests.
+  This will create a test session with all your tests. You'll get a Checkly URL where you can see the test results.
+  In your repository, a `checkly.config.ts/js` is automatically created, configured to run a single Playwright Check containing all your tests.
 
 **4. Cherry-pick which tests should become checks**
 
-  Of course, you run `npx checkly deploy` and have a big monitor that checks your whole suite.
+Of course, you can now run `npx checkly deploy` and have a big monitor that checks your whole suite.
 
-  It's likely only some tagged tests or Playwright projects need to become monitors. You can now update your `checkly.config.ts` to select the tests to become individual monitors, with their own schedule, location and configuration.
+It's likely only some tagged tests or Playwright projects need to become monitors. You can now update your `checkly.config.ts/js` file to select the tests to become individual monitors, with their own schedule, location and configuration.
 
-  Here's a fully working example, adjust the `pwProjects` and `pwTags` to ones that exist in your code.
+Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones that exist in your code.
 
-        ```typescript {title="checkly.config.ts/js"}
-        // checkly.config.ts
-        import { defineConfig } from 'checkly'
-        import { Frequency } from 'checkly/constructs'
+  ```typescript {title="checkly.config.ts/js"}
+  // checkly.config.ts
+  import { defineConfig } from 'checkly'
+  import { Frequency } from 'checkly/constructs'
 
-        export default defineConfig({
-          projectName: 'Cool Website Checks',
-          logicalId: 'cool-website-monitoring',
-          repoUrl: 'https://github.com/acme/website',
-          checks: {
-            playwrightConfigPath: './playwright.config.ts', //specify a custom playwright config file here
-            playwrightChecks: [
-              {
-                /* Create a check that runs the chromium pw project 
-                every 5 mins in EU west region */
-                name: 'Chromium-projects',
-                pwProjects: 'chromium', // Reference the project in your playwright.config.ts
-                frequency: Frequency.EVERY_5M, // set your ideal frequency
-                locations: ['us-east-1', 'eu-west-1'], // add your locations
-              },
-              {
-                /* Create a check that runs the critical tagged tests 
-                every 10 mins in EU west region */
-                name: 'Critical-tagged',
-                pwTags: 'critical', // Reference an existing tag in your tests
-                frequency: Frequency.EVERY_10M,  // set your ideal frequency
-                locations: ['eu-west-1'],
-              },
-            ],
-          },
-          /* The default location to use when running npx checkly test */
-          cli: {
-            runLocation: 'eu-west-1',
-            retries: 0, // full test retries, when running npx checkly test
-          },
-        })
-        ```
+  export default defineConfig({
+    projectName: 'Cool Website Checks',
+    logicalId: 'cool-website-monitoring',
+    repoUrl: 'https://github.com/acme/website',
+    checks: {
+      playwrightConfigPath: './playwright.config.ts', //specify a custom playwright config file here
+      playwrightChecks: [
+        {
+          /* Create a check that runs the chromium pw project 
+          every 5 mins in EU west region */
+          name: 'Chromium-projects',
+          pwProjects: 'chromium', // Reference the project in your playwright.config.ts
+          frequency: Frequency.EVERY_5M, // set your ideal frequency
+          locations: ['us-east-1', 'eu-west-1'], // add your locations
+        },
+        {
+          /* Create a check that runs the critical tagged tests 
+          every 10 mins in EU west region */
+          name: 'Critical-tagged',
+          pwTags: 'critical', // Reference an existing tag in your tests
+          frequency: Frequency.EVERY_10M,  // set your ideal frequency
+          locations: ['eu-west-1'],
+        },
+      ],
+    },
+    /* The default location to use when running npx checkly test */
+    cli: {
+      runLocation: 'eu-west-1',
+      retries: 0, // full test retries, when running npx checkly test
+    },
+  })
+  ```
 
 **5. Test and deploy your updated monitors.**
 
