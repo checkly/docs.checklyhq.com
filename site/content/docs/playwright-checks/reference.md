@@ -1,6 +1,6 @@
 ---
-title: Playwright Checks reference -- Checkly Docs
-displayTitle: All options available in Playwright Checks
+title: Playwright Check suites reference -- Checkly Docs
+displayTitle: All options available in Playwright Check suites
 navTitle: Reference
 weight: 14
 slug: /reference
@@ -55,6 +55,8 @@ These are the available monitoring configuration options:
 
 * `locations:` An array of locations where to run your Checks.
 
+* `groupName:` The group this check belongs to,
+
 ```typescript {title="checkly.config.ts"}
 
 checks: {
@@ -69,6 +71,7 @@ checks: {
 	testCommand: 'npx playwright test --grep@checkly --config=playwright.foo.config.ts', //Optionally override the default test command
 	activated: true, // Optional - Activate the check so that it runs on a schedule, true by default
 	muted: false, // Optional - Mute the check so that it doesn't send alerts
+	groupName: 'production-group', // use the name of the group you created
 	frequency: Frequency.EVERY_5M,
 	locations: ['us-east-1', 'eu-west-1','eu-central-1', 'ap-south-1'],
 	}
