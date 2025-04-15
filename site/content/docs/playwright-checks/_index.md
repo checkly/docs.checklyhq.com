@@ -42,7 +42,7 @@ What you need:
   
 ## Steps
 
-**1. Install the Checkly CLI using the alpha version:**
+### 1. Install the Checkly CLI using the alpha version:**
 
 The alpha version gets updated daily with new improvements. You can follow updates in the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email).
 
@@ -50,7 +50,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   npm install -D checkly@pwt-alpha
   ```
 
-**2. [Optional] If you're using TypeScript and Node < 22.**
+### 2. [Optional] If you're using TypeScript and Node < 22
 
   If you're using TypeScript and a Node.js version less than 22, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
 
@@ -58,7 +58,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   npm i --save-dev ts-node typescript
   ```
 
-**3. Test and create a monitor with all your tests.**
+### 3. Test and create a monitor with all your tests
 
   From inside your repository's source code directory, run:
 
@@ -69,7 +69,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   This will create a test session with all your tests. You'll get a Checkly URL where you can see the test results.
   In your repository, a `checkly.config.ts/js` is automatically created, configured to run a single Playwright Check containing all your tests.
 
-**4. Cherry-pick which tests should become checks**
+### 4. Cherry-pick which tests should become checks
 
 Of course, you can now run `npx checkly deploy` and have a big monitor that checks your whole suite.
 
@@ -115,7 +115,7 @@ Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones tha
   })
   ```
 
-**5. Test and deploy your updated monitors.**
+### 5. Test and deploy your updated monitors
 
 Now, you can test and deploy the individual monitors that reference existing playwright tags or projects in your repository.
 
