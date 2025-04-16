@@ -8,7 +8,7 @@ menu:
     parent: "CLI"
 ---
 
-Checkly lets you use JavaScript / TypeScript in your browser checks and in API check setup & teardown scripts.
+Checkly lets you use JavaScript / TypeScript in your Browser and Multistep checks, and in API check setup & teardown scripts.
 Checks are able to use NPM packages that are defined in [our runtimes](/docs/runtimes/specs/), as well as import local JavaScript and TypeScript files.
 
 
@@ -34,12 +34,14 @@ The latest runtime is `2024.02` at the time of writing. This runtime contains am
 
 ## Local Dependencies
 
-Browser checks are also able to import other JavaScript and TypeScript files as dependencies.
+Your checks are also able to import other JavaScript and TypeScript files as dependencies.
 This is useful for defining helper functions to be reused across multiple checks.
 The Checkly CLI will automatically detect these dependencies and make sure that they're bundled as part of the check.
 No additional configuration is needed, and there's no need to create [Snippets](/docs/snippets/) in your account.
 
-Here is an example of how this works in practice. The directory tree looks like the following:
+Here is an example of how this works in practice. This example shows a Browser check, but the idea applies to other check types as well.
+
+The directory tree looks like the following:
 ```
 __checks__
 ├── login.check.ts
@@ -47,7 +49,7 @@ __checks__
 └── login-helper.ts
 ```
 
-In `login-helper.ts` we define a reusable function `gitHubLogin`. This function can be used by multiple browser checks.
+In `login-helper.ts` we define a reusable function `gitHubLogin`. This function can be used by multiple Browser checks.
 ```ts {title="login-helper.ts"}
 export async function gitHubLogin (page, username, password) {
   await page.goto('https://github.com/login')
@@ -90,7 +92,7 @@ The maximum total size of a Checkly project when deploying or running a test ses
 
 ## Why can't I import any NPM package or other 3rd party dependencies?
 
-Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies)
+Great question! Please see [this paragraph in our runtime docs](/docs/runtimes/#why-cant-i-import-any-npm-package-or-other-3rd-party-dependencies).
 
 In short:
 
