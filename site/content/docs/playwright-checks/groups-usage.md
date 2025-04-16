@@ -9,7 +9,7 @@ menu:
     parent: "Playwright check suites (Alpha)"
 
 ---
-> Playwright check suites are currently in Alpha. Please join the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email) to get live updates on feature development and get help getting started.
+{{< markdownpartial "/_shared/playwright-check-suites-alpha.md" >}}
 
 You can define a new group, or associate a Playwright check suite to an existing group.
 
