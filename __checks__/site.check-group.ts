@@ -15,9 +15,6 @@ export const checklyhqComGroup = new CheckGroup('checklyhq-docs-1', {
   ],
   tags: ['mac', 'checklyhq.com'],
   alertChannels,
-  browserChecks: {
-    testMatch: '*.spec.ts'
-  },
   retryStrategy: RetryStrategyBuilder.fixedStrategy({
     baseBackoffSeconds: 60,
     maxRetries: 3,

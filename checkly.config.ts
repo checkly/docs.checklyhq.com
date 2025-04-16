@@ -17,11 +17,19 @@ const config = defineConfig({
       'ap-south-1'
     ],
     checkMatch: '**/__checks__/**/*.check?(-group).{js,ts}',
+    include: ['__checks__/docs-visual.spec.ts-snapshots/homepage-visual-comparison-1-docs-checkly-com-linux.png'],
     tags: ['mac'],
-    browserChecks: {
+    playwrightConfigPath: './playwright.config.ts',
+    playwrightChecks: [{
+      name: 'docs.checklyhq.com',
       frequency: 10,
-      testMatch: '**/__checks__/**/*.spec.{js,ts}'
-    },
+      locations: [
+        'us-east-1',
+        'us-west-1',
+        'eu-central-1',
+        'ap-south-1'
+      ],
+    }],
     retryStrategy: RetryStrategyBuilder.fixedStrategy({
       baseBackoffSeconds: 10,
       maxRetries: 3,
