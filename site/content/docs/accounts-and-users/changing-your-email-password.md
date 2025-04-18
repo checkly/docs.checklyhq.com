@@ -24,6 +24,8 @@ The simplest way to achieve this is to:
 4. Transfer any roles or permissions from the old user to the new user.
 5. Optionally, remove your "old" user from the account.
 
+> This method won't work if you're on the Hobby plan or have reached your user limit. If you run into this or other issues, contact support for help.
+
 ## Changing your password
 
 > [!WARNING]

@@ -13,12 +13,12 @@ Checkly integrates with [Telegram](https://telegram.org/) and can
 deliver failure, degradation, and recovery messages to any chat (direct or groups). You can add as many Telegram chats as you wish.
 To enable the Telegram alert channel, you'll need two things:
 
-1. Your own Telegram bot and it's associated HTTP API Token
+1. Your own Telegram bot and its associated HTTP API Token
 2. Your own Telegram user's Chat ID
 
 ## Telegram Bot
 
-1. Create a **Telegram Bot** using the [@BotFather](https://t.me/botfather) Detailed instructions can be found [here](https://core.telegram.org/bots)), however you can simply message the Telegram user `@BotFather` and send them the command message `/newbot`. Then follow the instructions the bot replies with.
+1. Create a **Telegram Bot** using the [@BotFather](https://t.me/botfather). Detailed instructions can be found [here](https://core.telegram.org/bots), however you can simply message the Telegram user `@BotFather` and send them the command message `/newbot`. Then follow the instructions the bot replies with.
    
    ![setup checkly telegram_bot step 1](/docs/images/integrations/telegram/telegram_step1.png)
 
