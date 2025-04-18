@@ -25,8 +25,9 @@ Some tips on using SSL alerts
 - You can create multiple alert channels with different thresholds if you want to be alerted at multiple thresholds.
 
 ## API checks
-The domain for the certificate is parsed from the `URL` in the HTTP request settings so it does not require any setup.
+The domain for the certificate is parsed from the `URL` in the HTTP request settings so it does not require any setup. 
 
+When you update your check's URL or your SSL cert, allow up to an hour for the SSL expiration date to update on Checkly’s end.
 
 > [!WARNING]
 > When using [environment variables in the URL](/docs/api-checks/variables/#accessing-variables-in-api-checks), make sure that the domain is fully specified.
@@ -39,6 +40,8 @@ though, no browser is involved - therefore the error takes place. You can use an
 (e.g.: [SSLHopper](https://www.sslshopper.com/ssl-checker.html)) to help you diagnose issues with your certificate.
 
 ## Browser checks
-Since browser checks can connect to multiple domains, you need to set the SSL certificate domain to receive certificate alerts for them.
+Since browser checks can connect to multiple domains, you need to set the SSL certificate domain to receive certificate alerts for them. 
+
+When you change this setting or update your SSL cert, allow up to an hour for the SSL expiration date to update on Checkly’s end.
 
 ![SSL checks for browser checks](/docs/images/alerting/browser_ssl_check.png)

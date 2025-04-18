@@ -33,6 +33,9 @@ To install Checkly's managed Vercel integration, navigate to the [integration's 
 
 ## Installing the connected integration
 
+> [!WARNING]
+> This integration has some [known limitations](/docs/cicd/vercel/#limitations). We recommend using the [Checkly CLI](/docs/cli/) in your CI/CD pipeline instead.
+
 1. To install Checkly's connected Vercel integration, navigate to [Integrations](https://app.checklyhq.com/settings/account/integrations), under your account's dropdown menu and click the `Vercel marketplace` button, or go directly to the [integration listing on the Vercel marketplace](https://vercel.com/integrations/checkly).
 
 2. On the marketplace page for Checkly, click `Connect Account`.
@@ -194,3 +197,13 @@ Any results triggered by a deployment can be viewed on the test sessions page in
 On Vercel, you will also see a breakdown of checks that were executed on a given deployment, together with a breakdown of various key web vitals.
 
 ![vercel checks vitals](/docs/images/cicd/vercel/vercel_vitals.png)
+
+### Limitations
+
+The Vercel connected integration lacks support for several features:
+
+* Client certificates are not applied.
+* OpenTelemetry integration headers are not applied.
+* Private locations are not available.
+
+As an alternative, we recommend using the [Checkly CLI](/docs/cli/) in your CI/CD pipeline. The CLI is much more powerful and fully supported.
