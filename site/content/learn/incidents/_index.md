@@ -22,7 +22,7 @@ Further, expectations about uptime have gone from ‘best practices’ to ‘bin
 	  title="What is Incident Response?"
 	  img="/learn/icons/incident.svg"
 	  description="Incident Response in the software industry refers to a time-critical response to some kind of availability incident."
-	  link="learn/incidents/what-is-incident-response.md"
+	  link="/learn/incidents/what-is-incident-response.md"
 >}} 
 {{< doc-card
 	  class="two-column-card"

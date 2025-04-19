@@ -234,14 +234,17 @@ disqusShortname = "checkly"
 	weight = 350
 
 [[menu.learn_monitoring]]
-	name = "Protocols"
-	pre = "/learn/icons/send.svg"
-	weight = 350
-
+	name = "Observability Basics"
+	pre = "/learn/icons/observability.svg"
+	weight = 100
 [[menu.learn_monitoring]]
 	name = "Monitoring Concepts"
 	pre = "/learn/icons/learn.svg"
-	weight = 100
+	weight = 200
+[[menu.learn_monitoring]]
+	name = "Protocols"
+	pre = "/learn/icons/send.svg"
+	weight = 350
 
 [[menu.learn_incidents]]
 	name = "Detection"

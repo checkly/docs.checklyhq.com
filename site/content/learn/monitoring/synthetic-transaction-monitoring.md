@@ -10,7 +10,7 @@ displayDescription: Explore the what and why of synthetic monitoring.
 menu:
   learn_monitoring:
     parent: Monitoring Concepts
-weight: 30
+weight: 60
 ---
 
 Synthetic transaction monitoring is a proactive approach to assessing the performance and reliability of applications by simulating user transactions. These simulations replicate real-world interactions, such as logging into an account, performing a search, or completing a checkout process, allowing organizations to detect issues before they impact actual users.
