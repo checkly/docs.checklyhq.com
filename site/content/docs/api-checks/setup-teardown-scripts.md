@@ -83,14 +83,14 @@ new ApiCheck('api-check-1', {
 })
 ```
 
-The setup script uses the auth client and sets the `Authentication` header with a Bearer token. Notice two things:
+The setup script uses the auth client and sets the `Authorization` header with a Bearer token. Notice two things:
 - The `request` object is a global variable, injected at runtime. See the [request reference](#request) below for more details
 - You need to use a top-level `await` statement as the `getToken()` function returns a `Promise`.
 
 ```ts {title="setup.ts",
 import { getToken } from './common/auth-client'
 const token = await getToken()
-request.headers['Authentication'] = `Bearer ${token}`
+request.headers['Authorization'] = `Bearer ${token}`
 ```
 
 The actual auth client doesn't do anything Checkly specific, besides reading a static environment variable `AUTH_SERVER_TOKEN`
@@ -104,7 +104,7 @@ export async function getToken () {
     console.log('Fetching session token from auth server')
     const { data } = await axios.get('https://api.checklyhq.com/v1/runtimes', {
         headers: {
-            authentication: process.env.AUTH_SERVER_TOKEN
+            authorization: process.env.AUTH_SERVER_TOKEN
         }
     })
     return data.token

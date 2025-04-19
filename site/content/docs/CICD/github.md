@@ -19,6 +19,9 @@ event. This works out-of-the-box with the following services.
 Any (SaaS) service that interacts with the [GitHub deployments API](https://developer.github.com/v3/repos/deployments/) and
 reports the correct "success" message will work, both with production and preview deployments.
 
+> [!WARNING]
+> This integration has some [known limitations](/docs/cicd/github/#limitations). We recommend using the [Checkly CLI](/docs/cli/) in your CI/CD pipeline instead.
+
 ## Setting up your GitHub integration
 
 1. Go to the **integrations tab** in your account settings and click the "Integrate with GitHub" button.    
@@ -100,3 +103,13 @@ This way we are setting the `targetUrl` variable to either the `ENVIRONMENT_URL`
 Whenever a **Preview** deploy happens on GitHub, this check gets called and runs the script against the preview environment. This check also runs on a set interval, and checks our production environment.
 
 This way, we kill two birds with one stone and don't need separate checks for separate environments.
+
+## Limitations
+
+GitHub deployments lacks support for several features:
+
+* Client certificates are not applied.
+* OpenTelemetry integration headers are not applied.
+* Private locations are not available.
+
+As an alternative, we recommend using the [Checkly CLI](/docs/cli/) in your CI/CD pipeline. The CLI is much more powerful and fully supported.
