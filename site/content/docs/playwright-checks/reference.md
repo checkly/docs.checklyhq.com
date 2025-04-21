@@ -8,8 +8,6 @@ menu:
   resources:
     parent: "Playwright check suites (Alpha)"
 
----
-
 {{< markdownpartial "/_shared/playwright-check-suites-alpha.md" >}}
 
 To define your Playwright Check suite, you use the `checkly.config.ts/js` file.

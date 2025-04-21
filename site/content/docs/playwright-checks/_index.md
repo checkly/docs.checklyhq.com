@@ -12,6 +12,7 @@ menu:
 
 {{< markdownpartial "/_shared/playwright-check-suites-alpha.md" >}}
 
+
 With Checkly, you can convert your Playwright tests directly into scheduled monitors.
 
 You can schedule checks from different locations and trigger alerts for your team to act on when a critical flow or API fails in your product.
