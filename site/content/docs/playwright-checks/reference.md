@@ -2,7 +2,7 @@
 title: Playwright Check suites reference -- Checkly Docs
 displayTitle: All options available in Playwright Check suites
 navTitle: Reference
-weight: 14
+weight: 16
 slug: /reference
 menu:
   resources:
