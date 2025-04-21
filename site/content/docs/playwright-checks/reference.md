@@ -7,6 +7,7 @@ slug: /reference
 menu:
   resources:
     parent: "Playwright check suites (Alpha)"
+---
 
 {{< markdownpartial "/_shared/playwright-check-suites-alpha.md" >}}
 
