@@ -1,9 +1,9 @@
 ---
-title: Playwright Check suites reference - Checkly Docs
-displayTitle: Getting started with Playwright Monitoring
-navTitle: Overview
+title: Adding Playwright Check suites to groups
+displayTitle: Adding a Playwright check suite to a group
+navTitle: Add to a group
 weight: 14
-slug: /
+slug: /groups-usage
 menu:
   resources:
     parent: "Playwright check suites (Alpha)"
