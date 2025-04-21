@@ -10,8 +10,9 @@ githubUser: serverless-mom
 displayDescription: 
   An advanced guide to filtering data with processors and the OpenTelemetry Transform Language
 menu:
-  learn_opentelemetry
-weight: 7
+  learn_otel:
+    parent: Best Practices
+weight: 80
 ---
 
 The **OpenTelemetry Collector** is a powerful tool for managing telemetry data flows. One of its most valuable features is the ability to filter and transform data without modifying application code. This flexibility makes the collector an essential component for **controlling data overhead**, ensuring data privacy, and maintaining efficient observability pipelines.

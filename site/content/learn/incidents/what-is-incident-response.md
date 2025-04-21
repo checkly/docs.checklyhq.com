@@ -2,7 +2,7 @@
 title: What is Incident Response? Fundamentals and best practices
 displayTitle: What is Incident Response?
 navTitle:  What is Incident Response? 
-description: Defining Incident Management, and high-level best practices.
+description: Learn the key types and stages of incident response—outages, performance issues, security events, user‑reported problems—and keep your services resilient.
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom

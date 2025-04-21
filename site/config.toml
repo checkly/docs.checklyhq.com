@@ -227,7 +227,6 @@ disqusShortname = "checkly"
 	pre = "/learn/icons/e2e.svg"
 	weight = 340
 
-
 [[menu.learn_playwright]]
 	name = "Debugging"
 	pre = "/learn/icons/errors.svg"
@@ -271,6 +270,18 @@ disqusShortname = "checkly"
 #	pre = "/learn/icons/postmortem.svg"
 #	weight = 50
 
+[[menu.learn_otel]]
+	name = "OpenTelemetry Basics"
+	pre = "/learn/icons/learn.svg"
+	weight = 100
+[[menu.learn_otel]]
+	name = "Key Signals"
+	pre = "/learn/icons/signal.svg"
+	weight = 200
+[[menu.learn_otel]]
+	name = "Best Practices"
+	pre = "/learn/icons/best-practices.svg"
+	weight = 350
 
 
 [markup.goldmark.renderer]

@@ -8,6 +8,8 @@
   {{ partial "learn-monitoring-menu" . }}
 {{- else if eq $learnSection "incidents" -}}
   {{ partial "learn-incidents-menu" . }}
+{{- else if eq $learnSection "opentelemetry" -}}
+  {{ partial "learn-otel-menu" . }}
 {{- else -}}
   {{ partial "learn-menu-generic" (dict "learnSection" $learnSection "page" .) }}
 {{- end -}}

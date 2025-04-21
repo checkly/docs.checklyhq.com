@@ -9,8 +9,9 @@ githubUser: serverless-mom
 displayDescription: 
   The OpenTelemetry Open Agent Management Protocol (OpAMP) is an emerging standard aimed at managing telemetry agents, such as the OpenTelemetry Collector, at scale.
 menu:
-  learn_opentelemetry
-weight: 10
+  learn_otel:
+    parent: Best Practices
+weight: 120
 ---
 ## An introduction to OpenTelemetry's new project to allow control of collectors at scale
 

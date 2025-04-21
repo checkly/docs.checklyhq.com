@@ -1,8 +1,8 @@
 ---
-title: Automation in incident response - Can we automate response playbooks?
+title: Incident Response Automation - From Alerts to Action
 displayTitle: Automation in incident response
 navTitle:  Playbooks & Automation
-description: 
+description: Discover how to layer semi‑automated workflows, automated scripts, and safety checks into your playbooks for faster recovery.
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom

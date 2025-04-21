@@ -1,8 +1,8 @@
 ---
-title: A Developer's Guide to Incident Response Playbooks
+title: Incident Response Playbooks - Culture & Compliance | Checkly
 displayTitle: Incident Response Playbooks
 navTitle:  Incident Response Playbooks
-description: 
+description: Master playbooks by setting clear standards, empowering team autonomy, and refining processes when steps are skipped.
 date: 2025-04-07
 author: Nocnica Mellifera
 githubUser: serverless-mom

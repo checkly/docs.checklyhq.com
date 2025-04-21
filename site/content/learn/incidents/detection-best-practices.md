@@ -1,8 +1,8 @@
 ---
-title: Best Practices for Detecting Downtime - A Guide for  Developers
-displayTitle: Best Practices for Detecting Downtime
+title: Best Practices for Detecting Downtime | Incident Response
+displayTitle: Best Practices for Detecting Downtime - A Guide for  Developers
 navTitle:  Detecting Downtime
-description: 
+description: Discover how to implement multi‑layered monitoring, smart alerts, third‑party checks, failure drills & global probes to catch outages fast and reduce revenue loss
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
@@ -14,7 +14,6 @@ menu:
   learn_incidents:
       parent: Detection
 ---
-# **Best Practices for Detecting Downtime: A Guide for  Developers**
 
 Downtime can be costly—leading to lost revenue, frustrated users, and damage to your brand’s reputation. As a  developer, ensuring high availability and quickly detecting outages is critical. 
 

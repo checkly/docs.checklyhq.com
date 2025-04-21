@@ -2,7 +2,7 @@
 title: Introduction to the OpenTelemetry Collector
 subTitle: What the collector does, why it exists, and whether you can get by without it.
 displayTitle: Introduction to the OpenTelemetry Collector
-navTitle: Collector
+navTitle: The OTel Collector
 description: The OpenTelemetry Collector is a stand-alone service designed to collect, process, and export telemetry data such as logs, metrics, and traces. It provides a vendor-neutral way to manage this data, offering flexibility in configuration and deployment.
 date: 2024-10-18
 author: Nocnica Mellifera
@@ -10,11 +10,10 @@ githubUser: serverless-mom
 displayDescription: 
   Learn more about Playwright & Monitoring with Checkly. Explore how to automate your web with a reliable, programmable monitoring workflow.
 menu:
-   learn_opentelemetry
-weight: 5
+  learn_otel:
+    parent: OpenTelemetry Basics
+weight: 25
 ---
-
-## Introduction to the OpenTelemetry Collector
 
 The OpenTelemetry Collector is a stand-alone service designed to collect, process, and export telemetry data such as logs, metrics, and traces. It provides a vendor-neutral way to manage this data, offering flexibility in configuration and deployment. The collector is extremely lightweight, and can run in almost any environment without significant infrastructure overhead.
 

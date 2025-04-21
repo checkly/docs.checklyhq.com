@@ -1,8 +1,8 @@
 ---
-title: How to reduce your Mean Time to Detection (MTTD)
+title: Reduce Mean Time to Detection MTTD - Best Practices Guide
 displayTitle: How to Detect Problems Faster 
 navTitle:  MTTD Best Practices
-description: 
+description: Avoid user‑reported outages with synthetic checks, anomaly detection, smart alerting, and rich failure traces for rapid detection.
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
