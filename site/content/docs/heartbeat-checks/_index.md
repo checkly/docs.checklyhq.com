@@ -1,6 +1,6 @@
 ---
-title: Heartbeat Monitoring - Checkly Docs
-displayTitle: Heartbeat Monitoring
+title: Getting started with Heartbeat checks - Checkly Docs
+displayTitle: Getting started with Heartbeat checks
 navTitle: Overview
 weight: 14
 slug: /
@@ -14,152 +14,130 @@ aliases:
 
 ---
 
-This guide gives you all the info needed to get started with Checkly heartbeat checks.
+Monitor your scheduled jobs with Heartbeat checks. Heartbeat checks listen for regular pings from your automated tasks, to ensure that they are running as expected. 
 
-> Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features).
+![Heartbeat check overview page](/docs/images/heartbeat-checks/heartbeat-check-overview.png)
 
 Check out this video for a quick explainer:
 
 {{< youtube 7I_NfCjYCmo >}}
 
-## What is a heartbeat check?
+> Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing).
 
-A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
+## What is a Heartbeat check?
+
+A Heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
 When a ping is not received on time, the check will trigger any configured alerts.
 
-Use heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
+Use Heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
 
-Here is an example of how to have a Heroku job send a ping to a Checkly heartbeat check.
-{{< tabs "Heroku example" >}}
-{{< tab "BASH" >}}
+For example, this is how you ping a Heartbeat check from a Heroku job:
+
 ```BASH
 curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
 ```
-{{< /tab >}}
-{{< /tabs >}}
-Note the use of the retry option. We recommend always using retries when available to avoid false alarms due to temporary network issues or other disruptions. You should also specify a timeout so that the ping does not end up blocking an ongoing process or job.
 
-## Creating a heartbeat check
+Note the retry and timeout options. We recommend enabling retries when possible, to avoid false alarms due to temporary network issues or similar. You should also specify a timeout so that the ping doesn't block your ongoing job.
 
-To create a new heartbeat check, click the `+` icon on the sidebar & select **heartbeat check**.
+## Creating a Heartbeat check
 
-Creating a heartbeat check is quick and easy; the check requires a name and the period and grace settings defined. These can all be changed later on. Optionally, you can customize tags or [alert settings](/docs/alerting-and-retries/alert-settings/).
-
-Once you have created your check, the service or host you want to monitor needs to be configured to send a request to the ping URL. When creating or editing the check you can find code examples for how to send requests using JavaScript, Python or in Bash in the quickstart section.
-
-## Check breakdown
+![Heartbeat check create page](/docs/images/heartbeat-checks/create-heartbeat-check.png)
 
 ### Name and tag
-The check name is used for identifying the check in the list of heartbeat checks and in alert messages. Using a clear and meaningful name will help team members identify the check and can help reduce the reaction time when alerts are triggered.
-Tags are used to create meaningful distinctions between check groups, making it easy to filter out selections of checks.
-![name and tag](/docs/images/heartbeat-checks/getting-started-name-and-tag.png)
+A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide a better alerting experience if your checks fall into an alert state.
+
+Tags can relate your checks together. They also determine which checks are shown on your [dashboards](/docs/dashboards/).
 
 ### Ping URL
-The URL on which the check is listening for pings. The job or task monitored should make an HTTP request to the ping URL once per the period configured.
 
-The incoming request should be either a `GET` or `POST`. `PUT` and `DELETE` requests will not be recorded as pings, instead an error message will be returned.
-![ping url](/docs/images/heartbeat-checks/getting-started-ping-url.png)
+This is the URL your check listens to for pings. Your scheduled job should send a ping to this URL when successful, once per the configured period.
 
 ### Period and Grace
-**Period** defines how often you expect a ping to the ping URL.
+Period defines how often you expect a ping to the ping URL.
 
-**Grace** is the time Checkly will wait before triggering any alerts when a ping does not arrive within the set period. E.g., if you have a check that expects a ping every 60 minutes, with a grace of 10 minutes, no alarms would trigger until 70 minutes after the latest ping.
+Grace is the amount of time Checkly will wait before triggering any alerts when a ping does not arrive within the set period. E.g., if you have a check that expects a ping every 60 minutes, with a grace of 10 minutes, no alarms would trigger until 70 minutes after the latest ping.
 
 Use grace to compensate for variance in your jobs.
-![period and grace](/docs/images/heartbeat-checks/getting-started-period-and-grace.png)
 
-### Timer
-The check timer starts when it receives its first ping and will reset after each ping.
-If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus any configured grace period it will trigger any configured alerts.
+### Alerting
+You can configure any of the provided [alert channels](/docs/alerting-and-retries/alert-channels/) for a Heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. 
+
+## Pinging your Heartbeat check
+
+Once you've created your check, configure your scheduled job to send an HTTP request to your check's ping URL. For examples of how to do this, see [ping examples](/docs/heartbeat-checks/#ping-examples).
+
+This should be a `GET` or `POST` request. Your check won't count `PUT` or `DELETE` requests as valid pings, and the endpoint will return an error.
+
+You can set request headers to indicate the source of the ping. The source is parsed from the `origin` request header, falling back to `referer` if needed. If both are missing, the source will be blank.
+
+> Note that some user-agents are blocked to prevent false-positive pings from bots. <br>
+> We're currently blocking Twitterbot, Slackbot, Googlebot, Discordbot, Facebot, TelegramBot WhatsApp, and LinkedInBot.
+> Please note that this list might change in the future.
+
+### Manual pings
+
+You can manually send pings via the Checkly UI. Use this to start the check timer when a check is first created or to silence alarms.
+
+![Manually send a ping via the Checkly UI on the check overview page](/docs/images/heartbeat-checks/heartbeat-ping-overview-page.png)
+
+"Ping now" is also available in the quick menu in your list of Heartbeat checks. 
+
+![Manually send a ping via the Checkly UI in the quick menu](/docs/images/heartbeat-checks/heartbeat-ping-quick-menu.png)
+
+## How does the timer work?
+The check timer starts when it receives its first ping and will reset after each ping or triggered alert.
+
+If you have a check that expects a ping every 60 minutes starting at 09:30, and it receives a ping at 10:00, it will reset the timer to expect a ping before 11:00. If the check does not receive a ping before 11:00 plus the configured grace period, it will trigger any configured alerts.
+
+> Every ping or triggered alert will reset the timer of the next expected heartbeat ping.
 
 ![Explanation of timer resets. Every ping or alert resets the timer.](/docs/images/heartbeat-checks/heartbeats-grace.jpg)
 
-**Every ping or triggered alert will reset the timer of the next expected heartbeat ping.**
-
 > When a check is deactivated and activated again, the timer will start when the check is saved. This is also the case when changing the period of a check.
 
-### Ping now
-Sends a ping to the ping URL. Use this to start the check timer when a check is first created or to silence alarms.
-![ping now](/docs/images/heartbeat-checks/getting-started-ping-now.png)
-Ping now is also available in the quick menu in the heartbeat overview page.
-![ping now in list view](/docs/images/heartbeat-checks/getting-started-list-view-ping-now.png)
-
-> Note that some __user-agents__ are blocked to prevent false-positive pings from bots. <br>
-> We're currently blocking __Twitterbot__, __Slackbot__, __Googlebot__, __Discordbot__, __Facebot__, __TelegramBot__, __WhatsApp__, __LinkedInBot__.
-> Please note that this list might change in the future.
-
-### Alerting
-By default Checkly uses your account default alert settings and channels. You can configure any of the provided [alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) for a heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. When configuring a check, you can choose if it should use the account default channels or a selection specific to the check.
-
-> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#features)
-
-
-## Reporting
-The heartbeat overview page displays a table of all your heartbeat checks. Here you can see the results of recent pings, the configured period and grace, and the availability over the last 7 days.
-
-Clicking any individual check will open the check overview page.
-![overview](/docs/images/heartbeat-checks/getting-started-overview.png)
-
-### Check overview
-The check overview page shows the current status of the check, as well as a breakdown of recent runs and availability metrics.
-
-The summary section at the top of the page allows for time-based filtering, and displays the availability and number of alerts triggered for the given time period.
-
-Single check runs can be accessed by selecting them in the timeline, or by clicking an individual result in the list below the timeline.
-
-Select ‘View all’ for a complete list of available monitoring results in a time period.
-
-### Check results
-
-Selecting a single check result page from the check overview page will give a detailed breakdown of the specific request.
-
-The `source`  value is taken from the request parameter, if available, otherwise from the request `header.origin`, lastly from `headers.referer`. If none of these are available `source` defers to `null`.
-
 ## Ping examples
-Here you can find examples on how to ping a heartbeat check using various types of script or programming languages. 
+Here you can find examples on how to ping a Heartbeat check. 
 
-Most examples uses `GET` as the request method, but Heartbeat checks also accepts `POST` requests. Using `PUT` or `DELETE` will return an error message and the ping will not be recorded.
+Most examples use `GET` as the request method, but Heartbeat checks also accept `POST` requests. Your check won't record `PUT` or `DELETE` requests as pings, and the endpoint will return an error.
 
 ### Shell
-Adding a ping to a shell script only requires a single line. In this example we use [curl](https://github.com/curl/curl), and [wget](https://www.gnu.org/software/wget/).
+Adding a ping to a shell script only requires a single line.
 
-As mentioned earlier, we recommend using the `-m` and `--retry` options to specify timeout and retries to reduce the risk of false alerts or blocking the script. The corresponding options for wget are `-t` for retries and `-T` for timeout. 
+This is an example using [curl](https://curl.se/). We recommend using the `-m` and `--retry` options to specify timeout and retries to reduce the risk of false alerts or blocking the script.
 
-The last example shows how to do a `POST` request instead of `GET` using Curl.
 {{< tabs "Shell" >}}
-{{< tab "Curl" >}}
-```BASH
-# run_backup.sh
-
+{{< tab "Get" >}}
+```BASH {title="run_backup.sh"}
 curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
 ```
 {{< /tab >}}
-{{< tab "Wget" >}}
-```BASH
-# run_backup.sh
-
-wget -T 5 -t 3 https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4
-```
-{{< /tab >}}
-{{< tab "POST in Curl" >}}
-```BASH
-# run_backup.sh
-
+{{< tab "POST" >}}
+```BASH {title="run_backup.sh"}
 curl -X "POST" -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-The above curl example can also be used in the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+This is a similar example with [wget](https://www.gnu.org/software/wget/). Use the options `-t` for retries and `-T` for timeout.
 
-`run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372 > dev/null`
+```BASH {title="run_backup.sh"}
+wget -T 5 -t 3 https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4
+```
+
+You can use curl in the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+
+```BASH
+run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372 > dev/null
+```
 
 And similarly for [Render cron jobs](https://render.com/docs/cronjobs):
 
-`run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372`
+```BASH
+run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
+```
 
 ### Kubernetes CronJob
-Here is an example of how to add the curl command from earlier to a Kubernetes CronJob.
+Here is an example of how to add the curl command to a Kubernetes CronJob.
 
 ```BASH
 apiVersion: batch/v1
@@ -186,10 +164,12 @@ spec:
 ```
 
 ### Node.js
-In these examples we are using the built in [https.get](https://nodejs.org/api/https.html#httpsgeturl-options-callback) option, and then [axios](https://axios-http.com/).
-{{< tabs "Node.js" >}}
-{{< tab "Node.js" >}}
-```JS
+
+This is an example with the built-in [https.get](https://nodejs.org/api/https.html#httpsgeturl-options-callback) package:
+
+{{< tabs "https.get" >}}
+{{< tab "Typescript" >}}
+```ts {title="my-scheduled-job.ts"}
 const https = require("https");
 
 // Sample URL
@@ -209,8 +189,44 @@ https.get(url, options, (res) => {
 
 ```
 {{< /tab >}}
-{{< tab "Axios" >}}
-```JS
+{{< tab "Javascript" >}}
+```js {title="my-scheduled-job.js"}
+const https = require("https");
+
+// Sample URL
+const url = "https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4";
+
+const options = {
+  timeout: 5000,
+};
+
+https.get(url, options, (res) => {
+  console.log("statusCode:", res.statusCode);
+
+  res.on('data', (data) => {
+    console.log("responseBody:", data);
+  });
+});
+
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+You can also use [axios](https://axios-http.com/):
+
+{{< tabs "axios" >}}
+{{< tab "TypeScript" >}}
+```ts {title="my-scheduled-job.ts"}
+import axios from 'axios'
+
+axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').then(resp => {
+    console.log(resp.data);
+})
+
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js {title="my-scheduled-job.js"}
 const axios = require('axios');
 
 axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').then(resp => {
@@ -220,11 +236,10 @@ axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').the
 {{< /tab >}}
 {{< /tabs >}}
 
-
 ### Python
-Using the python [requests](https://requests.readthedocs.io/en/latest/) library with a timeout set to 5 seconds.
+This is an example using the Python [requests](https://requests.readthedocs.io/en/latest/) library with a timeout of 5 seconds:
 
-```PYTHON
+```PYTHON {title="my_scheduled_job.py"}
 import requests
 
 # Heartbeat URL
@@ -235,10 +250,57 @@ response = requests.get(url, timeout=5)
 ```
 
 ### PowerShell
-Adding a ping to a PowerShell script only requires a single line. Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems.
+Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems. Adding a ping to a PowerShell script only requires a single line.
 
-Similar to the Shell example we can specify `timeout` and `retry` options. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
+We recommend using the `timeout` and `retry` options to reduce the risk of false alerts or blocking the script. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
 
 ```BASH
 Invoke-RestMethod -Uri https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc -TimeoutSec 5 -MaximumRetryCount 3 -RetryIntervalSec 5
 ```
+
+## CLI example
+
+The [Checkly CLI](/docs/cli/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
+
+You can define a Heartbeat check via the CLI. For example:
+
+{{< tabs "CLI example" >}}
+{{< tab "TypeScript" >}}
+```ts {title="heartbeat.check.ts"}
+import { HeartbeatCheck } from 'checkly/constructs'
+
+new HeartbeatCheck('heartbeat-check-1', {
+  name: 'Send weekly newsletter job',
+  period: 7,
+  periodUnit: 'days',
+  grace: 2,
+  graceUnit: 'hours',
+})
+
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js {title="heartbeat.check.js"}
+const { HeartbeatCheck } = require('checkly/constructs')
+
+new HeartbeatCheck('heartbeat-check-1', {
+  name: 'Send weekly newsletter job',
+  period: 7,
+  periodUnit: 'days',
+  grace: 2,
+  graceUnit: 'hours',
+})
+
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+The above example defines:
+- The `name` of the check.
+- A `period` of 7 days and a `grace` of 2 hours.
+
+For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
+
+## Next steps
+
+- Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
