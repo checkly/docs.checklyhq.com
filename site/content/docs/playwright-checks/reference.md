@@ -14,8 +14,8 @@ menu:
 
 To define your Playwright Check suite, you use the `checkly.config.ts/js` file.
 
-Each Playwright Check is connected to an existing reference in your `playwright.config.ts/js` file. 
-During the Alpha, a Playwright Check can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
+Each Playwright Check suite is connected to an existing reference in your `playwright.config.ts/js` file. 
+During the Alpha, a Playwright Check suite can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
 
 ## Playwright references
 
