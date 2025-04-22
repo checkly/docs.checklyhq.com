@@ -13,7 +13,7 @@ menu:
 {{< markdownpartial "/_shared/playwright-native-alpha.md" >}}
 
 
-With Checkly, you can convert your Playwright tests directly into scheduled monitors.
+With Checkly, convert your Playwright tests directly into scheduled monitors.
 
 You can schedule checks from different locations and trigger alerts for your team to act on when a critical flow or API fails in your product.
 
@@ -22,7 +22,7 @@ You can schedule checks from different locations and trigger alerts for your tea
 A Playwright Check Suite runs your Playwright test suite in a single monitoring check.
 You can slice and dice your Playwright test suite into different Playwright check suites, using known references such as Playwright Projects, `pwProjects` or Playwright test tags, `pwTags`.
 
-Supports all Playwright features out of the box:
+Playwright Check Suites support all Playwright features out of the box:
 
 * Dependencies between tests or projects → `projects`, `dependencies`, `globalSetup`, `globalTeardown`, reused `StorageState`, `test.beforeEach`...
 * Multiple browsers and viewports: Chrome, Firefox, WebKit, Mobile Chrome.
