@@ -1,8 +1,8 @@
 ---
-title: Tracing and Synthetic Monitoring for Root Cause Analysis
+title: Root Cause with Traces - Faster RCA | Checkly
 displayTitle: Tracing for Root Cause Analysis
 navTitle: Tracing for Root Cause Analysis
-description: 
+description: Combine distributed tracing with synthetic checks to pinpoint failures across microservices, preserve request context, and reduce MTTR.
 date: 2025-04-06
 author: Nocnica Mellifera
 githubUser: serverless-mom

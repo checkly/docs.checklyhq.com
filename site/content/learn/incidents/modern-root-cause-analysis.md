@@ -1,8 +1,8 @@
 ---
-title: Modern Root Cause Analysis - How Updated Observability Tools Keep You From Flailing in Logs
+title: Modern Root Cause Analysis | Checkly Guide
 displayTitle: Modern Root Cause Analysis 
 navTitle:  Modern Root Cause Analysis
-description: 
+description: Discover how unified metrics, logs, traces, and synthetic tests help you pinpoint failures faster, reduce downtime, and more.
 date: 2025-04-06
 author: Nocnica Mellifera
 githubUser: serverless-mom

@@ -1,8 +1,8 @@
 ---
-title: Anatomy of a Status Page - User Expectations and Technical Requirements
+title: Anatomy of a Status Page | Checkly Guide
 displayTitle: Anatomy of a Status Page
 navTitle:  Anatomy of a Status Page
-description: This article helps define what users expect in a status page, and the technical requirements.
+description: Discover what makes a status page users trust - automated monitoring, clear visuals, service groupings, and more.
 date: 2025-04-08
 author: Nocnica Mellifera
 githubUser: serverless-mom
@@ -14,11 +14,6 @@ menu:
   learn_incidents:
       parent: Communication
 ---
-# 
-
-Assign: Nočnica Mellifera
-Status: In Progress
-Type: Learn
 
 When I first started in the tech industry, a new idea was on the scene for your service’s status page: just embed the company’s Twitter (now X) account on a page. Since we were all using Twitter constantly, it was the best place to check for updates about our service. These days, our expectations for a critical service’s status page are a bit higher than the occasional social media post. This article helps define what users expect in a status page, and the technical requirements.
 

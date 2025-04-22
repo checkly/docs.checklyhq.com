@@ -1,6 +1,6 @@
 ---
-title: OpenTelemetry traces
-displayTitle: An introduction to OpenTelemetry Traces
+title: What are OpenTelemetry Traces? - key concepts and examples
+displayTitle: What are OpenTelemetry Traces?
 navTitle: Traces
 description: OpenTelemetry traces capture how individual operations within your system interact over time. A trace follows a request as it flows through a system, recording the relationships between different operations. Traces are particularly useful in distributed systems, where multiple services or components interact. However, they are equally valuable for monolithic applications, providing insights even when everything runs in a single process.
 date: 2024-10-30
@@ -9,11 +9,10 @@ githubUser: serverless-mom
 displayDescription: 
   Learn more about OpenTelemetry & Monitoring with Checkly. Explore metrics, one of the three pillars of observability.
 menu:
-   learn_opentelemetry
-weight: 4
+  learn_otel:
+    parent: Key Signals
+weight: 30
 ---
-
-## What Are OpenTelemetry Traces?
 
 OpenTelemetry traces capture how individual operations within your system interact over time. A trace follows a request as it flows through a system, recording the relationships between different operations. Traces are particularly useful in distributed systems, where multiple services or components interact. However, they are equally valuable for monolithic applications, providing insights even when everything runs in a single process.
 

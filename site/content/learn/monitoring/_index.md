@@ -15,8 +15,30 @@ Monitoring your production services is a key part of a good user experience. Tra
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="Web Application Monitoring"
+	  title="Metrics Every Team Needs"
 	  img="/learn/icons/monitoring.svg"
+	  description="Define the metrics that every team needs to get tracking of their system’s performance."
+	  link="/learn/monitoring/metrics-every-team-needs/"
+>}} 
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="The Phases of the SDLC"
+	  img="/learn/icons/triangle.svg"
+	  description="How does software get made? Breaking down the basic phases of software development."
+      link="/learn/monitoring/intro-to-sdlc/"
+>}}
+</div>
+
+
+## Monitor your critical systems
+
+<div class="cards-list">
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="Web Application Monitoring"
+	  img="/learn/icons/dashboard.svg"
 	  description="Learn all about web application monitoring, performance and reliability and discover top tools."
 	  link="/learn/monitoring/web-application-monitoring/"
 >}} 
@@ -24,30 +46,9 @@ Monitoring your production services is a key part of a good user experience. Tra
 	  class="two-column-card"
 	  headerTag="h3"
 	  title="Frontend Monitoring"
-	  img="/learn/icons/monitoring.svg"
+	  img="/learn/icons/iframe.svg"
 	  description="Discover the benefits and top tools for frontend monitoring. Track performance and optimize user experience."
       link="/learn/monitoring/frontend-monitoring/"
->}}
-</div>
-
-## Critical Performance Metrics
-
-<div class="cards-list">
-{{< doc-card
-	  class="two-column-card"
-	  headerTag="h3"
-	  title="Defining MTTR"
-	  img="/learn/icons/metrics.svg"
-	  description="Mean Time to Repair (MTTR) is the average time it takes to repair a system or service after a failure occurs. Dive into how it can help you measure performance"
-	  link="/learn/monitoring/defining-mttr/"
->}} 
-{{< doc-card
-	  class="two-column-card"
-	  headerTag="h3"
-	  title="DORA Metrics"
-	  img="/learn/icons/metrics.svg"
-	  description="What's the quality of your developer experience? Quantify performance with DORA metrics."
-      link="/learn/monitoring/dora-metrics/"
 >}}
 </div>
 
