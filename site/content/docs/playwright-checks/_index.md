@@ -42,7 +42,7 @@ On top of these, a Playwright Check Suite provides:
 
 What you need:
 
-* A checkly account with the alpha enabled (Reach out to [support](https://app.checklyhq.com/?support=true) to get an invite)
+* A checkly account
 * A repository using Playwright for E2E tests
   * It should include a playwright configuration file.
   
