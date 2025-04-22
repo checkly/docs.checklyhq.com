@@ -24,7 +24,7 @@ The following Playwright references are available to create a Playwright Monitor
 
 * `pwTags` --- select witch tags will be grouped into a playwright check.
 
-You can combine pwTags and pwProjects to generate your check. For example: 
+You can combine `pwTags` and `pwProjects` to generate your check. For example: 
 
 ```typescript {title="checkly.config.ts"}
 checks: {
