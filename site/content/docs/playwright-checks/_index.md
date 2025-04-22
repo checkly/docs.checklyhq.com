@@ -20,7 +20,7 @@ You can schedule checks from different locations and trigger alerts for your tea
 ## What's a Playwright Check Suite?
 
 A Playwright Check Suite runs your Playwright test suite in a single monitoring check.
-You can slice and dice your Playwright test suite into different Playwright check suites, using known references such as Playwright Projects, `pwProjects` or Playwright test tags, `pwTags`.
+You can slice and dice your Playwright test suite into different Playwright Check Suites, using known references such as Playwright Projects, `pwProjects` or Playwright test tags, `pwTags`.
 
 Playwright Check Suites support all Playwright features out of the box:
 
