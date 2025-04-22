@@ -1,20 +1,20 @@
 ---
-title: Playwright Check suites reference -- Checkly Docs
+title: Playwright Check Suites reference -- Checkly Docs
 displayTitle: All options available in Playwright Check suites
 navTitle: Reference
 weight: 16
 slug: /reference
 menu:
   resources:
-    parent: "Playwright check suites (Alpha)"
+    parent: "Playwright Check Suites (Alpha)"
 ---
 
 {{< markdownpartial "/_shared/playwright-native-alpha.md" >}}
 
-To define your Playwright Check suite, you use the `checkly.config.ts/js` file.
+To define your Playwright Check Suite, you use the `checkly.config.ts/js` file.
 
-Each Playwright Check suite is connected to an existing reference in your `playwright.config.ts/js` file. 
-During the Alpha, a Playwright Check suite can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
+Each Playwright Check Suite is connected to an existing reference in your `playwright.config.ts/js` file. 
+During the Alpha, a Playwright Check Suite can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
 
 ## Playwright references
 
@@ -58,7 +58,7 @@ These are the available monitoring configuration options:
 
 * `locations:` An array of locations where to run your Checks.
 
-* `groupName:` The group this check belongs to,
+* `groupName:` The group this check belongs to.
 
 ```typescript {title="checkly.config.ts"}
 

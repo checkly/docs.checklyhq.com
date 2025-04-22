@@ -1,12 +1,12 @@
 ---
-title: Playwright Check suites reference - Checkly Docs
-displayTitle: Onboard your whole Playwright test suite
+title: Playwright Check Suites reference - Checkly Docs
+displayTitle: Onboard your Playwright test suite
 navTitle: Overview
 weight: 14
 slug: /
 menu:
   resources:
-    parent: "Playwright check suites (Alpha)"
+    parent: "Playwright Check Suites (Alpha)"
 
 ---
 
@@ -17,12 +17,12 @@ With Checkly, you can convert your Playwright tests directly into scheduled moni
 
 You can schedule checks from different locations and trigger alerts for your team to act on when a critical flow or API fails in your product.
 
-## What's a Playwright check suite?
+## What's a Playwright Check Suite?
 
-A Playwright check suite runs your Playwright test suite in a single monitoring check.
+A Playwright Check Suite runs your Playwright test suite in a single monitoring check.
 You can slice and dice your Playwright test suite into different Playwright check suites, using known references such as Playwright Projects, `pwProjects` or Playwright test tags, `pwTags`.
 
-Supports all Playwright's features out of the box:
+Supports all Playwright features out of the box:
 
 * Dependencies between tests or projects → `projects`, `dependencies`, `globalSetup`, `globalTeardown`, reused `StorageState`, `test.beforeEach`...
 * Multiple browsers and viewports: Chrome, Firefox, WebKit, Mobile Chrome.
@@ -32,7 +32,7 @@ Supports all Playwright's features out of the box:
 * Control over traces, video and screenshots generation.
 
 
-On top of these, a Playwright Check suite provides:
+On top of these, a Playwright Check Suite provides:
 
 * Custom code dependencies, read directly from your `package.json` file.
 * [World-wide locations](https://www.checklyhq.com/docs/monitoring/global-locations/) to run your check from.
@@ -73,7 +73,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   ```
   
   This will create a test session with all your tests. You'll get a Checkly URL where you can see the test results.
-  In your repository, a `checkly.config.ts/js` is automatically created, configured to run a single Playwright Check suite containing all your tests.
+  In your repository, a `checkly.config.ts/js` is automatically created, configured to run a single Playwright Check Suite containing all your tests.
 
 ### 4. Cherry-pick which tests should become checks
 
@@ -96,7 +96,7 @@ Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones tha
       playwrightConfigPath: './playwright.config.ts', //specify a custom playwright config file here
       playwrightChecks: [
         {
-          /* Create a multi-browser check tht runs 
+          /* Create a multi-browser check that runs 
           every 5 mins.*/
           name: 'multi-browser',
           pwProjects: ['chromium', 'firefox', 'webkit'], // Reference the project or projects in your playwright config

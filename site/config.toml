@@ -93,7 +93,7 @@ disqusShortname = "checkly"
 	weight = 45
 
 [[menu.resources]]
-	name = "Playwright check suites (Alpha)"
+	name = "Playwright Check Suites (Alpha)"
 	url = "/docs/playwright-checks/"
 	weight = 50
 
