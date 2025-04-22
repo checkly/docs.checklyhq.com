@@ -139,12 +139,11 @@ run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49
 ### Kubernetes CronJob
 Here is an example of how to add the curl command to a Kubernetes CronJob.
 
-```BASH
+```YAML {title="my-scheduled-job.yaml"}
 apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: nightly
-  namespace: example
 spec:
   schedule: "0 2 * * *"
   jobTemplate:
@@ -170,7 +169,7 @@ This is an example with the built-in [https.get](https://nodejs.org/api/https.ht
 {{< tabs "https.get" >}}
 {{< tab "Typescript" >}}
 ```ts {title="my-scheduled-job.ts"}
-const https = require("https");
+import https from "https";
 
 // Sample URL
 const url = "https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4";
@@ -186,7 +185,6 @@ https.get(url, options, (res) => {
     console.log("responseBody:", data);
   });
 });
-
 ```
 {{< /tab >}}
 {{< tab "Javascript" >}}
@@ -207,7 +205,6 @@ https.get(url, options, (res) => {
     console.log("responseBody:", data);
   });
 });
-
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -219,9 +216,10 @@ You can also use [axios](https://axios-http.com/):
 ```ts {title="my-scheduled-job.ts"}
 import axios from 'axios'
 
-axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').then(resp => {
-    console.log(resp.data);
-})
+axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4')
+  .then(resp => {
+      console.log(resp.data);
+  })
 
 ```
 {{< /tab >}}
@@ -229,9 +227,10 @@ axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').the
 ```js {title="my-scheduled-job.js"}
 const axios = require('axios');
 
-axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4').then(resp => {
-    console.log(resp.data);
-})
+axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4')
+  .then(resp => {
+      console.log(resp.data);
+  })
 ```
 {{< /tab >}}
 {{< /tabs >}}
