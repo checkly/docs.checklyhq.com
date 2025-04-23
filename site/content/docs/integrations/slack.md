@@ -74,7 +74,7 @@ You will be using a Webhook alert channel with a Slack Incoming WebHook URL and 
 
 The following template uses conditional logic (`{{#if}}`) to change the message depending on the alert type:
 
-```
+``` {title="Body"}
 {
   "attachments": [
     {
