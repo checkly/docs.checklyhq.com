@@ -236,7 +236,7 @@ The following template uses conditional logic (`{{#if}}`) to change the message 
 >[!NOTE] 
 > Be sure each check mapped in the runbook logic has a corresponding URL. If a match isn’t found, fallback to a default documentation page.
 
-### Testing the Webhook limitations
+### Testing the Webhook Limitations
 * You cannot use the Test Webhook button in Checkly for this template, as Slack requires valid payload structure and the test payload lacks real check data.
 * To test, trigger a real alert by adjusting a check so it fails, degrades, and recovers.
 
