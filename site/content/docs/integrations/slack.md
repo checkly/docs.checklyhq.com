@@ -34,7 +34,6 @@ From the recovered Slack message, you can see the timestamp as well as a link to
 
 ![A slack message showing a recovered alert](/docs/images/alerting/slack-recovered-check.png)
 
----
 
 ## Custom Slack Webhook Integration (Advanced)
 
