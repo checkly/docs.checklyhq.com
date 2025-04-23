@@ -11,7 +11,7 @@ githubUser:
 tags:
   - basics
 navTitle: Emulating mobile devices
-weight: 6
+weight: 130
 
 menu:
   learn_playwright:

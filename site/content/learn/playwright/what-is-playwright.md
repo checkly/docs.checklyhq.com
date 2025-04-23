@@ -8,7 +8,7 @@ githubUser: ragog
 tags:
   - basics
 
-weight: 1
+weight: 10
 navTitle: What is Playwright?
 aliases:
   - /learn/playwright/getting-started/
