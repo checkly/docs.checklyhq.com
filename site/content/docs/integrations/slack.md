@@ -43,7 +43,7 @@ This approach is ideal when the native Slack integration does not meet your form
 
 ### Setup Overview
 
-You will be using a `WebhookAlertChannel` construct with a Slack Incoming WebHook URL and a custom payload template. This setup allows you to:
+You will be using a Webhook alert channel with a Slack Incoming WebHook URL and a custom payload template. This setup allows you to:
 
 - Control Slack message formatting using Slack's [Block Kit](https://api.slack.com/block-kit)
 - Show detailed check information such as:
