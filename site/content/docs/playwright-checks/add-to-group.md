@@ -1,13 +1,13 @@
 ---
-title: Adding Playwright Check suites to groups
-displayTitle: Adding a Playwright check suite to a group
+title: Adding Playwright Check Suites to groups
+displayTitle: Adding a Playwright check Suite to a group
 navTitle: Add to a group
 weight: 20
 slug: /groups-usage
 menu:
   resources:
-    parent: "Playwright check suites (Alpha)"
-
+    parent: "Playwright Check Suites (Alpha)"
+    weight: 20
 ---
 
 {{< markdownpartial "/_shared/playwright-native-alpha.md" >}}
