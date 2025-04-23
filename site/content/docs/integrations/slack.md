@@ -37,7 +37,7 @@ From the recovered Slack message, you can see the timestamp as well as a link to
 
 ## Custom Slack Webhook Integration
 
-For advanced users who need more control over the Slack alert format and content, you can use a **Webhook Alert Channel** in Checkly to send fully customized messages to Slack.
+For users who need more control over the Slack alert format and content, you can use a **Webhook Alert Channel** in Checkly to send fully customized messages to Slack.
 
 This approach is ideal when the native Slack integration does not meet your formatting or dynamic content needs.
 
