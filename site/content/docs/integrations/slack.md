@@ -33,3 +33,210 @@ We provide a lot of information in the initial Slack message including links to 
 From the recovered Slack message, you can see the timestamp as well as a link to the check itself.
 
 ![A slack message showing a recovered alert](/docs/images/alerting/slack-recovered-check.png)
+
+---
+
+## Custom Slack Webhook Integration (Advanced)
+
+For advanced users who need more control over the Slack alert format and content, you can use a **Webhook Alert Channel** in Checkly to send fully customized messages to Slack.
+
+This approach is ideal when the native Slack integration does not meet your formatting or dynamic content needs.
+
+### Setup Overview
+
+You will be using a `WebhookAlertChannel` construct with a Slack Incoming WebHook URL and a custom payload template. This setup allows you to:
+
+- Control Slack message formatting using Slack's [Block Kit](https://api.slack.com/block-kit)
+- Show detailed check information such as:
+  - Check name and ID
+  - Run location and start time
+  - Response time
+  - Error messages (on failure)
+  - Recovery or degraded state
+- Link directly to a runbook or documentation for the failing check
+
+### Setting It Up
+
+1. **Create a Slack Webhook**
+   - Follow Step 1 from the main section above to generate a Webhook URL in Slack.
+   - Choose the bot name and icon for your alerts.
+
+2. **Create a Webhook Alert Channel in Checkly**
+   - Go to **Alert Settings > Add More Channels > Webhook**
+   - Fill in the following:
+     - **Name**: e.g. `Custom Slack Alerts`
+     - **URL**: Paste the Slack Webhook URL
+     - **Method**: `POST`
+     - **Send Alerts for**: Enable `Failure`, `Recovery`, and `Degraded`
+     - **SSL Expiry**: Optional, not supported in this template
+     - **Template**: See below
+
+3. **Customize the Template**
+
+The following template uses conditional logic (`{{#if}}`) to change the message depending on the alert type:
+
+```
+{
+  "attachments": [
+    {
+      {{#if (eq ALERT_TYPE "ALERT_FAILURE")}}
+      "color": "#a30200",
+      {{/if}}
+      {{#if (eq ALERT_TYPE "ALERT_RECOVERY")}}
+      "color": "#2eb886",
+      {{/if}}
+      {{#if (eq ALERT_TYPE "ALERT_DEGRADED_RECOVERY")}}
+      "color": "#2eb886",
+      {{/if}}
+      {{#if (eq ALERT_TYPE "ALERT_DEGRADED")}}
+      "color": "#daa038",
+      {{/if}}
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Check Result Details",
+            "emoji": true
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Check:*\n<https://app.checklyhq.com/checks/{{CHECK_ID}}|{{CHECK_NAME}}>"
+            },
+            {{#if GROUP_NAME}}
+            {
+              "type": "mrkdwn",
+              "text": "*Group:*\n{{GROUP_NAME}}"
+            },
+            {{/if}}
+            {
+              "type": "mrkdwn",
+              "text": "*Type:*\n{{CHECK_TYPE}}"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Started at:*\n{{STARTED_AT}}"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Run Location:*\n`{{RUN_LOCATION}}`"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Response Time:*\n{{RESPONSE_TIME}}ms"
+            }
+            {{#if API_CHECK_RESPONSE_STATUS_CODE}},
+            {
+              "type": "mrkdwn",
+              "text": "*Status Code:*\n{{API_CHECK_RESPONSE_STATUS_CODE}} {{API_CHECK_RESPONSE_STATUS_TEXT}}"
+            }
+            {{/if}}
+          ]
+        },
+        {{#if CHECK_ERROR_MESSAGE}}
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*❌ Error Message:*\n```{{CHECK_ERROR_MESSAGE}}```"
+          }
+        },
+        {{/if}}
+
+        {{#if (eq ALERT_TYPE "ALERT_RECOVERY")}}
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "✅ *This check has recovered and is now passing successfully.*"
+          }
+        },
+        {{/if}}
+
+        {{#if (eq ALERT_TYPE "ALERT_DEGRADED_RECOVERY")}}
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "🟡 *This check has recovered from a degraded state.*"
+          }
+        },
+        {{/if}}
+
+        {{#if (eq ALERT_TYPE "ALERT_DEGRADED")}}
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "⚠️ *This check is running but performance is degraded.*"
+          }
+        },
+        {{/if}}
+
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "🔎 *View full result:*\n<{{RESULT_LINK}}|Click here to view details in Checkly>"
+          }
+        },
+        {
+          "type": "actions",
+          "elements": [
+            {
+              "type": "button",
+              "text": {
+                "type": "plain_text",
+                "text": "Runbook",
+                "emoji": true
+              },
+              {{#if (eq CHECK_NAME "Check A")}}
+              "url": "https://example.com/check-a",
+              {{else if (eq CHECK_NAME "Check B")}}
+              "url": "https://example.com/check-b",
+              {{else}}
+              "url": "https://example.com/default",
+              {{/if}}
+              "action_id": "open_link_button"
+            },
+            {
+              "type": "button",
+              "text": {
+                "type": "plain_text",
+                "text": "OTel Provider",
+                "emoji": true
+              },
+              "url": "https://example.com",
+              "action_id": "open_link_button_needs_to_be_unique"
+            }
+          ]
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "plain_text",
+              "text": "Tags: {{TAGS}} | UUID: {{CHECK_RESULT_ID}}",
+              "emoji": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+>[!NOTE] 
+> Be sure to update or remove the placeholder button links to Runbooks, OTel provider and anything else that is not needed for your use case.
+
+>[!NOTE] 
+> Be sure each check mapped in the runbook logic has a corresponding URL. If a match isn’t found, fallback to a default documentation page.
+
+### Testing the Webhook limitations
+* You cannot use the Test Webhook button in Checkly for this template, as Slack requires valid payload structure and the test payload lacks real check data.
+* To test, trigger a real alert by adjusting a check so it fails, degrades, and recovers.
