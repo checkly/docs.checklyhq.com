@@ -240,3 +240,13 @@ The following template uses conditional logic (`{{#if}}`) to change the message 
 ### Testing the Webhook limitations
 * You cannot use the Test Webhook button in Checkly for this template, as Slack requires valid payload structure and the test payload lacks real check data.
 * To test, trigger a real alert by adjusting a check so it fails, degrades, and recovers.
+
+### Examples of Alert Transitions
+
+![A customized slack message showing a failed alert](/docs/images/alerting/slack-custom-failed.png)
+
+![A customized slack message showing a degraded alert](/docs/images/alerting/slack-custom-degraded.png)
+
+![A customized slack message showing a recovered alert](/docs/images/alerting/slack-custom-recovered.png)
+
+![A customized slack message showing a recovered alert from degraded state](/docs/images/alerting/slack-custom-recovered-degraded.png)
