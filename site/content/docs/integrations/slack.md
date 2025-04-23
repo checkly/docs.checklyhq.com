@@ -35,7 +35,7 @@ From the recovered Slack message, you can see the timestamp as well as a link to
 ![A slack message showing a recovered alert](/docs/images/alerting/slack-recovered-check.png)
 
 
-## Custom Slack Webhook Integration (Advanced)
+## Custom Slack Webhook Integration
 
 For advanced users who need more control over the Slack alert format and content, you can use a **Webhook Alert Channel** in Checkly to send fully customized messages to Slack.
 
