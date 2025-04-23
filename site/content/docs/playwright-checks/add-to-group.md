@@ -7,7 +7,6 @@ slug: /groups-usage
 menu:
   resources:
     parent: "Playwright check suites (Alpha)"
-    weight: 20
 
 ---
 
