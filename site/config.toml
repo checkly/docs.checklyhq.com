@@ -200,12 +200,12 @@ disqusShortname = "checkly"
 [[menu.learn_playwright]]
 	name = "Interaction"
 	pre = "/learn/icons/pages.svg"
-	weight = 320
+	weight = 310
 
 [[menu.learn_playwright]]
 	name = "Basics"
 	pre = "/learn/icons/misc.svg"
-	weight = 310
+	weight = 320
 
 [[menu.learn_playwright]]
 	name = "Best practices"
