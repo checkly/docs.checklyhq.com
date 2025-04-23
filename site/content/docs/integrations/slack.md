@@ -46,7 +46,6 @@ This approach is ideal when the native Slack integration does not meet your form
 You will be using a Webhook alert channel with a Slack Incoming WebHook URL and a custom payload template. This setup allows you to:
 
 - Control Slack message formatting using Slack's [Block Kit](https://api.slack.com/block-kit)
-- Show detailed check information such as:
   - Links to runbooks or external OTel providers
   - Error messages (on failure)
 - Link directly to a runbook or documentation for the failing check
