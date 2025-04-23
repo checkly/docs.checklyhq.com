@@ -47,7 +47,6 @@ You will be using a Webhook alert channel with a Slack Incoming WebHook URL and 
 
 - Control Slack message formatting using Slack's [Block Kit](https://api.slack.com/block-kit)
 - Show detailed check information such as:
-  - Run location and start time
   - Response time
   - Error messages (on failure)
   - Recovery or degraded state
