@@ -61,7 +61,7 @@ You will be using a Webhook alert channel with a Slack Incoming WebHook URL and 
    - Choose the bot name and icon for your alerts.
 
 2. **Create a Webhook Alert Channel in Checkly**
-   - Go to **Alert Settings > Add More Channels > Webhook**
+   - Go to [Alert Settings > Add More Channels > Webhook](https://app.checklyhq.com/alerts/settings/channels/new/webhook)
    - Fill in the following:
      - **Name**: e.g. `Custom Slack Alerts`
      - **URL**: Paste the Slack Webhook URL
