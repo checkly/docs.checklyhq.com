@@ -54,7 +54,7 @@ You will be using a Webhook alert channel with a Slack Incoming WebHook URL and 
   - Recovery or degraded state
 - Link directly to a runbook or documentation for the failing check
 
-### Setting It Up
+### Steps
 
 1. **Create a Slack Webhook**
    - Follow Step 1 from the main section above to generate a Webhook URL in Slack.
