@@ -49,7 +49,6 @@ You will be using a Webhook alert channel with a Slack Incoming WebHook URL and 
 - Show detailed check information such as:
   - Links to runbooks or external OTel providers
   - Error messages (on failure)
-  - Recovery or degraded state
 - Link directly to a runbook or documentation for the failing check
 
 ### Steps
