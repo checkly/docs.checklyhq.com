@@ -8,7 +8,7 @@ menu:
     parent: "Monitoring"
 ---
 
-You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks/) section
+You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far.
 
 ## Check results overview
 
@@ -131,6 +131,24 @@ These include:
     d. First Byte
 
     e. Download
+
+## Heartbeat check results
+
+Heartbeat check results show information about the ping request, like when it was recieved and its source.
+
+![Using the Heartbeat check results view](/docs/images/monitoring/check-results-heartbeat.png)
+
+The state indicates when your scheduled job pinged the Heartbeat check, relative to the expected time:
+
+| State    | Description |
+| -------- | ------- |
+| `EARLY` | Ping recieved before the expected time. |
+| `RECEIVED` | Ping recieved right at the expected time. |
+| `GRACE` | Ping recieved after the expected time, during the grace period. |
+| `LATE` | Ping recieved during the few seconds between the end of the grace period and before the check is marked as failing. This is very rare. |
+| `FAILING` | No ping recieved by the end of the grace period. Indicates a failing Heartbeat check. |
+
+The source shows where your ping originated, determined by the `origin` and `referer` request headers. [Learn more about configuring the ping source](/docs/heartbeat-checks/#pinging-your-heartbeat-check).
 
 ## Multistep check results
 
