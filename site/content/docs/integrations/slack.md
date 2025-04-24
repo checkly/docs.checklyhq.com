@@ -39,14 +39,7 @@ From the recovered Slack message, you can see the timestamp as well as a link to
 
 For users who need more control over the Slack alert format and content, you can use a **Webhook Alert Channel** in Checkly to send fully customized messages to Slack.
 
-This approach is ideal when the native Slack integration does not meet your formatting or dynamic content needs.
-
-### Setup Overview
-
-You will be using a Webhook alert channel with a Slack Incoming WebHook URL and a custom payload template. This setup allows you to:
-
-- Control Slack message formatting using Slack's [Block Kit](https://api.slack.com/block-kit)
-- Link directly to a runbook or documentation for the failing check
+This approach is ideal when the native Slack integration does not meet your formatting or dynamic content needs. You will be using a Webhook alert channel with a Slack Incoming WebHook URL and a custom payload template. This setup allows you to control Slack message formatting using Slack's [Block Kit](https://api.slack.com/block-kit).
 
 ### Steps
 
@@ -58,11 +51,10 @@ You will be using a Webhook alert channel with a Slack Incoming WebHook URL and 
    - Go to [Alert Settings > Add More Channels > Webhook](https://app.checklyhq.com/alerts/settings/channels/new/webhook)
    - Fill in the following:
      - **Name**: e.g. `Custom Slack Alerts`
-     - **URL**: Paste the Slack Webhook URL
      - **Method**: `POST`
-     - **Send Alerts for**: Enable `Failure`, `Recovery`, and `Degraded`
-     - **SSL Expiry**: Optional, not supported in this template
-     - **Template**: See below
+     - **URL**: Paste the Slack Webhook URL
+     - **Notification events**: Enable recovery, degraded, and failure. SSL expiry optional, but not supported in this template.
+     - **Body**: See template below
 
 3. **Customize the Template**
 
