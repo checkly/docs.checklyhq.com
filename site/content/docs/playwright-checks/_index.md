@@ -61,7 +61,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   If you're using TypeScript, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
 
   ```bash {title="Terminal"}
-  npm i --save-dev ts-node typescript
+  npm i --save-dev jiti typescript
   ```
 
 ### 3. Test and create a monitor with all your tests
