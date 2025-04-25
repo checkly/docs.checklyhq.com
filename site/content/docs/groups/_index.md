@@ -51,10 +51,7 @@ For configuration information commonly used by checks in your group, create [gro
 
 * **Alert settings:** You can configure [alert channels](/docs/alerting-and-retries/alert-channels) for checks in your group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in your group.
 
-> [!WARNING]
-> Make sure to select an alert channel, otherwise checks in this group *will not alert*.
-
-> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#feature-overview)
+⚠️ Make sure to select an alert channel, otherwise checks in this group *will not alert*.
 
 ### Testing
 
