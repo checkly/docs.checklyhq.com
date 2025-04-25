@@ -1,6 +1,6 @@
 ---
 title: Adding Playwright Check Suites to groups
-displayTitle: Adding a Playwright check Suite to a group
+displayTitle: Adding a Playwright Check Suite to a group
 navTitle: Add to a group
 weight: 20
 slug: /groups-usage
@@ -25,7 +25,7 @@ To define a new group, create a group file, for example `website-group.check.ts`
 import { CheckGroup } from 'checkly/constructs'
 
 export const myGroup = new CheckGroup('production-group', {
-  name: 'production-group',
+  name: 'Production group',
   activated: true,
   muted: false,
   locations: ['us-east-1', 'eu-west-1'],
@@ -37,6 +37,8 @@ export const myGroup = new CheckGroup('production-group', {
   retryStrategy: RetryStrategyBuilder.linearStrategy({ baseBackoffSeconds: 30, maxRetries: 2, sameRegion: false }),
 })
 ```
+
+Learn more about [using groups](https://www.checklyhq.com/docs/cli/constructs-reference/#checkgroup) to unify checks in Checkly.
 
 ## 2. Associate the group to the check
 
@@ -74,4 +76,4 @@ When specifying your Playwright Check Suite, you can reference the new or existi
   npx checkly deploy  # deploy
 ```
 
-You can now see your Playwright check suite in your group.
+You can now see your Playwright Check Suite in your group.
