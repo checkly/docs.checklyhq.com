@@ -303,3 +303,4 @@ For more options, see the [Check construct reference](/docs/cli/constructs-refer
 ## Next steps
 
 - Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
+- Interpret your [Heartbeat check results](/docs/monitoring/check-results/#heartbeat-check-results).
