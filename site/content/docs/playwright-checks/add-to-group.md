@@ -57,7 +57,7 @@ When specifying your Playwright Check Suite, you can reference the new or existi
           name: 'checkly-website',
           frequency: 10,
           locations: ['us-east-1',],
-          groupName: 'production-group', // use the name of the group you created
+          groupName: 'Production group', // use the name of the group you created
         },
       ],
     },
