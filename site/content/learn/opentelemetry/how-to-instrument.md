@@ -10,8 +10,9 @@ githubUser: serverless-mom
 displayDescription: 
   OpenTelemetry offers two main strategies for adding observability to your application, learn how they work together
 menu:
-  learn_opentelemetry
-weight: 2
+  learn_otel:
+    parent: OpenTelemetry Basics
+weight: 20
 ---
 
 

@@ -93,7 +93,7 @@ disqusShortname = "checkly"
 	weight = 45
 
 [[menu.resources]]
-	name = "Playwright checks (Alpha)"
+	name = "Playwright Check Suites (Alpha)"
 	url = "/docs/playwright-checks/"
 	weight = 50
 
@@ -227,21 +227,23 @@ disqusShortname = "checkly"
 	pre = "/learn/icons/e2e.svg"
 	weight = 340
 
-
 [[menu.learn_playwright]]
 	name = "Debugging"
 	pre = "/learn/icons/errors.svg"
 	weight = 350
 
 [[menu.learn_monitoring]]
-	name = "Protocols"
-	pre = "/learn/icons/send.svg"
-	weight = 350
-
+	name = "Observability Basics"
+	pre = "/learn/icons/observability.svg"
+	weight = 100
 [[menu.learn_monitoring]]
 	name = "Monitoring Concepts"
 	pre = "/learn/icons/learn.svg"
-	weight = 100
+	weight = 200
+[[menu.learn_monitoring]]
+	name = "Protocols"
+	pre = "/learn/icons/send.svg"
+	weight = 350
 
 [[menu.learn_incidents]]
 	name = "Detection"
@@ -268,6 +270,18 @@ disqusShortname = "checkly"
 #	pre = "/learn/icons/postmortem.svg"
 #	weight = 50
 
+[[menu.learn_otel]]
+	name = "OpenTelemetry Basics"
+	pre = "/learn/icons/learn.svg"
+	weight = 100
+[[menu.learn_otel]]
+	name = "Key Signals"
+	pre = "/learn/icons/signal.svg"
+	weight = 200
+[[menu.learn_otel]]
+	name = "Best Practices"
+	pre = "/learn/icons/best-practices.svg"
+	weight = 350
 
 
 [markup.goldmark.renderer]

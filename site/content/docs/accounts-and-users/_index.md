@@ -34,4 +34,4 @@ joined your team.
 ## Transferring ownership
 
 If you have the **Owner** role, you can transfer the ownership to another team member. Just click the "Transfer ownership"
-button at the bottom of the "teams" page and follow the instructions. The owner account will be downgraded to **Admin** role.
+button at the bottom of the [Members page](https://app.checklyhq.com/settings/account/members) and follow the instructions. The owner account will be downgraded to **Admin** role.

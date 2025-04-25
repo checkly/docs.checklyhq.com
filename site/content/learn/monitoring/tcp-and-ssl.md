@@ -7,7 +7,7 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: As an application developer, you need to know how TCP and SSL/TLS work together to establish secure connections, authenticate parties, and ensure data integrity. This section will explain the relationship between TCP and SSL/TLS, focusing on authentication and how it impacts your application.
 navTitle:  TCP and SSL
-weight: 120
+weight: 100
 menu:
   learn_monitoring:
       parent: Protocols

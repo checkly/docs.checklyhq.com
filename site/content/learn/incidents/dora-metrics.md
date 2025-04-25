@@ -1,8 +1,8 @@
 ---
-title: How to Use DORA Metrics the Right Way - measuring and calculating your team's Ops performance
+title: How to Use DORA Metrics the Right Way | Checkly
 displayTitle: How to Use DORA Metrics the Right Way
 navTitle:  DORA Metrics for Performance Evaluation
-description: DORA metrics help teams measure how well they deliver software. DORA stands for DevOps Research and Assessment.
+description: Learn to track and interpret DORA’s four metrics—deployments, lead time, failure rate, and restore time—to improve your software delivery.
 date: 2025-03-13
 author: Nocnica Mellifera
 githubUser: serverless-mom

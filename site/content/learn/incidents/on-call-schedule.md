@@ -1,9 +1,9 @@
 ---
-title: How to Set an On-Call Schedule - a practical guide with examples
+title: How to Set an On‑Call Schedule | Checkly Incident Response
 displayTitle: How to Set an On-Call Schedule
 navTitle:  On-Call Schedules - How to
-description: 
-date: 2025-02-15
+description: Learn to design effective on‑call rotations—shift models, clear response rules, scheduling tools, mock drills, and fairness to prevent burnout.
+date: 2025-03-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 

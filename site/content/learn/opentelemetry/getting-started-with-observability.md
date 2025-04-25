@@ -8,8 +8,9 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 displayDescription: 
 menu:
-  learn_opentelemetry
-weight: 1
+  learn_otel:
+    parent: OpenTelemetry Basics
+weight: 10
 ---
 
 ## A beginner's guide

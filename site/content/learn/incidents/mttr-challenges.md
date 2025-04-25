@@ -1,8 +1,8 @@
 ---
-title: Why Are Teams Missing Their MTTR Targets? Mean time to resolution best practices with examples
+title: MTTR Challenges & Solutions | Checkly
 displayTitle: Best Practices for Reduced Mean Time To Repair
 navTitle:  Reducing Time to Repair
-description: 
+description: Find out why MTTR targets fail—from weak observability and slow detection to cloud‑native complexity—and apply practical tactics to meet your SLAs.
 date: 2025-02-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
