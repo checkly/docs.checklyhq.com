@@ -17,7 +17,7 @@ Groups help you organize your checks (e.g. by team or feature) and apply shared 
 
 ![Check group screenshot](/docs/images/groups/group-in-dashboard.png)
 
-## Creating a check group
+# Creating a check group
 
 By default, newly created check groups behave like folders, with no group-level configuration applied. To get started:
 
@@ -27,7 +27,7 @@ By default, newly created check groups behave like folders, with no group-level 
 
 You can populate a group by moving existing checks into it or by creating new checks directly within the group.
 
-## Group level configuration
+# Group level configuration
 
 Groups let you apply shared configuration to standardize how checks behave. Below is a breakdown of each setting and how it affects checks in the group:
 
@@ -64,7 +64,7 @@ You can run checks in this group as [E2E tests](/docs/testing) locally or from y
 
 Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript code in browser checks and setup & teardown scripts. If the checks in this group need a runtime different from your account default, you can set that here.
 
-## Adding or removing checks from groups
+# Adding or removing checks from groups
 
 * **Moving a check into a group:** If the group has group-level settings defined, adding a check may change how it runs. Settings like API defaults, locations, scheduling, retries, or alerting can override or append to the check’s configuration.
 
@@ -72,7 +72,7 @@ Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript co
 
 ⚠️ To prevent issues (e.g. broken references to group variables), the check will be automatically deactivated after being added to or removed from a group. Make sure to review its settings before reactivating.
 
-## How we run grouped checks
+# How we run grouped checks
 
 It helps to understand how we run the checks in a group, specifically if you're doing more sophisticated checks with shared
 variables, script and alerting channels. Here are the rules:
