@@ -22,7 +22,7 @@ Variable|Description
 `HTTP_PROXY`|HTTP proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. Used if the proxy server does not accept HTTPS connections. `http://user:password@127.0.0.1:8080`
 `JOB_CONCURRENCY`|(Default: 1, max: 10) Number of concurrent checks that are run by the agent.
 `LOG_LEVEL`|(Default: `INFO`) Set the log level of the agent. Can be one of `DEBUG`, `LOG`, `INFO`, `WARN` or `ERROR`.
-`USE_OS_DNS_RESOLVER`|When set to true, TCP checks will resolve DNS using getaddrinfo C function, instead of using the network. This enables easier DNS resolution for internal services e.g. services running in the same Kubernetes cluster.
+`USE_OS_DNS_RESOLVER`|When set to true, TCP checks will resolve DNS using `getaddrinfo` C function, instead of using the network. This enables easier DNS resolution for internal services e.g. services running in the same Kubernetes cluster.
 
 For example, you can add these variables to the standard docker run command like this:
 
