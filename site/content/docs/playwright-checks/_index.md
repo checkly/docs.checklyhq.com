@@ -58,7 +58,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
 
 ### 2. [Optional] If you're using TypeScript
 
-  If you're using TypeScript, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
+  If you're using TypeScript, install the dev dependencies [`jiti`](https://www.npmjs.com/package/jiti) and [`typescript`](https://www.npmjs.com/package/typescript).
 
   ```bash {title="Terminal"}
   npm i --save-dev jiti typescript
