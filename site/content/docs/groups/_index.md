@@ -13,13 +13,13 @@ aliases:
 
 ---
 
-Groups help you organize your checks (e.g. by team or feature) and apply shared configuration such as API defaults, location overrides, and other properties.
+Groups help you organize your checks (e.g. by team or feature) and apply shared configuration such as API defaults, scheduling & location overrides, and other properties.
 
 ![Check group screenshot](/docs/images/groups/group-in-dashboard.png)
 
 # Creating a check group
 
-By default, newly created check groups behave like folders, with no group-level configuration applied. To get started:
+By default, newly created check groups behave like folders, with no [group-level configuration](#group-level-configuration) applied. To get started:
 
 * **Define a name:** Pick a meaningful name for your group. This will not only help you and your team identify the group within Checkly, but also provide a better alerting experience if checks in this group fall into an alert state.
 
@@ -32,22 +32,22 @@ You can populate a group by moving existing checks into it or by creating new ch
 Groups let you apply shared configuration to standardize how checks behave. Below is a breakdown of each setting and how it affects checks in the group:
 
 ### API checks defaults
-You can define [API check defaults](/docs/groups/api-check-defaults/) such as a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/) to manage how API checks in your group behave.
+You can define [API check defaults](/docs/groups/api-check-defaults/) such as a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/) to manage API checks in your group at scale.
 
 ### Variables
 For configuration information commonly used by checks in your group, create [group environment variables and secrets](/docs/groups/variables/). These are merged with variables at the global and check levels when a check runs.
 
 ### Scheduling & locations overrides
 
-* **Locations:** Select [public](/docs/monitoring/global-locations/) or [private](/docs/private-locations/) locations. This will override the location setting for all checks in your group—they’ll all run from the specified group locations.
+* **Locations:** Select [public](/docs/monitoring/global-locations/) or [private](/docs/private-locations/) locations. This will override the location setting for all checks in your group. For example, if you create a check that runs in `eu-west-1` but add it to a group running in `us-east-1`, the check will run from `us-east-1` only.
 
-* **Scheduling strategy:** Selecting a scheduling strategy (parallel or round-robin) will override this setting for all checks in your group.
+* **Scheduling strategy:** Selecting a [scheduling strategy](/docs/monitoring/global-locations/#scheduling-strategies) will override this setting for all checks in your group. For example, if you create a check that runs in `parallel` but add it to a group running in `round robin`, the check will run in `round robin` only.
 
 * **Frequency:** Each check in your group runs at its own scheduling interval. However, you can specify a default at the group level with the `frequency` property via the [CLI](/docs/cli/constructs-reference/#checkgroup).
 
 ### Retries & alerting overrides
 
-* **Retries:** Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks. This will override retry settings for all checks in your group.
+* **Retries:** Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks. This will override retry settings for all checks in your group. For example, if you create a check that runs with `fixed` retries but add it to a group running with `linear` retries, the check will run with `linear` retries only.
 
 * **Alert settings:** You can configure [alert channels](/docs/alerting-and-retries/alert-channels) for checks in your group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in your group.
 
@@ -63,7 +63,7 @@ Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript co
 
 # Adding or removing checks from groups
 
-* **Moving a check into a group:** If the group has group-level settings defined, adding a check may change how it runs. Settings like API defaults, locations, scheduling, retries, or alerting can override or append to the check’s configuration.
+* **Moving a check into a group:** If the group has [group-level configuration](#group-level-configuration) defined, adding a check may change how it runs. Settings like API defaults, locations & scheduling, or retries & alerting can override or append to the check’s configuration.
 
 * **Removing check from group:** The check will revert to its original configuration. Any [group-level configuration](#group-level-configuration) will no longer apply.
 
