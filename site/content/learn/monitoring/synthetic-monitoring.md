@@ -1,7 +1,7 @@
 ---
 title: Synthetic Monitoring - Concepts, Benefits & Challenges
 displayTitle: What is Synthetic Monitoring?
-navTitle:  SynthetiSc Monitoring
+navTitle:  Synthetic Monitoring
 description: Explore the what and why of synthetic monitoring.
 date: 2025-04-15
 author: Nocnica Mellifera

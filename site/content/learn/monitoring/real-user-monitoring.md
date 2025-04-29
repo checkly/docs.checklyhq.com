@@ -14,9 +14,6 @@ menu:
 weight: 50
 ---
 
-
- **Real User Monitoring (RUM): A Practical Guide**
-
 ## **Why Real User Monitoring Matters**
 
 Real User Monitoring (RUM) gives you actual performance data from real people using your website or app. Unlike synthetic tests (which simulate users), RUM shows you exactly what your customers experience—the promise is that if even one of your users encounters an error, you’ll know about it.
