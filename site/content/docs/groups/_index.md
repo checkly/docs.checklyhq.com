@@ -65,7 +65,7 @@ Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript co
 
 * **Moving a check into a group:** If the group has [group-level configuration](#group-level-configuration) defined, adding a check may change how it runs. Settings like API defaults, locations & scheduling, or retries & alerting can override or append to the check’s configuration.
 
-* **Removing check from group:** The check will revert to its original configuration. Any [group-level configuration](#group-level-configuration) will no longer apply.
+* **Removing check from group:** Any [group-level configuration](#group-level-configuration) will no longer apply, and the check will use its own configuration going forward.
 
 ⚠️ To prevent issues (e.g. broken references to group variables), the check will be automatically deactivated after being added to or removed from a group. Make sure to review its settings before reactivating.
 
