@@ -136,15 +136,16 @@ These include:
 
 Multistep check results are navigated using the tree on the left side of the screen. If you are running checks in parallel, first select the location you are interested in.
 
-In the result tree the top node shows the check run log and the check run configuration. Both can be collapsed.
+In the result tree, the top node shows the check run log and the check run configuration.
 
 Any errors encountered can be viewed in the 'Errors' node. 
 
-Each Playwright request done is shown as a separate node under the test step in which it was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available.
+Each Playwright request is shown as a separate node under the test step in which it was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available. If you've made assertions in the same test step as this request, then those assertions will be shown here.
+
+The default request user-agent is `Checkly/1.0 (https://www.checklyhq.com)`.
+If you would like to use a different user-agent, you can add `test.use({userAgent: 'customUserAgent'})` to your script.
 
 Currently, only requests done using the Playwright `request` are shown as nodes in the tree, requests done via e.g Axios or HTTPS are not.
-
-In the request details you will also find the result of any assertion done as part of the corresponding test step.
 
 ![Using the Multistep check results view](/docs/images/monitoring/check-results-multistep.mp4)
 

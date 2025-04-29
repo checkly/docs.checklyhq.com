@@ -14,6 +14,10 @@ aliases:
 
 ---
 
+Make multiple API calls in sequence with Multistep checks. Monitor complete API flows — like logging in, adding to cart, and checking out — to verify your combined API interactions work as expected.
+
+![Multistep check overview page](/docs/images/multistep-api-checks/multistep-check-overview.png)
+
 This guide gives you all the info to create your first Multistep check with Checkly. You should have some prior
 knowledge of working with JavaScript and/or Node.js.
 
@@ -69,7 +73,7 @@ test('create and delete a check group', async ({ request }) => { // 3
 
 ## Breaking down a Multistep check
 
-Let's look at the code above step by step.
+Let's look at the code above step-by-step.
 
 **1. Initial declarations:** To run any Multistep check, import the Playwright test framework.
 
@@ -77,35 +81,45 @@ Let's look at the code above step by step.
 
 **3. Establish environment:** Create a new test and leverage the Playwright `request` fixture to make API requests in the test steps.
 
-**4. Declare our first `test.step`:** The test step uses the `request` to perform a `get` request, using the headers we defined earlier.
+**4. Declare our first `test.step`:** The test step uses the `request` to perform a `post` request, using the headers we defined earlier.
 
 >[!NOTE]
 > Always use `await` before `test.step`, otherwise the test will fail.
 
-**5. Define our assertion:** Use the `expect(response)` method to assert if the response was successful (The response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
+**5. Define our assertion:** Use the `expect(response)` method to assert if the response was successful (the response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
 
 **6. Return the response for future usage:** Return the request response in JSON format, so we can use it in the next test step.
 
 **7. Declare our second `test.step`:** In order to remove the test group we just created, and avoid cluttering our system with test data, remove it by sending a `delete` request using the group ID that was returned in our earlier test step. Use the same `toBeOK()` assertion as in the previous test step.
 
-If you want to build on the above example, you can add additional assertions, ensuring that the data returned is correct and contains a specific check, or add a `PUT` and `GET` test step to verify more of the `/groups` functionality.
+If you want to build on the above example, you can add additional assertions, ensuring that the data returned is correct and contains a specific check, or add a `PUT` and `GET` test step to verify more of the `/check-groups` functionality.
 
 ## Creating a Multistep check
+
+![Multistep check edit page](/docs/images/multistep-api-checks/create-multistep-check.png)
+
+### Name and tags
+
+A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide a better alerting experience if your checks fall into an alert state.
+
+Tags can relate your checks together. They also determine which checks are shown on your [dashboards](/docs/dashboards/).
+
+### Playwright script
 
 A valid Multistep check is based on a valid [Playwright API test script](https://playwright.dev/docs/api-testing). You can create these scripts either in the in-app editor, or write them in your IDE and deploy them using the [Checkly CLI](/docs/cli/). For production, we recommend using the CLI so you can leverage best practices such as version control and code reviews before updating your checks.
 
 > Valid Playwright Test API scripts are the foundation of a valid Multistep check. If the script passes, your check passes.
 > If the script fails, your check fails.
 
-### Structuring a Multistep check
+#### Structuring a Multistep check
 
 To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on Playwright's [test.step](https://playwright.dev/docs/api/class-test#test-step) method. Your Multistep test can have several test steps.
 
-**API requests and assertions in the same test step will be presented under the same node in the reporting structure.**
+API requests and assertions in the same test step will be presented under the same node in the reporting structure.
 
 ![Multistep test results](/docs/images/multistep-api-checks/test-results.jpg)
 
-To provide actionable and easy to read check run reports we recommend using the `test.step()` structure when writing Multistep checks.
+To provide actionable and easy-to-read [check run results](/docs/monitoring/check-results/#multistep-check-results), we recommend using the `test.step()` structure when writing Multistep checks.
 
 ```ts  {title="multisteps.spec.ts"}
 import { test, expect } from '@playwright/test'
@@ -126,44 +140,104 @@ test('My test', async ({request}) => {
 })
 ```
 
-### Building checks in the web editor
+#### Building checks in the web editor
 
-When creating a check using the web editor, after each test run you can open up the result tree by clicking on the 'Test report' icon on the left side of the editor. Selecting an API response opens the response details. You can also view errors and any failed assertion in the report view.
+You can edit and debug Playwright scripts straight from the web editor. Use the "Run Script" button to run your script ad-hoc, without recording it as a scheduled run. 
 
-![API test step assertion](/docs/images/multistep-api-checks/test-step-assertion.jpg)
+![Multistep check editor](/docs/images/multistep-api-checks/multistep-check-editor.png)
 
-## Multistep result view
+In the sidebar, you can view:
 
-When viewing a Multistep check run result, you can select any API request in the result tree to view the full response details. If you have your API request and related assertions in the same `test.step`, related requests and failing assertions will be grouped under the same header.
+- File dependencies
+- Your Playwright config file (if your check was created with the [Checkly CLI](/docs/cli/))
+- The test report
+- OpenTelemetry traces for this run (if you've enabled [Checkly Traces](/docs/traces-open-telemetry/))
+- [Runtimes](/docs/runtimes/), including the packages in your current runtime
 
-The default request user-agent is `Checkly/1.0 (https://www.checklyhq.com)`.
-If you would like to use a different user-agent, you can do so with `test.use({userAgent: 'customerUserAgent'})`.
+After each test run, you can view the result tree by selecting the test report in the editor sidebar. Selecting an API request shows details about that request. You can also view errors and any failed assertions in this report.
 
-Selecting the top node in the check report shows the full job log and the check configuration for the run.
+### Scheduling & locations
+
+You can configure your checks to run from our [public](/docs/monitoring/global-locations/) locations, or use a Checkly Agent to host your own [private](/docs/private-locations/) locations. If you don't select more than one location and you've disabled retrying checks from the same location, we will pick a random location when retrying checks.
+
+Checkly runs your Multistep checks based on an interval you set. The shortest interval you can run is every minute and the longest is every 24 hours.
+
+### Retries & alerting
+
+Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks.
+
+Choose which [alert channels](/docs/alerting-and-retries/alert-channels/) to get notified through when your check runs into issues. If we don't have your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow.
+
+### Testing
+
+You can run your check as an [E2E test](/docs/testing) locally or from your CI/CD pipeline to validate your freshly deployed application. Use the Checkly CLI, or configure integrations with Vercel and GitHub.
 
 ## Built-in runtime variables
 
-[The Multistep Check runtime](/docs/runtimes/) also exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
+The Multistep check [runtime](/docs/runtimes/) exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
 to figure out what check, check type etc. you are running.
 
 {{< markdownpartial "/_shared/runtime-env-vars.md" >}}
 
 ## Timeouts
-As with Browser checks, Checkly runs a Multistep Check for a maximum of 240s. Scripts exceeding this will timeout. For more information on how to work with the timeout limits for Multistep and Browser checks, see [Timeouts](/docs/browser-checks/timeouts).
+As with Browser checks, Checkly runs Multistep checks for a maximum of 240s. Scripts exceeding this will timeout. For more information on how to work with the timeout limits for Multistep and Browser checks, see [Timeouts](/docs/browser-checks/timeouts).
 
+## CLI example
 
-## Pricing
+The [Checkly CLI](/docs/cli/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
 
-A Multistep check is billed based on the number of requests done per check run. Each request in a Multistep check run is billed as a single regular API check run, as they are performing the same basic operation.
+You can define a Multistep check via the CLI. Unlike Browser checks, Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file. For example:
 
-As an example, let's say you have 4 API checks, where each check doing one of the `GET`, `POST`, `PUT` and `DELETE` operations towards the same endpoint. If you replace these 4 checks with a single Multistep check that runs 4 requests towards the same endpoint, checking each method, and the check run frequency is the same as before, your cost stays the same
+{{< tabs "CLI example" >}}
+{{< tab "TypeScript" >}}
+```ts {title="multistep.check.ts"}
+import { MultiStepCheck, Frequency } from 'checkly/constructs'
+import * as path from 'path'
 
-A Multistep check with 0 requests is billed as if it has 1 request.
+new MultiStepCheck('multistep-check-1', {
+  name: 'Multistep Check #1',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'my-api.spec.ts')
+  },
+})
+```
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+```js {title="multistep.check.js"}
+const { MultiStepCheck, Frequency } = require('checkly/constructs')
+const path = require('path')
 
-## Resources
+new MultiStepCheck('multistep-check-1', {
+  name: 'Multistep Check #1',
+  frequency: Frequency.EVERY_10M,
+  locations: ['us-east-1', 'eu-west-1'],
+  code: {
+    entrypoint: path.join(__dirname, 'my-api.spec.ts')
+  },
+})
+```
+{{< /tab >}}
+{{< /tabs >}}
 
+The above example defines:
+- The basic check properties like `name`, `frequency` etc.
+- The path to the target Playwright test file, `my-api.spec.ts`.
+
+For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
+
+## Next steps
+
+- Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
+- See [example scripts](/docs/multistep-checks/example-checks/) for authentication, CRUD testing, and more.
+- Understand [pricing and billing](/docs/monitoring/check-pricing/#multistep-checks) for Multistep checks.
+- Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for Multistep checks.
+
+## More Playwright resources
+
+- [Learn Playwright](/learn/playwright/), Checkly's free and open source Playwright knowledge base.
 - [Checkly's YouTube channel](https://www.youtube.com/@ChecklyHQ) where we regularly publish tutorials and tips.
 - [playwright.dev](https://playwright.dev/) is the official API documentation site for the Playwright framework.
 - [awesome-playwright](https://github.com/mxschmitt/awesome-playwright) is a great GitHub repo full of
 Playwright-related libraries, tips and resources.
-- Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for Multistep checks.
