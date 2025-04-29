@@ -19,11 +19,11 @@ Make multiple API calls in sequence with Multistep checks. Monitor complete API 
 ![Multistep check overview page](/docs/images/multistep-api-checks/multistep-check-overview.png)
 
 This guide gives you all the info to create your first Multistep check with Checkly. You should have some prior
-knowledge of working with JavaScript and/or Node.js.
+knowledge of working with JavaScript/TypeScript and/or Node.js.
 
 ## What is a Multistep check?
 
-Multistep checks enable you to write Node.js scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimic and test API user behavior. Multistep checks ensure that combined API interactions lead to the correct results.
+Multistep checks enable you to write Node.js Playwright scripts that can run multiple API requests in sequence. They allow you to monitor entire API user flows with a single check. Make requests, parse response data and perform more requests to mimic and test API user behavior. Multistep checks ensure that combined API interactions lead to the correct results.
 
 Examples of API sequences might be:
 
@@ -77,7 +77,7 @@ Let's look at the code above step-by-step.
 
 **1. Initial declarations:** To run any Multistep check, import the Playwright test framework.
 
-**2. Define our headers:** In many cases you will have to authenticate when requesting data by providing authorization headers. Use [environment variables](/docs/browser-checks/variables/) to avoid having any confidential data in our test.
+**2. Define our headers:** In many cases, you will have to authenticate when requesting data by providing authorization headers. Use [environment variables](/docs/browser-checks/variables/) to avoid having any confidential data in your test.
 
 **3. Establish environment:** Create a new test and leverage the Playwright `request` fixture to make API requests in the test steps.
 
@@ -86,7 +86,7 @@ Let's look at the code above step-by-step.
 >[!NOTE]
 > Always use `await` before `test.step`, otherwise the test will fail.
 
-**5. Define our assertion:** Use the `expect(response)` method to assert if the response was successful (the response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, this will cause the check to fail and in a production scenario trigger any configured alerts.
+**5. Define our assertion:** Use the `expect(response)` method to assert if the response was successful (the response code is in the range of 200 - 299) with `toBeOK()`. Should the request return anything outside of the 'OK' range, the check will fail and in a production scenario, trigger any configured alerts.
 
 **6. Return the response for future usage:** Return the request response in JSON format, so we can use it in the next test step.
 
@@ -174,8 +174,7 @@ You can run your check as an [E2E test](/docs/testing) locally or from your CI/C
 
 ## Built-in runtime variables
 
-The Multistep check [runtime](/docs/runtimes/) exposes a set of environment variables (e.g. `process.env.CHECK_NAME`)
-to figure out what check, check type etc. you are running.
+The Multistep check [runtime](/docs/runtimes/) exposes a set of environment variables (e.g. `process.env.CHECK_NAME`) that indicate what check, check type etc. you are running.
 
 {{< markdownpartial "/_shared/runtime-env-vars.md" >}}
 
@@ -186,7 +185,7 @@ As with Browser checks, Checkly runs Multistep checks for a maximum of 240s. Scr
 
 The [Checkly CLI](/docs/cli/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
 
-You can define a Multistep check via the CLI. Unlike Browser checks, Multistep checks always need to be defined in a construct before assigning a `spec.js|ts` file. For example:
+You can define a Multistep check via the CLI. Unlike Browser checks, Multistep checks always need to be defined in a construct. For example:
 
 {{< tabs "CLI example" >}}
 {{< tab "TypeScript" >}}
