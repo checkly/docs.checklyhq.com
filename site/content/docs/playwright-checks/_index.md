@@ -105,8 +105,8 @@ Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones tha
         },
         {
           /* Create a check that runs the critical tagged tests every 10 mins */
-          name: 'Critical-tagged',
-          pwTags: 'critical', // Reference an existing tag in your tests
+          name: 'checkly-tagged',
+          pwTags: 'checkly', // Reference an existing tag in your tests
           frequency: Frequency.EVERY_10M,  // set your ideal frequency
           locations: ['eu-west-1'],
         },
