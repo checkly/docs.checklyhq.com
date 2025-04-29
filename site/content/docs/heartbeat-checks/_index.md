@@ -33,9 +33,13 @@ Use Heartbeat checks to monitor backup jobs, data imports, and other recurring j
 
 For example, this is how you ping a Heartbeat check from a Heroku job:
 
+{{< tabs "Heroku example" >}}
+{{< tab "BASH" >}}
 ```BASH
 curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5-bac1-4be8059670ec
 ```
+{{< /tab >}}
+{{< /tabs >}}
 
 Note the retry and timeout options. We recommend enabling retries when possible, to avoid false alarms due to temporary network issues or similar. You should also specify a timeout so that the ping doesn't block your ongoing job.
 
