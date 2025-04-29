@@ -61,7 +61,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   If you're using TypeScript, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
 
   ```bash {title="Terminal"}
-  npm i --save-dev ts-node typescript
+  npm i --save-dev jiti typescript
   ```
 
 ### 3. Test and create a monitor with all your tests
@@ -105,8 +105,8 @@ Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones tha
         },
         {
           /* Create a check that runs the critical tagged tests every 10 mins */
-          name: 'Critical-tagged',
-          pwTags: 'critical', // Reference an existing tag in your tests
+          name: 'checkly-tagged',
+          pwTags: 'checkly', // Reference an existing tag in your tests
           frequency: Frequency.EVERY_10M,  // set your ideal frequency
           locations: ['eu-west-1'],
         },
