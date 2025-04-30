@@ -10,7 +10,7 @@ githubUser:
   - thompsonjonm
 tags:
   - network
-weight: 4
+weight: 105
 navTitle: Intercepting requests
 menu:
   learn_playwright:

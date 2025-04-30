@@ -11,7 +11,7 @@ githubUser:
 tags:
   - basics
 
-weight: 2
+weight: 70
 navTitle: Clicking and typing
 menu:
   learn_playwright:

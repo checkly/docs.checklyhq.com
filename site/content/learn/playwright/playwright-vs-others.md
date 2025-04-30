@@ -2,13 +2,13 @@
 title: Playwright vs other automation frameworks
 description: 
   Learn how Playwright, a browser automation tool, simplifies testing across Chrome, Firefox, and WebKit. Start building more reliable web applications today.
-date: 2024-05-01
+date: 2025-04-01
 author: Dan G
 githubUser: ragog
 tags:
   - basics
 
-weight: 3
+weight: 20
 
 menu:
   learn_playwright:
