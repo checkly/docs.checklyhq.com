@@ -1,8 +1,8 @@
 ---
-title: Synthetic Transaction Monitoring - Components, Benefits & Challenges
-displayTitle: What is Synthetic Transaction Monitoring?
-navTitle:  Synthetic Transaction Monitoring
-description: Explore the what and why of synthetic monitoring.
+title: Transaction Monitoring - Components, Benefits & Challenges
+displayTitle: What is Transaction Monitoring?
+navTitle:  Transaction Monitoring
+description: Explore transaction monitoring for application developers and SREs.
 date: 2024-12-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
