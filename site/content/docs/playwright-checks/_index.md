@@ -53,7 +53,7 @@ What you need:
 The alpha version gets updated daily with new improvements. You can follow updates in the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email).
 
   ```bash {title="Terminal"}
-  npm install -D checkly@pwt-alpha
+  npm install --save-dev checkly@pwt-alpha
   ```
 
 ### 2. [Optional] If you're using TypeScript
@@ -61,7 +61,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
   If you're using TypeScript, install the dev dependencies [`jiti`](https://www.npmjs.com/package/jiti) and [`typescript`](https://www.npmjs.com/package/typescript).
 
   ```bash {title="Terminal"}
-  npm i --save-dev jiti typescript
+  npm install --save-dev jiti typescript
   ```
 
 ### 3. Test and create a monitor with all your tests

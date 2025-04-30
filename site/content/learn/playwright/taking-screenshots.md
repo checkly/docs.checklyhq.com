@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - basics
 
-weight: 1
+weight: 110
 navTitle: Taking screenshots
 menu:
   learn_playwright:

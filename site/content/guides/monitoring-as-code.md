@@ -1,7 +1,8 @@
 ---
-title: What is monitoring as code?
+title: Monitoring as Code - A Practical Guide from Checkly
+displayTitle: What is monitoring as code?
 description: >-
-  Monitoring as code is the practice of managing monitoring configurations and alerts through code. This approach offers several benefits for engineering teams at scale, including codified, version-controlled, and reusable monitoring configurations.
+  Learn how to implement monitoring as code with Checkly's guide. Bring transparency, scalability, and efficiency to your cloud infrastructure management.
 author: Daniel Giordano
 avatar: 'images/avatars/daniel-giordano.png'
 tags:

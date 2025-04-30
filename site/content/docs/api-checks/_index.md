@@ -70,6 +70,8 @@ You can configure your checks to run from our [public](/docs/monitoring/global-l
 
 Checkly runs your API checks based on an interval you set. The shortest interval you can run is every 10 seconds and the longest is every 24 hours.
 
+ℹ️ A 1-second interval is available upon request — [contact us](mailto:support@checklyhq.com) if you'd like to learn more.
+
 ### Retries & alerting
 
 Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks.

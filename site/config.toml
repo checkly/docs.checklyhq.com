@@ -193,28 +193,18 @@ disqusShortname = "checkly"
     weight = 200
 
 [[menu.learn_playwright]]
-	name = "Basics"
-	pre = "/learn/icons/misc.svg"
-	weight = 310
-
-[[menu.learn_playwright]]
-	name = "Interaction"
-	pre = "/learn/icons/pages.svg"
-	weight = 320
-
-[[menu.learn_playwright]]
 	name = "Getting started"
 	pre = "/learn/icons/playwright-logo.svg"
 	weight = 300
 
 [[menu.learn_playwright]]
-	name = "Basics"
-	pre = "/learn/icons/misc.svg"
+	name = "Interaction"
+	pre = "/learn/icons/pages.svg"
 	weight = 310
 
 [[menu.learn_playwright]]
-	name = "Interaction"
-	pre = "/learn/icons/pages.svg"
+	name = "Basics"
+	pre = "/learn/icons/misc.svg"
 	weight = 320
 
 [[menu.learn_playwright]]

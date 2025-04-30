@@ -1,7 +1,7 @@
 ---
-title: monitoring index
+title: Monitoring Resources - Tools, Metrics & Best Practices
 displayTitle: Monitoring 
-description: Learn Monitoring
+description: Browse essential monitoring resources from Checkly. Learn key metrics, performance tools, and best practices to optimize your systems and user experience.
 date: 2024-10-17
 author: Nocnica Mellifera
 githubUser: serverless-mom
