@@ -160,6 +160,7 @@ Each Checkly Agent only supports a single [runtime](/docs/runtimes/). This is to
 
 | Runtime | Agent version |
 |---------|---------------|
+| 2025.04 | 5.0.0         |
 | 2024.09 | 3.5.0         |
 | 2024.02 | 3.4.0         |
 | 2023.09 | 3.2.0         |
