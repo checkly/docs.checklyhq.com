@@ -12,7 +12,7 @@ githubUser: tnolet
 tags:
   - basics
 
-weight: 1
+weight: 50
 navTitle: Navigation
 menu:
   learn_playwright:

@@ -12,7 +12,7 @@ githubUser: serverless-mom
 tags:
   - basics
 
-weight: 5
+weight: 90
 navTitle: Assertions
 menu:
   learn_playwright:

@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
   - assertions
-weight: 3
+weight: 110
 navTitle: Parallel testing
 menu:
   learn_playwright:

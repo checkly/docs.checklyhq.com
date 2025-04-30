@@ -8,7 +8,7 @@ githubUser:
   - serverless-mom
 tags:
   - network
-weight: 5
+weight: 125
 navTitle: Mocking API Responses
 menu:
   learn_playwright:
