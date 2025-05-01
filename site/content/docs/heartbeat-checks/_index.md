@@ -128,13 +128,7 @@ This is a similar example with [wget](https://www.gnu.org/software/wget/). Use t
 wget -T 5 -t 3 https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4
 ```
 
-You can use curl in the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
-
-```BASH
-run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372 > dev/null
-```
-
-And similarly for [Render cron jobs](https://render.com/docs/cronjobs):
+You can use curl for [Render cron jobs](https://render.com/docs/cronjobs):
 
 ```BASH
 run_backup.sh && curl -m 5 --retry 3 https://ping.checklyhq.com/f0e0b1d3-665d-49d0-8bf0-3e6504c3d372
@@ -260,6 +254,69 @@ We recommend using the `timeout` and `retry` options to reduce the risk of false
 ```BASH
 Invoke-RestMethod -Uri https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc -TimeoutSec 5 -MaximumRetryCount 3 -RetryIntervalSec 5
 ```
+
+### Vercel cron jobs
+
+You can monitor your [Vercel cron jobs](https://vercel.com/docs/cron-jobs) with Heartbeat checks. At the end of your cron job, make an HTTP `GET` or `POST` request to your ping URL. For example:
+
+{{< tabs "Vercel example" >}}
+{{< tab "Next.js (App Router)" >}}
+```js {title="app/api/my-cron-job/route.js"}
+export async function GET(req, res) {
+  // Your job tasks here ...
+
+  // Ping URL
+  const URL = 'https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc';
+
+  // GET request to the Heartbeat
+  try {
+    const response = await fetch(URL);
+    console.log(`Checkly heartbeat ping status ${response.status}`);
+  } catch (error) {
+    console.log(`Checkly heartbeat ping failed: ${error}`)
+  }
+
+  
+}
+```
+{{< /tab >}}
+{{< tab "Next.js (Pages Router)" >}}
+```js {title="pages/api/my-cron-job.js"}
+export default function handler(req, res) {
+  // Your job tasks here ...
+
+  // Ping URL
+  const URL = 'https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc';
+
+  // GET request to the Heartbeat
+  try {
+    const response = await fetch(URL);
+    console.log(`Checkly heartbeat ping status ${response.status}`);
+  } catch (error) {
+    console.log(`Checkly heartbeat ping failed: ${error}`)
+  }
+}
+```
+{{< /tab >}}
+{{< tab "Other frameworks" >}}
+```js {title="api/my-cron-job.js"}
+export function GET() {
+  // Your job tasks here ...
+
+  // Ping URL
+  const URL = 'https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc';
+
+  // GET request to the Heartbeat
+  try {
+    const response = await fetch(URL);
+    console.log(`Checkly heartbeat ping status ${response.status}`);
+  } catch (error) {
+    console.log(`Checkly heartbeat ping failed: ${error}`)
+  }
+}
+```
+{{< /tab >}}
+{{< /tabs >}}
 
 ## CLI example
 
