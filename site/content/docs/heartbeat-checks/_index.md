@@ -16,18 +16,14 @@ aliases:
 
 Monitor your scheduled jobs with Heartbeat checks. Heartbeat checks listen for regular pings from your automated tasks, to ensure that they are running as expected. 
 
-![Heartbeat check overview page](/docs/images/heartbeat-checks/heartbeat-check-overview.png)
-
-Check out this video for a quick explainer:
-
-{{< youtube 7I_NfCjYCmo >}}
-
 > Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing).
 
 ## What is a Heartbeat check?
 
 A Heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
 When a ping is not received on time, the check will trigger any configured alerts.
+
+![Heartbeat check overview page](/docs/images/heartbeat-checks/heartbeat-check-overview.png)
 
 Use Heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
 
