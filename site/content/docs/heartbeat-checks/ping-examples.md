@@ -71,6 +71,8 @@ spec:
 
 ## Node.js
 
+You can use any HTTP request library (`https`, `axios`, etc.) to ping your Heartbeat check.
+
 This is an example with the built-in [https.get](https://nodejs.org/api/https.html#httpsgeturl-options-callback) package:
 
 {{< tabs "https.get" >}}
@@ -116,7 +118,7 @@ https.get(url, options, (res) => {
 {{< /tab >}}
 {{< /tabs >}}
 
-You can also use [axios](https://axios-http.com/):
+You can also use [Axios](https://axios-http.com/):
 
 {{< tabs "axios" >}}
 {{< tab "TypeScript" >}}
@@ -142,31 +144,9 @@ axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4')
 {{< /tab >}}
 {{< /tabs >}}
 
-## Python
-This is an example using the Python [requests](https://requests.readthedocs.io/en/latest/) library with a timeout of 5 seconds:
-
-```PYTHON {title="my_scheduled_job.py"}
-import requests
-
-# Heartbeat URL
-url = "https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc"
-
-# A GET request to the Heartbeat
-response = requests.get(url, timeout=5)
-```
-
-## PowerShell
-Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems. Adding a ping to a PowerShell script only requires a single line.
-
-We recommend using the `timeout` and `retry` options to reduce the risk of false alerts or blocking the script. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
-
-```BASH
-Invoke-RestMethod -Uri https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc -TimeoutSec 5 -MaximumRetryCount 3 -RetryIntervalSec 5
-```
-
 ## Vercel cron jobs
 
-You can monitor your [Vercel cron jobs](https://vercel.com/docs/cron-jobs) with Heartbeat checks. At the end of your cron job, make an HTTP `GET` or `POST` request to your ping URL. For example:
+You can monitor your [Vercel cron jobs](https://vercel.com/docs/cron-jobs) with Heartbeat checks. At the end of your cron job, make an HTTP `GET` or `POST` request to your ping URL. For example, using `fetch()`:
 
 {{< tabs "Vercel example" >}}
 {{< tab "Next.js (App Router)" >}}
@@ -224,3 +204,25 @@ export function GET() {
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+## Python
+This is an example using the Python [requests](https://requests.readthedocs.io/en/latest/) library with a timeout of 5 seconds:
+
+```PYTHON {title="my_scheduled_job.py"}
+import requests
+
+# Heartbeat URL
+url = "https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc"
+
+# A GET request to the Heartbeat
+response = requests.get(url, timeout=5)
+```
+
+## PowerShell
+Use PowerShell and Windows Task Scheduler to automate tasks on Windows systems. Adding a ping to a PowerShell script only requires a single line.
+
+We recommend using the `timeout` and `retry` options to reduce the risk of false alerts or blocking the script. See the [Invoke-RestMethod](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.3) documentation for more information.
+
+```BASH
+Invoke-RestMethod -Uri https://ping.checklyhq.com/c3f5f5bb-6e46-431a-b7b1-35105450cddc -TimeoutSec 5 -MaximumRetryCount 3 -RetryIntervalSec 5
+```
