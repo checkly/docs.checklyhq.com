@@ -16,8 +16,6 @@ aliases:
 
 Make multiple API calls in sequence with Multistep checks. Monitor complete API flows — like logging in, adding to cart, and checking out — to verify your combined API interactions work as expected.
 
-![Multistep check overview page](/docs/images/multistep-api-checks/multistep-check-overview.png)
-
 This guide gives you all the info to create your first Multistep check with Checkly. You should have some prior
 knowledge of working with JavaScript/TypeScript and/or Node.js.
 
@@ -32,6 +30,8 @@ Examples of API sequences might be:
 * Users can add items to a shopping cart, check out and go through the payment flow.
 
 Monitoring your API user flows instead of individual endpoints gives confidence that your product as a whole works as intended and that the expected interactions between API calls are functional.
+
+![Multistep check overview page](/docs/images/multistep-api-checks/multistep-check-overview.png)
 
 Multistep checks are powered by `@playwright/test`'s [API Testing](https://playwright.dev/docs/api-testing) mode. Meaning you get all of the power of our typical API checks in the form of a programmable `@playwright/test` check.
 
