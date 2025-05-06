@@ -6,7 +6,7 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - pdf
-weight: 2
+weight: 130
 navTitle: Generating PDFs
 menu:
   learn_playwright:

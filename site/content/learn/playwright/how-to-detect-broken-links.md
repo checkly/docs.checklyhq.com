@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - e2e
   - assertions
-weight: 3
+weight: 120
 navTitle: Detecting broken links
 menu:
   learn_playwright:

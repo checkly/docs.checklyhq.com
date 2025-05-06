@@ -7,7 +7,7 @@ githubUser: serverless-mom
 tags:
   - basics
 
-weight: 12
+weight: 40
 navTitle: Codegen
 menu:
   learn_playwright:
