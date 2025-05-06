@@ -5,7 +5,7 @@ author: Giovanni Rago
 githubUser: ragog
 tags:
   - basics
-weight: 2
+weight: 30
 displayTitle: How to Set Up Playwright Locally
 navTitle: Setting up Playwright
 menu:

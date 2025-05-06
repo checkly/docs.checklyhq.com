@@ -1,7 +1,7 @@
 ---
-title: Incident Response
+title: Incident Response - Improve Recovery & Avoid Downtime
 displayTitle: Learn the fundamentals of Incident Response
-description: Learn Incident Response
+description: Master incident response with real-world insights. Learn how to reduce downtime, regain user trust, and build a resilient incident management workflow.
 date: 2025-04-07
 author: Nocnica Mellifera
 githubUser: serverless-mom

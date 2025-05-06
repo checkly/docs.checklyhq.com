@@ -6,7 +6,7 @@ author: Stefan Judis
 githubUser: stefanjudis
 tags:
   - iframes
-weight: 6
+weight: 100
 navTitle: Interacting with iframes
 menu:
   learn_playwright:
