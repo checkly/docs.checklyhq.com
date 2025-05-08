@@ -37,9 +37,9 @@ Multistep checks are powered by `@playwright/test`'s [API Testing](https://playw
 
 > Multistep checks are only supported on runtime 2023.09 or later. See [Runtimes](/docs/runtimes/) for more details.
 
-The following code is a valid Multistep check using Playwright Test. It creates and deletes an API resource in a single run.
+For example, here is a valid Playwright API test script that we can use in a Multistep check. It creates and deletes an API resource in a single run.
 
-```ts {title="multistep.spec.ts"}
+```ts {title="example.spec.ts"}
 import { test, expect } from '@playwright/test' // 1
 
 const headers = { // 2
@@ -71,11 +71,11 @@ test('create and delete a check group', async ({ request }) => { // 3
 })
 ```
 
-## Breaking down a Multistep check
+## Breaking down a Playwright API test
 
-Let's look at the code above step-by-step.
+Let's look at the code above step-by-step, as it determines what our Multistep check will do.
 
-**1. Initial declarations:** To run any Multistep check, import the Playwright test framework.
+**1. Initial declarations:** Import the Playwright test framework.
 
 **2. Define our headers:** In many cases, you will have to authenticate when requesting data by providing authorization headers. Use [environment variables](/docs/browser-checks/variables/) to avoid having any confidential data in your test.
 
@@ -113,15 +113,15 @@ A valid Multistep check is based on a valid [Playwright API test script](https:/
 
 #### Structuring a Multistep check
 
-To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on Playwright's [test.step](https://playwright.dev/docs/api/class-test#test-step) method. Your Multistep test can have several test steps.
+To preserve test isolation and provide a structured report view of Multistep checks, Checkly relies on Playwright's [test.step](https://playwright.dev/docs/api/class-test#test-step) method. Your Multistep check can have several test steps.
 
 API requests and assertions in the same test step will be presented under the same node in the reporting structure.
 
 ![Multistep test results](/docs/images/multistep-api-checks/test-results.jpg)
 
-To provide actionable and easy-to-read [check run results](/docs/monitoring/check-results/#multistep-check-results), we recommend using the `test.step()` structure when writing Multistep checks.
+To provide actionable and easy-to-read [check run results](/docs/monitoring/check-results/#multistep-check-results), we recommend using the `test.step()` structure when writing the Playwright script for you Multistep check.
 
-```ts  {title="multisteps.spec.ts"}
+```ts  {title="my-test.spec.ts"}
 import { test, expect } from '@playwright/test'
 
 const baseUrl = 'https://api.checklyhq.com/v1'
@@ -140,7 +140,7 @@ test('My test', async ({request}) => {
 })
 ```
 
-#### Building checks in the web editor
+#### Building scripts in the web editor
 
 You can edit and debug Playwright scripts straight from the web editor. Use the "Run Script" button to run your script ad-hoc, without recording it as a scheduled run. 
 
@@ -198,7 +198,7 @@ new MultiStepCheck('multistep-check-1', {
   frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
-    entrypoint: path.join(__dirname, 'my-api.spec.ts')
+    entrypoint: path.join(__dirname, 'example.spec.ts')
   },
 })
 ```
@@ -213,7 +213,7 @@ new MultiStepCheck('multistep-check-1', {
   frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
-    entrypoint: path.join(__dirname, 'my-api.spec.ts')
+    entrypoint: path.join(__dirname, 'example.spec.ts')
   },
 })
 ```
@@ -222,7 +222,7 @@ new MultiStepCheck('multistep-check-1', {
 
 The above example defines:
 - The basic check properties like `name`, `frequency` etc.
-- The path to the target Playwright test file, `my-api.spec.ts`.
+- The path to the target Playwright test file, `example.spec.ts`.
 
 For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
 
