@@ -41,7 +41,7 @@ For configuration information commonly used by checks in your group, create [gro
 
 * **Locations:** Select [public](/docs/monitoring/global-locations/) or [private](/docs/private-locations/) locations. This will override the location setting for all checks in your group. For example, if you create a check that runs in `eu-west-1` but add it to a group running in `us-east-1`, the check will run from `us-east-1` only.
 
-* **Scheduling strategy:** Selecting a [scheduling strategy](/docs/monitoring/global-locations/#scheduling-strategies) will override this setting for all checks in your group. For example, if you create a check that runs in `parallel` but add it to a group running in `round robin`, the check will run in `round robin` only.
+* **Scheduling strategy:** Selecting a [scheduling strategy](/docs/monitoring/global-locations/#scheduling-strategies) will override this setting for all checks in your group. For example, if you create a check that runs in `parallel` but add it to a group running in `round-robin`, the check will run in `round-robin` only.
 
 * **Frequency:** Each check in your group runs at its own scheduling interval. However, you can specify a default at the group level with the `frequency` property via the [CLI](/docs/cli/constructs-reference/#checkgroup).
 
