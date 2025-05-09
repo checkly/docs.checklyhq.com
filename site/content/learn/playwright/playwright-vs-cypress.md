@@ -165,7 +165,7 @@ describe('Multiple API Requests Test', () => {
   });
 })
 ```
-With Cypress, we're using their custom syntax, which is a bit more compact but still has it's own specialized field of knowledge. If you're pursuing a [monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/) strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
+With Cypress, we're using their custom syntax, which is a bit more compact but still has its own specialized field of knowledge. If you're pursuing a [monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/) strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
 
 Further, Cypress asynchrony may not act as expected if we're used to asynchrony from Node.js. In Cypress, each `cy.request()` runs asynchronously, but Cypress queues them sequentially. This ensures that the second request only executes after the first one completes, making this pattern simple and effective for making multiple assertions across async requests.
 

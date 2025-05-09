@@ -23,7 +23,7 @@ The OpenTelemetry Open Agent Management Protocol (OpAMP) is an emerging standard
 
 OpAMP provides a standard framework for remotely managing telemetry agents. Although current implementations primarily focus on the OpenTelemetry Collector, the protocol is flexible enough to manage various telemetry-related components, including instrumentation agents or future SDK-level integrations. The primary goal is to allow real-time configuration changes, package updates, and secure connection management without manual intervention.
 
-### Key Featuress of OpAMP
+### Key Features of OpAMP
 
 1. **Dynamic Configuration Management:**
     

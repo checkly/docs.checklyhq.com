@@ -40,7 +40,7 @@ Measuring deployment frequency is simple. You just need to know when deployments
 
 More frequent deployments usually mean a faster and more agile team. Top teams (elite performers) deploy multiple times a day, while slower teams might deploy only once a month or less.
 
-Deployment frequency is also an object lesson in why **DORA metrics don't translate well for comparison betweent teams**. If a single team starts deploying code more frequently it does indicate improvement, but just because one team deploys code every hour, and another team only deploys code twice a week, that's not a great indicator of a gap in performance.
+Deployment frequency is also an object lesson in why **DORA metrics don't translate well for comparison between teams**. If a single team starts deploying code more frequently it does indicate improvement, but just because one team deploys code every hour, and another team only deploys code twice a week, that's not a great indicator of a gap in performance.
 
 ![comic, transcript: 🧑🏻‍💼: Why are your DORA metrics worse than Team A's? 🧑🏽‍💻: Their deployment frequendy is way higher, but.🧑🏻‍💼: ...but? 🧑🏽‍💻: They don't use a CMS. 🧑🏻‍💼: So? 🧑🏽‍💻: So every new blog post requires a git merge. 🧑🏻‍💼: So their DORA metrics are- 🧑🏽‍💻: Apples and oranges, yup.](images/learn/dora-metrics01.png)
 

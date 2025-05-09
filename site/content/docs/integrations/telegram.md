@@ -43,7 +43,7 @@ You can retrieve your own Telegram Chat ID by starting a chat with another bot. 
 
 Alternatively, we can use the API token we generated with the bot earlier and query the Telegram API for our own Chat ID.
 
-1. In a browser enter the the following URL, `https://api.telegram.org/bot<API_TOKEN>/getUpdates`, of course replacing the `<API_TOKEN>` part with the actual token we obtained previously. Your browser should now display some JSON formatted data which looks like the following:
+1. In a browser enter the following URL, `https://api.telegram.org/bot<API_TOKEN>/getUpdates`, of course replacing the `<API_TOKEN>` part with the actual token we obtained previously. Your browser should now display some JSON formatted data which looks like the following:
 
    ![setup checkly telegram_bot step 5](/docs/images/integrations/telegram/telegram_step5.png)
 
