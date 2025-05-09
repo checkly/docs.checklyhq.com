@@ -62,7 +62,7 @@ Playwright Test will record videos for each of your tabs. You can find them in y
 
 ![Checkly Playwright Test UI](/docs/images/browser-checks/multiple-tabs-pwt-report.mp4)
 
-Playwright's Trace Viewer displays your tabs conveniently in a waterfall timeline to access all neccessary information:
+Playwright's Trace Viewer displays your tabs conveniently in a waterfall timeline to access all necessary information:
 ![mutiple tabs - trace viewer](/docs/images/browser-checks/multiple-tabs-trace-viewer.png)
 
 

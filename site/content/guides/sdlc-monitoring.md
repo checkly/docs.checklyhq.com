@@ -10,7 +10,7 @@ tags:
   - FAQ
 ---
 
-Recently I had a chance to write about going from Playwright testing, [using Playwright to run e2e tests against your staging/pre-deploy environment, and Checkly to monitor your production envrionment](https://www.checklyhq.com/guides/playwright-testing-to-monitoring/). Once you’re using the power of Playwright and Checkly together to monitor your production environment, it’s time to go one step further: use the powerful tools from Checkly to monitor all your environments, from local development on your laptop, to a staging environment, to production. With this guide, the same code you wrote in Playwright for your intial tests on your laptop will get re-used (as appropriate) to monitor Staging, and finally Production to let you know that everything’s working, and find problems before your users do.
+Recently I had a chance to write about going from Playwright testing, [using Playwright to run e2e tests against your staging/pre-deploy environment, and Checkly to monitor your production envrionment](https://www.checklyhq.com/guides/playwright-testing-to-monitoring/). Once you’re using the power of Playwright and Checkly together to monitor your production environment, it’s time to go one step further: use the powerful tools from Checkly to monitor all your environments, from local development on your laptop, to a staging environment, to production. With this guide, the same code you wrote in Playwright for your initial tests on your laptop will get re-used (as appropriate) to monitor Staging, and finally Production to let you know that everything’s working, and find problems before your users do.
 
 ## The Problem: A Fractured Picture of Your Code
 
@@ -23,9 +23,9 @@ In short, we’re all aware that the software development life cycle (SDLC) ofte
 Ideally development should only be getting requirements from planning and design, with any feedback (issues that need fixing) coming in the QA stages before deployment to production. In reality a huge list of failures can result in developers having to fix failures and re-engineer code to keep production running. There are two significant concerns that a more unified testing and monitoring approach can help us address:
 
 1. When bugs are found post deployment, feedback is often given without full context, with the first reports going to someone other than the developer.
-2. Any fixes have to be delivered out-of-band of the normal development cycle, either coded in haste during incident response, or written and deployed during time that was supposed ot be spent on new features.
+2. Any fixes have to be delivered out-of-band of the normal development cycle, either coded in haste during incident response, or written and deployed during time that was supposed to be spent on new features.
 
-By unifying around Checkly, **feedback is delivered directly to developers**, with developers working on their own tests, which then offer direct feedback with all the context that product teams need to diagnose root causes. The many unforseen failures caused by the interaction of application code and the production environment should be monitored with **the same quality of tests that scruitinized our code pre-deployment.**
+By unifying around Checkly, **feedback is delivered directly to developers**, with developers working on their own tests, which then offer direct feedback with all the context that product teams need to diagnose root causes. The many unforeseen failures caused by the interaction of application code and the production environment should be monitored with **the same quality of tests that scruitinized our code pre-deployment.**
 
 ## The Solution: Unified Checkly & Playwright Monitoring
 
@@ -33,7 +33,7 @@ Why do we need to test after staging? After all, if a bug gets through to produc
 
 ![a diagram showing the ideal vs the real SDLC](/guides/images/sdlc-monitoring-02.png)
 
-In reality no matter how much effort we put into simulating a production envrionment in our pre-deployment testing (hereafter we’ll refer to the environment before production as ‘Staging’ even though your team might call it something else), there are always large gaps between our testing and production environments. Things like third-party API’s, the real resource requirements of production data, and users abilities to find edge cases where we thought none existed, all serve to keep us well supplied with failures that only happen on production.
+In reality no matter how much effort we put into simulating a production environment in our pre-deployment testing (hereafter we’ll refer to the environment before production as ‘Staging’ even though your team might call it something else), there are always large gaps between our testing and production environments. Things like third-party API’s, the real resource requirements of production data, and users abilities to find edge cases where we thought none existed, all serve to keep us well supplied with failures that only happen on production.
 
 All of this doesn’t mean the work we did on testing before deployment was without value. Local testing gives the fastest possible feedback, often in seconds. And testing on Staging provides a consistent environment with detailed feedback. 
 
@@ -134,7 +134,7 @@ Once you’ve gathered code changes into a pull request, and the updates go on f
 
 - Tests run from real locations with full geographic coverage
 - Consistent runtime environments - the same containers that run your Playwright tests against production will be used for staging tests
-- Easily accesible results - use the Checkly dashboards to view test results and traces
+- Easily accessible results - use the Checkly dashboards to view test results and traces
 
 In this section we’ll cover the necessary tools for running your code in Staging, with the appropriate configuration before it moves to production.
 
@@ -230,7 +230,8 @@ Once you’ve set up your private location, pick your private location when crea
 
 At any layer of running tests against your services, it’s helpful to connect the information from synthetic testing with backend trace data. With [Checkly Traces](https://www.checklyhq.com/docs/traces-open-telemetry/), it’s possible to export backend data captured with [OpenTelemetry](https://www.checklyhq.com/learn/opentelemetry/getting-started-with-observability/) and gather trace data from your backend services as they’re handling the requests sent during a Checkly Test. 
 
-Implementation is straightforward and results in a highly efficient observability setup that doesn’t use bandwidth for unecessary monitoring data. In most cases the setup will look like this:
+Implementation is straightforward and results in a highly efficient observability setup that doesn’t use bandwidth for 
+unnecessary monitoring data. In most cases the setup will look like this:
 
 1. Configure Checkly to send a header with its requests, which will be picked up and propagated by OpenTelemetry instrumentation
 2. Add a configuration to the [OpenTelemetry collector](https://www.checklyhq.com/learn/opentelemetry/what-is-the-otel-collector/) to send only relevant traces to Checkly
@@ -259,7 +260,7 @@ With alerts running on a cadence, you can ensure that you’re hearing about fai
 Finally, now that we’re monitoring production with Checkly, we’ll need to send alerts to an on-call team and/or key stakeholders when something is detected as not working. [Checkly supports multiple alert channels](https://www.checklyhq.com/docs/alerting-and-retries/#alerting-and-retries-with-checkly---checkly-docs), with configuration available either for a single check, at the group level, or all checks. Some best practices:
 
 - Configure retry logic for minimal alert fatigue - Checkly offers fine-grained retries on checks, and it’s important to double-check that failures aren’t transitory. Balance alert fatigue with time efficiency, as multiple retries can significantly impact time to detection.
-- Don’t rely on a single alert channel, always have at least one backup like a slack message or email to make sure that a delivery failure doesnt aggravate an outage.
+- Don’t rely on a single alert channel, always have at least one backup like a slack message or email to make sure that a delivery failure doesn't aggravate an outage.
 - Use soft assertions and degraded states for more depth - not every behavior counts as total failure. For slowly-loading graphics or error messages that don’t block the user, [use the degraded state](https://www.checklyhq.com/blog/never-miss-alerts/#use-soft-assertions-to-reduce-alert-fatigue) to flag the problem without sending high priority alerts.
 
 There’s also a general factor of time and team culture: if you do the work now to ensure checkly alerts are timely and informative, your team will grow a culture of taking alerts from Checkly seriously, and either resolving or investigating every high priority notification.

@@ -80,13 +80,13 @@ A tool like [Playwright](https://www.checklyhq.com/docs/browser-checks/playwrigh
 A final point, once again related in part to alert fatigue, is making sure that our monitor gathers real evidence of failure. Automated systems can alert for many reasons, and we want to make sure that once a human is investigating it’s easy to differentiate between false alarms and real outages. Three things we’d like to get either at first alert time or shortly thereafter on an alert dashboard.
 
 - Scale - A failed synthetic test shows, essentially, ‘One user could not do X with our service.’ The next questions from an on-call team will probably involve scale: how long has this been happening? Can no users do X or only some? Ideally downtime alerts to an on-call team will have at least initial indicators of scale.
-- Geographic distribution - many failures are specific to one region, and a simple report showing that only some users or affected, or that some requests are succesful, will hide the fact that no users in one region have access.
+- Geographic distribution - many failures are specific to one region, and a simple report showing that only some users or affected, or that some requests are successful, will hide the fact that no users in one region have access.
 
 ![The Checkly dashboard showing a timeline of failures](/learn/images/mttd-2.png)
 
 *The Checkly dashboard showing a timeline of failures, that some but not all checks are failing, and listing the geographic locations where checks are failing.*
 
-- Traces - How many times have users reported an error, only for the exact error to be difficult to be reproduce, and then the on-call team is trying to replicate a failure with only a vague report to go off of? Ideally every report of a failure would include a full trace showing what loaded succesfully, what errors were thrown, and a waterfall chart of page elements’ loading times.
+- Traces - How many times have users reported an error, only for the exact error to be difficult to be reproduce, and then the on-call team is trying to replicate a failure with only a vague report to go off of? Ideally every report of a failure would include a full trace showing what loaded successfully, what errors were thrown, and a waterfall chart of page elements’ loading times.
 
 ![A Checkly trace showing a full debug session for a failed check.](/learn/images/mttd-2.png)
 

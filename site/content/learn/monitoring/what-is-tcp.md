@@ -153,7 +153,7 @@ As mentioned above HTTP connections are application-level connections with TCP h
 ### 3. **Latency and the Three-Way Handshake**
    - The TCP three-way handshake introduces latency, especially for short-lived HTTP requests.
    - Techniques like **HTTP/2 multiplexing** and **HTTP/3** (which uses QUIC instead of TCP) can reduce this latency.
-   - Applications using many many short lived requests (e.g. streaming a game to a browser) will want to switch from HTTP/1 connections.
+   - Applications using many short lived requests (e.g. streaming a game to a browser) will want to switch from HTTP/1 connections.
 
 ### 4. **Error Handling**
    - TCP handles most network-level errors (e.g., packet loss, retransmission), but your application should still handle HTTP-level errors (e.g., `4xx` and `5xx` status codes).

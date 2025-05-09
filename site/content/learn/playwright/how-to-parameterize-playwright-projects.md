@@ -109,7 +109,7 @@ export { expect } from '@playwright/test'
 
 Playwright's `test` method allows you to enrich Playwright's core functionality with your own custom fixtures and options. The trick is to import and rename `test`, extend it with your custom additions, and then export the returned value as `test` to be used in your test cases.
 
-In the example above, the `dashboard` fixture intializes the new `DashboardPage` and then passes the result to the provided `use` method. Whatever `use` will be called with will be passed to your test cases. This has the advantage of having all your setup instructions in one place. 
+In the example above, the `dashboard` fixture initializes the new `DashboardPage` and then passes the result to the provided `use` method. Whatever `use` will be called with will be passed to your test cases. This has the advantage of having all your setup instructions in one place. 
 
 But if you now have test cases that should use the `dashboardPage` object with different users, you can't change how the page object model will be initialized because the setup is hidden away from the test cases.
 

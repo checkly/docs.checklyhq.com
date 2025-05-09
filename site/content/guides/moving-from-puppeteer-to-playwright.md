@@ -127,7 +127,7 @@ In this area, Playwright brings about several changes you want to be mindful of:
 
 3. Puppeteer's `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforxpathxpath-options" title="page.waitForXPath" >}}` has been incorporated into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-selector" title="page.waitForSelector" >}}`, which recognises XPath expressions automatically.
 
-4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptions" title="page.waitForFileChooser" >}}` been removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/headless/e2e-account-settings/) for new usage)
+4. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitforfilechooseroptions" title="page.waitForFileChooser" >}}` been removed (see the {{< newtabref  href="https://playwright.dev/docs/input#upload-files" title="official dedicated page" >}} and our [file upload example](https://www.checklyhq.com/learn/playwright/testing-file-uploads/) for new usage)
 
 5. `{{< newtabref  href="https://pptr.dev/#?product=Puppeteer&version=v11.0.0&show=api-pagewaitfornetworkidleoptions" title="page.waitForNetworkIdle" >}}` has been generalised into `{{< newtabref  href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" title="page.waitForLoadState" >}}` (see the `networkidle` state to recreate previous behaviour)
 

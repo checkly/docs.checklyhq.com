@@ -12,7 +12,7 @@ menu:
 
 If you want to monitor your service for non-critical errors or performance degradations you can use the degraded check state. This allows you to signal that parts of a Browser check performed slower than expected, or that it triggered assertions that are of lower criticality. 
 
-The degraded state does not affect your check's success ratio like a failed state does. You can [configure alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) to notifiy you when a check has degraded. 
+The degraded state does not affect your check's success ratio like a failed state does. You can [configure alert channels](/docs/alerting-and-retries/alert-channels/#managing-alert-channels) to notify you when a check has degraded. 
 
 To catch errors that are relevant for a degraded scenario you can use soft assertions. Soft assertions keeps your Playwright test running after it has encountered an error, unlike regular assertions which terminate the test. See the [playwright docs](https://playwright.dev/docs/test-assertions#soft-assertions) for more information on soft assertions.
 

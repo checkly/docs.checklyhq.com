@@ -26,7 +26,7 @@ Taking a look at the ‘Language APIs and SDKs’ section of the OpenTelemetry d
 
 *A table of language-framework support for OpenTelemetry Signals, retrieved in March 2025*
 
-In fact only Java, C, and PHP have ‘stable’ logs support. Is this a cause for concern? In a word ‘no’, this table covers whether, when using the OpenTelemetry SDK, you can make a call to this SDK to emit logging. It is true that in many SDKs this isn’t yet fully supported, but this shouldn’t be a great concern to you because **you are already emitting logging just fine** in your production environment. There are many many ways to add logging to the signals being handled by the OpenTelemetry collector and your OpenTelemetry datastore, which hook in to your current logging streams.
+In fact only Java, C, and PHP have ‘stable’ logs support. Is this a cause for concern? In a word ‘no’, this table covers whether, when using the OpenTelemetry SDK, you can make a call to this SDK to emit logging. It is true that in many SDKs this isn’t yet fully supported, but this shouldn’t be a great concern to you because **you are already emitting logging just fine** in your production environment. There are lots of ways to add logging to the signals being handled by the OpenTelemetry collector and your OpenTelemetry datastore, which hook in to your current logging streams.
 
 ## OpenTelemetry and Structured Logging
 

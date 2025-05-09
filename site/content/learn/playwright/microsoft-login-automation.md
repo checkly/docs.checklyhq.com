@@ -50,7 +50,7 @@ npx playwright test ms-account-login.spec.ts
 ## Takeaways
 
 1. Use environment variables to inject secrets.
-2. Wait for the navigation as your are redirected to Microsoft.
+2. Wait for the navigation as you are redirected to Microsoft.
 3. Wait for the navigation as you are redirected back to the start site.
 
 

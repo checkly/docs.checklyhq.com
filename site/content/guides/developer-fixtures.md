@@ -21,7 +21,7 @@ This guide will tie together material from our Playwright Learn articles, our bl
 
 
 ### Whom this guide can help
-This article will refer repeatedly to an ideal "developer" who understands their own service quite well, but isn't experienced at at either QA or monitoring. They may not be an expert in the automation framework Playwright, which we use to write our monitors, and they don't have experience with specific configuration like retry logic, alert thresholds, etcetera. This guide can also help you make monitoring accessible for:
+This article will refer repeatedly to an ideal "developer" who understands their own service quite well, but isn't experienced at either QA or monitoring. They may not be an expert in the automation framework Playwright, which we use to write our monitors, and they don't have experience with specific configuration like retry logic, alert thresholds, etcetera. This guide can also help you make monitoring accessible for:
 
 * Front-end developers who work on the user experience, but haven't previously monitored the site in Production
 * Integration engineers who want to make sure that changes to third-party services don't break your site
@@ -47,7 +47,7 @@ Of course, we don't want to give our fresh developer over a dozen settings that 
 
 * Set a generous `RetryStrategy`! Some failures can look extremely worrying even if they happen once, but it's worth double-checking that the problem wasn't entirely ephemeral. Full [documentation of retry configuration is on our docs site](https://docs.checklyhq.com/docs/cli/constructs-reference/#retrystrategy).
 
-* If you're encouraging microservice developers or frontend engineers to add checks, consider setting the default frequency to be relatively low. It's great to test edge cases or unsual scenarios, but someone without exposure to Operations is unlikely to need to run a check every minute.
+* If you're encouraging microservice developers or frontend engineers to add checks, consider setting the default frequency to be relatively low. It's great to test edge cases or unusual scenarios, but someone without exposure to Operations is unlikely to need to run a check every minute.
 
 * Make sure your geographic `locations` reflect your userbase. You can use `runParallel:false` if testing from a large number of locations, so that checks will run from a single location each cycle.
 
@@ -72,7 +72,7 @@ Some important things to remember when working with a group of checks:
 
 {{< figure src="/guides/images/guide-fixtures02.png" alt="the Checkly Web UI with settings for a group" title="Running a group from the Web UI's 'Schedule Group' option" >}}
 
-* Any settings that are given in two places will be reconciled with the following heirarchy:
+* Any settings that are given in two places will be reconciled with the following hierarchy:
   1. individual settings on a check
   2. group settings
   3. global settings
@@ -176,7 +176,7 @@ test.afterEach(() => {
 });
 ```
 
-But while it's great to use native features, this is requireing a good amount of setup in each test file (the above snippets would have to be repeated in each new file), and our goal is to make creating new checks as easy as possible for developers. So let's use Playwright's native features to make this even easier for them.
+But while it's great to use native features, this is requiring a good amount of setup in each test file (the above snippets would have to be repeated in each new file), and our goal is to make creating new checks as easy as possible for developers. So let's use Playwright's native features to make this even easier for them.
 
 ```ts {title=testFixtures.ts}
 import { test as base } from '@playwright/test';
