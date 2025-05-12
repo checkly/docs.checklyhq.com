@@ -58,7 +58,7 @@ A payment service fails intermittently. Traditional RCA might check logs in isol
 - **OpenTelemetry** (unified data collection for the back end)
 - **Prometheus/Grafana** (metrics visualization)
 - **Jaeger** (distributed tracing)
-- **Checkly** (Synthetic monitoring of the frontend, correlated with OpenTelemetry traces)
+- **Checkly** ([synthetic monitoring](https://www.checklyhq.com/blog/what-is-synthetic-monitoring/) of the frontend, correlated with OpenTelemetry traces)
 
 Modern RCA reduces MTTR  by replacing guesswork with data-driven decisions. 
 

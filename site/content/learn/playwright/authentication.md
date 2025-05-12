@@ -11,7 +11,7 @@ tags:
   - storageState
   - 2fa
   - cookies
-weight: 3
+weight: 105
 navTitle: Authentication
 menu:
   learn_playwright:

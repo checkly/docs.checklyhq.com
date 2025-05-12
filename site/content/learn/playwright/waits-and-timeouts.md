@@ -7,7 +7,7 @@ tags:
   - best practices
   - waiting
 navTitle: Waits and timeouts
-weight: 5
+weight: 70
 menu:
   learn_playwright:
     parent: "Interaction"

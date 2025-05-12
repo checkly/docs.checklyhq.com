@@ -1,8 +1,8 @@
 ---
-title: Synthetic Transaction Monitoring - Components, Benefits & Challenges
-displayTitle: What is Synthetic Transaction Monitoring?
-navTitle:  Synthetic Transaction Monitoring
-description: Explore the what and why of synthetic monitoring.
+title: Transaction Monitoring - Components, Benefits & Challenges
+displayTitle: What is Transaction Monitoring?
+navTitle:  Transaction Monitoring
+description: Explore transaction monitoring for application developers and SREs.
 date: 2024-12-15
 author: Nocnica Mellifera
 githubUser: serverless-mom
@@ -133,7 +133,8 @@ Although synthetic monitoring provides simulated data, it cannot replace actual 
 
 When [retries are set up correctly](https://www.checklyhq.com/docs/alerting-and-retries/), we should only get a synthetic transaction monitoring alert when there’s a real problem that users will notice. But detecting an issue through synthetic monitoring is only the first step. Pinpointing the root cause of problems requires additional diagnostic tools and processes. Synthetic monitoring should be run as a separate service from all of your internal services and tools, and as such will lack insight into how your back end is handling requests. Once you’ve detected a problem, backend logs, traces, and other information from something like an [OpenTelemetry monitoring system](https://www.checklyhq.com/learn/opentelemetry/getting-started-with-observability/), will be needed to find a root cause.
 
-{{< figure src="/learn/images/animated-diagram.gif" alt="an animated graph of the Checkly monitoring process with OpenTelemetry traces" title="Checkly Traces can connect synthetic site checks with the related traces observed by your OpenTelemetry monitoring." >}}
+{{< figure src="/learn/images/animated-diagram.gif" alt="an animated graph of the Checkly monitoring process with OpenTelemetry traces" title="" >}}
+*Checkly Traces can connect synthetic site checks with the related traces observed by your [OpenTelemetry monitoring](https://www.checklyhq.com/learn/opentelemetry/).*
 
 **Tool Integration Needs**
 

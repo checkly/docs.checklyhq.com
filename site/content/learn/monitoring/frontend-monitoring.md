@@ -11,7 +11,7 @@ displayDescription:
 menu:
   learn_monitoring:
     parent: Monitoring Concepts
-weight: 40
+weight: 70
 ---
 
 No matter what internal testing or error monitoring we do for our web services, our end users will interact with that service through a front end. It’s necessary to perform front end monitoring so that you’re not relying on users to report problems.
