@@ -30,7 +30,7 @@ The main part of your check is the TCP request, which defines the endpoint to mo
 
 * **Target:** The TCP endpoint to monitor, as defined by a hostname or IP address (e.g. `tcpbin.com` or `192.168.1.1`) and a port (e.g. `4242`).
 * **IP family:** The default is IPv4. If needed, change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6.
-* **This request should fail:** Enable this option to treat connection failures (e.g. timeouts or refused ports) as passed. Please note that successful connections will continue to pass as well. Only failed assertions will cause the check to fail.
+* **This request should fail:** Enable this option to treat connection failures (e.g. timeouts or refused ports) as passed. Please note that successful connections will continue to pass. Only failed assertions will cause the check to fail.
 * **Data to send:** The content included in the TCP request. For example, this could be text or protocol-specific commands expected by the target service.
 
 To validate the response, you can set:
