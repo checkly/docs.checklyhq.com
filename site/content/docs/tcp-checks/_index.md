@@ -16,7 +16,8 @@ For example, use these checks to verify that:
 
 * Your mail server is online and responds to IMAPS requests quickly.
 * Your FTP server responds correctly to commands.
-* Your firewall blocks access to certain ports.
+* Your custom TCP-based service returns the expected response when sent a health check message.
+
 
 ![Screenshot of the TCP check overview page](/docs/images/tcp-checks/tcp-check-overview.png)
 
@@ -30,7 +31,7 @@ The main part of your check is the TCP request, which defines the endpoint to mo
 
 * **Target:** The TCP endpoint to monitor, as defined by a hostname or IP address (e.g. `tcpbin.com` or `192.168.1.1`) and a port (e.g. `4242`).
 * **IP family:** The default is IPv4. If needed, change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6.
-* **This request should fail:** Enable this option to mark failed connections as passed. Please note that failing assertions will still cause the check to fail.
+* **This request should fail:** Enable this option to treat connection failures (e.g. timeouts or refused ports) as successful. Please note that successful connections will still pass. Only failed assertions will cause the check to fail.
 * **Data to send:** The content included in the TCP request. For example, this could be text or protocol-specific commands expected by the target service.
 
 To validate the response, you can set:
