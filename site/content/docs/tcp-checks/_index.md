@@ -31,7 +31,7 @@ There are plenty of other scenarios where TCP checks are helpful, such as monito
 * **The TCP request:**
   * **Target:** Specify the TCP endpoint to monitor by entering a hostname or IP address (e.g. tcpbin.com or 192.168.1.1) and a port (e.g. 4242).
   * **IP family:** Change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6 if needed; the default is IPv4.
-  * **This request should fail:** Enable this option to mark failed connections as passed. Please note that failing assertions will still cause the check to fail.
+  * **This request should fail:** Enable this option to mark failed connections (e.g. timeouts or refused ports) as passed. Please note that failing assertions will still cause the check to fail.
   * **Data to send:** Use the text editor to specify data that will be sent to the port as part of the TCP request. This can include text or protocol-specific commands expected by the target service. To configure the expected response, see ‘Assertions‘ for more details.
 
 * **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
