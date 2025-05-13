@@ -25,7 +25,12 @@ An API check starts with creating an HTTP request including a HTTP verb (GET, PO
 - Available methods are `GET, POST, PUT, HEAD, DELETE, PATCH`
 - URL's are checked for correctness and must start with either `http://` or `https://`
 
-Checking the **"This request should fail"** box allows you to treat HTTP error codes (4xx and 5xx) as correct responses. This comes in handy when testing 404 pages or 500 error handling. Please note that failed assertions will still cause the check to fail.
+Checking the **"This request should fail"** checkbox allows you to treat HTTP error codes (4xx and 5xx) as correct responses. This comes in handy when testing 404 pages or 500 error handling.
+
+When enabled:
+	•	✅ Failed responses (4xx, 5xx) → check passes
+  •	✅ Successful responses → check passes
+  •	❌ Failed assertions → check fails
 
 ## Body
 

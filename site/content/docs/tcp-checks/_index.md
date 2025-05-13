@@ -18,8 +18,6 @@ A TCP check establishes a connection to a specified hostname or IP address and p
 
 * **FTP servers** (e.g. `ftp.example.org:21`): Check that your server is online and accepting connections. To confirm that protocol commands are processed as expected, you can include a command like `USER anonymous\r\n` as part of your TCP request and confirm the response matches what you'd expect, such as `331 Please specify the password`, using assertions.
 
-* **Firewalls** (e.g. `firewall-protected.example.org:8080`): TCP checks allow you to confirm your firewall rules are working as expected. For example, if you want to verify that a specific port is intentionally blocked, enable the “should fail” option. This will mark the check as passed if the connection fails (e.g. due to a timeout or refusal), confirming that your firewall is doing its job.
-
 There are plenty of other scenarios where TCP checks are helpful, such as monitoring messaging queues or custom applications on proprietary ports. If you’re unsure whether your use case is supported or need assistance getting started, feel free to [reach out](mailto:support@checklyhq.com)!
 
 ## Create a TCP check
@@ -31,7 +29,7 @@ There are plenty of other scenarios where TCP checks are helpful, such as monito
 * **The TCP request:**
   * **Target:** Specify the TCP endpoint to monitor by entering a hostname or IP address (e.g. tcpbin.com or 192.168.1.1) and a port (e.g. 4242).
   * **IP family:** Change the [IP family](/docs/monitoring/ip-info/#ipv4-and-ipv6-support) setting to IPv6 if needed; the default is IPv4.
-  * **This request should fail:** Enable this option to mark failed connections (e.g. timeouts or refused ports) as passed. Please note that failing assertions will still cause the check to fail.
+  * **This request should fail:** Enable this option to treat connection failures (e.g. timeouts or refused ports) as successful. Please note that successful connections will still pass. Only failed assertions will cause the check to fail.
   * **Data to send:** Use the text editor to specify data that will be sent to the port as part of the TCP request. This can include text or protocol-specific commands expected by the target service. To configure the expected response, see ‘Assertions‘ for more details.
 
 * **Set response time limits:** Define thresholds for marking the check as degraded or failed. This allows you to specify when requests should be considered slow (degraded) or entirely unreachable (failed).
