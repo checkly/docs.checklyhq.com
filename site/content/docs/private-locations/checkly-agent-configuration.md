@@ -23,6 +23,7 @@ Variable|Description
 `JOB_CONCURRENCY`|(Default: 1, max: 10) Number of concurrent checks that are run by the agent.
 `LOG_LEVEL`|(Default: `INFO`) Set the log level of the agent. Can be one of `DEBUG`, `LOG`, `INFO`, `WARN` or `ERROR`.
 `USE_OS_DNS_RESOLVER`|When set to true, TCP checks will resolve DNS using `getaddrinfo` C function, instead of using the network. This enables easier DNS resolution for internal services e.g. services running in the same Kubernetes cluster.
+`DISABLE_MEMORY_MANAGEMENT`|When enabled (set to true), this option turns off Checkly's built-in memory monitoring that detects out-of-memory errors. As a result, check runs won't be canceled, and no memory-related check result will be generated.
 
 For example, you can add these variables to the standard docker run command like this:
 
