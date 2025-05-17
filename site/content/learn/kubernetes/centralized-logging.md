@@ -55,7 +55,7 @@ Here’s how to set up centralized logging in Kubernetes with OpenTelemetry:
 
 ### Advantages of OpenTelemetry Logging in Kubernetes
 
-By adopting OpenTelemetry for centralized logging, Kubernetes administrators gain several benefits:
+By adopting [OpenTelemetry for centralized logging](https://www.checklyhq.com/learn/opentelemetry/logs/), Kubernetes administrators gain several benefits:
 
 - **Unified Telemetry Stack**: OpenTelemetry consolidates logging, tracing, and metrics collection, eliminating the need for multiple agents and configuration files. This simplifies management and reduces potential points of failure.
 - **Flexibility in Log Destination**: Logs can be sent to multiple backends, allowing organizations to maintain control over their data while still meeting specific requirements, such as long-term storage or compliance.

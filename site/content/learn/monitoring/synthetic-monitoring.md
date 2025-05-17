@@ -36,7 +36,7 @@ Considering your application's essential features, *how long would it be accepta
 You can only fix production issues you know about. If making a purchase is your core business, you probably don't want to test this functionality only once a day after a production deployment. Nor do you want to rely on an observability platform reactive alerting you after a customer has encountered the broken checkout flow.
 
 ### Faster mean time to detection
-Synthetic monitoring enables you to test your core functionality daily, every hour, or even every minute. The shorter your synthetic monitoring interval, the quicker your mean time to detect (MTTD) will be. A short MTTD will enable you to fix production issues before your customers reach out to your support channels!
+Synthetic monitoring enables you to test your core functionality daily, every hour, or even every minute. The shorter your synthetic monitoring interval, the quicker your [mean time to detect (MTTD)](https://www.checklyhq.com/learn/incidents/reduce-mttd/) will be. A short MTTD will enable you to fix production issues before your customers reach out to your support channels!
 
 ### Accurate alerting & less noise
 Betting on user experience testing with synthetic monitoring leads to more meaningful alerts. A failed transaction might be an issue, but your infrastructure could handle it gracefully. Alerts based on a broken user experience tell you the entire story and must be treated critically and acted on immediately.

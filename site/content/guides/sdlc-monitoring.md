@@ -23,7 +23,7 @@ In short, we’re all aware that the software development life cycle (SDLC) ofte
 Ideally development should only be getting requirements from planning and design, with any feedback (issues that need fixing) coming in the QA stages before deployment to production. In reality a huge list of failures can result in developers having to fix failures and re-engineer code to keep production running. There are two significant concerns that a more unified testing and monitoring approach can help us address:
 
 1. When bugs are found post deployment, feedback is often given without full context, with the first reports going to someone other than the developer.
-2. Any fixes have to be delivered out-of-band of the normal development cycle, either coded in haste during incident response, or written and deployed during time that was supposed ot be spent on new features.
+2. Any fixes have to be delivered out-of-band of the normal development cycle, either coded in haste during [incident response](https://www.checklyhq.com/learn/incidents/what-is-incident-response/), or written and deployed during time that was supposed ot be spent on new features.
 
 By unifying around Checkly, **feedback is delivered directly to developers**, with developers working on their own tests, which then offer direct feedback with all the context that product teams need to diagnose root causes. The many unforseen failures caused by the interaction of application code and the production environment should be monitored with **the same quality of tests that scruitinized our code pre-deployment.**
 
