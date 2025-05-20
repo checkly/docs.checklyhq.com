@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "hugo": "gulp --gulpfile gulpfile.mjs hugo",
-    "build": "gulp --gulpfile gulpfile.mjs build",
+    "build": "gulp --gulpfile gulpfile.mjs build NODE_OPTIONS=\"--experimental-print-required-tla\"",
     "build-preview": "gulp --gulpfile gulpfile.mjs build-preview",
     "deploy": "vercel --prod",
     "checkly:test": "npx checkly test --record --reporter=github",
