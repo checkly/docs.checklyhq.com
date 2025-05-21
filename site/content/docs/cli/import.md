@@ -72,7 +72,7 @@ new BrowserCheck('check-landing-page-3eNrQgOb', {
 })
 ```
 
-If `export` is not used, the CLI code generation will still reference the correct resources when generating code, but will use `fromID` instead.
+If `export` is not used, the CLI code generation will still reference the correct resources when generating code, but will use `fromId` instead.
 
 
 ## Next steps
