@@ -69,7 +69,7 @@ There are some tradeoffs to consider:
 
 ### Network retries
 
-For API checks, you can enable network retries to automatically retry a check run onnly if it fails due to a network error—such as a timeout, DNS resolution issue, or connection reset.
+For API checks, you can enable network retries to automatically retry a check run only if it fails due to a network error—such as a timeout, DNS resolution issue, or connection reset.
 
 When network retries are enabled:
 * The check will retry on: ECONNRESET, ENOTFOUND, ETIMEDOUT, EAI_AGAIN, ECONNREFUSED, and similar network errors.
