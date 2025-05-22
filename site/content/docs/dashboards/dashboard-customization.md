@@ -59,7 +59,7 @@ You can tweak the following parts of your dashboard:
 - **logo link:** Direct visitors to your company website when they click the logo.
 - **favicon:** Put the cherry on top with a custom favicon.
 
-![config public monitoring dashboard 3](/docs/images/dashboards-v2/look_feel4.png)
+![config public monitoring dashboard 3](/docs/images/dashboards-v2/look_feel3.png)
 
 - **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview.
 - **auto refresh:** Set how often the dashboard refreshes—choose between 1, 5, or 10 minutes.
