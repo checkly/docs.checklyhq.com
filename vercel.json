@@ -1,6 +1,7 @@
 {
   "name": "checklyhq.com",
   "scope": "checkly",
+  "buildCommand": "npm run build",
   "build": {
     "env": {}
   },
