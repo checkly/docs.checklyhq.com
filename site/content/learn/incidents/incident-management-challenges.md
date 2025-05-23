@@ -23,7 +23,7 @@ That’s why incident management isn’t just a technical process. **It’s a te
 
 Let’s break down the real-world challenges teams face when managing incidents—and how a structured approach can help you respond faster, better, and with more confidence.
 
-![Incident Management Challenges](learn/images/Incident Management Challenges (1).png)
+![Incident Management Challenges](learn/images/incident-management-challenges.png)
 
 ## Early Detection Is Still Hard
 
@@ -53,7 +53,7 @@ Here’s an example of how you could classify incidents by severity:
 - **SEV2**: Partial degradation—users are affected, but workarounds exist.
 - **SEV3**: Minor bug—non-blocking, but potentially noisy.
 
-![Incident severity levels](learn/images/Incident serverity levels (1).png)
+![Incident severity levels](learn/images/incident-severity-levels.png)
 
 The challenge is not just defining these, but aligning everyone—engineering, support, and leadership—on what they mean in practice.
 
