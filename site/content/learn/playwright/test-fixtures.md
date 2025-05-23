@@ -22,7 +22,7 @@ Playwright's test fixtures are a powerful feature for sharing setup and logic ac
 
 At their core, fixtures in Playwright are predefined components like `page`, `context`, `browser`, and `browserName` that you can use across different test cases. They encapsulate functionality into modular blocks, simplifying test code.
 
-When writing multiple tests for a single site or service, you're likely to end up performing the same tasks over and over, so we'd like to add fixtures to our Playwright tests that developers can re-use, rather than copying and pasting big blocks of code. This helps us follow the DRY prinicple: don't repeat yourself when writing code!
+When writing multiple tests for a single site or service, you're likely to end up performing the same tasks over and over, so we'd like to add fixtures to our Playwright tests that developers can re-use, rather than copying and pasting big blocks of code. This helps us follow the DRY principle: don't repeat yourself when writing code!
 
 ## Why we need custom fixtures
 In our web shop, we've got a login process that we want to simulate and test before doing further account actions:

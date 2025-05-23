@@ -203,7 +203,7 @@ This solution is fairly situational, but it’s worth considering if the modal y
 
 For example, if you’re checking modal details, but the next step is to close the modal and move elsewhere on the page, consider having the test enter a [degraded state](/docs/browser-checks/degraded-state/) rather than failing.
 
-A full walkthrough of the code changes is [on our documentation site](/docs/browser-checks/degraded-state/), but suffice to say that with soft assertions you can have a check enter a ‘yellow’ state on the Checkly dashboard without triggering the same alerts as a failing check. This is perfect for performance issues that are intermittent, and would otherwise cause constant downtime alerts.
+A full walkthrough of the code changes is [on our documentation site](/docs/browser-checks/degraded-state/), but suffice to say that with soft assertions you can have a check enter a ‘yellow’ state on the Checkly dashboard without triggering the same alerts as a failing check. This is perfect for performance issues that are intermittent, and would otherwise cause constant [downtime alerts](https://www.checklyhq.com/learn/incidents/detection-best-practices/).
 
 To see a demo of how this state works in Checkly, take a look at Stefan’s tutorial video:
 

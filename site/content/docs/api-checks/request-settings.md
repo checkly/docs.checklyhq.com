@@ -77,7 +77,7 @@ Form encodes bodies are commonly used "traditional" HTML form submissions.
 
 ### Raw data
 
-If the predefined data types don't work for you, use `Raw data`. Make sure to define your `Content-Type` header explicitely then.
+If the predefined data types don't work for you, use `Raw data`. Make sure to define your `Content-Type` header explicitly then.
 
 > To monitor an XML/SOAP-based API define `text/xml; charset=utf-8` as `Content-Type` header, send your XML as `Raw data` and [use a setup script to parse required access tokens](/docs/api-checks/setup-script-examples/#parse-xmlsoap-data).
 

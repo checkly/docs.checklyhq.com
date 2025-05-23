@@ -30,4 +30,4 @@ After enabling password protection for your dashboard, you can continue to visit
 
 > Checkly account login is only available to Enterprise customers.
 
-If visiting via the `https://[dashboardId].checkly-dashboards.com` domain, you can also select "Login with Checkly" and signin with your existing Checkly account via any of the supported methods (i.e. Google, Github, Username and Password). This is an enterprise only feature.
+If visiting via the `https://[dashboardId].checkly-dashboards.com` domain, you can also select "Login with Checkly" and sign in with your existing Checkly account via any of the supported methods (i.e. Google, Github, Username and Password). This is an enterprise only feature.

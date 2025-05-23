@@ -32,7 +32,7 @@ Most teams do default to the root meaning, or the original meaning, "mean time t
 
 ## Calculating MTTR
 
-The Mean Time to Repair is just the arithmatic mean (or average) of your time to resolution from all incidents. The timeline diagram above gives an example of how the time to repair is measured from each incident: it starts when the outage first occurred, to when a fix was deployed. If we had five incidents last month, with times to repair looking like the following table:
+The Mean Time to Repair is just the arithmetic mean (or average) of your time to resolution from all incidents. The timeline diagram above gives an example of how the time to repair is measured from each incident: it starts when the outage first occurred, to when a fix was deployed. If we had five incidents last month, with times to repair looking like the following table:
 
 | Incident Number | Time to Repair |
 | --- | --- |
