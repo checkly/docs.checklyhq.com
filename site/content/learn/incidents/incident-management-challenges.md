@@ -9,7 +9,7 @@ githubUser: SaraMiteva
 displayDescription: "Find out what are the most common incident challenges and how to address them."
 menu:
   learn_incidents:
-    parent: Communication
+    parent: Detection
 weight: 20
 ---
 
