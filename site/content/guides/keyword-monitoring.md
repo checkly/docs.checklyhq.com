@@ -113,7 +113,7 @@ In the trace from this check run, we’ll see individual timings for:
 ![The checkly web UI showing a trace](/guides/images/guide-keyword-testing-6.png "You can scan through this trace to see the initial content paint")
     
 
-In this case, the page load took 1.8 seconds, and only 33ms later, our best seller was visible. At that point the test was passed and we were able to move forward with our check. This saves execuction time compared to a manually added wait! 
+In this case, the page load took 1.8 seconds, and only 33ms later, our best seller was visible. At that point the test was passed and we were able to move forward with our check. This saves execution time compared to a manually added wait! 
 
 ### Narrowing text requirements: exact matching of keywords
 
@@ -149,7 +149,7 @@ In our Checkly report for this monitor, we’ll get notified if this code starts
 
 ### Solving `strict mode violation` when matching keywords
 
-Tl;dr you can surpress all these `resolved to [number] elements` by only looking at the first result:
+Tl;dr you can suppress all these `resolved to [number] elements` by only looking at the first result:
 
 ```jsx
   await expect(page.getByText('9.95').first()).toBeVisible()

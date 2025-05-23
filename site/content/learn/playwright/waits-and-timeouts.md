@@ -92,7 +92,7 @@ Generally, **it's recommended to rely on Playwright's auto-waiting and built-in 
 
 ### Waiting on navigations and network conditions in Playwright
 
-When you can't wait for an element to appear on a page and want to explicitely wait for the network use the following.
+When you can't wait for an element to appear on a page and want to explicitly wait for the network use the following.
 
 `{{< newtabref title="page.waitForLoadState" href="https://playwright.dev/docs/api/class-page#page-wait-for-load-state" >}}` waits until the required load state has been reached. It defaults to the page `load` event but can also be configured to wait for `domcontentloaded` or `networkidle` (discouraged).
 
