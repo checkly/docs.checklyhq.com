@@ -50,7 +50,7 @@ Without context:
 2. **Extraction**: When another service receives the request, it pulls the context from headers
 3. **Passing Along**: The context continues flowing through all services in the request
 
-Note that while most OpenTelemetry SDKs and tools propagate context automatically, there’s also the [propagation API](https://opentelemetry.io/docs/specs/otel/context/api-propagators/) if you need to manually propagate context. For example, if you are able to see that two time spans should be part of one trace via an unsual method like examining the messages body with a regex, you’d want to work with the propagation API.
+Note that while most OpenTelemetry SDKs and tools propagate context automatically, there’s also the [propagation API](https://opentelemetry.io/docs/specs/otel/context/api-propagators/) if you need to manually propagate context. For example, if you are able to see that two time spans should be part of one trace via an unusual method like examining the messages body with a regex, you’d want to work with the propagation API.
 
 ### The Standards Behind It
 
@@ -86,7 +86,7 @@ Context propagation turns separate operations into connected stories - making co
 
 ## How Context Propagation Unlocks Efficient Monitoring: Checkly Traces
 
-At Checkly, we had a problem. We wanted to let our users connect data on the backend performance of their application when handling requests sent by Checkly as part of synthetic user monitoring. For example, if a single postgres query was taking a long time and slowing down one type of user request, we wanted to see what request had taken so long. But we didn’t want to send large amounts of unecessary data, using up user’s bandwidth and resources. To continue the analogy, we only wanted to send the postgres query data for our specific test request, not all postgres query performance from everywhere. With OpenTelemetry context propagation, this proved feature was easy to implement, and performs well.
+At Checkly, we had a problem. We wanted to let our users connect data on the backend performance of their application when handling requests sent by Checkly as part of synthetic user monitoring. For example, if a single postgres query was taking a long time and slowing down one type of user request, we wanted to see what request had taken so long. But we didn’t want to send large amounts of unnecessary data, using up user’s bandwidth and resources. To continue the analogy, we only wanted to send the postgres query data for our specific test request, not all postgres query performance from everywhere. With OpenTelemetry context propagation, this proved feature was easy to implement, and performs well.
 
 ### How it works: Context Propagation and Checkly Traces
 

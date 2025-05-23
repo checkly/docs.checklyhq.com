@@ -75,7 +75,7 @@ New versions of the Checkly Agent are released regularly. To have access to the 
 
 ### Manual updates
 
-To manually uprade your Checkly Agent containers, first pull the image:
+To manually upgrade your Checkly Agent containers, first pull the image:
 
 ```bash
 docker pull checkly/agent:latest

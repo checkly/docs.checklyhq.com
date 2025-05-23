@@ -56,4 +56,4 @@ Each of the stages of incident response has associated best practices:
 6. **Repair the Issue**: Once the root cause is known, the team fixes the issue. This could mean adding more resources, fixing a network problem, or applying a permanent solution.
 7. **Close and Review the Incident**: After the problem is solved, the team closes the incident and reviews what happened. This helps them learn from the issue and improve for the future.
 
-Explore the documenation linked above to go deeper with your incident response skills!
+Explore the documentation linked above to go deeper with your incident response skills!
