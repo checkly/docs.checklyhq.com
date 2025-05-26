@@ -6,7 +6,7 @@ description: Learn OpenTelemetry with Checkly. Add monitoring to every piece of 
 date: 2024-10-17
 author: Nocnica Mellifera
 githubUser: serverless-mom
-displayDescription:
+displayDescription: Learn How to Observe and Monitor your Software with OpenTelemetry
 ---
 
 Learn Observability and OpenTelemetry with Checkly. Add monitoring to every piece of your stack with the open standards 
