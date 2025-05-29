@@ -516,10 +516,51 @@ new ApiCheck('check-group-api-check-1', {
 
 In this example, the API check that belongs to the group will run with its own settings for `locations`, `retryStrategy` and `alertSettings`.
 
+## `AlertSettings`
+
+Alert settings let you to control when and how often you will be notified when a check starts failing, degrades or recovers. [Learn more about alert settings in our docs](/docs/alerting-and-retries/alert-settings/#alert-settings).
+
+Alert settings configuration object looks like this:
+
+- `reminders`: Defines the number of reminder notifications (`amount`) and the interval in minutes (`interval`) between reminders when an alert is active.
+- `escalationType`: Specifies the escalation strategy. Possible values include `RUN_BASED` (escalate after a number of failed runs) or `TIME_BASED` (escalate after a duration of failures).
+- `runBasedEscalation`: Configuration for run-based escalation. `failedRunThreshold` sets the number of consecutive failed runs before escalation.
+- `timeBasedEscalation`: Configuration for time-based escalation. `minutesFailingThreshold` sets the number of minutes a check must be failing before escalation.
+- `parallelRunFailureThreshold`: Optional. Enables escalation based on the percentage of parallel runs that fail. `enabled` toggles this feature, and `percentage` sets the failure threshold.
+
+```ts {title="api.check.ts"}
+import { ApiCheck, RetryStrategyBuilder } from 'checkly/constructs'
+
+new ApiCheck('retrying-check', {
+  name: 'Check With Retries',
+  request: {
+    method: 'GET',
+    url: 'https://danube-web.shop/api/books'
+  }
+  alertSettings: {
+    reminders: {
+      amount: 0,
+      interval: 5
+    },
+    escalationType: "RUN_BASED",
+    runBasedEscalation: {
+      failedRunThreshold: 1
+    },
+    timeBasedEscalation: {
+      minutesFailingThreshold: 5
+    },
+    parallelRunFailureThreshold: {
+      enabled: false,
+      percentage: 10
+    }
+  }
+})
+```
 
 ## `AlertChannel`
 
-Alert channels let you get alert notifications when a Check fails. [Learn more about alerting in our docs](/docs/alerting/)
+Alert channels let you get alert notifications when a Check fails. [Learn more about alerting in our docs](/docs/alerting/).
+
 All alert channels share a set of common properties to define when / how they should alert derived from the abstract class
 `AlertChannel`
 
