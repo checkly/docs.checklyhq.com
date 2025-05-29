@@ -392,8 +392,10 @@ This brings the following benefits:
 2. You can trigger all Checks in a group from the web UI and via a command line trigger.
 3. You can manage group-level configuration like the runtime, activated & muted-state, tags and alert channels that trickle down to all the Checks in the group.
 
+> Groups can behave as a folder without shared configuartion for checks if no overrides are defined for certain propeties.
+
 > [!WARNING]
-> Adding a check to a group means having it _only_ alert through the group's alert channels. Make sure your group has connected alert channels, or you might miss out on important alerts!
+> Adding a check to a group that has defined group-level alert settings means the check will _only_ alert through the group's alert channels. Make sure your group has connected alert channels, or you might miss out on important alerts!
 
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need Check Groups for that purpose.
 
@@ -454,6 +456,66 @@ new ApiCheck('check-group-api-check-1', {
 
 > Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
+
+### Folder-like behavior
+
+Groups can behave like folders, with no group-level configuration applied, meaning checks inside that group will run with its own check-level configuration.
+
+The following group-level properties will have no effect on check runs if not defined (e.g. set as empty array `[]`, `null`, or `FALLBACK`):
+
+- `runParallel`: `null` vs. overrideable configuration `true/false`.
+- `locations`: `[]` vs. overrideable configuration, , i.e. `['us-east-1', 'eu-west-1']`.
+- `privateLocations`: `[]` vs. overrideable configuration (slugs), i.e. `['datacenter-east-1']`.
+- `retryStrategy`: `FALLBACK` vs. [RetryStrategy](/docs/cli/constructs-reference/#retrystrategy) object.
+- `alertSettings`: `null` vs. [AlertSettings](/docs/cli/constructs-reference/#alertsettings) object.
+
+> Note: group-level locations settings will override check-level configuation if one, or both of `locations` or `privateLocations`  are defined to something other than an empty array `[]`.
+
+```ts {title="group.check.ts"}
+import { CheckGroup, ApiCheck, Frequency } from 'checkly/constructs'
+
+const group = new CheckGroup('check-group-1', {
+  name: 'Group',
+  activated: true,
+  tags: ['api-group'],
+})
+
+new ApiCheck('check-group-api-check-1', {
+  name: 'API check #1',
+    group,
+    request: {
+      method: 'GET',
+      url: 'https://mac-demo-repo.vercel.app/api/hello',
+    },
+    locations: ['eu-west-3', 'eu-south-1'],
+    retryStrategy: RetryStrategyBuilder.linearStrategy({
+      baseBackoffSeconds: 60,
+      maxRetries: 2,
+      maxDurationSeconds: 600,
+      sameRegion: true,
+    }),
+    alertSettings: {
+      escalationType: RUN_BASED,
+      runBasedEscalation: {
+        failedRunThreshold: 1
+      },
+      timeBasedEscalation: {
+        minutesFailingThreshold: 5
+      },
+      reminders: {
+        amount: 0,
+        interval: 5
+      },
+      parallelRunFailureThreshold: {
+        enabled: true,
+        percentage: 10
+      }
+    }
+})
+```
+
+In this example, the API check that belongs to the group will run with its own settings for `locations`, `retryStrategy` and `alertSettings`.
+
 
 ## `AlertChannel`
 
