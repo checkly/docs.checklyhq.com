@@ -57,7 +57,7 @@ What you need:
 
 ### 2. [Optional] If you're using TypeScript
 
-  If you're using TypeScript, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
+  If you're using TypeScript, install the dev dependencies [`jiti`](https://www.npmjs.com/package/jiti) and [`typescript`](https://www.npmjs.com/package/typescript).
 
   ```bash {title="Terminal"}
   npm install --save-dev jiti typescript
@@ -97,23 +97,25 @@ Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones tha
         {
           /* Create a multi-browser check that runs 
           every 5 mins.*/
-          name: 'multi-browser',
+          name: 'Multi Browser Suite',
+          logicalId: 'multi-browser',
           pwProjects: ['chromium', 'firefox', 'webkit'], // Reference the project or projects in your playwright config
           frequency: Frequency.EVERY_5M, // set your ideal frequency
           locations: ['us-east-1', 'eu-west-1'], // add your locations
         },
         {
           /* Create a check that runs the critical tagged tests every 10 mins */
-          name: 'checkly-tagged',
-          pwTags: 'checkly', // Reference an existing tag in your tests
+          name: 'Checkly Tagged tests',
+          logicalId: 'checkly-tagged',
+          pwTags: '@checkly', // Reference an existing tag in your tests
           frequency: Frequency.EVERY_10M,  // set your ideal frequency
-          locations: ['eu-west-1'],
+          locations: ['us-east-1'],
         },
       ],
     },
     /* The default location to use when running npx checkly test */
     cli: {
-      runLocation: 'eu-west-1',
+      runLocation: 'us-east-1',
       retries: 0, // full test retries, when running npx checkly test
     },
   })
