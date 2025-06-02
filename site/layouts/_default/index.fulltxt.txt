@@ -1,0 +1,36 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.Description }}
+
+{{/* Process all regular docs pages (not _index.md files) */}}
+{{- range (where (where .Site.AllPages "Section" "docs") "Kind" "page") -}}
+{{- if .Content -}}
+## {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 3000 }}
+
+---
+{{ end -}}
+{{- end -}}
+
+{{/* Process all guides pages */}}
+{{- range (where (where .Site.AllPages "Section" "guides") "Kind" "page") -}}
+{{- if .Content -}}
+## {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 3000 }}
+
+---
+{{ end -}}
+{{- end -}}
+
+{{/* Process all learn pages */}}
+{{- range (where (where .Site.AllPages "Section" "learn") "Kind" "page") -}}
+{{- if .Content -}}
+## {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 3000 }}
+
+---
+{{ end -}}
+{{- end -}} 
