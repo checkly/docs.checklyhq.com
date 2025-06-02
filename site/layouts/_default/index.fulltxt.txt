@@ -2,35 +2,408 @@
 
 > {{ .Site.Params.Description }}
 
-{{/* Process all regular docs pages (not _index.md files) */}}
-{{- range (where (where .Site.AllPages "Section" "docs") "Kind" "page") -}}
-{{- if .Content -}}
-## {{ .Title }}
+Important notes:
 
-{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 3000 }}
+- Checkly is a synthetic monitoring platform designed for developers and DevOps teams
+- Provides API monitoring, browser monitoring with Playwright, and monitoring as code workflows
+- Supports monitoring as code through CLI, Terraform, and Pulumi for version-controlled monitoring
+- Offers real user monitoring, alerting, dashboards, and integrations with popular tools
+- Built for modern development workflows with CI/CD integration and deployment testing
 
----
-{{ end -}}
+## Check Types
+
+{{- $apiChecks := .Site.GetPage "/docs/api-checks" -}}
+{{- if $apiChecks }}
+### {{ $apiChecks.Title }}
+
+{{ $apiChecks.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $apiChecks.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
 {{- end -}}
+{{- end }}
+{{- end }}
 
-{{/* Process all guides pages */}}
-{{- range (where (where .Site.AllPages "Section" "guides") "Kind" "page") -}}
-{{- if .Content -}}
-## {{ .Title }}
+{{- $browserChecks := .Site.GetPage "/docs/browser-checks" -}}
+{{- if $browserChecks }}
+### {{ $browserChecks.Title }}
 
-{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 3000 }}
+{{ $browserChecks.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
 
----
-{{ end -}}
+{{- range (where $browserChecks.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
 {{- end -}}
+{{- end }}
+{{- end }}
 
-{{/* Process all learn pages */}}
-{{- range (where (where .Site.AllPages "Section" "learn") "Kind" "page") -}}
-{{- if .Content -}}
-## {{ .Title }}
+{{- $multistepChecks := .Site.GetPage "/docs/multistep-checks" -}}
+{{- if $multistepChecks }}
+### {{ $multistepChecks.Title }}
 
-{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 3000 }}
+{{ $multistepChecks.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
 
----
-{{ end -}}
-{{- end -}} 
+{{- range (where $multistepChecks.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $heartbeatChecks := .Site.GetPage "/docs/heartbeat-checks" -}}
+{{- if $heartbeatChecks }}
+### {{ $heartbeatChecks.Title }}
+
+{{ $heartbeatChecks.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $heartbeatChecks.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $tcpChecks := .Site.GetPage "/docs/tcp-checks" -}}
+{{- if $tcpChecks }}
+### {{ $tcpChecks.Title }}
+
+{{ $tcpChecks.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $tcpChecks.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $playwrightChecks := .Site.GetPage "/docs/playwright-checks" -}}
+{{- if $playwrightChecks }}
+### {{ $playwrightChecks.Title }}
+
+{{ $playwrightChecks.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $playwrightChecks.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+## Monitoring as Code
+
+{{- $cli := .Site.GetPage "/docs/cli" -}}
+{{- if $cli }}
+### {{ $cli.Title }}
+
+{{ $cli.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $cli.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $terraform := .Site.GetPage "/docs/terraform-provider" -}}
+{{- if $terraform }}
+### {{ $terraform.Title }}
+
+{{ $terraform.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $terraform.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $pulumi := .Site.GetPage "/docs/pulumi-provider" -}}
+{{- if $pulumi }}
+### {{ $pulumi.Title }}
+
+{{ $pulumi.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $pulumi.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+## Organization & Management
+
+{{- $groups := .Site.GetPage "/docs/groups" -}}
+{{- if $groups }}
+### {{ $groups.Title }}
+
+{{ $groups.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $groups.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $alerting := .Site.GetPage "/docs/alerting-and-retries" -}}
+{{- if $alerting }}
+### {{ $alerting.Title }}
+
+{{ $alerting.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $alerting.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $maintenance := .Site.GetPage "/docs/maintenance-windows" -}}
+{{- if $maintenance }}
+### {{ $maintenance.Title }}
+
+{{ $maintenance.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $maintenance.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $accounts := .Site.GetPage "/docs/accounts-and-users" -}}
+{{- if $accounts }}
+### {{ $accounts.Title }}
+
+{{ $accounts.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $accounts.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+## Platform Features
+
+{{- $dashboards := .Site.GetPage "/docs/dashboards" -}}
+{{- if $dashboards }}
+### {{ $dashboards.Title }}
+
+{{ $dashboards.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $dashboards.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $statusPages := .Site.GetPage "/docs/status-pages" -}}
+{{- if $statusPages }}
+### {{ $statusPages.Title }}
+
+{{ $statusPages.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $statusPages.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $privateLocations := .Site.GetPage "/docs/private-locations" -}}
+{{- if $privateLocations }}
+### {{ $privateLocations.Title }}
+
+{{ $privateLocations.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $privateLocations.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $reporting := .Site.GetPage "/docs/reporting" -}}
+{{- if $reporting }}
+### {{ $reporting.Title }}
+
+{{ $reporting.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $reporting.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $analytics := .Site.GetPage "/docs/analytics" -}}
+{{- if $analytics }}
+### {{ $analytics.Title }}
+
+{{ $analytics.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $analytics.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+## Advanced Features
+
+{{- $traces := .Site.GetPage "/docs/traces-open-telemetry" -}}
+{{- if $traces }}
+### {{ $traces.Title }}
+
+{{ $traces.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $traces.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $integrations := .Site.GetPage "/docs/integrations" -}}
+{{- if $integrations }}
+### {{ $integrations.Title }}
+
+{{ $integrations.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $integrations.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $cicd := .Site.GetPage "/docs/cicd" -}}
+{{- if $cicd }}
+### {{ $cicd.Title }}
+
+{{ $cicd.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $cicd.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $runtimes := .Site.GetPage "/docs/runtimes" -}}
+{{- if $runtimes }}
+### {{ $runtimes.Title }}
+
+{{ $runtimes.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $runtimes.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+{{- $snippets := .Site.GetPage "/docs/snippets" -}}
+{{- if $snippets }}
+### {{ $snippets.Title }}
+
+{{ $snippets.Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 2000 }}
+
+{{- range (where $snippets.Pages "Kind" "page") -}}
+{{- if .Content }}
+
+#### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1500 }}
+{{- end -}}
+{{- end }}
+{{- end }}
+
+## Guides
+{{- range first 10 (where (where .Site.AllPages "Section" "guides") "Kind" "page") -}}
+{{- if and .Title .Content }}
+
+### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1000 }}
+{{- end -}}
+{{- end }}
+
+## Learning Resources
+{{- range first 10 (where (where .Site.AllPages "Section" "learn") "Kind" "page") -}}
+{{- if and .Title .Content }}
+
+### {{ .Title }}
+
+{{ .Content | plainify | htmlUnescape | replaceRE `\n\s*\n\s*\n+` "\n\n" | replaceRE `\n{3,}` "\n\n" | strings.TrimSpace | truncate 1000 }}
+{{- end -}}
+{{- end }} 

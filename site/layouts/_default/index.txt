@@ -10,16 +10,129 @@ Important notes:
 - Offers real user monitoring, alerting, dashboards, and integrations with popular tools
 - Built for modern development workflows with CI/CD integration and deployment testing
 
-## Core Documentation
-{{- range (where (where .Site.AllPages "Section" "docs") "Kind" "section") -}}
-{{- if and .Title .Description }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
-{{- end -}}
+## Check Types
+
+{{- $apiChecks := .Site.GetPage "/docs/api-checks" -}}
+{{- if $apiChecks }}
+- [{{ $apiChecks.Title }}]({{ $apiChecks.Permalink }}): {{ $apiChecks.Description | default "Monitor the latency and correctness of your API endpoints with HTTP requests, assertions, and custom scripts." }}
 {{- end }}
-{{- range (where (where .Site.AllPages "Section" "docs") "Kind" "page") -}}
-{{- if and .Title .Description (ne .File.LogicalName "_index.md") }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
-{{- end -}}
+
+{{- $browserChecks := .Site.GetPage "/docs/browser-checks" -}}
+{{- if $browserChecks }}
+- [{{ $browserChecks.Title }}]({{ $browserChecks.Permalink }}): {{ $browserChecks.Description | default "Use Playwright to automate browser interactions, test user journeys, and monitor web application functionality." }}
+{{- end }}
+
+{{- $multistepChecks := .Site.GetPage "/docs/multistep-checks" -}}
+{{- if $multistepChecks }}
+- [{{ $multistepChecks.Title }}]({{ $multistepChecks.Permalink }}): {{ $multistepChecks.Description | default "Write Node.js scripts to run multiple API requests in sequence with custom logic between requests." }}
+{{- end }}
+
+{{- $heartbeatChecks := .Site.GetPage "/docs/heartbeat-checks" -}}
+{{- if $heartbeatChecks }}
+- [{{ $heartbeatChecks.Title }}]({{ $heartbeatChecks.Permalink }}): {{ $heartbeatChecks.Description | default "Monitor cron jobs, data imports, and recurring processes by expecting regular ping signals." }}
+{{- end }}
+
+{{- $tcpChecks := .Site.GetPage "/docs/tcp-checks" -}}
+{{- if $tcpChecks }}
+- [{{ $tcpChecks.Title }}]({{ $tcpChecks.Permalink }}): {{ $tcpChecks.Description | default "Monitor the availability and performance of TCP services through direct connection testing." }}
+{{- end }}
+
+{{- $playwrightChecks := .Site.GetPage "/docs/playwright-checks" -}}
+{{- if $playwrightChecks }}
+- [{{ $playwrightChecks.Title }}]({{ $playwrightChecks.Permalink }}): {{ $playwrightChecks.Description | default "Advanced Playwright test suites for comprehensive browser-based monitoring scenarios." }}
+{{- end }}
+
+## Monitoring as Code
+
+{{- $cli := .Site.GetPage "/docs/cli" -}}
+{{- if $cli }}
+- [{{ $cli.Title }}]({{ $cli.Permalink }}): {{ $cli.Description | default "Code, test and deploy monitoring configurations using JavaScript/TypeScript workflows." }}
+{{- end }}
+
+{{- $terraform := .Site.GetPage "/docs/terraform-provider" -}}
+{{- if $terraform }}
+- [{{ $terraform.Title }}]({{ $terraform.Permalink }}): {{ $terraform.Description | default "Manage monitoring infrastructure as code with the official Terraform provider." }}
+{{- end }}
+
+{{- $pulumi := .Site.GetPage "/docs/pulumi-provider" -}}
+{{- if $pulumi }}
+- [{{ $pulumi.Title }}]({{ $pulumi.Permalink }}): {{ $pulumi.Description | default "Deploy and manage monitoring configurations using the Pulumi infrastructure platform." }}
+{{- end }}
+
+## Organization & Management
+
+{{- $groups := .Site.GetPage "/docs/groups" -}}
+{{- if $groups }}
+- [{{ $groups.Title }}]({{ $groups.Permalink }}): {{ $groups.Description | default "Organize checks into logical groups and share common configurations." }}
+{{- end }}
+
+{{- $alerting := .Site.GetPage "/docs/alerting-and-retries" -}}
+{{- if $alerting }}
+- [{{ $alerting.Title }}]({{ $alerting.Permalink }}): {{ $alerting.Description | default "Configure alerts, notification channels, and retry strategies for failed checks." }}
+{{- end }}
+
+{{- $maintenance := .Site.GetPage "/docs/maintenance-windows" -}}
+{{- if $maintenance }}
+- [{{ $maintenance.Title }}]({{ $maintenance.Permalink }}): {{ $maintenance.Description | default "Schedule maintenance windows to suppress alerts during planned downtime." }}
+{{- end }}
+
+{{- $accounts := .Site.GetPage "/docs/accounts-and-users" -}}
+{{- if $accounts }}
+- [{{ $accounts.Title }}]({{ $accounts.Permalink }}): {{ $accounts.Description | default "Manage user accounts, roles, permissions, and team collaboration features." }}
+{{- end }}
+
+## Platform Features
+
+{{- $dashboards := .Site.GetPage "/docs/dashboards" -}}
+{{- if $dashboards }}
+- [{{ $dashboards.Title }}]({{ $dashboards.Permalink }}): {{ $dashboards.Description | default "Create custom dashboards and status pages for monitoring visualization." }}
+{{- end }}
+
+{{- $statusPages := .Site.GetPage "/docs/status-pages" -}}
+{{- if $statusPages }}
+- [{{ $statusPages.Title }}]({{ $statusPages.Permalink }}): {{ $statusPages.Description | default "Build public or private status pages to communicate service health to users." }}
+{{- end }}
+
+{{- $privateLocations := .Site.GetPage "/docs/private-locations" -}}
+{{- if $privateLocations }}
+- [{{ $privateLocations.Title }}]({{ $privateLocations.Permalink }}): {{ $privateLocations.Description | default "Run checks from your own infrastructure using private locations and agents." }}
+{{- end }}
+
+{{- $reporting := .Site.GetPage "/docs/reporting" -}}
+{{- if $reporting }}
+- [{{ $reporting.Title }}]({{ $reporting.Permalink }}): {{ $reporting.Description | default "Generate reports and analyze monitoring data for performance insights." }}
+{{- end }}
+
+{{- $analytics := .Site.GetPage "/docs/analytics" -}}
+{{- if $analytics }}
+- [{{ $analytics.Title }}]({{ $analytics.Permalink }}): {{ $analytics.Description | default "Access analytics data and metrics through APIs for custom reporting." }}
+{{- end }}
+
+## Advanced Features
+
+{{- $traces := .Site.GetPage "/docs/traces-open-telemetry" -}}
+{{- if $traces }}
+- [{{ $traces.Title }}]({{ $traces.Permalink }}): {{ $traces.Description | default "Integrate with OpenTelemetry for distributed tracing and advanced observability." }}
+{{- end }}
+
+{{- $integrations := .Site.GetPage "/docs/integrations" -}}
+{{- if $integrations }}
+- [{{ $integrations.Title }}]({{ $integrations.Permalink }}): {{ $integrations.Description | default "Connect Checkly with external tools like Slack, PagerDuty, and monitoring platforms." }}
+{{- end }}
+
+{{- $cicd := .Site.GetPage "/docs/cicd" -}}
+{{- if $cicd }}
+- [{{ $cicd.Title }}]({{ $cicd.Permalink }}): {{ $cicd.Description | default "Integrate monitoring into CI/CD pipelines for deployment testing and validation." }}
+{{- end }}
+
+{{- $runtimes := .Site.GetPage "/docs/runtimes" -}}
+{{- if $runtimes }}
+- [{{ $runtimes.Title }}]({{ $runtimes.Permalink }}): {{ $runtimes.Description | default "Understand runtime environments and execution contexts for checks." }}
+{{- end }}
+
+{{- $snippets := .Site.GetPage "/docs/snippets" -}}
+{{- if $snippets }}
+- [{{ $snippets.Title }}]({{ $snippets.Permalink }}): {{ $snippets.Description | default "Reusable code snippets and setup scripts for common monitoring scenarios." }}
 {{- end }}
 
 ## Guides
