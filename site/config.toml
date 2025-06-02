@@ -1,7 +1,7 @@
 baseurl = "https://www.checklyhq.com"
 languageCode = "en-us"
 languageLang = "en"
-title = "Build and Run Synthetics That Scale"
+title = "Checkly - Developer-First Synthetic Monitoring"
 disableKinds = ["RSS"]
 enableGitInfo = true
 enableRobotsTXT = true
@@ -28,7 +28,7 @@ disqusShortname = "checkly"
   blog = "/blog/:year/:month/:title/"
 
 [params]
-    description = "Monitoring as code workflow for developers: programmable, fast, reliable."
+    description = "Code-first synthetic monitoring platform for modern development teams. Monitor APIs, web apps, and user journeys with Playwright-powered browser checks, monitoring as code workflows, and seamless CI/CD integration."
 
 [[menu.topnav]]
     name = "Documentation"
