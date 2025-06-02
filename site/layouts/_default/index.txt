@@ -1,46 +1,48 @@
-{{ with .Site.Title -}}
-    # {{ . }}
+# {{ .Site.Title }}
+
+> {{ .Site.Params.Description }}
+
+Important notes:
+
+- Checkly is a synthetic monitoring platform designed for developers and DevOps teams
+- Provides API monitoring, browser monitoring with Playwright, and monitoring as code workflows
+- Supports monitoring as code through CLI, Terraform, and Pulumi for version-controlled monitoring
+- Offers real user monitoring, alerting, dashboards, and integrations with popular tools
+- Built for modern development workflows with CI/CD integration and deployment testing
+
+## Core Documentation
+{{- range (where (where .Site.AllPages "Section" "docs") "Kind" "section") -}}
+{{- if and .Title .Description }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- end -}}
+{{- end }}
+{{- range (where (where .Site.AllPages "Section" "docs") "Kind" "page") -}}
+{{- if and .Title .Description (ne .File.LogicalName "_index.md") }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- end -}}
 {{- end }}
 
-{{ with .Site.Params.Description -}}
-> {{ . }}
+## Guides
+{{- range (where (where .Site.AllPages "Section" "guides") "Kind" "page") -}}
+{{- if and .Title .Description }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- end -}}
 {{- end }}
 
-{{ range (where (sort ((.Site.GetPage "/").Pages) "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-    - [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
-{{ end -}}
-
-{{/* Sections */}}
-{{ range (where (sort ((.Site.GetPage "/").Sections) "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-{{ with .Title -}}
-    ## {{ . }}
+## Learning Resources
+{{- range (where (where .Site.AllPages "Section" "learn") "Kind" "page") -}}
+{{- if and .Title .Description }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- end -}}
 {{- end }}
 
-{{ with .Description -}}
-    > {{ . }}
+## API Reference
+
+- [Checkly API Documentation](https://developers.checklyhq.com): Complete REST API reference for managing checks, alerts, and dashboards programmatically
+
+## Optional
+{{- range (where (where .Site.AllPages "Section" "samples") "Kind" "page") -}}
+{{- if and .Title .Description }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- end -}}
 {{- end }}
-
-{{ range (where (sort .Pages "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-    {{ if .Title -}}
-        - [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
-    {{- end }}
-{{ end -}}
-
-{{/* Sub-Sections */}}
-{{ range (where (sort .Sections "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-{{ with .Title -}}
-    ### {{ . }}
-{{- end }}
-
-{{ with .Description -}}
-    > {{ . }}
-{{- end }}
-
-{{ range (where (sort .Pages "Weight" "asc" "Date" "desc" "Lastmod" "desc") "Params.sitemap_exclude" "ne" true) -}}
-    {{ if .Title -}}
-        - [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
-    {{- end }}
-{{ end }}
-{{ end -}}
-
-{{ end -}}
