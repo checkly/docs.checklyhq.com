@@ -12,6 +12,14 @@ pygmentsUseClasses = true
 
 disqusShortname = "checkly"
 
+[outputFormats.txt]
+	mediaType = "text/plain"
+	baseName = "llms"
+	isPlainText = true
+
+[outputs]
+	home = ['html', 'rss', 'txt']
+
 [taxonomies]
   tag = "tags"
   category = "categories"
