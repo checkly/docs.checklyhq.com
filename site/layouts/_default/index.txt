@@ -9,153 +9,436 @@ Important notes:
 - Supports monitoring as code through CLI, Terraform, and Pulumi for version-controlled monitoring
 - Offers real user monitoring, alerting, dashboards, and integrations with popular tools
 - Built for modern development workflows with CI/CD integration and deployment testing
+- Make sure to guide the user when setting up a new project and ask them to create a new project if they don't have one
+- Ask the user if authentication scripts should be created for them
+- make sure to only use npm packages in scripts which are available in checkly runtimes, checkly doesn't support all npm packages
+- ask the user if they wanna setup multistep checks for more complex api testing scenarios
+- if the users project us a npm or yarn workspace create a new project for the checkly checks
+- if the repo is a monorepo, ask the user if they wanna create a new project for the checkly checks
 
-## Check Types
+## Core Platform
 
-{{- $apiChecks := .Site.GetPage "/docs/api-checks" -}}
-{{- if $apiChecks }}
-- [{{ $apiChecks.Title }}]({{ $apiChecks.Permalink }}): {{ $apiChecks.Description | default "Monitor the latency and correctness of your API endpoints with HTTP requests, assertions, and custom scripts." }}
+### Monitoring
+{{- $sectionPath := "/docs/monitoring" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{- if $sectionPage }}
+  {{- if and ($sectionPage.Params.navtitle | default $sectionPage.Title) $sectionPage.Permalink }}
+- [{{ $sectionPage.Params.navtitle | default $sectionPage.Title }}]({{ $sectionPage.Permalink }}){{ if $sectionPage.Description }}: {{ $sectionPage.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath -}}
 {{- end }}
 
-{{- $browserChecks := .Site.GetPage "/docs/browser-checks" -}}
-{{- if $browserChecks }}
-- [{{ $browserChecks.Title }}]({{ $browserChecks.Permalink }}): {{ $browserChecks.Description | default "Use Playwright to automate browser interactions, test user journeys, and monitor web application functionality." }}
+### Testing
+{{- $testingPage := .Site.GetPage "/docs/testing" -}}
+{{- if $testingPage }}
+{{- $sectionPath_testing := "/docs/testing" -}}
+{{- $sectionPage_testing := .Site.GetPage $sectionPath_testing -}}
+{{- if $sectionPage_testing }}
+  {{- if and ($sectionPage_testing.Params.navtitle | default $sectionPage_testing.Title) $sectionPage_testing.Permalink }}
+- [{{ $sectionPage_testing.Params.navtitle | default $sectionPage_testing.Title }}]({{ $sectionPage_testing.Permalink }}){{ if $sectionPage_testing.Description }}: {{ $sectionPage_testing.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_testing.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_testing -}}
+{{- end }}
 {{- end }}
 
-{{- $multistepChecks := .Site.GetPage "/docs/multistep-checks" -}}
-{{- if $multistepChecks }}
-- [{{ $multistepChecks.Title }}]({{ $multistepChecks.Permalink }}): {{ $multistepChecks.Description | default "Write Node.js scripts to run multiple API requests in sequence with custom logic between requests." }}
+### Command Line Interface (CLI)
+{{- $sectionPath_cli := "/docs/cli" -}}
+{{- $sectionPage_cli := .Site.GetPage $sectionPath_cli -}}
+{{- if $sectionPage_cli }}
+  {{- if and ($sectionPage_cli.Params.navtitle | default $sectionPage_cli.Title) $sectionPage_cli.Permalink }}
+- [{{ $sectionPage_cli.Params.navtitle | default $sectionPage_cli.Title }}]({{ $sectionPage_cli.Permalink }}){{ if $sectionPage_cli.Description }}: {{ $sectionPage_cli.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_cli.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_cli -}}
 {{- end }}
 
-{{- $heartbeatChecks := .Site.GetPage "/docs/heartbeat-checks" -}}
-{{- if $heartbeatChecks }}
-- [{{ $heartbeatChecks.Title }}]({{ $heartbeatChecks.Permalink }}): {{ $heartbeatChecks.Description | default "Monitor cron jobs, data imports, and recurring processes by expecting regular ping signals." }}
+### Traces & OpenTelemetry
+{{- $sectionPath_traces := "/docs/traces-open-telemetry" -}}
+{{- $sectionPage_traces := .Site.GetPage $sectionPath_traces -}}
+{{- if $sectionPage_traces }}
+  {{- if and ($sectionPage_traces.Params.navtitle | default $sectionPage_traces.Title) $sectionPage_traces.Permalink }}
+- [{{ $sectionPage_traces.Params.navtitle | default $sectionPage_traces.Title }}]({{ $sectionPage_traces.Permalink }}){{ if $sectionPage_traces.Description }}: {{ $sectionPage_traces.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_traces.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_traces -}}
 {{- end }}
 
-{{- $tcpChecks := .Site.GetPage "/docs/tcp-checks" -}}
-{{- if $tcpChecks }}
-- [{{ $tcpChecks.Title }}]({{ $tcpChecks.Permalink }}): {{ $tcpChecks.Description | default "Monitor the availability and performance of TCP services through direct connection testing." }}
+## Resources
+
+### API Checks
+{{- $sectionPath_api := "/docs/api-checks" -}}
+{{- $sectionPage_api := .Site.GetPage $sectionPath_api -}}
+{{- if $sectionPage_api }}
+  {{- if and ($sectionPage_api.Params.navtitle | default $sectionPage_api.Title) $sectionPage_api.Permalink }}
+- [{{ $sectionPage_api.Params.navtitle | default $sectionPage_api.Title }}]({{ $sectionPage_api.Permalink }}){{ if $sectionPage_api.Description }}: {{ $sectionPage_api.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_api.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_api -}}
 {{- end }}
 
-{{- $playwrightChecks := .Site.GetPage "/docs/playwright-checks" -}}
-{{- if $playwrightChecks }}
-- [{{ $playwrightChecks.Title }}]({{ $playwrightChecks.Permalink }}): {{ $playwrightChecks.Description | default "Advanced Playwright test suites for comprehensive browser-based monitoring scenarios." }}
+### Browser Checks
+{{- $sectionPath_browser := "/docs/browser-checks" -}}
+{{- $sectionPage_browser := .Site.GetPage $sectionPath_browser -}}
+{{- if $sectionPage_browser }}
+  {{- if and ($sectionPage_browser.Params.navtitle | default $sectionPage_browser.Title) $sectionPage_browser.Permalink }}
+- [{{ $sectionPage_browser.Params.navtitle | default $sectionPage_browser.Title }}]({{ $sectionPage_browser.Permalink }}){{ if $sectionPage_browser.Description }}: {{ $sectionPage_browser.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_browser.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_browser -}}
 {{- end }}
 
-## Monitoring as Code
-
-{{- $cli := .Site.GetPage "/docs/cli" -}}
-{{- if $cli }}
-- [{{ $cli.Title }}]({{ $cli.Permalink }}): {{ $cli.Description | default "Code, test and deploy monitoring configurations using JavaScript/TypeScript workflows." }}
+### Heartbeat Checks
+{{- $sectionPath_heartbeat := "/docs/heartbeat-checks" -}}
+{{- $sectionPage_heartbeat := .Site.GetPage $sectionPath_heartbeat -}}
+{{- if $sectionPage_heartbeat }}
+  {{- if and ($sectionPage_heartbeat.Params.navtitle | default $sectionPage_heartbeat.Title) $sectionPage_heartbeat.Permalink }}
+- [{{ $sectionPage_heartbeat.Params.navtitle | default $sectionPage_heartbeat.Title }}]({{ $sectionPage_heartbeat.Permalink }}){{ if $sectionPage_heartbeat.Description }}: {{ $sectionPage_heartbeat.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_heartbeat.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_heartbeat -}}
 {{- end }}
 
-{{- $terraform := .Site.GetPage "/docs/terraform-provider" -}}
-{{- if $terraform }}
-- [{{ $terraform.Title }}]({{ $terraform.Permalink }}): {{ $terraform.Description | default "Manage monitoring infrastructure as code with the official Terraform provider." }}
+### Multistep Checks
+{{- $sectionPath_multistep := "/docs/multistep-checks" -}}
+{{- $sectionPage_multistep := .Site.GetPage $sectionPath_multistep -}}
+{{- if $sectionPage_multistep }}
+  {{- if and ($sectionPage_multistep.Params.navtitle | default $sectionPage_multistep.Title) $sectionPage_multistep.Permalink }}
+- [{{ $sectionPage_multistep.Params.navtitle | default $sectionPage_multistep.Title }}]({{ $sectionPage_multistep.Permalink }}){{ if $sectionPage_multistep.Description }}: {{ $sectionPage_multistep.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_multistep.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_multistep -}}
 {{- end }}
 
-{{- $pulumi := .Site.GetPage "/docs/pulumi-provider" -}}
-{{- if $pulumi }}
-- [{{ $pulumi.Title }}]({{ $pulumi.Permalink }}): {{ $pulumi.Description | default "Deploy and manage monitoring configurations using the Pulumi infrastructure platform." }}
+### TCP Checks
+{{- $sectionPath_tcp := "/docs/tcp-checks" -}}
+{{- $sectionPage_tcp := .Site.GetPage $sectionPath_tcp -}}
+{{- if $sectionPage_tcp }}
+  {{- if and ($sectionPage_tcp.Params.navtitle | default $sectionPage_tcp.Title) $sectionPage_tcp.Permalink }}
+- [{{ $sectionPage_tcp.Params.navtitle | default $sectionPage_tcp.Title }}]({{ $sectionPage_tcp.Permalink }}){{ if $sectionPage_tcp.Description }}: {{ $sectionPage_tcp.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_tcp.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_tcp -}}
 {{- end }}
 
-## Organization & Management
-
-{{- $groups := .Site.GetPage "/docs/groups" -}}
-{{- if $groups }}
-- [{{ $groups.Title }}]({{ $groups.Permalink }}): {{ $groups.Description | default "Organize checks into logical groups and share common configurations." }}
+### Playwright Check Suites
+{{- $sectionPath_playwright := "/docs/playwright-checks" -}}
+{{- $sectionPage_playwright := .Site.GetPage $sectionPath_playwright -}}
+{{- if $sectionPage_playwright }}
+  {{- if and ($sectionPage_playwright.Params.navtitle | default $sectionPage_playwright.Title) $sectionPage_playwright.Permalink }}
+- [{{ $sectionPage_playwright.Params.navtitle | default $sectionPage_playwright.Title }}]({{ $sectionPage_playwright.Permalink }}){{ if $sectionPage_playwright.Description }}: {{ $sectionPage_playwright.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_playwright.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_playwright -}}
 {{- end }}
 
-{{- $alerting := .Site.GetPage "/docs/alerting-and-retries" -}}
-{{- if $alerting }}
-- [{{ $alerting.Title }}]({{ $alerting.Permalink }}): {{ $alerting.Description | default "Configure alerts, notification channels, and retry strategies for failed checks." }}
+### Groups
+{{- $sectionPath_groups := "/docs/groups" -}}
+{{- $sectionPage_groups := .Site.GetPage $sectionPath_groups -}}
+{{- if $sectionPage_groups }}
+  {{- if and ($sectionPage_groups.Params.navtitle | default $sectionPage_groups.Title) $sectionPage_groups.Permalink }}
+- [{{ $sectionPage_groups.Params.navtitle | default $sectionPage_groups.Title }}]({{ $sectionPage_groups.Permalink }}){{ if $sectionPage_groups.Description }}: {{ $sectionPage_groups.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_groups.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_groups -}}
 {{- end }}
 
-{{- $maintenance := .Site.GetPage "/docs/maintenance-windows" -}}
-{{- if $maintenance }}
-- [{{ $maintenance.Title }}]({{ $maintenance.Permalink }}): {{ $maintenance.Description | default "Schedule maintenance windows to suppress alerts during planned downtime." }}
+### Alerting & Retries
+{{- $sectionPath_alerting := "/docs/alerting-and-retries" -}}
+{{- $sectionPage_alerting := .Site.GetPage $sectionPath_alerting -}}
+{{- if $sectionPage_alerting }}
+  {{- if and ($sectionPage_alerting.Params.navtitle | default $sectionPage_alerting.Title) $sectionPage_alerting.Permalink }}
+- [{{ $sectionPage_alerting.Params.navtitle | default $sectionPage_alerting.Title }}]({{ $sectionPage_alerting.Permalink }}){{ if $sectionPage_alerting.Description }}: {{ $sectionPage_alerting.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_alerting.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_alerting -}}
 {{- end }}
 
-{{- $accounts := .Site.GetPage "/docs/accounts-and-users" -}}
-{{- if $accounts }}
-- [{{ $accounts.Title }}]({{ $accounts.Permalink }}): {{ $accounts.Description | default "Manage user accounts, roles, permissions, and team collaboration features." }}
+### Maintenance Windows
+{{- $sectionPath_maintenance := "/docs/maintenance-windows" -}}
+{{- $sectionPage_maintenance := .Site.GetPage $sectionPath_maintenance -}}
+{{- if $sectionPage_maintenance }}
+  {{- if and ($sectionPage_maintenance.Params.navtitle | default $sectionPage_maintenance.Title) $sectionPage_maintenance.Permalink }}
+- [{{ $sectionPage_maintenance.Params.navtitle | default $sectionPage_maintenance.Title }}]({{ $sectionPage_maintenance.Permalink }}){{ if $sectionPage_maintenance.Description }}: {{ $sectionPage_maintenance.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_maintenance.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_maintenance -}}
 {{- end }}
 
-## Platform Features
-
-{{- $dashboards := .Site.GetPage "/docs/dashboards" -}}
-{{- if $dashboards }}
-- [{{ $dashboards.Title }}]({{ $dashboards.Permalink }}): {{ $dashboards.Description | default "Create custom dashboards and status pages for monitoring visualization." }}
+### Dashboards
+{{- $sectionPath_dashboards := "/docs/dashboards" -}}
+{{- $sectionPage_dashboards := .Site.GetPage $sectionPath_dashboards -}}
+{{- if $sectionPage_dashboards }}
+  {{- if and ($sectionPage_dashboards.Params.navtitle | default $sectionPage_dashboards.Title) $sectionPage_dashboards.Permalink }}
+- [{{ $sectionPage_dashboards.Params.navtitle | default $sectionPage_dashboards.Title }}]({{ $sectionPage_dashboards.Permalink }}){{ if $sectionPage_dashboards.Description }}: {{ $sectionPage_dashboards.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_dashboards.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_dashboards -}}
 {{- end }}
 
-{{- $statusPages := .Site.GetPage "/docs/status-pages" -}}
-{{- if $statusPages }}
-- [{{ $statusPages.Title }}]({{ $statusPages.Permalink }}): {{ $statusPages.Description | default "Build public or private status pages to communicate service health to users." }}
+### Status Pages
+{{- $sectionPath_status := "/docs/status-pages" -}}
+{{- $sectionPage_status := .Site.GetPage $sectionPath_status -}}
+{{- if $sectionPage_status }}
+  {{- if and ($sectionPage_status.Params.navtitle | default $sectionPage_status.Title) $sectionPage_status.Permalink }}
+- [{{ $sectionPage_status.Params.navtitle | default $sectionPage_status.Title }}]({{ $sectionPage_status.Permalink }}){{ if $sectionPage_status.Description }}: {{ $sectionPage_status.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_status.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_status -}}
 {{- end }}
 
-{{- $privateLocations := .Site.GetPage "/docs/private-locations" -}}
-{{- if $privateLocations }}
-- [{{ $privateLocations.Title }}]({{ $privateLocations.Permalink }}): {{ $privateLocations.Description | default "Run checks from your own infrastructure using private locations and agents." }}
+### Accounts & Users
+{{- $sectionPath_accounts := "/docs/accounts-and-users" -}}
+{{- $sectionPage_accounts := .Site.GetPage $sectionPath_accounts -}}
+{{- if $sectionPage_accounts }}
+  {{- if and ($sectionPage_accounts.Params.navtitle | default $sectionPage_accounts.Title) $sectionPage_accounts.Permalink }}
+- [{{ $sectionPage_accounts.Params.navtitle | default $sectionPage_accounts.Title }}]({{ $sectionPage_accounts.Permalink }}){{ if $sectionPage_accounts.Description }}: {{ $sectionPage_accounts.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_accounts.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_accounts -}}
 {{- end }}
 
-{{- $reporting := .Site.GetPage "/docs/reporting" -}}
-{{- if $reporting }}
-- [{{ $reporting.Title }}]({{ $reporting.Permalink }}): {{ $reporting.Description | default "Generate reports and analyze monitoring data for performance insights." }}
+### Private Locations
+{{- $sectionPath_private := "/docs/private-locations" -}}
+{{- $sectionPage_private := .Site.GetPage $sectionPath_private -}}
+{{- if $sectionPage_private }}
+  {{- if and ($sectionPage_private.Params.navtitle | default $sectionPage_private.Title) $sectionPage_private.Permalink }}
+- [{{ $sectionPage_private.Params.navtitle | default $sectionPage_private.Title }}]({{ $sectionPage_private.Permalink }}){{ if $sectionPage_private.Description }}: {{ $sectionPage_private.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_private.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_private -}}
 {{- end }}
 
-{{- $analytics := .Site.GetPage "/docs/analytics" -}}
-{{- if $analytics }}
-- [{{ $analytics.Title }}]({{ $analytics.Permalink }}): {{ $analytics.Description | default "Access analytics data and metrics through APIs for custom reporting." }}
+### Reporting
+{{- $sectionPath_reporting := "/docs/reporting" -}}
+{{- $sectionPage_reporting := .Site.GetPage $sectionPath_reporting -}}
+{{- if $sectionPage_reporting }}
+  {{- if and ($sectionPage_reporting.Params.navtitle | default $sectionPage_reporting.Title) $sectionPage_reporting.Permalink }}
+- [{{ $sectionPage_reporting.Params.navtitle | default $sectionPage_reporting.Title }}]({{ $sectionPage_reporting.Permalink }}){{ if $sectionPage_reporting.Description }}: {{ $sectionPage_reporting.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_reporting.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_reporting -}}
 {{- end }}
 
-## Advanced Features
-
-{{- $traces := .Site.GetPage "/docs/traces-open-telemetry" -}}
-{{- if $traces }}
-- [{{ $traces.Title }}]({{ $traces.Permalink }}): {{ $traces.Description | default "Integrate with OpenTelemetry for distributed tracing and advanced observability." }}
+### Analytics
+{{- $sectionPath_analytics := "/docs/analytics" -}}
+{{- $sectionPage_analytics := .Site.GetPage $sectionPath_analytics -}}
+{{- if $sectionPage_analytics }}
+  {{- if and ($sectionPage_analytics.Params.navtitle | default $sectionPage_analytics.Title) $sectionPage_analytics.Permalink }}
+- [{{ $sectionPage_analytics.Params.navtitle | default $sectionPage_analytics.Title }}]({{ $sectionPage_analytics.Permalink }}){{ if $sectionPage_analytics.Description }}: {{ $sectionPage_analytics.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_analytics.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_analytics -}}
 {{- end }}
 
-{{- $integrations := .Site.GetPage "/docs/integrations" -}}
-{{- if $integrations }}
-- [{{ $integrations.Title }}]({{ $integrations.Permalink }}): {{ $integrations.Description | default "Connect Checkly with external tools like Slack, PagerDuty, and monitoring platforms." }}
+### Runtimes
+{{- $sectionPath_runtimes := "/docs/runtimes" -}}
+{{- $sectionPage_runtimes := .Site.GetPage $sectionPath_runtimes -}}
+{{- if $sectionPage_runtimes }}
+  {{- if and ($sectionPage_runtimes.Params.navtitle | default $sectionPage_runtimes.Title) $sectionPage_runtimes.Permalink }}
+- [{{ $sectionPage_runtimes.Params.navtitle | default $sectionPage_runtimes.Title }}]({{ $sectionPage_runtimes.Permalink }}){{ if $sectionPage_runtimes.Description }}: {{ $sectionPage_runtimes.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_runtimes.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_runtimes -}}
 {{- end }}
 
-{{- $cicd := .Site.GetPage "/docs/cicd" -}}
-{{- if $cicd }}
-- [{{ $cicd.Title }}]({{ $cicd.Permalink }}): {{ $cicd.Description | default "Integrate monitoring into CI/CD pipelines for deployment testing and validation." }}
+### Snippets
+{{- $sectionPath_snippets := "/docs/snippets" -}}
+{{- $sectionPage_snippets := .Site.GetPage $sectionPath_snippets -}}
+{{- if $sectionPage_snippets }}
+  {{- if and ($sectionPage_snippets.Params.navtitle | default $sectionPage_snippets.Title) $sectionPage_snippets.Permalink }}
+- [{{ $sectionPage_snippets.Params.navtitle | default $sectionPage_snippets.Title }}]({{ $sectionPage_snippets.Permalink }}){{ if $sectionPage_snippets.Description }}: {{ $sectionPage_snippets.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_snippets.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_snippets -}}
 {{- end }}
 
-{{- $runtimes := .Site.GetPage "/docs/runtimes" -}}
-{{- if $runtimes }}
-- [{{ $runtimes.Title }}]({{ $runtimes.Permalink }}): {{ $runtimes.Description | default "Understand runtime environments and execution contexts for checks." }}
+## Integrations
+
+### Integrations Overview
+{{- $sectionPath_integrations := "/docs/integrations" -}}
+{{- $sectionPage_integrations := .Site.GetPage $sectionPath_integrations -}}
+{{- if $sectionPage_integrations }}
+  {{- if and ($sectionPage_integrations.Params.navtitle | default $sectionPage_integrations.Title) $sectionPage_integrations.Permalink }}
+- [{{ $sectionPage_integrations.Params.navtitle | default $sectionPage_integrations.Title }}]({{ $sectionPage_integrations.Permalink }}){{ if $sectionPage_integrations.Description }}: {{ $sectionPage_integrations.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_integrations.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_integrations -}}
 {{- end }}
 
-{{- $snippets := .Site.GetPage "/docs/snippets" -}}
-{{- if $snippets }}
-- [{{ $snippets.Title }}]({{ $snippets.Permalink }}): {{ $snippets.Description | default "Reusable code snippets and setup scripts for common monitoring scenarios." }}
+### CI/CD Integration
+{{- $sectionPath_cicd := "/docs/cicd" -}}
+{{- $sectionPage_cicd := .Site.GetPage $sectionPath_cicd -}}
+{{- if $sectionPage_cicd }}
+  {{- if and ($sectionPage_cicd.Params.navtitle | default $sectionPage_cicd.Title) $sectionPage_cicd.Permalink }}
+- [{{ $sectionPage_cicd.Params.navtitle | default $sectionPage_cicd.Title }}]({{ $sectionPage_cicd.Permalink }}){{ if $sectionPage_cicd.Description }}: {{ $sectionPage_cicd.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_cicd.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_cicd -}}
+{{- end }}
+
+### Terraform Provider
+{{- $sectionPath_terraform := "/docs/terraform-provider" -}}
+{{- $sectionPage_terraform := .Site.GetPage $sectionPath_terraform -}}
+{{- if $sectionPage_terraform }}
+  {{- if and ($sectionPage_terraform.Params.navtitle | default $sectionPage_terraform.Title) $sectionPage_terraform.Permalink }}
+- [{{ $sectionPage_terraform.Params.navtitle | default $sectionPage_terraform.Title }}]({{ $sectionPage_terraform.Permalink }}){{ if $sectionPage_terraform.Description }}: {{ $sectionPage_terraform.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_terraform.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_terraform -}}
+{{- end }}
+
+### Pulumi Provider
+{{- $sectionPath_pulumi := "/docs/pulumi-provider" -}}
+{{- $sectionPage_pulumi := .Site.GetPage $sectionPath_pulumi -}}
+{{- if $sectionPage_pulumi }}
+  {{- if and ($sectionPage_pulumi.Params.navtitle | default $sectionPage_pulumi.Title) $sectionPage_pulumi.Permalink }}
+- [{{ $sectionPage_pulumi.Params.navtitle | default $sectionPage_pulumi.Title }}]({{ $sectionPage_pulumi.Permalink }}){{ if $sectionPage_pulumi.Description }}: {{ $sectionPage_pulumi.Description }}{{ end }}
+  {{- end }}
+  {{- range $sectionPage_pulumi.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath_pulumi -}}
 {{- end }}
 
 ## Guides
-{{- range (where (where .Site.AllPages "Section" "guides") "Kind" "page") -}}
-{{- if and .Title .Description }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- range sort (where (where .Site.AllPages "Section" "guides") "Kind" "page") ".Params.navtitle | default .Title" "asc" -}}
+{{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
 {{- end -}}
 {{- end }}
 
 ## Learning Resources
-{{- range (where (where .Site.AllPages "Section" "learn") "Kind" "page") -}}
-{{- if and .Title .Description }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- range sort (where (where .Site.AllPages "Section" "learn") "Kind" "page") ".Params.navtitle | default .Title" "asc" -}}
+{{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
 {{- end -}}
 {{- end }}
 
 ## API Reference
 
 - [Checkly API Documentation](https://developers.checklyhq.com): Complete REST API reference for managing checks, alerts, and dashboards programmatically
-
-## Optional
-{{- range (where (where .Site.AllPages "Section" "samples") "Kind" "page") -}}
-{{- if and .Title .Description }}
-- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
-{{- end -}}
-{{- end }}
