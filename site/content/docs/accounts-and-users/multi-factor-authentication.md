@@ -28,4 +28,4 @@ From now on when logging in you will be asked to provide a one time password.
 
 ## Removing or changing MFA
 - To stop using MFA, toggle the 'Enable multi-factor authentication' setting under User Settings.
-- If you have lost access to your authenticator app or removed the Checkly configuration from it, contact [support@checklyhq.com](mailto:support@checklyhq.com) for help with resetting your configration.
+- If you have lost access to your authenticator app or removed the Checkly configuration from it, contact [support@checklyhq.com](mailto:support@checklyhq.com) for help with resetting your configuration.

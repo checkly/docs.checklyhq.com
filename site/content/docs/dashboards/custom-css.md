@@ -30,7 +30,7 @@ help you explore the possibilities you have available.
 
 ### Amazon Web Services style
 
-In this example we aim to replicate the brand style of [Amazon Web Sevices (AWS)](https://aws.amazon.com/). 
+In this example we aim to replicate the brand style of [Amazon Web Services (AWS)](https://aws.amazon.com/). 
 
 ![Dashboard with custom style to match AWS](/docs/images/dashboards-v2/aws_dashboard.png)
 

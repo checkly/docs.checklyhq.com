@@ -97,7 +97,7 @@ Synthetic transaction monitoring is an essential tool for organizations aiming t
 
 **Early Detection of Issues**
 
-Years ago I was the on-call engineer during a holiday weekend at an ecommerce service. I kept an eye on system performance and I saw good things: latency was low and recorded errors were way down. Unfortunately, it turned out that network config had locked out thousands of users. Our performance was great because most people couldn’t reach the site. While internal measurements of system performance are useful tools for measuring internal efficency, they aren’t great at measuring your users’ experience. The end result is a system where many failure states will only be detected by your users’ reports.
+Years ago I was the on-call engineer during a holiday weekend at an ecommerce service. I kept an eye on system performance and I saw good things: latency was low and recorded errors were way down. Unfortunately, it turned out that network config had locked out thousands of users. Our performance was great because most people couldn’t reach the site. While internal measurements of system performance are useful tools for measuring internal efficiency, they aren’t great at measuring your users’ experience. The end result is a system where many failure states will only be detected by your users’ reports.
 
 Synthetic transaction monitoring allows teams to identify problems before users experience them. By simulating user interactions, businesses can proactively detect performance degradation, outages, or errors in critical workflows. This minimizes downtime and helps maintain service reliability. After all, isn’t it better to be able answer every user reported issue with ‘we’re already working on it?’
 
@@ -107,7 +107,7 @@ Rather than waiting for user-reported issues, synthetic monitoring enables a pro
 
 **Performance Monitoring**
 
-Synthetic monitoring tracks key performance metrics like response time, latency, and availability. By generating consistent and repeatable test scenarios, it provides actionable insights into the health of applications and services under varying conditions. Performance like response time shouldn’t be used as hard limits for passing a test, but  these metrics are still generated on synthetics checks, and you can use [Checkly’s ‘degraded state’](https://www.checklyhq.com/docs/browser-checks/degraded-state/) to find user paths that are repsonding slowly without needing to alert teams as if there were an outage.
+Synthetic monitoring tracks key performance metrics like response time, latency, and availability. By generating consistent and repeatable test scenarios, it provides actionable insights into the health of applications and services under varying conditions. Performance like response time shouldn’t be used as hard limits for passing a test, but  these metrics are still generated on synthetics checks, and you can use [Checkly’s ‘degraded state’](https://www.checklyhq.com/docs/browser-checks/degraded-state/) to find user paths that are responding slowly without needing to alert teams as if there were an outage.
 
 **Finding Third-party Changes**
 
@@ -119,7 +119,7 @@ While it’s nice to imagine our service or website as self-contained, albeit wi
 
 **Compliance**
 
-Synthetic transaction monitoring can aid in compliance with service-level agreements (SLAs) by consistently measuring uptime and performance against defined benchmarks. This ensures businesses meet contractual obligations and regulatory requirements. You can also use synthetic transaction monitoring to make sure you’re compliant with accesibility requirements, [in Playwright you can use the Axe testing engine to automatically check your pages for accessibility issues](https://www.checklyhq.com/blog/integrating-accessibility-checks-in-playwright-tes/).
+Synthetic transaction monitoring can aid in compliance with service-level agreements (SLAs) by consistently measuring uptime and performance against defined benchmarks. This ensures businesses meet contractual obligations and regulatory requirements. You can also use synthetic transaction monitoring to make sure you’re compliant with accessibility requirements, [in Playwright you can use the Axe testing engine to automatically check your pages for accessibility issues](https://www.checklyhq.com/blog/integrating-accessibility-checks-in-playwright-tes/).
 
 ## Challenges of Synthetic Transaction Monitoring
 

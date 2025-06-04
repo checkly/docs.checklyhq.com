@@ -10,7 +10,7 @@ aliases:
   - /docs/browser-checks/responsible-use/
 ---
 
-Checkly reserves the right to block, remove or otherwise disable any Checks that are not created for the intented
+Checkly reserves the right to block, remove or otherwise disable any Checks that are not created for the intended
 purpose of monitoring web applications and sites. This means we actively keep an eye out for behavior such as:
 
 - Mining cryptocurrencies
