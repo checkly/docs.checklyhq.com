@@ -17,13 +17,8 @@ disqusShortname = "checkly"
 	baseName = "llms"
 	isPlainText = true
 
-[outputFormats.fulltxt]
-	mediaType = "text/plain"
-	baseName = "llms-full"
-	isPlainText = true
-
 [outputs]
-	home = ['html', 'rss', 'txt', 'fulltxt']
+	home = ['html', 'rss', 'txt']
 
 [taxonomies]
   tag = "tags"
