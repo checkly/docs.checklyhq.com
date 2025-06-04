@@ -73,7 +73,7 @@ For API checks, you can enable network retries to automatically retry a check ru
 
 When network retries are enabled:
 * The check will retry on: ECONNRESET, ENOTFOUND, ETIMEDOUT, EAI_AGAIN, ECONNREFUSED, and similar network errors.
-* The check will not retry on: Any HTTP response that includes a status code (4xx or 5xx).
+* The check will not retry on: Any HTTP response that includes a status code (4xx or 5xx), failed assertions, or any other type of check failure.
 
 ## Test sessions retries
 
