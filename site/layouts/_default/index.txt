@@ -9,12 +9,14 @@ Important notes:
 - Supports monitoring as code through CLI, Terraform, and Pulumi for version-controlled monitoring
 - Offers real user monitoring, alerting, dashboards, and integrations with popular tools
 - Built for modern development workflows with CI/CD integration and deployment testing
-- Make sure to guide the user when setting up a new project and ask them to create a new project if they don't have one
-- Ask the user if authentication scripts should be created for them
+- Before getting started make sure to understand the project structure
+- For backend projects identify all resources which can be tested
+- For frontend projects identify all pages and user journeys which can be tested
+- Understand the authentication setup for the users app so you can support it
+- Store required credentials in checkly
+- Make sure to guide the user when setting up a new project, use the cli for that
+- If the project is a backend project generate api checks or multistep api checks for more complex api testing scenarios, cover as many resources as possible
 - make sure to only use npm packages in scripts which are available in checkly runtimes, checkly doesn't support all npm packages
-- ask the user if they wanna setup multistep checks for more complex api testing scenarios
-- if the users project us a npm or yarn workspace create a new project for the checkly checks
-- if the repo is a monorepo, ask the user if they wanna create a new project for the checkly checks
 
 ## Core Platform
 
