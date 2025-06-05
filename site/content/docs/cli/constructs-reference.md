@@ -382,17 +382,13 @@ TcpAssertionBuilder.responseData().contains('ping')
 "{ source: 'RESPONSE_DATA', regex: '', property: '', comparison: 'CONTAINS', target: 'ping' }"
 ```
 
-## `CheckGroup`
+## `CheckGroupV2`
 
-You can explicitly organize Checks in Check Groups.
-
-This brings the following benefits:
+Use the CheckGroupV2 construct to organize your Checks into groups. This comes with the following benefits:
 
 1. Your Checks are organized in a folder in the Checkly web UI.
 2. You can trigger all Checks in a group from the web UI and via a command line trigger.
 3. You can manage group-level configuration like the runtime, activated & muted-state, tags and alert channels that trickle down to all the Checks in the group.
-
-> Groups can behave as a folder without shared configuartion for checks if no overrides are defined for certain propeties.
 
 > [!WARNING]
 > Adding a check to a group that has defined group-level alert settings means the check will _only_ alert through the group's alert channels. Make sure your group has connected alert channels, or you might miss out on important alerts!
@@ -403,16 +399,17 @@ This brings the following benefits:
 
 You can add a Check to a group in two ways.
 
-1. By passing the `CheckGroup` object for the `group` property of a Check.
+1. By passing the `CheckGroupV2` object for the `group` property of a Check.
 2. For Browser Checks, we allow you to use the `testMatch` glob pattern to include any `.spec.js|ts` file, without having to
    create a `BrowserCheck` construct. This works the same ast the `testMatch` glob at the Project level.
 
 ```ts {title="group.check.ts"}
-import { CheckGroup, ApiCheck, Frequency } from 'checkly/constructs'
+import { CheckGroupV2, ApiCheck, Frequency } from 'checkly/constructs'
 
-const group = new CheckGroup('check-group-1', {
+const group = new CheckGroupV2('check-group-1', {
   name: 'Group',
   activated: true,
+  muted: false,
   frequency: Frequency.EVERY_15M,
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['api-group'],
@@ -433,100 +430,51 @@ new ApiCheck('check-group-api-check-1', {
 })
 ```
 
-- `name`: A friendly name for your Check Group.
+- `name` (required): A friendly name for your Check Group.
+- `activated` (required): Boolean that determines whether the checks in the group are running or not. When set to true, all activated checks within the group will run. When set to false, no checks in the group will run, regardless of whether they are activated or not.
+- `muted` (required): Boolean that controls alerting behavior for the group. When set to true, no alerts will be sent for any checks in the group — even if the individual checks are not muted. When set to false, alerting follows the individual check’s muted setting.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
 - `frequency`: How often to run the Checks within the group, i.e. `Frequency.EVERY_15M` for every fifteen minutes.
-- `locations`: An array of location codes where to run the Checks in the group, i.e. `['us-east-1', 'eu-west-1']`.
-- `privateLocations`: An array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.
+- `locations`: An array of one or more public data center regions where checks in this group should run (e.g. ['us-east-1', 'eu-west-1']). If set, this overrides each check’s individual location setting.
+- `privateLocations`: An array of one or more private locations for running the group’s checks (e.g. ['datacenter-east-1']). If either locations or privateLocations is defined, the group-level setting will override the check-level configuration.
 - `alertChannels`: An array of `AlertChannel` objects to which to send alert notifications.
-- `activated`: A boolean value if all the Checks in the group are activated.
-- `muted`: A boolean value if alert notifications from the Checks in the group are muted, i.e. not sent out.
 - `tags`: An array of tags. Group tags trickle down to tags on the individual Checks. i.e. `['product', 'api']`
 - `runtimeId`: The ID of which [runtime](/docs/runtimes/specs/) to use for the Checks in the group.
 - `environmentVariables`: An array of objects defining variables in the group scope, i.e. `[{ key: 'DEBUG', value: 'true', secret: true | locked: true }]`
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
-- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.
+- `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs. If set, all checks in the group use the group's retry strategy. If not set, individual check settings are used.
 - `apiCheckDefaults`: A set of defaults for API Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
-- `runParallel`: A boolean value if check should run in parallel (all locations at the same time) or round-robin.
-- `alertEscalationPolicy`:  An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert-settings](/docs/alerting-and-retries/) for check runs.
+- `runParallel`: A boolean that controls how checks in the group are executed across locations. When true, all checks run in parallel across all configured locations. When false, they run in round-robin mode. If not set, each check uses its own scheduling strategy.
+- `alertEscalationPolicy`: An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert-settings](/docs/alerting-and-retries/) for check runs. If set, this overrides the alert settings of all checks in the group. If not set, each check uses its own alert configuration.
 
 > When adding checks to a group using `testMatch`, the CLI searches for files using the corresponding [check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
 
 > Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
 
-### Folder-like behavior
+## `CheckGroup` (deprecated)
 
-Groups can behave like folders, with no group-level configuration applied, meaning checks inside that group will run with its own check-level configuration.
+As of CLI release vX.X.X, the original CheckGroup construct is deprecated and will be removed in a future version. We recommend migrating to [CheckGroupV2](#checkgroupv2), which offers more intuitive behavior and better control.
 
-The following group-level properties will have no effect on check runs if not defined (e.g. set as empty array `[]`, `null`, or `FALLBACK`):
+For a full overview of what’s changing and what to watch out for, check out our [migration guide]().
 
-- `runParallel`: `null` vs. overrideable configuration `true/false`.
-- `locations`: `[]` vs. overrideable configuration, , i.e. `['us-east-1', 'eu-west-1']`.
-- `privateLocations`: `[]` vs. overrideable configuration (slugs), i.e. `['datacenter-east-1']`.
-- `retryStrategy`: `FALLBACK` vs. [RetryStrategy](/docs/cli/constructs-reference/#retrystrategy) object.
-- `alertSettings`: `null` vs. [AlertSettings](/docs/cli/constructs-reference/#alertsettings) object.
+In short: In the deprecated CheckGroup, the properties runParallel, locations, alertEscalationPolicy, and retryStrategy were always treated as overrides — even when not explicitly set, default values were applied and used to override the check’s individual settings.With CheckGroupV2, no value means no override. If these fields are left undefined, checks will use their own individual configuration. 
 
-> Note: group-level locations settings will override check-level configuation if one, or both of `locations` or `privateLocations`  are defined to something other than an empty array `[]`.
-
-```ts {title="group.check.ts"}
-import { CheckGroup, ApiCheck, Frequency } from 'checkly/constructs'
-
-const group = new CheckGroup('check-group-1', {
-  name: 'Group',
-  activated: true,
-  tags: ['api-group'],
-})
-
-new ApiCheck('check-group-api-check-1', {
-  name: 'API check #1',
-    group,
-    request: {
-      method: 'GET',
-      url: 'https://mac-demo-repo.vercel.app/api/hello',
-    },
-    locations: ['eu-west-3', 'eu-south-1'],
-    retryStrategy: RetryStrategyBuilder.linearStrategy({
-      baseBackoffSeconds: 60,
-      maxRetries: 2,
-      maxDurationSeconds: 600,
-      sameRegion: true,
-    }),
-    alertSettings: {
-      escalationType: RUN_BASED,
-      runBasedEscalation: {
-        failedRunThreshold: 1
-      },
-      timeBasedEscalation: {
-        minutesFailingThreshold: 5
-      },
-      reminders: {
-        amount: 0,
-        interval: 5
-      },
-      parallelRunFailureThreshold: {
-        enabled: true,
-        percentage: 10
-      }
-    }
-})
-```
-
-In this example, the API check that belongs to the group will run with its own settings for `locations`, `retryStrategy` and `alertSettings`.
+👉🏼 Please double-check your group definitions when migrating to make sure your check behavior stays consistent. 
 
 ## `AlertSettings`
 
 Alert settings let you to control when and how often you will be notified when a check starts failing, degrades or recovers. [Learn more about alert settings in our docs](/docs/alerting-and-retries/alert-settings/#alert-settings).
 
-Alert settings configuration object looks like this:
+Here’s what the configuration object looks like:
 
-- `reminders`: Defines the number of reminder notifications (`amount`) and the interval in minutes (`interval`) between reminders when an alert is active.
-- `escalationType`: Specifies the escalation strategy. Possible values include `RUN_BASED` (escalate after a number of failed runs) or `TIME_BASED` (escalate after a duration of failures).
-- `runBasedEscalation`: Configuration for run-based escalation. `failedRunThreshold` sets the number of consecutive failed runs before escalation.
-- `timeBasedEscalation`: Configuration for time-based escalation. `minutesFailingThreshold` sets the number of minutes a check must be failing before escalation.
-- `parallelRunFailureThreshold`: Optional. Enables escalation based on the percentage of parallel runs that fail. `enabled` toggles this feature, and `percentage` sets the failure threshold.
+- `reminders`: Defines how many reminder notifications to send (amount) and the time interval between them in minutes (interval) while an alert is active.
+- `escalationType`: Specifies the escalation strategy. Possible values include `RUN_BASED` (escalate after a number of failed runs) or `TIME_BASED` (escalate after a time threshold).
+- `runBasedEscalation`: Configures run-based escalation. `failedRunThreshold` defines how many failed runs trigger escalation.
+- `timeBasedEscalation`: Configures time-based escalation. `minutesFailingThreshold` defines how long a check must be failing before escalation.
+- `parallelRunFailureThreshold`: Optional. Enables escalation based on the percentage of parallel runs that fail. Use `enabled` to toggle this, and `percentage` to define the failure threshold.
 
 ```ts {title="api.check.ts"}
 import { ApiCheck, RetryStrategyBuilder } from 'checkly/constructs'
