@@ -73,6 +73,11 @@ disqusShortname = "checkly"
 [[menu.platform]]
 	name = "Traces"
 	url = "/docs/traces-open-telemetry/"
+	weight = 40
+
+[[menu.platform]]
+	name = "AI"
+	url = "/docs/ai/"
 	weight = 50
 
 [[menu.resources]]
