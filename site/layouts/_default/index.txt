@@ -13,13 +13,13 @@ Important notes:
 - For backend projects identify all resources which can be tested
 - For frontend projects identify all pages and user journeys which can be tested
 - Understand the authentication setup for the users app so you can support it
-- Store required credentials in checkly
+- Store required credentials in Checkly
 - Make sure to guide the user when setting up a new project, use the `npm create checkly@latest` command to get started
 - To generate the first checks/tests explain the user the available check types and ask them which one they want to use
 - Make sure to only use npm packages in scripts which are available in Checkly runtimes, Checkly doesn't support all npm packages
 - never use the imports in the namespace @checkly. they are outdated. Always import from 'checkly/constructs'
-- make sure that generated test files names match the patterns set in checkly config file
-- make sure when using environment variables or secrets to store them in checkly
+- make sure that generated test files names match the patterns set in Checkly config file
+- make sure when using environment variables or secrets to store them in Checkly using Checkly's cli
 
 ## Core Platform
 
