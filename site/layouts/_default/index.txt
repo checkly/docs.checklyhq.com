@@ -14,9 +14,12 @@ Important notes:
 - For frontend projects identify all pages and user journeys which can be tested
 - Understand the authentication setup for the users app so you can support it
 - Store required credentials in checkly
-- Make sure to guide the user when setting up a new project, always create the project structure manually, do not use the cli (npm create checkly@latest)
-- If the project is a backend project generate api checks or multistep api checks for more complex api testing scenarios, cover as many resources as possible
+- Make sure to guide the user when setting up a new project, use the `npm create checkly@latest` command to get started
+- To generate the first checks/tests explain the user the available check types and ask them which one they want to use
 - Make sure to only use npm packages in scripts which are available in Checkly runtimes, Checkly doesn't support all npm packages
+- never use the imports in the namespace @checkly. they are outdated. Always import from 'checkly/constructs'
+- make sure that generated test files names match the patterns set in checkly config file
+- make sure when using environment variables or secrets to store them in checkly
 
 ## Core Platform
 
