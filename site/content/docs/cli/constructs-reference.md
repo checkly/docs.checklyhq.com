@@ -456,11 +456,11 @@ new ApiCheck('check-group-api-check-1', {
 
 ## `CheckGroup` (deprecated)
 
-As of CLI release vX.X.X, the CheckGroup construct is deprecated and will be removed in a future version. We recommend migrating to [CheckGroupV2](#checkgroupv2), which offers more intuitive behavior and better control.
+As of CLI release v6.0 the CheckGroup construct is deprecated and will be removed in a future version. We recommend migrating to [CheckGroupV2](#checkgroupv2), which offers more intuitive behavior and better control.
 
 In the deprecated `CheckGroup`, the properties `runParallel`, `locations`, `privateLocations`, `alertEscalationPolicy`, and `retryStrategy` were always treated as overrides. Even when not explicitly set, default values were applied and used to override the Check’s individual settings. With `CheckGroupV2`, no value means no override. If these fields are left undefined, Checks will use their own individual configuration.
 
-Please double-check your group definitions when migrating to make sure your Check behavior stays consistent. For a full overview of what’s changing and what to watch out for, check out our [migration guide]().
+Please double-check your group definitions when migrating to make sure your Check behavior stays consistent. For a full overview of what’s changing and what to watch out for, check out our [migration guide](https://feedback.checklyhq.com/changelog/checkly-groups-update-organize-checks-your-way).
 
 ## `AlertSettings`
 
