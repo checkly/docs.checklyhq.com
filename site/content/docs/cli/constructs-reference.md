@@ -431,16 +431,16 @@ new ApiCheck('check-group-api-check-1', {
 ```
 
 - `name` (required): A friendly name for your Check Group.
-- `activated` (required): Boolean that determines whether the Checks in the group are running or not. When set to true (recommended), all activated Checks within the group will run. When set to false, no Checks in the group will run, regardless of whether they are activated or not.
-- `muted` (required): Boolean that controls alerting behavior for the group. When set to false (recommended), alerting follows the individual Check’s muted setting. When set to true, no alerts will be sent for any Checks in the group — even if the individual Checks are not muted.
+- `activated`: Boolean that determines whether the Checks in the group are running or not. When set to true (default), all activated Checks within the group will run. When set to false, no Checks in the group will run, regardless of whether they are activated or not.
+- `muted`: Boolean that controls alerting behavior for the group. When set to false (default), alerting follows the individual Check’s muted setting. When set to true, no alerts will be sent for any Checks in the group — even if the individual Checks are not muted.
 - `concurrency`: A number indicating the amount of concurrent Checks to run when a group is triggered.
 - `frequency`: How often to run the Checks within the group, i.e. `Frequency.EVERY_15M` for every fifteen minutes.
 - `locations`: An array of one or more [public locations](/docs/monitoring/global-locations) where Checks in this group should run (e.g. `['us-east-1', 'eu-west-1']`). If this or `privateLocations` is set, it overrides the location settings of all Checks in the group.
 - `privateLocations`: An array of one or more [private locations](/docs/private-locations) where Checks in this group should run (e.g. `['datacenter-east-1']`). If this or `locations` is set, it overrides the location settings of all Checks in the group.
 - `alertChannels`: An array of [AlertChannel](#alertchannel) objects to be alerted on when checks in this group fail or recover.
-- `tags`: An array of tags. Group tags trickle down to tags on the individual Checks. i.e. `['product', 'api']`.
+- `tags`: An array of tags i.e. `['product', 'api']`. Group tags trickle down to tags on the individual Checks.
 - `runtimeId`: The ID of which [runtime](/docs/runtimes/specs/) to use for the Checks in the group. Use this if the checks in this group require a different runtime than your account default.
-- `environmentVariables`: An array of objects defining [environment variables in the group scope](/docs/groups/variables), i.e. `[{ key: 'DEBUG', value: 'true', secret: true | locked: true }]`
+- `environmentVariables`: An array of objects defining [environment variables in the group scope](/docs/groups/variables), i.e. `[{ key: 'DEBUG', value: 'true', secret: true | locked: true }]`.
 - `localSetupScript`: Any JS/TS code as a string to run before each API Check in this group.
 - `localTearDownScript`: Any JS/TS code as a string to run after each API Check in this group.
 - `retryStrategy`: A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed Check runs. If set, all checks in the group use the group's retry strategy. If not set, individual Check settings are used.
@@ -458,13 +458,13 @@ new ApiCheck('check-group-api-check-1', {
 
 As of CLI release vX.X.X, the CheckGroup construct is deprecated and will be removed in a future version. We recommend migrating to [CheckGroupV2](#checkgroupv2), which offers more intuitive behavior and better control.
 
-In the deprecated CheckGroup, the properties runParallel, locations, alertEscalationPolicy, and retryStrategy were always treated as overrides — even when not explicitly set, default values were applied and used to override the Check’s individual settings. With CheckGroupV2, no value means no override. If these fields are left undefined, Checks will use their own individual configuration.
+In the deprecated `CheckGroup`, the properties `runParallel`, `locations`, `privateLocations`, `alertEscalationPolicy`, and `retryStrategy` were always treated as overrides. Even when not explicitly set, default values were applied and used to override the Check’s individual settings. With `CheckGroupV2`, no value means no override. If these fields are left undefined, Checks will use their own individual configuration.
 
 Please double-check your group definitions when migrating to make sure your Check behavior stays consistent. For a full overview of what’s changing and what to watch out for, check out our [migration guide]().
 
 ## `AlertSettings`
 
-Alert settings let you to control when and how often you will be notified when a Check starts failing, degrades or recovers. [Learn more about alert settings in our docs](/docs/alerting-and-retries/alert-settings/#alert-settings).
+[Alert settings](/docs/alerting-and-retries/alert-settings/#alert-settings) let you to control when and how often you will be notified when a Check starts failing, degrades or recovers.
 
 Here’s what the configuration object looks like:
 
