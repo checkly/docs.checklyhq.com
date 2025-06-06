@@ -391,7 +391,7 @@ Use the CheckGroupV2 construct to organize your Checks into groups. This comes w
 3. You can manage group-level configuration like the runtime, activated & muted-state, tags and alert channels that trickle down to all the Checks in the group.
 
 > [!WARNING]
-> Adding a check to a group that has defined group-level alert settings means the check will _only_ alert through the group's alert channels. Make sure your group has connected alert channels, or you might miss out on important alerts!
+> If you add a check to a group with group-level alert settings ON, the check will only send alerts through the group’s alert channels. Make sure the group has at least one alert channel connected, otherwise you won’t receive any alerts for that check.
 
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need Check Groups for that purpose.
 
