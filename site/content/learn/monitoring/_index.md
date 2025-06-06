@@ -15,10 +15,10 @@ Monitoring your production services is a key part of a good user experience. Tra
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-	  title="Metrics Every Team Needs"
+	  title="What is Monitoring as Code?"
 	  img="/learn/icons/monitoring.svg"
-	  description="Define the metrics that every team needs to get tracking of their system’s performance."
-	  link="/learn/monitoring/metrics-every-team-needs/"
+	  description="Bring transparency, scalability, and efficiency to your cloud infrastructure management."
+	  link="/learn/monitoring/monitoring-as-code/"
 >}} 
 {{< doc-card
 	  class="two-column-card"

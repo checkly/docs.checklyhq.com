@@ -3,10 +3,15 @@ title: Monitoring as Code - A Practical Guide from Checkly
 displayTitle: What is monitoring as code?
 description: >-
   Learn how to implement monitoring as code with Checkly's guide. Bring transparency, scalability, and efficiency to your cloud infrastructure management.
+date: 2025-06-03
 author: Daniel Giordano
-avatar: 'images/avatars/daniel-giordano.png'
-tags:
-  - FAQ
+githubUser: dgiordano33
+displayDescription: >-
+  Learn how to implement monitoring as code with Checkly's guide. Bring transparency, scalability, and efficiency to your cloud infrastructure management.
+menu:
+  learn_monitoring:
+    parent: Monitoring Concepts
+weight: 31
 ---
 
 Synthetic monitoring is a proven practice for ensuring reliability of applications and services in production. It excels at proactively discovering issues that affect real users, which is why companies—from startups to Fortune 500—rely on it to enhance their user experience. But teams that are moving fast or growing at scale can face real challenges with traditional synthetic monitoring workflows and tools: 
