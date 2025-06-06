@@ -8,7 +8,7 @@ menu:
     parent: "Monitoring"
 ---
 
-You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far. To learn about heartbeat check results, visit the [Heartbeat checks](/docs/heartbeat-checks/) section
+You can select any check on the main Checkly dashboard to get an overview of the results they have produced so far.
 
 ## Check results overview
 
@@ -132,19 +132,38 @@ These include:
 
     e. Download
 
+## Heartbeat check results
+
+Heartbeat check results show information about the ping request, like when it was recieved and its source.
+
+![Using the Heartbeat check results view](/docs/images/monitoring/check-results-heartbeat.png)
+
+The state indicates when your scheduled job pinged the Heartbeat check, relative to the expected time:
+
+| State    | Description |
+| -------- | ------- |
+| `EARLY` | Ping recieved before the expected time. |
+| `RECEIVED` | Ping recieved right at the expected time. |
+| `GRACE` | Ping recieved after the expected time, during the grace period. |
+| `LATE` | Ping recieved during the few seconds between the end of the grace period and before the check is marked as failing. This is very rare. |
+| `FAILING` | No ping recieved by the end of the grace period. Indicates a failing Heartbeat check. |
+
+The source shows where your ping originated, determined by the `origin` and `referer` request headers. [Learn more about configuring the ping source](/docs/heartbeat-checks/#pinging-your-heartbeat-check).
+
 ## Multistep check results
 
 Multistep check results are navigated using the tree on the left side of the screen. If you are running checks in parallel, first select the location you are interested in.
 
-In the result tree the top node shows the check run log and the check run configuration. Both can be collapsed.
+In the result tree, the top node shows the check run log and the check run configuration.
 
 Any errors encountered can be viewed in the 'Errors' node. 
 
-Each Playwright request done is shown as a separate node under the test step in which it was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available.
+Each Playwright request is shown as a separate node under the test step in which it was performed. Selecting a request node opens the request details. Here you can view the request and response body, headers and any request parameters. A breakdown of the request timings is also available. If you've made assertions in the same test step as this request, then those assertions will be shown here.
+
+The default request user-agent is `Checkly/1.0 (https://www.checklyhq.com)`.
+If you would like to use a different user-agent, you can add `test.use({userAgent: 'customUserAgent'})` to your script.
 
 Currently, only requests done using the Playwright `request` are shown as nodes in the tree, requests done via e.g Axios or HTTPS are not.
-
-In the request details you will also find the result of any assertion done as part of the corresponding test step.
 
 ![Using the Multistep check results view](/docs/images/monitoring/check-results-multistep.mp4)
 

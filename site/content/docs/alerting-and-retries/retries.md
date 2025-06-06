@@ -67,6 +67,13 @@ There are some tradeoffs to consider:
 - Retrying from the same location makes sense if you care strongly about the uptime of your app in one specific location, compared to other locations.
 - Retrying from a different location makes sense, if you want to make sure your app is up in at least one location.
 
+### Network retries
+
+For API checks, you can enable network retries to automatically retry a check run only if it fails due to a network error—such as a timeout, DNS resolution issue, or connection reset.
+
+When network retries are enabled:
+* The check will retry on: ECONNRESET, ENOTFOUND, ETIMEDOUT, EAI_AGAIN, ECONNREFUSED, and similar network errors.
+* The check will not retry on: Any HTTP response that includes a status code (4xx or 5xx), failed assertions, or any other type of check failure.
 
 ## Test sessions retries
 

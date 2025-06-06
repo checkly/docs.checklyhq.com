@@ -58,7 +58,13 @@ You can tweak the following parts of your dashboard:
 - **logo:** Display your company logo (or any image) on the top left side of your dashboard.
 - **logo link:** Direct visitors to your company website when they click the logo.
 - **favicon:** Put the cherry on top with a custom favicon.
+
+![config public monitoring dashboard 3](/docs/images/dashboards-v2/look_feel3.png)
+
 - **auto paginate:** Depending on your screen height and amount of checks, we can paginate through them so you have a full overview.
+- **auto refresh:** Set how often the dashboard refreshes—choose between 1, 5, or 10 minutes.
+- **show header:** Toggle visibility of the dashboard’s title and description.
+- **show check run links:** Adds a clickable link to each check result so team members can inspect them. Off by default.
 - **show and hide P-stats:** Toggle the visibility of the performance stats for all checks on the dashboard.
 
 Next to the preset tweaks you can do to your dashboard, you can also apply custom CSS styles.

@@ -1,7 +1,8 @@
 ---
-title: What is monitoring as code?
+title: Monitoring as Code - A Practical Guide from Checkly
+displayTitle: What is monitoring as code?
 description: >-
-  Monitoring as code is the practice of managing monitoring configurations and alerts through code. This approach offers several benefits for engineering teams at scale, including codified, version-controlled, and reusable monitoring configurations.
+  Learn how to implement monitoring as code with Checkly's guide. Bring transparency, scalability, and efficiency to your cloud infrastructure management.
 author: Daniel Giordano
 avatar: 'images/avatars/daniel-giordano.png'
 tags:
@@ -207,7 +208,7 @@ MaC makes it easy to monitor performance across regions, simulating user experie
 
 ### **Scheduled Jobs or Cron Jobs**
 
-Scheduled jobs or cron jobs are crucial for automating tasks, but failures can lead to major problems if undetected. MaC enables heartbeat monitoring to ensure these jobs run on schedule.
+Scheduled jobs or cron jobs are crucial for automating tasks, but failures can lead to major problems if undetected. MaC enables [heartbeat monitoring](https://www.checklyhq.com/blog/heartbeat-monitoring-with-checkly/) to ensure these jobs run on schedule.
 
 A heartbeat check verifies that a job reports back within the expected timeframe. If it doesn’t, an alert is triggered, giving you a chance to fix the issue before it impacts your system.
 

@@ -12,7 +12,7 @@ githubUser: serverless-mom
 tags:
   - basics
 
-weight: 5
+weight: 90
 navTitle: Assertions
 menu:
   learn_playwright:
@@ -27,7 +27,7 @@ To make an automation into a test, we have assertions. When a hard assertion fai
 
 ### Types of Playwright Assertions
 
-Playwright offers a variety of assertion types to accommodate different testing scenarios, and there are two broad categories for flexible, Web-first assertions and rigid, brittle, non-retrying assertions. Web-first assertions return promises, since they will return when they are succesful or time out, where as non-retrying assertions throw their response immediately.
+Playwright offers a variety of assertion types to accommodate different testing scenarios, and there are two broad categories for flexible, Web-first assertions and rigid, brittle, non-retrying assertions. Web-first assertions return promises, since they will return when they are successful or time out, where as non-retrying assertions throw their response immediately.
 
 ### Auto-retrying, Web-first Assertions
 
@@ -248,7 +248,7 @@ Implementing best practices can make your tests more reliable and easier to main
 
 - **Test Granularity**: Structure tests to cover distinct, isolated behaviors, making debugging easier. The choice between one ‘super test’ and 5 or 10 smaller tests should always go with the more granular option. Since [tests can be run in parallel](https://www.checklyhq.com/learn/playwright/testing-in-parallel/), it’s likely that better test granularity will also improve test execution time.
 - **Create Concise Statements**: Keep assertions simple and focused. Asserting that five different page components is an indicator that you’re testing multiple ideas with one test, and want to consider either breaking up your test or should at least have multiple steps.
-- **Use Descriptive Messages**: Adding clear messages to assertions helps identify failures quickly. It’s also good to use [test steps](https://www.checklyhq.com/blog/improve-your-playwright-documentation-with-steps/) to add more description to the exact phase where the test failed. Read further to see how to [add test steps programatically with Typescript decorators](https://www.checklyhq.com/blog/playwright-test-steps-with-typescript-decorators/).
+- **Use Descriptive Messages**: Adding clear messages to assertions helps identify failures quickly. It’s also good to use [test steps](https://www.checklyhq.com/blog/improve-your-playwright-documentation-with-steps/) to add more description to the exact phase where the test failed. Read further to see how to [add test steps programmatically with Typescript decorators](https://www.checklyhq.com/blog/playwright-test-steps-with-typescript-decorators/).
 - **Parameterize Assertions**: Use variables for assertion parameters to improve test readability and maintainability.
 - **Leverage Libraries**: Utilize existing libraries for common assertions where possible. Note that if you’re running tests on a cadence, a full set of libraries may not be available in your execution environment.
 - **Be Specific**: Make sure your assertions are as targeted as possible to avoid false positives. Bet on auto-waiting and web-first assertions. Even a change from checking if a text label has the needed text with [`.toContain()`](https://playwright.dev/docs/api/class-genericassertions#generic-assertions-to-contain-1) rather than `toBe()` can improve the reliability of a page monitor.

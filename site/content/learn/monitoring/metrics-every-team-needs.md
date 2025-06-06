@@ -53,7 +53,7 @@ For some services there won’t be much confusion. For example an API service sh
 
 In general, the best practice is to **clearly label any response time that isn’t covering end-to-end response time**, namely ‘how long it takes from a user clicking a button to when they see the result they’re expecting,’ as being a special case versus the standard expectation for response time.
 
-Of the metrics in this article, response time can be the most difficult to measure accurately. While you can see request and response times within your own cloud, it’s quite difficult to see whatg users are actually experiencing with their own broswers and network connections. To measure response times, rather than trying to observe every chunk of time spent in your backend service, **consider Checkly to actively monitor your service and record how long each request really takes** for common user pathways.
+Of the metrics in this article, response time can be the most difficult to measure accurately. While you can see request and response times within your own cloud, it’s quite difficult to see whatg users are actually experiencing with their own browsers and network connections. To measure response times, rather than trying to observe every chunk of time spent in your backend service, **consider Checkly to actively monitor your service and record how long each request really takes** for common user pathways.
 
 Finally, when viewing response times **it’s critical not to just use simple averages to capture performance**. Special statistical slices like ‘percent of responses over threshold’ (how often did a user get an unacceptably slow response) and ‘95th percentile response times’ (including all but the very slowest responses, which are often outliers caused by special requests that are predictably quite slow) is critical to get an accurate picture of performance over time.
 
@@ -73,7 +73,7 @@ The best practices for infrastructure management could fill a whole book, but at
 
 ## Error Rate
 
-Error rate is a critical APM metric that quantifies the frequency of failed requests or transactions within an application, expressed as a percentage of total requests. It captures HTTP errors (e.g., 4xx client errors, 5xx server errors), timeouts, exceptions, and can cover business logic failures (e.g., payment declines, API call failures). This metric is often segmented by endpoint, service, or dependency to pinpoint failure hotspots. A high or rising error rate may indicate code defects, infrastructure instability (e.g., database overload), or third-party service degradation. Engineering teams use error rate alongside logs and distributed tracing to diagnose root causes. In SLOs (Service Level Objectives), error rate thresholds (e.g., <0.1%) help enforce reliability targets. Proactive monitoring and alerting on error rate spikes enable faster incident response, reducing MTTR (Mean Time to Repair) and minimizing user impact.
+Error rate is a critical APM metric that quantifies the frequency of failed requests or transactions within an application, expressed as a percentage of total requests. It captures HTTP errors (e.g., 4xx client errors, 5xx server errors), timeouts, exceptions, and can cover business logic failures (e.g., payment declines, API call failures). This metric is often segmented by endpoint, service, or dependency to pinpoint failure hotspots. A high or rising error rate may indicate code defects, infrastructure instability (e.g., database overload), or third-party service degradation. Engineering teams use error rate alongside logs and distributed tracing to diagnose root causes. In SLOs (Service Level Objectives), error rate thresholds (e.g., <0.1%) help enforce reliability targets. Proactive monitoring and alerting on error rate spikes enable faster [incident response](https://www.checklyhq.com/learn/incidents/what-is-incident-response/), reducing MTTR (Mean Time to Repair) and minimizing user impact.
 
 One of the things that makes a metric a key metric is that without observing it, you can have your application fail silently. For example if our frontend is rendering our site beautifully, but the site content is an error message, the response time may look fine, throughput may be fine (or even up since users are hitting reload repeatedly) and our infrastructure metrics may not show a problem. But clearly, this error message should be spiking our application’s error rate. 
 
@@ -85,7 +85,7 @@ Error rate will have by far the most disagreement in your team about what counts
 - Can a single request result in more than one error?
 - Do business logic failures count as errors (for example incorrect passwords or API keys, payment declines, or error responses from third party services)?
 
-However you answer these questions, one other best practice is to **always count errors that surface to the user**, even if no error code is raised. One rather old example is when the team implementes nicesly rendered pages to the ll the user that they’ve encountered an invalid URL or that their request returned a database error. These incidents should all be counted as errors, since the more users see these messages, the more they’ll percieve that something is wrong with this application. For example the following API response:
+However you answer these questions, one other best practice is to **always count errors that surface to the user**, even if no error code is raised. One rather old example is when the team implements nicesly rendered pages to the ll the user that they’ve encountered an invalid URL or that their request returned a database error. These incidents should all be counted as errors, since the more users see these messages, the more they’ll perceive that something is wrong with this application. For example the following API response:
 
 ```json
 HTTP/1.1 200 OK
@@ -145,7 +145,7 @@ By measuring these fundamentals, your team can:
 
 ✔ Prevent minor issues from becoming major outages
 
-Part of starting small is considering the most basic questions first: with Checkly, you can create an automated service to simulate common user requests, and report immedaitely if anything looks incorrect. Checkly’s [synthetic monitoring](https://www.checklyhq.com/learn/monitoring/synthetic-transaction-monitoring/) ensures that you’re not relying on users to report problems.
+Part of starting small is considering the most basic questions first: with Checkly, you can create an automated service to simulate common user requests, and report immediately if anything looks incorrect. Checkly’s [synthetic monitoring](https://www.checklyhq.com/learn/monitoring/synthetic-transaction-monitoring/) ensures that you’re not relying on users to report problems.
 
 ---
 

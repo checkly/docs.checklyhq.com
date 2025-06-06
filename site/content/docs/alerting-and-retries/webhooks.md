@@ -346,9 +346,9 @@ exports.handler = async function (context, event, callback) {
 
 ## Jira
 
-A webhook can be used to create a new issue on Jira via the [Jira API](https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/), for example in the case of a previously passing check that switches to failing state.
+A webhook can be used to create a new issue on Jira via the [Jira API](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/), for example in the case of a previously passing check that switches to failing state.
 
-We will be creating a POST request to `{{JIRA_INSTANCE_URL}}/rest/api/2/issue`, where the content of your `JIRA_INSTANCE_URL` environment variable would look something like `https://your-jira-instance-name.atlassian.net`.
+We will be creating a POST request to `{{JIRA_INSTANCE_URL}}/rest/api/3/issue`, where the content of your `JIRA_INSTANCE_URL` environment variable would look something like `https://your-jira-instance-name.atlassian.net`.
 
 The required headers will be:
 
@@ -360,16 +360,47 @@ Content-Type: application/json
 
 An example body could look as follows:
 
-```json
+``` {title="Webhook Body"}
 {
   "fields": {
-    "description": "{{RESULT_LINK}}",
+    "description": { // your Jira issue description, using Atlassian Document Format (ADF)
+      "version": 1,
+      "type": "doc",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View check result",
+              "marks": [
+                {
+                  "type": "link",
+                  "attrs": {
+                    "href": "{{RESULT_LINK}}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "issuetype": {
       "id": "10001" // your Jira issue type id
     },
     "labels": [
       "needs_investigation"
     ],
+    "priority": { // dynamically set the issue priority, based on the check's tags
+      "id": {{#contains TAGS "P1"}} "1"
+        {{else}} {{#contains TAGS "P2"}} "2"
+        {{else}} {{#contains TAGS "P3"}} "3"
+        {{else}} {{#contains TAGS "P4"}} "4"
+        {{else}} {{#contains TAGS "P5"}} "5"
+        {{else}} "3"
+      {{/contains}} {{/contains}} {{/contains}} {{/contains}} {{/contains}}
+    },
     "project": {
       "key": "ABC" // your Jira project key
     },
@@ -377,3 +408,7 @@ An example body could look as follows:
   }
 }
 ```
+
+For full details on creating issues via the Jira API, see [Atlassian's documentation for this endpoint](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post).
+
+You can also use version 2 of the Jira API (i.e. `{{JIRA_INSTANCE_URL}}/rest/api/2/issue`). The only difference is that version 2 does not support [Atlassian Document Format (ADF)](https://developer.atlassian.com/cloud/jira/platform/apis/document/structure/).

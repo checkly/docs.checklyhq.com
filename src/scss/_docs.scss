@@ -410,10 +410,13 @@
 
       .badge-beta {
         margin-left: auto;
+        margin-right: 1rem;
         color: $white;
         background: $pink;
         font-weight: 600;
         text-transform: capitalize;
+        border-radius: 8px;
+        padding: 0.25rem 0.5rem;
       }
     }
 

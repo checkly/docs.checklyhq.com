@@ -134,6 +134,7 @@
     { "source": "/learn/monitoring/defining-mttr/(/)?", "destination": "/learn/incidents/defining-mttr/", "permanent": true },
     { "source": "/learn/monitoring/mttr-challenges/(/)?", "destination": "/learn/incidents/mttr-challenges/", "permanent": true },
     { "source": "/learn/monitoring/dora-metrics/(/)?", "destination": "/learn/incidents/dora-metrics/", "permanent": true },
-    { "source": "/learn/monitoring/reduce-mttd/(/)?", "destination": "/learn/incidents/reduce-mttd/", "permanent": true }
-  ]
+    { "source": "/learn/monitoring/reduce-mttd/(/)?", "destination": "/learn/incidents/reduce-mttd/", "permanent": true },
+    { "source": "/learn/monitoring/synthetic-transaction-monitoring/(/)?", "destination": "/learn/monitoring/transaction-monitoring/", "permanent": true }
+    ]
 }

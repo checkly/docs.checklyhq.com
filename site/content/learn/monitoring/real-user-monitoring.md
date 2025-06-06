@@ -14,9 +14,6 @@ menu:
 weight: 50
 ---
 
-
- **Real User Monitoring (RUM): A Practical Guide**
-
 ## **Why Real User Monitoring Matters**
 
 Real User Monitoring (RUM) gives you actual performance data from real people using your website or app. Unlike synthetic tests (which simulate users), RUM shows you exactly what your customers experience—the promise is that if even one of your users encounters an error, you’ll know about it.
@@ -126,7 +123,7 @@ In the diagram above, every sixth session is measured and transmitted, but as yo
 
 - With random sampling, the chance that a specific user report won’t have RUM data available starts to increase
 
-Problem sessions are almost always edge cases, and so random sampling means that most of those unsual cases are being thrown out. What would be better is to decide at the end of a session if the data was interesting. This is the much vaunted tail-based sampling.
+Problem sessions are almost always edge cases, and so random sampling means that most of those unusual cases are being thrown out. What would be better is to decide at the end of a session if the data was interesting. This is the much vaunted tail-based sampling.
 
 ![A diagram of the Real User Monitoring model](/learn/images/rum-04.png)
 

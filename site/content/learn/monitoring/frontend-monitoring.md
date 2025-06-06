@@ -11,7 +11,7 @@ displayDescription:
 menu:
   learn_monitoring:
     parent: Monitoring Concepts
-weight: 40
+weight: 70
 ---
 
 No matter what internal testing or error monitoring we do for our web services, our end users will interact with that service through a front end. It’s necessary to perform front end monitoring so that you’re not relying on users to report problems.
@@ -57,7 +57,7 @@ However this approach has several challenges:
 - Rum can impact browser performance for users.
 - Transmitting data for every user every time is quite expensive, both for you the service provider and for the user’s browser performance and network bandwidth. The suggested solution for this known issue is to sample randomly: when a user starts a session on your site, they’re randomly assigned whether that session will be tracked in detail and transmitted to your observability service. This raises the issue of missing key failures: when a key client reports an error on your site, but no data was captured, you’re stuck trying to replicate an issue with only a user description.
 - Difficulty finding patterns - user behavior is inherently inconsistent. It’s often very difficult to identify connected failures or trends based on multiple users’ inconsistent behavior. The situation is similar to the sampling problem: we’re left trying to guess what happened based on sketchy information.
-- Complex implementation - from loading a javascript package to track user experience in the browser, to endpoints to collect that information, and a system to find patterns in stochastic user behavior, RUM is a complex technical challege with extensive techncial lift. If you’re trying to create a DIY solution for RUM, you’ll find that [CORS: Cross-Origin Request Blocked](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) errors are the first of many challenges.
+- Complex implementation - from loading a javascript package to track user experience in the browser, to endpoints to collect that information, and a system to find patterns in stochastic user behavior, RUM is a complex technical challenge with extensive technical lift. If you’re trying to create a DIY solution for RUM, you’ll find that [CORS: Cross-Origin Request Blocked](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) errors are the first of many challenges.
 
 **Synthetic Monitoring**
 
@@ -68,7 +68,7 @@ Synthetic monitoring solves many of the problems listed above with RUM:
 - Engineers can create frontend tests to be run that mimic user behaviors and key user paths. By scripting things like user searches, these tests can exactly describe the expected output.
 - Synthetic monitoring doesn’t impact performance for users.
 - Synthetic monitoring’s costs are controlled from the outset, as you control the cadence of synthetic test runs.
-- Patterns are readily identifiable since the behavior of a synthetic user is always the same. Further, by running tests on a cadence, the exact time that failures started is easier to find. This is expecially helpful if you’re trying to connect a new failure to a paticular deployment
+- Patterns are readily identifiable since the behavior of a synthetic user is always the same. Further, by running tests on a cadence, the exact time that failures started is easier to find. This is especially helpful if you’re trying to connect a new failure to a particular deployment
 - No implementation requirements - synthetic monitoring can be implemented as a 100% external service.
 
 ![A diagram of the Synthetic Monitoring model](/learn/images/frontend-monitoring-02.png)
@@ -159,7 +159,7 @@ Entry-level monitoring tools often focus on surface-level insights, such as erro
 
 **Ensuring Full-Stack Visibility**
 
-Frontend monitoring alone cannot provide a complete view of an application’s health. Many issues arise at the intersection of the frontend and backend, requiring integrated observability across the entire stack. Without this integration, teams risk spending excessive time proving whether an issue is frontend- or backend-related. Implementing context propagation and unified tracing, such as through OpenTelemetry, helps connect frontend events to backend processes, enabling a more holistic understanding of system behavior and streamlining troubleshooting efforts. For more detail on connecting backend OpenTelemetry traces with frontend performance see how [Checkly Traces connects data from across your stack](https://www.checklyhq.com/docs/traces-open-telemetry/how-it-works/).
+Frontend monitoring alone cannot provide a complete view of an application’s health. Many issues arise at the intersection of the frontend and backend, requiring integrated observability across the entire stack. Without this integration, teams risk spending excessive time proving whether an issue is frontend- or backend-related. Implementing [context propagation](https://www.checklyhq.com/learn/opentelemetry/context-propagation/) and unified tracing, such as through OpenTelemetry, helps connect frontend events to backend processes, enabling a more holistic understanding of system behavior and streamlining troubleshooting efforts. For more detail on connecting backend [OpenTelemetry traces](https://www.checklyhq.com/learn/opentelemetry/traces/) with frontend performance see how [Checkly Traces connects data from across your stack](https://www.checklyhq.com/docs/traces-open-telemetry/how-it-works/).
 
 ## Top frontend monitoring tools
 

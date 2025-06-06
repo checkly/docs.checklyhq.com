@@ -159,7 +159,7 @@ You don't have to use a collector to gather OpenTelemetry data. In the simplest 
 
 ### What is the difference between the OpenTelemetry Agent and Collector?
 
-There isn't an 'agent' as such that's part of the OpenTelemetry model. As mentioned above the collector may be deployed in an 'agent' pattern where the collector is running on the same host as the application, but the term 'agent' is a little overloaded in observibility and requires brief disambugation. The other part of observability sometimes called an 'agent' is a process running within an application that receives data on the sytem. For example, automatic instrumentation of Java applications is made possible by the standard `javaagent` jvm argument. Using an agent to observe your application will depend on your language library's implementation. 
+There isn't an 'agent' as such that's part of the OpenTelemetry model. As mentioned above the collector may be deployed in an 'agent' pattern where the collector is running on the same host as the application, but the term 'agent' is a little overloaded in observibility and requires brief disambugation. The other part of observability sometimes called an 'agent' is a process running within an application that receives data on the system. For example, automatic instrumentation of Java applications is made possible by the standard `javaagent` jvm argument. Using an agent to observe your application will depend on your language library's implementation. 
 
 The collector is not an 'agent' running within an application, it runs outside your application and collects and forwards data.
 

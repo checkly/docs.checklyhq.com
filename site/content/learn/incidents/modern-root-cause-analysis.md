@@ -40,7 +40,7 @@ As cloud architectures expand into greater complexity, broadening our search for
 
 ### Key Improvements in Modern RCA:
 
-1. **Automated Correlation** – With distributed tracing and context propagation, we shouldn’t be trying to line up time codes to correlate observability data from multiple services
+1. **Automated Correlation** – With distributed tracing and [context propagation](https://www.checklyhq.com/learn/opentelemetry/context-propagation/), we shouldn’t be trying to line up time codes to correlate observability data from multiple services
 2. **Context-Aware Alerts** – Alerts prioritize issues impacting business metrics (like checkout errors vs. low-severity logs). Sophisticated routing and status updates on tools like Rootly mean only the right team members get woken up during incidents.
 3. **Proactive Detection** – Once solely used for end-to-end testing, synthetic user testing is now available to development and operations teams. Any activity frequently performed by users can be performed in automatic test sessions with deep assertions to make sure the responses look correct.
 
@@ -58,7 +58,7 @@ A payment service fails intermittently. Traditional RCA might check logs in isol
 - **OpenTelemetry** (unified data collection for the back end)
 - **Prometheus/Grafana** (metrics visualization)
 - **Jaeger** (distributed tracing)
-- **Checkly** (Synthetic monitoring of the frontend, correlated with OpenTelemetry traces)
+- **Checkly** ([synthetic monitoring](https://www.checklyhq.com/blog/what-is-synthetic-monitoring/) of the frontend, correlated with OpenTelemetry traces)
 
 Modern RCA reduces MTTR  by replacing guesswork with data-driven decisions. 
 

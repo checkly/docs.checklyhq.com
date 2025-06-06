@@ -234,7 +234,7 @@ Regular expressions give you the power to extract specific parts of text from a 
 You can use regular expressions with two assertions sources:
 
 1. **Text body:** Use the property field to add your regex.
-2. **Headers:** First select the header you are interested in in the property field, then click "add regex".
+2. **Headers:** First select the header you are interested in the property field, then click "add regex".
 
 Under the hood, we use the stock Javascript regular expressions implementation. Specifically, we use the [.match()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
 method. We *do not use the `/g` modifier* and return the first matched group the expression finds.

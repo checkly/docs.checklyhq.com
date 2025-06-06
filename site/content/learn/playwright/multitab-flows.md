@@ -7,7 +7,7 @@ githubUser: ragog
 tags:
   - multi-tab
   - testing
-weight: 6
+weight: 135
 navTitle: Multiple tabs
 menu:
   learn_playwright:

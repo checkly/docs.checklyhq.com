@@ -9,7 +9,7 @@ metatags:
 toc: false
 ---
 
-Playwright serves as the foundation for Checkly's synthetic *Monitoring as Code*. To get the most from Checkly, we put together a series of guides and examples to help you get started with Playwright.
+Playwright serves as the foundation for Checkly's synthetic [*Monitoring as Code*](https://www.checklyhq.com/guides/monitoring-as-code/). To get the most from Checkly, we put together a series of guides and examples to help you get started with Playwright.
 
 ## Getting Started
 

@@ -10,7 +10,7 @@ githubUser: serverless-mom
 tags:
   - basics
 
-weight: 3
+weight: 60
 navTitle: UI selectors
 menu:
   learn_playwright:

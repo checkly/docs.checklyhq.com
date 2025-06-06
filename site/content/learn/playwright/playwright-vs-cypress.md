@@ -7,7 +7,7 @@ author: Nocnica Mellifera
 githubUser: serverless-mom
 tags:
   - basics
-weight: 4
+weight: 20
 displayTitle: Playwright vs Cypress
 navTitle: Playwright vs Cypress
 menu:
@@ -16,12 +16,12 @@ menu:
 ---
 Playwright and Cypress are two frameworks both closely associated with end-to-end testing of production websites. Both frameworks can do quite a bit more than 'making sure nothing on your site is broken' and their design philosophies, architectures, and use cases are different.
 
-Starting in mid-2024, according to [npmtrends.com](https://npmtrends.com/cypress-vs-playwright), Playwright surpassed Cypress in npm downloads, indicating that more projects are starting with Playwright as their preferred automation framework. Playwright is the framework supported by Checkly in our current runtimes.
+Starting in mid-2024, Playwright surpassed Cypress in npm downloads, indicating that more projects are starting with Playwright as their preferred automation framework. Playwright is the framework supported by Checkly in our current runtimes.
 
 ## Playwright overview
-While Cypress is a testing tool, Playwright is an automation solution.
+While Cypress is a testing tool, [Playwright](https://www.checklyhq.com/learn/playwright/what-is-playwright/) is an automation solution.
 
-This distinction is important when you compare these solutions to the present day realities of automation.
+This distinction is important when you compare these solutions, with Playwright supporting more features to allow for repetetive scripted actions and automations.
 
 Playwright is a tool focused on developer productivity with more robust built-in features, the ability to use async/await, built in parallelization, a much lighter weight in CI. Playwright is also less opinionated because it doesn’t have to be, you can use it however you want. Playwright can [monitor your APIs](https://www.checklyhq.com/learn/playwright/testing-apis/) just as well as it can your frontend web pages. Scraping content for a LLM model? Check! Have a nested app in an iframe you want to test? Go wild! *Three different browser sessions in the same chat instance? Sounds cool! Re-use your tests to monitor production? Absolutely.*
 
@@ -41,7 +41,7 @@ Playwright is a tool focused on developer productivity with more robust built-in
 
 With Cypress, E2E went from the painful world of hard-coded waits and heavy-handed POM approaches to built in actionability and visibility checks with a focus on community building and developer experience. What we’ve seen over the course of the last five years or so is a cultural shift in the testing world from a heavy reliance on Manual QA and non-developer owned testing responsibilities to testing as a more fully incorporated practice. We’ve shifted left.
 
-We’ve also seen testing become the battleground of where your developer velocity goes to die.
+We’ve also seen testing become the battleground of where your developer velocity goes to die. Since the inception of playwright more and more teams contain dedicated roles for platform engineering, with a focus on making development, testing, and the [deployment process](https://www.checklyhq.com/guides/empowering-developers-with-checkly/) easier for everyone.
 
 Titles have changed, entire departments have been lost to restructures, responsibilities have adjusted and solutions that were groundbreaking less than a decade ago are now no longer cutting edge.
 
@@ -63,7 +63,7 @@ The main areas where Cypress loses now used to be where they won; community trus
 ### **Overview of Architectures**  
 The architectural differences between Playwright and Cypress reflect distinct design philosophies and impact how each tool interacts with browsers and testing workflows. Playwright leverages the **Chrome DevTools Protocol (CDP)** to automate browsers directly, while Cypress runs within the browser’s execution loop via a custom Electron-based app. These design choices affect browser support, performance, parallelization, and test writing practices.
 
----
+
 
 ### **Playwright Architecture**  
 - **CDP-based**: Playwright interacts with browsers using the Chrome DevTools Protocol, which is natively supported by major browsers (Chromium, Firefox, WebKit). This allows it to control the browser externally without modifying the browser’s native execution loop.
@@ -73,7 +73,7 @@ The architectural differences between Playwright and Cypress reflect distinct de
 - **Browser & Tab Support**: Playwright supports all major browsers and multiple tabs, giving it flexibility for complex test scenarios. It also has experimental support for mobile testing.
 - **Standardized Integration**: Playwright integrates smoothly with high-level testing frameworks (e.g., CucumberJS, CodeceptJS) without custom runners, as the browser behaviors remain unmodified.
 
----
+
 
 ### **Cypress Architecture**  
 - **Electron-based App**: Cypress runs as a native JavaScript app embedded within an Electron browser. This architecture means tests and Cypress’s custom library run **within the browser’s execution loop**, directly injecting code into the test browser.
@@ -83,7 +83,7 @@ The architectural differences between Playwright and Cypress reflect distinct de
 - **Limited Parallelism**: Parallelization is not available out of the box and requires a **SaaS subscription** to Cypress Cloud for optimal parallel test execution.
 - **Limited Tab and iFrame Support**: Cypress does not support multiple tabs and has limited and sometimes inconsistent iFrame handling, making it less effective for complex web applications.
 
----
+
 
 ### **Impact of Architectural Differences**
 
@@ -106,7 +106,7 @@ The architectural differences between Playwright and Cypress reflect distinct de
 5. **Asynchronous Code Handling**  
    - Playwright uses standard **async/await** syntax, providing a clear, modern JavaScript interface. Cypress uses a custom dot notation that simplifies code but is not fully asynchronous, limiting flexibility.
 
----
+
 
 ### **Which Architecture Fits Your Needs?**  
 - **Choose Playwright** if you need cross-browser support, parallelism, and multi-language flexibility. Its architecture is more scalable for complex, multi-layered applications that demand realistic, real-world testing.  
@@ -127,7 +127,7 @@ The architectural differences between Playwright and Cypress reflect distinct de
 | Real Devices Support | Limited                                 | No                                   |
 | Plugins            | Relies on custom setup                    | Ecosystem of plugins                 |
 
----
+
 
 ## Playwright vs Cypress Examples
 At the highest level, Playwright and Cypress tests look very similar when writing a basic tests. Differences only really become visible when you make two asynchronous requests with assertions.
@@ -165,17 +165,17 @@ describe('Multiple API Requests Test', () => {
   });
 })
 ```
-With Cypress, we're using their custom syntax, which is a bit more compact but still has it's own specialized field of knowledge. If you're pursuing a [monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/) strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
+With Cypress, we're using their custom syntax, which is a bit more compact but still has its own specialized field of knowledge. If you're pursuing a [monitoring as code](https://www.checklyhq.com/guides/monitoring-as-code/) strategy and getting everyone involved in testing and monitoring, this domain-specific syntax may be a barrier to entry.
 
 Further, Cypress asynchrony may not act as expected if we're used to asynchrony from Node.js. In Cypress, each `cy.request()` runs asynchronously, but Cypress queues them sequentially. This ensures that the second request only executes after the first one completes, making this pattern simple and effective for making multiple assertions across async requests.
 
----
+
 
 ## Playwright vs Cypress: Pros & Cons
 
 ### Playwright Pros  
 - Supports more browsers, including Firefox and Safari/WebKit  
-- Suitable for complex web apps with API, UI, and visual testing combined  
+- Suitable for complex web apps with [API](https://www.checklyhq.com/learn/playwright/testing-apis/), UI, and [visual testing](https://www.checklyhq.com/docs/browser-checks/visual-regression-snapshot-testing/) combined  
 - Superior parallelism and scalability for larger test suites  
 - Works on multiple platforms  
 
@@ -194,15 +194,16 @@ Further, Cypress asynchrony may not act as expected if we're used to asynchrony 
 - Struggles with large-scale parallelism  
 - No native support for multi-language tests  
 
----
 
 ## Playwright vs Cypress: Which Solution is Better for You?
 
-- Choose Playwright if you need to test across multiple browsers, require advanced parallelism, or need to include API and component testing in your workflow. It’s better suited for complex, large-scale projects with multiple stakeholders.  
+- Choose Playwright if you need to test across multiple browsers, require advanced parallelism, or need to include API and component testing in your workflow. It’s better suited for complex, large-scale projects with multiple stakeholders.  If you've been told 'that's hard to test with Cypress' there's no doubt you can do it in Playwright.
 - Choose Cypress if your focus is frontend testing, or you are working on web apps that run primarily in Chrome/Edge. Cypress is more user-friendly for teams without extensive testing experience and offers quick startup time with fewer configurations.  
 
----
+
 
 ## Conclusion
 
-Both Playwright and Cypress are powerful tools, but each shines in different areas. Playwright’s versatility makes it the better choice for complex, multi-layered applications requiring scalability, while Cypress excels in simplicity and frontend testing. Your decision should align with your project’s needs, team experience, and browser requirements.
+Both Playwright and Cypress are powerful tools, but each shines in different areas. Playwright’s versatility makes it the better choice for complex, multi-layered applications requiring scalability, while Cypress excels in simplicity and frontend testing. Now that you've chosen a framework, what's next?
+
+

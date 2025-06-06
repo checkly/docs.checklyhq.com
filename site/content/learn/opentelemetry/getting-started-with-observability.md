@@ -32,7 +32,7 @@ As you browse the many instrumentation tools and [collector](/learn/opentelemetr
 The Otel project includes everything you need to collect data about your system, with standards in place to make sure later analysis is standardized. This covers:
 
 * A standard for internal observability APIs, and a language standard for any OpenTelemetry SDKs
-* A standard protocal for sending data - the OpenTelemetry transfer protocol or OTLP
+* A standard protocol for sending data - the OpenTelemetry transfer protocol or OTLP
 * Libraries to instrument applications, supporting all common web development languages
 * The OpenTelemetry collector, an all-purpose data forwarding and filtering tool for controlling OTel data
 * Various other community modules, including plugins for the above systems, and data gathering tools for Kubernetes, FaaS, and others.

@@ -16,6 +16,11 @@ To define your Playwright Check Suite, you use the `checkly.config.ts/js` file.
 Each Playwright Check Suite is connected to an existing reference in your `playwright.config.ts/js` file. 
 During the Alpha, a Playwright Check Suite can last up to 20 minutes. This limit is open to be increased/decreased after the alpha.
 
+## Playwright Check Suite definition
+
+* `name` - a human friendly name for your check suite.
+* `logicalId` - a reference for your check suite.
+
 ## Playwright references
 
 The following Playwright references are available to create a Playwright Monitor:
@@ -69,7 +74,8 @@ checks: {
    playwrightChecks: [
     {
 	// Run E2E tagged tests across browsers in 4 locations
-	name: 'E2E',
+	name: 'E2E test suite',
+  logicalId: 'e2e-test-suite',
 	pwProjects: ['chromium', 'firefox', 'webkit'], // Reference the project or projects in playwright.config file
 	pwTags: 'e2e', // Reference an existing tag in your tests
 	installCommand: 'npm install --dev', // Optionally override default dependencies install command

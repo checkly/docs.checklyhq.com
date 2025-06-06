@@ -26,6 +26,7 @@ import { CheckGroup } from 'checkly/constructs'
 
 export const myGroup = new CheckGroup('production-group', {
   name: 'Production group',
+  logicalID: 'production-group',
   activated: true,
   muted: false,
   locations: ['us-east-1', 'eu-west-1'],
@@ -54,7 +55,9 @@ When specifying your Playwright Check Suite, you can reference the new or existi
       playwrightConfigPath: './playwright.config.ts',
       playwrightChecks: [
         {
-          name: 'checkly-website',
+          name: 'Critical Tests',
+          logicalId: 'critical-tests',
+          pwTags:'critical',
           frequency: 10,
           locations: ['us-east-1',],
           groupName: 'Production group', // use the name of the group you created
