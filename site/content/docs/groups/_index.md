@@ -21,7 +21,7 @@ Groups help you organize your checks (e.g. by team or feature) and apply shared 
 
 By default, newly created check groups behave like folders, with no [group-level configuration](#group-level-configuration) applied. To get started:
 
-* **Define a name:** Pick a meaningful name for your group. This will not only help you and your team identify the group within Checkly, but also provide a better alerting experience if checks in this group fall into an alert state.
+* **Define a name:** Pick a meaningful name for your group. It helps you and your team identify the group in Checkly and in alerts triggered by failures.
 
 * **Add tags (optional)**: Tags help you relate groups to one another and also determine which checks appear on your [dashboards](/docs/dashboards/).
 
