@@ -449,7 +449,7 @@ new ApiCheck('check-group-api-check-1', {
 - `runParallel`: Controls how Checks in the group are executed across locations. When `true`, all Checks run in parallel across all configured locations. When `false`, they run in round-robin mode. If **not set**, each Check uses its own scheduling strategy.
 - `alertEscalationPolicy`: An [AlertEscalationPolicy](#alertescalationpolicy) object defines [alert-settings](/docs/alerting-and-retries/) for Check runs. If **set**, it overrides the alert settings of all checks in the group. If **not set**, each Check uses its own alert configuration.
 
-> When adding Checks to a group using `testMatch`, the CLI searches for files using the corresponding [Check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
+> When you use `testMatch` to add Checks to a group, the CLI searches for matching files using the corresponding [Check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
 
 > Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
