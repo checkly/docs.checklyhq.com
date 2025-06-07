@@ -48,12 +48,11 @@ What you need:
   
 ## Steps
 
-### 1. Install the Checkly CLI using the alpha version:
+### 1. Install the Checkly CLI
 
-The alpha version gets updated daily with new improvements. You can follow updates in the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email).
 
   ```bash {title="Terminal"}
-  npm install --save-dev checkly@pwt-alpha
+  npm install --save-dev checkly
   ```
 
 ### 2. [Optional] If you're using TypeScript

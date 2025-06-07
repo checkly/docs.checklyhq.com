@@ -10,7 +10,7 @@ displayDescription: Explore web application monitoring to boost performance and 
 menu:
   learn_monitoring:
     parent: Monitoring Concepts
-weight: 30
+weight: 31
 ---
 
 Web application monitoring refers to the practice of observing, tracking, and managing the performance, availability, and reliability of web applications. It ensures users have a seamless experience and minimizes disruptions by identifying issues in real-time. All that’s required for something to be a ‘web application’ is that it’s more than a static site, and that it takes requests via the internet. Even an API mainly accessed via TCP is a web application!
