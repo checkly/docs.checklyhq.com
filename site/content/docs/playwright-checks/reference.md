@@ -14,7 +14,7 @@ menu:
 To define your Playwright Check Suite, you use the `checkly.config.ts/js` file.
 
 Each Playwright Check Suite is connected to an existing reference in your `playwright.config.ts/js` file. 
-During the Alpha, a Playwright Check Suite can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
+During the Alpha, a Playwright Check Suite can last up to 20 minutes. This limit is open to be increased/decreased after the alpha.
 
 ## Playwright Check Suite definition
 
@@ -52,6 +52,8 @@ checks: {
 These are the available monitoring configuration options:
 
 * `installCommand:` Override the command to install dependencies, by default it'll use `npm install --dev`.
+
+* `testCommand:` Override the command to test, by default it uses npx playwright test with the tags, projects, and config file options your check specifies.
 
 * `activated:` A boolean value to activate/run your check or not.
 

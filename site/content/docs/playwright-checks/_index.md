@@ -63,7 +63,7 @@ What you need:
   npm install --save-dev jiti typescript
   ```
 
-### 3. Test and create a monitor with all your tests
+### 3. [If you are new to Checkly] Test and create a monitor with all your tests
 
   From inside your repository's source code directory, run:
 
@@ -78,7 +78,7 @@ What you need:
 
 Of course, you can now run `npx checkly deploy` and have a big monitor that checks your whole suite.
 
-It's likely only some tagged tests or Playwright projects need to become monitors. You can now update your `checkly.config.ts/js` file to select the tests to become individual monitors, with their own schedule, location and configuration.
+It's likely that only some tagged tests or Playwright projects need to become monitors. You can now update your `checkly.config.ts/js` file to select the tests to become individual monitors, with their own schedule, location, and configuration.
 
 Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones that exist in your code.
 
