@@ -51,7 +51,8 @@ For configuration information commonly used by checks in your group, create [gro
 
 * **Alert settings:** You can configure [alert channels](/docs/alerting-and-retries/alert-channels) for checks in your group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in your group.
 
-⚠️ Make sure to select an alert channel, otherwise checks in this group *will not alert*.
+> [!WARNING]
+> Make sure to select an alert channel, otherwise checks in this group *will not alert*.
 
 ### Testing
 
@@ -67,7 +68,8 @@ Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript co
 
 * **Removing check from group:** Any [group-level configuration](#group-level-configuration) will no longer apply, and the check will use its own configuration going forward.
 
-⚠️ To prevent issues (e.g. broken references to group variables), the check will be automatically deactivated after being added to or removed from a group. Make sure to review its settings before reactivating.
+> [!WARNING]
+> To prevent issues (e.g. broken references to group variables), the check will be automatically deactivated after being added to or removed from a group. Make sure to review its settings before reactivating.
 
 # How we run grouped checks
 
