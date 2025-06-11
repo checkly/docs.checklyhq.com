@@ -3,8 +3,14 @@
     {{ partial "docs-menu" .}}
     <div class="docs-page">
       <article class="markdown DocSearch-content">
-        {{ partial "docs-breadcrumb" .}}
-
+        <div class="d-flex flex-row">
+          <div class="d-flex">
+            {{ partial "docs-breadcrumb" .}}
+          </div>
+          <div class="d-flex align-items-center hidden-xs-down ml-auto">
+            {{ partial "docs-markdown-helper" . }}
+          </div>
+        </div>
         <h1 id="{{ anchorize .Title }}">
         {{ if .Params.displayTitle}}
           {{.Params.displayTitle}}

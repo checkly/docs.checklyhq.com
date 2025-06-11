@@ -17,8 +17,26 @@ disqusShortname = "checkly"
 	baseName = "llms"
 	isPlainText = true
 
+[outputFormats.markdown]
+	baseName = 'index'
+	isHTML = false
+	isPlainText = true
+	mediaType = 'text/markdown'
+	noUgly = false
+	notAlternative = false
+	path = ''
+	permalinkable = false
+	protocol = ''
+	rel = 'alternate'
+	root = false
+	ugly = false
+	weight = 0
+
 [outputs]
-	home = ['html', 'rss', 'txt']
+	home = ['html', 'rss', 'txt','markdown']
+	page = ['html', 'markdown']
+	section = ['html', 'markdown']
+
 
 [taxonomies]
   tag = "tags"

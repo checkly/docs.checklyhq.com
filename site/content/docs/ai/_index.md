@@ -4,6 +4,7 @@ displayTitle: How Checkly uses AI
 navTitle: How Checkly uses AI
 weight: 1
 slug: /
+beta: true
 menu:
   platform:
     parent: "AI"
