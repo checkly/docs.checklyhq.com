@@ -651,4 +651,81 @@
     border-radius: 8px;
     background: $blue-lightest;
   }
+
+  &-md-helper-dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    &:hover {
+      .docs-md-helper-dropdown-content {
+          display: block;
+      }
+    }
+    &-button {
+      color: $gray-darkish;
+      background: $white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      padding: .5rem;
+      &:hover {
+        background: $gray-lightest;
+      }
+    }
+    &-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      min-width: 184px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      background-color: $white;
+      padding: 0.5rem 1rem;
+      a {
+        text-decoration: none;
+        display: block;
+        color: $gray-dark;
+        &:hover {
+          color: $gray-darkish;
+          text-decoration: underline;
+        }
+      }
+    }
+    &-copy {
+      background: $white;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      &::before {
+        width: 16px;
+        height: 16px;
+        background-color: $gray;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+        mask: url(/images/icons/copy.svg);
+        background-size: 100%;
+        margin: 0 8px -2px 0;
+        content: '';
+        display: inline-block;
+      }
+      &--copied {
+        &::before {
+          background-color: $gray;
+          mask: url(/images/icons/check.svg);
+        }
+      }
+    }
+    &-view {
+      background: $white;
+      border-radius: 4px;
+      &::before {
+        width: 12px;
+        height: 12px;
+        background: url(/images/icons/arrow-up-right.svg);
+        background-size: 100%;
+        margin: 0 13px 0 0;
+        content: '';
+        display: inline-block;
+      }
+    }
+  }
 }

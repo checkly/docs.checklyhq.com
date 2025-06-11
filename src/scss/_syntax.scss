@@ -191,7 +191,8 @@
     width: 16px;
     height: 16px;
     background-size: 100%;
-    background: url(/images/icons/copy.svg) no-repeat;
+    background-color: $gray-light;
+    mask: url(/images/icons/copy.svg) no-repeat;
     content: '';
     display: inline-block;
     transition: .15s transform ease;
@@ -199,8 +200,8 @@
 
   &.copy-code-button--copied {
     &:after {
-      color: $green;
-      background: url(/images/icons/check.svg) no-repeat;
+      background-color: $green;
+      mask: url(/images/icons/check.svg) no-repeat;
 
     }
     &:hover {

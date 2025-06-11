@@ -19,6 +19,41 @@ $(document).ready(() => {
 })
 
 /**
+ * Copy to Clipboard helpers
+ */
+
+async function copyCodeBlockExecCommand (codeToCopy) {
+  try {
+    await navigator.clipboard.writeText(codeToCopy)
+  } catch (err) {
+    console.error('Failed to copy text: ', err)
+  }
+}
+
+async function copyToClipboardWrapper (copyPayload, classToAdd, element, originalText) {
+  try {
+    const result = await navigator.permissions.query({
+      name: 'clipboard-write'
+    })
+    if (result.state === 'granted' || result.state === 'prompt') {
+      await navigator.clipboard.writeText(copyPayload)
+    } else {
+      await copyCodeBlockExecCommand(copyPayload)
+    }
+  } catch (_) {
+    await copyCodeBlockExecCommand(copyPayload)
+  } finally {
+    element.blur()
+    element.innerText = 'Copied!'
+    element.classList.add(classToAdd)
+    setTimeout(function () {
+      element.innerText = originalText
+      element.classList.remove(classToAdd)
+    }, 2000)
+  }
+}
+
+/**
  * Copy code button for code blocks
  */
 
@@ -33,32 +68,19 @@ document.querySelectorAll('.highlight').forEach((highlightDiv) => attachClickHan
 async function copyCodeToClipboard (button, highlightDiv) {
   const codeToCopy = highlightDiv.querySelector(':last-child > code').innerText
 
-  try {
-    const result = await navigator.permissions.query({
-      name: 'clipboard-write'
-    })
-    if (result.state === 'granted' || result.state === 'prompt') {
-      await navigator.clipboard.writeText(codeToCopy)
-    } else {
-      await copyCodeBlockExecCommand(codeToCopy)
-    }
-  } catch (_) {
-    await copyCodeBlockExecCommand(codeToCopy)
-  } finally {
-    button.blur()
-    button.innerText = ''
-    button.classList.add('copy-code-button--copied')
-    setTimeout(function () {
-      button.innerText = ''
-      button.classList.remove('copy-code-button--copied')
-    }, 2000)
-  }
+  await copyToClipboardWrapper(codeToCopy, 'copy-code-button--copied', button)
 }
 
-async function copyCodeBlockExecCommand (codeToCopy) {
-  try {
-    await navigator.clipboard.writeText(codeToCopy)
-  } catch (err) {
-    console.error('Failed to copy text: ', err)
-  }
-}
+/**
+ * Copy page as markdown button
+ */
+
+document.querySelectorAll('.docs-md-helper-dropdown-copy').forEach((link) => {
+  link.addEventListener('click', async (evt) => {
+    evt.preventDefault()
+    const markdownUrl = window.location.origin + window.location.pathname + 'index.md'
+    const response = await window.fetch(markdownUrl)
+    const data = await response.text()
+    await copyToClipboardWrapper(data, 'docs-md-helper-dropdown-copy--copied', link, 'Copy as Markdown')
+  })
+})
