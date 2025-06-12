@@ -48,23 +48,22 @@ What you need:
   
 ## Steps
 
-### 1. Install the Checkly CLI using the alpha version:
+### 1. Install the Checkly CLI
 
-The alpha version gets updated daily with new improvements. You can follow updates in the [Slack community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email).
 
   ```bash {title="Terminal"}
-  npm install --save-dev checkly@pwt-alpha
+  npm install --save-dev checkly
   ```
 
 ### 2. [Optional] If you're using TypeScript
 
-  If you're using TypeScript, install the dev dependencies [`ts-node`](https://www.npmjs.com/package/ts-node) and [`typescript`](https://www.npmjs.com/package/typescript).
+  If you're using TypeScript, install the dev dependencies [`jiti`](https://www.npmjs.com/package/jiti) and [`typescript`](https://www.npmjs.com/package/typescript).
 
   ```bash {title="Terminal"}
   npm install --save-dev jiti typescript
   ```
 
-### 3. Test and create a monitor with all your tests
+### 3. [If you are new to Checkly] Test and create a monitor with all your tests
 
   From inside your repository's source code directory, run:
 
@@ -79,7 +78,7 @@ The alpha version gets updated daily with new improvements. You can follow updat
 
 Of course, you can now run `npx checkly deploy` and have a big monitor that checks your whole suite.
 
-It's likely only some tagged tests or Playwright projects need to become monitors. You can now update your `checkly.config.ts/js` file to select the tests to become individual monitors, with their own schedule, location and configuration.
+It's likely that only some tagged tests or Playwright projects need to become monitors. You can now update your `checkly.config.ts/js` file to select the tests to become individual monitors, with their own schedule, location, and configuration.
 
 Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones that exist in your code.
 
@@ -98,23 +97,25 @@ Here's a fully working example. Adjust the `pwProjects` and `pwTags` to ones tha
         {
           /* Create a multi-browser check that runs 
           every 5 mins.*/
-          name: 'multi-browser',
+          name: 'Multi Browser Suite',
+          logicalId: 'multi-browser',
           pwProjects: ['chromium', 'firefox', 'webkit'], // Reference the project or projects in your playwright config
           frequency: Frequency.EVERY_5M, // set your ideal frequency
           locations: ['us-east-1', 'eu-west-1'], // add your locations
         },
         {
           /* Create a check that runs the critical tagged tests every 10 mins */
-          name: 'checkly-tagged',
-          pwTags: 'checkly', // Reference an existing tag in your tests
+          name: 'Checkly Tagged tests',
+          logicalId: 'checkly-tagged',
+          pwTags: '@checkly', // Reference an existing tag in your tests
           frequency: Frequency.EVERY_10M,  // set your ideal frequency
-          locations: ['eu-west-1'],
+          locations: ['us-east-1'],
         },
       ],
     },
     /* The default location to use when running npx checkly test */
     cli: {
-      runLocation: 'eu-west-1',
+      runLocation: 'us-east-1',
       retries: 0, // full test retries, when running npx checkly test
     },
   })

@@ -1,7 +1,7 @@
 baseurl = "https://www.checklyhq.com"
 languageCode = "en-us"
 languageLang = "en"
-title = "Build and Run Synthetics That Scale"
+title = "Checkly - Developer-First Synthetic Monitoring"
 disableKinds = ["RSS"]
 enableGitInfo = true
 enableRobotsTXT = true
@@ -12,6 +12,32 @@ pygmentsUseClasses = true
 
 disqusShortname = "checkly"
 
+[outputFormats.txt]
+	mediaType = "text/plain"
+	baseName = "llms"
+	isPlainText = true
+
+[outputFormats.markdown]
+	baseName = 'index'
+	isHTML = false
+	isPlainText = true
+	mediaType = 'text/markdown'
+	noUgly = false
+	notAlternative = false
+	path = ''
+	permalinkable = false
+	protocol = ''
+	rel = 'alternate'
+	root = false
+	ugly = false
+	weight = 0
+
+[outputs]
+	home = ['html', 'rss', 'txt','markdown']
+	page = ['html', 'markdown']
+	section = ['html', 'markdown']
+
+
 [taxonomies]
   tag = "tags"
   category = "categories"
@@ -20,7 +46,7 @@ disqusShortname = "checkly"
   blog = "/blog/:year/:month/:title/"
 
 [params]
-    description = "Monitoring as code workflow for developers: programmable, fast, reliable."
+    description = "Code-first synthetic monitoring platform for modern development teams. Monitor APIs, web apps, and user journeys with Playwright-powered browser checks, monitoring as code workflows, and seamless CI/CD integration."
 
 [[menu.topnav]]
     name = "Documentation"
@@ -65,6 +91,11 @@ disqusShortname = "checkly"
 [[menu.platform]]
 	name = "Traces"
 	url = "/docs/traces-open-telemetry/"
+	weight = 40
+
+[[menu.platform]]
+	name = "AI"
+	url = "/docs/ai/"
 	weight = 50
 
 [[menu.resources]]

@@ -14,7 +14,12 @@ menu:
 To define your Playwright Check Suite, you use the `checkly.config.ts/js` file.
 
 Each Playwright Check Suite is connected to an existing reference in your `playwright.config.ts/js` file. 
-During the Alpha, a Playwright Check Suite can last up to 20 minutes. This limit is open to be increased / decreased after the alpha.
+During the Alpha, a Playwright Check Suite can last up to 20 minutes. This limit is open to be increased/decreased after the alpha.
+
+## Playwright Check Suite definition
+
+* `name` - a human friendly name for your check suite.
+* `logicalId` - a reference for your check suite.
 
 ## Playwright references
 
@@ -28,18 +33,18 @@ You can combine `pwTags` and `pwProjects` to generate your check. For example:
 
 ```typescript {title="checkly.config.ts"}
 checks: {
-    playwrightConfigPath: './playwright.config.ts',
-    playwrightChecks: [
-      {
-        // Run critical tagged tests in Chromium every minute from 4 locations
-		name:"critical-tagged",
-        pwTags: 'critical',
-        pwProjects: 'chromium',
-        frequency: Frequency.EVERY_1M,
-		locations: ['us-east-1', 'eu-west-1','eu-central-1', 'ap-south-1'],
-      },
-    ],
-  },
+  playwrightConfigPath: './playwright.config.ts',
+  playwrightChecks: [
+    {
+      // Run critical tagged tests in Chromium every minute from 4 locations
+      name:"critical-tagged",
+      pwTags: 'critical',
+      pwProjects: 'chromium',
+      frequency: Frequency.EVERY_1M,
+      locations: ['us-east-1', 'eu-west-1','eu-central-1', 'ap-south-1'],
+    },
+  ],
+},
 ```
 
 ## Monitoring customizations
@@ -47,6 +52,8 @@ checks: {
 These are the available monitoring configuration options:
 
 * `installCommand:` Override the command to install dependencies, by default it'll use `npm install --dev`.
+
+* `testCommand:` Override the command to test, by default it uses npx playwright test with the tags, projects, and config file options your check specifies.
 
 * `activated:` A boolean value to activate/run your check or not.
 
@@ -63,21 +70,22 @@ These are the available monitoring configuration options:
 ```typescript {title="checkly.config.ts"}
 
 checks: {
-   playwrightConfigPath: './playwright.config.ts', // specify your config file
-   playwrightChecks: [
+  playwrightConfigPath: './playwright.config.ts', // specify your config file
+  playwrightChecks: [
     {
-	// Run E2E tagged tests across browsers in 4 locations
-	name: 'E2E',
-	pwProjects: ['chromium', 'firefox', 'webkit'], // Reference the project or projects in playwright.config file
-	pwTags: 'e2e', // Reference an existing tag in your tests
-	installCommand: 'npm install --dev', // Optionally override default dependencies install command
-	testCommand: 'npx playwright test --grep@checkly --config=playwright.foo.config.ts', //Optionally override the default test command
-	activated: true, // Optional - Activate the check so that it runs on a schedule, true by default
-	muted: false, // Optional - Mute the check so that it doesn't send alerts
-	groupName: 'production-group', // use the name of the group you created
-	frequency: Frequency.EVERY_5M,
-	locations: ['us-east-1', 'eu-west-1','eu-central-1', 'ap-south-1'],
-	}
-    ]
+      // Run E2E tagged tests across browsers in 4 locations
+      name: 'E2E test suite',
+      logicalId: 'e2e-test-suite',
+      pwProjects: ['chromium', 'firefox', 'webkit'], // Reference the project or projects in playwright.config file
+      pwTags: 'e2e', // Reference an existing tag in your tests
+      installCommand: 'npm install --dev', // Optionally override default dependencies install command
+      testCommand: 'npx playwright test --grep@checkly --config=playwright.foo.config.ts', //Optionally override the default test command
+      activated: true, // Optional - Activate the check so that it runs on a schedule, true by default
+      muted: false, // Optional - Mute the check so that it doesn't send alerts
+      groupName: 'production-group', // use the name of the group you created
+      frequency: Frequency.EVERY_5M,
+      locations: ['us-east-1', 'eu-west-1','eu-central-1', 'ap-south-1'],
+    }
+  ]
  },
 ```
