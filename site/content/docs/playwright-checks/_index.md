@@ -49,12 +49,10 @@ What you need:
   npm install --save-dev jiti typescript
   ```
 
-
 ### 3. Define which tests to monitor in `checkly.config.ts`
 
 Create a `checkly.config.ts/js` and pick the tests you want to monitor, use [test tags](https://playwright.dev/docs/test-annotations#tag-tests) and [Projects](https://playwright.dev/docs/test-projects) to create a Playwright Check Suite.
 
-Here's a fully working example.
 Make sure:
 
 * `pwProjects` match projects names in your playwright.config.ts.
