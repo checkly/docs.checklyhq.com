@@ -8,7 +8,9 @@ menu:
     parent: "Traces"
 ---
 
-Send your 3rd party backend OpenTelemetry traces to Checkly. Inspect and drill down to why a check failed or degraded.
+Send your infrastructure OpenTelemetry traces to Checkly. Inspect and drill down to why a check failed or degraded.
+
+![OTEL Collector Diagram with Checkly Traces](/docs/images/otel/checkly-traces-otel-collector-diagram.png)
 
 <!--more-->
 

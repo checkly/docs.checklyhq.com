@@ -11,10 +11,14 @@ aliases:
   - "/docs/open-telemetry/instrumenting-code/"
 ---
 
-If you are completely new to OpenTelemetry, you should start by instrumenting your web facing application code with the 
-relevant OTel libraries. This will allow you to send traces directly to Checkly without setting up a 3rd party [OpenTelemetry collector](/learn/opentelemetry/what-is-the-otel-collector/).
+Use OpenTelemetry SDKs and libraries to instrument your applications and services. Send traces directly to Checkly without setting up an [OpenTelemetry collector](/learn/opentelemetry/what-is-the-otel-collector/).
+
+If you are new to OpenTelemetry, start by instrumenting your web facing application code with the relevant OpenTelemetry SDKs and libraries.
+
+![OTEL App Diagram with Checkly Traces](/docs/images/otel/checkly-traces-instrument-app-diagram.png)
+
 <!--more-->
-Below you will find instructions on how to instrument your popular languages and frameworks, and how to send traces to Checkly.
+Below you will find instructions on how to instrument your code, and how to send traces to Checkly. Select your coding language / framework to begin:
 
 ## Languages
 
@@ -93,5 +97,4 @@ Below you will find instructions on how to instrument your popular languages and
 </div>
 <br>
 
-If you don't find the language or framework you are using in the list above, you can always reference the
-[OpenTelemetry Languages docs](https://opentelemetry.io/docs/languages/) directly.
+> If you don't find the language or framework you are using in the list above, you can find all languages and frameworks there's OpenTelemetry support in the [OpenTelemetry Instrumentation docs](https://opentelemetry.io/docs/languages/).
