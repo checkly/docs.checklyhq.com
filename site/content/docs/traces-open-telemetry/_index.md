@@ -12,13 +12,14 @@ aliases:
 ---
 
 
-> Checkly Traces are OpenTelemetry native and available on all plans. 
+> Checkly Traces are OpenTelemetry native and available on all plans.
 > Need help getting started? We offer a **free, 1:1 onboarding service** to help you instrument your stack with the 
 > correct OpenTelemetry SDKs and enable tracing inside Checkly. 
 > [Book an onboarding session right here](https://calendly.com/maria-checkly/traces-onboarding).
 
-With Traces configured, you will have access to traces in all the places where it matters to more quickly resolve issues:
-- **Check results:** resolve production outages faster by correlating failing checks with backend traces.
+With telemetry traces configured, you will have access to traces in all the places where it matters to more quickly resolve issues:
+
+- **Check results:** resolve production outages faster by correlating failing checks with infrastructure traces.
 - **Test sessions:** understand any failures during test session execution.
 - **Check editors:** get a live trace while building, editing and debugging check code.
 
@@ -40,8 +41,8 @@ To get started with Checkly Traces using OpenTelemetry, pick the scenario that b
 {{< doc-card
 	  class="three-column-card"
 	  headerTag="h3"
-	  title="I want to see traces in Checkly"
-	  description="Send your backend traces to Checkly to get contextualized check failure analysis."
+	  title="I already have an OTEL Collector"
+	  description="Send your infrastructure traces to Checkly to get contextualized check failure analysis."
 	  img="/docs/images/icons/opentelemetry.svg"
 	  link="/docs/traces-open-telemetry/importing-traces/"
 >}}
