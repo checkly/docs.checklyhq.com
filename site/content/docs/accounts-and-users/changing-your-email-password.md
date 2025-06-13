@@ -35,7 +35,8 @@ To change your password, follow these steps:
 
 1. Log out of your current session.
 2. Go to the [login page](https://app.checklyhq.com/login).
-3. Click the **Don't remember your password?** link.
-4. Follow the instructions to reset your password.
+3. Enter your email address and click the **Log in** button.
+4. Click the **Forgot password?** link.
+5. Follow the instructions to reset your password.
 
 After successfully resetting your password, you can log in with your new password.
