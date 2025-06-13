@@ -51,7 +51,7 @@ export default defineConfig({
 - `repoUrl`: An optional URL to a Git repository.
 
 - `checks`: Top-level defaults for all Checks in this Project. If not overridden at the Check or CheckGroup level, these
-settings apply to your Checks. Takes all [Check properties](#check)
+settings apply to your Checks. Takes all [Check properties](#check).
   - `checkMatch`: A glob pattern where the CLI should look for files containing Check constructs. For more info check [the
     dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
   - `ignoreDirectoriesMatch`: An array of glob patterns which directories should be ignored by the `checkMatch` property.
@@ -886,7 +886,7 @@ new ApiCheck('local-api-1', {
 ## `RetryStrategy`
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
-Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
+Retry strategies can be set at the [check](#check), [check group](#checkgroup), and [project](#project) levels.
 [Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
