@@ -26,7 +26,7 @@ export default defineConfig({
   checks: {
     activated: true,
     muted: false,
-    runtimeId: '2022.10',
+    runtimeId: '2025.04',
     frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
@@ -289,7 +289,7 @@ import * as path from 'path'
 
 new MultiStepCheck('multistep-check-1', {
   name: 'Multistep Check #1',
-  runtimeId: '2023.09',
+  runtimeId: '2025.04',
   frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
