@@ -16,7 +16,7 @@ Use your existing Playwright tests as live, scheduled monitoring checks. No rewr
 
 ## What's a Playwright Check Suite?
 
-A Playwright Check Suite lets you define a monitoring strategy using your existing Playwright tests and configured projects.
+A Playwright Check Suite lets you use your existing Playwright tests and projects for end-to-end monitoring with tailored monitoring strategies.
 
 You can mix and match existing
 [projects](https://playwright.dev/docs/test-projects) (`pwProjects`) and [test tags](https://playwright.dev/docs/test-annotations#tag-tests) (`pwTags`) to select tests and group subsets into Playwright Check Suites. This approach allows you to specify different monitoring settings for each Playwright Check Suite to differenciate between smoke tests or critical path flows.
@@ -54,7 +54,7 @@ Create a `checkly.config.ts/js` and pick the tests you want to monitor, use [tes
 
 Make sure:
 
-* `pwProjects` match projects names in your playwright.config.ts.
+* `pwProjects` match projects names in your `playwright.config.ts`.
 * `pwTags` match tags in your test definitions.
 
 Below are two example check suites:
@@ -75,26 +75,30 @@ export default defineConfig({
     playwrightConfigPath: './playwright.config.ts',
     playwrightChecks: [
       {
-        /*
-          Create a multi-browser check that runs
-          every 10 mins in two locations.
-        */
+        /**
+         * Create a multi-browser check that runs
+         * every 10 mins in two locations.
+         */
         logicalId: 'multi-browser',
         name: 'Multi Browser Suite',
-        pwProjects: ['chromium', 'firefox', 'webkit'], // Use project (or projects) in your Playwright config
-        pwTags: '@smoke-tests', // Use a tag (or tags) in your tests
+        // Use one project (or multiple projects) defined in your Playwright config
+        pwProjects: ['chromium', 'firefox', 'webkit'],
+        // Use one tag (or multiple tags) defined in your spec files
+        pwTags: '@smoke-tests',
         frequency: Frequency.EVERY_10M,
         locations: ['us-east-1', 'eu-west-1'],
       },
       {
-        /*
-          Create a check that runs the `@critical` tagged tests
-          every 5 mins in three locations.
-        */
+        /**
+         * Create a check that runs the `@critical` tagged tests
+         * every 5 mins in three locations.
+         */
         logicalId: 'critical-tagged',
         name: 'Critical Tagged tests',
-        pwTags: '@critical', // Reference an existing tag in your tests
+        // Use one project (or multiple projects) defined in your Playwright config
         pwProjects: ['chromium'],
+        // Use one tag (or multiple tags) defined in your spec files
+        pwTags: '@critical',
         frequency: Frequency.EVERY_5M,
         locations: ['us-east-1', 'eu-central-1', 'ap-southeast-2'],
       },
