@@ -532,6 +532,13 @@
     }
   }
 
+  .mega-heading {
+    font-size: 3.65rem;
+    font-weight: 600;
+    line-height: 1.6;
+    width: 75%;
+  }
+
   @include media-breakpoint-down(md) {
     .learn-page {
       padding: .5rem;
@@ -610,6 +617,11 @@
           }
         }
       }
+    }
+
+    .mega-heading {
+      width: 100%;
+      font-size: 2rem;
     }
   }
 
