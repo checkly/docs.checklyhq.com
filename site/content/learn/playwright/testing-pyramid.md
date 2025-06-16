@@ -8,7 +8,7 @@ githubUser: serverless-mom
 tags:
   - basics
 
-weight: 35
+weight: 29
 
 menu:
   learn_playwright:
@@ -203,3 +203,5 @@ Ultimately, the goal is not to rigidly categorize tests but to ensure comprehens
 ## Dive Deeper into the Testing Pyramid with Real World Applications
 
 In a recent Webinar, the Checkly team got to talk about how the Testing Pyramid affects testing strategies for real world applications like React apps. Watch the whole session here:
+
+{{< youtube id="Ev7l5atRfFw" >}}
