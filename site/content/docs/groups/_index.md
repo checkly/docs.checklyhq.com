@@ -13,56 +13,46 @@ aliases:
 
 ---
 
-Groups allow you to organize your checks and centralize settings like base URLs, headers, variables and other properties
-a collection of checks can share. 
+Groups help you organize your checks (e.g. by team or feature) and apply shared configuration such as API defaults, scheduling & location overrides, and other properties.
 
 ![Check group screenshot](/docs/images/groups/group-in-dashboard.png)
 
-Example use cases for groups are organizing your checks around:
+# Creating a check group
 
-- A common URL endpoint
-- A specific team
-- A specific feature in your app
-- A test suite; trigger all checks after a deployment
+By default, newly created check groups behave like folders, with no [group-level configuration](#group-level-configuration) applied. To get started:
 
-> Group-level configurations, such as the runtime, activated & muted state, tags, and alert channels, will override check-level configurations. 
+* **Define a name:** Pick a meaningful name for your group. It helps you and your team identify the group in Checkly and in alerts triggered by failures.
 
-> [!WARNING]
-> Alert settings being controlled at group level means that a check that is part of a group that has no connected alert channels *will not alert*.
+* **Add tags (optional)**: Tags help you relate groups to one another and also determine which checks appear on your [dashboards](/docs/dashboards/).
 
-## Creating a check group
+You can populate a group by moving existing checks into it or by creating new checks directly within the group.
 
-![Check group editor screenshot](/docs/images/groups/group-editor.png)
+# Group level configuration
 
-### Name and tags
-Pick a meaningful name for your group. A meaningful name will not only help you and others identify your group within Checkly, but it will help provide a better alerting experience if checks in this group fall into an alert state. Tags can relate your groups together, they also determine which checks are shown on your [dashboards](/docs/dashboards/).  
-
-### Checks
-Add new or existing checks to this group. If you add an existing check, the group configuration will overwrite certain check configurations, like run locations, retries, and alerting. 
-
-For example, if you create a check that runs in `eu-west-1` but then add it to a group running in `us-east-1`, then the check will run from `us-east-1` only. 
+Groups let you apply shared configuration to standardize how checks behave. Below is a breakdown of each setting and how it affects checks in the group:
 
 ### API checks defaults
-You can set [API check defaults](/docs/groups/api-check-defaults/), including a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/), to help manage API checks.
+You can define [API check defaults](/docs/groups/api-check-defaults/) such as a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/) to manage API checks in your group at scale.
 
 ### Variables
-For configuration information commonly used by checks in this group, create [group environment variables and secrets](/docs/groups/variables/). When checks are scheduled, these will be merged with environment variables at the check and global levels.
+For configuration information commonly used by checks in your group, create [group environment variables and secrets](/docs/groups/variables/). These are merged with variables at the global and check levels when a check runs.
 
-### Scheduling & locations
-Pick from our list of [public](/docs/monitoring/global-locations/) locations or from your [private](/docs/private-locations/) ones. This will override the scheduling strategy (i.e. parallel or round-robin) and location settings for checks in this group. 
+### Scheduling & locations overrides
 
-Checks still run on their own scheduling intervals, but you can specify a default at the group level with the `frequency` property via the [CLI](/docs/cli/constructs-reference/#checkgroup).
+* **Locations:** Select [public](/docs/monitoring/global-locations/) or [private](/docs/private-locations/) locations. This will override the location setting for all checks in your group. For example, if you create a check that runs in `eu-west-1` but add it to a group running in `us-east-1`, the check will run from `us-east-1` only.
 
-### Retries & alerting
+* **Scheduling strategy:** Selecting a [scheduling strategy](/docs/monitoring/global-locations/#scheduling-strategies) will override this setting for all checks in your group. For example, if you create a check that runs in `parallel` but add it to a group running in `round-robin`, the check will run in `round-robin` only.
 
-Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks. This will override retry settings for checks in this group.
+* **Frequency:** Each check in your group runs at its own scheduling interval. However, you can specify a default at the group level with the `frequency` property via the [CLI](/docs/cli/constructs-reference/#checkgroup).
 
-You can configure [alert channels](/docs/alerting-and-retries/alert-channels) for checks in this group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in this group.
+### Retries & alerting overrides
+
+* **Retries:** Select your preferred [retry strategy](/docs/alerting-and-retries/retries/) for failed checks. This will override retry settings for all checks in your group. For example, if you create a check that runs with `fixed` retries but add it to a group running with `linear` retries, the check will run with `linear` retries only.
+
+* **Alert settings:** You can configure [alert channels](/docs/alerting-and-retries/alert-channels) for checks in your group. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. Like with retries, this will override alert settings for checks in your group.
 
 > [!WARNING]
 > Make sure to select an alert channel, otherwise checks in this group *will not alert*.
-
-> Note that some alerting channels, like [SMS](/docs/alerting-and-retries/sms-delivery/) and [Phone call](/docs/alerting-and-retries/phone-calls/) are only available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing/#feature-overview)
 
 ### Testing
 
@@ -72,7 +62,16 @@ You can run checks in this group as [E2E tests](/docs/testing) locally or from y
 
 Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript code in browser checks and setup & teardown scripts. If the checks in this group need a runtime different from your account default, you can set that here.
 
-## How we run grouped checks
+# Adding or removing checks from groups
+
+* **Moving a check into a group:** If the group has [group-level configuration](#group-level-configuration) defined, adding a check may change how it runs. Settings like API defaults, locations & scheduling, or retries & alerting can override or append to the check’s configuration.
+
+* **Removing check from group:** Any [group-level configuration](#group-level-configuration) will no longer apply, and the check will use its own configuration going forward.
+
+> [!WARNING]
+> To prevent issues (e.g. broken references to group variables), the check will be automatically deactivated after being added to or removed from a group. Make sure to review its settings before reactivating.
+
+# How we run grouped checks
 
 It helps to understand how we run the checks in a group, specifically if you're doing more sophisticated checks with shared
 variables, script and alerting channels. Here are the rules:
