@@ -58,7 +58,7 @@ Invoke-WebRequest -Uri "https://www.checklyhq.com/docs/ai/checkly.rules.md" -Out
 Mac and Linux
 
 ```bash
-mkdir -p .cursor/rules && curl -o .cursor/rules/checkly-api-check.md  "https://www.checklyhq.com/docs/ai/checkly.rules.md"
+mkdir -p .cursor/rules && curl -o .cursor/rules/checkly-api-check.mdc  "https://www.checklyhq.com/docs/ai/checkly.rules.md"
 ```
 
 ## Windsurf
