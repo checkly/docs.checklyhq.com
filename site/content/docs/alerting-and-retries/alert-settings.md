@@ -35,11 +35,11 @@ Your alert notifications can be configured at three levels:
 
 3. **Check** level: You can explicitly override the account alert settings per check. Very handy for debugging or other one-off cases.
 
-> If you are using Groups, all the checks in the same Group will share Group-level alert settings.
+> You can select whether group settings will override individual check settings for alerts, retries, scheduling, and location
 
 ![alert settings check / threshold alerting](/docs/images/alerting/alert-settings-check.png)
 
-> Whenever possible, use the alert settings at the account level. This keeps things simple.
+
 
 ### Escalation
 
