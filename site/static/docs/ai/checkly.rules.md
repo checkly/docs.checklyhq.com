@@ -1,7 +1,6 @@
 # Checkly
 
 - Refer to docs for Checkly CLI v6.0.0 and above.
-- To generate the initial setup for Checkly use the command `npm create checkly@latest`
 - Check the Checkly CLI output to figure out into which folder the setup was generated
 - Use the [Checkly CLI reference documentation](https://www.checklyhq.com/docs/cli/command-line-reference)
 - Use the [Checkly construct reference documentation](https://www.checklyhq.com/docs/cli/constructs-reference)
@@ -13,6 +12,11 @@
 - Check in the code if API endpoints require authentication
 - If endpoints require authentication ask the user which authentication method to use and then generate a setupScript to authenticate the given requests
 - Referenced setupScript for ApiChecks must be plain ts files and not export anything
+
+## Installing the Checkly CLI
+
+- Always use `npm create checkly@latest`.
+- Do not make up commands that do not exist.
 
 ## Project Structure
 
