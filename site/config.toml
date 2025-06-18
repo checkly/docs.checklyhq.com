@@ -225,7 +225,7 @@ disqusShortname = "checkly"
 
 [[menu.reference]]
 	name = "llms.txt"
-	url = "/llms.txt"
+	url = "https://checklyhq.com/llms.txt"
 	weight = 210
 
 

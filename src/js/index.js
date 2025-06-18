@@ -68,7 +68,7 @@ document.querySelectorAll('.highlight').forEach((highlightDiv) => attachClickHan
 async function copyCodeToClipboard (button, highlightDiv) {
   const codeToCopy = highlightDiv.querySelector(':last-child > code').innerText
 
-  await copyToClipboardWrapper(codeToCopy, 'copy-code-button--copied', button)
+  await copyToClipboardWrapper(codeToCopy, 'copy-code-button--copied', button, '')
 }
 
 /**
