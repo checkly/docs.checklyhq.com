@@ -34,6 +34,13 @@ link="/docs/terraform-provider/"
 </div>
 
 
+## Get started using AI IDEs and Copilots
+
+Checkly is designed to work with AI IDEs and Copilots. You can use your preferred provider to generate code for API
+Checks, Browser Checks and all other constructs.
+
+{{< markdownpartial "/_shared/ai-ide-copilot-cards.md" >}}
+
 ## Get started using the web UI
 
 Not quite ready to start your monitoring as code journey? No problem. Get started using just the web UI and you'll be
@@ -91,7 +98,7 @@ monitoring in minutes.
  headerTag="h3"
  title="Set up alert channels"
  img="/docs/images/icons/alerting.svg"
- description="Get notified about outages, broken transactions or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack, Pagerduty and Discord."
+ description="Get notified about outages or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack and Pagerduty."
  link="/docs/alerting"
 >}}
 </div>

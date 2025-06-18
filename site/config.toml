@@ -223,6 +223,12 @@ disqusShortname = "checkly"
     url = "https://developers.checklyhq.com"
     weight = 200
 
+[[menu.reference]]
+	name = "llms.txt"
+	url = "/llms.txt"
+	weight = 210
+
+
 [[menu.learn_playwright]]
 	name = "Getting started"
 	pre = "/learn/icons/playwright-logo.svg"

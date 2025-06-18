@@ -1,6 +1,20 @@
-# {{ .Site.Title }}
-
-> {{ .Site.Params.Description }}
+{{- define "link_description" }}
+{{- $sectionPage := .sectionPage -}}
+{{- $sectionPath := .sectionPath -}}
+{{- if $sectionPage }}
+  {{- if and ($sectionPage.Params.navtitle | default $sectionPage.Title) $sectionPage.Permalink }}
+- [{{ $sectionPage.Params.navtitle | default $sectionPage.Title }}]({{ $sectionPage.Permalink }}){{ if $sectionPage.Description }}: {{ $sectionPage.Description }}{{ else if $sectionPage.Params.displayTitle }}: {{$sectionPage.Params.displayTitle}}{{ end }}
+  {{- end }}
+  {{- range $sectionPage.Pages -}}
+    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
+- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ else if .Params.displayTitle }}: {{ .Params.displayTitle }}{{ end }}
+    {{- end -}}
+  {{- end }}
+{{- else }}
+  {{- warnf "Section %s not found." $sectionPath -}}
+{{- end }}
+{{- end -}}
+# Checkly Documentation
 
 Important notes:
 
@@ -17,432 +31,137 @@ Important notes:
 - Make sure to guide the user when setting up a new project, use the `npm create checkly@latest` command to get started
 - To generate the first checks/tests explain the user the available check types and ask them which one they want to use
 - Make sure to only use npm packages in scripts which are available in Checkly runtimes, Checkly doesn't support all npm packages
-- never use the imports in the namespace @checkly. they are outdated. Always import from 'checkly/constructs'
-- make sure that generated test files names match the patterns set in Checkly config file
-- make sure when using environment variables or secrets to store them in Checkly using Checkly's cli
+- Never use the imports in the namespace '@checkly'. they are outdated. Always import from 'checkly/constructs'
+- Make sure that generated test files names match the patterns set in Checkly config file
+- Make sure when using environment variables or secrets to store them in Checkly using Checkly's cli
 
 ## Core Platform
 
 ### Monitoring
+
 {{- $sectionPath := "/docs/monitoring" -}}
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
-{{- if $sectionPage }}
-  {{- if and ($sectionPage.Params.navtitle | default $sectionPage.Title) $sectionPage.Permalink }}
-- [{{ $sectionPage.Params.navtitle | default $sectionPage.Title }}]({{ $sectionPage.Permalink }}){{ if $sectionPage.Description }}: {{ $sectionPage.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath -}}
-{{- end }}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Testing
-{{- $testingPage := .Site.GetPage "/docs/testing" -}}
-{{- if $testingPage }}
-{{- $sectionPath_testing := "/docs/testing" -}}
-{{- $sectionPage_testing := .Site.GetPage $sectionPath_testing -}}
-{{- if $sectionPage_testing }}
-  {{- if and ($sectionPage_testing.Params.navtitle | default $sectionPage_testing.Title) $sectionPage_testing.Permalink }}
-- [{{ $sectionPage_testing.Params.navtitle | default $sectionPage_testing.Title }}]({{ $sectionPage_testing.Permalink }}){{ if $sectionPage_testing.Description }}: {{ $sectionPage_testing.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_testing.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_testing -}}
-{{- end }}
-{{- end }}
+{{- $sectionPath := "/docs/testing" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
+
 
 ### Command Line Interface (CLI)
-{{- $sectionPath_cli := "/docs/cli" -}}
-{{- $sectionPage_cli := .Site.GetPage $sectionPath_cli -}}
-{{- if $sectionPage_cli }}
-  {{- if and ($sectionPage_cli.Params.navtitle | default $sectionPage_cli.Title) $sectionPage_cli.Permalink }}
-- [{{ $sectionPage_cli.Params.navtitle | default $sectionPage_cli.Title }}]({{ $sectionPage_cli.Permalink }}){{ if $sectionPage_cli.Description }}: {{ $sectionPage_cli.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_cli.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_cli -}}
-{{- end }}
+{{- $sectionPath := "/docs/cli" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Traces & OpenTelemetry
-{{- $sectionPath_traces := "/docs/traces-open-telemetry" -}}
-{{- $sectionPage_traces := .Site.GetPage $sectionPath_traces -}}
-{{- if $sectionPage_traces }}
-  {{- if and ($sectionPage_traces.Params.navtitle | default $sectionPage_traces.Title) $sectionPage_traces.Permalink }}
-- [{{ $sectionPage_traces.Params.navtitle | default $sectionPage_traces.Title }}]({{ $sectionPage_traces.Permalink }}){{ if $sectionPage_traces.Description }}: {{ $sectionPage_traces.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_traces.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_traces -}}
-{{- end }}
+{{- $sectionPath := "/docs/traces-open-telemetry" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ## Resources
 
 ### API Checks
-{{- $sectionPath_api := "/docs/api-checks" -}}
-{{- $sectionPage_api := .Site.GetPage $sectionPath_api -}}
-{{- if $sectionPage_api }}
-  {{- if and ($sectionPage_api.Params.navtitle | default $sectionPage_api.Title) $sectionPage_api.Permalink }}
-- [{{ $sectionPage_api.Params.navtitle | default $sectionPage_api.Title }}]({{ $sectionPage_api.Permalink }}){{ if $sectionPage_api.Description }}: {{ $sectionPage_api.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_api.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_api -}}
-{{- end }}
+{{- $sectionPath := "/docs/api-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Browser Checks
-{{- $sectionPath_browser := "/docs/browser-checks" -}}
-{{- $sectionPage_browser := .Site.GetPage $sectionPath_browser -}}
-{{- if $sectionPage_browser }}
-  {{- if and ($sectionPage_browser.Params.navtitle | default $sectionPage_browser.Title) $sectionPage_browser.Permalink }}
-- [{{ $sectionPage_browser.Params.navtitle | default $sectionPage_browser.Title }}]({{ $sectionPage_browser.Permalink }}){{ if $sectionPage_browser.Description }}: {{ $sectionPage_browser.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_browser.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_browser -}}
-{{- end }}
+{{- $sectionPath := "/docs/browser-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Heartbeat Checks
-{{- $sectionPath_heartbeat := "/docs/heartbeat-checks" -}}
-{{- $sectionPage_heartbeat := .Site.GetPage $sectionPath_heartbeat -}}
-{{- if $sectionPage_heartbeat }}
-  {{- if and ($sectionPage_heartbeat.Params.navtitle | default $sectionPage_heartbeat.Title) $sectionPage_heartbeat.Permalink }}
-- [{{ $sectionPage_heartbeat.Params.navtitle | default $sectionPage_heartbeat.Title }}]({{ $sectionPage_heartbeat.Permalink }}){{ if $sectionPage_heartbeat.Description }}: {{ $sectionPage_heartbeat.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_heartbeat.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_heartbeat -}}
-{{- end }}
+{{- $sectionPath := "/docs/heartbeat-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Multistep Checks
-{{- $sectionPath_multistep := "/docs/multistep-checks" -}}
-{{- $sectionPage_multistep := .Site.GetPage $sectionPath_multistep -}}
-{{- if $sectionPage_multistep }}
-  {{- if and ($sectionPage_multistep.Params.navtitle | default $sectionPage_multistep.Title) $sectionPage_multistep.Permalink }}
-- [{{ $sectionPage_multistep.Params.navtitle | default $sectionPage_multistep.Title }}]({{ $sectionPage_multistep.Permalink }}){{ if $sectionPage_multistep.Description }}: {{ $sectionPage_multistep.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_multistep.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_multistep -}}
-{{- end }}
+{{- $sectionPath := "/docs/multistep-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### TCP Checks
-{{- $sectionPath_tcp := "/docs/tcp-checks" -}}
-{{- $sectionPage_tcp := .Site.GetPage $sectionPath_tcp -}}
-{{- if $sectionPage_tcp }}
-  {{- if and ($sectionPage_tcp.Params.navtitle | default $sectionPage_tcp.Title) $sectionPage_tcp.Permalink }}
-- [{{ $sectionPage_tcp.Params.navtitle | default $sectionPage_tcp.Title }}]({{ $sectionPage_tcp.Permalink }}){{ if $sectionPage_tcp.Description }}: {{ $sectionPage_tcp.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_tcp.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_tcp -}}
-{{- end }}
+{{- $sectionPath := "/docs/tcp-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Playwright Check Suites
-{{- $sectionPath_playwright := "/docs/playwright-checks" -}}
-{{- $sectionPage_playwright := .Site.GetPage $sectionPath_playwright -}}
-{{- if $sectionPage_playwright }}
-  {{- if and ($sectionPage_playwright.Params.navtitle | default $sectionPage_playwright.Title) $sectionPage_playwright.Permalink }}
-- [{{ $sectionPage_playwright.Params.navtitle | default $sectionPage_playwright.Title }}]({{ $sectionPage_playwright.Permalink }}){{ if $sectionPage_playwright.Description }}: {{ $sectionPage_playwright.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_playwright.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_playwright -}}
-{{- end }}
+{{- $sectionPath := "/docs/playwright-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Groups
-{{- $sectionPath_groups := "/docs/groups" -}}
-{{- $sectionPage_groups := .Site.GetPage $sectionPath_groups -}}
-{{- if $sectionPage_groups }}
-  {{- if and ($sectionPage_groups.Params.navtitle | default $sectionPage_groups.Title) $sectionPage_groups.Permalink }}
-- [{{ $sectionPage_groups.Params.navtitle | default $sectionPage_groups.Title }}]({{ $sectionPage_groups.Permalink }}){{ if $sectionPage_groups.Description }}: {{ $sectionPage_groups.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_groups.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_groups -}}
-{{- end }}
+{{- $sectionPath := "/docs/groups" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Alerting & Retries
-{{- $sectionPath_alerting := "/docs/alerting-and-retries" -}}
-{{- $sectionPage_alerting := .Site.GetPage $sectionPath_alerting -}}
-{{- if $sectionPage_alerting }}
-  {{- if and ($sectionPage_alerting.Params.navtitle | default $sectionPage_alerting.Title) $sectionPage_alerting.Permalink }}
-- [{{ $sectionPage_alerting.Params.navtitle | default $sectionPage_alerting.Title }}]({{ $sectionPage_alerting.Permalink }}){{ if $sectionPage_alerting.Description }}: {{ $sectionPage_alerting.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_alerting.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_alerting -}}
-{{- end }}
+{{- $sectionPath := "/docs/alerting-and-retries" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Maintenance Windows
-{{- $sectionPath_maintenance := "/docs/maintenance-windows" -}}
-{{- $sectionPage_maintenance := .Site.GetPage $sectionPath_maintenance -}}
-{{- if $sectionPage_maintenance }}
-  {{- if and ($sectionPage_maintenance.Params.navtitle | default $sectionPage_maintenance.Title) $sectionPage_maintenance.Permalink }}
-- [{{ $sectionPage_maintenance.Params.navtitle | default $sectionPage_maintenance.Title }}]({{ $sectionPage_maintenance.Permalink }}){{ if $sectionPage_maintenance.Description }}: {{ $sectionPage_maintenance.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_maintenance.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_maintenance -}}
-{{- end }}
+{{- $sectionPath := "/docs/maintenance-windows" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Dashboards
-{{- $sectionPath_dashboards := "/docs/dashboards" -}}
-{{- $sectionPage_dashboards := .Site.GetPage $sectionPath_dashboards -}}
-{{- if $sectionPage_dashboards }}
-  {{- if and ($sectionPage_dashboards.Params.navtitle | default $sectionPage_dashboards.Title) $sectionPage_dashboards.Permalink }}
-- [{{ $sectionPage_dashboards.Params.navtitle | default $sectionPage_dashboards.Title }}]({{ $sectionPage_dashboards.Permalink }}){{ if $sectionPage_dashboards.Description }}: {{ $sectionPage_dashboards.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_dashboards.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_dashboards -}}
-{{- end }}
+{{- $sectionPath := "/docs/dashboards" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Status Pages
-{{- $sectionPath_status := "/docs/status-pages" -}}
-{{- $sectionPage_status := .Site.GetPage $sectionPath_status -}}
-{{- if $sectionPage_status }}
-  {{- if and ($sectionPage_status.Params.navtitle | default $sectionPage_status.Title) $sectionPage_status.Permalink }}
-- [{{ $sectionPage_status.Params.navtitle | default $sectionPage_status.Title }}]({{ $sectionPage_status.Permalink }}){{ if $sectionPage_status.Description }}: {{ $sectionPage_status.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_status.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_status -}}
-{{- end }}
+{{- $sectionPath := "/docs/status-pages" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Accounts & Users
-{{- $sectionPath_accounts := "/docs/accounts-and-users" -}}
-{{- $sectionPage_accounts := .Site.GetPage $sectionPath_accounts -}}
-{{- if $sectionPage_accounts }}
-  {{- if and ($sectionPage_accounts.Params.navtitle | default $sectionPage_accounts.Title) $sectionPage_accounts.Permalink }}
-- [{{ $sectionPage_accounts.Params.navtitle | default $sectionPage_accounts.Title }}]({{ $sectionPage_accounts.Permalink }}){{ if $sectionPage_accounts.Description }}: {{ $sectionPage_accounts.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_accounts.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_accounts -}}
-{{- end }}
+{{- $sectionPath := "/docs/accounts-and-users" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Private Locations
-{{- $sectionPath_private := "/docs/private-locations" -}}
-{{- $sectionPage_private := .Site.GetPage $sectionPath_private -}}
-{{- if $sectionPage_private }}
-  {{- if and ($sectionPage_private.Params.navtitle | default $sectionPage_private.Title) $sectionPage_private.Permalink }}
-- [{{ $sectionPage_private.Params.navtitle | default $sectionPage_private.Title }}]({{ $sectionPage_private.Permalink }}){{ if $sectionPage_private.Description }}: {{ $sectionPage_private.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_private.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_private -}}
-{{- end }}
+{{- $sectionPath := "/docs/private-locations" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Reporting
-{{- $sectionPath_reporting := "/docs/reporting" -}}
-{{- $sectionPage_reporting := .Site.GetPage $sectionPath_reporting -}}
-{{- if $sectionPage_reporting }}
-  {{- if and ($sectionPage_reporting.Params.navtitle | default $sectionPage_reporting.Title) $sectionPage_reporting.Permalink }}
-- [{{ $sectionPage_reporting.Params.navtitle | default $sectionPage_reporting.Title }}]({{ $sectionPage_reporting.Permalink }}){{ if $sectionPage_reporting.Description }}: {{ $sectionPage_reporting.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_reporting.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_reporting -}}
-{{- end }}
+{{- $sectionPath := "/docs/reporting" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Analytics
-{{- $sectionPath_analytics := "/docs/analytics" -}}
-{{- $sectionPage_analytics := .Site.GetPage $sectionPath_analytics -}}
-{{- if $sectionPage_analytics }}
-  {{- if and ($sectionPage_analytics.Params.navtitle | default $sectionPage_analytics.Title) $sectionPage_analytics.Permalink }}
-- [{{ $sectionPage_analytics.Params.navtitle | default $sectionPage_analytics.Title }}]({{ $sectionPage_analytics.Permalink }}){{ if $sectionPage_analytics.Description }}: {{ $sectionPage_analytics.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_analytics.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_analytics -}}
-{{- end }}
+{{- $sectionPath := "/docs/analytics" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Runtimes
-{{- $sectionPath_runtimes := "/docs/runtimes" -}}
-{{- $sectionPage_runtimes := .Site.GetPage $sectionPath_runtimes -}}
-{{- if $sectionPage_runtimes }}
-  {{- if and ($sectionPage_runtimes.Params.navtitle | default $sectionPage_runtimes.Title) $sectionPage_runtimes.Permalink }}
-- [{{ $sectionPage_runtimes.Params.navtitle | default $sectionPage_runtimes.Title }}]({{ $sectionPage_runtimes.Permalink }}){{ if $sectionPage_runtimes.Description }}: {{ $sectionPage_runtimes.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_runtimes.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_runtimes -}}
-{{- end }}
-
-### Snippets
-{{- $sectionPath_snippets := "/docs/snippets" -}}
-{{- $sectionPage_snippets := .Site.GetPage $sectionPath_snippets -}}
-{{- if $sectionPage_snippets }}
-  {{- if and ($sectionPage_snippets.Params.navtitle | default $sectionPage_snippets.Title) $sectionPage_snippets.Permalink }}
-- [{{ $sectionPage_snippets.Params.navtitle | default $sectionPage_snippets.Title }}]({{ $sectionPage_snippets.Permalink }}){{ if $sectionPage_snippets.Description }}: {{ $sectionPage_snippets.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_snippets.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_snippets -}}
-{{- end }}
+{{- $sectionPath := "/docs/runtimes" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ## Integrations
 
 ### Integrations Overview
-{{- $sectionPath_integrations := "/docs/integrations" -}}
-{{- $sectionPage_integrations := .Site.GetPage $sectionPath_integrations -}}
-{{- if $sectionPage_integrations }}
-  {{- if and ($sectionPage_integrations.Params.navtitle | default $sectionPage_integrations.Title) $sectionPage_integrations.Permalink }}
-- [{{ $sectionPage_integrations.Params.navtitle | default $sectionPage_integrations.Title }}]({{ $sectionPage_integrations.Permalink }}){{ if $sectionPage_integrations.Description }}: {{ $sectionPage_integrations.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_integrations.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_integrations -}}
-{{- end }}
+{{- $sectionPath := "/docs/integrations" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### CI/CD Integration
-{{- $sectionPath_cicd := "/docs/cicd" -}}
-{{- $sectionPage_cicd := .Site.GetPage $sectionPath_cicd -}}
-{{- if $sectionPage_cicd }}
-  {{- if and ($sectionPage_cicd.Params.navtitle | default $sectionPage_cicd.Title) $sectionPage_cicd.Permalink }}
-- [{{ $sectionPage_cicd.Params.navtitle | default $sectionPage_cicd.Title }}]({{ $sectionPage_cicd.Permalink }}){{ if $sectionPage_cicd.Description }}: {{ $sectionPage_cicd.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_cicd.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_cicd -}}
-{{- end }}
+{{- $sectionPath := "/docs/cicd" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Terraform Provider
-{{- $sectionPath_terraform := "/docs/terraform-provider" -}}
-{{- $sectionPage_terraform := .Site.GetPage $sectionPath_terraform -}}
-{{- if $sectionPage_terraform }}
-  {{- if and ($sectionPage_terraform.Params.navtitle | default $sectionPage_terraform.Title) $sectionPage_terraform.Permalink }}
-- [{{ $sectionPage_terraform.Params.navtitle | default $sectionPage_terraform.Title }}]({{ $sectionPage_terraform.Permalink }}){{ if $sectionPage_terraform.Description }}: {{ $sectionPage_terraform.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_terraform.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_terraform -}}
-{{- end }}
+{{- $sectionPath := "/docs/terraform-provider" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ### Pulumi Provider
-{{- $sectionPath_pulumi := "/docs/pulumi-provider" -}}
-{{- $sectionPage_pulumi := .Site.GetPage $sectionPath_pulumi -}}
-{{- if $sectionPage_pulumi }}
-  {{- if and ($sectionPage_pulumi.Params.navtitle | default $sectionPage_pulumi.Title) $sectionPage_pulumi.Permalink }}
-- [{{ $sectionPage_pulumi.Params.navtitle | default $sectionPage_pulumi.Title }}]({{ $sectionPage_pulumi.Permalink }}){{ if $sectionPage_pulumi.Description }}: {{ $sectionPage_pulumi.Description }}{{ end }}
-  {{- end }}
-  {{- range $sectionPage_pulumi.Pages -}}
-    {{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-    {{- end -}}
-  {{- end }}
-{{- else }}
-  {{- warnf "Section %s not found." $sectionPath_pulumi -}}
-{{- end }}
-
-## Guides
-{{- range sort (where (where .Site.AllPages "Section" "guides") "Kind" "page") ".Params.navtitle | default .Title" "asc" -}}
-{{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-{{- end -}}
-{{- end }}
-
-## Learning Resources
-{{- range sort (where (where .Site.AllPages "Section" "learn") "Kind" "page") ".Params.navtitle | default .Title" "asc" -}}
-{{- if and (.Params.navtitle | default .Title) .Permalink (ne .File.LogicalName "_index.md") }}
-- [{{ .Params.navtitle | default .Title }}]({{ .Permalink }}){{ if .Description }}: {{ .Description }}{{ end }}
-{{- end -}}
-{{- end }}
+{{- $sectionPath := "/docs/pulumi-provider" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
 ## API Reference
 

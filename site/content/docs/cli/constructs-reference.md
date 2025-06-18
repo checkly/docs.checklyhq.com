@@ -363,7 +363,11 @@ See the [`TcpAssertionBuilder` reference](#tcpassertionbuilder).
 
 ### `TcpAssertionBuilder`
 
-To define `assertions` for the `request` of an `TcpCheck` you should use the `TcpAssertionBuilder`. 
+To define `assertions` for the `request` of an `TcpCheck` you should use the `TcpAssertionBuilder`. The `TcpAssertionBuilder`
+has the following properties:
+
+- `responseTime()`: Assert the total response time of the TCP request.
+- `responseData()`: Assert the value in the response data.
 
  Here are some examples:
 

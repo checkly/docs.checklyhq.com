@@ -62,6 +62,13 @@ Open up [your Checkly dashboard](https://app.checklyhq.com) and you should see y
 
 For a custom installation check out [our installation docs](/docs/cli/installation/)
 
+## Using AI IDEs and Copilots
+
+Checkly is designed to work with AI IDEs and Copilots. You can use your preferred provider to generate code for API 
+Checks, Browser Checks and all other constructs.
+
+{{< markdownpartial "/_shared/ai-ide-copilot-cards.md" >}}
+
 ## Integrating with CI/CD
 
 After kicking the tires, you should delegate the testing and deploying of your checks to your CI/CD pipeline. Check our
