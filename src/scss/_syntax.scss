@@ -199,6 +199,7 @@
   }
 
   &.copy-code-button--copied {
+    color: $gray-light;
     &:after {
       background-color: $green;
       mask: url(/images/icons/check.svg) no-repeat;
