@@ -42,7 +42,7 @@ curl https://api.checklyhq.com/v1/static-ips.txt
 curl https://api.checklyhq.com/v1/static-ipv6s
 ```
 
-5. A JSON object with regions as keys and an IPv6 as value.
+5. A JSON object with regions as keys and arrays of all IPv6s of that region as the value
 
 ```bash
 curl https://api.checklyhq.com/v1/static-ipv6s-by-region
