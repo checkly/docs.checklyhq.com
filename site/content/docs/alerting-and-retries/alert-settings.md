@@ -29,17 +29,13 @@ Your alert notifications can be configured at three levels:
 
 ![alert settings account / threshold alerting](/docs/images/alerting/alert-settings.png)
 
-2. **Group** level: You can explicitly override the alert settings at the group level.
+2. **Group** level: You can explicitly override the alert settings at the group level. If defined, these settings override the alert configuration of all checks in the group. If not, each check uses its own alert settings.
 
 ![alert settings group / threshold alerting](/docs/images/alerting/alert-settings-group.png)
 
-3. **Check** level: You can explicitly override the account alert settings per check. Very handy for debugging or other one-off cases.
-
-> If you are using Groups, all the checks in the same Group will share Group-level alert settings.
+3. **Check** level: You can explicitly override the account alert settings per check. Very handy for debugging or other one-off cases. Note: this only works if no alert settings are defined at the group level.
 
 ![alert settings check / threshold alerting](/docs/images/alerting/alert-settings-check.png)
-
-> Whenever possible, use the alert settings at the account level. This keeps things simple.
 
 ### Escalation
 
