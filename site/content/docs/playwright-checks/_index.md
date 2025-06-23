@@ -146,7 +146,7 @@ Detailed session summary at: https://chkly.link/...
 
 The CLI command will then return a link leading to results, traces and more details.
 
-## 5. Deploy your Playwright Check Suites
+### 5. Deploy your Playwright Check Suites
 
 If your Playwright monitoring passes and you are ready to start monitoring your applications with your Playwright tests, transform your Playwright Check Suite into global monitoring with `npx checkly deploy`.
 
@@ -160,7 +160,7 @@ Successfully deployed project "playwright-check-suite" to account "Checkly E2E P
 
 Once deployed, your checks will run on a schedule and results will appear in your [home dashboard](https://app.checklyhq.com/).
 
-## 6. Set up Alerts
+### 6. Set up Alerts
 
 Configure alert channels and alert groups to get notified when checks fail. You can receive alerts via email, Slack, webhooks, and more.
 
