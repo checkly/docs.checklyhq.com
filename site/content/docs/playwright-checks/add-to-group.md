@@ -41,7 +41,7 @@ export const myGroup = new CheckGroup('production-group', {
 
 Learn more about [using groups](https://www.checklyhq.com/docs/cli/constructs-reference/#checkgroup) to unify checks in Checkly.
 
-## 2. Associate the group to the check
+### 2. Associate the group to the check
 
 When specifying your Playwright Check Suite, you can reference the new or existing group, using its name:
 
@@ -72,7 +72,7 @@ When specifying your Playwright Check Suite, you can reference the new or existi
   export default config
   ```
 
-## 3. Deploy to apply the changes
+### 3. Deploy to apply the changes
 
 ```bash {title="Terminal"}
   npx checkly deploy --preview #confirm what will be deployed
