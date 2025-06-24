@@ -114,29 +114,34 @@ disqusShortname = "checkly"
 	weight = 35
 
 [[menu.resources]]
+	name = "HTTP checks"
+	url = "/docs/http-checks/"
+	weight = 40
+
+[[menu.resources]]
 	name = "Multistep checks"
 	url = "/docs/multistep-checks/"
-	weight = 40
+	weight = 45
 
 [[menu.resources]]
 	name = "TCP checks"
 	url = "/docs/tcp-checks/"
-	weight = 45
+	weight = 50
 
 [[menu.resources]]
 	name = "Playwright Check Suites (Beta)"
 	url = "/docs/playwright-checks/"
-	weight = 50
+	weight = 55
 
 [[menu.resources]]
 	name = "Groups"
 	url = "/docs/groups/"
-	weight = 55
+	weight = 60
 
 [[menu.resources]]
 	name = "Alerting & retries"
 	url = "/docs/alerting/"
-	weight = 60
+	weight = 65
 
 [[menu.resources]]
 	name = "Maintenance windows"
