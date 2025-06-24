@@ -150,6 +150,38 @@ The state indicates when your scheduled job pinged the Heartbeat monitor, relati
 
 The source shows where your ping originated, determined by the `origin` and `referer` request headers. [Learn more about configuring the ping source](/docs/heartbeat-monitors/#pinging-your-heartbeat-monitor).
 
+## HTTP check results
+
+HTTP check results will expose key performance and correctness data about the HTTP response received from the target endpoint.
+
+![http check results detail page](/docs/images/monitoring/check-results-http.png)
+
+These include:
+
+1. The request performed
+2. Any assertions that were included in the check
+3. All data related to the request and its response, such as
+
+    a. Response body
+
+    b. Request & response headers
+
+    c. Query params
+
+    d. Check job log
+
+4. Timings, such as
+
+    a. Wait
+
+    b. DNS
+
+    c. TCP
+
+    d. First Byte
+
+    e. Download
+
 ## Multistep check results
 
 Multistep check results are navigated using the tree on the left side of the screen. If you are running checks in parallel, first select the location you are interested in.
