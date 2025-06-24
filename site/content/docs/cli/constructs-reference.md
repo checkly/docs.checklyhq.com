@@ -301,6 +301,124 @@ new MultiStepCheck('multistep-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
+## `HttpCheck`
+
+HTTP Checks are great to monitor the availability, performance, and correctness of HTTP based endpoints such as REST APIs, GraphQL APIs, and web services. The example below shows the following:
+
+- It defines the basic Check properties like `name`, `activated` etc.
+- It defines the HTTP method `GET`, `url` and the `body`
+- It sets an extra header in the `headers` array.
+- It sets an extra parameter in the `queryParameters` array, although you could add that to the URL directly too.
+- It defines an array of assertions using the `AssertionBuilder` to assert that:
+  - the HTTP response status is `200`
+  - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
+  - the `strict-transport-security` response header's `max-age` property has a value greater than 100000.
+
+The file hierarchy looks as follows:
+
+```
+├── __checks__
+│   ├── hello-http.check.ts
+```
+
+```ts {title="hello-http.check.ts"}
+import { HttpCheck, AssertionBuilder } from 'checkly/constructs'
+import * as path from 'path'
+
+new HttpCheck('hello-http-1', {
+  name: 'Hello HTTP',
+  activated: true,
+  maxResponseTime: 10000,
+  degradedResponseTime: 5000,
+  request: {
+    method: 'GET',
+    url: 'https://httpbin.org/get',
+    body: JSON.stringify({
+      name: 'checkly'
+    }),
+    skipSSL: false,
+    followRedirects: true,
+    headers: [
+      {
+        key: 'X-My-Header',
+        value: 'My custom header value'
+      }
+    ],
+    queryParameters: [
+      {
+        key: 'myParam',
+        value: 'true'
+      }
+    ],
+    assertions: [
+        AssertionBuilder.statusCode().equals(200),
+        AssertionBuilder.jsonBody('$.name').notEmpty(),
+        AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
+    ]
+  }
+})
+```
+
+- `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
+- `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
+- `request`: An object of the `Request` type. See the [`Request` reference](#request).
+
+### `Request`
+
+The `request` object is a mandatory part of an HTTP check.
+
+- `url`: A string for the target URL.
+- `method`: The HTTP method as a string, i.e. `GET | POST | PUT | PATCH | HEAD | DELETE | OPTIONS`
+- `body`: A string for HTTP request body.
+- `bodyType`: A string indicating the type of body. Options are `JSON | FORM | RAW | GRAPHQL | NONE`. This property is mostly
+for rendering the body type in the web UI and not needed in most cases using the CLI.
+- `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
+- `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
+- `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
+- `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
+- `basicAuth`: An object of the shape `{ username: 'admin', password: 'admin' }` to set basic auth credentials.
+- `assertions`: An array of assertions to validate status codes, response bodies and much more.
+
+See the [`AssertionBuilder` reference](#assertionbuilder).
+
+### `AssertionBuilder`
+
+To define `assertions` for the `request` of an `HttpCheck` you should use the `AssertionBuilder`. The `AssertionBuilder` provides a fluent
+API for the otherwise slightly cryptic JSON object that the CLI passes to the Checkly API. Here are some examples:
+
+- Asserting an HTTP status code.
+
+```ts
+AssertionBuilder.statusCode().equals(200)
+// renders to a JSON string
+"{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
+```
+
+- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path](/docs/api-checks/assertions/#json-responses-with-json-path).
+
+```ts
+AssertionBuilder.jsonBody('$.data').greaterThan(2000),
+// renders to a JSON string
+"{ source: 'JSON_BODY', regex: '', property: '$.data', comparison: 'GREATER_THAN', target: '2000' }"
+```
+
+- Asserting the value of a part of an HTTP response header. Note that you can pass in a regex as the second argument.
+
+```ts
+AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
+// renders to a JSON string
+"{ source: 'HEADERS', regex: 'max-age=(\d+)', property: 'strict-transport-security', comparison: 'GREATER_THAN', target: '100000' }"
+```
+
+The `AssertionBuilder` defines the following sources as an entry to building an assertion.
+
+- `statusCode()`: Assert the HTTP status code for the HTTP request, e.g. `200` or `404`.
+- `jsonBody(property?)`: Assert the JSON response body. Accepts a [JSON path expression](/docs/api-checks/assertions/#json-responses-with-json-path) as the `property` argument.
+- `textBody()`: Assert the body as raw text.
+- `headers(propery?, regex?)`: Assert a set of response headers, takes the header name as the `property` argument and a `regex` to tease out a string from the header value.
+- `responseTime()`: Assert the total response time of the HTTP request.
+
+Read more about assertions in [our docs on API check assertions](/docs/api-checks/assertions/).
 
 ## `TcpCheck`
 
@@ -311,7 +429,6 @@ TCP Checks are ideal for monitoring services and protocols that use TCP, such as
 - It defines an array of assertions using the `TcpAssertionBuilder` to assert that:
   - the total response time is within the given limit
   - the response contains the provided value
-
 
 The file hierarchy looks as follows:
 
@@ -340,6 +457,7 @@ new TcpCheck('hello-tcp-1', {
   }
 })
 ```
+
 - `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
 - `request`: An object of the `TcpRequest` type. See the [`TcpRequest` reference](#tcprequest).
@@ -347,8 +465,6 @@ new TcpCheck('hello-tcp-1', {
 
 > [!NOTE]
 > Failing assertions will cause the check to fail, regardless of the `shouldFail` value
-
-
 
 ### `TcpRequest`
 
@@ -380,6 +496,7 @@ TcpAssertionBuilder.responseTime().lessThan(1000),
 ```
 
 - Asserting the value in the response.
+
 ```ts
 TcpAssertionBuilder.responseData().contains('ping')
 // renders to a JSON string
