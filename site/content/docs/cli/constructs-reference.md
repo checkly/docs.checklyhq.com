@@ -333,9 +333,6 @@ new HttpCheck('hello-http-1', {
   request: {
     method: 'GET',
     url: 'https://httpbin.org/get',
-    body: JSON.stringify({
-      name: 'checkly'
-    }),
     skipSSL: false,
     followRedirects: true,
     headers: [
@@ -352,7 +349,6 @@ new HttpCheck('hello-http-1', {
     ],
     assertions: [
         AssertionBuilder.statusCode().equals(200),
-        AssertionBuilder.jsonBody('$.name').notEmpty(),
         AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
     ]
   }
