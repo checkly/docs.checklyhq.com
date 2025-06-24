@@ -76,6 +76,11 @@ Important notes:
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
+### HTTP Checks
+{{- $sectionPath := "/docs/http-checks" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
+
 ### Multistep Checks
 {{- $sectionPath := "/docs/multistep-checks" -}}
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
