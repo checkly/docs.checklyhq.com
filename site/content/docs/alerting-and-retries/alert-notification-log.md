@@ -30,10 +30,11 @@ sent etc.
 
 ## Known limitations
 
-There are some limits to what notification deliveries we can track currently.
+There are some limits to how we track notifications currently.
 
 1. SMS delivery can not be tracked up to your phone correctly receiving the SMS. We currently only track if our SMS 
 provider ([AWS SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-phone-number-as-subscriber.html)) has correctly 
 received our request to send the SMS.
 2. Email delivery is tracked up to our request to our email provider. We use [Postmark](https://postmarkapp.com/) to send our emails.
 3. Many alert channels are retried transparently: we only show you the result of the last retry.
+4. SSL certificate expiration alerts are not shown in the notification log.

@@ -109,7 +109,7 @@ export const groupPreview = new CheckGroup('group-browser-preview', {
   name: 'WebShop - Preview',
   activated: true,
   muted: false,
-  runtimeId: '2023.09',
+  runtimeId: '2025.04',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'preview'],
   // You can use group-level environment vars to point each group's checks to the right target URL
@@ -123,7 +123,7 @@ export const groupProd = new CheckGroup('group-browser-prod', {
   name: 'WebShop - Production',
   activated: true,
   muted: false,
-  runtimeId: '2023.09',
+  runtimeId: '2025.04',
   locations: ['us-east-1', 'eu-west-1'],
   tags: ['mac', 'production'],
   // You can use group-level environment vars to point each group's checks to the right target URL

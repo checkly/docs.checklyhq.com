@@ -26,7 +26,7 @@ export default defineConfig({
   checks: {
     activated: true,
     muted: false,
-    runtimeId: '2022.10',
+    runtimeId: '2025.04',
     frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
@@ -51,7 +51,7 @@ export default defineConfig({
 - `repoUrl`: An optional URL to a Git repository.
 
 - `checks`: Top-level defaults for all Checks in this Project. If not overridden at the Check or CheckGroup level, these
-settings apply to your Checks. Takes all [Check properties](#check)
+settings apply to your Checks. Takes all [Check properties](#check).
   - `checkMatch`: A glob pattern where the CLI should look for files containing Check constructs. For more info check [the
     dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
   - `ignoreDirectoriesMatch`: An array of glob patterns which directories should be ignored by the `checkMatch` property.
@@ -289,7 +289,7 @@ import * as path from 'path'
 
 new MultiStepCheck('multistep-check-1', {
   name: 'Multistep Check #1',
-  runtimeId: '2023.09',
+  runtimeId: '2025.04',
   frequency: Frequency.EVERY_10M,
   locations: ['us-east-1', 'eu-west-1'],
   code: {
@@ -939,7 +939,7 @@ new ApiCheck('local-api-1', {
 ## `RetryStrategy`
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
-Retry strategies can be added to [Check](#check) and [CheckGroup](#checkgroup) constructs.
+Retry strategies can be set at the [check](#check), [check group](#checkgroup), and [project](#project) levels.
 [Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
