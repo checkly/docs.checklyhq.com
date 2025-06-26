@@ -56,6 +56,7 @@ You can define a TCP check via the CLI. For example:
 
 {{< tabs "CLI example" >}}
 {{< tab "TypeScript" >}}
+
 ```ts {title="hello-tcp.check.ts"}
 import { TcpCheck, TcpAssertionBuilder } from 'checkly/constructs'
 
@@ -73,8 +74,10 @@ new TcpCheck('hello-tcp-1', {
   }
 })
 ```
+
 {{< /tab >}}
 {{< tab "JavaScript" >}}
+
 ```js {title="hello-tcp.check.js"}
 const { TcpCheck, TcpAssertionBuilder } = require('checkly/constructs')
 
@@ -92,18 +95,20 @@ new TcpCheck('hello-tcp-1', {
   }
 })
 ```
+
 {{< /tab >}}
 {{< /tabs >}}
 
 The above example defines:
-- The basic check properties like `name`, `activated` etc.
-- The `hostname` and `port` of the request, and the `data` to send.
-- An array of assertions to assert the response is correct.
+
+* The basic check properties like `name`, `activated` etc.
+* The `hostname` and `port` of the request, and the `data` to send.
+* An array of assertions to assert the response is correct.
 
 For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
 
 ## Next steps
 
-- Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
-- Analyze your [TCP check run results](/docs/monitoring/check-results#tcp-check-results).
-- Understand [pricing and billing](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs) for TCP checks.
+* Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
+* Analyze your [TCP check run results](/docs/monitoring/check-results#tcp-check-results).
+* Understand [pricing and billing](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs) for TCP checks.
