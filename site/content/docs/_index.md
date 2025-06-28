@@ -46,7 +46,18 @@ Checks, Browser Checks and all other constructs.
 Not quite ready to start your monitoring as code journey? No problem. Get started using just the web UI and you'll be
 monitoring in minutes.
 
+### Synthetic Checks
+Checkly synthetic checks are automated end to end tests that simulate user interactions or API requests to monitor the performance and availability of web applications and services.
+
 <div class="cards-list">
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+	  title="Create a Playwright check suite (Beta)"
+	  img="/docs/images/icons/playwright-check.svg"
+	  description="Use your existing Playwright tests as live, scheduled monitoring checks to verify functionality, performance, and reliability from different locations"
+	  link="/docs/playwright-checks/"
+>}}
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
@@ -54,14 +65,6 @@ monitoring in minutes.
 	  img="/docs/images/icons/browser-checks.svg"
 	  description="Use TS / JS with @playwright/test and Headless browsers to navigate, screenshot and assert your key webapp flows."
 	  link="/docs/browser-checks/"
->}}
-{{< doc-card
-	  class="two-column-card"
-	  headerTag="h3"
-	  title="Create an API check"
-	  img="/docs/images/icons/api.svg"
-	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything."
-	  link="/docs/api-checks"
 >}}
 </div>
 
@@ -77,7 +80,29 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-    title="Create a TCP check"
+	  title="Create an API check"
+	  img="/docs/images/icons/api.svg"
+	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything with setups and teardowns"
+	  link="/docs/api-checks"
+>}}
+</div>
+
+### Uptime Monitors 
+Use Uptime monitors to regularly check if a website, port, or service is available and responding as expected.
+
+<div class="cards-list">
+{{< doc-card
+   class="two-column-card"
+   headerTag="h3"
+   title="Create a URL monitor"
+   img="/docs/images/icons/http.svg"
+   description="Monitor HTTP available resources to verify that the website or service is online and returning the expected response."
+   link="/docs/http-checks/"
+>}}
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
+    title="Create a TCP monitor"
     img="/docs/images/icons/tcp.svg"
     description="Monitor the availability and performance of your TCP services by establishing TCP connections and verifying the response."
     link="/docs/tcp-checks/"
@@ -88,18 +113,24 @@ monitoring in minutes.
 {{< doc-card
    class="two-column-card"
    headerTag="h3"
-   title="Create a Heartbeat check"
+   title="Create a Heartbeat monitor"
    img="/docs/images/icons/heartbeats-check-stroked.svg"
    description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
    link="/docs/heartbeat-checks/"
 >}}
+</div>
+
+### Create alert channels
+Alert channels are communication methods, such as email, SMS, Phone Calls, or chat apps, used to quickly notify teams about incidents so they can respond and resolve issues swiftly.
+
+<div class="cards-list">
 {{< doc-card
- class="two-column-card"
- headerTag="h3"
- title="Set up alert channels"
- img="/docs/images/icons/alerting.svg"
- description="Get notified about outages or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack and Pagerduty."
- link="/docs/alerting"
+	class="full-width-card"
+	headerTag="h3"
+	title="Set up alert channels"
+	img="/docs/images/icons/alerting.svg"
+	description="Get notified about outages, broken transactions or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack, Pagerduty and Discord."
+	link="/docs/alerting"
 >}}
 </div>
 
