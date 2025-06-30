@@ -47,7 +47,6 @@ There are no dependency changes required if you rely on private packages or a cu
 }
 ```
 
-However, relying on private dependencies needs additional configuration.
 
 Regardless of whether you use private packages or a custom registry, the Checkly infrastructure needs to authenticate with your provider to `install` your private source code.
 
