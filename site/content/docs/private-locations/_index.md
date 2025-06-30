@@ -89,3 +89,11 @@ new ApiCheck('hello-api-1', {
 If a private location has had no Checkly agents connected for more than 10 minutes, it will be flagged as unavailable. Checkly will email account owners and admins that the location has become unavailable.
 
 While a location is unavailable, no checks will be scheduled to run on it. When a location becomes available, check scheduling and execution will resume automatically.
+
+## Using Playwright Check Suites in private locations
+
+We recommend to update the Checkly agent regularly. 
+
+* [Playwright Check Suites](/docs/playwright-checks/) are available in private locations since Checkly Agent `6.0.3`.
+
+Please use a minimum container size of 2 CPU cores and 4 GB of RAM when running Playwright Check Suites.
