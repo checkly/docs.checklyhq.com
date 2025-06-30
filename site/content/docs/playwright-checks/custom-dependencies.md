@@ -37,7 +37,7 @@ However, if an alternative lock file (`pnpm-lock.json` or `yarn.lock`) is discov
 
 ## Using private dependencies
 
-There are no dependency changes required if you rely on private packages or a custom package registry. The Checkly CLI detects existing private `package.json` dependencies just fine.
+There are no dependency changes required if you rely on private packages or a custom package registry. The Checkly CLI detects your existing private `package.json` dependencies and installs those using the credentials provided.
 
 ```json {title="package.json"}
 {
