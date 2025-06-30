@@ -29,6 +29,7 @@ You can add as many phone number channels as you like.
 | France (+33)                |
 | Germany (+49)               |
 | India (+91)                 |
+| Israel (+972)               |
 | Lithuania (+370)            |
 | Malta (+356)                |
 | Netherlands (+31)           |

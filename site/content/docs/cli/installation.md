@@ -45,7 +45,7 @@ export default defineConfig({
   checks: {
     activated: true,
     muted: false,
-    runtimeId: '2022.10',
+    runtimeId: '2025.04',
     frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],
@@ -71,7 +71,7 @@ const config = {
   checks: {
     activated: true,
     muted: false,
-    runtimeId: '2022.10',
+    runtimeId: '2025.04',
     frequency: Frequency.EVERY_5M,
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website', 'api'],

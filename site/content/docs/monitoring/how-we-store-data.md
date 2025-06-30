@@ -22,8 +22,8 @@ Depending on your plan we keep the results data according to the following reten
 
 |                               | Hobby            | Team             | Enterprise       |
 |-------------------------------|------------------|------------------|------------------|
-| **Raw data retention**        | 7                | 30               | 180              |
-| **Aggregated data retention** | 30               | 1 year           | 25 months        |
+| **Raw data retention**        | 7 days           | 30 days          | 180 days         |
+| **Aggregated data retention** | 30 days          | 1 year           | 25 months        |
 
 
 Simply put, you can "scroll back" within the defined period for raw data and inspect all the details of each result. After that, we store aggregates

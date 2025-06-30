@@ -353,10 +353,12 @@ We will be creating a POST request to `{{JIRA_INSTANCE_URL}}/rest/api/3/issue`, 
 The required headers will be:
 
 ```
-Authorization: <YOUR_JIRA_BASIC_AUTH>
+Authorization: Basic <base64 encoded user_email:api_token_string>
 Accept: application/json
 Content-Type: application/json
 ```
+
+For more details on authenticating with the Jira API, refer to [Atlassian's guide on basic authentication](https://developer.atlassian.com/cloud/jira/software/basic-auth-for-rest-apis/).
 
 An example body could look as follows:
 
