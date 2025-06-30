@@ -13,7 +13,7 @@ Playwright Check Suites let you take your existing Playwright tests and turn the
 
 ## Using JavaScript/Node.js dependencies
 
-Whether you use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), or [pnpm](https://pnpm.io/); Checkly reuses your existing `package.json` and lock files to install the correct `devDependencies` and prepare your testing and monitoring environment.
+Whether you use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), or [pnpm](https://pnpm.io/); Checkly uses your existing `package.json` and lock files to install the correct `devDependencies` and prepare your testing and monitoring environment.
 
 ```json {title="package.json"}
 {
