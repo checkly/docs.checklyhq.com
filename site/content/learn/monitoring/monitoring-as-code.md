@@ -14,7 +14,7 @@ menu:
 weight: 31
 ---
 
-Synthetic monitoring is a proven practice for ensuring reliability of applications and services in production. It excels at proactively discovering issues that affect real users, which is why companies—from startups to Fortune 500—rely on it to enhance their user experience. But teams that are moving fast or growing at scale can face real challenges with traditional synthetic monitoring workflows and tools: 
+[Synthetic monitoring](/learn/monitoring/synthetic-monitoring/) is a proven practice for ensuring reliability of applications and services in production. It excels at proactively discovering issues that affect real users, which is why companies—from startups to Fortune 500—rely on it to enhance their user experience. But teams that are moving fast or growing at scale can face real challenges with traditional synthetic monitoring workflows and tools:
 
 - Noisy alerts
 - Limited visibility into root causes
@@ -23,7 +23,7 @@ Synthetic monitoring is a proven practice for ensuring reliability of applicatio
 
 Monitoring as Code (MaC) addresses these pain points by automating and integrating monitoring directly into CI/CD pipelines, delivering efficiency, scalability, and actionable insights. It redefines monitoring as a dynamic, code-driven process that evolves seamlessly with your applications.
 
-Let’s explore MaC, its benefits, and how you can use it to level up your monitoring. 
+Let’s explore MaC, its benefits, and how you can use it to level up your monitoring.
 
 ## What Is Monitoring as Code?
 
@@ -57,7 +57,7 @@ Whenever we discuss the ideal setup for synthetic monitoring, experienced DevOps
 
 ## Benefits of Monitoring as Code
 
-Here are the most important benefits of adopting Monitoring as Code: 
+Here are the most important benefits of adopting Monitoring as Code:
 
 ### **Codified & Programmable**
 
@@ -69,7 +69,7 @@ Monitoring as Code transforms your monitoring setup into code that is stored, ma
 
 With MaC, your monitoring evolves alongside your codebase, enabling precision, flexibility, and scalability that traditional methods simply can’t match.
 
-![A Monitoring as Code example that tests a login flow of an ecommerce store](/guides/images/guides-mac-login-flow.png "Monitoring a login flow with MaC")
+![VS Code showing the checkly.config and a define API monitor.](/guides/images/guides-mac-teaser.jpg "VS Code showing the checkly.config and a define API monitor.")
 
 ### **Reusability Enforces Consistency**
 
@@ -158,7 +158,7 @@ These checks provide confidence that your APIs function reliably under different
 
 Since monitoring setups are code-based, they are easy to update as your APIs evolve. This keeps monitoring aligned with API changes, eliminating gaps in coverage.
 
-Here’s an example of an API check that tests an e-commerce flow of updating an inventory item: 
+Here’s an example of an API check that tests an e-commerce flow of updating an inventory item:
 
 ```jsx
 
@@ -205,7 +205,7 @@ new ApiCheck('update-inventory-item', {
 
 Slow app load times or high latency can drive users away and impact revenue. Monitoring as Code provides a streamlined way to track performance metrics like page load times, API response times, and latency, ensuring your application consistently meets expectations.
 
-With MaC, performance checks can be integrated into your CI/CD pipelines to catch slowdowns early in development or staging. Automated alerts notify your team of performance issues in real time, enabling proactive fixes before users are impacted. 
+With MaC, performance checks can be integrated into your CI/CD pipelines to catch slowdowns early in development or staging. Automated alerts notify your team of performance issues in real time, enabling proactive fixes before users are impacted.
 
 MaC also excels at monitoring deployments by running performance checks automatically after each release. This ensures that new changes don’t introduce regressions, and if issues arise, teams can act quickly to resolve or roll back, maintaining stability and trust.
 
@@ -239,7 +239,7 @@ Checkly’s compatibility with CI/CD pipelines ensures monitoring is embedded in
 
 ### Native Playwright Support
 
-With native Playwright support, Checkly enables you to directly use existing Playwright scripts as browser checks. This integration allows you to monitor complex user workflows—such as logins, form submissions, or multi-step transactions—without needing to rewrite tests. 
+With native Playwright support, Checkly enables you to directly use existing Playwright scripts as browser checks. This integration allows you to monitor complex user workflows—such as logins, form submissions, or multi-step transactions—without needing to rewrite tests.
 
 Your monitoring aligns with your application logic, offering precise, actionable insights into the user experience.
 
@@ -251,13 +251,14 @@ A strong alerting strategy ensures critical issues are addressed promptly while 
 - Automatically deploy and update alerting configurations alongside your application changes.
 - Maintain consistency across environments, ensuring no alerts are missed or misconfigured during rollouts.
 
-### **Dashboards and Visualization**
+### **Status pages and dashboards**
 
-Dashboards offer a real-time view of your application's health, and MaC enables you to configure these visualizations programmatically. Tools like [Grafana](https://www.checklyhq.com/docs/analytics/#building-a-grafana-dashboard) integrate easily with MaC, allowing you to:
+[Status pages](/product/status-pages/) and [internal dashboards](/product/dashboards/) offer a real-time view of your application's health, and MaC enables you to configure these visualizations programmatically. Tools like [Grafana](https://www.checklyhq.com/docs/analytics/#building-a-grafana-dashboard) integrate easily with MaC, allowing you to:
 
-- Automate the creation and updates of dashboards based on predefined templates.
+- Automate the creation and updates of dashboards and status pages based on predefined templates.
 - Highlight key metrics like latency, error rates, or resource utilization, making it easier to identify trends and anomalies.
 - Share consistent, reliable dashboards across teams or environments.
+- Communicate app and API availability to your customers.
 
 ### **Performance Benchmarking**
 
