@@ -88,21 +88,11 @@ monitoring in minutes.
 {{< doc-card
    class="two-column-card"
    headerTag="h3"
-   title="Create a HTTP check"
-   img="/docs/images/icons/http-check-stroked.svg"
-   description="Monitor your HTTP endpoints and APIs by sending requests and validating responses."
-   link="/docs/http-checks/"
->}}
-{{< doc-card
-   class="two-column-card"
-   headerTag="h3"
    title="Create a Heartbeat check"
    img="/docs/images/icons/heartbeats-check-stroked.svg"
    description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
    link="/docs/heartbeat-checks/"
 >}}
-</div>
-<div class="cards-list">
 {{< doc-card
  class="full-width-card"
  headerTag="h3"

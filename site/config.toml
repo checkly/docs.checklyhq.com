@@ -109,64 +109,64 @@ disqusShortname = "checkly"
 	weight = 30
 
 [[menu.resources]]
-	name = "Heartbeat checks"
-	url = "/docs/heartbeat-checks/"
-	weight = 35
-
-[[menu.resources]]
-	name = "HTTP checks"
-	url = "/docs/http-checks/"
-	weight = 40
-
-[[menu.resources]]
 	name = "Multistep checks"
 	url = "/docs/multistep-checks/"
-	weight = 45
-
-[[menu.resources]]
-	name = "TCP checks"
-	url = "/docs/tcp-checks/"
-	weight = 50
+	weight = 40
 
 [[menu.resources]]
 	name = "Playwright Check Suites (Beta)"
 	url = "/docs/playwright-checks/"
+	weight = 50
+
+[[menu.resources]]
+	name = "URL monitors"
+	url = "/docs/url-monitors/"
 	weight = 55
+
+[[menu.resources]]
+	name = "TCP checks"
+	url = "/docs/tcp-checks/"
+	weight = 60
+
+[[menu.resources]]
+	name = "Heartbeat checks"
+	url = "/docs/heartbeat-checks/"
+	weight = 65
 
 [[menu.resources]]
 	name = "Groups"
 	url = "/docs/groups/"
-	weight = 60
+	weight = 70
 
 [[menu.resources]]
 	name = "Alerting & retries"
 	url = "/docs/alerting/"
-	weight = 65
+	weight = 75
 
 [[menu.resources]]
 	name = "Maintenance windows"
 	url = "/docs/maintenance-windows/"
-	weight = 70
+	weight = 80
 
 [[menu.resources]]
     name = "Dashboards"
     url = "/docs/dashboards/"
-    weight = 80
+    weight = 85
 
 [[menu.resources]]
     name = "Status Pages"
     url = "/docs/status-pages/"
-    weight = 85
+    weight = 90
 
 [[menu.resources]]
 	name = "Accounts & Users"
 	url = "/docs/accounts-users/"
-	weight = 90
+	weight = 95
 
 [[menu.resources]]
 	name = "Private Locations"
 	url = "/docs/private-locations/"
-	weight = 95
+	weight = 100
 
 [[menu.resources]]
 	name = "Reporting"
