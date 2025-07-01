@@ -101,8 +101,6 @@ monitoring in minutes.
    description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
    link="/docs/heartbeat-monitors/"
 >}}
-</div>
-<div class="cards-list">
 {{< doc-card
  class="full-width-card"
  headerTag="h3"
