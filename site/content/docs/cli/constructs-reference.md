@@ -68,29 +68,32 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep Checks.
+The CLI currently supports synthetic checks (e.g. API, Browser, Multistep) and uptime monitors (e.g. URL, TCP, Heartbeat).
 
 These Check types share properties derived from the abstract class `Check`.
 
 | Property                | Description                                                                                                                         | Supported in                               |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-| `name`                  | A friendly name for your Check.                                                                                                     | `API`, `Browser`, `Heartbeat`, `Multistep` |
-| `frequency`             | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                                   | `API`, `Browser`, `Multistep`              |
-| `locations`             | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                             | `API`, `Browser`, `Multistep`              |
-| `privateLocations`      | an array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.             | `API`, `Browser`, `Multistep`              |
-| `activated`             | A boolean value if your Check is activated or not.                                                                                  | `API`, `Browser`, `Heartbeat`, `Multistep` |
-| `muted`                 | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                                | `API`, `Browser`, `Heartbeat`, `Multistep` |
-| `group`                 | The `CheckGroup` object that this check is part of.                                                                                 | `API`, `Browser`, `Multistep`              |
-| `alertChannels`         | An array of `AlertChannel` objects to which to send alert notifications.                                                            | `API`, `Browser`, `Heartbeat`, `Multistep` |
-| `tags`                  | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                       | `API`, `Browser`, `Heartbeat`, `Multistep` |
-| `runtimeId`             | The ID of which [runtime](/docs/runtimes/specs/) to use for this Check.                                    | `API`, `Browser`, `Multistep`              |
-| `testOnly`              | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.                   | `API`, `Browser`, `Multistep`              |
-| `retryStrategy`         | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.                  | `API`, `Browser`, `Multistep`              |
-| `runParallel`           | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                                    | `API`, `Browser`, `Multistep`              |
-| `doubleCheck`           | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.      | `API`, `Browser`, `Multistep`              |
-| `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert settings](/docs/alerting-and-retries/) for check runs. | `API`, `Browser`, `Multistep`              |
+| `name`                  | A friendly name for your Check.                                                                                                     | all |
+| `frequency`             | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                                   | all except `heartbeat`              |
+| `locations`             | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                             | all except `heartbeat`              |
+| `privateLocations`      | an array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.             | all except `heartbeat`              |
+| `activated`             | A boolean value if your Check is activated or not.                                                                                  | all |
+| `muted`                 | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                                | all |
+| `group`                 | The `CheckGroup` object that this check is part of.                                                                                 | all except `heartbeat`              |
+| `alertChannels`         | An array of `AlertChannel` objects to which to send alert notifications.                                                            | all |
+| `tags`                  | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                       | all |
+| `runtimeId`             | The ID of which [runtime](/docs/runtimes/specs/) to use for this Check.                                    | all except `heartbeat`              |
+| `testOnly`              | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.                   | all except `heartbeat`              |
+| `retryStrategy`         | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.                  | all except `heartbeat`              |
+| `runParallel`           | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                                    | all except `heartbeat`              |
+| `doubleCheck`           | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.      | deprecated              |
+| `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert settings](/docs/alerting-and-retries/) for check runs. | all except `heartbeat`              |
 
 > Note that most properties have sane default values and do not need to be specified.
+
+# Synthetic Checks
+Checkly synthetic checks are automated end to end tests that simulate user interactions or API requests to monitor the performance and availability of web applications and services.
 
 ## `ApiCheck`
 
@@ -224,32 +227,6 @@ The `AssertionBuilder` defines the following sources as an entry to building an 
 
 Read more about assertions in [our docs on API check assertions](/docs/api-checks/assertions/).
 
-## `HeartbeatCheck`
-
-A heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
-
-You can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats) or the CLI output of [`checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy).
-
-```ts {title="heartbeat.check.ts"}
-import { HeartbeatCheck } from 'checkly/constructs'
-
-new HeartbeatCheck('heartbeat-check-1', {
-  name: 'Send weekly newsletter job',
-  period: 7,
-  periodUnit: 'days',
-  grace: 2,
-  graceUnit: 'hours',
-})
-```
-
-- `period`: The expected period of time between each ping. Between 30 seconds and 365 days.
-
-- `periodUnit`: The unit of time for the period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
-
-- `grace`: The grace period to wait for before sending an alert. Between 0 seconds and 365 days.
-
-- `graceUnit`: The unit of time for the grace period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
-
 ## `BrowserCheck`
 
 Browser Checks are based on [`@playwright/test`](https://playwright.dev/). You can just write `.spec.js|ts` files with test cases
@@ -301,32 +278,29 @@ new MultiStepCheck('multistep-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
-## `HttpCheck`
+# Uptime Monitors
+Use Uptime monitors to regularly check if a website, port, or service is available and responding as expected.
 
-HTTP Checks are great to monitor the availability, performance, and correctness of HTTP based endpoints such as REST APIs, GraphQL APIs, and web services. The example below shows the following:
+## `UrlMonitor`
+URL monitors are great to track basic availability and response codes of your services. The example below shows the following:
 
-- It defines the basic Check properties like `name`, `activated` etc.
-- It defines the HTTP method `GET`, `url` and the `body`
-- It sets an extra header in the `headers` array.
-- It sets an extra parameter in the `queryParameters` array, although you could add that to the URL directly too.
-- It defines an array of assertions using the `AssertionBuilder` to assert that:
-  - the HTTP response status is `200`
-  - the JSON response body has a property called `name` by using the [JSON path](https://jsonpath.com/) expression `$.name`
-  - the `strict-transport-security` response header's `max-age` property has a value greater than 100000.
+- It defines basic monitor properties like `name`, `activated` etc.
+- It defines the HTTP method `GET` and a target `url`.
+- It defines an assertion using the `AssertionBuilder` to assert that the HTTP response status is `200`
 
 The file hierarchy looks as follows:
 
 ```
-├── __checks__
-│   ├── hello-http.check.ts
+├── __monitors__
+│   ├── hello-url.monitor.ts
 ```
 
 ```ts {title="hello-http.check.ts"}
-import { HttpCheck, AssertionBuilder } from 'checkly/constructs'
+import { UrlMonitor, AssertionBuilder } from 'checkly/constructs'
 import * as path from 'path'
 
-new HttpCheck('hello-http-1', {
-  name: 'Hello HTTP',
+new UrlMonitor('hello-url-1', {
+  name: 'Hello URL',
   activated: true,
   maxResponseTime: 10000,
   degradedResponseTime: 5000,
@@ -335,54 +309,30 @@ new HttpCheck('hello-http-1', {
     url: 'https://httpbin.org/get',
     skipSSL: false,
     followRedirects: true,
-    headers: [
-      {
-        key: 'X-My-Header',
-        value: 'My custom header value'
-      }
-    ],
-    queryParameters: [
-      {
-        key: 'myParam',
-        value: 'true'
-      }
-    ],
     assertions: [
         AssertionBuilder.statusCode().equals(200),
-        AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
     ]
   }
 })
 ```
 
-- `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
-- `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
+- `maxResponseTime`: The response time in milliseconds where a monitor should be considered failing.
+- `degradedResponseTime`: The response time in milliseconds where a monitor should be considered degraded.
 - `request`: An object of the `Request` type. See the [`Request` reference](#request).
 
 ### `Request`
 
-The `request` object is a mandatory part of an HTTP check.
+The `request` object is a mandatory part of an URL monitor.
 
-- `url`: A string for the target URL.
-- `method`: The HTTP method as a string, i.e. `GET | POST | PUT | PATCH | HEAD | DELETE | OPTIONS`
-- `body`: A string for HTTP request body.
-- `bodyType`: A string indicating the type of body. Options are `JSON | FORM | RAW | GRAPHQL | NONE`. This property is mostly
-for rendering the body type in the web UI and not needed in most cases using the CLI.
-- `headers`: An array of `{ key: 'X-My-Header', value: 123 }` objects to define HTTP headers.
-- `queryParameters`: An array of `{ key: 'my-param', value: 123 }` objects to define query parameters.
+- `url`: The target URL to monitor.
+- `method`: Must be `GET`. (URL monitors only support GET requests)
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
 - `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
-- `basicAuth`: An object of the shape `{ username: 'admin', password: 'admin' }` to set basic auth credentials.
-- `assertions`: An array of assertions to validate status codes, response bodies and much more.
-
-See the [`AssertionBuilder` reference](#assertionbuilder).
+- `assertions`: An assertion to validate status codes. See the [`AssertionBuilder` reference](#assertionbuilder).
 
 ### `AssertionBuilder`
 
-To define `assertions` for the `request` of an `HttpCheck` you should use the `AssertionBuilder`. The `AssertionBuilder` provides a fluent
-API for the otherwise slightly cryptic JSON object that the CLI passes to the Checkly API. Here are some examples:
-
-- Asserting an HTTP status code.
+You can define assertions via the `AssertionBuilder`. URL monitors support assertions for the expected HTTP status code (e.g. `200` or `404`). For example:
 
 ```ts
 AssertionBuilder.statusCode().equals(200)
@@ -390,37 +340,14 @@ AssertionBuilder.statusCode().equals(200)
 "{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
 ```
 
-- Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path](/docs/api-checks/assertions/#json-responses-with-json-path).
+## `TcpMonitor`
 
-```ts
-AssertionBuilder.jsonBody('$.data').greaterThan(2000),
-// renders to a JSON string
-"{ source: 'JSON_BODY', regex: '', property: '$.data', comparison: 'GREATER_THAN', target: '2000' }"
-```
+> [!NOTE]
+> Previously called TcpCheck, this construct is now available as TcpMonitor. Both names work the same, but we recommend using TcpMonitor going forward.
 
-- Asserting the value of a part of an HTTP response header. Note that you can pass in a regex as the second argument.
+TCP Monitors are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
 
-```ts
-AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
-// renders to a JSON string
-"{ source: 'HEADERS', regex: 'max-age=(\d+)', property: 'strict-transport-security', comparison: 'GREATER_THAN', target: '100000' }"
-```
-
-The `AssertionBuilder` defines the following sources as an entry to building an assertion.
-
-- `statusCode()`: Assert the HTTP status code for the HTTP request, e.g. `200` or `404`.
-- `jsonBody(property?)`: Assert the JSON response body. Accepts a [JSON path expression](/docs/api-checks/assertions/#json-responses-with-json-path) as the `property` argument.
-- `textBody()`: Assert the body as raw text.
-- `headers(propery?, regex?)`: Assert a set of response headers, takes the header name as the `property` argument and a `regex` to tease out a string from the header value.
-- `responseTime()`: Assert the total response time of the HTTP request.
-
-Read more about assertions in [our docs on API check assertions](/docs/api-checks/assertions/).
-
-## `TcpCheck`
-
-TCP Checks are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
-
-- It defines the basic check properties like `name`, `activated` etc.
+- It defines the basic monitor properties like `name`, `activated` etc.
 - It defines the `hostname`, `port`, and `data`
 - It defines an array of assertions using the `TcpAssertionBuilder` to assert that:
   - the total response time is within the given limit
@@ -429,14 +356,14 @@ TCP Checks are ideal for monitoring services and protocols that use TCP, such as
 The file hierarchy looks as follows:
 
 ```
-├── __checks__
-│   ├── hello-tcp.check.ts
+├── __monitors__
+│   ├── hello-tcp.monitor.ts
 ```
 
-```ts {title="hello-tcp.check.ts"}
-import { TcpCheck, TcpAssertionBuilder } from 'checkly/constructs'
+```ts {title="hello-tcp.monitor.ts"}
+import { TcpMonitor, TcpAssertionBuilder } from 'checkly/constructs'
 
-new TcpCheck('hello-tcp-1', {
+new TcpMonitor('hello-tcp-1', {
   name: 'Hello TCP',
   activated: true,
   maxResponseTime: 5000,
@@ -453,18 +380,17 @@ new TcpCheck('hello-tcp-1', {
   }
 })
 ```
-
-- `maxResponseTime`: The response time in milliseconds where a check should be considered failing.
-- `degradedResponseTime`: The response time in milliseconds where a check should be considered degraded.
+- `maxResponseTime`: The response time in milliseconds where a monitor should be considered failing.
+- `degradedResponseTime`: The response time in milliseconds where a monitor should be considered degraded.
 - `request`: An object of the `TcpRequest` type. See the [`TcpRequest` reference](#tcprequest).
-- `shouldFail`: When set to `true`, the check is considered successful if the connection attempt fails. If not specified, the default value is `false`.
+- `shouldFail`: When set to `true`, the monitor is considered successful if the connection attempt fails. If not specified, the default value is `false`. 
 
 > [!NOTE]
-> Failing assertions will cause the check to fail, regardless of the `shouldFail` value
+> Failing assertions will cause the monitor to fail, regardless of the `shouldFail` value
 
 ### `TcpRequest`
 
-The `request` object is a mandatory part of an TCP check.
+The `request` object is a mandatory part of an TCP monitor.
 
 - `hostname`: The hostname the connection should be made to. Do not include a scheme or a port in the hostname.
 - `port`: The port the connection should be made to.
@@ -475,7 +401,7 @@ See the [`TcpAssertionBuilder` reference](#tcpassertionbuilder).
 
 ### `TcpAssertionBuilder`
 
-To define `assertions` for the `request` of an `TcpCheck` you should use the `TcpAssertionBuilder`. The `TcpAssertionBuilder`
+To define `assertions` for the `request` of an `TcpMonitor` you should use the `TcpAssertionBuilder`. The `TcpAssertionBuilder`
 has the following properties:
 
 - `responseTime()`: Assert the total response time of the TCP request.
@@ -492,12 +418,40 @@ TcpAssertionBuilder.responseTime().lessThan(1000),
 ```
 
 - Asserting the value in the response.
-
 ```ts
 TcpAssertionBuilder.responseData().contains('ping')
 // renders to a JSON string
 "{ source: 'RESPONSE_DATA', regex: '', property: '', comparison: 'CONTAINS', target: 'ping' }"
 ```
+
+## `HeartbeatMonitor`
+
+> [!NOTE]
+> Previously called HeartbeatCheck, this construct is now available as TcpMonitor. Both names work the same, but we recommend using TcpMonitor going forward.
+
+A heartbeat monitor is a passive monitor type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
+
+You can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats) or the CLI output of [`checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy).
+
+```ts {title="heartbeat.monitor.ts"}
+import { HeartbeatMonitor } from 'checkly/constructs'
+
+new HeartbeatMonitor('heartbeat-monitor-1', {
+  name: 'Send weekly newsletter job',
+  period: 7,
+  periodUnit: 'days',
+  grace: 2,
+  graceUnit: 'hours',
+})
+```
+
+- `period`: The expected period of time between each ping. Between 30 seconds and 365 days.
+
+- `periodUnit`: The unit of time for the period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
+
+- `grace`: The grace period to wait for before sending an alert. Between 0 seconds and 365 days.
+
+- `graceUnit`: The unit of time for the grace period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`.
 
 ## `CheckGroupV2`
 
