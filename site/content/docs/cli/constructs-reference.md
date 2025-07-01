@@ -92,7 +92,7 @@ These Check types share properties derived from the abstract class `Check`.
 
 > Note that most properties have sane default values and do not need to be specified.
 
-# Synthetic Checks
+## Synthetic Checks
 Checkly synthetic checks are automated end to end tests that simulate user interactions or API requests to monitor the performance and availability of web applications and services.
 
 ## `ApiCheck`
@@ -278,7 +278,7 @@ new MultiStepCheck('multistep-check-1', {
 - `code`: an object with either an `entrypoint` property that points to `.spec.js|ts` file, or a `content` property with
 raw JavaScript / TypeScript as a string.
 
-# Uptime Monitors
+## Uptime Monitors
 Use Uptime monitors to regularly check if a website, port, or service is available and responding as expected.
 
 ## `UrlMonitor`
@@ -286,7 +286,7 @@ URL monitors are great to track basic availability and response codes of your se
 
 - It defines basic monitor properties like `name`, `activated` etc.
 - It defines the HTTP method `GET` and a target `url`.
-- It defines an assertion using the `AssertionBuilder` to assert that the HTTP response status is `200`
+- It defines an assertion using the `AssertionBuilder` to assert that the HTTP response status is `200`.
 
 The file hierarchy looks as follows:
 
@@ -295,7 +295,7 @@ The file hierarchy looks as follows:
 │   ├── hello-url.monitor.ts
 ```
 
-```ts {title="hello-http.check.ts"}
+```ts {title="hello-url.monitor.ts"}
 import { UrlMonitor, AssertionBuilder } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -318,7 +318,7 @@ new UrlMonitor('hello-url-1', {
 
 - `maxResponseTime`: The response time in milliseconds where a monitor should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a monitor should be considered degraded.
-- `request`: An object of the `Request` type. See the [`Request` reference](#request).
+- `request`: An object of the `Request` type.
 
 ### `Request`
 
@@ -328,11 +328,7 @@ The `request` object is a mandatory part of an URL monitor.
 - `method`: Must be `GET`. (URL monitors only support GET requests)
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
 - `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
-- `assertions`: An assertion to validate status codes. See the [`AssertionBuilder` reference](#assertionbuilder).
-
-### `AssertionBuilder`
-
-You can define assertions via the `AssertionBuilder`. URL monitors support assertions for the expected HTTP status code (e.g. `200` or `404`). For example:
+- `assertions`: You can define assertions via the `AssertionBuilder`. URL monitors support assertions for the expected HTTP status code (e.g. `200` or `404`). For example:
 
 ```ts
 AssertionBuilder.statusCode().equals(200)
@@ -345,7 +341,7 @@ AssertionBuilder.statusCode().equals(200)
 > [!NOTE]
 > Previously called TcpCheck, this construct is now available as TcpMonitor. Both names work the same, but we recommend using TcpMonitor going forward.
 
-TCP Monitors are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
+TCP monitors are ideal for monitoring services and protocols that use TCP, such as FTP, messaging protocols like MQTT and XMPP, among others. The example below shows the following:
 
 - It defines the basic monitor properties like `name`, `activated` etc.
 - It defines the `hostname`, `port`, and `data`
@@ -427,7 +423,7 @@ TcpAssertionBuilder.responseData().contains('ping')
 ## `HeartbeatMonitor`
 
 > [!NOTE]
-> Previously called HeartbeatCheck, this construct is now available as TcpMonitor. Both names work the same, but we recommend using TcpMonitor going forward.
+> Previously called HeartbeatCheck, this construct is now available as HeartbeatMonitor. Both names work the same, but we recommend using HeartbeatMonitor going forward.
 
 A heartbeat monitor is a passive monitor type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL.
 

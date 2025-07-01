@@ -76,8 +76,8 @@ Important notes:
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
-### HTTP Checks
-{{- $sectionPath := "/docs/http-checks" -}}
+### URL Monitors
+{{- $sectionPath := "/docs/url-monitors" -}}
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 

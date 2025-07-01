@@ -213,32 +213,6 @@ new checkly.Check('my-browser-check-pulumi', {
 })
 ```
 
-#### How to create your first HTTP check
-
-```javascript {title="http-check.js"}
-new checkly.HttpCheck('my-http-check', {
-  name: 'Example HTTP check',
-  activated: true,
-  frequency: 10,
-  useGlobalAlertSettings: true,
-  locations: ['us-west-1'],
-  degradedResponseTime: 5000,
-  maxResponseTime: 10000,
-  tags: ['pulumi'],
-  request: {
-    method: 'GET',
-    url: 'https://httpbin.org/get',
-    assertions: [
-      {
-        source: 'STATUS_CODE',
-        comparison: 'EQUALS',
-        target: '200',
-      },
-    ],
-  },
-});
-```
-
 #### How to create your first TCP check
 
 ```javascript {title="tcp-check.js"}
