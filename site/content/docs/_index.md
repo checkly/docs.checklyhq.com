@@ -102,7 +102,7 @@ monitoring in minutes.
    link="/docs/heartbeat-monitors/"
 >}}
 {{< doc-card
- class="full-width-card"
+ class="two-column-card"
  headerTag="h3"
  title="Set up alert channels"
  img="/docs/images/icons/alerting.svg"
