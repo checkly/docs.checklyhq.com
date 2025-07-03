@@ -6,7 +6,7 @@ weight: 16
 slug: /custom-dependencies
 menu:
   resources:
-    parent: "Playwright Check Suites (Alpha)"
+    parent: "Playwright Check Suites (Beta)"
 ---
 
 Playwright Check Suites let you take your existing Playwright tests and turn them into globally distributed monitoring using the [Checkly CLI](/docs/cli/). It will read your Playwright configuration and parse your existing settings and dependencies to prepare the Checkly monitoring infrastructure.

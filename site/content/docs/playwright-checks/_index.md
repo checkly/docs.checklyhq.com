@@ -6,11 +6,11 @@ weight: 14
 slug: /
 menu:
   resources:
-    parent: "Playwright Check Suites (Alpha)"
+    parent: "Playwright Check Suites (Beta)"
 
 ---
 
-{{< markdownpartial "/_shared/playwright-native-alpha.md" >}}
+{{< markdownpartial "/_shared/playwright-native-notice.md" >}}
 
 Use your existing Playwright tests as live, scheduled monitoring checks. No rewrites required. Define what to monitor using code, selecting the right tags and projects, and run your checks globally, using the [Checkly CLI](/docs/cli).
 
