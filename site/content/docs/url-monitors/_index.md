@@ -92,4 +92,4 @@ new UrlMonitor('hello-url-1', {
 {{< /tab >}}
 {{< /tabs >}}
 
-See the full [Check construct reference](/docs/cli/constructs-reference/#urlmonitor) for more options.
+See the full [Monitor construct reference](/docs/cli/constructs-reference/#urlmonitor) for more options.

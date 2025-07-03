@@ -105,7 +105,7 @@ The above example defines:
 * The `hostname` and `port` of the request, and the `data` to send.
 * An array of assertions to assert the response is correct.
 
-For more options, see the [Check construct reference](/docs/cli/constructs-reference/#check).
+For more options, see the [Monitor construct reference](/docs/cli/constructs-reference/#check).
 
 ## Next steps
 
