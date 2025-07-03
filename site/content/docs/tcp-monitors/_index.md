@@ -101,11 +101,11 @@ new TcpMonitor('hello-tcp-1', {
 
 The above example defines:
 
-* The basic check properties like `name`, `activated` etc.
+* The basic monitor properties like `name`, `activated` etc.
 * The `hostname` and `port` of the request, and the `data` to send.
 * An array of assertions to assert the response is correct.
 
-For more options, see the [Monitor construct reference](/docs/cli/constructs-reference/#check).
+For more options, see the [Monitor construct reference](/docs/cli/constructs-reference/#tcpmonitor).
 
 ## Next steps
 
