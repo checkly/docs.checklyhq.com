@@ -6,11 +6,11 @@ weight: 20
 slug: /groups-usage
 menu:
   resources:
-    parent: "Playwright Check Suites (Alpha)"
+    parent: "Playwright Check Suites (Beta)"
     weight: 20
 ---
 
-{{< markdownpartial "/_shared/playwright-native-alpha.md" >}}
+{{< markdownpartial "/_shared/playwright-native-notice.md" >}}
 
 You can define a new group, or associate a Playwright Check Suite to an existing group.
 
