@@ -1,16 +1,16 @@
 ---
-title: Monitoring your services with TCP checks - Checkly Docs
-displayTitle: Monitoring your services with TCP checks
+title: Monitoring your services with TCP monitors - Checkly Docs
+displayTitle: Monitoring your services with TCP monitors
 weight: 7
 menu:
   resources:
-    parent: "TCP checks"
+    parent: "TCP monitors"
 navTitle: Overview
 slug: /
 
 ---
 
-Use TCP checks to verify that your critical non-HTTP services are working properly. TCP checks work by establishing a connection to a host and port, then checking the speed and validity of the response.
+Use TCP monitors to verify that your critical non-HTTP services are working properly. TCP monitors work by establishing a connection to a host and port, then checking the speed and validity of the response.
 
 For example, use these checks to verify that:
 
@@ -18,13 +18,13 @@ For example, use these checks to verify that:
 * Your FTP server responds correctly to commands.
 * Your custom TCP-based service returns the expected response when sent a health check message.
 
-![Screenshot of the TCP check overview page](/docs/images/tcp-checks/tcp-check-overview.png)
+![Screenshot of the TCP monitor overview page](/docs/images/tcp-monitors/tcp-check-overview.png)
 
 You can also monitor services like databases, message queues, custom applications, and more. If your service is unresponsive or fails assertions, the check will trigger any configured [alerts](/docs/alerting-and-retries/).
 
-## Configuring a TCP check
+## Configuring a TCP monitor
 
-![Screenshot of the TCP check create page](/docs/images/tcp-checks/create-tcp-check.png)
+![Screenshot of the TCP monitor create page](/docs/images/tcp-monitors/create-tcp-check.png)
 
 The main part of your check is the TCP request, which defines the endpoint to monitor.
 
@@ -38,13 +38,13 @@ To validate the response, you can set:
 * **Response time limits**: The thresholds for marking the check as degraded or failed. This allows you to specify when responses should be considered slow (degraded) or entirely unreachable (failed).
 * **Assertions:** Additional conditions for a passing check, beyond just a successful connection. You can set a ‘response time‘ for the TCP request or specify the expected ‘response data‘ for the server’s reply. For example, you can assert that the response time is less than 200 ms. Or, given the command `USER anonymous\r\n`, you can assert that the response contains `331 Please specify the password`.
 
-Finally, here are generic check properties that apply to TCP checks:
+Finally, here are generic check properties that apply to TCP monitors:
 
-* **Name**: A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide a better alerting experience if your checks fall into an alert state.
-* **Tags**: Useful for organizing and filtering your checks. They also determine which checks are included in your [dashboards](/docs/dashboards/) and [maintenance windows](/docs/maintenance-windows/).
-* **Scheduling strategy**: How checks with multiple locations are executed, i.e. parallel or round-robin. Learn more about these [scheduling strategies](/docs/monitoring/global-locations#scheduling-strategies).
-* **Locations**: Where your checks run from. Choose from our [public locations](/docs/monitoring/global-locations/), or use a Checkly Agent to host your own [private locations](/docs/private-locations/).
-* **Scheduling**: How often your checks run. Schedule your TCP checks to run at intervals between 10 seconds (minimum) and 24 hours (maximum).
+* **Name**: A meaningful name will not only help you and others identify your monitors within Checkly, but it will help provide a better alerting experience if your monitors fall into an alert state.
+* **Tags**: Useful for organizing and filtering your monitors. They also determine which monitors are included in your [dashboards](/docs/dashboards/) and [maintenance windows](/docs/maintenance-windows/).
+* **Scheduling strategy**: How monitors with multiple locations are executed, i.e. parallel or round-robin. Learn more about these [scheduling strategies](/docs/monitoring/global-locations#scheduling-strategies).
+* **Locations**: Where your monitors run from. Choose from our [public locations](/docs/monitoring/global-locations/), or use a Checkly Agent to host your own [private locations](/docs/private-locations/).
+* **Scheduling**: How often your monitors run. Schedule your TCP monitors to run at intervals between 10 seconds (minimum) and 24 hours (maximum).
 * **Retries**: How failed runs are retried. Learn more about the different [retry strategies](/docs/alerting-and-retries/retries/).
 * **Alerting**: This includes general [alert settings](/docs/alerting-and-retries/alert-settings/), like when and how often you're alerted, and the [alert channels](/docs/alerting-and-retries/alert-channels/) we use to notify you. If we don't have your preferred alert channel, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow.
 
@@ -52,15 +52,15 @@ Finally, here are generic check properties that apply to TCP checks:
 
 The [Checkly CLI](/docs/cli/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
 
-You can define a TCP check via the CLI. For example:
+You can define a TCP monitor via the CLI. For example:
 
 {{< tabs "CLI example" >}}
 {{< tab "TypeScript" >}}
 
 ```ts {title="hello-tcp.check.ts"}
-import { TcpCheck, TcpAssertionBuilder } from 'checkly/constructs'
+import { TcpMonitor, TcpAssertionBuilder } from 'checkly/constructs'
 
-new TcpCheck('hello-tcp-1', {
+new TcpMonitor('hello-tcp-1', {
   name: 'Hello TCP',
   activated: true,
   request: {
@@ -79,9 +79,9 @@ new TcpCheck('hello-tcp-1', {
 {{< tab "JavaScript" >}}
 
 ```js {title="hello-tcp.check.js"}
-const { TcpCheck, TcpAssertionBuilder } = require('checkly/constructs')
+const { TcpMonitor, TcpAssertionBuilder } = require('checkly/constructs')
 
-new TcpCheck('hello-tcp-1', {
+new TcpMonitor('hello-tcp-1', {
   name: 'Hello TCP',
   activated: true,
   request: {
@@ -110,5 +110,5 @@ For more options, see the [Check construct reference](/docs/cli/constructs-refer
 ## Next steps
 
 * Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
-* Analyze your [TCP check run results](/docs/monitoring/check-results#tcp-check-results).
-* Understand [pricing and billing](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs) for TCP checks.
+* Analyze your [TCP monitor run results](/docs/monitoring/check-results#tcp-monitor-results).
+* Understand [pricing and billing](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs) for TCP monitors.

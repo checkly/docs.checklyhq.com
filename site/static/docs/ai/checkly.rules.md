@@ -70,9 +70,9 @@ and `MultiStepCheck` respectively from the `checkly/constructs` package and so o
 
 ### Tcp Check
 
-- Import the `TcpCheck` construct from `checkly/constructs`.
-- Check out the reference docs for [TCP Checks](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpcheck) before generating any code.
-- When adding `assertions`, always use `TcpAssertionBuilder` class for TcpChecks which are [documented here](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpassertionbuilder)
+- Import the `TcpMonitor` construct from `checkly/constructs`.
+- Check out the reference docs for [TCP Monitors](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpcheck) before generating any code.
+- When adding `assertions`, always use `TcpAssertionBuilder` class for TcpMonitors which are [documented here](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpassertionbuilder)
 
 ### Heartbeat Check
 

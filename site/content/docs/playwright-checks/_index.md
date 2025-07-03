@@ -25,7 +25,8 @@ You can mix and match existing
 
 Here's how to get from zero to deployed checks in 5 minutes.
 
-###  Before you begin
+### Before you begin
+
 What you need:
 
 * A checkly account
@@ -61,7 +62,6 @@ Below are two example check suites:
 
 * a full multi-browser suite with smoke tests.
 * a `chromium`-only check suite running tests tagged with `@critical`.
-
 
 ```typescript {title="checkly.config.ts/js"}
 import { defineConfig } from 'checkly'
@@ -174,13 +174,12 @@ Learn more in the [alerting guide](https://www.checklyhq.com/docs/alerts/).
 
 And all done!
 
-
 ## Next steps
 
 * Explore advanced configuration like [private locations](/docs/private-locations/) and [environment variables](/docs/cli/env-vars/).
 * Add or tweak your checks to monitor flows in different browsers or locations.
 * Set up alerting and integrations with your incident response tools
 
-* Add [TCP](/docs/tcp-checks) and [URL monitors](/docs/url-monitors), [API monitors](/docs/api-checks) alongside your Playwright Check Suites.
+* Add [TCP](/docs/tcp-monitors) and [URL monitors](/docs/url-monitors), [API checks](/docs/api-checks) alongside your Playwright Check Suites.
 
 > → Continue to the [Playwright Check Suite CLI reference](/docs/playwright-checks/reference) for all available options.
