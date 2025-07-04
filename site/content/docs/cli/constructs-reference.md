@@ -68,27 +68,27 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
 
 ## `Check`
 
-The CLI currently supports synthetic checks (e.g. API, Browser, Multistep) and uptime monitors (e.g. URL, TCP, Heartbeat).
+The CLI currently supports four Check types: API, Browser, Heartbeat and Multistep Checks.
 
 These Check types share properties derived from the abstract class `Check`.
 
 | Property                | Description                                                                                                                         | Supported in                               |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-| `name`                  | A friendly name for your Check.                                                                                                     | all |
-| `frequency`             | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                                   | all except `heartbeat`              |
-| `locations`             | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                             | all except `heartbeat`              |
-| `privateLocations`      | an array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.             | all except `heartbeat`              |
-| `activated`             | A boolean value if your Check is activated or not.                                                                                  | all |
-| `muted`                 | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                                | all |
-| `group`                 | The `CheckGroup` object that this check is part of.                                                                                 | all except `heartbeat`              |
-| `alertChannels`         | An array of `AlertChannel` objects to which to send alert notifications.                                                            | all |
-| `tags`                  | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                       | all |
-| `runtimeId`             | The ID of which [runtime](/docs/runtimes/specs/) to use for this Check.                                    | all except `heartbeat`              |
-| `testOnly`              | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.                   | all except `heartbeat`              |
-| `retryStrategy`         | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.                  | all except `heartbeat`              |
-| `runParallel`           | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                                    | all except `heartbeat`              |
-| `doubleCheck`           | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.      | deprecated              |
-| `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert settings](/docs/alerting-and-retries/) for check runs. | all except `heartbeat`              |
+| `name`                  | A friendly name for your Check.                                                                                                     | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `frequency`             | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                                   | `API`, `Browser`, `Multistep`              |
+| `locations`             | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                             | `API`, `Browser`, `Multistep`              |
+| `privateLocations`      | an array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.             | `API`, `Browser`, `Multistep`              |
+| `activated`             | A boolean value if your Check is activated or not.                                                                                  | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `muted`                 | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                                | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `group`                 | The `CheckGroup` object that this check is part of.                                                                                 | `API`, `Browser`, `Multistep`              |
+| `alertChannels`         | An array of `AlertChannel` objects to which to send alert notifications.                                                            | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `tags`                  | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                       | `API`, `Browser`, `Heartbeat`, `Multistep` |
+| `runtimeId`             | The ID of which [runtime](/docs/runtimes/specs/) to use for this Check.                                    | `API`, `Browser`, `Multistep`              |
+| `testOnly`              | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.                   | `API`, `Browser`, `Multistep`              |
+| `retryStrategy`         | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.                  | `API`, `Browser`, `Multistep`              |
+| `runParallel`           | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                                    | `API`, `Browser`, `Multistep`              |
+| `doubleCheck`           | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.      | `API`, `Browser`, `Multistep`              |
+| `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert settings](/docs/alerting-and-retries/) for check runs. | `API`, `Browser`, `Multistep`              |
 
 > Note that most properties have sane default values and do not need to be specified.
 
@@ -285,12 +285,12 @@ raw JavaScript / TypeScript as a string.
 Use Uptime monitors to regularly check if a website, port, or service is available and responding as expected.
 
 ## `UrlMonitor`
+Use URL monitors to track basic availability and HTTP status codes of your services. The example below:
 
-URL monitors are great to track basic availability and response codes of your services. The example below shows the following:
-
-- It defines basic monitor properties like `name`, `activated` etc.
-- It defines the HTTP method `GET` and a target `url`.
-- It defines an assertion using the `AssertionBuilder` to assert that the HTTP response status is `200`.
+- Defined basic monitor properties like `name`, `activated` etc.
+- Sends a `GET` rquest to a target `url`.
+- Includes an assertion that expects an HTTP 200 OK response.
+- Sets thresholds for when the check should be marked as degraded or failing.
 
 The file hierarchy looks as follows:
 
@@ -320,19 +320,15 @@ new UrlMonitor('hello-url-1', {
 })
 ```
 
-- `maxResponseTime`: The response time in milliseconds where a monitor should be considered failing.
-- `degradedResponseTime`: The response time in milliseconds where a monitor should be considered degraded.
-- `request`: An object of the `Request` type.
-
 ### `Request`
 
 The `request` object is a mandatory part of an URL monitor.
 
-- `url`: The target URL to monitor.
-- `method`: Must be `GET`. (URL monitors only support GET requests)
+- `url`: The HTTP(S) URL to monitor.
+- `method`: Must be `GET` (URL monitors do not support other methods).
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
-- `skipSSL`: A boolean indicating whether invalid or self-signed SSL certificates should be validated.
-- `assertions`: You can define assertions via the `AssertionBuilder`. URL monitors support assertions for the expected HTTP status code (e.g. `200` or `404`). For example:
+- `skipSSL`: A boolean indicating whether to skip validation of SSL certificates.
+- `assertions`: You can define assertions via the `AssertionBuilder`. For URL monitors, only status code assertions are supported. For example:
 
 ```ts
 AssertionBuilder.statusCode().equals(200)

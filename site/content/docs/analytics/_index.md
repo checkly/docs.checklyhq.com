@@ -30,7 +30,7 @@ There are three main endpoints.
 1. `/v1/analytics/metrics/`: returns all the available metrics for a specific check-type (`API`, `HTTP`, `TCP` or `BROWSER`)
 2. `/v1/analytics/browser-checks/{checkId}`: returns metrics for Browser checks.
 3. `/v1/analytics/api-checks/{checkId}`: returns metrics for API checks.
-4. `/v1/analytics/http-checks/{checkId}`: returns metrics for HTTP checks.
+4. `/v1/analytics/url-monitors/{checkId}`: returns metrics for URL monitors.
 5. `/v1/analytics/tcp-checks/{checkId}`: returns metrics for TCP monitors.
 
 The specific endpoints per check type return a JSON response that includes a check's attributes, period requested, 

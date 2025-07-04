@@ -180,6 +180,6 @@ And all done!
 * Add or tweak your checks to monitor flows in different browsers or locations.
 * Set up alerting and integrations with your incident response tools
 
-* Add [TCP](/docs/tcp-monitors) and [URL monitors](/docs/url-monitors), [API checks](/docs/api-checks) alongside your Playwright Check Suites.
+* Add [TCP](/docs/tcp-monitors) and [URL monitors](/docs/url-monitors) as well as [API checks](/docs/api-checks) alongside your Playwright Check Suites.
 
 > → Continue to the [Playwright Check Suite CLI reference](/docs/playwright-checks/reference) for all available options.

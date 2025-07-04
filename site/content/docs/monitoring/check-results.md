@@ -152,15 +152,21 @@ The source shows where your ping originated, determined by the `origin` and `ref
 
 ## URL monitor results
 
-URL monitor results show information about the request and help you understand whether your endpoint was up and responsive at the time of the check.
+URL monitor results show details about each request and help you understand if your endpoint was up and responsive at the time of the check.
 
-![http check results detail page](/docs/images/monitoring/check-results-http.png)
+![http check results detail page](/docs/images/monitoring/check-results-url.png)
 
 These include:
 
-1. The request performed
-2. Response time
-3. Any status code assertions that were included in the check
+1. The HTTP request that was made
+2. The response time
+3. The result of any status code assertions configured in the monitor
+4. For each request, we capture the following timing metrics:
+    * wait: time spent initializing the socket
+	* dns: DNS lookup time
+	* tcp: time to establish the TCP connection
+	* firstByte: time until the first byte of the response is received
+	* download: duration of the HTTP download
 
 ## Multistep check results
 
