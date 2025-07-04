@@ -68,7 +68,7 @@ and `MultiStepCheck` respectively from the `checkly/constructs` package and so o
 - Generate a separate `.spec.ts` file for the Playwright code referenced in the `MultiStepCheck` construct.
 - Use the `code.entrypoint` property to specify the path to your Playwright test file.
 
-### Tcp Check
+### Tcp Monitor
 
 - Import the `TcpMonitor` construct from `checkly/constructs`.
 - Check out the reference docs for [TCP Monitors](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpcheck) before generating any code.
