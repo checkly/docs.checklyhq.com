@@ -88,10 +88,10 @@ monitoring in minutes.
 {{< doc-card
    class="two-column-card"
    headerTag="h3"
-   title="Create a Heartbeat check"
+   title="Create a Heartbeat monitor"
    img="/docs/images/icons/heartbeats-check-stroked.svg"
    description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
-   link="/docs/heartbeat-checks/"
+   link="/docs/heartbeat-monitors/"
 >}}
 {{< doc-card
  class="two-column-card"

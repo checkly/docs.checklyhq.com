@@ -12,7 +12,7 @@ Checks make up the most important unit of your Checkly monitoring setup. Groups 
 
 ## Checks
 
-[Browser checks](/docs/browser-checks/), [API checks](/docs/api-checks/), [Heartbeat checks](/docs/heartbeat-checks/) and [Multistep checks](/docs/multistep-checks/) share many arguments, configuration-wise, 
+[Browser checks](/docs/browser-checks/), [API checks](/docs/api-checks/), [Heartbeat monitors](/docs/heartbeat-monitors/) and [Multistep checks](/docs/multistep-checks/) share many arguments, configuration-wise, 
 but also have their own unique ones. The type of your check is controlled using the `type` argument.
 
 ### Browser checks
@@ -122,15 +122,15 @@ resource "checkly_check" "get-books" {
 
 > You can see all the configuration options for checks on the official Terraform registry [documentation page](https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check#schema).
 
-### Heartbeat checks
+### Heartbeat monitors
 
-For example, a heartbeat check can look as follows:
+For example, a heartbeat monitor can look as follows:
 
 ```terraform
 resource "checkly_check" "send-weekly-digest-v-2" {
-  name                      = "Send Weekly Digest"    // The name of the check
-  type                      = "HEARTBEAT"             // The type of the check
-  activated                 = true                    // Whether the check will start as active on creation
+  name                      = "Send Weekly Digest"    // The name of the monitor
+  type                      = "HEARTBEAT"             // The type of the monitor
+  activated                 = true                    // Whether the monitor will start as active on creation
   heartbeat {
     period                  = 7                       // The expected period of time between each ping. Between 30 seconds and 365 days.
     period_unit             = "days"                  // The unit of time for the period, the available options are `'seconds' | 'minutes' | 'hours' | 'days'`

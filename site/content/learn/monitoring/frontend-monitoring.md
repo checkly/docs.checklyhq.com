@@ -103,7 +103,7 @@ Key metrics in detail:
 
 - **Core Web Vitals**: [Largest Contentful Paint](https://web.dev/articles/lcp) (LCP), [Interaction to Next Pain](https://web.dev/articles/inp) (INP), Cumulative Layout Shift (CLS). These metrics are considered to be quite critical for search engine optimization.
 - **JavaScript Error Rates**: Frequency of client-side code failures. You may need to implement filtering for common errors.
-- **API Response Times**: Speed and reliability of API calls. This may be called ‘[heartbeat monitoring](https://www.checklyhq.com/docs/heartbeat-checks/#heartbeat-monitoring---checkly-docs)’ if you’re only measuring the reliability of straightforward `get` requests.
+- **API Response Times**: Speed and reliability of API calls. This may be called ‘[heartbeat monitoring](https://www.checklyhq.com/docs/heartbeat-monitors/#heartbeat-monitoring---checkly-docs)’ if you’re only measuring the reliability of straightforward `get` requests.
 - **Network Request Failures**: Broken or delayed network requests
 - **Errors and Crashes**: Stability of the application under different conditions
 - **User Interactions and Engagement**: Clicks, scrolls, and session durations

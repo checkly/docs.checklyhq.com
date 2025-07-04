@@ -215,7 +215,7 @@ MaC makes it easy to monitor performance across regions, simulating user experie
 
 Scheduled jobs or cron jobs are crucial for automating tasks, but failures can lead to major problems if undetected. MaC enables [heartbeat monitoring](https://www.checklyhq.com/blog/heartbeat-monitoring-with-checkly/) to ensure these jobs run on schedule.
 
-A heartbeat check verifies that a job reports back within the expected timeframe. If it doesn’t, an alert is triggered, giving you a chance to fix the issue before it impacts your system.
+A heartbeat monitor verifies that a job reports back within the expected timeframe. If it doesn’t, an alert is triggered, giving you a chance to fix the issue before it impacts your system.
 
 This proactive approach ensures your critical automation workflows are reliable and resilient.
 

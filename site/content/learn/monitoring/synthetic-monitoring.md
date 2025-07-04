@@ -67,7 +67,7 @@ A comparison of RUM vs. Synthetics
 
 
 ## Types of Synthetic Monitoring
-There are a number of terms used around synthetic monitoring; everything from "Synthetic User Monitoring" to "Heartbeat Checks" can refer to the same test! However, in general, there are four types of monitoring that are most critical for monitoring your production services:
+There are a number of terms used around synthetic monitoring; everything from "Synthetic User Monitoring" to "Heartbeat Monitors" can refer to the same test! However, in general, there are four types of monitoring that are most critical for monitoring your production services:
 
 ### Uptime or Availability Monitoring
 Availability Monitoring is fundamental. Its primary objective is to verify whether a web service or application is accessible at any given time. This type of monitoring simulates user interactions to check the availability of websites, APIs, and servers. It's not just about confirming that a server is up and returning "200 OK" status messages; it's about ensuring that the application is operational and responding as expected.

@@ -1,20 +1,21 @@
 ---
-title: Getting started with Heartbeat checks - Checkly Docs
-displayTitle: Getting started with Heartbeat checks
+title: Getting started with Heartbeat monitors - Checkly Docs
+displayTitle: Getting started with Heartbeat monitors
 navTitle: Overview
 weight: 14
 slug: /
 menu:
   resources:
-    parent: "Heartbeat checks"
-    identifier: "heartbeat-checks"
+    parent: "Heartbeat monitors"
+    identifier: "heartbeat-monitors"
 aliases:
     - /docs/heartbeat-checks/quickstart/
     - /docs/heartbeat-checks/getting-started/
+    - /docs/heartbeat-checks/
 
 ---
 
-Monitor your scheduled jobs with Heartbeat checks. Heartbeat checks listen for regular pings from your automated tasks, to ensure that they are running as expected. 
+Track your scheduled jobs with Heartbeat monitors. Heartbeat monitors listen for regular pings from your automated tasks, to ensure that they are running as expected. 
 
 > Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing).
 

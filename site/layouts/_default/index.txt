@@ -71,8 +71,8 @@ Important notes:
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
-### Heartbeat Checks
-{{- $sectionPath := "/docs/heartbeat-checks" -}}
+### Heartbeat Monitors
+{{- $sectionPath := "/docs/heartbeat-monitors" -}}
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
