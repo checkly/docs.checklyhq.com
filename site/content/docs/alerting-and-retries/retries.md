@@ -18,7 +18,7 @@ Whether you need to retry a check or a test session, there are different retries
 
 ## Check retry strategies
 
-All check types and check groups, except for Heartbeat checks, have a **Retries & Alerting** section available, where you can define the number of retries and which retry strategy your check or check group uses.
+All check types and check groups, except for Heartbeat monitors, have a **Retries & Alerting** section available, where you can define the number of retries and which retry strategy your check or check group uses.
 
 Click **Edit check** or **Edit group** on the 3-dot menu on your [Checkly Home page](https://app.checklyhq.com/) and select the **Retries & Alerting** tab:
 
