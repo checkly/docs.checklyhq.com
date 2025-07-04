@@ -154,7 +154,7 @@ The source shows where your ping originated, determined by the `origin` and `ref
 
 URL monitor results show details about each request and help you understand if your endpoint was up and responsive at the time of the check.
 
-![http check results detail page](/docs/images/monitoring/check-results-http.png)
+![http check results detail page](/docs/images/monitoring/check-results-url.png)
 
 These include:
 
