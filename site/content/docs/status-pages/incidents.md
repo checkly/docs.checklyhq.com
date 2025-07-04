@@ -70,7 +70,7 @@ Incident automation works by connecting a check to a service. When the check fai
 
 1. Open your check from the home dashboard.
 2. Click ‘Edit’ in the check overview page.
-3. For API, URL and TCP checks, click the ‘Incident triggers’ tab. For Browser and Multistep checks, first click ‘Settings’ then ‘Incident triggers’.
+3. For API checks, URL monitors and TCP monitors, click the ‘Incident triggers’ tab. For Browser and Multistep checks, first click ‘Settings’ then ‘Incident triggers’.
 4. Check the ‘Enable incident automation’ checkbox.
 5. Fill in the incident name, a first status update and the severity of the incident.
 6. Select which service the incident should be opened on.
