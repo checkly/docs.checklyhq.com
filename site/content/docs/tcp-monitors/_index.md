@@ -7,6 +7,8 @@ menu:
     parent: "TCP monitors"
 navTitle: Overview
 slug: /
+aliases:
+    - /docs/tcp-checks/
 
 ---
 
