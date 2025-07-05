@@ -1,6 +1,6 @@
 ---
 title: Check results - Checkly Docs
-displayTitle: Check results 
+displayTitle: Check results
 navTitle: Results
 weight: 2
 menu:
@@ -185,11 +185,11 @@ Currently, only requests done using the Playwright `request` are shown as nodes 
 
 ![Using the Multistep check results view](/docs/images/monitoring/check-results-multistep.mp4)
 
-## TCP check results
+## TCP monitor results
 
-On the [check results overview page](/docs/monitoring/check-results/#check-results-overview), select a specific check run to review its results:
+On the [monitor results overview page](/docs/monitoring/check-results/#check-results-overview), select a specific check run to review its results:
 
-* **Summary:** Displays the check target (URL and port), the check state (`success` for passed and degraded runs, or `error` for failed runs), the request status code and the total check run duration.
+* **Summary:** Displays the monitor target (URL and port), the monitor state (`success` for passed and degraded runs, or `error` for failed runs), the request status code and the total check run duration.
 
 * **Error details:** If the check failed, the error status code and message log will be shown.
 
@@ -206,4 +206,3 @@ When checks are retried, a dropdown will indicate that the check result contains
 When selecting a check run, all data and assets are available for inspection for each attempt.
 
 ![Viewing multiple attempts from the dropdown](/docs/images/monitoring/check-retries.gif)
-

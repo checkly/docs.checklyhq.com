@@ -195,8 +195,8 @@ See the [`AssertionBuilder` reference](#assertionbuilder).
 To define `assertions` for the `request` of an `ApiCheck` you should use the `AssertionBuilder`. The `AssertionBuilder` provides a fluent
 API for the otherwise slightly cryptic JSON object that the CLI passes to the Checkly API. Here are some examples:
 
-
 - Asserting an HTTP status code.
+
 ```ts
 AssertionBuilder.statusCode().equals(200)
 // renders to a JSON string
@@ -204,6 +204,7 @@ AssertionBuilder.statusCode().equals(200)
 ```
 
 - Asserting a part of a JSON response body using a JSON path expression. [Learn more about using JSON path](/docs/api-checks/assertions/#json-responses-with-json-path).
+
 ```ts
 AssertionBuilder.jsonBody('$.data').greaterThan(2000),
 // renders to a JSON string
@@ -211,6 +212,7 @@ AssertionBuilder.jsonBody('$.data').greaterThan(2000),
 ```
 
 - Asserting the value of a part of an HTTP response header. Note that you can pass in a regex as the second argument.
+
 ```ts
 AssertionBuilder.headers('strict-transport-security', 'max-age=(\\d+)').greaterThan(10000),
 // renders to a JSON string
@@ -279,6 +281,7 @@ new MultiStepCheck('multistep-check-1', {
 raw JavaScript / TypeScript as a string.
 
 ## Uptime Monitors
+
 Use Uptime monitors to regularly check if a website, port, or service is available and responding as expected.
 
 ## `UrlMonitor`
@@ -373,6 +376,7 @@ new TcpMonitor('hello-tcp-1', {
   }
 })
 ```
+
 - `maxResponseTime`: The response time in milliseconds where a monitor should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a monitor should be considered degraded.
 - `request`: An object of the `TcpRequest` type. See the [`TcpRequest` reference](#tcprequest).
@@ -411,6 +415,7 @@ TcpAssertionBuilder.responseTime().lessThan(1000),
 ```
 
 - Asserting the value in the response.
+
 ```ts
 TcpAssertionBuilder.responseData().contains('ping')
 // renders to a JSON string
@@ -591,21 +596,22 @@ property of a Project, CheckGroup or Check.
 You can reference an existing alert channel in your Checkly account using the `fromId()` method on any `AlertChannel`
 class. When your CLI project is responsible for creating and managing alert channels, it integrates seamlessly with Checkly's deployment control mechanisms. This ensures that any changes made are thoroughly validated. 
 
-For users with multiple Checkly CLI projects: 
+For users with multiple Checkly CLI projects:
+
 - Alert channels can be set up through the Checkly UI or any other method, ensuring they remain intact and unaffected by individual CLI project operations.
 
-For users managing a single Checkly CLI project: 
+For users managing a single Checkly CLI project:
+
 - The entire process of creating and subscribing to alert channels can be handled within that single project. This is made possible because the project references the logical ID of the alert channel, rather than an ID generated post-deployment.
 
 > If you attempt to deploy a project that references alert channels which have been removed or are no longer valid, the deployment process will not proceed. This feature helps maintain the integrity and reliability of your monitoring and alerting setup.
 
-
 ```ts
 export const emailChannel = EmailAlertChannel.fromId(20)
 ```
+
 You can obtain the ID for your alert channel either from the Checkly web UI or by utilizing our [REST API](https://developers.checklyhq.com/reference/getv1alertchannels). 
 ![email channel id](/docs/images/cli/constructs_email_id@2x.jpg)
-
 
 ## `SMSAlertChannel`
 
@@ -661,6 +667,7 @@ const slackChannel = new SlackAlertChannel('slack-channel-1', {
   channel: '#ops'
 })
 ````
+
 [Learn more about Slack alert channels](/docs/integrations/slack/)
 
 ## `WebhookAlertChannel`
@@ -769,6 +776,7 @@ const msTeamsAlertChannel = new MSTeamsAlertChannel('msteams-channel-01', {
   url: 'https://prod-24.westus.logic.azure.com:443/worklfows/xxxxx',
 })
 ```
+
 - `name`: Friendly name to recognise the integration.
 - `url`: The target URL created by creating a Workflow in Microsoft Teams.
   [Learn more about Microsoft Teams alert channels](/docs/integrations/msteams/)
@@ -786,6 +794,7 @@ export const telegramChannel = new TelegramAlertChannel('my-telegramchannel-01',
   chatId: 'xxxxxx'
 })
 ```
+
 - `name`: Friendly name to recognise the integration.
 - `apiKey`: The API key associated with your Telegram bot.
 - `chatId`: The chat ID of the Telegram channel you want to send alerts to.
@@ -839,6 +848,7 @@ new Dashboard('acme-dashboard-1', {
   }
 })
 ```
+
 You can add custom CSS by referencing a CSS file. Note, this is only available on Team and Enterprise plans.
 
 ```css {title="dashboard.css"}
@@ -880,6 +890,7 @@ This is required if `customUrl` is not specified.
 [Learn more about dashboards in our docs](/docs/dashboards/)
 
 ## `StatusPage`
+
 Creates a status page showing the uptime of connected services through cards on a public page.
 
 ```ts {title="statusPage.check.ts"}
@@ -912,6 +923,7 @@ new StatusPage('acme-status', {
     ],
 })
 ```
+
 - `name`: Name of the status page.
 - `url`: A subdomain name under "checkly-status-page.com". Needs to be unique across all accounts.
 - `customDomain`: A custom user domain, e.g. "status.example.com". Verification of the domain through the UI is needed after deploying the status page. [See the docs on updating your DNS and SSL usage](/docs/status-pages/#custom-domains).
@@ -923,11 +935,10 @@ new StatusPage('acme-status', {
   - `name`: The name of the card.
   - `services`: An array of the [services](/docs/cli/constructs-reference/#statuspageservice) displayed on the card.
 
-
-
 [Learn more about status pages in our docs](/docs/status-pages)
 
 ## `StatusPageService`
+
 Creates a service used on status pages for providing uptime information.
 
 ```ts {title="statusPageService.check.ts"}
@@ -988,7 +999,6 @@ new ApiCheck('local-api-1', {
 > instance is created within the scope of the CLI project. If you want to reference a Private Location created in a different
 > project or created via the Web UI, you can pass in the `slugName` string.
 
-
 - `name`: A friendly name for your private location.
 - `slugName`: A valid unique slug name.
 - `icon`: An icon to distinguish the location in our UI. You can pick any [Octicons](https://primer.style/design/foundations/icons) name.
@@ -1024,17 +1034,17 @@ new ApiCheck('retrying-check', {
 
 `RetryStrategyBuilder` supports the following helper methods:
 
-* `noRetries()`: No retries are performed.
-* `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
-* `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
-* `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.
+- `noRetries()`: No retries are performed.
+- `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
+- `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
+- `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.
 
 For all of the methods above, the `options` argument can be used to customize the following properties:
 
-* `baseBackoffSeconds`: The amount of time to wait before the first retry. This will also be used to calculate the wait time for subsequent retries. Defaults to 60.
-* `maxRetries`: The maximum number of times to retry the check. This value should be between 1 and 10. Defaults to 2.
-* `maxDurationSeconds`: The maximum amount of time to continue retrying the check. Maximum 600 seconds. Defaults to 600 seconds.
-* `sameRegion`: Whether retries should be run in the same region as the initial failed check run. Defaults to `true`.
+- `baseBackoffSeconds`: The amount of time to wait before the first retry. This will also be used to calculate the wait time for subsequent retries. Defaults to 60.
+- `maxRetries`: The maximum number of times to retry the check. This value should be between 1 and 10. Defaults to 2.
+- `maxDurationSeconds`: The maximum amount of time to continue retrying the check. Maximum 600 seconds. Defaults to 600 seconds.
+- `sameRegion`: Whether retries should be run in the same region as the initial failed check run. Defaults to `true`.
 
 ## `AlertEscalationPolicy`
 
@@ -1061,15 +1071,15 @@ new ApiCheck('alerting-check', {
 
 `AlertEscalationBuilder` supports the following methods:
 
-* `runBasedEscalation(failedRuns, reminder, parallelRunFailureThreshold)`: Number of times the check has to fail consecutively to get alerted.
-* `timeBasedEscalation(minutesFailing, reminder, parallelRunFailureThreshold)`:  Amount of time  (in minutes) it has to pass on failing checks to get alerted.
+- `runBasedEscalation(failedRuns, reminder, parallelRunFailureThreshold)`: Number of times the check has to fail consecutively to get alerted.
+- `timeBasedEscalation(minutesFailing, reminder, parallelRunFailureThreshold)`:  Amount of time  (in minutes) it has to pass on failing checks to get alerted.
 
 For all options above, the `reminders` argument can be used to configure reminders for the alert, it has the following properties:
 
-* `interval`: Amount of time (in minutes) it has to pass to get the reminder.
-* `amount`: Number of reminders.
+- `interval`: Amount of time (in minutes) it has to pass to get the reminder.
+- `amount`: Number of reminders.
 
 At the same time the `parallelRunFailureThreshold` argument can be used to configure the threshold error for [checks running in parallel](/docs/monitoring/global-locations/#parallel):
 
-* `enabled`: Applicable only for checks scheduled in parallel in multiple locations
-* `percentage`: What percentage of regions needs to fail to trigger a failure alert, supported values: 10, 20, 30, 40, 50, 60, 70, 80, 90 & 100
+- `enabled`: Applicable only for checks scheduled in parallel in multiple locations
+- `percentage`: What percentage of regions needs to fail to trigger a failure alert, supported values: 10, 20, 30, 40, 50, 60, 70, 80, 90 & 100

@@ -124,8 +124,8 @@ disqusShortname = "checkly"
 	weight = 55
 
 [[menu.resources]]
-	name = "TCP checks"
-	url = "/docs/tcp-checks/"
+	name = "TCP monitors"
+	url = "/docs/tcp-monitors/"
 	weight = 60
 
 [[menu.resources]]
