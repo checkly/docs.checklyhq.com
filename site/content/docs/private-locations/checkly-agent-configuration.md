@@ -22,7 +22,7 @@ Variable|Description
 `HTTP_PROXY`|HTTP proxy configuration for the outbound connection to the Checkly API, used for agent management and monitoring. Used if the proxy server does not accept HTTPS connections. `http://user:password@127.0.0.1:8080`
 `JOB_CONCURRENCY`|(Default: 1, max: 10) Number of concurrent checks that are run by the agent.
 `LOG_LEVEL`|(Default: `INFO`) Set the log level of the agent. Can be one of `DEBUG`, `LOG`, `INFO`, `WARN` or `ERROR`.
-`USE_OS_DNS_RESOLVER`|When set to true, TCP checks will resolve DNS using `getaddrinfo` C function, instead of using the network. This enables easier DNS resolution for internal services e.g. services running in the same Kubernetes cluster.
+`USE_OS_DNS_RESOLVER`|When set to true, TCP monitors will resolve DNS using `getaddrinfo` C function, instead of using the network. This enables easier DNS resolution for internal services e.g. services running in the same Kubernetes cluster.
 
 For example, you can add these variables to the standard docker run command like this:
 
@@ -51,7 +51,7 @@ CONTAINER ID   IMAGE                  COMMAND           CREATED       STATUS    
 72ec5591f6b2   checkly/agent:latest   "node index.js"   5 hours ago   Up 5 hours             lucid_shockley
 ```
 
-5. You can also check the logs of the new container to ensure it's up and running (typically `docker logs <container_name>`).
+3. You can also check the logs of the new container to ensure it's up and running (typically `docker logs <container_name>`).
 
  ```bash
  [checkly-agent] Starting Consumer c7495186-6f1e-4526-b173-14ee9ad21775
@@ -156,6 +156,7 @@ docker run -v ~/certificate.pem:/checkly/certificate.pem -e NODE_EXTRA_CA_CERTS=
 ```
 
 ## Agent Version and Runtimes
+
 Each Checkly Agent only supports a single [runtime](/docs/runtimes/). This is to keep the container image at an acceptable size. When you change the runtime a check uses, you also need to change to the corresponding agent version. Similarly, if you update the agent version to one using a different runtime you also need to update your checks to use the same runtime.
 
 | Runtime | Agent version |

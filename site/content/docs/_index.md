@@ -77,10 +77,10 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
-    title="Create a TCP check"
+    title="Create a TCP monitor"
     img="/docs/images/icons/tcp.svg"
     description="Monitor the availability and performance of your TCP services by establishing TCP connections and verifying the response."
-    link="/docs/tcp-checks/"
+    link="/docs/tcp-monitors/"
 >}}
 </div>
 
