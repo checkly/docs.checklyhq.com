@@ -76,13 +76,18 @@ Important notes:
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
+### URL Monitors
+{{- $sectionPath := "/docs/url-monitors" -}}
+{{- $sectionPage := .Site.GetPage $sectionPath -}}
+{{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
+
 ### Multistep Checks
 {{- $sectionPath := "/docs/multistep-checks" -}}
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
-### TCP Checks
-{{- $sectionPath := "/docs/tcp-checks" -}}
+### TCP Monitors
+{{- $sectionPath := "/docs/tcp-monitors" -}}
 {{- $sectionPage := .Site.GetPage $sectionPath -}}
 {{ template "link_description" (dict "sectionPage" $sectionPage "sectionPath" $sectionPath) }}
 
