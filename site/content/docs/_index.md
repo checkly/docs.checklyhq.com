@@ -95,7 +95,7 @@ Use Uptime monitors to regularly check if a website, port, or service is availab
    class="two-column-card"
    headerTag="h3"
    title="Create a URL monitor"
-   img="/docs/images/icons/-stroked.svg"
+   img="/docs/images/icons/url-monitor.svg"
    description="Monitor HTTP resources to verify that your website or service is online and returning the expected response."
    link="/docs/url-monitors/"
 >}}
