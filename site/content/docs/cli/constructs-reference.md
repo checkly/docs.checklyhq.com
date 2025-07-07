@@ -354,8 +354,8 @@ TCP monitors are ideal for monitoring services and protocols that use TCP, such 
 The file hierarchy looks as follows:
 
 ```
-├── __monitors__
-│   ├── hello-tcp.monitor.ts
+├── __checks__
+│   ├── hello-tcp.check.ts
 ```
 
 ```ts {title="hello-tcp.monitor.ts"}
