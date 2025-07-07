@@ -63,7 +63,7 @@ Checkly synthetic checks are automated end to end tests that simulate user inter
 	  headerTag="h3"
 	  title="Create an API check"
 	  img="/docs/images/icons/api.svg"
-	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything."
+	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything with setups and teardowns."
 	  link="/docs/api-checks"
 >}}
 </div>
@@ -96,12 +96,12 @@ Use Uptime monitors to regularly check if a website, port, or service is availab
    headerTag="h3"
    title="Create a URL monitor"
    img="/docs/images/icons/-stroked.svg"
-   description="Monitor your URL endpoints by sending requests and validating responses."
+   description="Monitor HTTP resources to verify that your website or service is online and returning the expected response."
    link="/docs/url-monitors/"
 >}}
 {{< doc-card
-	  class="two-column-card"
-	  headerTag="h3"
+	class="two-column-card"
+	headerTag="h3"
     title="Create a TCP monitor"
     img="/docs/images/icons/tcp.svg"
     description="Monitor the availability and performance of your TCP services by establishing TCP connections and verifying the response."
