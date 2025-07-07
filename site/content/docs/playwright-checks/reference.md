@@ -15,7 +15,7 @@ Use the `checkly.config.ts/js` file to define your Playwright Check Suite.
 
 Each Playwright Check Suite can be connected to references in your `playwright.config.ts/js` file.
 
-During the Alpha, **a Playwright Check Suite can run up to 20 minutes**. This limit can be increased/decreased after the alpha.
+During the Beta, **a Playwright Check Suite can run up to 20 minutes**. This limit can be increased/decreased after the beta period.
 
 ## Playwright Check Suite definition
 
