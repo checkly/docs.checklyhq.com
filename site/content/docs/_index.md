@@ -88,9 +88,9 @@ monitoring in minutes.
 {{< doc-card
    class="two-column-card"
    headerTag="h3"
-   title="Create a HTTP check"
+   title="Create a URL monitor"
    img="/docs/images/icons/http-check-stroked.svg"
-   description="Monitor your HTTP endpoints and APIs by sending requests and validating responses."
+   description="Monitor your URL endpoints by sending requests and validating responses."
    link="/docs/http-checks/"
 >}}
 {{< doc-card
