@@ -303,7 +303,7 @@ The file hierarchy looks as follows:
 │   ├── hello-url.check.ts
 ```
 
-```ts {title="hello-url.monitor.ts"}
+```ts {title="hello-url.check.ts"}
 import { UrlMonitor, UrlAssertionBuilder } from 'checkly/constructs'
 
 new UrlMonitor('hello-url-1', {
