@@ -333,7 +333,7 @@ The `request` object is a mandatory part of an URL monitor.
 - `assertions`: You can define assertions via the `UrlAssertionBuilder`. For URL monitors, only status code assertions are supported. For example:
 
 ```ts
-AssertionBuilder.statusCode().equals(200)
+UrlAssertionBuilder.statusCode().equals(200)
 // renders to a JSON string
 "{ source: 'STATUS_CODE', regex: '', property: '', comparison: 'EQUALS', target: '200' }"
 ```
