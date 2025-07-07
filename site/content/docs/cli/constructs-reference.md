@@ -299,8 +299,8 @@ Use URL monitors to track basic availability and HTTP status codes of your servi
 The file hierarchy looks as follows:
 
 ```
-├── __monitors__
-│   ├── hello-url.monitor.ts
+├── __checks__
+│   ├── hello-url.check.ts
 ```
 
 ```ts {title="hello-url.monitor.ts"}
