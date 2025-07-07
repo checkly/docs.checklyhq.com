@@ -304,8 +304,7 @@ The file hierarchy looks as follows:
 ```
 
 ```ts {title="hello-url.monitor.ts"}
-import { UrlMonitor, AssertionBuilder } from 'checkly/constructs'
-import * as path from 'path'
+import { UrlMonitor, UrlAssertionBuilder } from 'checkly/constructs'
 
 new UrlMonitor('hello-url-1', {
   name: 'Hello URL',
@@ -318,7 +317,7 @@ new UrlMonitor('hello-url-1', {
     skipSSL: false,
     followRedirects: true,
     assertions: [
-        AssertionBuilder.statusCode().equals(200),
+        UrlAssertionBuilder.statusCode().equals(200),
     ]
   }
 })
