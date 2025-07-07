@@ -358,7 +358,7 @@ The file hierarchy looks as follows:
 │   ├── hello-tcp.check.ts
 ```
 
-```ts {title="hello-tcp.monitor.ts"}
+```ts {title="hello-tcp.check.ts"}
 import { TcpMonitor, TcpAssertionBuilder } from 'checkly/constructs'
 
 new TcpMonitor('hello-tcp-1', {
