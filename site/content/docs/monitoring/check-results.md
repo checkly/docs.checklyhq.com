@@ -152,11 +152,11 @@ The source shows where your ping originated, determined by the `origin` and `ref
 
 ## URL monitor results
 
-URL monitor results show details about each request and help you understand if your endpoint was up and responsive at the time of the check.
+URL monitor results show details about each request and help you understand if your endpoint was available and performing as expected at the time of the check.
 
 ![http check results detail page](/docs/images/monitoring/check-results-url.png)
 
-These include:
+Each result includes:
 
 1. The HTTP request that was made
 2. The response time

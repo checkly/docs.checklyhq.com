@@ -13,7 +13,7 @@ menu:
 
 Checkly runs your checks every x minutes, based on an interval you select. We have different minimum intervals for each check type:
 
-- API and network checks can be scheduled to run **every 10 seconds** (A 1-second interval is available upon request for API checks — [contact us](mailto:support@checklyhq.com) if you'd like to learn more.)
+- API checks and uptime monitors can be scheduled to run **every 10 seconds** (A 1-second interval is available upon request for API checks — [contact us](mailto:support@checklyhq.com) if you'd like to learn more.)
 - Browser and multistep checks can be scheduled to run **every 1 minute**.
 
 You can select one or more data center locations to run your checks from. We advise to **always select at least 2 locations**.
