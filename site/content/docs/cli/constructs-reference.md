@@ -312,7 +312,6 @@ new UrlMonitor('hello-url-1', {
   maxResponseTime: 10000,
   degradedResponseTime: 5000,
   request: {
-    method: 'GET',
     url: 'https://httpbin.org/get',
     skipSSL: false,
     followRedirects: true,
