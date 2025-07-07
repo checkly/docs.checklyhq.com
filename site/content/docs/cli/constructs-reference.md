@@ -433,7 +433,7 @@ A heartbeat monitor is a passive monitor type that expects pings from an externa
 
 You can obtain the ping URL from our [user interface](https://app.checklyhq.com/heartbeats) or the CLI output of [`checkly deploy`](/docs/cli/command-line-reference/#npx-checkly-deploy).
 
-```ts {title="heartbeat.monitor.ts"}
+```ts {title="heartbeat.check.ts"}
 import { HeartbeatMonitor } from 'checkly/constructs'
 
 new HeartbeatMonitor('heartbeat-monitor-1', {
