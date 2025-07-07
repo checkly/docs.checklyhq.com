@@ -327,7 +327,6 @@ new UrlMonitor('hello-url-1', {
 The `request` object is a mandatory part of an URL monitor.
 
 - `url`: The HTTP(S) URL to monitor.
-- `method`: Must be `GET` (URL monitors do not support other methods).
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
 - `skipSSL`: A boolean indicating whether to skip validation of SSL certificates.
 - `assertions`: You can define assertions via the `UrlAssertionBuilder`. For URL monitors, only status code assertions are supported. For example:
