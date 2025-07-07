@@ -66,27 +66,28 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
   - `privateRunLocation`: The default private run location when running `npx checkly test` and `npx checkly trigger`.
   - `retries`: The number of times to retry a failing check run when running `npx checkly test` and `npx checkly trigger`. 0 by default and maximum 3.
 
-## `Check`
+## `Check` & `Monitor`
 
-The `Check` class is the base class for all synthetic checks (e.g. API, Browser, Multistep). It defines the shared configuration properties used across them.
+Checks and monitors support the following common properties:
 
-| Property                | Description                                                                                                                         |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                  | A friendly name for your Check.                                                                                                     |
-| `frequency`             | How often to run your Check in minutes, i.e. `Frequency.EVERY_1H` for every hour.                                                   |
-| `locations`             | An array of location codes where to run your Checks, i.e. `['us-east-1', 'eu-west-1']`.                                             |
-| `privateLocations`      | An array of [Private Locations](/docs/private-locations/) slugs, i.e. `['datacenter-east-1']`.                                      |
-| `activated`             | A boolean value if your Check is activated or not.                                                                                  |
-| `muted`                 | A boolean value if alert notifications from your Check are muted, i.e. not sent out.                                                |
-| `group`                 | The `CheckGroup` object that this check is part of.                                                                                 |
-| `alertChannels`         | An array of `AlertChannel` objects to which to send alert notifications.                                                            |
-| `tags`                  | An array of tags to help you organize your Checks, i.e. `['product', 'api']`.                                                       |
-| `runtimeId`             | The ID of which [runtime](/docs/runtimes/specs/) to use for this Check.                                                             |
-| `testOnly`              | A boolean determining if the Check is available only when `test` runs and not included when `deploy` is executed.                   |
-| `retryStrategy`         | A [RetryStrategy](#retrystrategy) object configuring [retries](/docs/alerting-and-retries/) for failed check runs.                  |
-| `runParallel`           | A boolean value if check should run in parallel (all locations at the same time) or round-robin.                                    |
-| `doubleCheck`           | (deprecated) A boolean value if Checkly should double check on failure. This option is deprecated in favor of `retryStrategy`.      |
-| `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) object configuring [alert settings](/docs/alerting-and-retries/) for check runs. |
+| Property                | Description                                                                                                                         | Supported In                              |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| `name`                  | A friendly name for your check.                                                                                                     | All                                        |
+| `frequency`             | How often to run your check, in minutes (e.g. `Frequency.EVERY_1H`).                                                                | All except `Heartbeat`                    |
+| `locations`             | An array of public location codes (e.g. `['us-east-1', 'eu-west-1']`).                                                              | All except `Heartbeat`                    |
+| `privateLocations`      | An array of [Private Location](/docs/private-locations/) slugs (e.g. `['datacenter-east-1']`).                                      | All except `Heartbeat`                    |
+| `activated`             | Whether the check is enabled.                                                                                                       | All                                        |
+| `muted`                 | Whether alert notifications are muted (i.e. not sent).                                                                              | All                                        |
+| `group`                 | The `CheckGroup` this check belongs to.                                                                                             | All except `Heartbeat`                    |
+| `alertChannels`         | An array of `AlertChannel` objects to send alert notifications to.                                                                 | All                                        |
+| `tags`                  | An array of tags to help organize checks (e.g. `['product', 'api']`).                                                               | All                                        |
+| `runtimeId`             | The ID of the [runtime](/docs/runtimes/specs/) to use.                                                                              | `API`, `Browser`, `Multistep`             |
+| `testOnly`              | If `true`, the check only runs with `test`, not during `deploy`.                                                                   | All except `Heartbeat`                    |
+| `retryStrategy`         | A [RetryStrategy](#retrystrategy) for configuring [retries](/docs/alerting-and-retries/).                                           | All except `Heartbeat`                    |
+| `runParallel`           | Whether to run checks in all locations at once (parallel) or in round-robin.                                                       | All except `Heartbeat`                    |
+| `doubleCheck`           | **(Deprecated)** – Whether to retry a check on failure. Replaced by `retryStrategy`.                                                | Deprecated                                |
+| `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) for advanced [alert settings](/docs/alerting-and-retries/).                      | All except `Heartbeat`                    |
+| `environmentVariables`  | Check-level [environment variables](/docs/browser-checks/variables/#managing-variables)                   | `Browser`, `Multistep` only               |
 
 > Note that most properties have sane default values and do not need to be specified.
 

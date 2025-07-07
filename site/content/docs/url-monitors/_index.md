@@ -51,8 +51,8 @@ With the [Checkly CLI](/docs/cli/), you can define URL monitors in TypeScript or
 {{< tabs "CLI example" >}}
 {{< tab "TypeScript" >}}
 
-```ts {title="hello-url.monitor.ts"}
-import { UrlMonitor, AssertionBuilder } from 'checkly/constructs'
+```ts {title="hello-url.check.ts"}
+import { UrlMonitor, UrlAssertionBuilder } from 'checkly/constructs'
 
 new UrlMonitor('hello-url-1', {
   name: 'Hello URL',
@@ -61,7 +61,7 @@ new UrlMonitor('hello-url-1', {
     method: 'GET',
     url: 'https://api.checklyhq.com/v1/echo/get',
     assertions: [
-      AssertionBuilder.statusCode().equals(200),
+      UrlAssertionBuilder.statusCode().equals(200),
     ]
   }
 })
@@ -70,8 +70,8 @@ new UrlMonitor('hello-url-1', {
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 
-```js {title="hello-url.monitor.js"}
-const { UrlMonitor, AssertionBuilder } = require('checkly/constructs')
+```js {title="hello-url.check.js"}
+const { UrlMonitor, UrlAssertionBuilder } = require('checkly/constructs')
 
 new UrlMonitor('hello-url-1', {
   name: 'Hello URL',
@@ -80,7 +80,7 @@ new UrlMonitor('hello-url-1', {
     method: 'GET',
     url: 'https://api.checklyhq.com/v1/echo/get',
     assertions: [
-      AssertionBuilder.statusCode().equals(200),
+      UrlAssertionBuilder.statusCode().equals(200),
     ]
   }
 })

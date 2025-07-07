@@ -215,7 +215,7 @@ new checkly.Check('my-browser-check-pulumi', {
 
 #### How to create your first TCP monitor
 
-```javascript {title="tcp-monitor.js"}
+```javascript {title="tcp-check.js"}
 new checkly.TcpMonitor('my-tcp-monitor', {
   name: 'Example TCP monitor',
   activated: true,
