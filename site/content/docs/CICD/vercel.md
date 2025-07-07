@@ -27,7 +27,7 @@ Checkly offers two integrations for Vercel users:
 To install Checkly's managed Vercel integration, navigate to the [integration's marketplace listing](https://vercel.com/integrations/checkly) and click `Install`.
 
 1. Select `Create new account` in the installation guide and click `Next` to accept the terms and conditions.
-2. Select your plan type. You can read about our pricing plans [here](https://www.checklyhq.com/pricing/), and more about how we bill checks [here](/docs/monitoring/check-pricing/).
+2. Select your plan type. You can read about our pricing plans [here](https://www.checklyhq.com/pricing/) here.
 3. Name your account and review your plan selection. You can change your account name later.
 4. Press `Create` to continue to the integration settings page. Select `Getting started` to go to the setup guide in Vercel. You can also click `Open in Checkly` to go through the Checkly + Vercel onboarding and get you started with an example project showcasing how to use Monitoring as Code together with Vercel. You can find the [example NextJS project on GitHub](https://github.com/checkly/nextjs-checkly-starter-template) which includes a guide on how to use Monitoring as Code with a NextJS project.
 

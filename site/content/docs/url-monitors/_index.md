@@ -17,9 +17,7 @@ Typical use cases include:
 * Ensuring your marketing site returns a 200 OK
 * Verifying your documentation site loads quickly
 * Checking that your SSL certificate is still valid
-* Confirming that a status page or pricing endpoint is reachable
-
-![Screenshot of the URL monitor overview page](/docs/images/http-checks/http-check-overview.png)
+* Confirming that a public pricing endpoint is reachable for customers
 
 URL monitors are ideal for lightweight uptime monitoring. If a URL goes down, returns an unexpected status code, or responds too slowly, any configured [alerts](/docs/alerting-and-retries/) will be triggered.
 
@@ -93,4 +91,4 @@ new UrlMonitor('hello-url-1', {
 {{< /tab >}}
 {{< /tabs >}}
 
-See the full [Monitor construct reference](/docs/cli/constructs-reference/#urlmonitor) for more options.
+See the full [Url monitor construct reference](/docs/cli/constructs-reference/#urlmonitor) for more context.

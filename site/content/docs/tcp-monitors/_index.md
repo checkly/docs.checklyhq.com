@@ -113,4 +113,4 @@ For more options, see the [Monitor construct reference](/docs/cli/constructs-ref
 
 * Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
 * Analyze your [TCP monitor run results](/docs/monitoring/check-results#tcp-monitor-results).
-* Understand [pricing and billing](/docs/monitoring/check-pricing/#pricing--billing---checkly-docs) for TCP monitors.
+* Understand [pricing and billing](https://www.checklyhq.com/pricing/) for TCP monitors.
