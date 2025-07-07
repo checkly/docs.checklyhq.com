@@ -6,10 +6,10 @@ weight: 16
 slug: /reference
 menu:
   resources:
-    parent: "Playwright Check Suites (Alpha)"
+    parent: "Playwright Check Suites (Beta)"
 ---
 
-{{< markdownpartial "/_shared/playwright-native-alpha.md" >}}
+{{< markdownpartial "/_shared/playwright-native-notice.md" >}}
 
 Use the `checkly.config.ts/js` file to define your Playwright Check Suite.
 
