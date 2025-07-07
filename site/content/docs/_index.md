@@ -46,6 +46,9 @@ Checks, Browser Checks and all other constructs.
 Not quite ready to start your monitoring as code journey? No problem. Get started using just the web UI and you'll be
 monitoring in minutes.
 
+### Synthetic Checks
+Checkly synthetic checks are automated end to end tests that simulate user interactions or API requests to monitor the performance and availability of web applications and services.
+
 <div class="cards-list">
 {{< doc-card
 	  class="two-column-card"
@@ -77,6 +80,28 @@ monitoring in minutes.
 {{< doc-card
 	  class="two-column-card"
 	  headerTag="h3"
+	  title="Create a Playwright check suite (Beta)"
+	  img="/docs/images/icons/playwright-check.svg"
+	  description="Use your existing Playwright tests as live, scheduled checks to verify functionality, performance, and reliability from different locations"
+	  link="/docs/playwright-checks/"
+>}}
+</div>
+
+### Uptime Monitors
+Use Uptime monitors to regularly check if a website, port, or service is available and responding as expected.
+
+<div class="cards-list">
+{{< doc-card
+   class="two-column-card"
+   headerTag="h3"
+   title="Create a URL monitor"
+   img="/docs/images/icons/-stroked.svg"
+   description="Monitor your URL endpoints by sending requests and validating responses."
+   link="/docs/url-monitors/"
+>}}
+{{< doc-card
+	  class="two-column-card"
+	  headerTag="h3"
     title="Create a TCP monitor"
     img="/docs/images/icons/tcp.svg"
     description="Monitor the availability and performance of your TCP services by establishing TCP connections and verifying the response."
@@ -88,32 +113,17 @@ monitoring in minutes.
 {{< doc-card
    class="two-column-card"
    headerTag="h3"
-   title="Create a URL monitor"
-   img="/docs/images/icons/http-check-stroked.svg"
-   description="Monitor your URL endpoints by sending requests and validating responses."
-   link="/docs/http-checks/"
->}}
-{{< doc-card
-   class="two-column-card"
-   headerTag="h3"
    title="Create a Heartbeat monitor"
    img="/docs/images/icons/heartbeats-check-stroked.svg"
    description="Monitor your backup jobs, data imports, and other recurring jobs or scripts by pinging Checkly at a regular interval."
    link="/docs/heartbeat-monitors/"
->}}
-{{< doc-card
- class="two-column-card"
- headerTag="h3"
- title="Set up alert channels"
- img="/docs/images/icons/alerting.svg"
- description="Get notified about outages or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack and Pagerduty."
- link="/docs/alerting"
 >}}
 </div>
 
 ## Additional resources
 
 <div class="cards-list">
+{{< doc-card class="three-column-card" title="Alert channels" description="Get notified about outages or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack and Pagerduty." link="/docs/alerting" >}}
 {{< doc-card class="three-column-card" title="Dashboards" description="Whip up a status page on your own domain or create an internal dashboard." link="/docs/dashboards" >}}
 {{< doc-card class="three-column-card" title="Private Locations" description="Run your Checks wherever you want: inside your firewall, VPC or K8S cluster. " link="/docs/private-locations" >}}
 {{< doc-card class="three-column-card" title="Groups" description="Organize your checks and D.R.Y. up your code and configuration." link="/docs/groups/" >}}

@@ -23,8 +23,6 @@ URL monitors are ideal for lightweight uptime monitoring. If a URL goes down, re
 
 ## Creating a URL monitor
 
-![Screenshot of the URL monitor creation page](/docs/images/http-checks/create-http-check.png)
-
 Each URL monitor is defined by its request configuration, which includes the target URL and how its availability and performance should be validated.
 
 * **Request method:** Always `GET`.
