@@ -109,8 +109,8 @@ disqusShortname = "checkly"
 	weight = 30
 
 [[menu.resources]]
-	name = "Heartbeat checks"
-	url = "/docs/heartbeat-checks/"
+	name = "Heartbeat monitors"
+	url = "/docs/heartbeat-monitors/"
 	weight = 35
 
 [[menu.resources]]
