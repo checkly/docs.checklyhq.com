@@ -123,7 +123,6 @@ Use Uptime monitors to regularly check if a website, port, or service is availab
 ## Additional resources
 
 <div class="cards-list">
-{{< doc-card class="three-column-card" title="Alert channels" description="Get notified about outages or slow downs in your webapps and APIs. Connect to one of our many integrations like Slack and Pagerduty." link="/docs/alerting" >}}
 {{< doc-card class="three-column-card" title="Dashboards" description="Whip up a status page on your own domain or create an internal dashboard." link="/docs/dashboards" >}}
 {{< doc-card class="three-column-card" title="Private Locations" description="Run your Checks wherever you want: inside your firewall, VPC or K8S cluster. " link="/docs/private-locations" >}}
 {{< doc-card class="three-column-card" title="Groups" description="Organize your checks and D.R.Y. up your code and configuration." link="/docs/groups/" >}}
