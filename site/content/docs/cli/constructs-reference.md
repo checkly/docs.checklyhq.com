@@ -91,12 +91,6 @@ Checks and monitors share a common set of properties for configuration:
 
 > Note that most properties have sane default values and do not need to be specified.
 
-## `Monitor`
-
-The `Monitor` class is the base class for all uptime monitors (e.g. URL, TCP, Heartbeat). It defines the shared configuration properties used across these monitor types.
-
-It includes the same properties as [Check](#check), except for `runtimeId`. It also does not support defining environment variables at the check level. At the moment this is only supported for Browser and Multistep checks.
-
 ## Synthetic Checks
 Checkly synthetic checks are automated end to end tests that simulate user interactions or API requests to monitor the performance and availability of web applications and services.
 
