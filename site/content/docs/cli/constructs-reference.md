@@ -66,9 +66,9 @@ dedicated docs on checkMatch and testMatch](/docs/cli/using-check-test-match/)
   - `privateRunLocation`: The default private run location when running `npx checkly test` and `npx checkly trigger`.
   - `retries`: The number of times to retry a failing check run when running `npx checkly test` and `npx checkly trigger`. 0 by default and maximum 3.
 
-## `Check` & `Monitor`
+## Shared configuration for your checks and monitors
 
-Checks and monitors support the following common properties:
+Checks and monitors share a common set of properties for configuration:
 
 | Property                | Description                                                                                                                         | Supported In                              |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
@@ -81,13 +81,13 @@ Checks and monitors support the following common properties:
 | `group`                 | The `CheckGroup` this check belongs to.                                                                                             | All except `Heartbeat`                    |
 | `alertChannels`         | An array of `AlertChannel` objects to send alert notifications to.                                                                 | All                                        |
 | `tags`                  | An array of tags to help organize checks (e.g. `['product', 'api']`).                                                               | All                                        |
-| `runtimeId`             | The ID of the [runtime](/docs/runtimes/specs/) to use.                                                                              | `API`, `Browser`, `Multistep`             |
+| `runtimeId`             | The ID of the [runtime](/docs/runtimes/specs/) to use.                                                                              | `API`, `Browser`, `Multistep`, `Playwright`            |
 | `testOnly`              | If `true`, the check only runs with `test`, not during `deploy`.                                                                   | All except `Heartbeat`                    |
 | `retryStrategy`         | A [RetryStrategy](#retrystrategy) for configuring [retries](/docs/alerting-and-retries/).                                           | All except `Heartbeat`                    |
 | `runParallel`           | Whether to run checks in all locations at once (parallel) or in round-robin.                                                       | All except `Heartbeat`                    |
 | `doubleCheck`           | **(Deprecated)** – Whether to retry a check on failure. Replaced by `retryStrategy`.                                                | Deprecated                                |
 | `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) for advanced [alert settings](/docs/alerting-and-retries/).                      | All except `Heartbeat`                    |
-| `environmentVariables`  | Check-level [environment variables](/docs/browser-checks/variables/#managing-variables)                   | `Browser`, `Multistep` only               |
+| `environmentVariables`  | Check-level [environment variables](/docs/browser-checks/variables/#managing-variables)                   | `API`, `Browser`, `Multistep`, `Playwright`               |
 
 > Note that most properties have sane default values and do not need to be specified.
 

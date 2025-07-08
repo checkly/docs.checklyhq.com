@@ -63,7 +63,7 @@ Checkly synthetic checks are automated end to end tests that simulate user inter
 	  headerTag="h3"
 	  title="Create an API check"
 	  img="/docs/images/icons/api.svg"
-	  description="Monitor the latency and assert the correctness of your API endpoints. Use inline scripts and code to customize everything with setups and teardowns."
+	  description="Monitor the latency and assert the correctness of your API endpoints. Use setup and teardown scripts to customize your requests."
 	  link="/docs/api-checks"
 >}}
 </div>
