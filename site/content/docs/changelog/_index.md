@@ -14,6 +14,10 @@ Track changes and updates to Checkly products. This changelog documents new feat
 
 ## Available changelogs
 
+### Checkly Product Changelog
+
+To receive updates on major product announcements, CLI and agent releases, check out the [Checkly Product Changelog](https://feedback.checklyhq.com/changelog) where you can also write or upvote feature requests.
+
 ### [Checkly CLI](/docs/changelog/cli/)
 
 Command-line interface for managing Checkly resources programmatically. View updates for:
@@ -28,26 +32,10 @@ Docker-based agent for running checks from your infrastructure. View updates for
 - Security enhancements
 - Configuration updates
 
-## How we version
-
-We follow [Semantic Versioning](https://semver.org/):
-
-| Version type | Format | Description | Action required |
-|-------------|---------|-------------|----------------|
-| Major | X.0.0 | Breaking changes | Review migration guide |
-| Minor | x.Y.0 | New features | Optional upgrade |
-| Patch | x.y.Z | Bug fixes | Recommended upgrade |
-
-## Stay informed
+## Stay up-to-date
 
 Get notified about updates:
 
-- **Product updates**: View all product updates in the main product changelog
-- **Blog**: Read major announcements and feature deep-dives
-- **Community**: Join our developer community for discussions and support
-
-## Need help?
-
-- Check product-specific documentation for upgrade instructions
-- Review breaking changes before major version upgrades
-- Contact support for migration assistance
+- **Blog**: Read major announcements and feature deep-dives on the [Checkly blog](https://www.checklyhq.com/blog/)
+- **Community**: [Join our developer community](https://checklycommunity.slack.com/join/shared_invite/zt-2qc51mpyr-5idwVD4R4izkf5FC4CFk1A#/shared-invite/email) for live discussions and support.
+- **Product**: View all product updates in the main [product changelog](https://feedback.checklyhq.com/changelog) you can subscribe via e-mail or to an rss feed that automatically posts into your Slack, Teams or Discord channels.
