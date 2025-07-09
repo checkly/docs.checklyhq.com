@@ -4,7 +4,8 @@
   "description": "Automation scripts for Checkly documentation",
   "private": true,
   "scripts": {
-    "update-cli-changelog": "node scripts/update-cli-changelog.js"
+    "update-cli-changelog": "node scripts/update-cli-changelog.js",
+    "update-agent-changelog": "node scripts/update-agent-changelog.js"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2"
