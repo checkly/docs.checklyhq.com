@@ -30,6 +30,7 @@ Release history for the Checkly Private Locations Agent. For setup instructions,
 
 **Features**
 
+- Added support for [Playwright check suites](/docs/playwright-checks/).
 - Added debug logging with `DEBUG=checkly:*` environment variable
 - Bundled Node.js for offline installations
 
@@ -52,7 +53,7 @@ Release history for the Checkly Private Locations Agent. For setup instructions,
 
 **New features**
 
-- Support for runtimes 2024.09 and 2025.04
+- Support for runtimes [2024.09](/docs/runtimes/specs/#202409) and [2025.04](/docs/runtimes/specs/#202504)
 - Disabled `PLAYWRIGHT_NO_COPY_PROMPT` for better reporter compatibility
 
 ## Version history
@@ -62,11 +63,12 @@ Release history for the Checkly Private Locations Agent. For setup instructions,
 
 ## Compatibility matrix
 
-| Agent version | Docker minimum | Supported runtimes | Node.js | Playwright version |
+| Agent version | Docker minimum | Supported runtimes | Node.js |
 |--------------|----------------|-------------------|---------|
-| 6.x | 20.10 | 2025.04. 2024.09 | 22 |
-| 5.x | 19.03 | 2025.04 | v22.11.0 | Playwright 1.51.1
-| 4.x | 19.03 | 2023.09, 2024.02 | 18 |
+| 6.x | 20.10 | [2025.04](/docs/runtimes/specs/#202504), [2024.09](/docs/runtimes/specs/#202409) | v22.11.0 |
+| 5.x | 19.03 | [2025.04](/docs/runtimes/specs/#202509) | v22.11.0 |
+| 4.x | 19.03 | [2024.09](/docs/runtimes/specs/#202409) | v18 |
+| 3.x | 19.03 | [2023.09](/docs/runtimes/specs/#202309) | v18 |
 
 ## Update checklist
 

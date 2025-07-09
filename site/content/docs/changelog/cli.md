@@ -21,7 +21,7 @@ checkly --version
 Update to the latest version:
 
 ```bash
-npm install -g checkly@latest
+npm install checkly@latest
 ```
 
 ## Version 6.0.1 - June 26, 2025
@@ -32,11 +32,11 @@ npm install -g checkly@latest
 
 ## Version 6.0.0 - June 23, 2025
 
-**Runtime support**: 2025.04
+**Runtime support**: [2025.04](/docs/runtimes/specs/#202504)
 
 ### Added
 
-- Support for runtime 2025.04
+- Support for runtime [2025.04](/docs/runtimes/specs/#202504)
 
 ## Version 5.2.2 - June 11, 2025
 
@@ -54,7 +54,7 @@ npm install -g checkly@latest
 
 ### Changed
 
-- Extract and handle Playwright Test annotations in runtime 2025.04, allowing `@playwright/test` test runs with `.skip` and `.only` annotations
+- Extract and handle Playwright Test annotations in runtime [2025.04](/docs/runtimes/specs/#202504), allowing `@playwright/test` test runs with `.skip` and `.only` annotations
 
 ## Version 5.1.5 - May 14, 2025
 
@@ -181,7 +181,7 @@ npm install -g checkly@latest
 
 ### Changed
 
-- Support Node 22 when using runtime 2025.04
+- Support Node 22 when using runtime [2025.04](/docs/runtimes/specs/#202504)
 - The `init` command is now deprecated in favor of scaffolding
 
 ## Version 4.2.0 - May 23, 2024
@@ -192,7 +192,7 @@ npm install -g checkly@latest
 
 ## Version 4.1.0 - April 10, 2024
 
-**Runtime support**: 2024.02
+**Runtime support**: [2024.02](/docs/runtimes/specs/#202402)
 
 ### Breaking Changes
 
@@ -200,7 +200,7 @@ npm install -g checkly@latest
 
 ### Added
 
-- Support for runtime 2024.02
+- Support for runtime [2024.02](/docs/runtimes/specs/#202402)
 
 ## Version 4.0.0 - March 14, 2024
 
@@ -241,11 +241,11 @@ npm install -g checkly@latest
 
 ## Version 3.0.0 - October 12, 2023
 
-**Runtime support**: 2023.09
+**Runtime support**: [2023.09](/docs/runtimes/specs/#202309)
 
 ### Added
 
-- Support for runtime 2023.09
+- Support for runtime [2023.09](/docs/runtimes/specs/#202309)
 
 ## Version 2.8.0 - September 21, 2023
 
@@ -256,16 +256,16 @@ npm install -g checkly@latest
 
 ## Version 2.7.0 - August 24, 2023
 
-**Runtime support**: 2023.02
+**Runtime support**: [2023.02](/docs/runtimes/specs/#202302)
 
 ### Breaking Changes
 
 - The `checkly test` command now runs location-based scheduling by default
-- Default runtime changed to 2023.02
+- Default runtime changed to [2023.02](/docs/runtimes/specs/#202302)
 
 ### Added
 
-- Support for runtime 2023.02
+- Support for runtime [2023.02](/docs/runtimes/specs/#202302)
 - Support for missing response and request properties on API checks
 
 > Note: For historical information about versions prior to 2.7.0, please refer to the GitHub releases page.
