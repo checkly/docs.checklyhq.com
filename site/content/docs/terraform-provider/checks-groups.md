@@ -170,15 +170,15 @@ For example, a Multistep check can look as follows:
 ```
 
 
-### Tcp Checks
+### Tcp Monitors
 
-TCP checks monitor the availability and responsiveness of services running on specific ports, ensuring they are reachable and operating within acceptable response time thresholds.
+TCP monitors verify the availability and responsiveness of services running on specific ports, ensuring they are reachable and operating within acceptable response time thresholds.
 
-Below is a sample configuration for a TCP check using Terraform:
+Below is a sample configuration for a TCP monitor using Terraform:
 
 ```terraform
-resource "checkly_tcp_check" "example-tcp-check-2" {
-  name                   = "Example TCP check 2"
+resource "checkly_tcp_monitor" "example-tcp-monitor-2" {
+  name                   = "Example TCP monitor 2"
   activated              = true
   should_fail            = true
   frequency              = 1
@@ -232,7 +232,6 @@ resource "checkly_tcp_check" "example-tcp-check-2" {
   }
 }
 ```
-
 
 ## Groups
 

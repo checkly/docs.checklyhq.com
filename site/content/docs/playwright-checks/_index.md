@@ -25,7 +25,8 @@ You can mix and match existing
 
 Here's how to get from zero to deployed checks in 5 minutes.
 
-###  Before you begin
+### Before you begin
+
 What you need:
 
 * A checkly account
@@ -61,7 +62,6 @@ Below are two example check suites:
 
 * a full multi-browser suite with smoke tests.
 * a `chromium`-only check suite running tests tagged with `@critical`.
-
 
 ```typescript {title="checkly.config.ts/js"}
 import { defineConfig } from 'checkly'
@@ -165,6 +165,7 @@ Once deployed, your checks will run on a schedule and results will appear in you
 Configure alert channels and alert groups to get notified when checks fail. You can receive alerts via email, Slack, webhooks, and more.
 
 To set up alerts:
+
 1. Go to the Checkly dashboard.
 2. Navigate to **Alert Settings** > **Alert Channels** to create a new channel.
 3. Assign channels to your project or individual checks.
@@ -173,12 +174,12 @@ Learn more in the [alerting guide](https://www.checklyhq.com/docs/alerts/).
 
 And all done!
 
-
 ## Next steps
 
-- Explore advanced configuration like [private locations](/docs/private-locations/) and [environment variables](/docs/cli/env-vars/).
-- Add or tweak your checks to monitor flows in different browsers or locations.
-- Set up alerting and integrations with your incident response tools
-- Add [TCP](/docs/tcp-checks) and [API monitors](/docs/api-checks) alongside your Playwright Check Suites.
+* Explore advanced configuration like [private locations](/docs/private-locations/) and [environment variables](/docs/cli/env-vars/).
+* Add or tweak your checks to monitor flows in different browsers or locations.
+* Set up alerting and integrations with your incident response tools
+
+* Add [TCP](/docs/tcp-monitors) and [URL monitors](/docs/url-monitors) as well as [API checks](/docs/api-checks) alongside your Playwright Check Suites.
 
 > → Continue to the [Playwright Check Suite CLI reference](/docs/playwright-checks/reference) for all available options.

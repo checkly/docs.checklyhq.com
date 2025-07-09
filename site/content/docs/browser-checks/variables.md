@@ -20,9 +20,9 @@ You should therefore **replace any confidential data in your check scripts with 
 
 You can create variables at three hierarchical levels:
 
-- **Check** level - Browser and multistep check supported.
-- **Group** level - API & network as well as browser and multistep checks supported.
-- **Global** level - API & network as well as browser and multistep checks supported.
+- **Check** level (Only supported by API, Browser, Multistep & Playwright checks)
+- **Group** level
+- **Global** level
 
 Add variables specific to a Check variables on the **Variables** tab for each browser and multistep check.
 

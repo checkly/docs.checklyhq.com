@@ -7,7 +7,7 @@ There are two ways to store configuration information in Checkly: Variables and 
 - **Variables** are used to store non-sensitive information. Variables are shown in plaintext when being edited, on the check result page and in logs. Variables can be accessed via the CLI and API.
 - **Secrets** allow you to store sensitive data for use in checks. Once saved secrets are never shown in the UI or in logs. The secret value cannot be accessed via the CLI or API.
 
-> Secrets are available for [Private Locations](/docs/private-locations/) on agent version `3.3.4` and later. Secrets are available on [CLI](/docs/cli/) version `4.9.0` and later.
+> Secrets are fully supported starting with runtime version 2024.09 and later. For [Private Locations](/docs/private-locations/), secrets are available in agent version `3.3.4` and later, and for the [CLI](/docs/cli/), in version `4.9.0` and later.
 
 > [!WARNING]
 > To ensure the integrity of Playwright artifacts (traces, videos and screenshots), the following are not scrubbed, even when saved as secrets: The characters `/` and `*` and the full or partial match of `/artifact/`, `https://`, `http://`, `*********`, and `123`.

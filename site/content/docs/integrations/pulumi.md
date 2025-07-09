@@ -213,14 +213,14 @@ new checkly.Check('my-browser-check-pulumi', {
 })
 ```
 
-#### How to create your first TCP check
+#### How to create your first TCP monitor
 
 ```javascript {title="tcp-check.js"}
-new checkly.TcpCheck('my-tcp-check', {
-  name: 'Example TCP check',
+new checkly.TcpMonitor('my-tcp-monitor', {
+  name: 'Example TCP monitor',
   activated: true,
   shouldFail: false,
-  frequency: 1,
+  frequency: 10,
   useGlobalAlertSettings: true,
   locations: ['us-west-1'],
   degradedResponseTime: 3000,
@@ -232,7 +232,8 @@ new checkly.TcpCheck('my-tcp-check', {
   },
 });
 ```
-For detailed documentation on TCP checks, refer to the [Pulumi Checkly TCP Check API docs](https://www.pulumi.com/registry/packages/checkly/api-docs/tcpcheck/).
+
+For detailed documentation on TCP monitors, refer to the [Pulumi Checkly TCP Monitor API docs](https://www.pulumi.com/registry/packages/checkly/api-docs/tcpcheck/).
 
 ### Creating checks and applying changes
 

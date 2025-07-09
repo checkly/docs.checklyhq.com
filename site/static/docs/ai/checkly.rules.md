@@ -174,16 +174,16 @@ new MultiStepCheck('example-multi-step-check', {
 
 ```
 
-### TCP Check
+### Tcp Monitor
 
-- Import the `TcpCheck` construct from `checkly/constructs`.
-- Reference [the docs for TCP checks](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpcheck) before generating any code.
-- When adding `assertions`, always use `TcpAssertionBuilder` class for TCP checks which is [documented here](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpassertionbuilder)
+- Import the `TcpMonitor` construct from `checkly/constructs`.
+- Check out the reference docs for [TCP Monitors](https://www.checklyhq.com/docs/cli/constructs-reference/#TcpMonitor) before generating any code.
+- When adding `assertions`, always use `TcpAssertionBuilder` class for TcpMonitors which are [documented here](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpassertionbuilder)
 
 ```typescript
-import { AlertEscalationBuilder, RetryStrategyBuilder, TcpAssertionBuilder, TcpCheck } from 'checkly/constructs'
+import { AlertEscalationBuilder, RetryStrategyBuilder, TcpAssertionBuilder, TcpMonitor } from 'checkly/constructs'
 
-new TcpCheck('example-tcp-check', {
+new TcpMonitor('example-tcp-check', {
   name: 'Example TCP Check',
   request: {
     hostname: 'tcp.example.com',

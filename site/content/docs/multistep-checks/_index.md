@@ -230,7 +230,6 @@ For more options, see the [Check construct reference](/docs/cli/constructs-refer
 
 - Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
 - See [example scripts](/docs/multistep-checks/example-checks/) for authentication, CRUD testing, and more.
-- Understand [pricing and billing](/docs/monitoring/check-pricing/#multistep-checks) for Multistep checks.
 - Learn more about [resource limitations](/docs/runtimes/specs/#resource-limitations) for Multistep checks.
 
 ## More Playwright resources
