@@ -4,30 +4,27 @@ displayTitle: Checkly Changelog
 navTitle: Changelog
 weight: 100
 slug: /
-menu:
-  resources:
-    parent: "Resources"
-    identifier: changelog-overview
 ---
 
-Track changes and updates to Checkly products. This changelog documents new features, improvements, and fixes for our developer tools.
+Track changes and updates to Checkly products. This change log documents new features, improvements, and fixes for our developer tools.
 
-## Available changelogs
 
-### Checkly Product Changelog
+## Checkly Product Change log
 
-To receive updates on major product announcements, CLI and agent releases, check out the [Checkly Product Changelog](https://feedback.checklyhq.com/changelog) where you can also write or upvote feature requests.
+To receive updates on major product announcements, CLI and agent releases, check out the [Checkly Product Changelog](https://feedback.checklyhq.com/changelog) where you can also write or up vote feature requests.
 
-### [Checkly CLI](/docs/changelog/cli/)
+## [Checkly CLI](/docs/changelog/cli/)
 
 Command-line interface for managing Checkly resources programmatically. View updates for:
+
 - New commands and features
 - Performance improvements
 - Bug fixes and resolved issues
 
-### [Private Locations Agent](/docs/changelog/private-locations-agent/)
+## [Private Locations Agent](/docs/changelog/private-locations-agent/)
 
 Docker-based agent for running checks from your infrastructure. View updates for:
+
 - Runtime compatibility changes
 - Security enhancements
 - Configuration updates
