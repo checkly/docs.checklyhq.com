@@ -138,5 +138,11 @@
     { "source": "/learn/monitoring/synthetic-transaction-monitoring/(/)?", "destination": "/learn/monitoring/transaction-monitoring/", "permanent": true },
     { "source": "/guides/monitoring-as-code/(/)?", "destination": "/learn/monitoring/monitoring-as-code/", "permanent": true }
 
-    ]
+    ],
+  "rewrites": [
+    {
+      "source": "/docs/ai/checkly.rules.md",
+      "destination": "https://github.com/checkly/checkly-cli/releases/latest/download/checkly.rules.md"
+    }
+  ]
 }
