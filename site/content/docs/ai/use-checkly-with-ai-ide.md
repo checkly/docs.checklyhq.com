@@ -43,7 +43,7 @@ When asking questions about Checkly manually add the download rules files to you
 {{< tab "Mac and Linux" >}}
 
 ```bash
-mkdir -p .github && curl -o .github/copilot-instructions.md "https://www.checklyhq.com/docs/ai/checkly.rules.md"
+mkdir -p .github && curl -o .github/copilot-instructions.md "https://www.checklyhq.com/docs/ai/checkly.rules.md" -L
 ```
 
 {{< /tab >}}
@@ -70,7 +70,7 @@ and all other constructs.
 {{< tab "Mac and Linux" >}}
 
 ```bash
-mkdir -p .cursor/rules && curl -o .cursor/rules/checkly.mdc  "https://www.checklyhq.com/docs/ai/checkly.rules.md"
+mkdir -p .cursor/rules && curl -o .cursor/rules/checkly.mdc  "https://www.checklyhq.com/docs/ai/checkly.rules.md" -L
 ```
 
 Now make sure to add the new `checkly.mdc` file to your context.
@@ -99,7 +99,7 @@ API Checks, Browser checks, Multistep checks and all other constructs.
 {{< tab "Mac and Linux" >}}
 
 ```bash
-mkdir -p .windsurf/rules && curl -o .windsurf/rules/checkly.md "https://www.checklyhq.com/docs/ai/checkly.rules.md"
+mkdir -p .windsurf/rules && curl -o .windsurf/rules/checkly.md "https://www.checklyhq.com/docs/ai/checkly.rules.md" -L
 ```
 {{< /tab >}}
 

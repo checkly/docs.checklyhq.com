@@ -30,6 +30,15 @@
           "value": "max-age=604800, s-maxage=604800"
         }
       ]
+    },
+    {
+      "source": "/docs/ai/checkly.rules.md",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "nocache, no-store, must-revalidate, max-age=0"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -137,7 +146,6 @@
     { "source": "/learn/monitoring/reduce-mttd/(/)?", "destination": "/learn/incidents/reduce-mttd/", "permanent": true },
     { "source": "/learn/monitoring/synthetic-transaction-monitoring/(/)?", "destination": "/learn/monitoring/transaction-monitoring/", "permanent": true },
     { "source": "/guides/monitoring-as-code/(/)?", "destination": "/learn/monitoring/monitoring-as-code/", "permanent": true }
-
     ],
   "rewrites": [
     {
