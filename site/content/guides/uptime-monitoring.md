@@ -10,15 +10,17 @@ tags:
   - FAQ
 ---
 
-Uptime monitoring is part of a ‘[defense in depth](https://www.checklyhq.com/blog/the-defense-in-depth-approach-to-app-monitoring/)’ strategy of guaranteeing that your services maintain uptime and you meet your Service Level Agreements (SLAs) with your customers. The following guide will show you how to monitor every, endpoint, service, and URL that your service supports. As an extension, you may consider monitoring third-party services that your service relies on. This guide will cover the three main components of uptime monitors:
+Uptime Monitoring is part of a ‘[reliability in depth](https://www.checklyhq.com/blog/the-defense-in-depth-approach-to-app-monitoring/)’ strategy of guaranteeing that your services maintain available and performant while allowing you to meet your Service Level Agreements (SLAs) with your customers. You can combine Uptime Monitoring with [Synthetinc Monitoring](https://www.checklyhq.com/learn/monitoring/synthetic-monitoring/) and full-stack traces for a deep, 360 degree view into your applications health. The following guide will focus on your first layer of defense, Uptime Monitoring, and show you how to monitor every endpoint, service, and URL that your service supports. As an extension, you may consider monitoring third-party services that your service relies on. This guide will cover the three types of uptime monitors we have at Checkly:
 
-- URL Monitoring
-- TCP Monitoring
-- Heartbeat monitoring
+- URL Monitors
+- TCP Monitors
+- Heartbeat Monitors
 
-## The URL Monitor, for high frequency, simple checks
+## URL Monitors
 
-If you’re using Checkly, you’re aware of the value of synthetic monitoring, which can simulate complex user behaviors in a browser. Even Checkly’s API monitoring can run setup and teardown scripts, and perform dynamic validation on responses. But sometimes we just need to know whether a service is responding to HTTP requests with a 200 status code. URL monitoring sends high-frequency requests and generates a Checkly status board, with all the alerting options you expect from Checkly. 
+While Synthetic Monitoring can simulate complex user behaviors in a browser and alert you if performance or functionality degrades, Uptime Monitoring excels at continous validation that URLs and Services are available. URL monitoring sends high-frequency requests and can alert you of failures within seconds.
+
+This can be useful for monitoring your homepage, landing pages, product pages, and even blog and docs. Our scalable, affordable approach of implementing monitors as code makes Checkly perfect for applying blanketed monitor coverage across your entire digitial footprint.
 
 It’s easy to create a URL Monitor from your IDE with Checkly CLI, just create a check file in your project with the `URLMonitor` type:
 
@@ -27,7 +29,7 @@ It’s easy to create a URL Monitor from your IDE with Checkly CLI, just create 
 import { Frequency, UrlMonitor, UrlAssertionBuilder } from 'checkly/constructs'
 
 new UrlMonitor('url-pinger-1', {
-  frequency: Frequency.EVERY_10S,
+  frequency: Frequency.EVERY_60S,
   name: 'URL pinger 1',
   activated: true,
   request: {
@@ -41,7 +43,7 @@ new UrlMonitor('url-pinger-1', {
 })
 ```
 
-*Note that this check is set to run every 10 seconds!*
+*Note that this check is set to run every 60 seconds!*
 
 And deploy your check with the `npx checkly deploy` command. 
 
