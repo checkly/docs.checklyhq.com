@@ -76,7 +76,6 @@ new TcpMonitor('hello-tcp-1', {
 
 TCP monitors offer similar options to URL monitors, with the addition of assertions to evaluate the responses. Read more about [TCP check assertions on our docs site](https://www.checklyhq.com/docs/cli/constructs-reference/#tcpassertionbuilder). 
 
-
 ![A TCP check dashboard](/guides/images/uptime-01.png)
 
 *Results for TCP checks include the status of your SSL certification, and can send alerts if your certs are close to expiring.*
