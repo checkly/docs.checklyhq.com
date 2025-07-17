@@ -158,7 +158,7 @@ When you exceed the check runs or monitors included in your plan, you'll be char
 Overages are calculated based on your actual usage beyond your plan limits:
 
 - **Hobby Plan**: Hard-capped at 10k API and 1.5k browser check runs - no overages possible, upgrade required
-- **Team Plan**: Overages charged at standard rates for usage beyond plan limits
+- **Team & Starter Plans**: Overages charged at standard rates for usage beyond plan limits
 - **Enterprise Plan**: Custom overage rates negotiated as part of your contract
 
 ### Managing Overage Costs
