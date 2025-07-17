@@ -22,7 +22,7 @@ Before diving into pricing details, here are key concepts that affect your costs
 - **Check run**: A single execution of a check or monitor
 - **Parallel scheduling**: Running checks simultaneously from multiple locations
 - **Retries**: Automatic re-execution of failed checks
-- **Flaky checks**: Checks that fail intermittently due to network issues or timing problems
+- **Flaky checks**: Checks that fail intermittently due to network issues or timing problems, or inconsistent system behavior.
 - **Prepaid check bundles**: Discounted packages of check runs purchased in advance
 - **Overages**: Additional charges when you exceed your plan's included check runs or monitors, typically at higher rates than prepaid bundles
 
