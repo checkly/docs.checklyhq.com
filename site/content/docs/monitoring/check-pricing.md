@@ -63,7 +63,7 @@ Balance the number of locations the check is using to ensure you are quickly mad
 
 ### Retries
 
-When a check is [retried](/docs/alerting-and-retries/retries/), this counts as a new check run. A flaky check can increase your check run costs above the expected. If you have problems with flaky checks, ask [our community](https://www.checklyhq.com/slack/) or our support for tips on how to improve check stability and reduce cost.
+When a check is [retried](/docs/alerting-and-retries/retries/), this counts as a new check run. A flaky check can increase your check run costs above the expected amount. If you have problems with flaky checks, ask [our community](https://www.checklyhq.com/slack/) or our support for tips on how to improve check stability and reduce cost.
 
 > **Example:** If our check from earlier has a 20% retry rate (meaning 20% of check runs fail and trigger a retry), this will increase the cost from $3.65 to $4.38.
 
