@@ -81,7 +81,7 @@ When a Multistep check is run in [parallel](/docs/monitoring/global-locations/#p
 
 ### Retries
 
-As a Multistep check is [retried](/docs/alerting-and-retries/retries/) as a whole, the final cost of a retried Multistep check is based on the number of requests executed multiplied by the number of retries.
+As a Multistep check is [retried](/docs/alerting-and-retries/retries/) as a whole, the final cost of a retry is based on the number of requests executed multiplied by the number of retries.
 
 ## Uptime Monitors
 
