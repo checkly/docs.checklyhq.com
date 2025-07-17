@@ -19,27 +19,16 @@ Checkly supports different kinds of checks and monitors which are billed slightl
 
 Before diving into pricing details, here are key concepts that affect your costs:
 
-- **Check run**: A single execution of a check or monitor
+- **Check run**: A single execution of a syntehtic check 
 - **Parallel scheduling**: Running checks simultaneously from multiple locations
 - **Retries**: Automatic re-execution of failed checks
-- **Flaky checks**: Checks that fail intermittently due to network issues or timing problems, or inconsistent system behavior.
+- **Flaky checks**: Checks that fail intermittently due to network issues or timing problems
 - **Prepaid check bundles**: Discounted packages of check runs purchased in advance
-- **Overages**: Additional charges when you exceed your plan's included check runs or monitors, typically at higher rates than prepaid bundles
+- **Overages**: Additional charges when you exceed your plan's included Synthetic Check Runs, typically at higher rates than prepaid bundles
 
 ## Pricing Table
 
-This table shows the base cost for checks and monitors, and how Parallel Scheduling or retries affect your total cost:
-
-| Check type | Base cost          | Parallel scheduling    | Retries             |
-|------------|--------------------|------------------------|---------------------|
-| Browser    | $5 per 1k runs     | Each location is a run | Each retry is a run |
-| API        | $2 per 10k runs    | Each location is a run | Each retry is a run |
-| Multistep  | $2 per 10k requests| Locations × requests   | Retries × requests  |
-| URL monitor | $10 for 25 monitors | Only available on enterprise  | Each monitor can retry once |
-| TCP monitor    | $10 for 25 monitors | Only available on enterprise  | Each monitor can retry once |
-| Heartbeat monitor  | $10 for 25 monitors | Only available on enterprise  | Each monitor can retry once |
-
-> The check prices above are based on prepaid check bundles as shown on our [Pricing page](https://www.checklyhq.com/pricing/). If you are on a Checkly Enterprise contract, your checks' base cost might differ substantially from what is shown above. Also please note, overages are charged at an additional rate than committed consumption packages.  
+Refer to our [Pricing page](https://www.checklyhq.com/pricing/) for the most updated check run and monitor prices and packages. If you are on a Checkly Enterprise contract, your checks' base cost might differ substantially from what is shown above. Also please note, overages are charged at an additional rate than committed consumption packages.
 
 When configuring your check frequency and scheduling strategy, the cost helper will estimate the monthly cost for the check. This widget appears in the check configuration interface and automatically calculates costs based on your settings.
 
@@ -85,7 +74,7 @@ As a Multistep check is [retried](/docs/alerting-and-retries/retries/) as a whol
 
 ## Uptime Monitors
 
-A given set of Uptime Checks are included in the Starter, Team, and Enterprise plans. Users can complete the existing plan allowance of Uptime Checks by adding to their plans packages of 25 monitors for $10 each.  
+A given set of Uptime Checks are included in the Starter, Team, and Enterprise plans. Users can extend the plan's allowance by adding packages of monitors. Refer to the [pricing page](https://www.checklyhq.com/pricing/) to see uptime monitor packages.  
 
 Uptime monitors include:
 - [URL monitors](/docs/http-checks/)
@@ -96,7 +85,7 @@ Uptime monitors include:
 
 ### Parallel Scheduling
 
-Parallel Scheduling on Uptime monitors is limited to Enterprise plans.
+Parallel Scheduling on Uptime monitors is limited to Enterprise plans contact our sales team to know more about Enterprise plans. 
 
 ### Retries
 
@@ -151,7 +140,6 @@ When you exceed the check runs or monitors included in your plan, you'll be char
 - **API check runs** beyond your plan's monthly allowance
 - **Browser check runs** beyond your plan's monthly allowance  
 - **Multistep requests** beyond your plan's monthly allowance
-- **Additional uptime monitors** beyond your plan's included monitors
 
 ### How Overages Work
 
