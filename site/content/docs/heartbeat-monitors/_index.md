@@ -17,18 +17,18 @@ aliases:
 
 Track your scheduled jobs with Heartbeat monitors. Heartbeat monitors listen for regular pings from your automated tasks, to ensure that they are running as expected. 
 
-> Heartbeat checks are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing).
+> Heartbeat monitors are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing).
 
-## What is a Heartbeat check?
+## What is a Heartbeat monitor?
 
-A Heartbeat check is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
+A Heartbeat monitor is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
 When a ping is not received on time, the check will trigger any configured alerts.
 
-![Heartbeat check overview page](/docs/images/heartbeat-checks/heartbeat-check-overview.png)
+![Heartbeat monitor overview page](/docs/images/heartbeat-checks/heartbeat-check-overview.png)
 
-Use Heartbeat checks to monitor backup jobs, data imports, and other recurring jobs or scripts.
+Use Heartbeat monitors to monitor backup jobs, data imports, and other recurring jobs or scripts.
 
-For example, this is how you ping a Heartbeat check from a Heroku job:
+For example, this is how you ping a Heartbeat monitor from a Heroku job:
 
 {{< tabs "Heroku example" >}}
 {{< tab "BASH" >}}
@@ -40,9 +40,9 @@ curl -m 5 --retry 3 https://api.checklyhq.com/heartbeats/ping/bcd964a7-6f15-49a5
 
 Note the retry and timeout options. We recommend enabling retries when possible, to avoid false alarms due to temporary network issues or similar. You should also specify a timeout so that the ping doesn't block your ongoing job.
 
-## Creating a Heartbeat check
+## Creating a Heartbeat monitor
 
-![Heartbeat check create page](/docs/images/heartbeat-checks/create-heartbeat-check.png)
+![Heartbeat monitor create page](/docs/images/heartbeat-checks/create-heartbeat-check.png)
 
 ### Name and tag
 A meaningful name will not only help you and others identify your checks within Checkly, but it will help provide a better alerting experience if your checks fall into an alert state.
@@ -61,9 +61,9 @@ Grace is the amount of time Checkly will wait before triggering any alerts when 
 Use grace to compensate for variance in your jobs.
 
 ### Alerting
-You can configure any of the provided [alert channels](/docs/alerting-and-retries/alert-channels/) for a Heartbeat check. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. 
+You can configure any of the provided [alert channels](/docs/alerting-and-retries/alert-channels/) for a Heartbeat monitor. If we don’t provide your preferred alert method, use [webhooks](/docs/alerting-and-retries/webhooks/) to configure your alert flow. 
 
-## Pinging your Heartbeat check
+## Pinging your Heartbeat monitor
 
 Once you've created your check, configure your scheduled job to send an HTTP request to your check's ping URL. For examples of how to do this, see [ping examples](/docs/heartbeat-checks/ping-examples).
 
@@ -81,7 +81,7 @@ You can manually send pings via the Checkly UI. Use this to start the check time
 
 ![Manually send a ping via the Checkly UI on the check overview page](/docs/images/heartbeat-checks/heartbeat-ping-overview-page.png)
 
-"Ping now" is also available in the quick menu in your list of Heartbeat checks. 
+"Ping now" is also available in the quick menu in your list of Heartbeat monitors. 
 
 ![Manually send a ping via the Checkly UI in the quick menu](/docs/images/heartbeat-checks/heartbeat-ping-quick-menu.png)
 
@@ -100,14 +100,14 @@ If you have a check that expects a ping every 60 minutes starting at 09:30, and 
 
 The [Checkly CLI](/docs/cli/) gives you a JavaScript/TypeScript-native workflow for coding, testing and deploying synthetic monitoring at scale, from your code base.
 
-You can define a Heartbeat check via the CLI. For example:
+You can define a Heartbeat monitor via the CLI. For example:
 
 {{< tabs "CLI example" >}}
 {{< tab "TypeScript" >}}
 ```ts {title="heartbeat.check.ts"}
-import { HeartbeatCheck } from 'checkly/constructs'
+import { HeartbeatMonitor } from 'checkly/constructs'
 
-new HeartbeatCheck('heartbeat-check-1', {
+new HeartbeatMonitor('heartbeat-monitor-1', {
   name: 'Send weekly newsletter job',
   period: 7,
   periodUnit: 'days',
@@ -119,9 +119,9 @@ new HeartbeatCheck('heartbeat-check-1', {
 {{< /tab >}}
 {{< tab "JavaScript" >}}
 ```js {title="heartbeat.check.js"}
-const { HeartbeatCheck } = require('checkly/constructs')
+const { HeartbeatMonitor } = require('checkly/constructs')
 
-new HeartbeatCheck('heartbeat-check-1', {
+new HeartbeatMonitor('heartbeat-monitor-1', {
   name: 'Send weekly newsletter job',
   period: 7,
   periodUnit: 'days',
@@ -142,4 +142,4 @@ For more options, see the [Check construct reference](/docs/cli/constructs-refer
 ## Next steps
 
 - Learn about the benefits of [Monitoring as Code](/guides/monitoring-as-code/).
-- Interpret your [Heartbeat check results](/docs/monitoring/check-results/#heartbeat-check-results).
+- Interpret your [Heartbeat monitor results](/docs/monitoring/check-results/#heartbeat-check-results).
