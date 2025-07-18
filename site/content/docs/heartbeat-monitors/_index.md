@@ -17,8 +17,6 @@ aliases:
 
 Track your scheduled jobs with Heartbeat monitors. Heartbeat monitors listen for regular pings from your automated tasks, to ensure that they are running as expected. 
 
-> Heartbeat monitors are available on our [Team and Enterprise plans](https://www.checklyhq.com/pricing).
-
 ## What is a Heartbeat monitor?
 
 A Heartbeat monitor is a passive check type that expects pings from an external source, such as a scheduled job on a server, at a defined interval. A ping is an HTTP request to a given endpoint URL using either the `GET` or `POST` method.
