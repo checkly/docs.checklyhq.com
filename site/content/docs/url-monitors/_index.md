@@ -58,7 +58,6 @@ new UrlMonitor('hello-url-1', {
   name: 'Hello URL',
   activated: true,
   request: {
-    method: 'GET',
     url: 'https://api.checklyhq.com/v1/echo/get',
     assertions: [
       UrlAssertionBuilder.statusCode().equals(200),
@@ -77,7 +76,6 @@ new UrlMonitor('hello-url-1', {
   name: 'Hello URL',
   activated: true,
   request: {
-    method: 'GET',
     url: 'https://api.checklyhq.com/v1/echo/get',
     assertions: [
       UrlAssertionBuilder.statusCode().equals(200),
