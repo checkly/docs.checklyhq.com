@@ -4,7 +4,7 @@ This directory contains GitHub Actions workflows that automatically detect new r
 
 ## Workflows
 
-### 1. Update CLI Changelog (`update-cli-changelog-v2.yml`)
+### 1. Update CLI Changelog (`update-cli-changelog.yml`)
 
 - **Trigger**: Daily at 9 AM UTC, manual dispatch, or webhook
 - **Source**: GitHub releases from `checkly/checkly-cli`
