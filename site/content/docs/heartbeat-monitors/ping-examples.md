@@ -5,13 +5,13 @@ navTitle: Ping examples
 weight: 15
 menu:
   resources:
-    parent: "Heartbeat checks"
+    parent: "Heartbeat monitors"
 
 ---
 
-Here you can find examples on how to ping a Heartbeat check. 
+Here you can find examples on how to ping a Heartbeat monitor. 
 
-Most examples use `GET` as the request method, but Heartbeat checks also accept `POST` requests. Your check won't record `PUT` or `DELETE` requests as pings, and the endpoint will return an error.
+Most examples use `GET` as the request method, but Heartbeat monitors also accept `POST` requests. Your check won't record `PUT` or `DELETE` requests as pings, and the endpoint will return an error.
 
 ## Shell
 Adding a ping to a shell script only requires a single line.
@@ -71,7 +71,7 @@ spec:
 
 ## Node.js
 
-You can use any HTTP request library (`https`, `axios`, etc.) to ping your Heartbeat check.
+You can use any HTTP request library (`https`, `axios`, etc.) to ping your Heartbeat monitor.
 
 This is an example with the built-in [https.get](https://nodejs.org/api/https.html#httpsgeturl-options-callback) package:
 
@@ -146,7 +146,7 @@ axios.get('https://ping.checklyhq.com/87c05896-3b7d-49ae-83ff-5e81323a54c4')
 
 ## Vercel cron jobs
 
-You can monitor your [Vercel cron jobs](https://vercel.com/docs/cron-jobs) with Heartbeat checks. At the end of your cron job, make an HTTP `GET` or `POST` request to your ping URL. For example, using `fetch()`:
+You can monitor your [Vercel cron jobs](https://vercel.com/docs/cron-jobs) with Heartbeat monitors. At the end of your cron job, make an HTTP `GET` or `POST` request to your ping URL. For example, using `fetch()`:
 
 {{< tabs "Vercel example" >}}
 {{< tab "Next.js (App Router)" >}}

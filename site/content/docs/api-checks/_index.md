@@ -18,6 +18,7 @@ Ensure your API is working properly with API checks. API checks work by sending 
 ![Screenshot of the API check overview page](/docs/images/api-checks/overview-check-overview.png)
 
 For example, you can use these checks to verify that:
+
 * Your endpoint returns a 200 status code.
 * Your endpoint responds with valid JSON that matches the expected schema.
 * Your endpoint is properly authenticating requests.
@@ -41,7 +42,7 @@ This is where you configure the API endpoint. The most important part of your AP
 
 Endpoints can be accessed and manipulated through [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods). Not all methods are valid for all endpoints.
 
-You can import a cURL command, Swagger.json or OpenAPI specification here too. 
+You can import a cURL command, Swagger.json or OpenAPI specification here too.
 
 ### Setup and teardown scripts
 
@@ -57,6 +58,7 @@ Sometimes APIs can be slow, but not broken. We call this degraded. You can set [
 
 This is where you determine whether the response of the HTTP request is correct or not.
 You can assert on different sources. These could be:
+
 - The HTTP status code returned from the API
 - Something missing or required within the response body
 - A specific response header

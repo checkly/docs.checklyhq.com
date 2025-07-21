@@ -1,6 +1,6 @@
 ---
 title: Check results - Checkly Docs
-displayTitle: Check results 
+displayTitle: Check results
 navTitle: Results
 weight: 2
 menu:
@@ -150,6 +150,24 @@ The state indicates when your scheduled job pinged the Heartbeat monitor, relati
 
 The source shows where your ping originated, determined by the `origin` and `referer` request headers. [Learn more about configuring the ping source](/docs/heartbeat-monitors/#pinging-your-heartbeat-monitor).
 
+## URL monitor results
+
+URL monitor results show details about each request and help you understand if your endpoint was available and performing as expected at the time of the check.
+
+![http check results detail page](/docs/images/monitoring/check-results-url.png)
+
+Each result includes:
+
+1. The HTTP request that was made
+2. The response time
+3. The result of any status code assertions configured in the monitor
+4. For each request, we capture the following timing metrics:
+    * wait: time spent initializing the socket
+	* dns: DNS lookup time
+	* tcp: time to establish the TCP connection
+	* firstByte: time until the first byte of the response is received
+	* download: duration of the HTTP download
+
 ## Multistep check results
 
 Multistep check results are navigated using the tree on the left side of the screen. If you are running checks in parallel, first select the location you are interested in.
@@ -167,11 +185,11 @@ Currently, only requests done using the Playwright `request` are shown as nodes 
 
 ![Using the Multistep check results view](/docs/images/monitoring/check-results-multistep.mp4)
 
-## TCP check results
+## TCP monitor results
 
-On the [check results overview page](/docs/monitoring/check-results/#check-results-overview), select a specific check run to review its results:
+On the [monitor results overview page](/docs/monitoring/check-results/#check-results-overview), select a specific check run to review its results:
 
-* **Summary:** Displays the check target (URL and port), the check state (`success` for passed and degraded runs, or `error` for failed runs), the request status code and the total check run duration.
+* **Summary:** Displays the monitor target (URL and port), the monitor state (`success` for passed and degraded runs, or `error` for failed runs), the request status code and the total check run duration.
 
 * **Error details:** If the check failed, the error status code and message log will be shown.
 
@@ -188,4 +206,3 @@ When checks are retried, a dropdown will indicate that the check result contains
 When selecting a check run, all data and assets are available for inspection for each attempt.
 
 ![Viewing multiple attempts from the dropdown](/docs/images/monitoring/check-retries.gif)
-

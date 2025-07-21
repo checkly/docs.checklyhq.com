@@ -14,8 +14,7 @@ You can set both variables and secrets for a Group of checks.
 
 For browser and multistep checks, you can set variables at the check level. See [browser check variables and secrets](/docs/browser-checks/variables) for more details.
 
->[!NOTE]
-> Secrets are available for [Private Locations](/docs/private-locations/) on agent version `3.3.4` and later. Secrets are available on [CLI](/docs/cli/) version `4.9.0` and later.
+> Secrets are fully supported starting with runtime version 2024.09 and later. For [Private Locations](/docs/private-locations/), secrets are available in agent version `3.3.4` and later, and for the [CLI](/docs/cli/), in version `4.9.0` and later.
 
 > [!WARNING]
 > To ensure the integrity of Playwright artifacts (traces, videos and screenshots), the following are not scrubbed, even when saved as secrets: The characters `/` and `*` and the full or partial match of `/artifact/`, `https://`, `http://`, `*********`, and `123`.
