@@ -1041,6 +1041,7 @@ For all of the methods above, the `options` argument can be used to customize th
 - `maxRetries`: The maximum number of times to retry the check. This value should be between 1 and 10. Defaults to 2.
 - `maxDurationSeconds`: The maximum amount of time to continue retrying the check. Maximum 600 seconds. Defaults to 600 seconds.
 - `sameRegion`: Whether retries should be run in the same region as the initial failed check run. Defaults to `true`.
+- `onlyOn`: Restrict retries of API checks to specific failure types. Currently supports 'NETWORK_ERROR', which limits retries to network-related issues. See [Network retries](/docs/alerting-and-retries/retries/#network-retries) for more information.
 
 ## `AlertEscalationPolicy`
 
