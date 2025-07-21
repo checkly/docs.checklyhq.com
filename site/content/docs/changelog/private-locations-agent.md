@@ -3,9 +3,6 @@ title: Private Locations Agent Changelog - Checkly Docs
 displayTitle: Private Locations Agent Changelog
 navTitle: Private Locations Agent
 weight: 20
-menu:
-  resources:
-    parent: "Changelog"
 ---
 
 Release history for the Checkly Private Locations Agent. For setup instructions, see the [Private Locations documentation](/docs/private-locations).
