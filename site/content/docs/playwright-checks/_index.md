@@ -117,6 +117,29 @@ Access [the Playwright Check Suites reference documentation](/docs/playwright-ch
 
 Validate the Playwright check suites that reference existing Playwright tags or projects in your repository by running `npx checkly test` from your terminal. Your Playwright check suites will then be executed in the Checkly infrastructure running in the location specified in your Checkly config (`cli.runLocation`).
 
+#### Use pw-test for Quick Testing
+
+Convert tests to monitors with `pw-test`:
+
+```bash
+# Create monitor from tagged tests
+npx checkly pw-test --create-check --group-id=critical-paths -- --grep="@user-journey"
+
+# Monitor in multiple regions
+npx checkly pw-test --create-check --frequency=15m --location=us-east-1 --location=eu-west-1 -- --project="chromium" --grep="@smoke"
+
+# Test across browsers
+npx checkly pw-test --create-check -- --project="Desktop Chrome" --project="Mobile Safari" --grep="@cross-browser"
+```
+
+`pw-test` features:
+- Run tests with automatic session recording
+- Create monitors with `--create-check`
+- Use `--` to pass Playwright flags
+- Captures traces, videos, and screenshots
+
+See the [pw-test guide](/guides/using-pw-test-command/).
+
 ```bash {title="Terminal"}
 npx checkly test --record
 > Running 2 checks in eu-west-1.

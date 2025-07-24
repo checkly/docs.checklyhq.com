@@ -66,6 +66,83 @@ between environments.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
 
+## `npx checkly pw-test`
+
+Run Playwright tests with Checkly monitoring. Use `--` to separate Checkly flags from Playwright flags.
+
+```bash
+npx checkly pw-test [checkly flags] -- [playwright flags]
+```
+
+This command:
+- Runs Playwright tests and records results to Checkly
+- Creates monitors from test results with `--create-check`
+- Records test sessions automatically
+- Captures traces, videos, and screenshots from your Playwright config
+
+**Examples:**
+
+Run tests in multiple browsers:
+```bash
+npx checkly pw-test -- --project=chromium --project=firefox
+```
+
+Run tests by pattern:
+```bash
+npx checkly pw-test -- --grep="login"
+```
+
+Exclude tests by pattern:
+```bash
+npx checkly pw-test -- --grep-invert="skip|todo"
+```
+
+Create a monitor from regression tests:
+```bash
+npx checkly pw-test --create-check --location=us-east-1 --location=eu-west-1 --frequency=30m -- --grep="@regression"
+```
+
+Monitor mobile tests:
+```bash
+npx checkly pw-test --create-check --frequency=10m -- --project="Mobile Chrome" --grep="@critical"
+```
+
+Monitor specific browser and tags:
+```bash
+npx checkly pw-test --create-check --location=ap-southeast-1 -- --project=chromium-desktop --grep="@smoke"
+```
+
+Combine projects and tags:
+```bash
+npx checkly pw-test --create-check --frequency=5m -- --project="iPhone 14" --project="chromium" --grep="load dashboard"
+```
+
+> [!NOTE]
+> `pw-test` automatically records test sessions. Unlike `checkly test`, you don't need the `--record` flag.
+
+> [!NOTE]
+> Your Playwright configuration settings apply automatically:
+> - **Traces** - View in Checkly's UI
+> - **Videos** - Configure in playwright.config
+> - **Screenshots** - Capture on failure or as configured
+
+> [!CLI]
+> Use `--` to separate Checkly flags from Playwright flags.
+
+**Checkly flags:**
+- `--create-check`: Create a monitor from test results
+- `--frequency`: Set monitor frequency (`5m`, `10m`, `30m`, `1h`)
+- `--location`: Add monitor locations (use multiple times)
+- `--test-session-name`: Name your test session
+- All `checkly test` flags except `--record` (automatic)
+
+**Playwright flags (after `--`):**
+- `--project`: Select Playwright projects
+- `--grep`: Filter tests by pattern
+- `--grep-invert`: Exclude tests by pattern
+- All other Playwright test runner flags
+
+
 ## `npx checkly deploy`
 
 Deploys all your checks and associated resources like alert channels to your Checkly account.
