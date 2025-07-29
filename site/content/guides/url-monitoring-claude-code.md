@@ -1,7 +1,7 @@
 ---
 title: Create Uptime Monitoring in minutes with Claude Code and Checkly
 description: >-
-  
+  Use the power of Claude Code to monitor hundreds of pages in minutes.
 author: Nočnica Mellifera
 avatar: 'images/avatars/nica-mellifera.png'
 tags:
@@ -17,7 +17,7 @@ Start by [installing the Checkly CLI](https://www.checklyhq.com/docs/cli/install
 
 `npm create checkly@latest`
 
-If you’d like to follow the tutorial examples below, clone the [uptime monitoring demo](https://github.com/serverless-mom/uptimeMonitoring) repository, and copy everything in the `/**__checks__`** folder to your own project.
+If you’d like to follow the tutorial examples below, clone the [uptime monitoring demo](https://github.com/serverless-mom/uptimeMonitoring) repository, and copy everything in the `/**__checks__**` folder to your own project.
 
 Next, install [Claude Code](https://www.anthropic.com/claude-code) globally with 
 
