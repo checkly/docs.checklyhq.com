@@ -76,7 +76,6 @@ new UrlMonitor('url-pinger-1', {
 with the file open as context, try a command like:
 
 > Create a new URL pinger for the site [https://danube-webshop.herokuapp.com/](https://danube-webshop.herokuapp.com/) that runs every five minutes and doesn’t follow redirects
-> 
 
 After a few seconds, Claude Code will produce this:
 
@@ -195,7 +194,7 @@ The resultant script file (and the rewritten check file to use a local file) is 
 
 Note the line:
 
-```tsx
+```ts
   const monitorId = `pinger-${urlPath}-${index}`
 ```
 
