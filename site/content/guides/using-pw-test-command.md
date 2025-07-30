@@ -4,209 +4,159 @@ displayTitle: Using the pw-test Command
 navTitle: Using pw-test
 weight: 15
 beta: false
+description: >-
+  Learn how to use the pw-test command to run Playwright tests with Checkly monitoring. Convert your existing Playwright tests into scheduled monitors with a single command.
+tags:
+  - CLI
+  - Playwright
 ---
 
-Use `pw-test` to run Playwright tests with Checkly monitoring.
+Run Playwright tests with Checkly monitoring features. Convert to a check suite once you're ready to start monitoring.
 
-## What pw-test does
-
-- Runs Playwright tests and records results to Checkly
-- Converts tests into scheduled monitors
-- Passes flags to both Checkly and Playwright
-- Uses your Playwright configuration (traces, videos, screenshots)
-
-## Basic Usage
-
-Use `--` to separate Checkly flags from Playwright flags:
+## Basic syntax
 
 ```bash
 npx checkly pw-test [checkly flags] -- [playwright flags]
 ```
 
-## Convert Tests to Monitors
+Use `--` to separate Checkly flags from Playwright flags.
 
-Create monitors from your Playwright tests using `--create-check`.
+## What is pw-test?
 
-### Monitor regression tests in multiple browsers:
+The `pw-test` command:
+- Runs your existing Playwright tests
+- Records results to Checkly automatically
+- Creates scheduled monitors with `--create-check`
+- Uses your Playwright configuration file options
+
+## Quick examples
+
+### Run tests remotely in Checkly
+
+
 ```bash
-npx checkly pw-test --create-check --frequency=30m --location=us-east-1 --location=eu-central-1 -- --project=chromium --project=firefox --project=webkit --grep="@regression"
+# Single browser
+npx checkly pw-test -- --project=chromium
+
+# Multiple browsers
+npx checkly pw-test -- --project=chromium --project=firefox
+
+# Filter by tag
+npx checkly pw-test --location="eu-west-1" --location="us-west-1" -- --grep="@smoke"
 ```
 
-### Monitor mobile tests:
+By default, `pw-test` uses N.Virginia (`us-east-1`) to run. Use any [global location](/docs/monitoring/global-locations/) or [private location](/docs/private-locations/).
+
+### Create monitors
+
+Add `--create-check` to convert suites of tests into scheduled playwright check suites:
+
 ```bash
-npx checkly pw-test --create-check --frequency=15m -- --project="iPhone 14" --project="Pixel 7" --grep="@mobile"
+# Basic check suite pulling all tests in Chromium every 10 minutes
+npx checkly pw-test --create-check --frequency=10m -- --project=chromium
+
+# Multiple locations pulling all tests tagged critical, and run every 5 minutes
+npx checkly pw-test --create-check --frequency=5m --location=us-east-1 --location=eu-west-1 -- --grep="@critical"
+
+# Mobile tagged tests every 15 mins, in Mobile Chrome and the default location.
+npx checkly pw-test --create-check --frequency=15m -- --project="Mobile Chrome" --grep="@mobile"
 ```
 
-### Monitor critical paths globally:
-```bash
-npx checkly pw-test --create-check --frequency=5m --location=us-west-1 --location=eu-west-1 --location=ap-south-1 -- --grep="@critical" --project=chromium-desktop
-```
+## Advanced examples
 
-## Use Playwright Projects
-
-Select specific browsers and devices:
+### Browser and device selection
 
 ```bash
 # Desktop browsers
-npx checkly pw-test --create-check -- --project="Desktop Chrome" --project="Desktop Firefox"
+npx checkly pw-test -- --project="Desktop Chrome" --project="Desktop Firefox"
 
 # Mobile devices
-npx checkly pw-test --create-check -- --project="Mobile Safari" --project="Mobile Chrome"
-
-# Custom viewports
-npx checkly pw-test --create-check -- --project="chromium-desktop" --project="webkit-mobile"
+npx checkly pw-test -- --project="Mobile Safari" --project="Iphone 14"
 ```
 
-## Filter Tests with Tags
-
-Use grep to select specific tests:
+### Test filtering
 
 ```bash
-# Smoke tests only
-npx checkly pw-test --create-check --frequency=10m -- --grep="@smoke"
+# All tests tagged smoke
+npx checkly pw-test -- --grep="@smoke"
 
-# Regression tests without flaky ones
-npx checkly pw-test --create-check --frequency=1h -- --grep="@regression" --grep-invert="@flaky"
+# Exclude flaky tagged tests
+npx checkly pw-test -- --grep-invert="@flaky"
 
-# Specific features
-npx checkly pw-test --create-check -- --grep="checkout flow" --project=chromium
+# Create a check with tests tagged critical that runs every 10 minutes
+npx checkly pw-test --create-check --frequency=10m -- --grep="@critical"
 ```
 
-## Artifacts and Debugging
+## Configuration
 
-Checkly captures all Playwright artifacts:
+### Artifacts
 
-**Enable traces** in playwright.config.ts:
+Configure in your `playwright.config.ts`:
+
 ```javascript
 use: {
-  trace: 'on-first-retry',
+  trace: 'on',      // Always capture traces
+  video: 'retain-on-failure',   // Record videos on failure
+  screenshot: 'only-on-failure' // Take screenshots on failure
 }
 ```
 
-**Enable videos**:
-```javascript
-use: {
-  video: 'retain-on-failure',
-}
-```
+View all artifacts in Checkly's UI after test runs.
 
-**Enable screenshots**:
-```javascript
-use: {
-  screenshot: 'only-on-failure',
-}
-```
-
-> [!NOTE]
-> Your Playwright configuration applies automatically. View artifacts in Checkly's UI.
-
-## Examples
-
-### E-commerce
-```bash
-# Checkout flow on multiple devices
-npx checkly pw-test --create-check --frequency=15m --location=us-east-1 -- --project="Desktop Chrome" --project="Mobile Safari" --grep="checkout"
-
-# Product search
-npx checkly pw-test --create-check --frequency=30m -- --grep="search" --project=chromium
-```
-
-### API Integration
-```bash
-# API-dependent flows
-npx checkly pw-test --create-check --env API_URL="https://api.production.com" -- --grep="@api-integration"
-
-# User-specific flows
-npx checkly pw-test --create-check --env USER_TYPE="premium" -- --grep="login" --project="Desktop Chrome"
-```
-
-### Performance Monitoring
-```bash
-# Dashboard performance
-npx checkly pw-test --create-check --frequency=5m --location=us-east-1 --location=eu-west-1 -- --grep="load dashboard" --project=chromium-desktop
-```
-
-## Environment Variables
-
-Use environment variables to customize tests:
+### Environment variables
 
 ```bash
-# Set staging URL
-npx checkly pw-test --env ENVIRONMENT_URL="https://staging.acme.com" -- --grep="@smoke"
+# Pass individual variables and pull all tests tagged with regression into a check suite
+npx checkly pw-test --env ENVIRONMENT_URL="https://staging.acme.com" -- --grep="@regression"
 
-# Load from file
+# Load env from file
 npx checkly pw-test --env-file=".env.staging" -- --project=chromium
 ```
 
-## Test Sessions
+## Common patterns
 
-`pw-test` records all test sessions automatically. Add a custom name:
-
+### E-commerce monitoring
 ```bash
-# Custom session name
-npx checkly pw-test --test-session-name="Pre-deployment check" -- --project=chromium
-
-# Default session
-npx checkly pw-test -- --grep="@critical"
-```
-
-> [!NOTE]
-> Unlike `checkly test`, you don't need `--record`. Sessions record automatically.
-
-## Best Practices
-
-1. **Tag tests clearly**: Use `@smoke`, `@regression`, `@critical`
-2. **Enable artifacts**: Configure traces and videos for debugging
-3. **Monitor critical paths first**
-4. **Test from multiple regions**
-5. **Balance frequency with coverage**
-
-## Common Use Cases
-
-### Development
-```bash
-# Pre-deployment smoke test
-npx checkly pw-test -- --grep="@smoke" --project=chromium
-
-# Monitor new features
-npx checkly pw-test --create-check --group-id=new-features -- --grep="@feature-xyz"
-```
-
-### CI/CD
-```bash
-# Regression tests
-npx checkly pw-test -- --grep="@regression" --project=chromium --project=firefox
-
-# Deployment gate
-npx checkly pw-test -- --grep="@critical" --retries=2
-```
-
-### Production
-```bash
-# User journeys
-npx checkly pw-test --create-check --frequency=5m --location=us-east-1 --location=eu-west-1 -- --grep="@user-journey"
+# Checkout flow
+npx checkly pw-test --create-check --frequency=15m --location=us-east-1 -- --project="Desktop Chrome" --grep="checkout"
 
 # Mobile experience
-npx checkly pw-test --create-check --frequency=15m -- --project="Mobile Chrome" --project="Mobile Safari" --grep="@mobile-critical"
+npx checkly pw-test --create-check --frequency=30m -- --project="iPhone-13" --grep="@mobile-critical"
 ```
+
+## Test sessions
+
+All runs record automatically. You can add custom names:
+
+```bash
+npx checkly pw-test --test-session-name="Pre-deployment check" -- --project=chromium
+```
+
+## Best practices
+
+1. Tag tests clearly: `@smoke`, `@regression`, `@critical`
+2. Enable artifacts in `playwright.config.ts`
+3. Start with critical user paths
+4. Test from multiple regions
+5. Balance monitoring frequency with importance
 
 ## Troubleshooting
 
-**If tests pass locally but fail in Checkly:**
-- Check environment variables
-- Verify URL accessibility from monitor locations
-- Review traces and videos in Checkly
+**Tests fail in Checkly but pass locally**
+- Check local environment variables match the ones in Checkly
+- Verify URLs are accessible from test locations
+- Review failures and traces in Checkly UI
 
-**If artifacts don't appear:**
-- Enable artifacts in playwright.config
-- Note: artifacts often capture only on failure
+**Missing artifacts**
+- Confirm they're set as `on` in `playwright.config.ts`
 
-**If "project not found" error:**
-- Match project names exactly from playwright.config
-- Quote project names with spaces: `--project="Mobile Chrome"`
+**"Project not found" errors**
+- Match exact names from `playwright.config.ts`
+- Quote names with spaces: `--project="Mobile Chrome"
 
-## Next Steps
+## Related documentation
 
-- [Playwright Check Suites](/docs/playwright-checks/)
-- [CLI configuration](/docs/cli/)
-- [Set up alerting](/docs/alerting/)
+- [Playwright Check Suites overview](/docs/playwright-checks/)
+- [Playwright Test CLI options](https://playwright.dev/docs/test-cli)
+- [Command line reference](/docs/cli/command-line-reference/)
+- [Alerting guide](/docs/alerting/)

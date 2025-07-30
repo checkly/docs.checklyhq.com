@@ -18,9 +18,6 @@ Use your existing Playwright tests as live, scheduled monitoring checks. No rewr
 
 A Playwright Check Suite lets you use your existing Playwright tests and projects for end-to-end monitoring with tailored monitoring strategies.
 
-You can mix and match existing
-[projects](https://playwright.dev/docs/test-projects) (`pwProjects`) and [test tags](https://playwright.dev/docs/test-annotations#tag-tests) (`pwTags`) to select tests and group subsets into Playwright Check Suites. This approach allows you to specify different monitoring settings for each Playwright Check Suite to differenciate between smoke tests or critical path flows.
-
 ## QuickStart Guide
 
 Here's how to get from zero to deployed checks in 5 minutes.
@@ -49,129 +46,60 @@ What you need:
   npm install --save-dev jiti typescript
   ```
 
-### 3. Define which tests to monitor in `checkly.config.ts/js`
 
-Create a `checkly.config.ts/js` and pick the tests you want to monitor, use [test tags](https://playwright.dev/docs/test-annotations#tag-tests) and [projects](https://playwright.dev/docs/test-projects) to create a Playwright Check Suite.
 
-Make sure:
+### 3. Use `pw-test` for quick testing
 
-* `pwProjects` match projects names in your `playwright.config.ts`.
-* `pwTags` match tags in your test definitions.
+> [!NOTE]
+> `pw-test` accepts both checkly and playwright commands using the following syntax: 
+> `npx checkly pwtest --checky-flag -- --playwright-flag`
+> - Run tests with automatic session recording
+> - Create scheduled checks with `--create-check`
+> - Use `--` to pass Playwright flags
+> See the [pw-test guide](/guides/using-pw-test-command/).
 
-Below are two example check suites:
-
-* a full multi-browser suite with smoke tests.
-* a `chromium`-only check suite running tests tagged with `@critical`.
-
-```typescript {title="checkly.config.ts/js"}
-import { defineConfig } from 'checkly'
-import { Frequency } from 'checkly/constructs'
-
-export default defineConfig({
-  projectName: 'Cool Website Checks',
-  logicalId: 'cool-website-monitoring',
-  repoUrl: 'https://github.com/acme/website',
-  checks: {
-    playwrightConfigPath: './playwright.config.ts',
-    playwrightChecks: [
-      {
-        /**
-         * Create a multi-browser check that runs
-         * every 10 mins in two locations.
-         */
-        logicalId: 'multi-browser',
-        name: 'Multi Browser Suite',
-        // Use one project (or multiple projects) defined in your Playwright config
-        pwProjects: ['chromium', 'firefox', 'webkit'],
-        // Use one tag (or multiple tags) defined in your spec files
-        pwTags: '@smoke-tests',
-        frequency: Frequency.EVERY_10M,
-        locations: ['us-east-1', 'eu-west-1'],
-      },
-      {
-        /**
-         * Create a check that runs the `@critical` tagged tests
-         * every 5 mins in three locations.
-         */
-        logicalId: 'critical-tagged',
-        name: 'Critical Tagged tests',
-        // Use one project (or multiple projects) defined in your Playwright config
-        pwProjects: ['chromium'],
-        // Use one tag (or multiple tags) defined in your spec files
-        pwTags: '@critical',
-        frequency: Frequency.EVERY_5M,
-        locations: ['us-east-1', 'eu-central-1', 'ap-southeast-2'],
-      },
-    ],
-  },
-  cli: {
-    runLocation: 'us-east-1',
-    retries: 0,
-  },
-})
-```
-
-Access [the Playwright Check Suites reference documentation](/docs/playwright-checks/reference/) for more configuration options.
-
-### 4. Validate your monitors
-
-Validate the Playwright check suites that reference existing Playwright tags or projects in your repository by running `npx checkly test` from your terminal. Your Playwright check suites will then be executed in the Checkly infrastructure running in the location specified in your Checkly config (`cli.runLocation`).
-
-#### Use pw-test for Quick Testing
-
-Convert tests to monitors with `pw-test`:
-
-```bash
-# Create monitor from tagged tests
-npx checkly pw-test --create-check --group-id=critical-paths -- --grep="@user-journey"
-
-# Monitor in multiple regions
-npx checkly pw-test --create-check --frequency=15m --location=us-east-1 --location=eu-west-1 -- --project="chromium" --grep="@smoke"
-
-# Test across browsers
-npx checkly pw-test --create-check -- --project="Desktop Chrome" --project="Mobile Safari" --grep="@cross-browser"
-```
-
-`pw-test` features:
-- Run tests with automatic session recording
-- Create monitors with `--create-check`
-- Use `--` to pass Playwright flags
-- Captures traces, videos, and screenshots
-
-See the [pw-test guide](/guides/using-pw-test-command/).
-
-```bash {title="Terminal"}
-npx checkly test --record
-> Running 2 checks in eu-west-1.
-
-  critical-tagged
-    ✔ critical-tagged (4s)
-  multi-browser
-    ✔ multi-browser (18s)
-
-2 passed, 2 total
-```
-
-If you you want to persist the test results and access them in the Checkly web app, use the `--record` CLI option and run `npx checkly test --record` to transform your test runs into [a Checkly test session](/docs/testing/#test-sessions).
-
-```bash {title="Terminal"}
-npx checkly test --record
-> Running 2 checks in eu-west-1.
-
-  critical-tagged
-    ✔ critical-tagged (4s)
-  multi-browser
-    ✔ multi-browser (18s)
-
-2 passed, 2 total
-Detailed session summary at: https://chkly.link/...
-```
+Let's start with confirming your tests will work on Checkly, run the ones you want using `pw-test`.
 
 The CLI command will then return a link leading to results, traces and more details.
 
+For example: 
+
+```bash
+> npx checkly pw-test -- --project=chromium
+
+Parsing your Playwright project... ✅
+
+Validating project resources... ✅
+
+Bundling project resources... ✅
+
+Running 1 checks in eu-west-1.
+
+playwright.config.ts
+  ✔ Playwright Test: --project=chromium (16s)
+
+Detailed session summary at: https://chkly.link/l/linkhere
+```
+
+
+### 4. Convert tests to checks with `pw-test`:
+
+Using `pw-test` with the `--create-check` flag will create a `checkly.config.ts` file if it doesn't exist, and add the new check, so that you can tweak the monitoring configuration for your check.
+
+For example:
+
+```bash
+> npx checkly pw-test --create-check -- --project=chromium
+⚠ No Checkly config file found
+
+ℹ Creating a default checkly config file.
+
+Creating Checkly check from Playwright test... ✅
+```
+
 ### 5. Deploy your Playwright Check Suites
 
-If your Playwright monitoring passes and you are ready to start monitoring your applications with your Playwright tests, transform your Playwright Check Suite into global monitoring with `npx checkly deploy`.
+Once you are ready to start monitoring your applications with these checks, deploy your Playwright Check Suite into global monitoring with `npx checkly deploy`.
 
 ```bash {title="Terminal"}
 npx checkly deploy
@@ -190,7 +118,7 @@ Configure alert channels and alert groups to get notified when checks fail. You 
 To set up alerts:
 
 1. Go to the Checkly dashboard.
-2. Navigate to **Alert Settings** > **Alert Channels** to create a new channel.
+2. Navigate to [**Alert Channels** ](https://app.checklyhq.com/accounts/alerts/settings) to create a new channel.
 3. Assign channels to your project or individual checks.
 
 Learn more in the [alerting guide](https://www.checklyhq.com/docs/alerts/).
@@ -199,9 +127,10 @@ And all done!
 
 ## Next steps
 
+* Learn more about [how to use `pw-test`](/docs/cli/command-line-reference/#npx-checkly-pw-test). 
 * Explore advanced configuration like [private locations](/docs/private-locations/) and [environment variables](/docs/cli/env-vars/).
 * Add or tweak your checks to monitor flows in different browsers or locations.
-* Set up alerting and integrations with your incident response tools
+* Set up alerting and integrations with your incident response tools.
 
 * Add [TCP](/docs/tcp-monitors) and [URL monitors](/docs/url-monitors) as well as [API checks](/docs/api-checks) alongside your Playwright Check Suites.
 
