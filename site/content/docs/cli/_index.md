@@ -51,9 +51,6 @@ src/__checks__/multi-step-spacex.check.ts
 4 passed, 4 total
 ```
 
-> [!TIP]
-> Have existing Playwright tests? Use `pw-test` to monitor them: `npx checkly pw-test -- --grep="@smoke"`. See the [pw-test guide](/guides/using-pw-test-command/).
-
 Lastly, you deploy your Checks and related alert channels to Checkly, so we run your checks around the clock.
 
 ```bash
