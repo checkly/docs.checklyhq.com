@@ -50,19 +50,12 @@ What you need:
 
 ### 3. Use `pw-test` for quick testing
 
-> [!NOTE]
-> `pw-test` accepts both checkly and playwright commands using the following syntax: 
-> `npx checkly pwtest --checky-flag -- --playwright-flag`
-> - Run tests with automatic session recording
-> - Create scheduled checks with `--create-check`
-> - Use `--` to pass Playwright flags
-> See the [pw-test guide](/guides/using-pw-test-command/).
-
 Let's start with confirming your tests will work on Checkly, run the ones you want using `pw-test`.
 
-The CLI command will then return a link leading to results, traces and more details.
+`pw-test` accepts both checkly and playwright commands using the following syntax: 
+`npx checkly pwtest --checky-flag -- --playwright-flag`. Use `--` to pass Playwright flags. 
 
-For example: 
+The CLI command will then return a link leading to results, traces and more details:
 
 ```bash
 > npx checkly pw-test -- --project=chromium
