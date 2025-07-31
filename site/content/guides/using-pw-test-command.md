@@ -106,7 +106,7 @@ View all artifacts in Checkly's UI after test runs.
 ### Environment variables
 
 ```bash
-# Pass individual variables and pull all tests tagged with regression into a check suite
+# Pass individual variables and run all tests tagged with "regression" into a check suite
 npx checkly pw-test --env ENVIRONMENT_URL="https://staging.acme.com" -- --grep="@regression"
 
 # Load env from file
