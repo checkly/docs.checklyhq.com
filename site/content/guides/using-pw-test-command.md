@@ -58,7 +58,7 @@ npx checkly pw-test --create-check --frequency=10m -- --project=chromium
 # Run all tests tagged critical every 5 minutes
 npx checkly pw-test --create-check --frequency=5m --location=us-east-1 --location=eu-west-1 -- --grep="@critical"
 
-# Mobile tagged tests every 15 mins, in Mobile Chrome and the default location.
+# Run all tests from the "Mobile Chrome" project every 15 mins in default location
 npx checkly pw-test --create-check --frequency=15m -- --project="Mobile Chrome" --grep="@mobile"
 ```
 
