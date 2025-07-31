@@ -90,6 +90,41 @@ For example:
 Creating Checkly check from Playwright test... ✅
 ```
 
+Review the resulting check configuration in your `checkly.config.ts` file and make sure to tweak locations and schedule as needed. 
+
+```typescript {title="checkly.config.ts"}
+import { defineConfig } from 'checkly'
+
+const config = defineConfig({
+  logicalId: 'my-repo-name',
+  projectName: 'my-repo-name',
+  checks: {
+    playwrightConfigPath: './playwright.config.ts',
+    playwrightChecks: [
+      {
+        logicalId: 'playwright-check-project-chromium', // tweak ID 
+        name: 'Playwright Test: --project=chromium', // tweak name
+        testCommand: 'npx playwright test --project=chromium',// what we'll run as part of your check suite
+        locations: [
+          'eu-central-1', // add or change locations
+        ],
+        frequency: 10, // a custom per-check frequency
+      },
+    ],
+    frequency: 10, // a global default frequency
+    locations: [
+      'us-east-1', // a global default location
+    ],
+  },
+  cli: {
+    runLocation: 'us-east-1', // where test and pw-test will run
+  },
+})
+
+export default config
+
+```
+
 ### 5. Deploy your Playwright Check Suites
 
 Once you are ready to start monitoring your applications with these checks, deploy your Playwright Check Suite into global monitoring with `npx checkly deploy`.
