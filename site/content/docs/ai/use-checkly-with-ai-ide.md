@@ -122,7 +122,7 @@ API Checks, Browser checks, Multistep checks and all other constructs.
 {{< tab "Mac and Linux" >}}
 
 ```bash
-mkdir \p .claude &&
+mkdir -p .claude &&
 curl -o .claude/checkly.rules.md https://www.checklyhq.com/docs/ai/checkly.rules.md -L
 echo "- examine checkly.rules.md for code generation rules" >> .claude/CLAUDE.md
 ```
