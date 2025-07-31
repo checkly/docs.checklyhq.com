@@ -68,7 +68,7 @@ between environments.
 
 ## `npx checkly pw-test`
 
-Run Playwright tests with Checkly monitoring features. Records test sessions automatically.
+Run Playwright tests with Checkly monitoring features and reuse the Playwright CLI arguments. Records test sessions automatically.
 
 ```bash
 npx checkly pw-test [checkly flags] -- [playwright flags]
