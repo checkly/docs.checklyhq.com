@@ -98,7 +98,7 @@ const loginCheck = new ApiCheck('login-check', {
 })
 ```
 
-You commit the change, your pipeline deploys it, and your monitoring stays in sync automatically. No clicking, no copy-pasting, no missed updates.
+Update one or more monitoring resources, commit the change, let your pipeline deploy it, and your monitoring stays in sync with your application automatically. No clicking, no copy-pasting, no missed updates.
 
 ## Why Teams Adopt Monitoring as Code
 
