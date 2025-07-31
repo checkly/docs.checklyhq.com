@@ -41,7 +41,7 @@ Eventually, teams start looking for something better—something that fits into 
 - Visibility into who changed what and when
 - A workflow that supports scale, not fights against it
 
-That’s the promise of [**Monitoring as Code](https://www.checklyhq.com/learn/monitoring/monitoring-as-code/)** and why more teams adopt it as they grow.
+That’s the promise of [Monitoring as Code](https://www.checklyhq.com/learn/monitoring/monitoring-as-code/) and why more teams adopt it as they grow.
 
 ## Monitoring as Code: A Better Way to Scale
 
@@ -51,7 +51,8 @@ Instead of relying on manual UI edits, you define your checks, alert channels, a
 
 Here’s an example of a simple browser monitor running a Playwright script defined with code:
 
-```jsx
+
+```ts
 // home.check.ts
 import { BrowserCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
@@ -66,7 +67,7 @@ new BrowserCheck('browser-check-1', {
 })
 ```
 
-```jsx
+```ts
 // home.spec.js
 import { expect, test } from '@playwright/test'
 
@@ -86,8 +87,7 @@ Say you’ve updated your login endpoint. In the UI, this means manually editing
 
 With Monitoring as Code, it’s a one-line change in your codebase:
 
-```jsx
-
+```ts
 const loginCheck = new ApiCheck('login-check', {
   name: 'Login endpoint check',
   request: {
@@ -123,7 +123,6 @@ This new CLI feature lets you pull your existing UI-managed checks, alert channe
 To start, copy and paste this command into your terminal:
 
 ```bash
-
 $ npx checkly import
 ```
 
@@ -134,22 +133,20 @@ The command generates code for your existing resources, but doesn’t commit or 
 If you’re new to Checkly’s CLI, it’s easy to get started:
 
 1. **Install the CLI**
+
+```bash
+npm create checkly@latest
+```
     
-    ```bash
-    
-    npm create checkly@latest
-    ```
-    
-2. **Authenticate** with your Checkly account
+3. **Authenticate** with your Checkly account
 ```bash
 npx checkly login
 ```
 3. **Run the import**
     
-    ```bash
-    
-    npx checkly import
-    ```
+```bash
+npx checkly import
+```
     
 4. **Review the output** — you’ll see all your checks and resources translated into code
 5. **Commit and deploy when ready**
