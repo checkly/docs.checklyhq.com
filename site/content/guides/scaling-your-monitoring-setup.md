@@ -156,7 +156,7 @@ npx checkly login
 
 This approach gives you the best of both worlds: the monitoring setup you’ve already built in the UI, and the version-controlled structure your team needs as you grow.
 
-[Check out the docs for more details.](https://www.checklyhq.com/docs/cli/import/#how-import-works) 
+[Check out the docs for more details.](/docs/cli/import/#how-import-works) 
 
 ## Monitoring as Code Best Practices
 
