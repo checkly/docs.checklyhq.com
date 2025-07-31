@@ -52,7 +52,7 @@ What you need:
 
 Let's start with confirming your tests will work on Checkly, run the ones you want using `pw-test`.
 
-`pw-test` accepts both checkly and playwright commands using the following syntax: 
+`pw-test` accepts both Checkly and Playwright command line arguments using the following syntax: 
 `npx checkly pwtest --checky-flag -- --playwright-flag`. Use `--` to pass Playwright flags. 
 
 The CLI command will then return a link leading to results, traces and more details:
