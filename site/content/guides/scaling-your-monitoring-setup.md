@@ -118,7 +118,7 @@ If you’ve already set up all of your checks in the UI, then you’ve probably 
 
 [That’s exactly why we built **`checkly import`**.](https://www.checklyhq.com/docs/cli/import/#how-import-works)
 
-This new feature in our CLI lets you pull your existing UI-managed checks, alert channels, and groups into your codebase — cleanly and safely. You get all the structure and benefits of Monitoring as Code without starting over.
+This new CLI feature lets you pull your existing UI-managed checks, alert channels, and groups into your codebase — cleanly and safely. You get all the structure and benefits of Monitoring as Code without starting over.
 
 To start, copy and paste this command into your terminal:
 
