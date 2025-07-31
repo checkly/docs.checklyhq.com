@@ -49,7 +49,7 @@ By default, `pw-test` uses N.Virginia (`us-east-1`) to run. Use any [global loca
 
 ### Create monitors
 
-Add `--create-check` to convert suites of tests into scheduled playwright check suites:
+Add `--create-check` to convert suites of tests into scheduled Playwright check suites:
 
 ```bash
 # Run all tests in the "chromium" project every 10 minutes
