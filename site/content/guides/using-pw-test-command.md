@@ -52,7 +52,7 @@ By default, `pw-test` uses N.Virginia (`us-east-1`) to run. Use any [global loca
 Add `--create-check` to convert suites of tests into scheduled playwright check suites:
 
 ```bash
-# Basic check suite pulling all tests in Chromium every 10 minutes
+# Run all tests in the "chromium" project every 10 minutes
 npx checkly pw-test --create-check --frequency=10m -- --project=chromium
 
 # Multiple locations pulling all tests tagged critical, and run every 5 minutes
