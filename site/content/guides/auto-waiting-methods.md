@@ -8,7 +8,7 @@ tags:
   - FAQ
 ---
 
-Hard waits and artificual timeouts should be avoided in Playwright because they lead to tests that:
+Hard waits and artificial timeouts should be avoided in Playwright because they lead to tests that:
 
 - are flaky.
 - take longer than necessary to execute.
@@ -255,7 +255,7 @@ See response body waiting in action as demonstrated by Stefan here:
 
 ## 4. Implement your own auto-waiting and retry mechanism
 
-If there's no way to change the application code and no obvious network request to wait for, you could also make your tests pass by implementing you own retry mechanisms.
+If there's no way to change the application code and no obvious network request to wait for, you could also make your tests pass by implementing your own retry mechanisms.
 
 If we consider the modal example, you can try to repeat your actions until they pass. If your first button click doesn't yield the expected results (showing the modal), try it again until it does.
 
