@@ -10,7 +10,7 @@ menu:
 
 ## Docs
 
-You can index our docs pages in your IDE to leverage better code generation results. Todo so follow the guides for your IDE of choice:
+You can index our docs pages in your IDE to leverage better code generation results. To do so, follow the guides for your IDE of choice:
 
 Make sure to index the following url:
 
@@ -33,8 +33,8 @@ of our docs pages in plain text format. You can use this file to index our docs 
 ## Custom Rules
 
 We prepared a first set of AI rules which you can use to teach your AI IDE of choice on how to generate code for Checkly.
-Go into the root of your IDEs workspace and download the rules according to your IDEs config parameters.
-When asking questions about Checkly manually add the download rules files to your prompt.
+Go into the root of your IDE's workspace and download the rules according to your IDE's config parameters.
+When asking questions about Checkly, manually add the downloaded rules files to your prompt.
 
 ### GitHub Copilot
 
@@ -115,3 +115,28 @@ Invoke-WebRequest -Uri "https://www.checklyhq.com/docs/ai/checkly.rules.md" -Out
 
 You can now reference the `checkly.md` using `@checkly.md` file in your WindSurf chats and ask it to generate code for 
 API Checks, Browser checks, Multistep checks and all other constructs.
+### Claude Code 
+
+{{< tabs "Claude Code" >}}
+
+{{< tab "Mac and Linux" >}}
+
+```bash
+mkdir \p .claude &&
+curl -o .claude/checkly.rules.md https://www.checklyhq.com/docs/ai/checkly.rules.md -L
+echo "- examine checkly.rules.md for code generation rules" >> .claude/CLAUDE.md
+```
+{{< /tab >}}
+
+{{< tab "Windows" >}}
+
+```bash
+New-Item -ItemType Directory -Path ".claude" -Force
+Invoke-WebRequest -Uri "https://www.checklyhq.com/docs/ai/checkly.rules.md" -OutFile ".claude\checkly.md"
+echo - examine checkly.md for code generation rules >> .claude/CLAUDE.md
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+Exit and restart your Claude Code session to re-read the `CLAUDE.MD` file into Claude Code's context.
