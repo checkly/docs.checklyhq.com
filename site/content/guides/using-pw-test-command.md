@@ -49,7 +49,10 @@ By default, `pw-test` uses N.Virginia (`us-east-1`) to run. Use any [global loca
 
 ### Create monitors
 
-Add `--create-check` to convert suites of tests into scheduled Playwright check suites:
+Using `pw-test` with the `--create-check` flag will create a `checkly.config.ts` file if it doesn't exist, and add the new check, so that you can tweak the monitoring configuration for your check.
+
+Each `--create-check` call will append the check configuration to your configuration file. If you run it twice with the same configuration, it'll create the same check twice.
+
 
 ```bash
 # Run all tests in the "chromium" project every 10 minutes
@@ -64,7 +67,7 @@ npx checkly pw-test --create-check --frequency=15m -- --project="Mobile Chrome" 
 
 ## Advanced examples
 
-### Browser and device selection
+### Projects running browsers and emulating devices
 
 ```bash
 # Desktop browsers
@@ -91,7 +94,7 @@ npx checkly pw-test --create-check --frequency=10m -- --grep="@critical"
 
 ### Artifacts
 
-Configure in your `playwright.config.ts`:
+Configure which artifacts are stored in your `playwright.config.ts`:
 
 ```javascript
 use: {
@@ -101,7 +104,38 @@ use: {
 }
 ```
 
-View all artifacts in Checkly's UI after test runs.
+If you'd like different configuration for your checks, make sure to use the `--trace <mode>	` flag in the `testCommand` section of your Playwright Check Suite.
+
+```typescript {title="checkly.config.ts"}
+import { defineConfig } from 'checkly'
+
+const config = defineConfig({
+  logicalId: 'my-repo-name',
+  projectName: 'my-repo-name',
+  checks: {
+    playwrightConfigPath: './playwright.config.ts',
+    playwrightChecks: [
+      {
+        logicalId: 'myrepo', // tweak ID 
+        name: 'myrepo: Chromium Playwright Tests', // tweak name
+        testCommand: 'npx playwright test --project=chromium --trace=on',//
+        locations: [
+          'eu-central-1', 'us-east-1' // add or change locations
+        ],
+        frequency: 10, // a custom per-check frequency
+      },
+    ],
+  },
+  cli: {
+    runLocation: 'us-east-1', // where test and pw-test will run
+  },
+})
+
+export default config
+
+```
+
+View all artifacts in Checkly's UI after test runs in [Test Sessions](https://app.checklyhq.com/test-sessions).
 
 ### Environment variables
 
@@ -113,9 +147,8 @@ npx checkly pw-test --env ENVIRONMENT_URL="https://staging.acme.com" -- --grep="
 npx checkly pw-test --env-file=".env.staging" -- --project=chromium
 ```
 
-## Common patterns
+## Common patterns creating checks
 
-### E-commerce monitoring
 ```bash
 # Checkout flow
 npx checkly pw-test --create-check --frequency=15m --location=us-east-1 -- --project="Desktop Chrome" --grep="checkout"
@@ -149,6 +182,7 @@ npx checkly pw-test --test-session-name="Pre-deployment check" -- --project=chro
 
 **Missing artifacts**
 - Confirm they're set as `on` in `playwright.config.ts`
+- Alternatively, edit your `testCommand` to set the flag `trace=on`
 
 **"Project not found" errors**
 - Match exact names from `playwright.config.ts`

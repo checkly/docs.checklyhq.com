@@ -93,14 +93,18 @@ Exclude tests by pattern:
 npx checkly pw-test -- --grep-invert="skip|todo"
 ```
 
-### Creating monitors
+### Creating scheduled checks
 
-Regression tests in multiple locations:
+Using `pw-test` with the `--create-check` flag will add the check with a default configuration, so that you can tweak the monitoring configuration for your check. If there's no `checkly.config.ts` file it will create it.
+
+Regression tagged tests in multiple locations:
+
 ```bash
 npx checkly pw-test --create-check --location=us-east-1 --location=eu-west-1 --frequency=5m -- --grep="@regression"
 ```
 
-Mobile tests every 10 minutes:
+Mobile tests tagged critical every 10 minutes:
+
 ```bash
 npx checkly pw-test --create-check --frequency=10m -- --project="Mobile Chrome" --grep="@critical"
 ```
@@ -117,7 +121,7 @@ npx checkly pw-test --create-check --frequency=10m -- --project="Mobile Chrome" 
 - `--test-session-name`: Name your test session
 - `--env`: Pass environment variables
 - `--env-file`: Load variables from file
-- All other `checkly test` flags except `--record`
+- All other [`checkly test` flags](https://www.checklyhq.com/docs/cli/command-line-reference/#npx-checkly-test) except `--record`
 
 ### Playwright flags (after `--`)
 - `--project`: Select Playwright projects

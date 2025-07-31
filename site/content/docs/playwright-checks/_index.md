@@ -48,12 +48,13 @@ What you need:
 
 
 
-### 3. Use `pw-test` for quick testing
+### 3. Use `pw-test` to test in Checkly
 
-Let's start with confirming your tests will work on Checkly, run the ones you want using `pw-test`.
+Run your Playwright test suite using `pw-test`.
 
-`pw-test` accepts both Checkly and Playwright command line arguments using the following syntax: 
-`npx checkly pwtest --checky-flag -- --playwright-flag`. Use `--` to seperate Checkly and Playwright flags. 
+`pw-test` accepts both Checkly and Playwright command line arguments using the following syntax:
+
+`npx checkly pwtest --checky-flag -- --playwright-flag`. Use `--` to seperate Checkly and Playwright flags.
 
 The CLI command will then return a link leading to results, traces and more details:
 
@@ -77,7 +78,7 @@ Detailed session summary at: https://chkly.link/l/linkhere
 
 ### 4. Convert tests to checks with `pw-test`:
 
-Using `pw-test` with the `--create-check` flag will create a `checkly.config.ts` file if it doesn't exist, and add the new check, so that you can tweak the monitoring configuration for your check.
+Using `pw-test` with the `--create-check` flag will create a `checkly.config.ts` file will add the new check and create the Checkly configuration file if it doesn't exist. Afterwards, you can tweak the monitoring configuration for your check.
 
 For example:
 
@@ -90,7 +91,7 @@ For example:
 Creating Checkly check from Playwright test... ✅
 ```
 
-Review the resulting check configuration in your `checkly.config.ts` file and make sure to tweak locations and schedule as needed. 
+Review the resulting check configuration in your `checkly.config.ts` file and make sure to tweak locations and schedule as needed.
 
 ```typescript {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
