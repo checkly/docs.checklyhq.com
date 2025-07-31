@@ -18,7 +18,7 @@ Suddenly, what started as a simple setup turns into something fragile: hard to m
 
 That’s when it’s time to shift from clicking around in the UI to managing your monitoring like the rest of your infrastructure and application: **as code**.
 
-![checkly platform screenshot](/guides/images/scaling-monitoring-setup.png)
+![checkly platform](/guides/images/scaling-monitoring-setup.png)
 
 ## Why Manual Monitoring Doesn’t Scale
 
