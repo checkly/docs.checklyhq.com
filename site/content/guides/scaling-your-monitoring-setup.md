@@ -141,7 +141,7 @@ If you’re new to Checkly’s CLI, it’s easy to get started:
     ```
     
 2. **Authenticate** with your Checkly account
-```
+```bash
 npx checkly login
 ```
 3. **Run the import**
