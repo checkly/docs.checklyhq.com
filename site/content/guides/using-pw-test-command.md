@@ -55,7 +55,7 @@ Add `--create-check` to convert suites of tests into scheduled playwright check 
 # Run all tests in the "chromium" project every 10 minutes
 npx checkly pw-test --create-check --frequency=10m -- --project=chromium
 
-# Multiple locations pulling all tests tagged critical, and run every 5 minutes
+# Run all tests tagged critical every 5 minutes
 npx checkly pw-test --create-check --frequency=5m --location=us-east-1 --location=eu-west-1 -- --grep="@critical"
 
 # Mobile tagged tests every 15 mins, in Mobile Chrome and the default location.
