@@ -78,7 +78,7 @@ Use `--` to separate Checkly flags from Playwright flags.
 
 ### Basic examples
 
-Run tests in multiple browsers:
+Run tests in multiple browsers using different Playwright projects:
 ```bash
 npx checkly pw-test -- --project=chromium --project=firefox
 ```
