@@ -70,7 +70,7 @@ new UrlMonitor('danube-web-shop-pinger', {
   request: {
     url: 'https://danube-web.shop/',
     skipSSL: false,
-    followRedirects: true,
+    followRedirects: false,
     assertions: [
       UrlAssertionBuilder.statusCode().equals(200),
     ]
