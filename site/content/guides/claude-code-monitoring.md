@@ -245,7 +245,7 @@ Once we’re done creating new checks, it’s time to run them all with:
 npx checkly test
 ```
 
-When I ran a number of generated tests, the only issue I ran into was a failure with the message: “Error: expect.toBeVisible: Error: strict mode violation: getByText('Crime & Thrillers') resolved to 2 elements:” As the error message implies, the issue is that this locator:
+When I ran a number of generated tests, the only issue I ran into was a failure with the message: `Error: expect.toBeVisible: Error: strict mode violation: getByText('Crime & Thrillers') resolved to 2 elements:`. As the error message implies, the issue is that this locator:
 
 ```ts
   await expect(page.getByText('Fantasy')).toBeVisible();
