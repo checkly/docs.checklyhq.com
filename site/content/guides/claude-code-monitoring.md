@@ -185,7 +185,7 @@ Let’s take one additional step, add the following lines to your updated [CLAUD
 - When writing a spec.ts file, don't use locators based on CSS class
 ```
 
-pro tip: from the Claude Code prompt just hit octothorp ‘#’ to add to Claude’s memory
+Pro tip: from the Claude Code prompt just hit octothorp ‘#’ to add to Claude’s memory.
 
 ### 3. Use Claude Code to create new checks
 
