@@ -278,7 +278,7 @@ This command won’t deploy anything, just parse our project and show us what wi
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-05.png)
 
-*We’ll get a long list of new checks that will be created*
+*We’ll get a long list of new checks that will be created.*
 
 If you’re getting strange results from a preview of `deploy` and you’re not sure why, it might be time to get in touch with the Checkly team, [join our Slack](https://checklyhq.com/slack) for deployment advice! 
 
