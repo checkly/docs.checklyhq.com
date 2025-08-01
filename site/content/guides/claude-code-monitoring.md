@@ -42,7 +42,7 @@ claude mcp add playwright npx @playwright/mcp@latest
 
 ## Give Claude Code Some Context
 
-To create your Checkly monitoring, you want Claude Code to create files and updates that make sense as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/). Let’s add [Checkly’s AI rules file](https://www.checklyhq.com/docs/ai/use-checkly-with-ai-ide/) to our [CLAUDE.md](http://CLAUDE.md) context file:
+To create your Checkly monitoring, you want Claude Code to create files and updates that make sense as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/). Let’s add [Checkly’s AI rules file](https://www.checklyhq.com/docs/ai//use-checkly-with-ai-ide/#claude-code) to our [CLAUDE.md](http://CLAUDE.md) context file:
 
 ```bash
 mkdir -p .claude &&
