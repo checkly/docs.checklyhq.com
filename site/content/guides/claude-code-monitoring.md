@@ -303,5 +303,4 @@ To learn more about Checkly’s capabilities, explore these resources:
 
 For more tutorials and advanced use cases, visit the [Checkly YouTube channel](https://www.youtube.com/@ChecklyHQ), where you can see great tutorials like this guide to the Playwright MCP server:
 
-{{< youtube id="kzQu0Y_Nxjk" title="Generating Playwright Tests With AI: Let's Try the New Playwright MCP Server!
-" >}}
+{{< youtube id="kzQu0Y_Nxjk" title="Generating Playwright Tests With AI: Let's Try the New Playwright MCP Server!">}}
