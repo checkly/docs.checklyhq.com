@@ -195,7 +195,7 @@ Now that we’ve got a working test and config, let’s let Claude Code create a
 the page
 > 
 
-The importance of step 1 above is apparent during the output from this task, as Claude Code examines the known good 
+The importance of step 1 above is apparent during the output from this task, as Claude Code examines the known good.
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-03.png)
 
