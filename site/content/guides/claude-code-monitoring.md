@@ -18,8 +18,6 @@ If you haven’t already, start by [installing the Checkly CLI](https://www.chec
 npm create checkly@latest
 ```
 
-If you’d like to follow the tutorial examples below, clone the [uptime monitoring demo](https://github.com/serverless-mom/uptimeMonitoring) repository, and copy everything in the `/**__checks__`** folder to your own project.
-
 Next, install [Claude Code](https://www.anthropic.com/claude-code) globally with 
 
 ```bash
