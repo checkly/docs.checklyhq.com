@@ -30,8 +30,6 @@ You’ll be prompted to sign in to or sign up for an Anthropic account.
 
 I recommend using [the Visual Studio Code plugin for Claude](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), which will make it easier to connect Claude Code with the VS Code file browser with Claude’s context (the VS Code plugin does a lot more than just context, this is just the most convenient feature we’ll use for this tutorial).
 
-Optionally, from the Claude Code prompt, run `/init` to scan your project and create an initial `CLAUDE.md` context file.
-
 ### Add the Playwright MCP
 
 You can give Claude Code access to a browser by adding the [Playwright MCP](https://github.com/microsoft/playwright-mcp) to your local configuration with 
@@ -39,10 +37,16 @@ You can give Claude Code access to a browser by adding the [Playwright MCP](http
 ```bash
 claude mcp add playwright npx @playwright/mcp@latest 
 ```
+This will let us ask Claude Code to do things like crawling a particular website and acting on what it finds by opening the site in a browser.
 
 ## Give Claude Code Some Context
+Everything we write into the Claude model is part of a 'prompt,' and by default Claude Code will ad a bit of information to what we submit as 'context' on that prompt. Ideally, our requests written into Claude Code would include context about our specific project: its structure, language, and even its purpose. Because of the `npm create` command we ran above, our folder already has a boilerplate version of a Checkly project. We can't feed in all of these files as context but we can add a summary of our whole project as context by opening Claude Code and running the command:
 
-To create your Checkly monitoring, you want Claude Code to create files and updates that make sense as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/). Let’s add [Checkly’s AI rules file](https://www.checklyhq.com/docs/ai//use-checkly-with-ai-ide/#claude-code) to our [CLAUDE.md](http://CLAUDE.md) context file:
+> /init
+
+Claude Code will scan the whole project, write a summary, and then store that summary in a local CLAUDE.md file. Claude Code will read that file and add it to our prompt every time it's run within this project from now on.
+
+Let's add a bit more to this context, we want test files that make sense as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/). Let’s add [Checkly’s AI rules file](https://www.checklyhq.com/docs/ai//use-checkly-with-ai-ide/#claude-code) to our [CLAUDE.md](http://CLAUDE.md) context file:
 
 ```bash
 mkdir -p .claude &&
@@ -81,8 +85,6 @@ new UrlMonitor('danube-web-shop-pinger', {
 While we’re writing this simplest of monitors, it’s worth testing the limits of Claude Code’s context for writing valid Checkly configuration. One thing I tested while writing this article was whether picking the wrong prompt would result in invalid Checkly construct code. The Frequency class here doesn’t accept arbitrary values, so I wondered what would happen since the [source file for Frequency](https://github.com/checkly/checkly-cli/blob/main/packages/cli/src/constructs/frequency.ts) won’t be part of Claude’s context. I tried requesting a check that ran “every 17 seconds” and Claude Code prompted me to run a `find` on the project to identify valid values for `frequency`. In the end, Claude Code did create valid code with this note in the process feed.
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-01.png)
-
-
 
 ## Create Playwright Synthetics checks with Claude Code
 
@@ -125,7 +127,7 @@ and making sure the test passes.
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-02.png)
 
-*Like always with the `checkly test` command, this test isn’t running from my laptop but rather the real Checkly network!*
+*Like always with the `checkly test` command, this test isn’t running from my laptop but rather Checkly's global monitoring infrastructure.*
 
 Next we’ll want to create a `.check.ts` file for this browser check, which sets some check-specific settings and assigns the check’s logical ID. 
 
@@ -224,9 +226,7 @@ Claude Code will confirm before creating the check and spec files with the confi
 
 You can prompt for multiple checks at the same time, as the output is relatively token-efficient. As you can imagine, this unlocks the creation of a large number of synthetic monitors relatively quickly. Another use case that may be useful for larger projects, try prompting Claude Code with something like:
 
-> 
-> 
-> 
+
 > update every `.check.ts` file for a check that touches [danube-web.shop](http://danube-web.shop/), and change
 > the frequency to every 30 minutes.
 > 
@@ -268,7 +268,7 @@ If you’re having trouble reading the generated tests, take a look at [Checkly�
 
 ## Deploy With the Checkly CLI
 
-In our example, we want to create over 50 checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
+In our example, we want to create several checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
 
 ```bash
 npx checkly deploy -p
@@ -277,8 +277,7 @@ npx checkly deploy -p
 This command won’t deploy anything, just parse our project and show us what will be created when we run the command without the preview flag.
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-05.png)
-
-*We’ll get a long list of new checks that will be created.*
+*An example screenshot of the preview generated by the `npx checkly deploy -p` command. Checks with new logical IDs are listed as created, existing checks are listed as 'Update and Unchanged' and any checks which used to be associated with this project and arent present in our folder will be deleted*
 
 If you’re getting strange results from a preview of `deploy` and you’re not sure why, it might be time to get in touch with the Checkly team, [join our Slack](https://checklyhq.com/slack) for deployment advice! 
 
@@ -301,4 +300,4 @@ To learn more about Checkly’s capabilities, explore these resources:
 
 For more tutorials and advanced use cases, visit the [Checkly YouTube channel](https://www.youtube.com/@ChecklyHQ), where you can see great tutorials like this guide to the Playwright MCP server:
 
-{{< youtube id="kzQu0Y_Nxjk" title="Generating Playwright Tests With AI: Let's Try the New Playwright MCP Server!">}}
+{{< youtube id="MIlcVo1x3Is" title="Generating Playwright Tests With AI: Let's Try the New Playwright MCP Server!">}}
