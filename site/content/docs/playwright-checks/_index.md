@@ -105,7 +105,7 @@ const config = defineConfig({
       {
         logicalId: 'playwright-check-project-chromium', // tweak ID 
         name: 'Playwright Test: --project=chromium', // tweak name
-        testCommand: 'npx playwright test --project=chromium',// what we'll run as part of your check suite
+        testCommand: 'npx playwright test --project=chromium', // what we'll run as part of your check suite
         locations: [
           'eu-central-1', // add or change locations
         ],
