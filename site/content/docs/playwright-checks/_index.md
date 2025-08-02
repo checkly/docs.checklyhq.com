@@ -78,7 +78,7 @@ Detailed session summary at: https://chkly.link/l/linkhere
 
 ### 4. Convert tests to checks with `pw-test`:
 
-Using `pw-test` with the `--create-check` flag will create a `checkly.config.ts` file will add the new check and create the Checkly configuration file if it doesn't exist. Afterwards, you can tweak the monitoring configuration for your check.
+Using `pw-test` with the `--create-check` flag will create a `checkly.config.ts` file if it doesn't exist, and will add the new check. Afterwards, you can tweak the monitoring configuration for your check.
 
 For example:
 
