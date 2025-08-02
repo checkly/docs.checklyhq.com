@@ -56,7 +56,7 @@ Run your Playwright test suite using `pw-test`.
 
 `npx checkly pwtest --checky-flag -- --playwright-flag`. Use `--` to seperate Checkly and Playwright flags.
 
-The CLI command will then return a link leading to results, traces and more details:
+The CLI command will then return a link to results, traces and more details:
 
 ```bash
 > npx checkly pw-test -- --project=chromium
