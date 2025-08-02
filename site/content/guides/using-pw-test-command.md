@@ -104,7 +104,7 @@ use: {
 }
 ```
 
-If you'd like different configuration for your checks, make sure to use the `--trace <mode>	` flag in the `testCommand` section of your Playwright Check Suite.
+If you'd like different configuration for your checks, make sure to use the `--trace <mode>` flag in the `testCommand` section of your Playwright Check Suite.
 
 ```typescript {title="checkly.config.ts"}
 import { defineConfig } from 'checkly'
