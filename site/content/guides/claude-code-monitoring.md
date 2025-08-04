@@ -60,7 +60,7 @@ After this you’ll need to exit and restart Claude Code for it to pick up chang
 
 We’ll start with something easy. A URL monitor that will check an HTTP endpoint and alert if it doesn’t receive the right status code. With the context set from the section above, try a command like:
 
-> Create a new URL pinger for the site [https://danube-webshop.herokuapp.com/](https://danube-webshop.herokuapp.com/) that runs every five minutes and doesn’t follow redirects
+> Create a new URL pinger for the site [https://danube-webshop.herokuapp.com/](https://danube-webshop.herokuapp.com/) that runs every five minutes and doesn’t follow redirects.
 
 After a few seconds, Claude Code will produce this:
 
