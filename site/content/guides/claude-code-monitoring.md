@@ -28,7 +28,7 @@ and from the root folder of your project and start Code with the `claude` comman
 
 You’ll be prompted to sign in to or sign up for an Anthropic account.
 
-I recommend using [the Visual Studio Code plugin for Claude](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), which will make it easier to connect Claude Code with the VS Code file browser with Claude’s context (the VS Code plugin does a lot more than just context, this is just the most convenient feature we’ll use for this tutorial).
+I recommend using [the Visual Studio Code plugin for Claude](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), which will make it easier to provide Claude Code with the VS Code file browser context (the VS Code plugin does a lot more than just context, this is just the most convenient feature we’ll use for this tutorial).
 
 ### Add the Playwright MCP
 
