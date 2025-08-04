@@ -2,6 +2,8 @@
 title: Using the pw-test Command - Checkly Guides
 displayTitle: Using the pw-test Command
 navTitle: Using pw-test
+author: María de Antón
+avatar: 'images/avatars/maria-de-anton.jpg'
 weight: 15
 beta: false
 description: >-
@@ -116,7 +118,7 @@ const config = defineConfig({
     playwrightConfigPath: './playwright.config.ts',
     playwrightChecks: [
       {
-        logicalId: 'myrepo', // tweak ID 
+        logicalId: 'myrepo', // tweak ID
         name: 'myrepo: Chromium Playwright Tests', // tweak name
         testCommand: 'npx playwright test --project=chromium --trace=on',//
         locations: [
