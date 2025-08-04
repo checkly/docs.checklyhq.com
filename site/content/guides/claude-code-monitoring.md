@@ -5,7 +5,6 @@ description: >-
 author: Nočnica Mellifera
 avatar: 'images/avatars/nica-mellifera.png'
 tags:
-  - FAQ
   - AI
 ---
 AI-assisted coding promises to massively upgrade developer productivity, and with Checkly’s model of [Monitoring as Code](https://www.checklyhq.com/blog/monitoring-as-code-in-your-sdlc/), you can create monitoring coverage for all your services in minutes instead of days. This guide will show you how to create an AI development environment that lets you create and deploy all types of Checkly monitoring.
