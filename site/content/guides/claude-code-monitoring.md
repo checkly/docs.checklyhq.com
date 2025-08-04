@@ -100,8 +100,7 @@ We can capture our behavior in the browser to script a test with [Playwright Cod
 
 Once you’re done, copy the resulting code and create a file in `/__checks__` called `homepage-browse.spec.ts`. It should look something like this:
 
-```ts
-//homepage-browse.spec.ts
+```ts {title="homepage-browse.spec.ts"}
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -131,8 +130,7 @@ and making sure the test passes.
 
 Next we’ll want to create a `.check.ts` file for this browser check, which sets some check-specific settings and assigns the check’s logical ID. 
 
-```ts
-//homepage-browse.check.ts
+```ts {title="homepage-browse.check.ts"}
 import { AlertChannel, AlertEscalationBuilder, BrowserCheck, RetryStrategyBuilder } from 'checkly/constructs'
 
 new BrowserCheck('browse-danube-homepage-v1', {
@@ -203,8 +201,7 @@ The importance of step 1 above is apparent during the output from this task, as 
 
 In order to scan the URL provided, Claude Code will confirm that it can use the Playwright MCP to open a browser and access the site. The result is a nice clean test written to the spec:
 
-```ts
-//item-visibility.spec.ts
+```ts {title="item-visibility.spec.ts"}
 import { test, expect } from '@playwright/test';
 
 test('item visibility check', async ({ page }) => {
@@ -268,7 +265,7 @@ If you’re having trouble reading the generated tests, take a look at [Checkly�
 
 ## Deploy With the Checkly CLI
 
-In our example, we want to create several checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
+In our example, we want to deploy several checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
 
 ```bash
 npx checkly deploy -p
