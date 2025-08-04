@@ -264,7 +264,7 @@ If you’re having trouble reading the generated tests, take a look at [Checkly�
 
 ## Deploy With the Checkly CLI
 
-In our example, we want to deploy several checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
+In our example, we want to deploy a couple checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
 
 ```bash
 npx checkly deploy -p
