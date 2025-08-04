@@ -5,7 +5,6 @@ description: >-
 author: Nočnica Mellifera
 avatar: 'images/avatars/nica-mellifera.png'
 tags:
-  - FAQ
   - AI
 ---
 AI-assisted coding promises to massively upgrade developer productivity, and with Checkly’s model of [Monitoring as Code](https://www.checklyhq.com/blog/monitoring-as-code-in-your-sdlc/), you can create monitoring coverage for all your services in minutes instead of days. This guide will show you how to create an AI development environment that lets you create and deploy all types of Checkly monitoring.
@@ -28,7 +27,7 @@ and from the root folder of your project and start Code with the `claude` comman
 
 You’ll be prompted to sign in to or sign up for an Anthropic account.
 
-I recommend using [the Visual Studio Code plugin for Claude](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), which will make it easier to connect Claude Code with the VS Code file browser with Claude’s context (the VS Code plugin does a lot more than just context, this is just the most convenient feature we’ll use for this tutorial).
+I recommend using [the Visual Studio Code plugin for Claude](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), which will make it easier to provide Claude Code with the VS Code file browser context (the VS Code plugin does a lot more than just context, this is just the most convenient feature we’ll use for this tutorial).
 
 ### Add the Playwright MCP
 
@@ -40,7 +39,7 @@ claude mcp add playwright npx @playwright/mcp@latest
 This will let us ask Claude Code to do things like crawling a particular website and acting on what it finds by opening the site in a browser.
 
 ## Give Claude Code Some Context
-Everything we write into the Claude model is part of a 'prompt,' and by default Claude Code will ad a bit of information to what we submit as 'context' on that prompt. Ideally, our requests written into Claude Code would include context about our specific project: its structure, language, and even its purpose. Because of the `npm create` command we ran above, our folder already has a boilerplate version of a Checkly project. We can't feed in all of these files as context but we can add a summary of our whole project as context by opening Claude Code and running the command:
+Everything we write into the CLI interface is part of a 'prompt,' and by default, Claude Code will add a bit of information to what we submit as 'context' on that prompt. Ideally, our requests written into Claude Code would include context about our specific project: its structure, language, and even its purpose. Because of the `npm create` command we ran above, our folder already has a boilerplate version of a Checkly project. We can't feed in all of these files as context, but we can add a summary of our whole project as context by opening Claude Code and running the command:
 
 > /init
 
@@ -60,7 +59,7 @@ After this you’ll need to exit and restart Claude Code for it to pick up chang
 
 We’ll start with something easy. A URL monitor that will check an HTTP endpoint and alert if it doesn’t receive the right status code. With the context set from the section above, try a command like:
 
-> Create a new URL pinger for the site [https://danube-webshop.herokuapp.com/](https://danube-webshop.herokuapp.com/) that runs every five minutes and doesn’t follow redirects
+> Create a new URL pinger for the site [https://danube-webshop.herokuapp.com/](https://danube-webshop.herokuapp.com/) that runs every five minutes and doesn’t follow redirects.
 
 After a few seconds, Claude Code will produce this:
 
@@ -86,11 +85,11 @@ While we’re writing this simplest of monitors, it’s worth testing the limits
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-01.png)
 
-## Create Playwright Synthetics checks with Claude Code
+## Create Playwright Synthetics Checks With Claude Code
 
 It would be nice to have Claude Code automatically create the Playwright scripts we need to test our site's features. However, without careful controls, any 2025-era coding agent tends to write Playwright code that is either out of date or doesn’t follow best practices. The best way to get high-quality output is through some prompt engineering and careful provision of context.
 
-### 1. Create at least one test with Playwright Codegen
+### 1. Start With Playwright Codegen
 
 We can capture our behavior in the browser to script a test with [Playwright Codegen](https://www.checklyhq.com/learn/playwright/codegen/), available either as a standalone utility, browser plugin, or VS Code plugin. Once [Codegen is set up](https://www.checklyhq.com/learn/playwright/codegen/), start recording and record the following:
 
@@ -100,8 +99,7 @@ We can capture our behavior in the browser to script a test with [Playwright Cod
 
 Once you’re done, copy the resulting code and create a file in `/__checks__` called `homepage-browse.spec.ts`. It should look something like this:
 
-```ts
-//homepage-browse.spec.ts
+```ts {title="homepage-browse.spec.ts"}
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -131,8 +129,7 @@ and making sure the test passes.
 
 Next we’ll want to create a `.check.ts` file for this browser check, which sets some check-specific settings and assigns the check’s logical ID. 
 
-```ts
-//homepage-browse.check.ts
+```ts {title="homepage-browse.check.ts"}
 import { AlertChannel, AlertEscalationBuilder, BrowserCheck, RetryStrategyBuilder } from 'checkly/constructs'
 
 new BrowserCheck('browse-danube-homepage-v1', {
@@ -173,7 +170,7 @@ If we want to check our formatting, we can run the `checkly deploy` command with
 npx checkly deploy -p
 ```
 
-### 2. Add our new Check to Claude’s context
+### 2. Add our new Check to Claude’s Context
 
 With these checks created, add their references to Claude’s context by giving Claude Code the prompt:
 
@@ -189,7 +186,7 @@ Let’s take one additional step, add the following lines to your updated [CLAUD
 
 Pro tip: from the Claude Code prompt just hit octothorp ‘#’ to add to Claude’s memory.
 
-### 3. Use Claude Code to create new checks
+### 3. Use Claude Code to create new Checks
 
 Now that we’ve got a working test and config, let’s let Claude Code create a check for us:
 
@@ -203,8 +200,7 @@ The importance of step 1 above is apparent during the output from this task, as 
 
 In order to scan the URL provided, Claude Code will confirm that it can use the Playwright MCP to open a browser and access the site. The result is a nice clean test written to the spec:
 
-```ts
-//item-visibility.spec.ts
+```ts {title="item-visibility.spec.ts"}
 import { test, expect } from '@playwright/test';
 
 test('item visibility check', async ({ page }) => {
@@ -268,7 +264,7 @@ If you’re having trouble reading the generated tests, take a look at [Checkly�
 
 ## Deploy With the Checkly CLI
 
-In our example, we want to create several checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
+In our example, we want to deploy several checks at once, so it’s worth checking whether the configuration is properly formatted before deployment. Many problems would have been revealed while running `test` but if, for example, the [logical IDs](https://www.checklyhq.com/docs/cli/constructs-reference/#synthetic-checks) of current and existing checks are colliding, we’ll need to run `deploy` to detect that. Run the `deploy` command with the `-p` preview flag:
 
 ```bash
 npx checkly deploy -p
