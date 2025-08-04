@@ -3,10 +3,11 @@ title: Scaling Your Monitoring Setup Beyond the UI
 displayTitle: Scaling Your Monitoring Setup Beyond the UI 
 description: >-
   Manual monitoring systems don't scale. See how to use Monitoring as Code to scale your monitoring setup and make it easy to use for you and your teammates.
-author: Sara Miteva
-avatar: 'site/static/images/avatars/sara-miteva.jpeg'
+author: Nočnica Mellifera
+date: 2025-08-03
+avatar: 'images/avatars/nica-mellifera.png'
 tags:
-  
+  - DevOps
 ---
 # Scaling Your Monitoring Setup Beyond the UI 
 
@@ -51,9 +52,9 @@ Instead of relying on manual UI edits, you define your checks, alert channels, a
 
 Here’s an example of a simple browser monitor running a Playwright script defined with code:
 
-
+{{< tabs "browser_monitor" >}}
+{{< tab "home.check.ts" >}}
 ```ts
-// home.check.ts
 import { BrowserCheck, Frequency } from 'checkly/constructs'
 import * as path from 'path'
 
@@ -66,9 +67,10 @@ new BrowserCheck('browser-check-1', {
   }
 })
 ```
-
+{{< /tab >}}
+{{< tab "home.spec.js" >}}
 ```ts
-// home.spec.js
+
 import { expect, test } from '@playwright/test'
 
 test('Visit Checkly HQ page', async ({ page }) => {
@@ -78,6 +80,9 @@ test('Visit Checkly HQ page', async ({ page }) => {
   expect(response.status()).toBeLessThan(400)
 })
 ```
+{{< /tab >}}
+{{< /tabs >}}
+
 
 By codifying both the infrastructure and the test logic, you ensure your monitoring is reproducible, reviewable, and easy to scale across teams.
 
@@ -176,3 +181,11 @@ UI-based workflows are great for getting started, but they fall short when it co
 With `checkly import`, you don’t need to start over. You can bring your existing checks into code gradually, test locally, and scale your monitoring setup with confidence.
 
 If your team is growing—or your monitoring is starting to feel messy—this is your next step.
+
+### Further Reading
+
+[Getting started with the Checkly CLI](https://www.checklyhq.com/docs/cli/) - Run your first deploy.
+
+[Create Uptime Monitoring in minutes with Checkly](https://www.checklyhq.com/guides/url-monitoring/) - Use the CLI and Checkly Constructs to monitor every endpoint.
+
+[VIDEO: What's new with Checkly](https://www.youtube.com/watch?v=ogoMNylYbJI) - Learn the product vision behind uptime monitors, 1-second frequency checks, and Playwright check suites.
