@@ -85,11 +85,11 @@ While we’re writing this simplest of monitors, it’s worth testing the limits
 
 ![Feedback on the terminal](/guides/images/claude-monitoring-01.png)
 
-## Create Playwright Synthetics checks with Claude Code
+## Create Playwright Synthetics Checks With Claude Code
 
 It would be nice to have Claude Code automatically create the Playwright scripts we need to test our site's features. However, without careful controls, any 2025-era coding agent tends to write Playwright code that is either out of date or doesn’t follow best practices. The best way to get high-quality output is through some prompt engineering and careful provision of context.
 
-### 1. Create at least one test with Playwright Codegen
+### 1. Start With Playwright Codegen
 
 We can capture our behavior in the browser to script a test with [Playwright Codegen](https://www.checklyhq.com/learn/playwright/codegen/), available either as a standalone utility, browser plugin, or VS Code plugin. Once [Codegen is set up](https://www.checklyhq.com/learn/playwright/codegen/), start recording and record the following:
 
@@ -170,7 +170,7 @@ If we want to check our formatting, we can run the `checkly deploy` command with
 npx checkly deploy -p
 ```
 
-### 2. Add our new Check to Claude’s context
+### 2. Add our new Check to Claude’s Context
 
 With these checks created, add their references to Claude’s context by giving Claude Code the prompt:
 
@@ -186,7 +186,7 @@ Let’s take one additional step, add the following lines to your updated [CLAUD
 
 Pro tip: from the Claude Code prompt just hit octothorp ‘#’ to add to Claude’s memory.
 
-### 3. Use Claude Code to create new checks
+### 3. Use Claude Code to create new Checks
 
 Now that we’ve got a working test and config, let’s let Claude Code create a check for us:
 
