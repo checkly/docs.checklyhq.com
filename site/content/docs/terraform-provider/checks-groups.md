@@ -169,6 +169,34 @@ For example, a Multistep check can look as follows:
 }
 ```
 
+### Url Monitors
+
+URL monitors check the availability and response time of HTTP(S) endpoints. They are ideal for simple uptime checks and ensure that your endpoints return expected status codes within the configured thresholds.
+
+Below is a sample configuration for a URL monitor using Terraform:
+
+```terraform
+resource "checkly_url_monitor" "example-url-monitor" {
+  name                      = "Example URL monitor"
+  activated                 = true
+  frequency                 = 2
+  use_global_alert_settings = true
+
+  locations = [
+    "eu-west-1"
+  ]
+
+  request {
+    url = "https://welcome.checklyhq.com"
+
+    assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
+  }
+}
+```
 
 ### Tcp Monitors
 
