@@ -404,6 +404,7 @@ Throughout this tutorial, we added a few pointers to the CLAUDE.md context file.
 
 To learn more about Checkly's capabilities, explore these resources:
 
+- [Generating end-to-end tests with AI and Playwright MCP](https://www.checklyhq.com/blog/generate-end-to-end-tests-with-ai-and-playwright/) - Stefan's blog post makes a great starter for generalized Playwright development with an AI toolkit.
 - [Checkly CLI Documentation](https://www.checklyhq.com/docs/cli/) – Learn how to manage checks as code right from your command line.
 - [Playwright Testing Guide](https://www.checklyhq.com/learn/playwright/) – Best practices for writing reliable browser checks.
 - [What is monitoring as code?](https://www.checklyhq.com/guides/monitoring-as-code/) — A comprehensive guide to infrastructure-as-code principles for monitoring.
