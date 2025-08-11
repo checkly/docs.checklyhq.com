@@ -85,7 +85,7 @@ new UrlMonitor('danube-web-shop-monitor', {
 })
 ```
 
-While we're writing this simplest of monitors, it's worth testing the limits of Claude Code's context for writing valid Checkly configuration. One thing we tested while writing this article was whether picking the wrong prompt would result in invalid Checkly construct code. The Frequency class here doesn't accept arbitrary values, so we wondered what would happen since the [source file for Frequency](https://github.com/checkly/checkly-cli/blob/main/packages/cli/src/constructs/frequency.ts) won't be part of Claude's context. we tried requesting a check that ran “every 17 seconds” and Claude Code prompted to run a `find` on the project to identify valid values for `frequency`. In the end, Claude Code did create valid code with this note in the process feed.
+While we're writing this simplest of monitors, it's worth testing the limits of Claude Code's context for writing valid Checkly configuration. One thing we tested while writing this article was whether picking the wrong prompt would result in invalid Checkly construct code. The Frequency class here doesn't accept arbitrary values, so we wondered what would happen since the [source file for Frequency](https://github.com/checkly/checkly-cli/blob/main/packages/cli/src/constructs/frequency.ts) won't be part of Claude's context. We tried requesting a check that ran “every 17 seconds” and Claude Code prompted to run a `find` on the project to identify valid values for `frequency`. In the end, Claude Code did create valid code with this note in the process feed.
 
 ```{title="Reply from Claude Code:"}
   Based on the search results, 17 seconds is NOT a 
