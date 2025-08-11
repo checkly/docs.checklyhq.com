@@ -39,7 +39,7 @@ claude mcp add playwright npx @playwright/mcp@latest
 This will let us ask Claude Code to do things like crawling a particular website and acting on what it finds by opening the site in a browser.
 
 ## Give Claude Code Some Context
-Everything we write into the CLI interface is part of a 'prompt,' and by default, Claude Code will add a bit of information to what we submit as 'context' on that prompt. Ideally, our requests written into Claude Code would include context about our specific project: its structure, language, and even its purpose. Because of the `npm create` command we ran above, our folder already has a boilerplate version of a Checkly project. We can't feed in all of these files as context, but we can add a summary of our whole project as context by opening Claude Code and running the command:
+Everything we write into the CLI interface is part of a 'prompt,' and by default, Claude Code will add a bit of information to what we submit as 'context' on that prompt. Ideally, our requests written into Claude Code would include context about our specific project: its structure, language, and even its purpose. Because of the `npm create` command we ran above, our folder already has a boilerplate version of a Checkly project. We can't feed in all of these files as context, but we can add a summary of our whole project as context by opening Claude Code and running [the slash command](https://docs.anthropic.com/en/docs/claude-code/slash-commands):
 
 ```{title="Prompt:"}
 /init
