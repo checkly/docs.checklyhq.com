@@ -370,7 +370,7 @@ Update and Unchanged:
 ```
 
 Let's discuss the output of this preview command in detail, as it's critical to understand how Checkly handles deployments from your project:
-* Checks that have no .check.ts config file are listed by their filename and will be named for their file name in the Checkly web UI. In general, it's better to include a config file for every check since it leaves you in explicit control of the check's logical ID. We've left out the config for five checks for demonstration purposes.
+* Checks that have no `.check.ts` config file are listed by their filename and will be named for their file name in the Checkly web UI. In general, it's better to include a config file for every check since it leaves you in explicit control of the check's logical ID. We've left out the config for five checks for demonstration purposes.
 * Checks with a config file are shown by their logical ID. 
 * Checks previously deployed from this project that are not present will be deleted.
 * Checks with a matching logical ID from a previous deployment will be listed as "Update and Unchanged"
