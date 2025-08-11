@@ -107,7 +107,7 @@ First you'll want to write a single check that does straightforward browsing and
 - Assert the visibility of 1-2 page elements.
 ```
 
-Claude will create a short Playwright script that will look something like the following.
+Claude will then open a browser using the Playwright MCP server, perform the actions, and create a short Playwright script that will look something like the following.
 
 ```ts {title="book-detail-visibility.spec.ts"}
 import { test, expect } from '@playwright/test'
