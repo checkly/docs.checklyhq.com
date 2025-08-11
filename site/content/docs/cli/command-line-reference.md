@@ -66,6 +66,70 @@ between environments.
 - `--verbose` or `-v`: Always show the full logs of the checks.
 
 
+## `npx checkly pw-test`
+
+Run Playwright tests with Checkly monitoring features and reuse the Playwright CLI arguments. Records test sessions automatically.
+
+```bash
+npx checkly pw-test [checkly flags] -- [playwright flags]
+```
+
+Use `--` to separate Checkly flags from Playwright flags.
+
+### Basic examples
+
+Run tests in multiple browsers using different Playwright projects:
+```bash
+npx checkly pw-test -- --project=chromium --project=firefox
+```
+
+Run tests by pattern:
+```bash
+npx checkly pw-test -- --grep="login"
+```
+
+Exclude tests by pattern:
+```bash
+npx checkly pw-test -- --grep-invert="skip|todo"
+```
+
+### Creating scheduled checks
+
+Using `pw-test` with the `--create-check` flag will add the check with a default configuration, so that you can tweak the monitoring configuration for your check. If there's no `checkly.config.ts` file it will create it.
+
+Regression tagged tests in multiple locations:
+
+```bash
+npx checkly pw-test --create-check --location=us-east-1 --location=eu-west-1 --frequency=5m -- --grep="@regression"
+```
+
+Mobile tests tagged critical every 10 minutes:
+
+```bash
+npx checkly pw-test --create-check --frequency=10m -- --project="Mobile Chrome" --grep="@critical"
+```
+
+> [!NOTE]
+> - `pw-test` automatically records test sessions (no `--record` flag needed)
+> - Your Playwright configuration applies automatically (traces, videos, screenshots)
+> - View all artifacts in Checkly's UI
+
+### Checkly flags
+- `--create-check`: Create a monitor from test results
+- `--frequency`: Set monitor frequency (`5m`, `10m`, `30m`, `1h`)
+- `--location`: Add monitor locations (use multiple times)
+- `--test-session-name`: Name your test session
+- `--env`: Pass environment variables
+- `--env-file`: Load variables from file
+- All other [`checkly test` flags](https://www.checklyhq.com/docs/cli/command-line-reference/#npx-checkly-test) except `--record`
+
+### Playwright flags (after `--`)
+- `--project`: Select Playwright projects
+- `--grep`: Filter tests by pattern
+- `--grep-invert`: Exclude tests by pattern
+- All other [Playwright test runner](https://playwright.dev/docs/test-cli) flags
+
+
 ## `npx checkly deploy`
 
 Deploys all your checks and associated resources like alert channels to your Checkly account.

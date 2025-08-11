@@ -376,7 +376,7 @@ new TcpMonitor('hello-tcp-1', {
 - `maxResponseTime`: The response time in milliseconds where a monitor should be considered failing.
 - `degradedResponseTime`: The response time in milliseconds where a monitor should be considered degraded.
 - `request`: An object of the `TcpRequest` type. See the [`TcpRequest` reference](#tcprequest).
-- `shouldFail`: When set to `true`, the monitor is considered successful if the connection attempt fails. If not specified, the default value is `false`. 
+- `shouldFail`: When set to `true`, the monitor is considered successful if the connection attempt fails. If not specified, the default value is `false`.
 
 > [!NOTE]
 > Failing assertions will cause the monitor to fail, regardless of the `shouldFail` value
@@ -590,7 +590,7 @@ property of a Project, CheckGroup or Check.
 ### Using `fromId()` to reference an existing channel
 
 You can reference an existing alert channel in your Checkly account using the `fromId()` method on any `AlertChannel`
-class. When your CLI project is responsible for creating and managing alert channels, it integrates seamlessly with Checkly's deployment control mechanisms. This ensures that any changes made are thoroughly validated. 
+class. When your CLI project is responsible for creating and managing alert channels, it integrates seamlessly with Checkly's deployment control mechanisms. This ensures that any changes made are thoroughly validated.
 
 For users with multiple Checkly CLI projects:
 
@@ -606,7 +606,7 @@ For users managing a single Checkly CLI project:
 export const emailChannel = EmailAlertChannel.fromId(20)
 ```
 
-You can obtain the ID for your alert channel either from the Checkly web UI or by utilizing our [REST API](https://developers.checklyhq.com/reference/getv1alertchannels). 
+You can obtain the ID for your alert channel either from the Checkly web UI or by utilizing our [REST API](https://developers.checklyhq.com/reference/getv1alertchannels).
 ![email channel id](/docs/images/cli/constructs_email_id@2x.jpg)
 
 ## `SMSAlertChannel`

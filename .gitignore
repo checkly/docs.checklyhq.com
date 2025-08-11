@@ -11,3 +11,4 @@ site/resources/
 __checks__/screenshots
 .vercel
 checkly-github-report.md
+CLAUDE.md
