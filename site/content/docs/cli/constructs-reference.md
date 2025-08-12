@@ -326,6 +326,17 @@ The `request` object is a mandatory part of an URL monitor.
 - `skipSSL`: A boolean indicating whether to skip validation of SSL certificates.
 - `assertions`: You can define assertions via the `UrlAssertionBuilder`. For URL monitors, only status code assertions are supported. For example:
 
+### `UrlAssertionBuilder`
+
+To define `assertions` for the `request` of an `UrlMonitor` you should use the `UrlAssertionBuilder`. The `UrlAssertionBuilder`
+has the following properties:
+
+- `status()`: Assert the HTTP status code for the HTTP request, e.g. `200` or `404`.
+
+ Here is an example:
+
+- Assert the status code of a HTTP request
+
 ```ts
 UrlAssertionBuilder.statusCode().equals(200)
 // renders to a JSON string
