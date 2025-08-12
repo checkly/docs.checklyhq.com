@@ -7,38 +7,41 @@ avatar: 'images/avatars/nica-mellifera.png'
 tags:
   - FAQ
 ---
-This guide will show you how to monitor all the pages of your site, creating URL monitors and then deploying those checks with the Checkly CLI.
+Checkly's Uptime Monitoring can ensure the reliability and availability of web applications and APIs by continuously checking their performance from multiple global locations. It allows users to set up simple yet scalable monitors that verify whether their endpoints are operational, measuring response times and status codes to detect downtime or slowdowns.
 
-While you can create monitors from within the Checkly web UI, this tutorial will use the Checkly CLI and the principle of [Monitoring as Code](https://www.checklyhq.com/guides/getting-started-with-monitoring-as-code/) to create a new project as a code repository to contain all your uptime monitoring.
+With configurable frequency and geographic distribution, Checkly's Uptime Monitoring helps businesses maintain optimal service performance, offering insights through detailed logs and analytics to track uptime trends and troubleshoot problems efficiently. This tool is particularly useful for DevOps and engineering teams looking to proactively monitor their digital infrastructure with minimal setup overhead.
+
+This tutorial will use the Checkly CLI and the principle of [Monitoring as Code](https://www.checklyhq.com/guides/getting-started-with-monitoring-as-code/) to create a new project as a code repository to contain all your uptime monitoring.
 
 ## Set up your Checkly repository
 
-Start by [installing the Checkly CLI](https://www.checklyhq.com/docs/cli/installation/), then create a repository that will be the ‘project’ that contains all your Checkly monitors managed as code. If you don’t already have a project, create one with:
+Start by [installing the Checkly CLI](https://www.checklyhq.com/docs/cli/installation/), then create a repository that will be the project that contains all your Checkly monitors managed as code. If you don’t already have a project, create one with:
 
 ```bash
 npm create checkly@latest
 ```
-
-If you’d like to follow the tutorial examples below, clone the [uptime monitoring demo](https://github.com/serverless-mom/uptimeMonitoring) repository, and copy everything in the `/__checks__` folder to your own project.
+A project is a grouping of individual checks 
 
 ## Create URL Monitoring to check all your pages’ status codes
 
-Checkly’s URL Monitors are the cheapest and fastest tool to just check the status code of a web page. They’re particularly useful for third-party services or pages that your service relies on. In general, a URL monitor will look like this:
+Checkly’s URL Monitors are the cheapest and fastest tool to just check the status code of a web page. They’re particularly useful for third-party services or pages that your service relies on. In general, a URL monitor will look like this (with comments on the config):
 
-```ts
-//httpbinPinger.check.ts
+```ts {title="url-monitor.check.ts"}
 import { Frequency, UrlMonitor, UrlAssertionBuilder } from 'checkly/constructs'
 
-new UrlMonitor('url-pinger-1', {
-  frequency: Frequency.EVERY_10S,
-  name: 'URL pinger 1',
-  activated: true,
+new UrlMonitor('url-monitor-1', { //the monitor's unique ID
+  frequency: Frequency.EVERY_10S, //how often the check will run
+  name: 'httpbin Monitor 1', //user readable name for the Checkly UI
+  activated: true, //deactivated checks won't send requests
+  muted: false, //muted checks still run and log history but don't send alerts
+  maxResponseTime: 10000, //time before the check is marked failing
+  degradedResponseTime: 5000, //time to mark the check as degraded
   request: {
-    url: 'https://httpbin.org/get',
-    skipSSL: false,
-    followRedirects: true,
-    assertions: [
-      UrlAssertionBuilder.statusCode().equals(200),
+    url: 'https://httpbin.org/get', //the URL to check
+    skipSSL: true, //debug setting to skip SSL authentication
+    followRedirects: true, //whether to allow redirects
+    assertions: [ //only status code verification is supported for URL Monitors
+      UrlAssertionBuilder.statusCode().equals(200), 
     ]
   }
 })
@@ -46,12 +49,12 @@ new UrlMonitor('url-pinger-1', {
 
 Save this file in the `/__checks__` directory. A couple important notes about the configuration of a URL monitor:
 
-- The first string passed is the monitor’s logical ID, changing this value and running `checkly deploy` will delete the previous monitor and create a new one. So generally this should remain static
-- This example contains a [frequency](https://www.checklyhq.com/docs/cli/constructs-reference/#urlmonitor). Without a frequency a new URL monitor will use your project default frequency
+- A check requires a logical ID, changing this will delete the old check and create a new check with no history. 
+- The request object is a mandatory part of the monitor, every other setting, if not included in this file, will use the project default.
 
 Read more in the full [documentation of the UrlMonitor](https://www.checklyhq.com/docs/cli/constructs-reference/#urlmonitor) class. 
 
-Go ahead and create multiple URL monitors as separate files so we can try deploying more than one URL monitor at a time. If you’re envisioning monitoring dozens or hundreds of sites with URL Monitoring, don’t worry: you won’t have to create hundreds of files, a guide I’ll publish later this week will cover the bulk creation of monitors.
+Go ahead and create multiple URL monitors as separate files so we can try deploying more than one URL monitor at a time. 
 
 ![A line chart](/guides/images/url-monitoring-01.png)
 
@@ -61,7 +64,20 @@ With our monitors written, lets run them all with `npx checkly test` .
 
 The Checkly CLI will scan for every `check.ts` file in the `/__checks__` folder and run them from the Checkly network. 
 
-![A terminal](/guides/images/url-monitoring-02.png)
+```bash
+[...]
+__checks__/service-availability.check.ts
+  ✔ Service Availability Monitor (295ms)
+__checks__/uptime-validator.check.ts
+  ✔ Uptime Validator Monitor (284ms)
+__checks__/url-monitor-2.check.ts
+  ✔ httpbin Monitor 2 (281ms)
+__checks__/url-monitor.check.ts
+  ✔ httpbin Monitor 1 (2s)
+
+9 passed, 9 total
+```
+*Terminal feedback from the `test` command
 
 One of the immediate benefits of using Checkly is evident here: since these monitors don’t run from your local workstation, you’ll be running these checks exactly like your users do, you can even configure the CLI to run the tests from multiple locations!
 
