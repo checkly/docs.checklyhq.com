@@ -331,7 +331,7 @@ The `request` object is a mandatory part of an URL monitor.
 To define `assertions` for the `request` of an `UrlMonitor` you should use the `UrlAssertionBuilder`. The `UrlAssertionBuilder`
 has the following properties:
 
-- `status()`: Assert the HTTP status code for the HTTP request, e.g. `200` or `404`.
+- `statusCode()`: Assert the HTTP status code for the HTTP response, e.g. `200` or `201`.
 
  Here is an example:
 
