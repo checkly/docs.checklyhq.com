@@ -27,16 +27,14 @@ and from the root folder of your project,  start Claude Code with the `claude` c
 
 You'll be prompted to sign in to or sign up for an Anthropic account.
 
-We recommend using [the Visual Studio Code plugin for Claude](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), which will make it easier to review changes to code files with its side-by-side viewer (the plugin does a lot more besides that we won't cover in this guide).
-
 ### Add the Playwright MCP
 
-You can give Claude Code access to a browser by adding the [Playwright MCP](https://github.com/microsoft/playwright-mcp) to your local configuration with 
+You can give Claude Code access to a browser by adding the [Playwright MCP](https://github.com/microsoft/playwright-mcp) to your local configuration with:
 
 ```bash
 claude mcp add playwright npx @playwright/mcp@latest 
 ```
-This will let us ask Claude Code to do things like crawling a particular website and acting on what it finds by opening the site in a browser.
+This will let us ask Claude Code to do things like crawling a particular website and interacting with pages.
 
 ## Give Claude Code Some Context
 Everything we write into the CLI interface is part of a 'prompt,' and by default, Claude Code will add a bit of information to what we submit as 'context' on that prompt. Ideally, our requests written into Claude Code would include context about our specific project: its structure, language, and even its purpose. Because of the `npm create` command we ran above, our folder already has a boilerplate version of a Checkly project. We can't feed in all of these files as context, but we can add a summary of our whole project as context by opening Claude Code and running [the slash command](https://docs.anthropic.com/en/docs/claude-code/slash-commands):
@@ -45,9 +43,9 @@ Everything we write into the CLI interface is part of a 'prompt,' and by default
 /init
 ```
 
-Claude Code will scan the whole project, write a summary, and then store that summary in a local CLAUDE.md file. Claude Code will read that file and add it to our prompt every time it's run within this project from now on.
+Claude Code will scan the whole project, write a summary, and then store that summary in a local `CLAUDE.md` file. Claude Code will read that file and add it to our prompt every time it's run within this project from now on.
 
-Let's add a bit more to this context, we want test files that make sense as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/). Let's add [Checkly's AI rules file](https://www.checklyhq.com/docs/ai//use-checkly-with-ai-ide/#claude-code) to our CLAUDE.md context file:
+Let's add a bit more to this context, we want test files that make sense as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/). Let's add [Checkly's AI rules file](https://www.checklyhq.com/docs/ai//use-checkly-with-ai-ide/#claude-code) to our `CLAUDE.md` context file:
 
 ```bash
 mkdir -p .claude &&
@@ -213,7 +211,6 @@ new BrowserCheck('book-detail-visibility-check-v1', {
 
 While you can deploy a Playwright check without a `.check.ts` configuration file, this isn't generally a good practice, as you should at least set the logical ID for your check.
 
-Later in this tutorial we'll check the consistency of this config file with the `test` command. For now you can move on to creating more checks.
 ### 2. Add our new Check to Claude's Context
 
 With this check created, add their references to Claude's context by giving Claude Code the prompt:
@@ -222,14 +219,14 @@ With this check created, add their references to Claude's context by giving Clau
 Update my CLAUDE.md file with the new code in /__checks__
 ```
 
-Let's take one additional step, add the following lines to your updated CLAUDE.md file:
+Let's take one additional step, add the following lines to your updated `CLAUDE.md` file:
 
 ```markdown
 - When writing Playwright, don't set locators equal to const, rather just perform expect tests directly on locators
 - When writing a spec.ts file, don't use locators based on CSS class
 ```
 
-Pro tip: from the Claude Code prompt, just hit octothorp "#" to add to Claude's memory.
+Pro tip: from the Claude Code prompt, just hit octothorp "#" to add to Claude's memory. Each entry will be a new line in `CLAUDE.md`.
 
 ### 3. Use Claude Code to create multiple Browser Checks
 
@@ -265,7 +262,7 @@ test.describe('Danube WebShop Signup Form Elements', () => {
 })
 ```
 
-Claude Code will confirm before creating the script file, respectively. If you've followed these tutorial steps in a single conversation with Claude Code, the tool will likely offer to `create signup-form-elements.check.ts` to configure the check.
+Claude Code will confirm before creating the script file. If you've followed these tutorial steps in a single conversation with Claude Code, the tool will likely offer to `create signup-form-elements.check.ts` to configure the check.
 
 You can prompt for multiple checks at the same time. As you can imagine, this unlocks the creation of a large number of synthetic monitors relatively quickly. 
 
@@ -293,7 +290,6 @@ npx checkly test
 ```
 *If you've followed every step in this tutorial, you may have different numbers for the number of tests run here.*
 
-
 When running a number of generated tests, the only issue we ran into was a failure with the message: `Error: expect.toBeVisible: Error: strict mode violation: getByText('Crime & Thrillers') resolved to 2 elements:`. As the error message implies, the issue is that this locator:
 
 ```ts
@@ -311,11 +307,11 @@ This would change every locator in the check, which may or may not be what you w
 ```ts
   await expect(page.getByText('Fantasy').first()).toBeVisible();
 ```
-If you're having trouble reading the generated tests, take a look at [Checkly's Playwright documentation](https://www.checklyhq.com/learn/playwright/). Once Claude Code added a single `.first()` to the checks written above, everything was passing.
+Once Claude Code added a single `.first()` to the checks written above, everything was passing. If you're having trouble reading the generated tests, take a look at [Checkly's Playwright documentation](https://www.checklyhq.com/learn/playwright/). 
 
 ### 4. Going Further: Edit Multiple Checks and Configurations
 
-Another use case that may be useful for larger projects, try prompting Claude Code with something like:
+Uodating checks is another use case that may be useful for larger projects. Try prompting Claude Code with something like:
 
 ```{title="Prompt:"}
 Update every `.check.ts` file for a check that touches [danube-web.shop](http://danube-web.shop/), and change the frequency to every 30 minutes.
@@ -327,7 +323,7 @@ Not only did this request work, but even produced sensible feedback about the ch
   The url.check.ts and api.check.ts files don't have individual frequency settings - they inherit the default frequency from the project configuration in checkly.config.ts.
 ```
 
-Once we're done creating new checks, it's time to run them all.
+Once we're done creating new checks, we can test them with `npx checkly test` like we did above. Then it's time to run them all.
 
 
 ## Deploy With the Checkly CLI
@@ -338,7 +334,7 @@ In our example, we want to deploy a couple of checks at once, so it's worth chec
 npx checkly deploy -p
 ```
 
-This command won't deploy anything, just parse our project and show us what will be changed when we run the command without the preview flag. When you first run `deploy -p` you should just see a long list of created tests in the deployment command. For this tutorial, here's the preview of a more complex project state:
+This command won't deploy anything, just parse our project and show us what will be changed when we run the command without the preview flag. When you first run `deploy -p` you should just see a long list of created checks in the deployment command. For this tutorial, here's the preview of a more complex project state:
 
 ```bash
 Bundling project resources... ✅
@@ -361,12 +357,10 @@ Update and Unchanged:
 ```
 
 Let's discuss the output of this preview command in detail, as it's critical to understand how Checkly handles deployments from your project:
-* Checks that have no .check.ts config file are listed by their filename and will be named for their file name in the Checkly web UI. In general, it's better to include a config file for every check since it leaves you in explicit control of the check's logical ID. We've left out the config for five checks for demonstration purposes.
+* Checks that have no .check.ts config file are listed by their filename and will be named for their file name in the Checkly web UI. In general, it's better to include a config file for every check since it gives you explicit control of the check's logical ID. We've left out the config for five checks for demonstration purposes.
 * Checks with a config file are shown by their logical ID. 
-* Checks previously deployed from this project that are not present will be deleted.
+* Checks previously deployed from this project that are not present in this deployment will be deleted.
 * Checks with a matching logical ID from a previous deployment will be listed as "Update and Unchanged"
-
-Note that this preview will generally produce error messages if you have invalid values or formatting in your `.check.ts` files.
 
 If you're getting strange results from a preview of `deploy` and you're not sure why, it might be time to get in touch with the Checkly team. [Join our Slack](https://checklyhq.com/slack) for deployment advice! 
 
