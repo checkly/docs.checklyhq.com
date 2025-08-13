@@ -130,6 +130,16 @@ await page.goto('https://app.checklyhq.com/login?utm_source=monitoring')
 For detailed instructions, see [the Google Analytics docs on custom filters](https://support.google.com/analytics/answer/1033162#CustomFilters).
 Note that this will take some hours for this to take effect.
 
+## CloudFlare Verified Bot
+
+Checkly is also registered with CloudFlare as a [verified bot](https://developers.cloudflare.com/bots/concepts/bot/verified-bots/). If you are using CloudFlare's Web Application Firewall (WAF) to protect your site, you can also allow traffic from Checkly by adding a [custom WAF rule](https://developers.cloudflare.com/waf/custom-rules/) to enable traffic from verified bots.
+
+Specifically, the [Checkly verified bot](https://radar.cloudflare.com/bots/directory/checkly) is included in the [Monitoring & Analytics category](https://developers.cloudflare.com/bots/concepts/bot/verified-bots/categories/).
+
+CloudFlare automatically syncs the latest Checkly IP addresses, so this approach can be easier to maintain than [IP range allowlisting](#ip-range-allowlisting).
+
+![CloudFlare verified bot WAF rule](/docs/images/monitoring/cloudflare-waf.png)
+
 ## Default Checkly user agent
 
 This is what Checkly sends as user agent:
