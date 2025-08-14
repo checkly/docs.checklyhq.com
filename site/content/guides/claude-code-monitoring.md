@@ -380,7 +380,7 @@ Throughout this tutorial, we added a few lines to the CLAUDE.md context file. In
 ## Memories and Best Practices
 - Follow the rules in .claude/checkly.rules.md
 ### When writing checkly playwright tests
--  load the target page in a browser
+- load the target page in a browser
 - don't set locators equal to const, rather just perform expect tests directly on locators
 - don't use locators based on CSS class
 ```
