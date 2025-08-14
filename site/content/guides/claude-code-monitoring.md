@@ -317,7 +317,7 @@ Uodating checks is another use case that may be useful for larger projects. Try 
 Update every `.check.ts` file for a check that touches [danube-web.shop](http://danube-web.shop/), and change the frequency to every 30 minutes.
 ```
 
-Not only did this request work, but even produced sensible feedback about the checks that currently had no frequency setting:
+Not only do requests to update monitoring configuration work, sometimes they even produce sensible feedback and information about the checks that currently had no frequency setting:
 
 ```{title="Reply from Claude Code:"}
   The url.check.ts and api.check.ts files don't have individual frequency settings - they inherit the default frequency from the project configuration in checkly.config.ts.
