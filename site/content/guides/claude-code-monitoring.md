@@ -86,7 +86,7 @@ new UrlMonitor('danube-web-shop-monitor', {
 While we're writing this simplest of monitors, it's worth testing the limits of Claude Code's context for writing valid Checkly configuration. One thing we tested while writing this article was whether picking the wrong prompt would result in invalid Checkly construct code. The `Frequency` class here doesn't accept arbitrary values, so we wondered if the context provided in `CLAUDE.md` was enough for the tool to identify valid values for the check. We tried requesting a check that ran “every 17 seconds” and Claude Code prompted to run a `find` on the project to identify valid values for `frequency`. In the end, Claude Code did create valid code with this note in the process feed.
 
 ```{title="Reply from Claude Code:"}
-  Based on the search results, 17 seconds is NOT a valid frequency value for Checkly monitors. The closest valid option was selected: 20 seconds.
+Based on the search results, 17 seconds is NOT a valid frequency value for Checkly monitors. The closest valid option was selected: 20 seconds.
 ```
 
 ## Create Playwright Synthetics Checks With Claude Code
