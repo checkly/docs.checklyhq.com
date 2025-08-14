@@ -91,7 +91,7 @@ Based on the search results, 17 seconds is NOT a valid frequency value for Check
 
 ## Create Playwright Synthetics Checks With Claude Code
 
-With our context set up, and a browser available via the Playwright MCP, we can create more complex playwright scripts for browser monitoring of our site. With specific instructions and clear prompting, you can get consistent performance of Claude Code writing our Browser checks.
+With our context set up, and a browser available via the Playwright MCP, we can create more complex Playwright scripts for browser monitoring of our site. With specific instructions and clear prompting, you can get consistent performance of Claude Code writing our Browser checks.
 
 ### 1. Start With a single test
 
