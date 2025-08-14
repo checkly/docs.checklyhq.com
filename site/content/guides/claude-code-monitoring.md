@@ -320,7 +320,7 @@ Update every `.check.ts` file for a check that touches [danube-web.shop](http://
 Not only do requests to update monitoring configuration work, sometimes they even produce sensible feedback and information about the checks that currently had no frequency setting:
 
 ```{title="Reply from Claude Code:"}
-  The url.check.ts and api.check.ts files don't have individual frequency settings - they inherit the default frequency from the project configuration in checkly.config.ts.
+The url.check.ts and api.check.ts files don't have individual frequency settings - they inherit the default frequency from the project configuration in checkly.config.ts.
 ```
 
 Once we're done creating new checks, we can test them with `npx checkly test` like we did above. Then it's time to run them all.
