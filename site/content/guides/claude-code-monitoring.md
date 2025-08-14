@@ -374,7 +374,7 @@ While AI can handle much of the boilerplate work, human oversight remains essent
 
 ### Further Reading
 
-Throughout this tutorial, we added a few lines to the CLAUDE.md context file. In all, those editions were (rewritten for clarity):
+Throughout this tutorial, we added a few lines to the CLAUDE.md context file. In all, those additions were (rewritten for clarity):
 
 ```markdown
 ## Memories and Best Practices
