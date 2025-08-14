@@ -311,7 +311,7 @@ Once Claude Code added a single `.first()` to the checks written above, everythi
 
 ### 4. Going Further: Edit Multiple Checks and Configurations
 
-Uodating checks is another use case that may be useful for larger projects. Try prompting Claude Code with something like:
+Updating checks is another use case that may be useful for larger projects. Try prompting Claude Code with something like:
 
 ```{title="Prompt:"}
 Update every `.check.ts` file for a check that touches [danube-web.shop](http://danube-web.shop/), and change the frequency to every 30 minutes.
