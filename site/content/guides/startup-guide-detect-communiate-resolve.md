@@ -1,6 +1,6 @@
 ---
-title: Detect, Resolve, and Communicate with Checkly - A Step-by-Step Tutorial for Engineers.
-displayTitle: Detect, Resolve, and Communicate with Checkly - A Step-by-Step Tutorial for Engineers.
+title: Detect, Communicate, and Resolve with Checkly - A Step-by-Step Tutorial for Engineers.
+displayTitle: Detect, Communicate, and Resolve with Checkly - A Step-by-Step Tutorial for Engineers.
 description: >-
   How to get started with Checkly and Monitoring as Code.
 author: Nočnica Mellifera
@@ -9,15 +9,35 @@ avatar: 'images/avatars/nica-mellifera.png'
 tags:
   - FAQ
 ---
-If you work in Operations — whether in DevOps or as an SRE — you know that technical failures, from bugs to edge cases to full-blown outages, are the primary reason users lose faith in your service. The better your team handles issues, the better your service will meet user expectations and SLAs. Every issue requires excellent tools to detect, communicate, and resolve problems, and Checkly offers industry-leading solutions for all three.
+If you work in Operations — whether in DevOps or as an SRE — you know that technical failures, from bugs to edge cases to full-blown outages, are the primary reason users lose faith in your service. The better your team handles issues, the better your service will meet user expectations and SLAs. Every issue requires excellent tools to *detect*, *communicate*, and *resolve* problems, and Checkly offers industry-leading solutions for all three.
 
-With Checkly, you can identify failures before your users do, resolve issues faster, and communicate more effectively with both users and team members. This guide is designed for DevOps engineers and SREs who work to resolve and prevent technical failures that impact the user experience.
+This guide is designed for DevOps engineers and SREs who work to resolve and prevent technical failures that impact the user experience.
 
-We'll walk you through every step of the process—all you need is a site, API, or online service to monitor. We'll follow Checkly's [Monitoring as Code](https://www.checklyhq.com/learn/monitoring/monitoring-as-code/) approach, setting up everything through the CLI and your preferred IDE. While you can configure everything through the Checkly web UI, Monitoring as Code is more comfortable for engineers and enables faster setup of comprehensive monitoring.
+## Why teams use Checkly
+
+With Checkly, you can identify failures before your users do, resolve issues faster, and communicate more effectively with both users and team members. Here's what makes Checkly different from other monitoring tools.
+
+* **Proactive Monitoring** - Checkly uses uptime and synthetic monitoring to actively measure and alert teams of downtimes and degraded performance in their web applications, APIs, or other services.
+* **Monitoring as Code Workflow** - Your entire monitoring process - from checks, to error thresholds, to alert sequencing - can all be configured and scripted using the libraries and languages your engineers use today. Changes to your monitoring can be tracked and controlled with source control, just like your application code.
+* **Native Open Source Support** - Checkly enables end-to-end and transaction monitoring by leveraging Playwright, OpenAPI, Terraform, or Pulumi to run automated monitors globally, in production.
+
+Teams from [LinkedIn](https://www.checklyhq.com/case-study/modernizing-linkedins-monitoring-infrastructure/) to [Render](https://www.checklyhq.com/case-study/render/) have modernized their infrastructure and cut their debugging time with Checkly.
+
+## The Checkly Tutorial: Build Faster With Monitoring as Code
+
+For this tutorial, we'll monitor the status of multiple pages, with the ability to simulate deep interaction with your pages through an automated browser. Throughout, we'll follow Checkly's [Monitoring as Code](https://www.checklyhq.com/learn/monitoring/monitoring-as-code/) approach, setting up everything through the CLI and your preferred IDE. The result will be a Checkly dashboard that offers a high level view or your services' status, and deep insight into the causes of failures.
+
+Here's a preview of our goal:
+![a checkly dashboard](/guides/images/startup-tutorial-00.png)
+*Once you complete this tutorial, you'll have an easy way to monitor your service from locations across the globe, share check results with your team, and resolve issues faster.*
+
+We'll walk you through every step of the process—all you need is a site, API, or online service to monitor. 
+
+You may have already tried adding monitors from the Checkly web UI. While you can configure everything through the web UI, Monitoring as Code is more comfortable for engineers and enables faster setup of comprehensive monitoring. A huge benefit of monitoring as code is managing your monitors with source control, meaning any update to your monitoring configuration is trackable. Never again will you wonder if something changed about a monitor that is suddenly failing, you'll know how it changed, when it was updated, and by whom!
 
 ## Step 1: Detect Problems
 
-Detecting issues on your site or service is easier with Checkly. This section will guide you through:
+This section will guide you through:
 
 1. Setting up the Checkly CLI and your monitoring repository
 2. Creating uptime monitors with URL checks
@@ -433,24 +453,24 @@ For browser checks, Checkly provides [detailed traces and execution logs](https:
 
 *When your browser check fails, Checkly stores a Playwright trace to offer in-depth, moment-by-moment reviews of what the browser saw as it tried to load the page.*
 
-If you’re interested in adding back-end tracing information, explore Checkly Traces to send back-end OpenTelemetry trace data to Checkly for requests initiatied by Checkly synthetic requests. [See the whole process on our documentation site](https://www.checklyhq.com/docs/traces-open-telemetry/).
+If you're interested in adding back-end tracing information, explore Checkly Traces to send back-end OpenTelemetry trace data to Checkly for requests initiated by Checkly synthetic requests. [See the whole process on our documentation site](https://www.checklyhq.com/docs/traces-open-telemetry/).
 
 ![When your browser check fails, Checkly stores a Playwright trace to offer in-depth, moment-by-moment reviews of what the browser saw as it tried to load the page.](/guides/images/startup-tutorial-05.png)
 *A failed browser check. With Checkly Traces we also get backend trace information from services like Redis and our Postgres database*
 
-# Conclusion: Detect, Communicate, Resolve
+## Conclusion: Detect, Communicate, Resolve
 
 Technical failures are inevitable, but with Checkly, your team can minimize their impact by quickly detecting issues, communicating them effectively, and resolving them before users are affected.
 
-### **Detect Problems Before Users Do**
+**Detect Problems Before Users Do**
 
 Checkly’s monitoring tools—from simple uptime checks to complex Playwright-based synthetic tests—ensure you catch issues early. By implementing **Monitoring as Code**, you maintain consistency, version control, and scalability across your monitoring setup.
 
-### **Communicate Clearly During Outages**
+**Communicate Clearly During Outages**
 
 With customizable alerting policies and multiple notification channels (Slack, PagerDuty, SMS, and more), your team stays informed the moment an issue arises. Well-tuned alerting reduces noise while ensuring critical failures get immediate attention. Teams can use [status pages](https://www.checklyhq.com/docs/status-pages/) to communicate directly with their users.
 
-### **Resolve Issues Faster with Deep Insights**
+**Resolve Issues Faster with Deep Insights**
 
 All checks offer high-level views of the status of your monitors, which can show patterns of performance over time. For API checks, you can see failed check’s full responses and the timing of the requests. Browser checks offer the most insight into failures with detailed Playwright traces, screenshots, and logging from the check execution.
 
