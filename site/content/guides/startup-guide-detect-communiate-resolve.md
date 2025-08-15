@@ -15,7 +15,7 @@ This guide is designed for DevOps engineers and SREs who work to resolve and pre
 
 ## Why teams use Checkly
 
-With Checkly, you can identify failures before your users do, resolve issues faster, and communicate more effectively with both users and team members. Here's what makes Checkly different from other monitoring tools.
+With Checkly, you can identify failures before your users do, resolve issues faster, and communicate more effectively with both users and team members. Here's what makes Checkly different from other monitoring tools:
 
 * **Proactive Monitoring** - Checkly uses uptime and synthetic monitoring to actively measure and alert teams of downtimes and degraded performance in their web applications, APIs, or other services.
 * **Monitoring as Code Workflow** - Your entire monitoring process - from checks, to error thresholds, to alert sequencing - can all be configured and scripted using the libraries and languages your engineers use today. Changes to your monitoring can be tracked and controlled with source control, just like your application code.
