@@ -28,6 +28,9 @@ Each URL monitor is defined by its request configuration, which includes the tar
 * **Request method:** Always `GET`.
 * **URL:** The HTTP(S) URL to monitor (e.g. `https://api.example.com`).
 * **IP family:** Defaults to IPv4.
+* ***Follow redirects:** Automatically follow 30x redirects.
+* **Skip SSL:** Skip SSL certificate validation.
+* **This request should fail:** Treat HTTP error codes (4xx and 5xx) as passed. Please note that successful responses still pass. Only failed assertions will cause the check to fail.
 
 To validate the response further, you can configure:
 

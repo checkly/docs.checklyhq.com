@@ -324,6 +324,8 @@ The `request` object is a mandatory part of an URL monitor.
 - `url`: The HTTP(S) URL to monitor.
 - `followRedirects`: A boolean indicating automatic following of any `30x` redirects.
 - `skipSSL`: A boolean indicating whether to skip validation of SSL certificates.
+- `shouldFail`: Treat HTTP error codes (4xx and 5xx) as passed. Please note that successful responses still pass. Only failed assertions will cause the check to fail.
+
 - `assertions`: You can define assertions via the `UrlAssertionBuilder`. For URL monitors, only status code assertions are supported. For example:
 
 ### `UrlAssertionBuilder`
