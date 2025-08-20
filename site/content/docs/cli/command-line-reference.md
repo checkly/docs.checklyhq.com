@@ -147,7 +147,6 @@ npx checkly deploy
 ```
 
 - `--config` or `-c`: You can specify a particular configuration file, e.g. `--config="./checkly.staging.config.ts"`
-- `--debug-bundle`: Generate a JSON file containing the data sent to our servers when you deploy.
 - `--force` or `-f`: Skips the confirmation dialog when deploying. Handy in CI environments.
 - `--preview` or `-p`: Preview the differences between your actual configuration and your account.
 - `--output` or `-o`: Show applied differences after deploying.
