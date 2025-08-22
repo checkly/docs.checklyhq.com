@@ -234,7 +234,7 @@ With these methods we could continue to extend the dynamic capabilities of this 
 
 ### Manage Configuration for Multiple Monitors with Groups
 
-As you handle monitors for multiple sites and environments, inevitably you'll want to manage the configuration for a number of monitors all at once. Currently, by creating many monitors from a single file we're giving each one the same configuration, and any configuration not specified will take the default values in `checkly.config.ts` in the project's root directory. We can create specific groups to receive configuration by adding the monitor to a [group with the Checkly construct API](https://www.checklyhq.com/docs/cli/constructs-reference/#checkgroupv2). Groups offer a convenient interface to configure your monitors, setting their retry strategy, alert thresholds, and where the group's alerts will be sent. Groups also [show up in folders in your Checkly web UI](https://www.checklyhq.com/docs/groups/); making it easier to see the status of every check in the group.
+As you handle monitors for multiple sites and environments, inevitably you'll want to manage the configuration for a number of monitors all at once. Currently, by creating many monitors from a single file we're giving each one the same configuration, and any configuration not specified will take the default values in `checkly.config.ts` in the project's root directory. We can create specific groups to receive configuration by adding the monitor to a [group with the Checkly construct API](https://www.checklyhq.com/docs/cli/constructs-reference/#checkgroupv2). Groups offer a convenient interface to configure your monitors, setting their retry strategy, alert thresholds, and where the group's alerts will be sent. Groups also [show up as folders in your Checkly web UI](https://www.checklyhq.com/docs/groups/); making it easier to see the status of every check in the group.
 
 ![image.png](/guides/images/monitor-creation-01.png)
 
@@ -307,6 +307,6 @@ Ready to scale your monitoring? [Sign up for Checkly](https://www.checklyhq.com/
 
 - [Checkly CLI Documentation](https://www.checklyhq.com/docs/cli/)
 - [Monitoring as Code Best Practices](https://www.checklyhq.com/guides/monitoring-as-code-best-practices/)
-- [Building Resilient Workflows with Checkly](https://www.checklyhq.com/guides/resilient-workflows/)
+- [The Defense-in-Depth Approach To Application Monitoring](https://www.checklyhq.com/blog/the-defense-in-depth-approach-to-app-monitoring/)
 
 Have questions? Join the [Checkly Community Slack](https://checklyhq.com/slack) to chat with other developers and the Checkly team. Happy monitoring! 🚀
