@@ -11,6 +11,7 @@ menu:
 ## Docs
 
 You can index our docs pages in your IDE to leverage better code generation results. To do so, follow the guides for your IDE of choice:
+You can index our docs pages in your IDE to leverage better code generation results. To do so, follow the guides for your IDE of choice:
 
 Make sure to index the following url:
 
@@ -33,6 +34,8 @@ of our docs pages in plain text format. You can use this file to index our docs 
 ## Custom Rules
 
 We prepared a first set of AI rules which you can use to teach your AI IDE of choice on how to generate code for Checkly.
+Go into the root of your IDE's workspace and download the rules according to your IDE's config parameters.
+When asking questions about Checkly, manually add the downloaded rules files to your prompt.
 Go into the root of your IDE's workspace and download the rules according to your IDE's config parameters.
 When asking questions about Checkly, manually add the downloaded rules files to your prompt.
 
@@ -122,7 +125,7 @@ API Checks, Browser checks, Multistep checks and all other constructs.
 {{< tab "Mac and Linux" >}}
 
 ```bash
-mkdir \p .claude &&
+mkdir -p .claude &&
 curl -o .claude/checkly.rules.md https://www.checklyhq.com/docs/ai/checkly.rules.md -L
 echo "- examine checkly.rules.md for code generation rules" >> .claude/CLAUDE.md
 ```
