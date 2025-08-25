@@ -209,7 +209,7 @@ new BrowserCheck('book-detail-visibility-check-v1', {
 })
 ```
 
-While you can deploy a Playwright check without a `.check.ts` configuration file, this isn't generally a good practice, as you should at least set the logical ID for your check.
+Alternatively, you can deploy a Playwright check without a `.check.ts` configuration file, and the file name will be used as the logical ID.
 
 ### 2. Add our new Check to Claude's Context
 
