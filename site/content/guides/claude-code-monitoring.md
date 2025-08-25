@@ -213,17 +213,13 @@ Alternatively, you can deploy a Playwright check without a `.check.ts` configura
 
 ### 2. Add our new Check to Claude's Context
 
-With this check created, add their references to Claude's context by giving Claude Code the prompt:
-
-```{title="Prompt:"}
-Update my CLAUDE.md file with the new code in /__checks__
-```
-
-Let's take one additional step, add the following lines to your updated `CLAUDE.md` file:
+With this check created, let's add the following lines to your updated `CLAUDE.md` file:
 
 ```markdown
 - When writing Playwright, don't set locators equal to const, rather just perform expect tests directly on locators
 - When writing a spec.ts file, don't use locators based on CSS class
+Oh that's smart. yeah I'll add something like:
+- Before creating more check files scan `__checks__` for more info and base setup
 ```
 
 Pro tip: from the Claude Code prompt, just hit octothorp "#" to add to Claude's memory. Each entry will be a new line in `CLAUDE.md`.
