@@ -20,13 +20,13 @@ One final note, canary deployments are sometimes called blue-green deployments, 
 
 Our site, is releasing major new features and we're running a canary deployment to make sure everything's working. Visitors to the site are randomly assigned to a canary group, and receive an additional header on their page requests that activates the new features. Essentially our canary deploy is setting this feature flag to 'true' for a number of users. 
 
-We're already monitoring the site with Checkly's browser and API synthetics monitors, and using uptime monitoring to make sure that every URL is available. If we change nothing about our Checkly configuration, some check runs will be randomly assigned to the canary group, and the rest will run with the same set of features as most visitors. We'd like to enhance this experience during our canary deployment. Here are the requirements:
+We're already monitoring the site with Checkly's browser and API synthetics monitors, and using uptime monitoring to make sure that every URL is available. If we change nothing about our Checkly configuration, some check runs will be randomly assigned to the canary group, and the rest will run with the same set of features as most visitors. We'd like to enhance this experience during our canary deployment. Here are three use cases to better support canary deployments:
 
-* For better reliability, we want active control whether a check runs as a user that can see the canary deployment.
+* For better reliability, we want active control over whether a check runs as a user that can see the canary deployment.
 
 * Our engineers want to integrate our Checkly monitors into their deploy process, letting us roll back deployments if monitors fail.
 
-* For some checks, we want a version that reports separate data for just this canary deployment, with a chart on our Checkly dashboard showing how checks in the canary group are performing.
+* For some checks, we want a version that reports separate data for just this canary deployment, with a chart on our Checkly web UI showing how checks in the canary group are performing.
 
 At Checkly, we're on a mission to empower developers, making it easier to detect, communicate, and resolve problems before they affect users.
 
@@ -34,7 +34,7 @@ These improvements will help us better **detect** problems with our canary deplo
 
 ## 1. Set Feature Flags With Headers & User Agents
 
-In our scenario, we can control whether we get the canary version of our service with a feature flag. By control a request's headers, we can set the user agent or add arbitrary header values to our requests. Let's set some headers in an API check, a browser check, and a more complex Multistep API check.
+In our scenario, we can control whether we get the canary version of our service with a feature flag. By control a request's headers, we can set the user agent or add arbitrary header values to our requests. Let's set some headers in an API check, a Browser check, and a more complex Multistep API check.
 
 ### A. Set Headers for an API Check
 When running API checks, headers are part of your configuration. You can add [HTTP headers](https://www.checklyhq.com/docs/api-checks/request-settings/#headers) in the Checkly web UI when setting up your API checks, but since we developers prefer to use monitoring as code, here's how to control API checks' headers right from your IDE. API checks are created as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/#apicheck), and we can create a new one by creating a new file in our Checkly Project (if you haven't set up a Checkly Project or used monitoring as code before, check out our [getting started tutorial](https://www.checklyhq.com/guides/startup-guide-detect-communiate-resolve/) before returning here to start modifying headers):
@@ -72,7 +72,7 @@ Since headers are part of the basic configuration of your check, you can populat
 
 ### B. Set Headers in a Browser Check
 
-Headers for request are not part of the basic configuration of browser checks. In part because an automated browser will make many checks as part of a single run, and it wouldn't be clear exactly which requests should have an additional header. It's quite easy to add headers to some or all requests from a check written in playwright, with a specialized version of [request interception](https://www.checklyhq.com/learn/playwright/intercept-requests/). In this example we only want to modify requests for SVG files with our new header:
+Headers for request are not part of the basic configuration of Browser checks. In part because an automated browser will make many checks as part of a single run, and it wouldn't be clear exactly which requests should have an additional header. It's quite easy to add headers to some or all requests from a check written in playwright, with a specialized version of [request interception](https://www.checklyhq.com/learn/playwright/intercept-requests/). In this example we only want to modify requests for SVG files with our new header:
 
 ```ts {title="book-listing-canary.spec.ts"}
 import { test, expect } from '@playwright/test'
@@ -100,7 +100,7 @@ The example above filters for all requests with a route ending in `.svg` but you
 
 
 ### C. Set Headers in a Multistep API Check
-A multistep check uses Playwright scripting to perform a series of API requests with more complex evaluation of the response. Since we're only making API requests, we can feed in new headers as a property. 
+A Multistep check uses Playwright scripting to perform a series of API requests with more complex evaluation of the response. Since we're only making API requests, we can feed in new headers as a property. 
 
 In this example we are making a pair of sequential API checks, the second test step relying on the results of the first step. Both requests use our header settings.
 
@@ -172,13 +172,13 @@ At the unique link provided we can see all our check runs succeeded.
 
 ![a checkly one-off report](/guides/images/canary-deploy-01.png)
 
-And you can click on each to view the report on the check run. Our browser check will show a full trace, and we can look at our request headers on the network tab:
+And you can click on each to view the report on the check run. Our Browser check will show a full trace, and we can look at our request headers on the network tab:
 
 ![a checkly one-off report](/guides/images/canary-deploy-02.png)
  
 For both API monitors and Multistep Monitors, the headers on request and response are listed in the Checkly web UI
 
-![a checkly one-off report](/guides/images/canary-deploy-02.png)
+![a checkly one-off report](/guides/images/canary-deploy-03.png)
 
 ## 2. Integrate Check Runs With CI/CD - Deploy After a Succesful Check Run
 
@@ -256,4 +256,32 @@ test.describe('Danube WebShop Book Listing', () => {
 })
 ```
 
-Now we can run this same monitor against both our main line production environments and our canary deployments, with its behavior determined by environment variables. 
+Now we can run this same monitor against both our Production environments and our canary deployments, with its behavior determined by environment variables. 
+
+For our API checks and other monitors that don't run Playwright, we can only control their behavior by setting environment variables at the group level, and we can't follow a 'multi-pathed' approach like we do above in our Browser check. The next section will cover using Groups to set environment variables in more detail.
+
+### 3. Generate Canary Deployment Data With a Separate Check Group
+
+If we can run a set of Checks such that they always 'see' the version of our service in a canary deployment, it would be nice to generate data for just that deployment. To create separate data in our Checkly web UI, and to manage the environment variables of these checks all at once, we can use a [Checkly Group](https://www.checklyhq.com/docs/groups/). 
+
+We'll start by defining our Group, and setting some default values for checks in that group:
+
+```ts
+export const syntheticGroup = new CheckGroupV2('check-group-synthetics', {
+  name: 'Synthetic Monitors Group',
+  activated: true,
+  muted: false,
+  frequency: Frequency.EVERY_15M,
+  locations: ['us-east-1', 'eu-west-1'],
+  tags: ['synthetics'],
+  // By setting an alertEscalationPolicy, these settings will override those on individual checks
+  alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(
+    2, // Alert after 2 consecutive failures
+    { amount: 2, interval: 5 }, // Send 2 reminders, 5 minutes apart
+    { enabled: true, percentage: 50 } // Alert if 50% of parallel runs fail
+  ),
+  alertChannels: [emailChannel, smsChannel],
+  environmentVariables: [{ key: 'authorName', value: 'Fric Eromm' }],
+  concurrency: 10
+})
+```
