@@ -36,8 +36,6 @@ of our docs pages in plain text format. You can use this file to index our docs 
 We prepared a first set of AI rules which you can use to teach your AI IDE of choice on how to generate code for Checkly.
 Go into the root of your IDE's workspace and download the rules according to your IDE's config parameters.
 When asking questions about Checkly, manually add the downloaded rules files to your prompt.
-Go into the root of your IDE's workspace and download the rules according to your IDE's config parameters.
-When asking questions about Checkly, manually add the downloaded rules files to your prompt.
 
 ### GitHub Copilot
 
