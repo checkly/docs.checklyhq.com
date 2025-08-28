@@ -8,11 +8,31 @@ tags:
   - FAQ
 ---
 
-Canary deployments are one of the ways we can release updates without violating our Service Level Agreements (SLAs) with our users. By rolling out new code to a small subset of users and looking at the results, we allow a final testing phase with live users before everyone sees our changes. If problems are detected and fixed before updates roll out to all users, we can generally prevent most users from ever knowing that we tried to release broken code. 
+Canary deployments are one of the ways we can release updates without violating our Service Level Agreements (SLAs) with our users. This guide will show why teams run canary deployments, and how to get more high-resolution information during canary deploys.
 
-The reason to use canary deployments is very similar to the reason to run synthetic monitoring with Checkly: our production code running in the real world can encounter problems that can't be foreseen, no matter how much pre-release testing we do.
+## Why We Need Canary Deployments
 
-But here's the problem with synthetic monitoring during a canary deployment: if the deployment is broken, the signal of that failure will be effectively hidden by all the working versions of the service that aren't yet running the new code. Here's a dashboard that might give us some concern during a canary deployment:
+All teams that prioritize reliability will perform testing to make sure code works before it's deployed to real users. However, at a certain point we must admit that some problems can't be predicted by pre-release testing, no matter how complex. Canary deployments help limit the scope of unforeseen failures on production.
+
+![a diagram of a canary deployment](/guides/images/canary-deploy-step1.png)
+*The first stage of a canary deployment: after rolling out new code to a subset of servers, some users are moved over to the new code version. Most users see the previous, known good, 'blue' version of our service, while some see the updated 'green' version. Note that canary deployments work in a number of ways, possibly assigning users randomly, and a simple page reload may switch the version a user sees.*
+
+Once the green version of the service is shown to be working well, all users can be transferred over to the new version. 
+![a diagram of a canary deployment](/guides/images/canary-deploy-step2.png)
+
+The essential problem we're trying to solve with this guide is **how do you know that your canary deployment is working?** Often the tools available to operations teams are quite limited, and amount to little more than a smoke test. Since canary servers are tagged at the infrastructure level, operations can see the infrastructure health of canary servers, but not their actual performance for users. Let's look at a simplified example. 
+
+![a comparison of two storefronts](/guides/images/canary-deploy-bad-deployment.png)
+*During a deployment, someone accidentally left mock API code in place: our storefront loads but what it loads isn't accurate.* 
+
+Looking at simple infrastructure metrics won't reveal this problem.
+
+![an infrastructure metrics chart](/guides/images/canary-deploy-graph.png)
+*A chart like this one showing network operations can at least show that the canary servers are running and accepting requests, but it's hardly an accurate picture that everything on the service is working as designed.*
+
+## How Synthetic Monitoring Can Improve Canary Deployment Reliability
+
+Synthetic monitoring, sending automated browsers to go test our server, is also a tool to cover the gaps left by pre-deployment testing; finding problems with our service in the real world. Synthetic monitoring can also help us identify problems during a canary deployment. Some special configuration is needed, since by default our synthetic monitors will monitor all environments at once, with only some automated browsers being assigned to the 'green' canary servers when making requests.
 
 ![a checkly dashboard](/guides/images/canary-deploy-00.png)
 As our checks run, they're sending requests to our books API, and in this example the API services that have the canary deployment are often failing. But the signal of this failure is quite faint. There are ways to analyze this data to find the signal we're looking for, but our at-a-glance understanding of whether there's a problem with our canary deployments isn't terribly clear.
@@ -20,11 +40,11 @@ As our checks run, they're sending requests to our books API, and in this exampl
 The goal, then, is to separate out our Canary data, and see charts of failures specific to our environment.
 
 ![a checkly dashboard](/guides/images/canary-deploy-00a.png)
-With a bit of check management, we can clearly see that the pattern for our canary deployments is much worse than with our previous code version.
+With a bit of check management, we can clearly see that the pattern for our canary deployments is much worse than with our blue servers with the previous version of our code.
 
 This guide will show you how Checkly can enhance your canary deployments, running synthetic monitors against the canary versions of your services. We'll use headers to set feature flags, environment variables to dynamically shift how we're checking our site, and with the [monitoring as code model](https://www.checklyhq.com/learn/monitoring/monitoring-as-code/) we'll dynamically create new monitors as needed to track how our experiments are performing. 
 
-One final note, canary deployments are sometimes called blue-green deployments, though some think the two terms imply slight differences in implementation.
+
 
 ## Our Scenario: Checkly and Canary Deployments
 
@@ -281,7 +301,7 @@ import { CheckGroupV2, Frequency, AlertEscalationBuilder } from 'checkly/constru
 import { smsChannel, emailChannel } from './alert-channels'
 
 export const canaryGroup = new CheckGroupV2('check-group-canary', {
-  name: 'Checks run during canary Deploys',
+  name: 'Checks run during Canary Deploys',
   activated: false, //We'll only activate these checks when needed
   muted: false,
   frequency: Frequency.EVERY_1M,
