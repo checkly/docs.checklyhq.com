@@ -66,7 +66,7 @@ These improvements will help us better **detect** problems with our canary deplo
 
 ## 1. Set Feature Flags With Headers & User Agents
 
-In our scenario, we can control whether we get the canary version of our service with a feature flag. By controlling a request's headers, we can set the user agent or add arbitrary header values to our requests. Let's set some headers in an API check, a Browser check, and a more complex Multistep API check.
+In our scenario, we can control whether we get the canary version of our service with a header picked up by our load balancer. By controlling a request's headers, we can tell the load balancer to send our request to a canary server. Let's set some headers in an API check, a Browser check, and a more complex Multistep API check.
 
 ### A. Set Headers for an API Check
 When running API Checks, headers are part of your configuration. You can add [HTTP headers](https://www.checklyhq.com/docs/api-checks/request-settings/#headers) in the Checkly web UI when setting up your API Checks, but since we developers prefer to use monitoring as code, here's how to control API Checks' headers right from your IDE. API Checks are created as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/#apicheck), and we can create a new one by creating a new file in our Checkly Project (if you haven't set up a Checkly Project or used monitoring as code before, check out our [getting started tutorial](https://www.checklyhq.com/guides/startup-guide-detect-communiate-resolve/) before returning here to start modifying headers):
@@ -111,7 +111,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Danube WebShop Book Listing', () => {
   test('Books Listing', async ({ page }) => {
-    await page.route('**/*.svg', async route => { //any route ending in .svg
+    await page.route('**/api/*', async route => { //any route to the API
       const headers = route.request().headers();
       headers['canary'] = 'true'; //add a property
       await route.continue({ headers }); //let the request continue with the updated headers
@@ -124,9 +124,9 @@ test.describe('Danube WebShop Book Listing', () => {
 })
 ```
 
-By adding a call to page.route, we ensure that every single request within this page is modified. Alternatively, we could [manage `browser.context()` so that only some requests have these new headers](https://www.checklyhq.com/docs/browser-checks/multiple-tabs/). Note that using multiple browser tabs with different `browser.newContext()` calls may have [unexpected effects on your capture of traces and video from your check runs](https://www.checklyhq.com/blog/playwright-video-troubleshooting/), which is why we've gone with the `await page.route()` method here.
+The `await page.route()` call looks for any requests going to our API, adding our canary header. When our load balancer sees this header it will route this API call to the canary servers, if available. 
 
-The example above filters for all requests with a route ending in `.svg`, but you can also filter by resource type, method, post data and more. A full list of the properties available on a request is in [the Playwright documentation](https://playwright.dev/docs/api/class-request).
+The example above filters for all requests by route, but you can also filter by resource type, method, post data and more. A full list of the properties available on a request is in [the Playwright documentation](https://playwright.dev/docs/api/class-request).
 
 > Note: in this example we've modified the headers of our outgoing request, and in the context of feature flags and canary deploys there's no reason we'd want to modify the response's headers, but just in case you've come to this page looking for how to modify the response in Playwright, you would add `route.fulfill({header:value})`. The process is documented [on our Learn site under 'response interception.'](https://www.checklyhq.com/learn/playwright/intercept-requests/#response-interception)  
 
