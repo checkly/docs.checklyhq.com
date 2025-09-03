@@ -87,6 +87,7 @@ Checks and monitors share a common set of properties for configuration:
 | `runParallel`           | Whether to run checks in all locations at once (parallel) or in round-robin.                                                       | All except `Heartbeat`                    |
 | `doubleCheck`           | **(Deprecated)** – Whether to retry a check on failure. Replaced by `retryStrategy`.                                                | Deprecated                                |
 | `alertEscalationPolicy` | An [AlertEscalationPolicy](#alertescalationpolicy) for advanced [alert settings](/docs/alerting-and-retries/).                      | All except `Heartbeat`                    |
+| `triggerIncident`       | An [IncidentTrigger](#incidenttrigger) for automatic incident creation on status pages.                                             | All                                        |
 | `environmentVariables`  | Check-level [environment variables](/docs/browser-checks/variables/#managing-variables)                   | `API`, `Browser`, `Multistep`, `Playwright`               |
 
 > Note that most properties have sane default values and do not need to be specified.
@@ -961,6 +962,38 @@ new StatusPageService('apiEndpoints', {
 - `name`: Name of the service. Displayed on the status page.
 
 [Learn more about services in our docs](/docs/status-pages/#services)
+
+## `IncidentTrigger`
+
+Enables automatic incident creation on status pages when checks fail.
+
+```ts {title="api-with-incident.check.ts"}
+import { ApiCheck } from 'checkly/constructs'
+import { apiService } from './status-page.check'
+
+new ApiCheck('api-check-1', {
+  name: 'API Check',
+  request: {
+    method: 'GET',
+    url: 'https://api.example.com/health'
+  },
+  triggerIncident: {
+    service: apiService,
+    severity: 'MAJOR',
+    name: 'API Service Disruption',
+    description: 'API connectivity issues detected.',
+    notifySubscribers: true,
+  }
+})
+```
+
+- `service`: The `StatusPageService` where the incident should be created.
+- `severity`: Incident severity level. One of `'MINOR' | 'MEDIUM' | 'MAJOR' | 'CRITICAL'`.
+- `name`: Incident title displayed on the status page.
+- `description`: Description shown in the initial status update.
+- `notifySubscribers`: Whether to send notifications to status page subscribers.
+
+Learn more about [incident automation](/docs/status-pages/incidents/#incident-automation).
 
 ## `PrivateLocation`
 
