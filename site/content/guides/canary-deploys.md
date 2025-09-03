@@ -23,7 +23,7 @@ Once the canary version of the service is shown to be working well, all users ca
 The essential problem we're trying to solve with this guide is **how do you know that your canary deployment is working?** Often the tools available to operations teams are quite limited, and amount to little more than a smoke test. Since canary servers are tagged at the infrastructure level, operations can see the infrastructure health of canary servers, but not their actual performance for users. Let's look at an example:
 
 ![a comparison of two storefronts](/guides/images/canary-deploy-bad-deployment.png)
-*During a deployment, someone accidentally left mock API code in place: our storefront loads but what it loads isn't accurate.* 
+*During a deployment, our feature flag loads our new chat feature, but the API also isn't returning full data, so our book catalog looks incomplete.* 
 
 Looking at simple infrastructure metrics won't reveal this problem.
 
