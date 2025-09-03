@@ -969,7 +969,7 @@ Enables automatic incident creation on status pages when checks fail.
 
 ```ts {title="api-with-incident.check.ts"}
 import { ApiCheck } from 'checkly/constructs'
-import { apiService } from './status-page'
+import { apiService } from './status-page.check'
 
 new ApiCheck('api-check-1', {
   name: 'API Check',
