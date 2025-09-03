@@ -15,9 +15,9 @@ Canary deployments are one of the ways we can release updates without violating 
 All teams that prioritize reliability will perform testing to make sure code works before it's deployed to real users. However, at a certain point we must admit that some problems can't be predicted by pre-release testing, no matter how complex. Canary deployments help limit the scope of unforeseen failures on production.
 
 ![a diagram of a canary deployment](/guides/images/canary-deploy-step1.png)
-*The first stage of a canary deployment: after rolling out new code to a subset of servers, some users are moved over to the new code version. Most users see the previous, known good, 'blue' version of our service, while some see the updated 'green' version. Note that canary deployments work in a number of ways, possibly assigning users randomly, and a simple page reload may switch the version a user sees.*
+*The first stage of a canary deployment: after rolling out new code to a subset of servers, some users are moved over to the new code version. Most users see the previous, known good, 'current' version of our service, while some see the updated 'canary' version. Note that canary deployments work in a number of ways, possibly assigning users randomly, and a simple page reload may switch the version a user sees.*
 
-Once the green version of the service is shown to be working well, all users can be transferred over to the new version. 
+Once the canary version of the service is shown to be working well, all users can be transferred over to the new version. 
 ![a diagram of a canary deployment](/guides/images/canary-deploy-step2.png)
 
 The essential problem we're trying to solve with this guide is **how do you know that your canary deployment is working?** Often the tools available to operations teams are quite limited, and amount to little more than a smoke test. Since canary servers are tagged at the infrastructure level, operations can see the infrastructure health of canary servers, but not their actual performance for users. Let's look at an example:
@@ -32,7 +32,7 @@ Looking at simple infrastructure metrics won't reveal this problem.
 
 ## How Synthetic Monitoring Can Improve Canary Deployment Reliability
 
-Synthetic monitoring, sending automated browsers to go test our server, is also a tool to cover the gaps left by pre-deployment testing; finding problems with our service in the real world. Synthetic monitoring can also help us identify problems during a canary deployment. Some special configuration is needed, since by default our synthetic monitors will monitor all environments at once, with only some automated browsers being assigned to the 'green' canary servers when making requests.
+Synthetic monitoring, sending automated browsers to go test our server, is also a tool to cover the gaps left by pre-deployment testing; finding problems with our service in the real world. Synthetic monitoring can also help us identify problems during a canary deployment. Some special configuration is needed, since by default our synthetic monitors will monitor all environments at once, with only some automated browsers being assigned to the canary servers when making requests.
 
 ![a checkly dashboard](/guides/images/canary-deploy-00.png)
 *As our checks run, they're sending requests to our books API, and in this example the API services that have the canary deployment are often failing. But the signal of this failure is quite faint.*
@@ -42,7 +42,7 @@ There are ways to analyze this data to find the signal we're looking for, but ou
 The goal, then, is to separate out our Canary data, and see charts of failures specific to our environment.
 
 ![a checkly dashboard](/guides/images/canary-deploy-00a.png)
-With a bit of check management, we can clearly see that the pattern for our canary deployments is much worse than with our blue servers with the previous version of our code.
+With a bit of check management, we can clearly see that the pattern for our canary deployments is much worse than with our current servers with the previous version of our code.
 
 This guide will show you how Checkly can enhance your canary deployments, running synthetic monitors against the canary versions of your services. We'll use headers to set feature flags, environment variables to dynamically shift how we're checking our site, and with the [monitoring as code model](https://www.checklyhq.com/learn/monitoring/monitoring-as-code/) we'll dynamically create new monitors as needed to track how our experiments are performing. 
 
@@ -52,9 +52,9 @@ This guide will show you how Checkly can enhance your canary deployments, runnin
 
 Our site is releasing major new features and we're running a canary deployment to make sure everything's working. Visitors to the site are randomly assigned to a canary group, and receive an additional header on their page requests that activates the new features. Essentially our canary deploy is setting this feature flag to 'true' for a number of users. 
 
-We're already monitoring the site with Checkly's browser and API synthetics monitors, and using uptime monitoring to make sure that every URL is available. If we change nothing about our Checkly configuration, some check runs will be randomly assigned to the 'green' canary servers, and the rest will run on the 'blue' servers with the previous code version. We'd like to enhance this experience during our canary deployment. Here are three use cases to better support canary deployments:
+We're already monitoring the site with Checkly's browser and API synthetics monitors, and using uptime monitoring to make sure that every URL is available. If we change nothing about our Checkly configuration, some check runs will be randomly assigned to the canary servers, and the rest will run on the 'current' servers with the previous code version. We'd like to enhance this experience during our canary deployment. Here are three use cases to better support canary deployments:
 
-* For better reliability, we want active control over whether a check runs on the blue or green version.
+* For better reliability, we want active control over whether a check runs on the current or canary version.
 
 * Our engineers want to integrate our Checkly monitors into their deploy process, letting us roll back deployments if monitors fail.
 
@@ -66,7 +66,7 @@ These improvements will help us better **detect** problems with our canary deplo
 
 ## 1. Set Feature Flags With Headers & User Agents
 
-In our scenario, we can control whether we get the canary version of our service with a header picked up by our load balancer. By controlling a request's headers, we can tell the load balancer to send our request to a canary server. Let's set some headers in an API check, a Browser check, and a more complex Multistep API check.
+In our scenario, we can control whether we get the canary version of our service with a header picked up by our load balancer. This header is a 'feature flag' to let our backend service know if we should see a new feature. By controlling a request's headers, we can tell the load balancer to send our request to a canary server. Let's set some headers in an API check, a Browser check, and a more complex Multistep API check.
 
 ### A. Set Headers for an API Check
 When running API Checks, headers are part of your configuration. You can add [HTTP headers](https://www.checklyhq.com/docs/api-checks/request-settings/#headers) in the Checkly web UI when setting up your API Checks, but since we developers prefer to use monitoring as code, here's how to control API Checks' headers right from your IDE. API Checks are created as a [Checkly construct](https://www.checklyhq.com/docs/cli/constructs-reference/#apicheck), and we can create a new one by creating a new file in our Checkly Project (if you haven't set up a Checkly Project or used monitoring as code before, check out our [getting started tutorial](https://www.checklyhq.com/guides/startup-guide-detect-communiate-resolve/) before returning here to start modifying headers):
