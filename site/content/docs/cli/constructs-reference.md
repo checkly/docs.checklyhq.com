@@ -993,7 +993,7 @@ new ApiCheck('api-check-1', {
 - `description`: Description shown in the initial status update.
 - `notifySubscribers`: Whether to send notifications to status page subscribers.
 
-[Learn more about incident automation in our docs](/docs/status-pages/incidents/#incident-automation)
+Learn more about [incident automation](/docs/status-pages/incidents/#incident-automation).
 
 ## `PrivateLocation`
 
