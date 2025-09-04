@@ -64,11 +64,9 @@ It’s this last feature that is critical for this guide.
 
 ### Assigning Playwright Tests to a Check Suite
 
-Check suites group multiple small tests into a single result for display on your dashboard. Once we’ve imported a test file to Checkly, we’ll run these tests as a check suite regularly, and get a report back. Here’s an example of the results from a run of a check suite:
+Check suites group multiple tests into a single result. Once we’ve imported a test to Checkly, we’ll run these tests as a check suite regularly, and get a report back on the overall results. Here’s an example of the results from a run of a check suite:
 
 ![The Checkly Web UI reporting on a single check run](/guides/images/suites-groups-02.png)
-
-*Since this monitor will generate alerts, it makes sense to collect these tests into one Check Suite, and get an alert when any one of them fails.*
 
 It makes the most sense to group multiple playwright tests into a Playwright Check Suite when you want to run the tests together, and a failure of any included test would mean that the feature wasn’t working.
 
