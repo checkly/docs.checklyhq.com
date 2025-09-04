@@ -1,6 +1,6 @@
 ---
-title: Organize Monitoring with Playwright Check Suites and Groups
-displayTitle: Organize Monitoring with Playwright Check Suites and Groups
+title: Eliminate Alert Fatigue - Organizing Monitoring with Check Suites and Groups
+displayTitle: Scale Your Monitoring - A Guide to Check Suites and Groups
 description: >-
   By combining Playwright Check Suites with Checkly Groups, you can create a robust monitoring system that scales with your development team.
 author: Nočnica Mellifera
