@@ -15,7 +15,7 @@ Checkly's model of [Monitoring as Code](https://www.checklyhq.com/guides/getting
 
 ### Creating a Single URL Monitor With CLI Constructs
 
-Checkly's Monitoring as Code workflow starts with creating a [project](https://www.checklyhq.com/docs/cli/project-structure/) where all your checks will be stored. You can use the Checkly construct API to describe new Checkly monitors within your Checkly dashboard. 
+Checkly's Monitoring as Code workflow starts with creating a [project](https://www.checklyhq.com/docs/cli/project-structure/) where all your checks will be stored. You can use Checkly constructs to describe new Checkly monitors within your Checkly dashboard. 
 If you haven't worked with Checkly at all, or have only created new monitors from our web UI, [install the Checkly CLI and create a new project for our checks with our getting started guide here](https://www.checklyhq.com/docs/cli/). A basic URL monitor with minimal configuration looks like this:
 
 ```ts {title="first-url-monitor.check.ts"}
@@ -38,7 +38,7 @@ new UrlMonitor('url-monitor-001', { // the monitor's unique logical ID
 })
 ```
 
-This uses the constructs API with components that are standardized between most check types. With the same construct API you can configure everything from the simplest URL monitor to an advanced browser check. A few details to note as we begin:
+This uses the constructs API with components that are standardized between most check types. With the same constructs you can configure everything from the simplest URL monitor to an advanced browser check. A few details to note as we begin:
 
 - Each monitor needs a unique logical ID. By matching this ID we can update an existing monitor without deleting its history.
 - Except for the `request` object, logical ID, and name, every other configuration of a URL monitor can be defined either:
@@ -234,11 +234,11 @@ With these methods we could continue to extend the dynamic capabilities of this 
 
 ### Manage Configuration for Multiple Monitors with Groups
 
-As you handle monitors for multiple sites and environments, inevitably you'll want to manage the configuration for a number of monitors all at once. Currently, by creating many monitors from a single file we're giving each one the same configuration, and any configuration not specified will take the default values in `checkly.config.ts` in the project's root directory. We can create specific groups to receive configuration by adding the monitor to a [group with the Checkly construct API](https://www.checklyhq.com/docs/cli/constructs-reference/#checkgroupv2). Groups offer a convenient interface to configure your monitors, setting their retry strategy, alert thresholds, and where the group's alerts will be sent. Groups also [show up as folders in your Checkly web UI](https://www.checklyhq.com/docs/groups/); making it easier to see the status of every check in the group.
+As you handle monitors for multiple sites and environments, inevitably you'll want to manage the configuration for a number of monitors all at once. Currently, by creating many monitors from a single file we're giving each one the same configuration, and any configuration not specified will take the default values in `checkly.config.ts` in the project's root directory. We can create specific groups to receive configuration by adding the monitor to a [group with Checkly constructs](https://www.checklyhq.com/docs/cli/constructs-reference/#checkgroupv2). Groups offer a convenient interface to configure your monitors, setting their retry strategy, alert thresholds, and where the group's alerts will be sent. Groups also [show up as folders in your Checkly web UI](https://www.checklyhq.com/docs/groups/); making it easier to see the status of every check in the group.
 
 ![image.png](/guides/images/monitor-creation-01.png)
 
-We can create a group with the construct API:
+We can create a group with constructs:
 
 ```ts {title="prod-monitoring-group.ts"}
 import { CheckGroupV2 } from 'checkly/constructs'
