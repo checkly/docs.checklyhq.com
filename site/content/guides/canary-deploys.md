@@ -12,23 +12,84 @@ Canary deployments are one of the ways we can release updates without violating 
 
 ## Why We Need Canary Deployments
 
-All teams that prioritize reliability will perform testing to make sure code works before it's deployed to real users. However, at a certain point we must admit that some problems can't be predicted by pre-release testing, no matter how complex. Canary deployments help limit the scope of unforeseen failures on production.
-
-![a diagram of a canary deployment](/guides/images/canary-deploy-step1.png)
-*The first stage of a canary deployment: after rolling out new code to a subset of servers, some users are moved over to the new code version. Most users see the previous, known good, 'current' version of our service, while some see the updated 'canary' version. Note that canary deployments work in a number of ways, possibly assigning users randomly, and a simple page reload may switch the version a user sees.*
-
-Once the canary version of the service is shown to be working well, all users can be transferred over to the new version. 
-![a diagram of a canary deployment](/guides/images/canary-deploy-step2.png)
-
-The essential problem we're trying to solve with this guide is **how do you know that your canary deployment is working?** Often the tools available to operations teams are quite limited, and amount to little more than a smoke test. Since canary servers are tagged at the infrastructure level, operations can see the infrastructure health of canary servers, but not their actual performance for users. Let's look at an example:
+All teams that prioritize reliability will perform testing to make sure code works before it's deployed to real users. However, at a certain point we must admit that some problems can't be predicted by pre-release testing, no matter how complex. Canary deployments help limit the scope of unforeseen failures on production. Let's take an example for our guide: a major change to our eCommerce store with a significant rewrite of our front-end code.
 
 ![a comparison of two storefronts](/guides/images/canary-deploy-bad-deployment.png)
-*During a deployment, our feature flag loads our new chat feature, but the API also isn't returning full data, so our book catalog looks incomplete.* 
+*The canary deployment in our example is a total redesign of our storefront, and along with existing features a number of features will be added.* 
 
-Looking at simple infrastructure metrics won't reveal this problem.
+![a diagram of a canary deployment](/guides/images/canary-deploy-step1.png)
+*The first stage of a canary deployment: after rolling out new code to a subset of servers, some users are moved over to the new code version. Most users see the previous, known good, 'current' version of our service, while some see the updated 'canary' version.*
 
-![an infrastructure metrics chart](/guides/images/canary-deploy-graph.png)
-*A chart like this one showing network operations can at least show that the canary servers are running and accepting requests, but it's hardly an accurate picture that everything on the service is working as designed.*
+Note that canary deployments work in a number of ways, possibly assigning users randomly at the database level, or a simple page reload may switch the version a user sees. Users assigned to a canary server will often receive a feature flag via a header that will cause their requests to be routed to canary servers.
+
+Canary deployments let us ensure that the new version of our site is working before all users see it. While canary deployments are valuable for incrementally rolling out new features and updates to users, they present a special challenge for synthetic monitoring, especially in scenarios like the one above where the user interface is changing: *how can an automated monitor that checks the user interface succesfully check an interface that's being served in two separate versions?* The rest of this guide will show you how to create checks that can check two different versions of your site based on whether they detect a feature flag at runtime.
+
+### What if we're not setting a feature flag?
+
+The process defined above starts with checking the response headers for a feature flag, but not every canary deployment will be engineered in the same way. Is it possible to detect that the test is running against a canary server even without a header to match? Absolutely! The test above just has to be modified to look for any detail that indicates we're looking at the canary version of the site. Looking at our new site interface:
+![a new website](/guides/images/canary-deploy-new-site.png)
+We can look for any detail of the page to recognize that we're on the canary version, for example the 'Electronics' button on the new page.
+
+```typescript
+import { test, expect, Page, Locator } from '@playwright/test'
+
+test('Canary deployment detection based on UI elements', async ({ page }: { page: Page }) => {
+  await page.goto('https://danube-web.shop')
+  
+  // Check if Electronics button is visible (indicates canary version)
+  const electronicsButton: Locator = page.locator('button:has-text("Electronics")')
+  const isElectronicsVisible: boolean = await electronicsButton.isVisible()
+  
+  if (isElectronicsVisible) {
+    // Canary version detected - test new functionality
+    await expect(electronicsButton).toBeVisible()
+    await electronicsButton.click()
+    
+    // Test canary-specific features
+    await expect(page.locator('.category-electronics')).toBeVisible()
+    await expect(page).toHaveTitle(/Electronics/)
+    
+    console.log('✅ Canary version detected and tested')
+  } else {
+    // Production version - test existing functionality
+    const productionButtons: Locator[] = [
+      page.locator('button:has-text("Books")'),
+      page.locator('button:has-text("Clothing")'),
+      page.locator('button:has-text("Home & Garden")')
+    ]
+    
+    // Verify at least one production button exists
+    let foundButton: boolean = false
+    for (const button of productionButtons) {
+      if (await button.isVisible()) {
+        await expect(button).toBeVisible()
+        await button.click()
+        foundButton = true
+        break
+      }
+    }
+    
+    expect(foundButton).toBe(true)
+    console.log('✅ Production version detected and tested')
+  }
+})
+```
+
+## Further Reading
+
+**Checkly Guides:**
+- [Getting Started with Monitoring as Code](https://www.checklyhq.com/guides/getting-started-with-monitoring-as-code/) - Learn the fundamentals of programmatic monitoring that make canary deployment strategies scalable
+- [Detect, Communicate, and Resolve with Checkly - A Step-by-Step Tutorial for Engineers](https://www.checklyhq.com/guides/startup-guide-detect-communiate-resolve/) - Discover how monitoring as code enhances developer workflows and deployment confidence  
+- [Scaling Your Monitoring Setup Beyond the UI](https://www.checklyhq.com/guides/scaling-your-monitoring-setup/) - Explore techniques for managing complex monitoring requirements as your deployment strategies evolve
+
+**Checkly Learn:**
+- [Monitoring](https://www.checklyhq.com/learn/monitoring/) - Deep dive into monitoring strategies and best practices for deployment validation
+- [Playwright Testing](https://www.checklyhq.com/learn/playwright/) - Master browser automation techniques used in the canary deployment examples
+
+
+
+# unused
+----
 
 ## How Synthetic Monitoring Can Improve Canary Deployment Reliability
 
@@ -387,14 +448,3 @@ This guide demonstrated three complementary approaches to enhance your canary de
 Together, these techniques transform canary deployments from a "hope and pray" exercise into a confident, data-driven process. Your team gains the ability to **detect** issues faster with targeted monitoring, **communicate** deployment status clearly with dedicated dashboards, and **resolve** problems before they affect all users.
 
 The monitoring-as-code approach makes these enhancements scalable and repeatable, ensuring every canary deployment benefits from the same level of observability and control.
-
-## Further Reading
-
-**Checkly Guides:**
-- [Getting Started with Monitoring as Code](https://www.checklyhq.com/guides/getting-started-with-monitoring-as-code/) - Learn the fundamentals of programmatic monitoring that make canary deployment strategies scalable
-- [Detect, Communicate, and Resolve with Checkly - A Step-by-Step Tutorial for Engineers](https://www.checklyhq.com/guides/startup-guide-detect-communiate-resolve/) - Discover how monitoring as code enhances developer workflows and deployment confidence  
-- [Scaling Your Monitoring Setup Beyond the UI](https://www.checklyhq.com/guides/scaling-your-monitoring-setup/) - Explore techniques for managing complex monitoring requirements as your deployment strategies evolve
-
-**Checkly Learn:**
-- [Monitoring](https://www.checklyhq.com/learn/monitoring/) - Deep dive into monitoring strategies and best practices for deployment validation
-- [Playwright Testing](https://www.checklyhq.com/learn/playwright/) - Master browser automation techniques used in the canary deployment examples
