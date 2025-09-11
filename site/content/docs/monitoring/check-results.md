@@ -132,6 +132,8 @@ These include:
 
     e. Download
 
+5. Network diagnostics: For failed checks, a downloadable TCP dump (.pcap) file is available to help you troubleshoot low-level network issues like dropped packets or failed handshakes. Check your [plan type](https://www.checklyhq.com/pricing/) for availability.
+
 ## Heartbeat monitor results
 
 Heartbeat monitor results show information about the ping request, like when it was recieved and its source.
