@@ -474,7 +474,7 @@ Use the CheckGroupV2 construct to organize your Checks into groups. This comes w
 
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need Check Groups for that purpose.
 
-#### Adding Checks to a Check Group
+### Adding Checks to a Check Group
 
 You can add a Check to a group in two ways.
 
@@ -532,6 +532,12 @@ new ApiCheck('check-group-api-check-1', {
 
 > Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
+
+### Troubleshooting validation
+
+Group validation ensures that all checks within a group can support the selected configuration settings. Since uptime monitors and synthetic checks have different feature limitations based on your plan tier, Checkly validates group settings against the lowest common denominator of supported features to prevent configuration conflicts.
+
+For detailed troubleshooting guidance, see [Troubleshoot validation of Group](/docs/groups/troubleshoot/).
 
 ## `CheckGroup` (deprecated)
 
