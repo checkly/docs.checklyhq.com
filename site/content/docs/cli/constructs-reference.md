@@ -526,7 +526,7 @@ new ApiCheck('check-group-api-check-1', {
 - `apiCheckDefaults`: A set of [defaults for API Checks](/docs/groups/api-check-defaults/). This should not be needed. Just compose shared defaults using JS/TS.
 - `browserChecks`: A set of defaults for Browser Checks. This should not be needed. Just compose shared defaults using JS/TS.
 - `runParallel`: Controls how Checks in the group are executed across locations. When `true`, all Checks run in parallel across all configured locations. When `false`, they run in round-robin mode. If **not set**, each Check uses its own scheduling strategy.
-- `alertEscalationPolicy`: An [AlertEscalationPolicy](#alertescalationpolicy) object defines [alert-settings](/docs/alerting-and-retries/) for Check runs. If **set**, it overrides the alert settings of all checks in the group. If **not set**, each Check uses its own alert configuration.
+- `alertEscalationPolicy`: An [AlertEscalationPolicy](#alertescalationpolicy) object defines [alert-settings](/docs/alerting-and-retries/) for Check runs. If **set to** `'global'`, it overrides the alert settings of all checks in the group to use the [global account notification settings](https://app.checklyhq.com/alerts/settings). If **set** to specific values, it overrides the alert settings of all checks in the group. If **not set**, each Check uses its own alert configuration.
 
 > When you use `testMatch` to add Checks to a group, the CLI searches for matching files using the corresponding [Check file](/docs/cli/using-check-test-match/#checkscheckmatch) as a base path.
 
