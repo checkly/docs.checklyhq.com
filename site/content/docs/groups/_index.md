@@ -17,7 +17,7 @@ Groups help you organize your checks (e.g. by team or feature) and apply shared 
 
 ![Check group screenshot](/docs/images/groups/group-in-dashboard.png)
 
-# Creating a check group
+## Creating a check group
 
 By default, newly created check groups behave like folders, with no [group-level configuration](#group-level-configuration) applied. To get started:
 
@@ -27,14 +27,16 @@ By default, newly created check groups behave like folders, with no [group-level
 
 You can populate a group by moving existing checks into it or by creating new checks directly within the group.
 
-# Group level configuration
+## Group level configuration
 
 Groups let you apply shared configuration to standardize how checks behave. Below is a breakdown of each setting and how it affects checks in the group:
 
 ### API checks defaults
+
 You can define [API check defaults](/docs/groups/api-check-defaults/) such as a common base URL, request information, [assertions](/docs/api-checks/assertions/), and [setup & teardown scripts](/docs/api-checks/setup-teardown-scripts/) to manage API checks in your group at scale.
 
 ### Variables
+
 For configuration information commonly used by checks in your group, create [group environment variables and secrets](/docs/groups/variables/). These are merged with variables at the global and check levels when a check runs.
 
 ### Scheduling & locations overrides
@@ -62,7 +64,7 @@ You can run checks in this group as [E2E tests](/docs/testing) locally or from y
 
 Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript code in browser checks and setup & teardown scripts. If the checks in this group need a runtime different from your account default, you can set that here.
 
-# Adding or removing checks from groups
+## Adding or removing checks from groups
 
 * **Moving a check into a group:** If the group has [group-level configuration](#group-level-configuration) defined, adding a check may change how it runs. Settings like API defaults, locations & scheduling, or retries & alerting can override or append to the check’s configuration.
 
@@ -71,7 +73,7 @@ Checkly manages the [runtime](/docs/runtimes) environment for your JavaScript co
 > [!WARNING]
 > To prevent issues (e.g. broken references to group variables), the check will be automatically deactivated after being added to or removed from a group. Make sure to review its settings before reactivating.
 
-# How we run grouped checks
+## How we run grouped checks
 
 It helps to understand how we run the checks in a group, specifically if you're doing more sophisticated checks with shared
 variables, script and alerting channels. Here are the rules:
@@ -82,5 +84,21 @@ variables, script and alerting channels. Here are the rules:
 4. There are no results or metrics collected at the group level.
 5. Checks in a group still have their individual scheduling settings.
 
-As you can see, groups in their current incarnation are mostly handy configuration buckets for common properties. In the 
-future we will expand the group features to make them smarter.
+As you can see, groups in their current incarnation are mostly handy configuration buckets for common properties. In the future we will expand the group features to make them smarter.
+
+## Troubleshoot validation
+
+### Mixing Different Monitor Types in a Group
+
+When you purchase a plan in Checkly, it comes with certain feature entitlements, which you can review on our [pricing page](https://www.checklyhq.com/pricing/). These entitlements differ by monitor type:
+
+* Synthetic checks (e.g. API, Multistep, Browser, Playwright Check Suites)
+* Uptime monitors (e.g. URL, TCP, DNS)
+
+This means checks and monitors on the same plan may not all have access to the same features. For example: An API check might support `parallel` scheduling, while a TCP monitor only allows for `round-robin` scheduling.
+
+Groups let you organize any type of checks/monitors together and define shared settings. If those shared settings aren’t supported by all monitors in the group, Checkly will throw a validation error asking you to either adjust the setting or remove the incompatible monitor.
+
+Example: If your plan only allows `round-robin` for uptime monitors and you configure the group with `parallel` scheduling, you’ll see an error. To resolve it, switch to `round-robin`, move uptime monitors into a separate group, or upgrade your plan.
+
+If you’re unsure how to proceed, don’t hesitate to reach out to our [support team](mailto:support@checklyhq.com), we’re happy to help.

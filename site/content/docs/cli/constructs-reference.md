@@ -474,7 +474,7 @@ Use the CheckGroupV2 construct to organize your Checks into groups. This comes w
 
 > Note: you will notice that managing shared configuration between Checks is very easy just using JS/TS. You might not need Check Groups for that purpose.
 
-#### Adding Checks to a Check Group
+### Adding Checks to a Check Group
 
 You can add a Check to a group in two ways.
 
@@ -532,6 +532,12 @@ new ApiCheck('check-group-api-check-1', {
 
 > Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
+
+### Troubleshooting validation
+
+Group validation ensures that all checks within a group can support the selected configuration settings. Since uptime monitors and synthetic checks have different feature limitations based on your plan tier, Checkly validates group settings against the lowest common denominator of supported features to prevent configuration conflicts.
+
+For detailed troubleshooting guidance, see [Troubleshooting guide](/docs/groups/#troubleshooting-mixing-different-monitor-types-in-a-group).
 
 ## `CheckGroup` (deprecated)
 
@@ -1051,7 +1057,7 @@ new ApiCheck('local-api-1', {
 ## `RetryStrategy`
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
-Retry strategies can be set at the [check](#check), [check group](#checkgroup), and [project](#project) levels.
+Retry strategies can be set at the [check](#synthetic-checks) and [monitor](#uptime-monitors), [check group](#checkgroupv2), and [project](#project) levels.
 [Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
@@ -1077,6 +1083,7 @@ new ApiCheck('retrying-check', {
 `RetryStrategyBuilder` supports the following helper methods:
 
 - `noRetries()`: No retries are performed.
+- `singleStrategy(options)`: A single retry is performed after a fixed interval, e.g. 5s
 - `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
 - `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
 - `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.
