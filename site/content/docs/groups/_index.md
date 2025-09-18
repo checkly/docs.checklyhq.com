@@ -88,6 +88,17 @@ As you can see, groups in their current incarnation are mostly handy configurati
 
 ## Troubleshoot validation
 
-Group validation ensures that all checks within a group can support the selected configuration settings. Since uptime monitors and synthetic checks have different feature limitations based on your plan tier, Checkly validates group settings against the lowest common denominator of supported features to prevent configuration conflicts.
+### Mixing Different Monitor Types in a Group
 
-Learn how to [resolve validation errors](/docs/groups/troubleshoot/) when configuring Groups with mixed check types.
+When you purchase a plan in Checkly, it comes with certain feature entitlements, which you can review on our [pricing page](https://www.checklyhq.com/pricing/). These entitlements differ by monitor type:
+
+* Synthetic checks (API, Multi-step API, Browser, Playwright Check Suites)
+* Uptime monitors (URL, TCP, DNS)
+
+This means monitors on the same plan may not all have access to the same features. For example: Synthetic checks might support `parallel` scheduling, while Uptime monitors on the same plan only allow `round-robin` scheduling.
+
+Groups let you organize any type of checks/monitors together and define shared settings. If those shared settings aren’t supported by all monitors in the group, Checkly will throw a validation error asking you to either adjust the setting or remove the incompatible monitor.
+
+Example: If your plan only allows `round-robin` for uptime monitors and you configure the group with `parallel` scheduling, you’ll see an error. To resolve it, switch to `round-robin`, move uptime monitors into a separate group, or upgrade your plan.
+
+If you’re unsure how to proceed, don’t hesitate to reach out to our [support team](mailto:support@checklyhq.com), we’re happy to help.
