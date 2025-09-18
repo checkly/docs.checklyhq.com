@@ -95,7 +95,7 @@ When you purchase a plan in Checkly, it comes with certain feature entitlements,
 * Synthetic checks (e.g. API, Multistep, Browser, Playwright Check Suites)
 * Uptime monitors (e.g. URL, TCP, DNS)
 
-This means monitors on the same plan may not all have access to the same features. For example: Synthetic checks might support `parallel` scheduling, while Uptime monitors on the same plan only allow `round-robin` scheduling.
+This means checks and monitors on the same plan may not all have access to the same features. For example: An API check might support `parallel` scheduling, while a TCP monitor only allows for `round-robin` scheduling.
 
 Groups let you organize any type of checks/monitors together and define shared settings. If those shared settings aren’t supported by all monitors in the group, Checkly will throw a validation error asking you to either adjust the setting or remove the incompatible monitor.
 
