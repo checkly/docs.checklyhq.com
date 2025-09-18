@@ -92,7 +92,7 @@ As you can see, groups in their current incarnation are mostly handy configurati
 
 When you purchase a plan in Checkly, it comes with certain feature entitlements, which you can review on our [pricing page](https://www.checklyhq.com/pricing/). These entitlements differ by monitor type:
 
-* Synthetic checks (API, Multi-step API, Browser, Playwright Check Suites)
+* Synthetic checks (e.g. API, Multistep, Browser, Playwright Check Suites)
 * Uptime monitors (URL, TCP, DNS)
 
 This means monitors on the same plan may not all have access to the same features. For example: Synthetic checks might support `parallel` scheduling, while Uptime monitors on the same plan only allow `round-robin` scheduling.
