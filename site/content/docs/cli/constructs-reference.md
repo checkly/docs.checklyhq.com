@@ -537,7 +537,7 @@ new ApiCheck('check-group-api-check-1', {
 
 Group validation ensures that all checks within a group can support the selected configuration settings. Since uptime monitors and synthetic checks have different feature limitations based on your plan tier, Checkly validates group settings against the lowest common denominator of supported features to prevent configuration conflicts.
 
-For detailed troubleshooting guidance, see [Troubleshoot validation of Group](/docs/groups/troubleshoot/).
+For detailed troubleshooting guidance, see [Troubleshooting guide](/docs/groups/#troubleshooting-mixing-different-monitor-types-in-a-group).
 
 ## `CheckGroup` (deprecated)
 
