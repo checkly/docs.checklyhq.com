@@ -1057,7 +1057,7 @@ new ApiCheck('local-api-1', {
 ## `RetryStrategy`
 
 `RetryStrategy` objects can be used to configure retries for failed check runs.
-Retry strategies can be set at the [check](#check), [check group](#checkgroup), and [project](#project) levels.
+Retry strategies can be set at the [check](#synthetic-checks) and [monitor](#uptime-monitors), [check group](#checkgroupv2), and [project](#project) levels.
 [Learn more about retry strategies](/docs/alerting-and-retries/retries/#retry-strategies).
 
 To build `RetryStrategy` objects you should use the `RetryStrategyBuilder`, which provides helper methods for configuring retries.
@@ -1083,6 +1083,7 @@ new ApiCheck('retrying-check', {
 `RetryStrategyBuilder` supports the following helper methods:
 
 - `noRetries()`: No retries are performed.
+- `singleStrategy(options)`: A single retry is performed after a fixed interval, e.g. 5s and 5s.
 - `fixedStrategy(options)`: A fixed time between retries, e.g. 5s, 5s, 5s etc.
 - `linearStrategy(options)`: A linearly increasing time between retries, e.g. 5s, 10s, 15s, etc.
 - `exponentialStrategy(options)`: An exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s) etc.
