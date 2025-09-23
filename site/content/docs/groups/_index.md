@@ -86,9 +86,7 @@ variables, script and alerting channels. Here are the rules:
 
 As you can see, groups in their current incarnation are mostly handy configuration buckets for common properties. In the future we will expand the group features to make them smarter.
 
-## Troubleshoot validation
-
-### Mixing Different Monitor Types in a Group
+## Mixing Different Monitor Types in a Group
 
 When you purchase a plan in Checkly, it comes with certain feature entitlements, which you can review on our [pricing page](https://www.checklyhq.com/pricing/). These entitlements differ by monitor type:
 
