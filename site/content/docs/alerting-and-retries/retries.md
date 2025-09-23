@@ -28,14 +28,15 @@ Click **Edit check** or **Edit group** on the 3-dot menu on your [Checkly Home p
 
 There are three distinct retry strategies based on the time between retry attempts, and each one comes with different retry/backoff characteristics.
 
+- **Retry once** — a single retry after a fixed interval, e.g. 5s.
 - **Fixed** — a fixed time between retries, e.g. 5s, 5s, 5s etc.
 - **Linear** — a linearly increasing time between retries, e.g. 5s, 10s, 15s etc.
 - **Exponential** — an exponentially increasing time between retries, e.g. 5s, 25s, 125s (2m and 5s)  etc.
 
 On top of the time between attempts, you can also set:
 
-* **maximum number of retries** - the maximum number of retries for this check or check group.
-* **maximum total retry duration** - the maximum time a check can be in a retrying state.
+- **maximum number of retries** - the maximum number of retries for this check or check group.
+- **maximum total retry duration** - the maximum time a check can be in a retrying state.
 This is a timeout to ensure the check finishes on a timely manner.
 
 > Make sure to include the time your check needs to run when setting the **maximum total retry duration**. For example, if you set a maximum to 2 minutes, and your check takes 1.5 minutes, you have 30 seconds left for retries.
@@ -57,8 +58,8 @@ Of course, picking the right strategy depends on your use case, tolerance for in
 
 ### Location-based check retries
 
-You can decide if a check should be retried from the same location or not with the checkbox: 
-**Always retry from the same location the check failed in**
+You can decide if a check should be retried from the same location or not with the checkbox "**Always retry from the same location the check failed in**":
+
 - If enabled, a check that fails will be retried in the same location. 
 - If disabled, a check that fails will be retried in a different location, from the locations your check runs at.
 
@@ -72,8 +73,9 @@ There are some tradeoffs to consider:
 For API checks & URL monitors, you can enable network retries to automatically retry a check run only if it fails due to a network error—such as a timeout, DNS resolution issue, or connection reset.
 
 When network retries are enabled:
-* The check will retry on: ECONNRESET, ENOTFOUND, ETIMEDOUT, EAI_AGAIN, ECONNREFUSED, and similar network errors.
-* The check will not retry on: Any HTTP response that includes a status code (4xx or 5xx), failed assertions, or any other type of check failure.
+
+- The check will retry on: `ECONNRESET`, `ENOTFOUND`, `ETIMEDOUT`, `EAI_AGAIN`, `ECONNREFUSED`, and similar network errors.
+- The check will not retry on: Any HTTP response that includes a status code (4xx or 5xx), failed assertions, or any other type of check failure.
 
 ## Test sessions retries
 
@@ -112,6 +114,7 @@ All retry attempts are be visible on the web interface at Checkly and in your co
 ```
 
 ### Test session retries in your CI/CD pipeline
+
 Use the ``--reporter=ci`` flag to run test session retries from your CI/CD pipeline. The `ci` reporter will print out all retry attempts in the prompt output, instead of live-updating the prompt. 
 
 For example: 
