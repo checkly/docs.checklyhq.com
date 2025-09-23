@@ -533,7 +533,7 @@ new ApiCheck('check-group-api-check-1', {
 > Note that you can configure two different `frequency` properties for API and Browser checks in a `CheckGroup` separately.
 > The CLI follows a fallback logic using `Check->CheckGroup->Project` configurations.
 
-### Troubleshooting validation
+### How overrides work for mixed groups
 
 Group validation ensures that all checks within a group can support the selected configuration settings. Since uptime monitors and synthetic checks have different feature limitations based on your plan tier, Checkly validates group settings against the lowest common denominator of supported features to prevent configuration conflicts.
 
