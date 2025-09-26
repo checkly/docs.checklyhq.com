@@ -4,7 +4,7 @@ import { alertChannels } from './alertChannels'
 export const checklyhqComGroup = new CheckGroup('checklyhq-docs-1', {
   name: 'checklyhq.com/docs',
   activated: true,
-  muted: false,
+  muted: true,
   runtimeId: '2023.02',
   frequency: Frequency.EVERY_1H,
   locations: [
