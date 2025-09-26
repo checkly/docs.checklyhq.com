@@ -54,7 +54,7 @@ Run your Playwright test suite using `pw-test`.
 
 `pw-test` accepts both Checkly and Playwright command line arguments using the following syntax:
 
-`npx checkly pwtest --checky-flag -- --playwright-flag`. Use `--` to seperate Checkly and Playwright flags.
+`npx checkly pw-test --checkly-flag -- --playwright-flag`. Use `--` to seperate Checkly and Playwright flags.
 
 The CLI command will then return a link to results, traces and more details:
 
