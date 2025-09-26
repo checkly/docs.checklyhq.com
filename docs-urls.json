@@ -1,0 +1,662 @@
+[
+  {
+    "source": "/docs",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/adding-team-members",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/changing-your-email-password",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/creating-api-key",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/microsoft-azure-ad",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/multi-factor-authentication",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/saml",
+    "destination": ""
+  },
+  {
+    "source": "/docs/accounts-and-users/single-sign-on",
+    "destination": ""
+  },
+  {
+    "source": "/docs/ai",
+    "destination": ""
+  },
+  {
+    "source": "/docs/ai/ai-assisted-features",
+    "destination": ""
+  },
+  {
+    "source": "/docs/ai/use-checkly-with-ai-ide",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/alert-channels",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/alert-notification-log",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/alert-settings",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/alert-states",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/custom-alerts",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/phone-calls",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/retries",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/sms-delivery",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/ssl-expiration",
+    "destination": ""
+  },
+  {
+    "source": "/docs/alerting-and-retries/webhooks",
+    "destination": ""
+  },
+  {
+    "source": "/docs/analytics",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/assertions",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/client-certificates",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/limits",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/request-settings",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/setup-script-examples",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/setup-teardown-scripts",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/teardown-script-examples",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/timeouts-timing",
+    "destination": ""
+  },
+  {
+    "source": "/docs/api-checks/variables",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/degraded-state",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/file-system",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/login-scenarios",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/multiple-tabs",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/playwright-test",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/scraping-onpage-elements",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/screenshots",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/timeouts",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/tracing-web-vitals",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/variables",
+    "destination": ""
+  },
+  {
+    "source": "/docs/browser-checks/visual-regression-snapshot-testing",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/github",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/github-actions",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/gitlabci",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/jenkins",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/triggers",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/vercel",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/vercel-deployment-protection",
+    "destination": ""
+  },
+  {
+    "source": "/docs/CICD/vercel-managing-users-and-plan",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/cli-vs-terraform-pulumi",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/command-line-reference",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/constructs-reference",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/dynamic-check-creation",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/import",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/installation",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/npm-packages",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/project-structure",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/using-check-test-match",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/using-constructs",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/using-environment-variables",
+    "destination": ""
+  },
+  {
+    "source": "/docs/cli/using-git",
+    "destination": ""
+  },
+  {
+    "source": "/docs/dashboards",
+    "destination": ""
+  },
+  {
+    "source": "/docs/dashboards/authentication",
+    "destination": ""
+  },
+  {
+    "source": "/docs/dashboards/custom-css",
+    "destination": ""
+  },
+  {
+    "source": "/docs/dashboards/dashboard-customization",
+    "destination": ""
+  },
+  {
+    "source": "/docs/dashboards/incidents",
+    "destination": ""
+  },
+  {
+    "source": "/docs/groups",
+    "destination": ""
+  },
+  {
+    "source": "/docs/groups/api-check-defaults",
+    "destination": ""
+  },
+  {
+    "source": "/docs/groups/variables",
+    "destination": ""
+  },
+  {
+    "source": "/docs/heartbeat-monitors",
+    "destination": ""
+  },
+  {
+    "source": "/docs/heartbeat-monitors/ping-examples",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/coralogix",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/discord",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/firehydrant",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/gitlab_alerts",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/ilert",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/incidentio",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/msteams",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/opsgenie",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/pagerduty",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/prometheus",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/prometheus-v2",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/pulumi",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/rootly",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/slack",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/spike",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/splunk_on_call",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/statuspage",
+    "destination": ""
+  },
+  {
+    "source": "/docs/integrations/telegram",
+    "destination": ""
+  },
+  {
+    "source": "/docs/maintenance-windows",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/allowlisting",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/check-results",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/global-locations",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/how-we-store-data",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/ip-info",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/optimizing-reliability",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/responsible-use",
+    "destination": ""
+  },
+  {
+    "source": "/docs/monitoring/storing-secrets",
+    "destination": ""
+  },
+  {
+    "source": "/docs/multistep-checks",
+    "destination": ""
+  },
+  {
+    "source": "/docs/multistep-checks/degraded-state",
+    "destination": ""
+  },
+  {
+    "source": "/docs/multistep-checks/example-checks",
+    "destination": ""
+  },
+  {
+    "source": "/docs/multistep-checks/upload-downloads-filesystem",
+    "destination": ""
+  },
+  {
+    "source": "/docs/multistep-checks/websockets",
+    "destination": ""
+  },
+  {
+    "source": "/docs/playwright-checks",
+    "destination": ""
+  },
+  {
+    "source": "/docs/playwright-checks/add-to-group",
+    "destination": ""
+  },
+  {
+    "source": "/docs/playwright-checks/custom-dependencies",
+    "destination": ""
+  },
+  {
+    "source": "/docs/playwright-checks/reference",
+    "destination": ""
+  },
+  {
+    "source": "/docs/private-locations",
+    "destination": ""
+  },
+  {
+    "source": "/docs/private-locations/checkly-agent-configuration",
+    "destination": ""
+  },
+  {
+    "source": "/docs/private-locations/proxy",
+    "destination": ""
+  },
+  {
+    "source": "/docs/private-locations/running-on-kubernetes",
+    "destination": ""
+  },
+  {
+    "source": "/docs/private-locations/scaling-and-redundancy",
+    "destination": ""
+  },
+  {
+    "source": "/docs/pulumi-provider",
+    "destination": ""
+  },
+  {
+    "source": "/docs/reporting",
+    "destination": ""
+  },
+  {
+    "source": "/docs/runtimes",
+    "destination": ""
+  },
+  {
+    "source": "/docs/runtimes/specs",
+    "destination": ""
+  },
+  {
+    "source": "/docs/snippets",
+    "destination": ""
+  },
+  {
+    "source": "/docs/snippets/handlebars-snippets",
+    "destination": ""
+  },
+  {
+    "source": "/docs/status-pages",
+    "destination": ""
+  },
+  {
+    "source": "/docs/status-pages/incidents",
+    "destination": ""
+  },
+  {
+    "source": "/docs/tcp-monitors",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/alerting",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/checks-groups",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/ci-cd",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/command-line-triggers",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/dashboards",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/maintenance-windows",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/parameterized-resources",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/snippets-variables",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/testing-scripts-locally",
+    "destination": ""
+  },
+  {
+    "source": "/docs/terraform-provider/troubleshooting",
+    "destination": ""
+  },
+  {
+    "source": "/docs/testing",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/exporting-traces",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/exporting-traces/dash0",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/exporting-traces/grafana-tempo",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/exporting-traces/honeycomb",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/exporting-traces/newrelic",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/how-it-works",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/importing-traces",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/importing-traces/http-vs-grpc-protocols",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/importing-traces/sending-traces-otel-collector",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/importing-traces/troubleshooting-missing-spans",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/django",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/dot-net",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/express",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/flask",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/go",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/java",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/laravel",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/nextjs",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/nodejs",
+    "destination": ""
+  },
+  {
+    "source": "/docs/traces-open-telemetry/instrumenting-code/ruby-on-rails",
+    "destination": ""
+  },
+  {
+    "source": "/docs/url-monitors",
+    "destination": ""
+  }
+]
