@@ -57,6 +57,9 @@ Here's an example. You want to be alerted after two failures, so you set the esc
 Your check runs in Frankfurt and Tokyo. It fails from both regions because your server is down. We consider this
 one run. Five minutes later, the check fails again - assuming the check runs on a 5 minute schedule. Now we alert you.
 
+> The underlying alert state transtions may trigger alerts **regardless of your escalation thresholds**. For full details on how these state transitions override your alert escalation settings, see [Alert states & transitions](/docs/alerting-and-retries/alert-states/#alert-states--transitions).
+
+
 **2. Time based**
 
 We alert you when a check is still failing after a period of time, regardless of the amount of check runs that are failing.
