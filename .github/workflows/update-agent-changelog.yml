@@ -1,0 +1,94 @@
+name: Update Private Locations Agent Changelog
+
+on:
+  # Run daily to check for new releases
+  schedule:
+    - cron: '0 10 * * *'  # 10 AM UTC daily
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  check-docker-releases:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: |
+          cd .github
+          npm install
+          
+      - name: Check for new agent releases
+        id: check-releases
+        run: |
+          node .github/scripts/update-agent-changelog.js
+          
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            # Get the version from the last commit message
+            VERSION=$(git log -1 --pretty=%B | grep -oP 'version \K[\d.]+' || echo "unknown")
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Create Pull Request
+        if: steps.check-changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'docs: add Private Locations Agent version ${{ steps.check-changes.outputs.version }} to changelog'
+          title: 'Add Private Locations Agent v${{ steps.check-changes.outputs.version }} to changelog'
+          body: |
+            ## Private Locations Agent Release Detected
+            
+            A new version of the Checkly Private Locations Agent has been published to Docker Hub.
+            
+            ### Action Required
+            
+            This PR contains a template for the new version. Please fill in the following information:
+            
+            1. **Breaking Changes**: Any changes that require user action
+            2. **Features**: New capabilities added
+            3. **Fixes**: Bug fixes and improvements
+            4. **Security**: Security-related updates
+            5. **Runtime Support**: Which Checkly runtimes are supported
+            6. **Dependencies**: Node.js version, Docker requirements
+            
+            ### Resources
+            
+            - Docker Hub: https://hub.docker.com/r/checkly/agent/tags
+            - Internal release notes or team communication
+            - Previous changelog entries for reference
+            
+            ### Checklist
+            
+            - [ ] Fill placeholder sections as needed
+            - [ ] Verify runtime(s) compatibility
+            - [ ] Check Docker version requirements
+            - [ ] Add version notes if needed
+            - [ ] Convert from draft to ready for review
+            
+            ---
+            *This PR was automatically generated. Human review and details are required.*
+          branch: auto/agent-changelog-${{ steps.check-changes.outputs.version }}
+          delete-branch: true
+          draft: true
+          labels: |
+            docs
+            needs-details
+            agent-release
+            automated

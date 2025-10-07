@@ -224,6 +224,11 @@ disqusShortname = "checkly"
     weight = 190
 
 [[menu.reference]]
+    name = "Changelog"
+    url = "/docs/changelog/"
+    weight = 195
+
+[[menu.reference]]
     name = "API Reference"
     url = "https://developers.checklyhq.com"
     weight = 200
