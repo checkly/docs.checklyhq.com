@@ -1,4 +1,7 @@
-![](https://api.checklyhq.com/v1/badges/checks/be14dfae-edea-48bd-a089-fa1ae7a4606a?style=flat&theme=default)
+# ‼️ Documentation moved 🚨
+
+> [!IMPORTANT]
+> Checklys public documentation moved to [checkly/docs](https://github.com/checkly/docs?tab=readme-ov-file#checkly-docs).
 
 ## Run Locally
 
